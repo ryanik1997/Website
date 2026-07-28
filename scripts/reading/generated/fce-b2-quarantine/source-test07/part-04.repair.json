@@ -1,0 +1,90 @@
+{
+  "provenance": {
+    "origin": "ai-generated",
+    "generatedFields": [
+      "questions"
+    ],
+    "sourceTestNumber": 7,
+    "appTestNumber": 8,
+    "model": "bootstrap-v1",
+    "generatedAt": "2026-07-27T15:12:03.207Z",
+    "promptHash": "bootstrap-test7-part4",
+    "confidence": 85,
+    "reviewed": false
+  },
+  "inputHash": "bootstrap-test7-part4",
+  "promptVersion": "1.0",
+  "model": "bootstrap-v1",
+  "generatedAt": "2026-07-27T15:12:03.207Z",
+  "repair": {
+    "questions": [
+      {
+        "number": 25,
+        "type": "gap-fill",
+        "prompt": "Thomas spoke so quickly I had difficulty understanding him.Thomas spoke so quickly I IT -> Thomas spoke so quickly I .....",
+        "sourceSentence": "Thomas spoke so quickly I had difficulty understanding him.Thomas spoke so quickly I",
+        "keyword": "IT",
+        "targetSentence": "Thomas spoke so quickly I .....",
+        "answer": "it was the",
+        "explanation": "Rewrite using \"IT\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 26,
+        "type": "gap-fill",
+        "prompt": "They ve postponed the match and it ll be played next weekend.The match PUT -> The match .....",
+        "sourceSentence": "They ve postponed the match and it ll be played next weekend.The match",
+        "keyword": "PUT",
+        "targetSentence": "The match .....",
+        "answer": "put off by",
+        "explanation": "Rewrite using \"PUT\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 27,
+        "type": "gap-fill",
+        "prompt": "I m never going to speak to Louis again.I ve got INTENTION -> I ve got .....",
+        "sourceSentence": "I m never going to speak to Louis again.I ve got",
+        "keyword": "INTENTION",
+        "targetSentence": "I ve got .....",
+        "answer": "intention of the",
+        "explanation": "Rewrite using \"INTENTION\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 28,
+        "type": "gap-fill",
+        "prompt": "It seems certain that lightning started the forest fire.The forest fire HAVE -> The forest fire .....",
+        "sourceSentence": "It seems certain that lightning started the forest fire.The forest fire",
+        "keyword": "HAVE",
+        "targetSentence": "The forest fire .....",
+        "answer": "have to be",
+        "explanation": "Rewrite using \"HAVE\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 29,
+        "type": "gap-fill",
+        "prompt": "It wasn t worth going to the market because it was closing.The market was closing, so POINT -> The market was closing, so .....",
+        "sourceSentence": "It wasn t worth going to the market because it was closing.The market was closing, so",
+        "keyword": "POINT",
+        "targetSentence": "The market was closing, so .....",
+        "answer": "point of the",
+        "explanation": "Rewrite using \"POINT\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 30,
+        "type": "gap-fill",
+        "prompt": "We phoned the restaurant, but they said booking a table wasn t necessary.We phoned the restaurant, but they said we HAVE -> We phoned the restaurant, but they said we .....",
+        "sourceSentence": "We phoned the restaurant, but they said booking a table wasn t necessary.We phoned the restaurant, but they said we",
+        "keyword": "HAVE",
+        "targetSentence": "We phoned the restaurant, but they said we .....",
+        "answer": "have to be",
+        "explanation": "Rewrite using \"HAVE\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      }
+    ]
+  },
+  "status": "generated"
+}

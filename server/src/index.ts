@@ -1,6 +1,7 @@
 import express from 'express'
 import { config } from './config.js'
 import { ensureKokoroStarted, shutdownKokoro } from './kokoro/manager.js'
+import { sttRouter } from './routes/stt.js'
 import { ttsRouter } from './routes/tts.js'
 
 const app = express()
@@ -24,13 +25,16 @@ app.get('/', (_req, res) => {
     service: 'local-tts',
     engine: 'kokoro',
     endpoints: {
-      health: 'GET /api/tts/health',
-      synth: 'POST /api/tts',
+      ttsHealth: 'GET /api/tts/health',
+      tts: 'POST /api/tts',
+      sttHealth: 'GET /api/stt/health',
+      stt: 'POST /api/stt',
     },
   })
 })
 
 app.use('/api/tts', ttsRouter)
+app.use('/api/stt', sttRouter)
 
 app.use((_req, res) => {
   res.status(404).json({ ok: false, message: 'Not found' })

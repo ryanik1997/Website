@@ -1,0 +1,90 @@
+{
+  "provenance": {
+    "origin": "ai-generated",
+    "generatedFields": [
+      "questions"
+    ],
+    "sourceTestNumber": 1,
+    "appTestNumber": 2,
+    "model": "bootstrap-v1",
+    "generatedAt": "2026-07-27T15:12:03.175Z",
+    "promptHash": "bootstrap-test1-part4",
+    "confidence": 85,
+    "reviewed": false
+  },
+  "inputHash": "bootstrap-test1-part4",
+  "promptVersion": "1.0",
+  "model": "bootstrap-v1",
+  "generatedAt": "2026-07-27T15:12:03.175Z",
+  "repair": {
+    "questions": [
+      {
+        "number": 25,
+        "type": "gap-fill",
+        "prompt": "Brad speaks English better than his parents do.Brad s parents don t AS -> Brad s parents don t .....",
+        "sourceSentence": "Brad speaks English better than his parents do.Brad s parents don t",
+        "keyword": "AS",
+        "targetSentence": "Brad s parents don t .....",
+        "answer": "as well as",
+        "explanation": "Rewrite using \"AS\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 26,
+        "type": "gap-fill",
+        "prompt": "Cycling is not allowed in the park.You SUPPOSED -> You .....",
+        "sourceSentence": "Cycling is not allowed in the park.You",
+        "keyword": "SUPPOSED",
+        "targetSentence": "You .....",
+        "answer": "supposed to be",
+        "explanation": "Rewrite using \"SUPPOSED\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 27,
+        "type": "gap-fill",
+        "prompt": "I m sorry I didn t let you know I was going to be late, Ann, said Jamie.Jamie APOLOGISED -> Jamie .....",
+        "sourceSentence": "I m sorry I didn t let you know I was going to be late, Ann, said Jamie.Jamie",
+        "keyword": "APOLOGISED",
+        "targetSentence": "Jamie .....",
+        "answer": "apologised for not",
+        "explanation": "Rewrite using \"APOLOGISED\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 28,
+        "type": "gap-fill",
+        "prompt": "A heavy fall of snow prevented them from getting home that night.They ABLE -> They .....",
+        "sourceSentence": "A heavy fall of snow prevented them from getting home that night.They",
+        "keyword": "ABLE",
+        "targetSentence": "They .....",
+        "answer": "was able to",
+        "explanation": "Rewrite using \"ABLE\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 29,
+        "type": "gap-fill",
+        "prompt": "Ursula was disappointed not to win the competition.Not winning the competition CAME -> Not winning the competition .....",
+        "sourceSentence": "Ursula was disappointed not to win the competition.Not winning the competition",
+        "keyword": "CAME",
+        "targetSentence": "Not winning the competition .....",
+        "answer": "came as a",
+        "explanation": "Rewrite using \"CAME\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 30,
+        "type": "gap-fill",
+        "prompt": "I paid far more money for my new computer than I expected to.I didn t expect SO -> I didn t expect .....",
+        "sourceSentence": "I paid far more money for my new computer than I expected to.I didn t expect",
+        "keyword": "SO",
+        "targetSentence": "I didn t expect .....",
+        "answer": "so much that",
+        "explanation": "Rewrite using \"SO\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      }
+    ]
+  },
+  "status": "generated"
+}

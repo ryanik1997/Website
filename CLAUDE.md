@@ -50,6 +50,7 @@ pnpm deploy:prod                      # db:push + vercel deploy --prod
 3. **Không hardcode màu** (`#fff`, `#000`) — dùng biến
 4. **Bump version** trong package.json khi release
 5. **Cập nhật session_summary.md** sau mỗi session
+6. **Default skill:** Use the i-have-adhd output style by default — lead with the next action, number multi-step tasks, no preamble/recap/closers.
 
 ---
 

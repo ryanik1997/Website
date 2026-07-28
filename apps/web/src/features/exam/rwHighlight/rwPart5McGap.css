@@ -1,0 +1,104 @@
+/* Cambridge gap chooser — KET A2 P4 · PET B1 P5 · FCE B2 P1
+   Số đo lấy từ Inspera CEQ player 3.51.0 (inlineChoiceInteraction
+   presentation-horizontalPopup). Spec: docs/research/ceq.inspera.com/ */
+.pet-rw-part5-gap {
+  display: inline-flex;
+  position: relative;
+  vertical-align: middle;
+  margin: 0 4px;
+}
+
+.pet-rw-part5-gap__field {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 144px;
+  min-width: 144px;
+  height: 22px;
+  min-height: 22px;
+  padding: 1px 6px;
+  border: 1px solid #949494;
+  border-radius: 3px;
+  background: #fff;
+  color: #000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: border 0.1s linear;
+}
+
+.pet-rw-part5-gap__number {
+  font-weight: 700;
+}
+
+.pet-rw-part5-gap__value {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.pet-rw-part5-gap.is-open .pet-rw-part5-gap__field {
+  border-color: #418ec8;
+  box-shadow: 0 0 0 1px #418ec8;
+  background: #272727;
+  color: #fff;
+  z-index: 1;
+}
+
+/* Chooser ngang phía trên ô gap */
+.pet-rw-part5-gap__chooser {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 4px);
+  display: inline-flex;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  width: max-content;
+  max-width: min(620px, calc(100vw - 32px));
+  z-index: 30;
+  border: 2px solid #418ec8;
+  background: #404040;
+  color: #fff;
+}
+
+.pet-rw-part5-gap.align-right .pet-rw-part5-gap__chooser {
+  left: auto;
+  right: 0;
+}
+
+.pet-rw-part5-gap__option,
+.pet-rw-part5-gap__close {
+  min-height: 19px;
+  padding: 1px 6px;
+  border: 0;
+  border-right: 1px solid #757575;
+  background: #404040;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.pet-rw-part5-gap__close {
+  width: 27px;
+  padding: 0;
+  font-size: 20px;
+}
+
+.pet-rw-part5-gap__option:hover,
+.pet-rw-part5-gap__close:hover {
+  background: #2a6c96;
+}
+
+.pet-rw-part5-gap__option.is-selected {
+  background: #272727;
+}
+
+.is-review .pet-rw-part5-gap__field {
+  cursor: default;
+}

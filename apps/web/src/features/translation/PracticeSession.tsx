@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { X, Eye, EyeOff, Check, Sparkles, ArrowRight, Volume2 } from 'lucide-react'
+import { X, Check, Sparkles } from 'lucide-react'
 import { db, translationRepo } from '@ryan/db'
 import type { TranslationSentence } from '@ryan/db'
 import { useTranslationStore } from './translationStore'
@@ -12,12 +12,10 @@ import {
   type TranslationCompareResult,
 } from './types'
 import {
-  getChipUnlockStates,
-  maskChipLabel,
+  getChipMatchStates,
   parseTranslationChips,
-  type TranslationChip,
 } from './translationChips'
-import { speakPhrase } from '../vocab/study/speakPhrase'
+import HintChipBar from './HintChipBar'
 import './translationPractice.css'
 
 type Phase = 'translate' | 'result'
@@ -52,10 +50,31 @@ function SessionInner({
   const [loaded, setLoaded] = useState(false)
   const [stats, setStats] = useState({ totalAcc: 0, count: 0 })
   const textareaRef = useRef<HTMLTextAreaElement>(null)
+  const shellRef = useRef<HTMLDivElement>(null)
+  const ratingBusyRef = useRef(false)
+  /** Refs để phím tắt luôn đọc state mới nhất (tránh stale closure). */
+  const phaseRef = useRef(phase)
+  const ratedRef = useRef(rated)
+  const idxRef = useRef(idx)
+  const queueRef = useRef(queue)
+  phaseRef.current = phase
+  ratedRef.current = rated
+  idxRef.current = idx
+  queueRef.current = queue
 
   useEffect(() => { void loadQueue() }, [setId, sentenceId])
   useEffect(() => {
-    if (phase === 'translate') setTimeout(() => textareaRef.current?.focus(), 100)
+    if (phase === 'translate') {
+      const t = window.setTimeout(() => textareaRef.current?.focus(), 80)
+      return () => window.clearTimeout(t)
+    }
+    // Sau khi nộp: blur textarea disabled (trình duyệt có thể nuốt phím 1/2/3)
+    // và focus shell để phím tắt hoạt động.
+    if (phase === 'result') {
+      textareaRef.current?.blur()
+      const t = window.setTimeout(() => shellRef.current?.focus(), 0)
+      return () => window.clearTimeout(t)
+    }
   }, [phase, idx])
 
   async function loadQueue() {
@@ -77,46 +96,117 @@ function SessionInner({
     const cmp = compareTranslation(input, current.en)
     setResult(cmp)
     setPhase('result')
+    setRated(false)
     setStats(s => ({ totalAcc: s.totalAcc + cmp.accuracy, count: s.count + 1 }))
     if (!current.srsState?.translatedAt) {
-      await translationRepo.markTranslated(setId, current.id)
-      setQueue(q => q.map(s =>
-        s.id === current.id
-          ? { ...s, srsState: { ...(s.srsState ?? { ease: 2.5, interval: 0, dueAt: Date.now(), reps: 0 }), translatedAt: Date.now() } }
-          : s,
-      ))
+      try {
+        await translationRepo.markTranslated(setId, current.id)
+        setQueue(q => q.map(s =>
+          s.id === current.id
+            ? { ...s, srsState: { ...(s.srsState ?? { ease: 2.5, interval: 0, dueAt: Date.now(), reps: 0 }), translatedAt: Date.now() } }
+            : s,
+        ))
+      } catch (err) {
+        console.warn('[translation] markTranslated failed', err)
+      }
     }
-  }
-
-  async function rate(rating: PracticeRating) {
-    const current = queue[idx]
-    if (!current) return
-    const srsState = applyPracticeRating(current.srsState, rating)
-    await translationRepo.updateSrsState(setId, current.id, srsState)
-    await db.reviewLog.add({
-      cardId: current.id,
-      rating: rating === 'easy' ? 4 : rating === 'ok' ? 3 : 1,
-      mode: 'translation',
-      at: Date.now(),
+    // Nhường focus cho shell (phím 1/2/3)
+    queueMicrotask(() => {
+      textareaRef.current?.blur()
+      shellRef.current?.focus()
     })
-    setRated(true)
   }
 
-  function next() {
+  function goNextSentence() {
     setInput('')
     setResult(null)
     setRated(false)
+    ratedRef.current = false
     setShowAllChips(false)
     setPhase('translate')
-    setIdx(i => i + 1)
+    phaseRef.current = 'translate'
+    setIdx(i => {
+      const next = i + 1
+      idxRef.current = next
+      return next
+    })
+    ratingBusyRef.current = false
   }
+
+  /**
+   * Chấm Dễ/Ổn/Khó → sang câu mới ngay.
+   * Lưu SRS không chặn next: nếu Dexie lỗi vẫn chuyển câu.
+   */
+  function rateAndNext(rating: PracticeRating) {
+    if (phaseRef.current !== 'result' || ratedRef.current || ratingBusyRef.current) return
+    const i = idxRef.current
+    const current = queueRef.current[i]
+    if (!current) return
+
+    ratingBusyRef.current = true
+    ratedRef.current = true
+
+    const srsState = applyPracticeRating(current.srsState, rating)
+    setQueue(q => {
+      const next = q.map(s => (s.id === current.id ? { ...s, srsState } : s))
+      queueRef.current = next
+      return next
+    })
+
+    // Chuyển câu ngay — không await Dexie
+    goNextSentence()
+
+    void (async () => {
+      try {
+        await translationRepo.updateSrsState(setId, current.id, srsState)
+        await db.reviewLog.add({
+          cardId: current.id,
+          rating: rating === 'easy' ? 4 : rating === 'ok' ? 3 : 1,
+          mode: 'translation',
+          at: Date.now(),
+        })
+      } catch (err) {
+        console.warn('[translation] rate persist failed', err)
+      }
+    })()
+  }
+
+  // Phím 1/2/3 — capture + ref state (không stale)
+  useEffect(() => {
+    function onKeyDown(e: KeyboardEvent) {
+      if (phaseRef.current !== 'result' || ratedRef.current) return
+      if (e.metaKey || e.ctrlKey || e.altKey) return
+      if (e.repeat) return
+
+      const code = e.code
+      const is1 = code === 'Digit1' || code === 'Numpad1' || e.key === '1'
+      const is2 = code === 'Digit2' || code === 'Numpad2' || e.key === '2'
+      const is3 = code === 'Digit3' || code === 'Numpad3' || e.key === '3'
+      if (!is1 && !is2 && !is3) return
+
+      e.preventDefault()
+      e.stopPropagation()
+      if (is1) rateAndNext('easy')
+      else if (is2) rateAndNext('ok')
+      else rateAndNext('hard')
+    }
+
+    window.addEventListener('keydown', onKeyDown, true)
+    return () => window.removeEventListener('keydown', onKeyDown, true)
+  }, [setId])
 
   const current = queue[idx]
   const chips = useMemo(
     () => (current ? parseTranslationChips(current.en) : []),
     [current],
   )
-  const unlockStates = getChipUnlockStates(input, chips)
+  const chipMatch = useMemo(
+    () => getChipMatchStates(input, chips),
+    [input, chips],
+  )
+  const unlockStates = chipMatch.unlocked
+  const wrongStates = chipMatch.wrong
+  const typedWords = chipMatch.typedAt
   const allChipsUnlocked = chips.length > 0 && unlockStates.every(Boolean)
 
   if (!loaded) {
@@ -168,7 +258,12 @@ function SessionInner({
   const progress = ((idx + (phase === 'result' ? 1 : 0)) / queue.length) * 100
 
   return (
-    <div className="tp-shell absolute inset-0 z-40 flex flex-col">
+    <div
+      ref={shellRef}
+      className="tp-shell absolute inset-0 z-40 flex flex-col"
+      tabIndex={-1}
+      data-tp-phase={phase}
+    >
       <Header onClose={onClose} progress={progress} index={idx + 1} total={queue.length} />
 
       <div className="flex-1 overflow-y-auto px-4 py-6 md:px-8">
@@ -186,19 +281,22 @@ function SessionInner({
             {chips.length > 0 && (
               <div className="mb-6">
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-3">
-                  <span className="tp-section-label">Câu mẫu — nhớ đúng để mở từ</span>
+                  <span className="tp-section-label">Câu mẫu — đúng xanh · sai đỏ</span>
                   <span className="tp-strict-pill flex items-center gap-1.5">
                     <span className="tp-meta-dot" />
-                    Strict hints: on
+                    Exact match
                   </span>
                   <span className="tp-strict-pill">{chips.length} chip</span>
                 </div>
 
-                <ChipBar
+                <HintChipBar
                   chips={chips}
                   unlockStates={unlockStates}
+                  wrongStates={wrongStates}
+                  typedWords={typedWords}
                   revealAll={showAllChips || phase === 'result'}
-                  onToggleReveal={() => setShowAllChips(v => !v)}
+                  onToggleRevealAll={() => setShowAllChips(v => !v)}
+                  resetKey={`${current.id}-${idx}`}
                 />
               </div>
             )}
@@ -219,6 +317,12 @@ function SessionInner({
                 placeholder="Gõ bản dịch tiếng Anh của bạn…"
                 rows={3}
                 className="tp-input"
+                // Browser spellcheck (VN locale) gạch đỏ dưới EN — trông như lỗi app
+                spellCheck={false}
+                autoCorrect="off"
+                autoCapitalize="off"
+                autoComplete="off"
+                lang="en"
               />
             </div>
 
@@ -239,11 +343,6 @@ function SessionInner({
                     Chấm AI riêng
                   </button>
                 </>
-              ) : rated ? (
-                <button type="button" onClick={next} className="tp-next-btn">
-                  <ArrowRight size={16} />
-                  {idx === queue.length - 1 ? 'Xem kết quả' : 'Câu tiếp theo'}
-                </button>
               ) : null}
             </div>
           </div>
@@ -254,54 +353,11 @@ function SessionInner({
               allChipsUnlocked={allChipsUnlocked}
               hint={current.hint}
               rated={rated}
-              onRate={r => void rate(r)}
+              onRate={r => rateAndNext(r)}
             />
           )}
         </div>
       </div>
-    </div>
-  )
-}
-
-function ChipBar({
-  chips, unlockStates, revealAll, onToggleReveal,
-}: {
-  chips: TranslationChip[]
-  unlockStates: boolean[]
-  revealAll: boolean
-  onToggleReveal: () => void
-}) {
-  return (
-    <div className="tp-chip-row">
-      {chips.map((chip, i) => {
-        const unlocked = revealAll || unlockStates[i]
-        return (
-          <span
-            key={`${chip.text}-${i}`}
-            className={`tp-chip ${unlocked ? 'tp-chip--unlocked' : 'tp-chip--locked'}`}
-          >
-            {unlocked ? (
-              <>
-                <span>{chip.text}</span>
-                <button
-                  type="button"
-                  className="tp-chip-speak"
-                  title="Nghe phát âm"
-                  onClick={() => void speakPhrase(chip.text)}
-                >
-                  <Volume2 size={13} />
-                </button>
-              </>
-            ) : (
-              <span>{maskChipLabel(chip.text)}</span>
-            )}
-          </span>
-        )
-      })}
-      <button type="button" className="tp-show-all" onClick={onToggleReveal}>
-        {revealAll ? <EyeOff size={13} /> : <Eye size={13} />}
-        {revealAll ? 'Ẩn gợi ý' : 'Hiện tất cả'}
-      </button>
     </div>
   )
 }
@@ -337,8 +393,8 @@ function SmartSegmentPanel({
             </p>
             <p className="text-xs leading-relaxed" style={{ color: 'var(--text-muted)' }}>
               {allChipsUnlocked
-                ? 'Tất cả các cụm từ đã được mở xanh. Bạn có thể bấm Chấm AI nếu muốn feedback sâu hơn.'
-                : 'Gõ đúng từng cụm trong bài dịch để mở chip xanh trước khi nộp.'}
+                ? 'Tất cả các cụm từ đã được mở. Bạn có thể bấm Chấm AI nếu muốn feedback sâu hơn.'
+                : 'Bấm chip để xem gợi ý, hoặc gõ đúng từ để chip tự mở xanh.'}
             </p>
             {hint && (
               <p
@@ -392,13 +448,14 @@ function SmartSegmentPanel({
         {!rated && (
           <div className="pt-4 border-t" style={{ borderColor: 'var(--border-color)' }}>
             <p className="text-xs mb-3 text-center" style={{ color: 'var(--text-muted)' }}>
-              Câu này với bạn thế nào?
+              Câu này với bạn thế nào? · Phím <kbd className="tp-kbd">1</kbd>{' '}
+              <kbd className="tp-kbd">2</kbd> <kbd className="tp-kbd">3</kbd> sang câu mới
             </p>
             <div className="flex gap-2">
               {([
-                { id: 'easy' as const, label: 'Dễ' },
-                { id: 'ok' as const, label: 'Ổn' },
-                { id: 'hard' as const, label: 'Khó' },
+                { id: 'easy' as const, label: 'Dễ', key: '1' },
+                { id: 'ok' as const, label: 'Ổn', key: '2' },
+                { id: 'hard' as const, label: 'Khó', key: '3' },
               ]).map(r => (
                 <button
                   key={r.id}
@@ -411,6 +468,7 @@ function SmartSegmentPanel({
                     background: 'var(--bg-secondary)',
                   }}
                 >
+                  <span className="tp-rate-key">{r.key}</span>
                   {r.label}
                 </button>
               ))}

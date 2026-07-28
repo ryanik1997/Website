@@ -1,0 +1,100 @@
+{
+  "version": 1,
+  "title": "IELTS Listening — Cambridge 10 Test 1",
+  "durationMinutes": 30,
+  "bandHint": "IELTS · Cam 10 · Test 1 · Part 1 · Wizard",
+  "examType": "ielts",
+  "examMode": "practice",
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–10",
+      "instruction": "Questions 1–6: Complete the notes below. Write ONE WORD for each answer. Questions 7–10: Complete the table below. Write ONE WORD AND/OR A NUMBER for each answer.",
+      "audioFile": "listening.mp3",
+      "notePassageLayout": "form",
+      "notePassageSections": [
+        {
+          "gapNumbers": [1, 2, 3, 4, 5, 6],
+          "instruction": "Questions 1 – 6\nComplete the notes below. Write ONE WORD for each answer.",
+          "title": "SELF-DRIVE TOURS IN THE USA",
+          "blocks": [
+            { "type": "static", "text": "Example\nName: Andrea …Brown…" },
+            { "type": "static", "text": "Address: 24" },
+            { "type": "gap", "number": 1 },
+            { "type": "static", "text": "Road" },
+            { "type": "static", "text": "Postcode: BH5 2OP" },
+            { "type": "static", "text": "Phone (mobile): 077 8664 3091" },
+            { "type": "static", "text": "Heard about company from:" },
+            { "type": "gap", "number": 2 },
+            { "type": "section", "text": "Possible self-drive tours" },
+            { "type": "section", "text": "Trip One" },
+            { "type": "static", "text": "• Los Angeles: customer wants to visit some " },
+            { "type": "gap", "number": 3 },
+            { "type": "static", "text": " parks with her children" },
+            { "type": "static", "text": "• Yosemite Park: customer wants to stay in a lodge, not a " },
+            { "type": "gap", "number": 4 },
+            { "type": "section", "text": "Trip Two" },
+            { "type": "static", "text": "• Customer wants to see the " },
+            { "type": "gap", "number": 5 },
+            { "type": "static", "text": " on the way to Cambria" },
+            { "type": "static", "text": "• At Santa Monica: not interested in shopping" },
+            { "type": "static", "text": "• At San Diego, wants to spend time on the " },
+            { "type": "gap", "number": 6 }
+          ]
+        }
+      ],
+      "noteTables": [
+        {
+          "gapNumbers": [7, 8, 9, 10],
+          "instruction": "Questions 7 – 10\nComplete the table below. Write ONE WORD AND/OR A NUMBER for each answer.",
+          "headers": ["", "Number of days", "Total distance", "Price (per person)", "Includes"],
+          "rows": [
+            {
+              "cells": [
+                [{ "type": "static", "text": "Trip One" }],
+                [{ "type": "static", "text": "12 days" }],
+                [{ "type": "gap", "number": 7 }, { "type": "static", "text": " km" }],
+                [{ "type": "static", "text": "£525" }],
+                [
+                  { "type": "static", "text": "• accommodation" },
+                  { "type": "break" },
+                  { "type": "static", "text": "• car" },
+                  { "type": "break" },
+                  { "type": "static", "text": "• one " },
+                  { "type": "gap", "number": 8 }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [{ "type": "static", "text": "Trip Two" }],
+                [{ "type": "static", "text": "9 days" }],
+                [{ "type": "static", "text": "980 km" }],
+                [{ "type": "gap", "number": 9 }, { "type": "static", "text": "£" }],
+                [
+                  { "type": "static", "text": "• accommodation" },
+                  { "type": "break" },
+                  { "type": "static", "text": "• car" },
+                  { "type": "break" },
+                  { "type": "gap", "number": 10 }
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "questions": [
+        { "number": 1, "type": "gap-fill", "prompt": "Address:", "options": [], "answer": "ardleigh", "explanation": "Điền theo audio.", "wordLimit": 1, "sectionRange": "Questions 1 – 6", "sectionInstruction": "Complete the notes below. Write ONE WORD for each answer.", "sectionTitle": "SELF-DRIVE TOURS IN THE USA" },
+        { "number": 2, "type": "gap-fill", "prompt": "Heard about company from:", "options": [], "answer": "newspaper", "explanation": "Điền theo audio.", "wordLimit": 1 },
+        { "number": 3, "type": "gap-fill", "prompt": "Theme parks:", "options": [], "answer": "theme", "explanation": "Điền theo audio.", "wordLimit": 1 },
+        { "number": 4, "type": "gap-fill", "prompt": "Not a:", "options": [], "answer": "tent", "explanation": "Điền theo audio.", "wordLimit": 1 },
+        { "number": 5, "type": "gap-fill", "prompt": "See the:", "options": [], "answer": "castle", "explanation": "Điền theo audio.", "wordLimit": 1 },
+        { "number": 6, "type": "gap-fill", "prompt": "Spend time on the:", "options": [], "answer": "beach", "explanation": "Điền theo audio.", "wordLimit": 1 },
+        { "number": 7, "type": "gap-fill", "prompt": "Total distance:", "options": [], "answer": "2020", "explanation": "Điền theo audio.", "wordLimit": 1, "sectionRange": "Questions 7 – 10", "sectionInstruction": "Complete the table below. Write ONE WORD AND/OR A NUMBER for each answer." },
+        { "number": 8, "type": "gap-fill", "prompt": "Includes:", "options": [], "answer": "flight", "explanation": "Điền theo audio.", "wordLimit": 1 },
+        { "number": 9, "type": "gap-fill", "prompt": "Price:", "options": [], "answer": "429", "explanation": "Điền theo audio.", "wordLimit": 1 },
+        { "number": 10, "type": "gap-fill", "prompt": "Includes:", "options": [], "answer": "dinner", "explanation": "Điền theo audio.", "wordLimit": 1 }
+      ]
+    }
+  ]
+}

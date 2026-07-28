@@ -6,6 +6,8 @@ import { copyFileSync, mkdirSync, readFileSync, writeFileSync } from 'fs'
 /** Mọi client route — copy index.html làm fallback khi Vercel không áp dụng rewrites */
 const SPA_ROUTES = [
   'auth/callback',
+  'terms',
+  'privacy',
   'app',
   'app/home',
   'app/vocab',
@@ -56,6 +58,14 @@ export default defineConfig({
   base: '/',
   build: {
     outDir: 'dist',
+    // Mode B: never ship source maps to production (layout/logic reverse-engineer)
+    sourcemap: false,
+    // Avoid leaking path names in chunk comments
+    minify: 'esbuild',
+  },
+  esbuild: {
+    // Drop console/debugger in production bundles
+    drop: process.env.NODE_ENV === 'production' ? ['debugger'] : [],
   },
   plugins: [react(), vercelSpaRoutes(), injectSwCatalogCacheVersion()],
   resolve: {

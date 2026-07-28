@@ -1,4 +1,3 @@
-import { ChevronLeft, ChevronRight } from 'lucide-react'
 import type { ReadingExam } from '../examData'
 import { getPartQuestions } from '../examData'
 import { examReviewPillStyle, type ExamReviewStatus } from '../examReviewUtils'
@@ -8,15 +7,11 @@ interface Props {
   partIndex: number
   activeQuestionId: string | null
   answers: Record<string, string>
-  allQuestions: Array<{ id: string; number: number }>
   onGoToPart: (index: number) => void
   onSelectQuestion: (id: string) => void
-  onAdjacentQuestion: (delta: number) => void
-  onExit: () => void
+  onSubmit: () => void
   reviewMode?: boolean
   getQuestionReviewStatus?: (questionId: string) => ExamReviewStatus | null
-  /** Review: nút về báo cáo thay Exit (optional label) */
-  exitLabel?: string
 }
 
 export default function KetRwFooter({
@@ -24,19 +19,12 @@ export default function KetRwFooter({
   partIndex,
   activeQuestionId,
   answers,
-  allQuestions,
   onGoToPart,
   onSelectQuestion,
-  onAdjacentQuestion,
-  onExit,
+  onSubmit,
   reviewMode = false,
   getQuestionReviewStatus,
-  exitLabel,
 }: Props) {
-  const activeIndex = activeQuestionId
-    ? allQuestions.findIndex(q => q.id === activeQuestionId)
-    : -1
-
   const answeredInPart = (index: number) => {
     const qs = getPartQuestions(exam.parts[index])
     return qs.filter(q => Boolean(answers[q.id]?.trim())).length
@@ -67,7 +55,10 @@ export default function KetRwFooter({
                 )}
               </button>
               {isCurrent && (
-                <div className="ket-rw-footer-part__pills">
+                <nav
+                  className="ket-rw-footer-part__pills"
+                  aria-label={`Part ${part.partNumber} questions`}
+                >
                   {questions.map(q => {
                     const isActive = activeQuestionId === q.id
                     const isAnswered = Boolean(answers[q.id]?.trim())
@@ -83,6 +74,9 @@ export default function KetRwFooter({
                       <button
                         key={q.id}
                         type="button"
+                        data-question-id={q.id}
+                        aria-label={`Go to question ${q.number}`}
+                        aria-current={isActive ? 'true' : undefined}
                         className={`ket-rw-q-pill${isActive ? ' is-current' : ''}${!rev && isAnswered ? ' is-answered' : ''}${revClass}`}
                         style={examReviewPillStyle(rev, isActive)}
                         data-review={rev ?? undefined}
@@ -93,39 +87,21 @@ export default function KetRwFooter({
                       </button>
                     )
                   })}
-                </div>
+                </nav>
               )}
             </div>
           )
         })}
       </div>
-      <div className="ket-rw-footer__controls">
-        <button
-          type="button"
-          className="ket-rw-exit-btn"
-          onClick={onExit}
-        >
-          {exitLabel ?? (reviewMode ? 'Về báo cáo' : 'Exit')}
-        </button>
-        <button
-          type="button"
-          className="ket-rw-nav-btn"
-          disabled={activeIndex <= 0}
-          onClick={() => onAdjacentQuestion(-1)}
-          aria-label="Previous"
-        >
-          <ChevronLeft size={18} />
-        </button>
-        <button
-          type="button"
-          className="ket-rw-nav-btn is-next"
-          disabled={activeIndex >= allQuestions.length - 1}
-          onClick={() => onAdjacentQuestion(1)}
-          aria-label="Next"
-        >
-          <ChevronRight size={18} />
-        </button>
-      </div>
+
+      <button
+        type="button"
+        className="ket-rw-footer__submit"
+        aria-label="Submit exam"
+        onClick={onSubmit}
+      >
+        ✔
+      </button>
     </footer>
   )
 }

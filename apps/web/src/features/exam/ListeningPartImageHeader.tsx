@@ -1,6 +1,7 @@
+import { useEffect, useState } from 'react'
 import ReadingHighlightableText from './ReadingHighlightableText'
 import { useExamHighlights } from './examHighlightContext'
-import { resolveExamMediaUrl } from './examMediaUrl'
+import { resolvePlayableMediaUrl } from '../../lib/protectedMedia'
 
 interface Props {
   partId: string
@@ -14,7 +15,24 @@ export default function ListeningPartImageHeader({
   partImageUrl,
 }: Props) {
   const highlights = useExamHighlights()
-  const imageSrc = resolveExamMediaUrl(partImageUrl)
+  const [imageSrc, setImageSrc] = useState<string | null>(null)
+
+  useEffect(() => {
+    let cancelled = false
+    void (async () => {
+      if (!partImageUrl?.trim()) {
+        setImageSrc(null)
+        return
+      }
+      try {
+        const url = await resolvePlayableMediaUrl(partImageUrl)
+        if (!cancelled) setImageSrc(url ?? null)
+      } catch {
+        if (!cancelled) setImageSrc(null)
+      }
+    })()
+    return () => { cancelled = true }
+  }, [partImageUrl])
 
   if (!passageTitle && !imageSrc) return null
 

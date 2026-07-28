@@ -1,6 +1,17 @@
-# Heavy / local-only — not needed on Vercel if public/catalog is already built
+# Heavy / local-only — Mode A: bank media stays off Vercel (private Storage)
 Tainguyen
 Tainguyen/**
+
+# Mode A Fortress — multi-GB bank not needed as deploy input
+# (local DEV still uses apps/web/public; strip-public-media-from-dist removes from dist)
+apps/web/public/catalog
+apps/web/public/catalog/**
+apps/web/public/data
+apps/web/public/data/**
+apps/web/public/books
+apps/web/public/books/**
+apps/web/public/ielts-wizard
+apps/web/public/ielts-wizard/**
 
 # Repo / tooling noise
 .git
@@ -30,4 +41,3 @@ scripts/_out-cam9t2
 
 # Large raw dumps (if any outside catalog)
 **/*.pdf
-!apps/web/public/**/*.pdf

@@ -1,0 +1,179 @@
+{
+  "capturedFromCommit": "058fbc314bb97e2dd41dee4ae5ee32df5422a8d2",
+  "failureCount": 16,
+  "failures": [
+    {
+      "sourceTestNumber": 1,
+      "appTestNumber": 2,
+      "partNumber": 2,
+      "questionNumber": 14,
+      "category": "split_answer_parse_error",
+      "actualAnswer": "a",
+      "actualAcceptedAnswers": [
+        "a"
+      ],
+      "expectedAcceptedAnswers": [
+        "although",
+        "though",
+        "while"
+      ],
+      "explanation": "lthough/Though/While."
+    },
+    {
+      "sourceTestNumber": 26,
+      "appTestNumber": 27,
+      "partNumber": 6,
+      "questionNumber": 37,
+      "category": "answer_explanation_mismatch",
+      "actualAnswer": "f",
+      "explanationAnswer": "b",
+      "explanation": "Sentence B fits logically in gap 37."
+    },
+    {
+      "sourceTestNumber": 26,
+      "appTestNumber": 27,
+      "partNumber": 6,
+      "questionNumber": 39,
+      "category": "answer_explanation_mismatch",
+      "actualAnswer": "b",
+      "explanationAnswer": "c",
+      "explanation": "Sentence C fits logically in gap 39."
+    },
+    {
+      "sourceTestNumber": 26,
+      "appTestNumber": 27,
+      "partNumber": 6,
+      "questionNumber": 40,
+      "category": "answer_explanation_mismatch",
+      "actualAnswer": "e",
+      "explanationAnswer": "d",
+      "explanation": "Sentence D fits logically in gap 40."
+    },
+    {
+      "sourceTestNumber": 26,
+      "appTestNumber": 27,
+      "partNumber": 6,
+      "questionNumber": 41,
+      "category": "answer_explanation_mismatch",
+      "actualAnswer": "g",
+      "explanationAnswer": "f",
+      "explanation": "Sentence F fits logically in gap 41."
+    },
+    {
+      "sourceTestNumber": 26,
+      "appTestNumber": 27,
+      "partNumber": 6,
+      "questionNumber": 42,
+      "category": "answer_explanation_mismatch",
+      "actualAnswer": "c",
+      "explanationAnswer": "e",
+      "explanation": "Sentence E fits logically in gap 42."
+    },
+    {
+      "sourceTestNumber": 26,
+      "appTestNumber": 27,
+      "partNumber": 7,
+      "questionNumber": 43,
+      "category": "answer_explanation_mismatch",
+      "actualAnswer": "d",
+      "explanationAnswer": "b",
+      "explanation": "The answer is B because the text mentions this."
+    },
+    {
+      "sourceTestNumber": 26,
+      "appTestNumber": 27,
+      "partNumber": 7,
+      "questionNumber": 44,
+      "category": "answer_explanation_mismatch",
+      "actualAnswer": "c",
+      "explanationAnswer": "a",
+      "explanation": "The answer is A because the text mentions this."
+    },
+    {
+      "sourceTestNumber": 26,
+      "appTestNumber": 27,
+      "partNumber": 7,
+      "questionNumber": 45,
+      "category": "answer_explanation_mismatch",
+      "actualAnswer": "b",
+      "explanationAnswer": "a",
+      "explanation": "The answer is A because the text mentions this."
+    },
+    {
+      "sourceTestNumber": 26,
+      "appTestNumber": 27,
+      "partNumber": 7,
+      "questionNumber": 46,
+      "category": "answer_explanation_mismatch",
+      "actualAnswer": "a",
+      "explanationAnswer": "c",
+      "explanation": "The answer is C because the text mentions this."
+    },
+    {
+      "sourceTestNumber": 26,
+      "appTestNumber": 27,
+      "partNumber": 7,
+      "questionNumber": 47,
+      "category": "answer_explanation_mismatch",
+      "actualAnswer": "b",
+      "explanationAnswer": "d",
+      "explanation": "The answer is D because the text mentions this."
+    },
+    {
+      "sourceTestNumber": 26,
+      "appTestNumber": 27,
+      "partNumber": 7,
+      "questionNumber": 48,
+      "category": "answer_explanation_mismatch",
+      "actualAnswer": "c",
+      "explanationAnswer": "b",
+      "explanation": "The answer is B because the text mentions this."
+    },
+    {
+      "sourceTestNumber": 26,
+      "appTestNumber": 27,
+      "partNumber": 7,
+      "questionNumber": 50,
+      "category": "answer_explanation_mismatch",
+      "actualAnswer": "a",
+      "explanationAnswer": "c",
+      "explanation": "The answer is C because the text mentions this."
+    },
+    {
+      "sourceTestNumber": 26,
+      "appTestNumber": 27,
+      "partNumber": 7,
+      "questionNumber": 51,
+      "category": "answer_explanation_mismatch",
+      "actualAnswer": "b",
+      "explanationAnswer": "d",
+      "explanation": "The answer is D because the text mentions this."
+    },
+    {
+      "sourceTestNumber": 26,
+      "appTestNumber": 27,
+      "partNumber": 7,
+      "questionNumber": null,
+      "category": "ai_passage_source_answers",
+      "passageOrigins": [
+        "ai-generated"
+      ],
+      "answerOrigins": [
+        "key"
+      ]
+    },
+    {
+      "sourceTestNumber": 26,
+      "appTestNumber": 27,
+      "partNumber": 7,
+      "questionNumber": null,
+      "category": "ai_prompts_source_answers",
+      "promptOrigins": [
+        "ai-generated"
+      ],
+      "answerOrigins": [
+        "key"
+      ]
+    }
+  ]
+}

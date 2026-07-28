@@ -1,0 +1,254 @@
+{
+  "version": 1,
+  "title": "IELTS Listening — Cambridge 10 Test 1",
+  "durationMinutes": 30,
+  "bandHint": "IELTS · Cam 10 · Test 1 · Part 1 · Wizard",
+  "examType": "ielts",
+  "examMode": "practice",
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–10",
+      "instruction": "Complete the form below. Write ONE WORD AND/OR A NUMBER for each answer.",
+      "passageTitle": "Self-drive tours in the USA",
+      "audioFile": "listening.mp3",
+      "notePassageLayout": "hybrid",
+      "notePassageSections": [
+        {
+          "type": "section",
+          "text": "Example",
+          "blocks": [
+            {
+              "type": "static",
+              "text": "Name: Andrea "
+            },
+            {
+              "type": "example",
+              "text": "Brown"
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "text": "Address",
+          "blocks": [
+            {
+              "type": "static",
+              "text": "24 "
+            },
+            {
+              "type": "gap",
+              "number": 1
+            },
+            {
+              "type": "static",
+              "text": " Road"
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "text": "Postcode",
+          "blocks": [
+            {
+              "type": "static",
+              "text": "BH5 2OP"
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "text": "Phone (mobile)",
+          "blocks": [
+            {
+              "type": "static",
+              "text": "077 8664 3091"
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "text": "Heard about company from",
+          "blocks": [
+            {
+              "type": "gap",
+              "number": 2
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "text": "Possible self-drive tours",
+          "blocks": []
+        },
+        {
+          "type": "section",
+          "text": "Trip One:",
+          "blocks": [
+            {
+              "type": "static",
+              "text": "• Los Angeles: customer wants to visit some "
+            },
+            {
+              "type": "gap",
+              "number": 3
+            },
+            {
+              "type": "static",
+              "text": " parks with her children"
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "text": "",
+          "blocks": [
+            {
+              "type": "static",
+              "text": "• Yosemite Park: customer wants to stay in a lodge, not a "
+            },
+            {
+              "type": "gap",
+              "number": 4
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "text": "Trip Two:",
+          "blocks": [
+            {
+              "type": "static",
+              "text": "• Customer wants to see the "
+            },
+            {
+              "type": "gap",
+              "number": 5
+            },
+            {
+              "type": "static",
+              "text": " on the way to Cambria"
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "text": "",
+          "blocks": [
+            {
+              "type": "static",
+              "text": "• At Santa Monica: not interested in shopping"
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "text": "",
+          "blocks": [
+            {
+              "type": "static",
+              "text": "• At San Diego, wants to spend time on the "
+            },
+            {
+              "type": "gap",
+              "number": 6
+            }
+          ]
+        }
+      ],
+      "noteTable": null,
+      "questions": [
+        {
+          "number": 1,
+          "type": "gap-fill",
+          "prompt": "Address: 24 ___ Road",
+          "options": [],
+          "answer": "ardleigh",
+          "explanation": "Điền tên đường.",
+          "wordLimit": 1
+        },
+        {
+          "number": 2,
+          "type": "gap-fill",
+          "prompt": "Heard about company from:",
+          "options": [],
+          "answer": "newspaper",
+          "explanation": "Điền nguồn thông tin.",
+          "wordLimit": 1
+        },
+        {
+          "number": 3,
+          "type": "gap-fill",
+          "prompt": "Los Angeles: visit some ___ parks",
+          "options": [],
+          "answer": "theme",
+          "explanation": "Điền loại công viên.",
+          "wordLimit": 1
+        },
+        {
+          "number": 4,
+          "type": "gap-fill",
+          "prompt": "Yosemite: stay in a lodge, not a ___",
+          "options": [],
+          "answer": "tent",
+          "explanation": "Điền loại chỗ ở.",
+          "wordLimit": 1
+        },
+        {
+          "number": 5,
+          "type": "gap-fill",
+          "prompt": "See the ___ on the way to Cambria",
+          "options": [],
+          "answer": "castle",
+          "explanation": "Điền địa danh.",
+          "wordLimit": 1
+        },
+        {
+          "number": 6,
+          "type": "gap-fill",
+          "prompt": "San Diego: spend time on the ___",
+          "options": [],
+          "answer": "beach",
+          "explanation": "Điền địa điểm.",
+          "wordLimit": 1
+        },
+        {
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "Question 7 placeholder",
+          "options": [],
+          "answer": "2020",
+          "explanation": "Điền năm.",
+          "wordLimit": 1
+        },
+        {
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "Question 8 placeholder",
+          "options": [],
+          "answer": "flight",
+          "explanation": "Điền từ.",
+          "wordLimit": 1
+        },
+        {
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "Question 9 placeholder",
+          "options": [],
+          "answer": "429",
+          "explanation": "Điền số.",
+          "wordLimit": 1
+        },
+        {
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "Question 10 placeholder",
+          "options": [],
+          "answer": "dinner",
+          "explanation": "Điền từ.",
+          "wordLimit": 1
+        }
+      ]
+    }
+  ]
+}

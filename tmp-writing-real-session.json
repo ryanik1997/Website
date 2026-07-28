@@ -1,0 +1,327 @@
+{
+  "logs": [],
+  "data": {
+    "location": "http://localhost:5173/app/writing/cambridge/b1/b1-test-01/b1-test-01-task-01",
+    "title": "Ryan English",
+    "questionLabel": "Question 1",
+    "questionText": "You must answer this question. Write your answer in about 100 words.",
+    "inspect": {
+      ".ket-rw-pane-left": {
+        "exists": true,
+        "rect": {
+          "x": 0,
+          "y": 247.60000610351562,
+          "width": 996,
+          "height": 971.7999877929688,
+          "right": 996,
+          "bottom": 1219.3999938964844
+        },
+        "style": {
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "width": "996px",
+          "minWidth": "0px",
+          "maxWidth": "none",
+          "flex": "0 1 auto",
+          "flexBasis": "auto",
+          "gridTemplateColumns": "none",
+          "overflow": "auto",
+          "position": "static",
+          "transform": "none"
+        }
+      },
+      ".ket-rw-pane-right": {
+        "exists": true,
+        "rect": {
+          "x": 0,
+          "y": 1219.4000244140625,
+          "width": 996,
+          "height": 522,
+          "right": 996,
+          "bottom": 1741.4000244140625
+        },
+        "style": {
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "width": "996px",
+          "minWidth": "0px",
+          "maxWidth": "none",
+          "flex": "1 1 auto",
+          "flexBasis": "auto",
+          "gridTemplateColumns": "none",
+          "overflow": "auto",
+          "position": "static",
+          "transform": "none"
+        }
+      },
+      ".ket-rw-resizer": {
+        "exists": true,
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "style": {
+          "display": "none",
+          "visibility": "visible",
+          "opacity": "1",
+          "width": "12px",
+          "minWidth": "0px",
+          "maxWidth": "none",
+          "flex": "0 1 auto",
+          "flexBasis": "auto",
+          "gridTemplateColumns": "none",
+          "overflow": "visible",
+          "position": "static",
+          "transform": "none"
+        }
+      },
+      ".b1-writing-answer-pane": {
+        "exists": true,
+        "rect": {
+          "x": 0,
+          "y": 1219.4000244140625,
+          "width": 996,
+          "height": 522,
+          "right": 996,
+          "bottom": 1741.4000244140625
+        },
+        "style": {
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": "1",
+          "width": "996px",
+          "minWidth": "0px",
+          "maxWidth": "none",
+          "flex": "0 1 auto",
+          "flexBasis": "auto",
+          "gridTemplateColumns": "none",
+          "overflow": "visible",
+          "position": "static",
+          "transform": "none"
+        }
+      },
+      ".b1-writing-textarea": {
+        "exists": true,
+        "rect": {
+          "x": 16,
+          "y": 1231.4000244140625,
+          "width": 964,
+          "height": 320,
+          "right": 980,
+          "bottom": 1551.4000244140625
+        },
+        "style": {
+          "display": "inline-block",
+          "visibility": "visible",
+          "opacity": "1",
+          "width": "964px",
+          "minWidth": "0px",
+          "maxWidth": "none",
+          "flex": "0 1 auto",
+          "flexBasis": "auto",
+          "gridTemplateColumns": "none",
+          "overflow": "auto",
+          "position": "static",
+          "transform": "none"
+        }
+      }
+    },
+    "textareaAncestors": [
+      {
+        "tag": "TEXTAREA",
+        "className": "b1-writing-textarea",
+        "width": 964,
+        "height": 320,
+        "display": "inline-block",
+        "visibility": "visible",
+        "opacity": "1",
+        "overflow": "auto",
+        "position": "static",
+        "transform": "none"
+      },
+      {
+        "tag": "DIV",
+        "className": "b1-writing-answer-box",
+        "width": 964,
+        "height": 420,
+        "display": "block",
+        "visibility": "visible",
+        "opacity": "1",
+        "overflow": "visible",
+        "position": "relative",
+        "transform": "none"
+      },
+      {
+        "tag": "SECTION",
+        "className": "b1-writing-answer-pane",
+        "width": 996,
+        "height": 522,
+        "display": "flex",
+        "visibility": "visible",
+        "opacity": "1",
+        "overflow": "visible",
+        "position": "static",
+        "transform": "none"
+      },
+      {
+        "tag": "DIV",
+        "className": "ket-rw-pane-right",
+        "width": 996,
+        "height": 522,
+        "display": "block",
+        "visibility": "visible",
+        "opacity": "1",
+        "overflow": "auto",
+        "position": "static",
+        "transform": "none"
+      },
+      {
+        "tag": "DIV",
+        "className": "ket-rw-body is-split is-resizable",
+        "width": 996,
+        "height": 729.6000366210938,
+        "display": "block",
+        "visibility": "visible",
+        "opacity": "1",
+        "overflow": "visible",
+        "position": "static",
+        "transform": "none"
+      },
+      {
+        "tag": "DIV",
+        "className": "b1-writing-body",
+        "width": 996,
+        "height": 743.6000366210938,
+        "display": "flex",
+        "visibility": "visible",
+        "opacity": "1",
+        "overflow": "visible",
+        "position": "static",
+        "transform": "none"
+      },
+      {
+        "tag": "DIV",
+        "className": "b1-writing-screen",
+        "width": 996,
+        "height": 991.2000122070312,
+        "display": "flex",
+        "visibility": "visible",
+        "opacity": "1",
+        "overflow": "hidden",
+        "position": "relative",
+        "transform": "none"
+      },
+      {
+        "tag": "DIV",
+        "className": "writing-layout__content flex-1 min-h-0 flex flex-col overflow-hidden",
+        "width": 996,
+        "height": 991.2000122070312,
+        "display": "flex",
+        "visibility": "visible",
+        "opacity": "1",
+        "overflow": "hidden",
+        "position": "static",
+        "transform": "none"
+      },
+      {
+        "tag": "DIV",
+        "className": "writing-layout flex flex-col h-full min-h-0 overflow-hidden",
+        "width": 996,
+        "height": 991.2000122070312,
+        "display": "flex",
+        "visibility": "visible",
+        "opacity": "1",
+        "overflow": "hidden",
+        "position": "static",
+        "transform": "none"
+      },
+      {
+        "tag": "MAIN",
+        "className": "app-shell__main flex-1 min-h-0 flex flex-col overflow-hidden select-text",
+        "width": 996,
+        "height": 991.2000122070312,
+        "display": "flex",
+        "visibility": "visible",
+        "opacity": "1",
+        "overflow": "hidden",
+        "position": "relative",
+        "transform": "none"
+      },
+      {
+        "tag": "DIV",
+        "className": "app-shell flex h-[100dvh] overflow-hidden app-shell--backdrop app-shell--grid",
+        "width": 996,
+        "height": 991.2000122070312,
+        "display": "flex",
+        "visibility": "visible",
+        "opacity": "1",
+        "overflow": "hidden",
+        "position": "relative",
+        "transform": "none"
+      },
+      {
+        "tag": "DIV",
+        "className": "",
+        "width": 996,
+        "height": 991.2000122070312,
+        "display": "block",
+        "visibility": "visible",
+        "opacity": "1",
+        "overflow": "hidden",
+        "position": "static",
+        "transform": "none"
+      },
+      {
+        "tag": "BODY",
+        "className": "",
+        "width": 996,
+        "height": 991.2000122070312,
+        "display": "block",
+        "visibility": "visible",
+        "opacity": "1",
+        "overflow": "auto",
+        "position": "static",
+        "transform": "none"
+      },
+      {
+        "tag": "HTML",
+        "className": "",
+        "width": 996,
+        "height": 991.2000122070312,
+        "display": "block",
+        "visibility": "visible",
+        "opacity": "1",
+        "overflow": "auto",
+        "position": "static",
+        "transform": "none"
+      }
+    ],
+    "breakpoint": {
+      "innerWidth": 996,
+      "innerHeight": 991,
+      "devicePixelRatio": 1.25,
+      "desktop1024": false,
+      "desktop1200": false,
+      "desktop1440": false
+    },
+    "rootRect": {
+      "x": 0,
+      "y": 0,
+      "width": 996,
+      "height": 991.2000122070312,
+      "top": 0,
+      "right": 996,
+      "bottom": 991.2000122070312,
+      "left": 0
+    },
+    "layoutKeys": [],
+    "sessionKeys": [],
+    "bodyHtml": "\n  <div id=\"root\"><div class=\"app-shell flex h-[100dvh] overflow-hidden app-shell--backdrop app-shell--grid\" style=\"background: var(--bg-card);\"><div class=\"app-shell__backdrop\" aria-hidden=\"true\"><div class=\"app-shell__backdrop-grid\"></div></div><main class=\"app-shell__main flex-1 min-h-0 flex flex-col overflow-hidden select-text\"><div class=\"writing-layout flex flex-col h-full min-h-0 overflow-hidden\" style=\"background: var(--bg-primary);\"><div class=\"writing-layout__content flex-1 min-h-0 flex flex-col overflow-hidden\" style=\"background: var(--bg-primary);\"><div class=\"b1-writing-screen\"><header class=\"b1-writing-header\"><div class=\"b1-writing-header__brand\"><img src=\"/logo-ceq.png\" alt=\"Cambridge English\" class=\"b1-writing-header__logo\"><strong class=\"b1-writing-header__candidate\">Candidate ID</strong></div><div class=\"b1-writing-header__actions\" aria-hidden=\"true\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-wifi\"><path d=\"M12 20h.01\"></path><path d=\"M2 8.82a15 15 0 0 1 20 0\"></path><path d=\"M5 12.859a10 10 0 0 1 14 0\"></path><path d=\"M8.5 16.429a5 5 0 0 1 7 0\"></path></svg><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-bell\"><path d=\"M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9\"></path><path d=\"M10.3 21a1.94 1.94 0 0 0 3.4 0\"></path></svg><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-menu\"><line x1=\"4\" x2=\"20\" y1=\"12\" y2=\"12\"></line><line x1=\"4\" x2=\"20\" y1=\"6\" y2=\"6\"></line><line x1=\"4\" x2=\"20\" y1=\"18\" y2=\"18\"></line></svg><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-pen-line\"><path d=\"M12 20h9\"></path><path d=\"M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.854z\"></path></svg></div></header><div class=\"b1-writing-instruction\"><strong>Question 1</strong><p>You must answer this question. Write your answer in about <strong>100 words</strong>.</p></div><div class=\"b1-writing-body\"><div class=\"ket-rw-body is-split is-resizable\" style=\"--ket-split-pct: 51%;\"><div class=\"ket-rw-pane-left\" data-scroll-pane=\"left\"><section class=\"b1-writing-prompt-pane\"><div class=\"b1-writing-prompt-rich\"><div class=\"b1-prompt-email\"><p class=\"b1-prompt-lead\">Read this email from your English-speaking friend Sandy and the notes you have made.</p><div class=\"b1-email-card\"><div class=\"b1-email-card__header\">EMAIL</div><div class=\"b1-email-card__meta\"><div class=\"b1-email-card__row\"><strong>From:</strong><span>Sandy</span></div><div class=\"b1-email-card__row\"><strong>Subject:</strong><span>Your visit!</span></div></div><div class=\"b1-email-card__body\"><p>Hi,</p><p>I'm so excited that you're coming to stay with me for a week!</p><p>On your first evening here, there's a rock concert in our town. Would you like to go to the concert or would you prefer us to relax at home?</p><p>Also, shall we go climbing in the mountains while you're here?</p><p>let me know if you have any questions.</p><p>See you soon</p><p>Sandy</p><em class=\"b1-email-note b1-email-note--left-top\">Me too!</em><em class=\"b1-email-note b1-email-note--right-mid\">Say which I prefer</em><em class=\"b1-email-note b1-email-note--left-bottom\">No, because ...</em><em class=\"b1-email-note b1-email-note--right-bottom\">Ask Sandy ...</em></div></div><p class=\"b1-prompt-end\">Write your <strong>email</strong> to Sandy using <strong>all the notes</strong>.</p></div></div></section></div><button type=\"button\" class=\"ket-rw-resizer\" aria-label=\"Kéo để chỉnh độ rộng hai khung\"><span class=\"ket-rw-resizer__grip\" aria-hidden=\"true\">↔</span></button><div class=\"ket-rw-pane-right\" data-scroll-pane=\"right\"><section class=\"b1-writing-answer-pane\"><div class=\"b1-writing-answer-box\"><button type=\"button\" class=\"b1-writing-bookmark\" aria-label=\"Bookmark\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-bookmark\"><path d=\"m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z\"></path></svg></button><textarea class=\"b1-writing-textarea\" aria-label=\"Writing answer\" style=\"\"></textarea><p class=\"b1-writing-word-count\">Words: 0</p></div></section></div></div></div><div class=\"b1-writing-nav\"><a class=\"b1-writing-nav__btn b1-writing-nav__btn--muted\" aria-label=\"Back to library\" href=\"/app/writing/cambridge/b1\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-left\"><path d=\"m12 19-7-7 7-7\"></path><path d=\"M19 12H5\"></path></svg></a><a class=\"b1-writing-nav__btn b1-writing-nav__btn--primary\" aria-label=\"Next question\" href=\"/app/writing/cambridge/b1/b1-test-01/b1-test-01-task-02\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-right\"><path d=\"M5 12h14\"></path><path d=\"m12 5 7 7-7 7\"></path></svg></a></div></div></div></div></main></div></div>\n  <script type=\"module\" src=\"/src/main.tsx?t=1785131187704\"></script>\n\n\n"
+  }
+}

@@ -13,13 +13,16 @@ const GROUP_ORDER = 5
 
 async function ensureExamGroup(): Promise<void> {
   const g = await db.groups.get(EXAM_VOCAB_GROUP_ID)
-  if (!g) {
+  if (g) return
+  try {
     await db.groups.add({
       id: EXAM_VOCAB_GROUP_ID,
       name: 'Exam · Cambridge',
       order: GROUP_ORDER,
       createdAt: Date.now(),
     })
+  } catch {
+    // Race (StrictMode / double mount): group already inserted
   }
 }
 
@@ -42,8 +45,14 @@ export async function ensureExamMistakesDeck(): Promise<Deck> {
     createdAt: Date.now(),
     updatedAt: Date.now(),
   }
-  await db.decks.add(deck)
-  return deck
+  try {
+    await db.decks.add(deck)
+    return deck
+  } catch {
+    const again = await db.decks.get(EXAM_MISTAKES_DECK_ID)
+    if (again) return again
+    throw new Error('ensureExamMistakesDeck failed')
+  }
 }
 
 /** Id ổn định theo book + test (slug) */
@@ -81,8 +90,14 @@ export async function ensureCamTestDeck(opts: {
     createdAt: Date.now(),
     updatedAt: Date.now(),
   }
-  await db.decks.add(deck)
-  return deck
+  try {
+    await db.decks.add(deck)
+    return deck
+  } catch {
+    const again = await db.decks.get(id)
+    if (again) return again
+    throw new Error(`ensureCamTestDeck failed: ${id}`)
+  }
 }
 
 export type ExamMistakeInput = {

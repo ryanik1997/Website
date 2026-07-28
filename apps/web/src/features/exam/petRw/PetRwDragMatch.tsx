@@ -3,15 +3,20 @@ import type { ReadingQuestion } from '../examData'
 import RwHighlightText from '../rwHighlight/RwHighlightText'
 import type { PetRwBankOption } from './petRwPassageUtils'
 import PetRwPersonPhotoSlot from './PetRwPersonPhotoSlot'
+import KetRwSplitPane from '../ketRw/KetRwSplitPane'
+
+type PetRwDragMatchVariant = 'default' | 'cambridge-part-2'
 
 interface Props {
   partId: string
   slots: ReadingQuestion[]
   bank: PetRwBankOption[]
+  bankTitle?: string
   answers: Record<string, string>
   activeQuestionId: string | null
   bankOnRight?: boolean
   showBankLetters?: boolean
+  variant?: PetRwDragMatchVariant
   slotImageKey?: (question: ReadingQuestion) => string | undefined
   slotImageUrl?: (question: ReadingQuestion) => string | undefined
   slotPhotoPreviewUrl?: (question: ReadingQuestion) => string | undefined
@@ -25,10 +30,12 @@ export default function PetRwDragMatch({
   partId,
   slots,
   bank,
+  bankTitle,
   answers,
   activeQuestionId,
   bankOnRight = true,
   showBankLetters = true,
+  variant = 'default',
   slotImageKey,
   slotImageUrl,
   slotPhotoPreviewUrl,
@@ -38,6 +45,7 @@ export default function PetRwDragMatch({
   onSelectQuestion,
 }: Props) {
   const [pickedId, setPickedId] = useState<string | null>(null)
+  const isCambridgePart2 = variant === 'cambridge-part-2'
 
   const usedByQuestion = useCallback((optionId: string) => {
     return slots.find(q => answers[q.id]?.toUpperCase() === optionId.toUpperCase())?.id ?? null
@@ -141,7 +149,9 @@ export default function PetRwDragMatch({
                 onUpload={onPhotoUpload}
               />
               <p className="pet-rw-person__prompt">
-                <span className="pet-rw-person__num">{question.number}</span>
+                {!isCambridgePart2 && (
+                  <span className="pet-rw-person__num">{question.number}</span>
+                )}
                 <RwHighlightText
                   blockId={`${partId}-q-${question.id}-prompt`}
                   text={question.prompt}
@@ -172,7 +182,9 @@ export default function PetRwDragMatch({
                   {bankItem.title ?? bankItem.label}
                 </span>
               ) : (
-                <span className="pet-rw-drag__slot-placeholder">Drop here</span>
+                <span className="pet-rw-drag__slot-placeholder">
+                  {isCambridgePart2 ? question.number : 'Drop here'}
+                </span>
               )}
               {answerId && (
                 <span
@@ -200,6 +212,28 @@ export default function PetRwDragMatch({
       })}
     </div>
   )
+
+  if (isCambridgePart2) {
+    return (
+      <KetRwSplitPane
+        variant="fixed-scrollbar"
+        sequentialScroll
+        scrollResetKey={partId}
+        left={(
+          <section className="pet-rw-part2-column pet-rw-part2-column--people">
+            <h2 className="pet-rw-part2-heading">People</h2>
+            {slotsPanel}
+          </section>
+        )}
+        right={(
+          <section className="pet-rw-part2-column pet-rw-part2-column--markets">
+            <h2 className="pet-rw-part2-heading">{bankTitle?.trim() || 'City Markets'}</h2>
+            {bankPanel}
+          </section>
+        )}
+      />
+    )
+  }
 
   return (
     <div className={`pet-rw-drag${bankOnRight ? ' bank-right' : ' bank-left'}`}>

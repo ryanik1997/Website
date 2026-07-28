@@ -1,0 +1,232 @@
+Bạn là trợ lý tạo ZIP bundle import đề Listening FCE B2 vào web app "Ryan English".
+
+## Tài liệu đính kèm
+1. Test_1_Listening_FCE_B2.pdf — đề Listening (Parts 1–4)
+2. Answer Key.pdf — đáp án Listening (D251/03)
+3. listening.mp3 — file audio cả bài (~40 phút, nghe liên tục cho toàn test)
+
+## Deliverable
+ZIP: `fce-Listening-test1.zip` — file CÙNG CẤP, không thư mục con:
+```
+exam.json
+listening.mp3
+q2.jpg                    (CHỈ Part 2 — một ảnh minh họa cạnh tiêu đề)
+```
+
+```json
+{
+  "version": 1,
+  "title": "FCE B2 Listening — Test 1",
+  "durationMinutes": 40,
+  "bandHint": "B2 First Listening · 4 parts · 30 câu",
+  "examType": "fce",
+  "examMode": "practice",
+  "parts": [ /* 4 parts, 30 câu */ ]
+}
+```
+
+## Cấu trúc 4 parts (30 câu Listening)
+
+| Part | Câu | Type | Ghi chú UI app |
+|------|-----|------|----------------|
+| 1 | 1–8 | multiple-choice | Short extracts — MC A/B/C (layout 2 cột IELTS/FCE) |
+| 2 | 9–18 | gap-fill | Sentence completion — `passageTitle` + **1 ảnh** `q2.jpg` (Giaodien/a7.jpg) |
+| 3 | 19–23 | matching | A–H bên trái → thả chữ cái vào ô Speaker 19–23 (Giaodien/a9.jpg) |
+| 4 | 24–30 | multiple-choice | Phỏng vấn dài — MC A/B/C |
+
+App render: `ListeningIeltsTest` (chung IELTS + FCE + CAE + CPE). Timer **40 phút**. Audio **không dừng** khi đổi Part.
+
+---
+
+## Audio
+
+- Một file MP3 cho cả bài → gắn `"audioFile": "listening.mp3"` vào **mỗi part**.
+- App tự dedupe — chỉ lưu 1 bản MP3 trong Dexie / catalog.
+- Có thể đặt tên `Test_1_Listening_FCE_B2_Audio.mp3` nếu import ZIP (app nhận mọi tên trong ZIP).
+
+---
+
+## Part 1 (Q1–8) — Short extracts + multiple choice
+
+Mỗi câu: ngữ cảnh + câu hỏi gộp trong `prompt` (copy từ PDF).
+
+```json
+{
+  "partNumber": 1,
+  "rangeLabel": "Questions 1–8",
+  "instruction": "You will hear people talking in eight different situations. For questions 1–8, choose the best answer (A, B or C).",
+  "audioFile": "listening.mp3",
+  "questions": [
+    {
+      "number": 1,
+      "type": "multiple-choice",
+      "prompt": "You hear a message on a telephone answering machine. Why is the speaker calling?",
+      "options": [
+        { "id": "A", "label": "to confirm some arrangements" },
+        { "id": "B", "label": "to issue an invitation" },
+        { "id": "C", "label": "to persuade someone to do something" }
+      ],
+      "answer": "B",
+      "explanation": "Giải thích ngắn tiếng Việt."
+    }
+  ]
+}
+```
+
+- **Không có ảnh** Part 1 FCE.
+- `answer`: A/B/C.
+
+---
+
+## Part 2 (Q9–18) — Sentence completion (gap-fill)
+
+**Một ảnh duy nhất** cho cả Part — crop ảnh gấu / minh họa cạnh tiêu đề từ PDF → `q2.jpg`.
+
+```json
+{
+  "partNumber": 2,
+  "rangeLabel": "Questions 9–18",
+  "passageTitle": "Spectacled Bears",
+  "imageFile": "q2.jpg",
+  "instruction": "You will hear a woman called Angela Thomas, who works for a wildlife organisation, talking about the spectacled bear.\nFor questions 9–18, complete the sentences with a word or short phrase.",
+  "audioFile": "listening.mp3",
+  "questions": [
+    {
+      "number": 9,
+      "type": "gap-fill",
+      "prompt": "Angela says that it was the … of the spectacled bear that first interested her.",
+      "options": [],
+      "answer": "great name",
+      "explanation": "…",
+      "wordLimit": 3
+    }
+  ]
+}
+```
+
+- `passageTitle` = tiêu đề in đậm trên đề (vd. **Spectacled Bears**).
+- `imageFile` = **cấp Part**, không phải từng câu — app hiện ảnh cạnh tiêu đề (Giaodien/a7.jpg).
+- `prompt` = cả câu có chỗ trống `…` — hiện cột trái; cột phải là ô nhập.
+- `answer`: một hoặc vài từ (answer key có thể ghi `(great) name` → lưu `great name` hoặc `name` tùy key).
+- `wordLimit`: 3 (word or short phrase).
+
+---
+
+## Part 3 (Q19–23) — Multiple matching A–H
+
+Danh sách A–H **giống nhau** cho mọi câu. Mỗi câu = một Speaker; đáp án = **một chữ cái**.
+
+```json
+{
+  "partNumber": 3,
+  "rangeLabel": "Questions 19–23",
+  "instruction": "You will hear five short extracts in which people are talking about their visit to a city. For questions 19–23, choose from the list (A–H) what each speaker liked most about the city they visited. Use the letters only once. There are three extra letters which you do not need to use.",
+  "audioFile": "listening.mp3",
+  "questions": [
+    {
+      "number": 19,
+      "type": "matching",
+      "prompt": "Speaker 1",
+      "options": [
+        { "id": "A", "label": "the efficiency of the public transport system" },
+        { "id": "B", "label": "the natural beauty of the scenery" },
+        { "id": "C", "label": "the variety of goods in the markets" },
+        { "id": "D", "label": "the style of the architecture" },
+        { "id": "E", "label": "the well-designed plan of the city" },
+        { "id": "F", "label": "the helpfulness of the people" },
+        { "id": "G", "label": "the range of leisure opportunities" },
+        { "id": "H", "label": "the standard of the accommodation" }
+      ],
+      "answer": "G",
+      "explanation": "…"
+    },
+    {
+      "number": 20,
+      "type": "matching",
+      "prompt": "Speaker 2",
+      "options": [ /* cùng 8 options A–H */ ],
+      "answer": "B",
+      "explanation": "…"
+    }
+  ]
+}
+```
+
+- UI: cột trái = danh sách A–H (kéo/bấm); cột phải = Speaker 1–5 + ô trống + số câu 19–23 (Giaodien/a9.jpg).
+- **Bắt buộc:** 8 options A–H **trùng nội dung** trên mọi câu 19–23 (app nhận layout kéo thả chữ cái).
+- `prompt`: `Speaker 1` … `Speaker 5`.
+- `answer`: một chữ A–H; mỗi chữ chỉ dùng một lần.
+
+---
+
+## Part 4 (Q24–30) — Long turn + multiple choice
+
+```json
+{
+  "partNumber": 4,
+  "rangeLabel": "Questions 24–30",
+  "instruction": "You will hear part of a radio interview with a woman called Rachel Reed, who works in a commercial art gallery. For questions 24–30, choose the best answer (A, B or C).",
+  "audioFile": "listening.mp3",
+  "questions": [
+    {
+      "number": 24,
+      "type": "multiple-choice",
+      "prompt": "What does Rachel say about her job title?",
+      "options": [
+        { "id": "A", "label": "It makes her feel more important than she is." },
+        { "id": "B", "label": "It gives people the wrong idea about her work." },
+        { "id": "C", "label": "It is appropriate for most of the work she does." }
+      ],
+      "answer": "C",
+      "explanation": "…"
+    }
+  ]
+}
+```
+
+---
+
+## Đáp án Test 1 (Answer Key D251/03)
+
+| Part | Câu | Đáp án |
+|------|-----|--------|
+| 1 | 1–8 | B, B, A, C, C, A, A, A |
+| 2 | 9–18 | (great) name, chest, northern, forests, (the) winter, (the/some) human(s), berries, (a) platform, (small/little) mice, (funny) diary |
+| 3 | 19–23 | G, B, A, H, F |
+| 4 | 24–30 | C, B, C, A, A, A, B |
+
+---
+
+## Đóng gói ZIP
+
+```bash
+pnpm pack:listening:fce
+```
+
+Hoặc:
+```bash
+node scripts/pack-listening-bundle.mjs fce-Listening-test1
+```
+
+Thư mục nguồn: `Tainguyen/fce-Listening-test1/`
+Output: `Tainguyen/fce-Listening-test1.zip`
+
+Builtin catalog (sau deploy):
+```bash
+pnpm build:catalog
+```
+→ `catalog-listening-fce-b2-test1` tại `/catalog/listening/fce-b2-test1/`
+
+---
+
+## Import trên app
+
+1. Luyện thi → Cambridge → **B2** → **Import thủ công Listening**
+2. Upload `fce-Listening-test1.zip`
+3. Preview phải ✓ MP3 + `q2.jpg` → **Lưu & làm bài**
+4. Hoặc dùng đề **builtin** sau `pnpm build:catalog` (không cần import)
+5. Timer **40 phút**; highlight tô sáng; audio không dừng khi đổi Part
+6. Mỗi lần sửa bundle: xóa đề import cũ → import lại
+
+Bundle mẫu: `Tainguyen/fce-Listening-test1.zip`
+Tham chiếu giao diện: `Giaodien/a7.jpg` (Part 2), `Giaodien/a9.jpg` (Part 3)

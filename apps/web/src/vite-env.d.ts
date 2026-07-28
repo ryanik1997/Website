@@ -4,6 +4,7 @@ interface ImportMetaEnv {
   readonly VITE_SUPABASE_URL: string
   readonly VITE_SUPABASE_ANON_KEY: string
   readonly VITE_TTS_SERVICE_URL?: string
+  readonly VITE_MEDIA_MODE?: 'local' | 'signed'
 }
 
 interface ImportMeta {

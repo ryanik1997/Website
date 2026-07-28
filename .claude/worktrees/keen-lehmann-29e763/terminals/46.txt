@@ -1,0 +1,71 @@
+---
+pid: 26084
+cwd: "D:\App-English-Ryan\Website"
+command: "Set-Location \"D:\\App-English-Ryan\\Website\"; foreach ($f in @(\"IELTS/Listening IELTS_Test1_Cam11\",\"IELTS/Listening IELTS_Test2_Cam11\",\"IELTS/Listening IELTS_Test3_Cam11\",\"IELTS/Listening IELTS_Test4_Cam11\",\"IELTS/Listening IELTS_Test1_Cam12\",\"IELTS/Listening IELTS_Test2_Cam12\",\"IELTS/Listening IELTS_Test3_Cam12\",\"IELTS/Listening IELTS_Test4_Cam12\")) { pnpm ielts:pack $f }"
+started_at: 2026-07-03T06:56:33.466Z
+running_for_ms: 95002    
+---
+
+> ryan-english@ ielts:pack D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts pack "IELTS/Listening IELTS_Test1_Cam11"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test1_Cam11
+✓ D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test1_Cam11.zip
+  3 files: exam.json, listening.mp3, map.jpg
+  → Luyện thi → IELTS → Import thủ công Listening → chọn ZIP
+
+> ryan-english@ ielts:pack D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts pack "IELTS/Listening IELTS_Test2_Cam11"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test2_Cam11
+✓ D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test2_Cam11.zip
+  3 files: exam.json, listening.mp3, map.jpg
+  → Luyện thi → IELTS → Import thủ công Listening → chọn ZIP
+
+> ryan-english@ ielts:pack D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts pack "IELTS/Listening IELTS_Test3_Cam11"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test3_Cam11
+✓ D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test3_Cam11.zip
+  2 files: exam.json, listening.mp3
+  → Luyện thi → IELTS → Import thủ công Listening → chọn ZIP
+
+> ryan-english@ ielts:pack D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts pack "IELTS/Listening IELTS_Test4_Cam11"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test4_Cam11
+✓ D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test4_Cam11.zip
+  3 files: exam.json, listening.mp3, map.jpg
+  → Luyện thi → IELTS → Import thủ công Listening → chọn ZIP
+
+> ryan-english@ ielts:pack D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts pack "IELTS/Listening IELTS_Test1_Cam12"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test1_Cam12
+✓ D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test1_Cam12.zip
+  2 files: exam.json, listening.mp3
+  → Luyện thi → IELTS → Import thủ công Listening → chọn ZIP
+
+> ryan-english@ ielts:pack D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts pack "IELTS/Listening IELTS_Test2_Cam12"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test2_Cam12
+✓ D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test2_Cam12.zip
+  2 files: exam.json, listening.mp3
+  → Luyện thi → IELTS → Import thủ công Listening → chọn ZIP
+
+> ryan-english@ ielts:pack D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts pack "IELTS/Listening IELTS_Test3_Cam12"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test3_Cam12
+✓ D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test3_Cam12.zip
+  2 files: exam.json, listening.mp3
+  → Luyện thi → IELTS → Import thủ công Listening → chọn ZIP
+
+> ryan-english@ ielts:pack D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts pack "IELTS/Listening IELTS_Test4_Cam12"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test4_Cam12
+✓ D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test4_Cam12.zip
+  3 files: exam.json, listening.mp3, map.jpg
+  → Luyện thi → IELTS → Import thủ công Listening → chọn ZIP

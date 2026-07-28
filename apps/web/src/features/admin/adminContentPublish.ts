@@ -1,6 +1,6 @@
 import { db } from '@ryan/db'
 import { supabase } from '../../lib/supabase'
-import { PRESET_GROUP_IDS } from '../vocab/vocabSeedDecks'
+import { PRESET_GROUP_IDS } from '../vocab/vocabConstants'
 import { normalizeVocabPublishPayload } from '../vocab/vocabPublishNormalize'
 import {
   listPublishableLocalExams,
@@ -92,7 +92,10 @@ async function collectSentenceStructures() {
 
 async function collectWritingPrompts() {
   const all = await db.writingDocs.toArray()
-  return all.filter(d => !d.text.trim())
+  return all.filter((doc) =>
+    doc.sourceMeta?.docRole === 'prompt_seed'
+    || (!doc.text.trim() && doc.sourceMeta?.docRole !== 'user_answer'),
+  )
 }
 
 async function collectMindmaps() {

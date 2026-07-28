@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import type { ReadingPart, ReadingQuestion } from '../examData'
 import type { ExamReviewStatus } from '../examReviewUtils'
 import { countWords, getPartQuestions } from '../examData'
@@ -6,6 +6,7 @@ import { readingExamMediaKey } from '../importReadingManualUtils'
 import RwHighlightText from '../rwHighlight/RwHighlightText'
 import RwInstruction from '../rwHighlight/RwInstruction'
 import RwMcRadioQuestion from '../rwHighlight/RwMcRadioQuestion'
+import RwPart5McGap from '../rwHighlight/RwPart5McGap'
 import { rwGapTextSegment } from '../rwHighlight/rwGapTextSegment'
 import { useBlobMediaUrl } from '../useBlobMediaUrl'
 import KetRwSplitPane from '../ketRw/KetRwSplitPane'
@@ -86,15 +87,77 @@ function InlineMcGap({
   )
 }
 
+// ── Part 4 two-way drag helpers ──
+
+type Part4DragPayload =
+  | { source: 'bank'; optionId: string }
+  | { source: 'gap'; optionId: string; sourceQuestionId: string }
+
+const PART4_DND_MIME = 'application/x-pet-reading-part4-option'
+const PART4_GAP_MIME = 'application/x-pet-part4-gap'
+
+function writePart4DragPayload(dataTransfer: DataTransfer, payload: Part4DragPayload) {
+  dataTransfer.setData(PART4_DND_MIME, JSON.stringify(payload))
+  dataTransfer.setData('text/plain', payload.optionId)
+  if (payload.source === 'gap') {
+    dataTransfer.setData(PART4_GAP_MIME, '1')
+  }
+  dataTransfer.effectAllowed = 'move'
+}
+
+function readPart4DragPayload(dataTransfer: DataTransfer): Part4DragPayload | null {
+  const raw = dataTransfer.getData(PART4_DND_MIME)
+  if (raw) {
+    try {
+      const v = JSON.parse(raw) as Partial<Part4DragPayload>
+      if (v.source === 'bank' && typeof v.optionId === 'string') {
+        return { source: 'bank', optionId: v.optionId }
+      }
+      if (v.source === 'gap' && typeof v.optionId === 'string' && typeof v.sourceQuestionId === 'string') {
+        return { source: 'gap', optionId: v.optionId, sourceQuestionId: v.sourceQuestionId }
+      }
+    } catch {
+      /* invalid JSON */
+    }
+  }
+  const legacy = dataTransfer.getData('text/plain')
+  return legacy ? { source: 'bank', optionId: legacy } : null
+}
+
+type InlineGapTextVariant = 'default' | 'cambridge-box'
+
 function InlineGapText({
   number,
   value,
   onChange,
+  onFocus,
+  variant = 'default',
 }: {
   number: number
   value: string
   onChange: (v: string) => void
+  onFocus?: () => void
+  variant?: InlineGapTextVariant
 }) {
+  if (variant === 'cambridge-box') {
+    return (
+      <span className="pet-rw-part6-gap">
+        <input
+          type="text"
+          className="pet-rw-part6-gap__input"
+          value={value}
+          placeholder={String(number)}
+          aria-label={`Question ${number}`}
+          autoComplete="off"
+          spellCheck={false}
+          data-highlight-skip
+          onFocus={onFocus}
+          onChange={event => onChange(event.target.value)}
+        />
+      </span>
+    )
+  }
+
   return (
     <span className="ket-rw-gap-text">
       <span className="ket-rw-gap-text__num">{number}</span>
@@ -120,6 +183,12 @@ function InlineGapDrop({
   pickedId,
   onAssign,
   onSelectQuestion,
+  showOptionId = true,
+  showEmptyPlaceholder = true,
+  dragEnabled = false,
+  part4Payload,
+  onFilledDragStart,
+  onFilledDragEnd,
 }: {
   number: number
   question: ReadingQuestion
@@ -128,13 +197,36 @@ function InlineGapDrop({
   pickedId: string | null
   onAssign: (questionId: string, optionId: string) => void
   onSelectQuestion: (id: string) => void
+  showOptionId?: boolean
+  showEmptyPlaceholder?: boolean
+  dragEnabled?: boolean
+  part4Payload?: Part4DragPayload | null
+  onFilledDragStart?: (
+    event: React.DragEvent<HTMLButtonElement>,
+    payload: { questionId: string; optionId: string },
+  ) => void
+  onFilledDragEnd?: () => void
 }) {
   const item = bank.find(b => b.id.toLowerCase() === value.toLowerCase())
+  const canDragFilled = dragEnabled && Boolean(item) && Boolean(value)
+  const isDraggingFrom =
+    part4Payload?.source === 'gap' &&
+    part4Payload.sourceQuestionId === question.id
+
   return (
     <span className="pet-rw-inline-gap">
       <button
         type="button"
-        className={`pet-rw-drag__slot pet-rw-drag__slot--inline${value ? ' is-filled' : ''}`}
+        className={[
+          'pet-rw-drag__slot',
+          'pet-rw-drag__slot--inline',
+          value ? 'is-filled' : '',
+          canDragFilled ? 'is-draggable' : '',
+          isDraggingFrom ? 'is-dragging' : '',
+        ].filter(Boolean).join(' ')}
+        draggable={canDragFilled}
+        data-question-id={question.id}
+        data-option-id={value || undefined}
         data-highlight-skip
         onClick={() => {
           if (pickedId) {
@@ -143,19 +235,37 @@ function InlineGapDrop({
           }
           onSelectQuestion(question.id)
         }}
+        onDragStart={event => {
+          if (!item || !value || !dragEnabled) {
+            event.preventDefault()
+            return
+          }
+          onFilledDragStart?.(event, {
+            questionId: question.id,
+            optionId: value,
+          })
+        }}
+        onDragEnd={onFilledDragEnd}
         onDragOver={e => e.preventDefault()}
-        onDrop={e => {
-          e.preventDefault()
-          const opt = e.dataTransfer.getData('text/plain')
-          if (opt) onAssign(question.id, opt)
+        onDrop={event => {
+          event.preventDefault()
+          if (!dragEnabled) return
+          const payload = readPart4DragPayload(event.dataTransfer)
+          if (!payload) return
+          // Drop on same gap → no-op
+          if (payload.source === 'gap' && payload.sourceQuestionId === question.id) return
+          onAssign(question.id, payload.optionId)
         }}
       >
         <span className="pet-rw-inline-gap__num">{number}</span>
         {item ? (
-          <span className="pet-rw-drag__slot-value"><strong>{item.id}</strong> {item.label}</span>
-        ) : (
+          <span className="pet-rw-drag__slot-value">
+            {showOptionId ? <><strong>{item.id}</strong> </> : null}
+            {item.label}
+          </span>
+        ) : showEmptyPlaceholder ? (
           <span className="pet-rw-drag__slot-placeholder">…</span>
-        )}
+        ) : null}
       </button>
     </span>
   )
@@ -175,12 +285,20 @@ export default function PetRwPartContent({
   personPhotoPreviewUrl,
 }: Props) {
   const questions = useMemo(() => getPartQuestions(part), [part])
-  const partId = part.id
+  const partId = part.id || `${examId}-part-${part.partNumber}`
   const group = part.questionGroups[0]
   const [openGap, setOpenGap] = useState<number | null>(null)
   const [pickedBankId, setPickedBankId] = useState<string | null>(null)
 
-  const activeQuestion = questions.find(q => q.id === activeQuestionId) ?? questions[0]
+  const activeQuestion = questions.find(q => q.id === activeQuestionId)
+  // Trong development, log rõ khi ID không hợp lệ — không fallback im lặng
+  if (!activeQuestion && import.meta.env.DEV) {
+    console.error('[PET] Active question not found', {
+      activeQuestionId,
+      questionIds: questions.map(q => q.id),
+    })
+  }
+  const renderedQuestion = activeQuestion ?? questions[0]
   const instructionRange = group?.range ?? part.rangeLabel
   const instructionText = group?.instruction ?? ''
 
@@ -225,6 +343,7 @@ export default function PetRwPartContent({
     passageKey: string,
     text: string,
     gapQuestions: ReadingQuestion[],
+    gapVariant: InlineGapTextVariant = 'default',
   ) => {
     const gapNums = gapQuestions.map(q => q.number)
     const prepared = ensureGapDots(text, gapNums)
@@ -240,6 +359,8 @@ export default function PetRwPartContent({
               key={`g-${seg.number}`}
               number={seg.number}
               value={answers[q.id] ?? ''}
+              variant={gapVariant}
+              onFocus={() => onSelectQuestion(q.id)}
               onChange={v => {
                 onSelectQuestion(q.id)
                 onAnswer(q.id, v)
@@ -263,11 +384,22 @@ export default function PetRwPartContent({
     onSelectQuestion(questionId)
   }
 
+  const [part4DragPayload, setPart4DragPayload] = useState<Part4DragPayload | null>(null)
+  const [isPart4BankDropActive, setIsPart4BankDropActive] = useState(false)
+
+  const clearPart4DragState = () => {
+    setPart4DragPayload(null)
+    setIsPart4BankDropActive(false)
+  }
+
   const renderPassageGapDrops = (
     passageKey: string,
     text: string,
     gapQuestions: ReadingQuestion[],
     bank: Array<{ id: string; label: string }>,
+    showOptionId = true,
+    showEmptyPlaceholder = true,
+    isPart4 = false,
   ) => {
     const gapNums = gapQuestions.map(q => q.number)
     const prepared = ensureGapDots(text, gapNums)
@@ -288,6 +420,24 @@ export default function PetRwPartContent({
               pickedId={pickedBankId}
               onAssign={assignGapLetter}
               onSelectQuestion={onSelectQuestion}
+              showOptionId={showOptionId}
+              showEmptyPlaceholder={showEmptyPlaceholder}
+              dragEnabled={isPart4 && !reviewMode}
+              part4Payload={isPart4 ? part4DragPayload : undefined}
+              onFilledDragStart={
+                isPart4
+                  ? (event, { questionId, optionId }) => {
+                      const payload: Part4DragPayload = {
+                        source: 'gap',
+                        optionId,
+                        sourceQuestionId: questionId,
+                      }
+                      setPart4DragPayload(payload)
+                      writePart4DragPayload(event.dataTransfer, payload)
+                    }
+                  : undefined
+              }
+              onFilledDragEnd={isPart4 ? clearPart4DragState : undefined}
             />
           )
         })}
@@ -295,28 +445,35 @@ export default function PetRwPartContent({
     )
   }
 
-  if (part.partNumber === 1 && activeQuestion) {
-    const imgIndex = activeQuestion.number - 1
+  if (part.partNumber === 1 && renderedQuestion) {
+    const imgIndex = renderedQuestion.number - 1
     const signBlock = part.passage[imgIndex]
     return (
       <>
         <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
         <div className="ket-rw-body is-single">
           <div className="ket-rw-pane-full">
-            <PassageImage
-              imageKey={signBlock?.imageKey}
-              imageUrl={signBlock?.imageUrl}
-              alt={`Sign ${activeQuestion.number}`}
-            />
-            <RwMcRadioQuestion
-              partId={partId}
-              question={activeQuestion}
-              answers={answers}
-              onSelectQuestion={onSelectQuestion}
-              onAnswer={onAnswer}
-              reviewMode={reviewMode}
-              reviewStatus={reviewStatusMap?.[activeQuestion.id]}
-            />
+            <section
+              data-testid="pet-rw-active-question"
+              data-question-id={renderedQuestion.id}
+            >
+              <div className="pet-rw-part1-image-frame">
+                <PassageImage
+                  imageKey={signBlock?.imageKey}
+                  imageUrl={signBlock?.imageUrl}
+                  alt={`Sign ${renderedQuestion.number}`}
+                />
+              </div>
+              <RwMcRadioQuestion
+                partId={partId}
+                question={renderedQuestion}
+                answers={answers}
+                onSelectQuestion={onSelectQuestion}
+                onAnswer={onAnswer}
+                reviewMode={reviewMode}
+                reviewStatus={reviewStatusMap?.[renderedQuestion.id]}
+              />
+            </section>
           </div>
         </div>
       </>
@@ -356,43 +513,48 @@ export default function PetRwPartContent({
             </div>
           </div>
         ) : (
-          <div className="ket-rw-body is-single">
-            <div className="ket-rw-pane-full">
-              <PetRwDragMatch
-                partId={partId}
-                slots={questions}
-                bank={bank}
-                answers={answers}
-                activeQuestionId={activeQuestionId}
-                slotImageKey={q => readingExamMediaKey(examId, personImageFileForQuestion(q.number))}
-                slotPhotoPreviewUrl={q => personPhotoPreviewUrl?.(q.number)}
-                allowPhotoUpload={allowPersonPhotoUpload}
-                onPhotoUpload={onPersonPhotoUpload}
-                onAnswer={onAnswer}
-                onSelectQuestion={onSelectQuestion}
-              />
-            </div>
-          </div>
+          <PetRwDragMatch
+            variant="cambridge-part-2"
+            partId={partId}
+            slots={questions}
+            bank={bank}
+            bankTitle={part.passageTitle}
+            answers={answers}
+            activeQuestionId={activeQuestionId}
+            bankOnRight
+            showBankLetters={false}
+            slotImageKey={q => readingExamMediaKey(examId, personImageFileForQuestion(q.number))}
+            slotPhotoPreviewUrl={q => personPhotoPreviewUrl?.(q.number)}
+            allowPhotoUpload={allowPersonPhotoUpload}
+            onPhotoUpload={onPersonPhotoUpload}
+            onAnswer={onAnswer}
+            onSelectQuestion={onSelectQuestion}
+          />
         )}
       </>
     )
   }
 
   if (part.partNumber === 3) {
+    // Ưu tiên subtitle làm heading chính nếu có
+    const displayTitle =
+      part.passageSubtitle?.trim()
+        ? part.passageSubtitle
+        : part.passageTitle ?? ''
+
     return (
       <>
         <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
         <KetRwSplitPane
+          variant="resizable"
+          initialSplitPct={50}
+          splitStorageKey="pet-rw-part3-split-pct"
+          scrollResetKey={partId}
           left={(
             <>
-              <h2 className="ket-rw-passage-title">
-                <RwHighlightText blockId={`${partId}-title`} text={part.passageTitle ?? ''} />
+              <h2 className="pet-rw-part3-title">
+                <RwHighlightText blockId={`${partId}-title`} text={displayTitle} />
               </h2>
-              {part.passageSubtitle && (
-                <p className="ket-rw-passage-subtitle">
-                  <RwHighlightText blockId={`${partId}-subtitle`} text={part.passageSubtitle} />
-                </p>
-              )}
               {getBodyTextBlocks(part.passage).map((block, idx) => (
                 <p key={`p3-${idx}`} className="ket-rw-paragraph">
                   <RwHighlightText blockId={`${partId}-p3-${idx}`} text={block.text ?? ''} />
@@ -420,7 +582,42 @@ export default function PetRwPartContent({
   if (part.partNumber === 4) {
     const pageImage = partHasFullPageImage(part.passage)
     const bank = optionBankFromPassage(part.passage, group!, { partNumber: 4 })
+
+    // Clean title: ưu tiên subtitle, loại bỏ prefix "Part 4 –"
+    const rawTitle =
+      part.passageSubtitle?.trim()
+      || part.passageTitle
+        ?.replace(/^Part\s*4\s*[—–-]\s*/i, '')
+        .trim()
+      || ''
+
+    // Loại bỏ body block đầu nếu trùng title
+    const normalizeComparableText = (value?: string) =>
+      String(value ?? '')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .toLowerCase()
+
     const bodyBlocks = getBodyTextBlocks(part.passage)
+      .filter((block, index) => {
+        if (index !== 0) return true
+        return (
+          normalizeComparableText(block.text)
+          !== normalizeComparableText(rawTitle)
+        )
+      })
+
+    // Options đã dùng biến mất khỏi bank
+    const usedOptionIds = new Set(
+      questions
+        .map(q => answers[q.id]?.toUpperCase())
+        .filter(Boolean),
+    )
+
+    const availableBank = bank.filter(
+      option => !usedOptionIds.has(option.id.toUpperCase()),
+    )
+
     return (
       <>
         <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
@@ -429,73 +626,192 @@ export default function PetRwPartContent({
             <PassageImage imageKey={pageImage.imageKey} imageUrl={pageImage.imageUrl} alt="Part 4" />
           </div>
         ) : (
-          <KetRwSplitPane
-            left={(
-              <>
-                <h2 className="ket-rw-passage-title">
-                  <RwHighlightText blockId={`${partId}-title`} text={part.passageTitle ?? ''} />
-                </h2>
-                {bodyBlocks.map((block, idx) => (
-                  <div key={`p4b-${idx}`} className="ket-rw-paragraph">
-                    {renderPassageGapDrops(`p4b-${idx}`, block.text ?? '', questions, bank)}
-                  </div>
-                ))}
-              </>
-            )}
-            right={(
-              <div className="pet-rw-drag__bank pet-rw-drag__bank--column">
-                {bank.map(option => {
-                  const isUsed = questions.some(
-                    q => answers[q.id]?.toUpperCase() === option.id.toUpperCase(),
-                  )
+          <div className="pet-rw-part4-body">
+            <section className="pet-rw-part4-article">
+              <h2 className="pet-rw-part4-title">
+                <RwHighlightText blockId={`${partId}-title`} text={rawTitle} />
+              </h2>
+
+              {bodyBlocks.map((block, idx) => (
+                <div key={`p4b-${idx}`} className="pet-rw-part4-paragraph">
+                  {renderPassageGapDrops(`p4b-${idx}`, block.text ?? '', questions, bank, false, false, true)}
+                </div>
+              ))}
+            </section>
+
+            <aside
+              className={[
+                'pet-rw-part4-bank',
+                isPart4BankDropActive ? 'is-return-drop-active' : '',
+              ].filter(Boolean).join(' ')}
+              aria-label="Sentence choices"
+              onDragEnter={event => {
+                if (reviewMode) return
+                // .types always readable in dragenter/dragover — don't use getData()
+                if (!event.dataTransfer.types.includes(PART4_GAP_MIME)) return
+                event.preventDefault()
+                setIsPart4BankDropActive(true)
+              }}
+              onDragOver={event => {
+                if (reviewMode) return
+                if (!event.dataTransfer.types.includes(PART4_GAP_MIME)) return
+                event.preventDefault()
+                event.dataTransfer.dropEffect = 'move'
+                setIsPart4BankDropActive(true)
+              }}
+              onDragLeave={event => {
+                const current = event.currentTarget
+                const next = event.relatedTarget as Node | null
+                if (!next || !current.contains(next)) {
+                  setIsPart4BankDropActive(false)
+                }
+              }}
+              onDrop={event => {
+                event.preventDefault()
+                if (reviewMode) {
+                  clearPart4DragState()
+                  return
+                }
+                const payload = readPart4DragPayload(event.dataTransfer)
+                if (!payload || payload.source !== 'gap') {
+                  clearPart4DragState()
+                  return
+                }
+                const currentValue = answers[payload.sourceQuestionId] ?? ''
+                if (currentValue.toLowerCase() !== payload.optionId.toLowerCase()) {
+                  clearPart4DragState()
+                  return
+                }
+                onAnswer(payload.sourceQuestionId, '')
+                onSelectQuestion(payload.sourceQuestionId)
+                setPickedBankId(null)
+                clearPart4DragState()
+              }}
+            >
+              <div className="pet-rw-part4-bank-list">
+                {availableBank.map(option => {
                   const isPicked = pickedBankId === option.id
+                  const isDragging = part4DragPayload?.source === 'bank' && part4DragPayload.optionId === option.id
                   return (
                     <div
                       key={option.id}
-                      className={`pet-rw-drag__bank-card${isUsed ? ' is-used' : ''}${isPicked ? ' is-picked' : ''}`}
+                      className={[
+                        'pet-rw-part4-bank-card',
+                        isPicked ? 'is-picked' : '',
+                        isDragging ? 'is-dragging' : '',
+                      ].filter(Boolean).join(' ')}
                       data-highlight-skip
-                      draggable={!isUsed}
-                      onDragStart={e => {
-                        if (isUsed) return
-                        e.dataTransfer.setData('text/plain', option.id)
+                      draggable={!reviewMode}
+                      onDragStart={event => {
+                        if (reviewMode) {
+                          event.preventDefault()
+                          return
+                        }
+                        const payload: Part4DragPayload = {
+                          source: 'bank',
+                          optionId: option.id,
+                        }
+                        setPart4DragPayload(payload)
+                        writePart4DragPayload(event.dataTransfer, payload)
                       }}
+                      onDragEnd={clearPart4DragState}
                       onClick={() => {
-                        if (isUsed) return
                         setPickedBankId(pickedBankId === option.id ? null : option.id)
                       }}
                       role="button"
-                      tabIndex={isUsed ? -1 : 0}
+                      tabIndex={0}
                     >
-                      <span className="pet-rw-drag__bank-letter">{option.id}</span>
-                      <p className="pet-rw-drag__bank-text">
-                        <RwHighlightText
-                          blockId={`${partId}-bank-${option.id}`}
-                          text={option.label}
-                        />
-                      </p>
+                      <RwHighlightText
+                        blockId={`${partId}-bank-${option.id}`}
+                        text={option.label}
+                      />
                     </div>
                   )
                 })}
               </div>
-            )}
-          />
+            </aside>
+          </div>
         )}
       </>
     )
   }
 
   if (part.partNumber === 5) {
+    const cleanTitle =
+      part.passageSubtitle?.trim()
+      || part.passageTitle
+        ?.replace(/^Part\s*5\s*[—–-]\s*/i, '')
+        .trim()
+      || ''
+
+    const normalizeComparableText = (value?: string) =>
+      String(value ?? '')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .toLowerCase()
+
+    const bodyBlocks = getBodyTextBlocks(part.passage)
+      .filter((block, index) => {
+        if (index !== 0) return true
+        return (
+          normalizeComparableText(block.text)
+          !== normalizeComparableText(cleanTitle)
+        )
+      })
+
+    const renderPart5McGapPassage = (
+      passageKey: string,
+      text: string,
+      gapQuestions: ReadingQuestion[],
+    ) => {
+      const gapNums = gapQuestions.map(q => q.number)
+      const prepared = ensureGapDots(text, gapNums)
+      const segments = splitKetGapText(prepared)
+      return (
+        <p className="pet-rw-part5-inline-passage">
+          {segments.map((seg, i) => {
+            if (seg.kind === 'text') return rwGapTextSegment(partId, passageKey, i, seg.value)
+            const q = questionByNumber(gapQuestions, seg.number)
+            if (!q) return <span key={`g-${i}`}>({seg.number})</span>
+            return (
+              <RwPart5McGap
+                key={`g-${seg.number}`}
+                number={seg.number}
+                question={q}
+                value={answers[q.id] ?? ''}
+                open={openGap === seg.number}
+                disabled={reviewMode}
+                onToggle={() => {
+                  if (!reviewMode) {
+                    onSelectQuestion(q.id)
+                    setOpenGap(openGap === seg.number ? null : seg.number)
+                  }
+                }}
+                onClose={() => setOpenGap(null)}
+                alignRight={[22, 24, 26].includes(seg.number)}
+                onSelect={optionId => {
+                  onSelectQuestion(q.id)
+                  onAnswer(q.id, optionId)
+                  setOpenGap(null)
+                }}
+              />
+            )
+          })}
+        </p>
+      )
+    }
+
     return (
       <>
         <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
-        <div className="ket-rw-body is-single">
-          <div className="ket-rw-pane-full">
-            <h2 className="ket-rw-passage-title">
-              <RwHighlightText blockId={`${partId}-title`} text={part.passageTitle ?? ''} />
+        <div className="pet-rw-part5-body">
+          <div className="pet-rw-part5-content">
+            <h2 className="pet-rw-part5-title">
+              <RwHighlightText blockId={`${partId}-title`} text={cleanTitle} />
             </h2>
-            {getBodyTextBlocks(part.passage).map((block, idx) => (
-              <div key={`p5-${idx}`}>
-                {renderMcGapPassage(`p5-${idx}`, block.text ?? '', questions)}
+            {bodyBlocks.map((block, idx) => (
+              <div key={`p5-${idx}`} className="pet-rw-part5-paragraph">
+                {renderPart5McGapPassage(`p5-${idx}`, block.text ?? '', questions)}
               </div>
             ))}
           </div>
@@ -515,7 +831,7 @@ export default function PetRwPartContent({
             </h2>
             {getBodyTextBlocks(part.passage).map((block, idx) => (
               <div key={`p6-${idx}`} className="ket-rw-paragraph">
-                {renderOpenGapPassage(`p6-${idx}`, block.text ?? '', questions)}
+                {renderOpenGapPassage(`p6-${idx}`, block.text ?? '', questions, 'cambridge-box')}
               </div>
             ))}
           </div>

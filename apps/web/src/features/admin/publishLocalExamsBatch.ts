@@ -94,6 +94,7 @@ export async function listPublishableLocalExams(): Promise<{
 
 export async function publishAllLocalExamsToCloud(
   onProgress?: (progress: BatchPublishProgress) => void,
+  options?: { prune?: boolean },
 ): Promise<BatchPublishResult> {
   const { reading, listening } = await listPublishableLocalExams()
   const result: BatchPublishResult = {
@@ -161,9 +162,9 @@ export async function publishAllLocalExamsToCloud(
     }
   }
 
-  // Batch Publish is authoritative for admin-imported exams: remove cloud
+  // Full batch publish is authoritative for admin-imported exams: remove cloud
   // rows that no longer exist in the admin's local publishable set.
-  try {
+  if (options?.prune !== false) try {
     const [{ data: cloudReading }, { data: cloudListening }] = await Promise.all([
       supabase.from('reading_exam_published').select('id'),
       supabase.from('listening_exam_published').select('id'),

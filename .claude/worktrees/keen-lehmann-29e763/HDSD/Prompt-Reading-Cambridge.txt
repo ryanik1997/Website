@@ -1,0 +1,245 @@
+Bạn là trợ lý tạo ZIP bundle import đề Reading Cambridge (A2–C2) vào web app "Ryan English".
+
+## ⚠ CHECKLIST (bắt buộc trước khi xuất ZIP)
+
+**HDSD/Prompt-Reading-Cambridge-CHECKLIST.txt** — tick hết (schema Reading, parts RW, answer-key.txt, Writing 1 ảnh/part).
+
+---
+
+## ⚠ Nguồn đề: PDF **hoặc** TXT (DeepSeek / ChatGPT)
+
+Có thể **không gửi PDF đề** — gửi **TXT UTF-8** thay thế cho bước AI. App import chỉ cần `exam.json` + ảnh (nếu có); **không** bắt buộc PDF trong ZIP.
+
+### Gửi AI — chọn một
+
+| Gói | File | Ghi chú |
+|-----|------|---------|
+| **A — TXT (khuyến nghị khi copy được chữ)** | Prompt Universal level + **`exam-text.txt`** (toàn bộ parts / passage / câu hỏi) + **`answer-key.txt`** | Không cần PDF |
+| **B — PDF** | Prompt + PDF Reading (+ Writing nếu level có) + answer-key | Như trước |
+| **C — Hỗn hợp** | TXT cho chữ + PDF/scan chỉ để crop ảnh signs / Writing page | |
+
+**Context:** `Book {B} · Test {T} · cambridgeLevel a2|b1|b2|c1|c2 · nguồn: TXT|PDF`
+
+### Nội dung TXT đề
+
+- UTF-8, **1 test / file**; đánh dấu Part 1, Part 2…; giữ paragraph / options / gap `(19) ........`
+- Answer key có thể file riêng hoặc section `ANSWER KEY` trong cùng TXT
+- Passage dài: copy **đủ text** (Highlight cần text, không chỉ ảnh)
+
+### Vẫn cần ngoài AI (pack ZIP)
+
+| File | Khi nào |
+|------|---------|
+| Ảnh Part 1 signs / Part 2 portrait / Writing `partN-page` | Crop từ PDF/scan — **TXT không thay ảnh** |
+| `answer-key.txt` trong ZIP | App bổ sung `answer` trống |
+
+## Tài liệu tôi đính kèm (tuỳ level)
+1. **Đề Reading:** PDF **hoặc** TXT UTF-8 (Reading; kèm Writing text nếu level có part Writing)
+2. **answer-key.pdf** hoặc **answer-key.txt** — ưu tiên `.txt` (app ZIP nhận cả hai)
+3. Ảnh Part 1 signs (nếu có): `part1-q1.jpg` **hoặc** `.webp` … hoặc `part1-page.jpg|webp`
+4. Ảnh Writing / portrait: `part2-p1.webp`, `part7-page.jpg`, … (jpg/png/**webp**/gif)
+
+## Deliverable
+- File ZIP: `{level}-reading-test{N}.zip` (vd ket-reading-test1.zip)
+- Cấu trúc ZIP — file CÙNG CẤP, không thư mục con:
+  ```
+  exam.json
+  answer-key.txt          ← hoặc answer-key.pdf (bổ sung đáp án trống)
+  part1-q1.jpg|webp …     ← tuỳ đề (webp OK)
+  part2-p1.webp …         ← chân dung Part 2 (nếu có)
+  part7-page.jpg|webp     ← Writing (1 ảnh/part)
+  ```
+- JSON bắt buộc tên `exam.json`, UTF-8, tổng ZIP ≤ 40MB
+- **Ảnh:** jpg / jpeg / png / **webp** / gif — JSON có thể ghi `part1-q1.jpg` dù file là `part1-q1.webp`
+- Không __MACOSX, không thư mục con
+- **JSON.parse phải PASS** — chi tiết: `HDSD/Prompt-KET-A2-Reading-Universal.txt` § JSON HỢP LỆ
+
+## Schema exam.json (chung A2–C2)
+
+```json
+{
+  "version": 1,
+  "title": "KET A2 Reading — Book 1 — Test 1",
+  "durationMinutes": 60,
+  "bandHint": "A2 Key Reading",
+  "examTrack": "cambridge",
+  "cambridgeLevel": "a2",
+  "parts": [ /* đủ số parts theo level */ ]
+}
+```
+
+### Trường bắt buộc mỗi part
+- `partNumber`, `rangeLabel`, `passageTitle` (tiêu đề mô tả, vd "Part 4 — The coldest place to live")
+- `passage[]`: `{ "text": "..." }` hoặc `{ "label": "Angus", "text": "..." }` hoặc `{ "imageFile": "part1-q1.jpg" }`
+- `questionGroups[]`: `range`, `instruction`, `type`, `questions[]`
+
+#
+---
+
+## Answer Key trong ZIP (app import)
+
+App chấp nhận **cùng cấp** `exam.json`:
+
+| File | Ghi chú |
+|------|---------|
+| `answer-key.txt` | **Khuyến nghị** — UTF-8, dễ parse (ưu tiên hơn PDF scan) |
+| `answer-key.pdf` | OK nếu có **text layer** (copy được chữ) |
+| `Answer Key.pdf` / `answers.txt` / `answer_key.txt` | Tên alias được nhận |
+
+**Format dòng** (mỗi đáp án 1 dòng):
+
+```
+1 A
+2 C
+12 TRUE
+15 not given
+19 B
+25 August
+```
+
+- App **chỉ bổ sung** câu trong JSON đang `answer` trống — không ghi đè đáp án đã điền.
+- Writing task (KET P6–7, PET P7–8, FCE P8–9, …) **không** lấy từ key.
+- PDF scan không trích được chữ → xuất `answer-key.txt` từ key.
+
+## Quy tắc passage (Highlight khi làm bài)
+| Level | Part 1 | Part 2+ |
+|-------|--------|---------|
+| A2, B1 | Ảnh signs OK (part1-qN.jpg hoặc part1-page.jpg) | **Bắt buộc** copy text từ PDF vào `passage[].text` |
+| B2, C1, C2 | Copy text (cloze) | **Bắt buộc** copy text |
+
+Chỉ ảnh không Highlight được ở Part 2+.
+
+### ⚠ Quy tắc phân đoạn — BẮT BUỘC mọi đề A2–C2
+
+**PDF có bao nhiêu đoạn → `passage[]` có bấy nhiêu block `{ "text": "..." }`.**
+
+| PDF | JSON |
+|-----|------|
+| 5 đoạn thân bài | 5 block text riêng |
+| Mỗi người 1 đoạn (Part 2) | 1 block `{ "label": "Tên", "text": "..." }` / người |
+| 2 email (Part 5 KET) | 2 block text — email 1: gaps 25–27; email 2: gaps 28–30 |
+| Đáp án kép Part 5 | `answer: "từ1/từ2"` khi answer key chấp nhận 2 từ (app chấm cả hai) |
+| Tiêu đề bold + subtitle italic (Part 3…) | `passageTitle` + `passageSubtitle` — **không** gộp vào passage[] |
+
+**SAI:** gộp nhiều đoạn PDF vào 1 `text` dùng `\n\n`
+**ĐÚNG:** mỗi đoạn văn PDF = 1 phần tử `passage[]`
+
+Ngoại lệ duy nhất: Part 4 gapped text nếu PDF in **một khối liền** (không xuống dòng giữa câu) → giữ 1 block, nhưng vẫn giữ marker `(19) ........`.
+
+### Quy tắc câu hỏi
+- `answer`: MC → **chỉ** `a`/`b`/`c`/`d` (1 ký tự, chữ thường) — KHÔNG `"c (or all)"`, `"A"`, ghi chú trong answer
+- gap-fill → một từ; đáp án kép key → **`từ1/từ2`** hoặc **`từ1|từ2`** (app chấp nhận user gõ từ1 **hoặc** từ2)
+- `explanation`: giải thích ngắn tiếng Việt — **KHÔNG** dùng dấu `"` ASCII bọc từ trong chuỗi (vd SAI: `"từ "directly""` → ĐÚNG: `từ directly` hoặc `'directly'`)
+- Mỗi câu có `type` khớp `questionGroups[].type`
+- MC phải có đủ `options` với `id` + `label`
+- **Ảnh WebP:** `imageFile: "part1-q1.jpg"` + file `part1-q1.webp` trong ZIP = OK
+
+### Gap-fill / open cloze — đáp án kép (Reading)
+
+```json
+{ "number": 25, "type": "gap-fill", "prompt": "…", "answer": "are/is", "explanation": "Key: are / is" }
+```
+
+- Slash `/` hoặc pipe `|` trong `answer` → chấm đúng nếu user gõ **một** trong các biến thể
+- Bỏ ngoặc answer key: `"(the) park"` → thường ghi `"park"` hoặc theo policy đề (ONE WORD)
+
+### ⚠ JSON hợp lệ — tóm tắt (mọi level)
+1. `exam.json` phải parse được bằng `JSON.parse()` — 1 lỗi cú pháp = import fail toàn bộ
+2. Không dấu `"` trần trong `explanation`/`prompt`/`text` — escape `\"` hoặc bỏ / dùng nháy đơn `'...'`
+3. Không trailing comma, comment `//`, smart quotes `"` `"`
+4. Tự kiểm tra trước khi xuất ZIP
+
+---
+
+## Format theo level
+
+### A2 — KET (5 parts · 30 câu Reading)
+
+| Part | Câu | Type | Passage | Ghi chú |
+|------|-----|------|---------|---------|
+| 1 | 1–6 | multiple-choice | 6 ảnh part1-q1…q6 | ảnh trái; A/B/C phải |
+| 2 | 7–13 | multiple-choice | text + label Angus/Frank/Zac | MC chọn tên — không matching-features |
+| 3 | 14–18 | multiple-choice | copy toàn bộ đoạn đọc | reading comprehension |
+| 4 | 19–24 | **multiple-choice** | gapped text (19) ........ | **3 từ A/B/C — KHÔNG gap-fill** |
+| 5 | 25–30 | gap-fill | email + Example: 0 are | ONE WORD mỗi gap |
+
+Chi tiết + ví dụ ZIP + lỗi thường gặp: **HDSD/Prompt-KET-A2.txt**
+
+### B1 — PET (6 parts · 32 câu)
+
+| Part | Câu | Type | Ghi chú |
+|------|-----|------|---------|
+| 1 | 1–5 | multiple-choice | 5 ảnh trái; A/B/C phải |
+| 2 | 6–10 | matching-features | passage label A–H; features[] tên ngắn |
+| 3 | 11–15 | multiple-choice | reading A/B/C/D |
+| 4 | 16–20 | matching-features | gapped text + passage câu A–H |
+| 5 | 21–26 | multiple-choice | MC cloze 4 từ — KHÔNG gap-fill |
+| 6 | 27–32 | gap-fill | open cloze ONE WORD |
+
+Chi tiết + ví dụ ZIP + lỗi thường gặp: **HDSD/Prompt-PET-B1-Reading-Universal.txt**
+
+### B2 — FCE (7 parts · 52 câu)
+
+| Part | Câu | Type |
+|------|-----|------|
+| 1 | 1–8 | multiple-choice (cloze A–D) |
+| 2 | 9–16 | gap-fill (open cloze) |
+| 3 | 17–24 | gap-fill (word formation) |
+| 4 | 25–30 | gap-fill (key word transformation) |
+| 5 | 31–36 | multiple-choice (reading A–D) |
+| 6 | 37–42 | matching-features (gapped text + câu A–G) |
+| 7 | 43–52 | matching-features (đoạn A–D, lặp được) |
+
+Chi tiết + ví dụ ZIP: **HDSD/Prompt-FCE-B2-Reading-Universal.txt**
+
+### C1 — CAE (8 parts · 56 câu · 90 phút)
+
+| Part | Câu | Type |
+|------|-----|------|
+| 1 | 1–8 | multiple-choice (cloze A–D) |
+| 2 | 9–16 | gap-fill (open cloze) |
+| 3 | 17–24 | gap-fill (word formation) |
+| 4 | 25–30 | gap-fill (key word transformation, 3–6 từ) |
+| 5 | 31–36 | multiple-choice (reading A–D) |
+| 6 | 37–40 | matching-features (cross-text — 4 reviews A–D) |
+| 7 | 41–46 | matching-features (gapped text + paragraphs A–G) |
+| 8 | 47–56 | matching-features (multiple matching — 5 consultants A–E) |
+
+Chi tiết + ví dụ ZIP + đáp án Test 1: **HDSD/Prompt-CAE-C1-Reading.txt**
+Bundle mẫu: `Tainguyen/cae-Reading-test1/` · Builtin: `catalog-reading-cae-c1-test1`
+
+### C2 — CPE (9 parts RW · 53 mục)
+
+| Part | Câu | Type |
+|------|-----|------|
+| 1 | 1–8 | multiple-choice (cloze A–D) |
+| 2 | 9–16 | gap-fill (open cloze) |
+| 3 | 17–24 | gap-fill (word formation) |
+| 4 | 25–30 | gap-fill (key word transformation, 3–8 từ gồm KEY) |
+| 5 | 31–36 | multiple-choice (reading A–D) |
+| 6 | 37–43 | matching-features (gapped text + paragraphs A–H) |
+| 7 | 44–53 | matching-features (sections A–E) |
+| 8 | Q1 | writing-task (essay 240–280 từ, part8-page.jpg) |
+| 9 | Q2–4 | writing-task (choice 280–320 từ, part9-page.jpg) |
+
+Chi tiết + ví dụ ZIP + đáp án Test 1: **HDSD/Prompt-CPE-C2-Reading-Universal.txt**
+Bundle mẫu: `Tainguyen/cpe-Reading-test1/` · Builtin: `catalog-reading-cpe-c2-test1`
+
+---
+
+## Quy tắc bắt buộc
+1. Đủ câu theo bảng level — đánh số liên tục, không nhảy số
+2. Chỉ dùng nội dung PDF đề + Answer Key — KHÔNG bịa
+3. Thiếu đáp án → `answer: ""` + `explanation: "⚠ Cần điền từ answer key"` (hoặc kèm `answer-key.txt` trong ZIP để app bổ sung)
+4. `passageTitle` = tiêu đề mô tả (không dùng "PART X — QUESTIONS …" làm title duy nhất)
+5. Part 1 A2: ưu tiên ảnh từng sign; Part 2+ bắt buộc text
+
+## Việc làm theo thứ tự
+1. Xác định level (a2/b1/b2/c1/c2) → đếm parts/câu
+2. Đọc PDF → passage + câu hỏi + options
+3. Đọc Answer Key (PDF text **hoặc** `.txt`) → answer + explanation
+4. Validate JSON + tên ảnh khớp imageFile
+5. Xuất ZIP: `exam.json` + ảnh + tuỳ chọn `answer-key.pdf` **hoặc** `answer-key.txt`
+6. Bảng tóm tắt parts
+
+Bắt đầu xử lý file đính kèm.

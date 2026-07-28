@@ -1,0 +1,1373 @@
+{
+  "id": "catalog-listening-ielts-cam9-test3",
+  "title": "IELTS Listening — Cambridge 9 Test 3",
+  "durationMinutes": 30,
+  "bandHint": "IELTS · Cambridge 9 · Test 3 · 4 parts · 40 câu",
+  "examType": "ielts",
+  "examMode": "practice",
+  "parts": [
+    {
+      "id": "catalog-listening-ielts-cam9-test3-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–10",
+      "instruction": "Complete the table below. Write ONE WORD AND/OR A NUMBER for each answer.",
+      "audioUrl": "/catalog/listening/ielts-cam9-test3/listening.mp3",
+      "questions": [
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-1",
+          "number": 1,
+          "type": "gap-fill",
+          "prompt": "Distance from beach:",
+          "options": [],
+          "answer": "300",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "just",
+          "gapTrail": "metres from beach",
+          "sectionRange": "Questions 1 – 5",
+          "sectionInstruction": "Complete the table below. Write ONE WORD AND/OR A NUMBER for each answer."
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-2",
+          "number": 2,
+          "type": "gap-fill",
+          "prompt": "Facility:",
+          "options": [],
+          "answer": "sunshade",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-3",
+          "number": 3,
+          "type": "gap-fill",
+          "prompt": "Facility:",
+          "options": [],
+          "answer": "balcony",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-4",
+          "number": 4,
+          "type": "gap-fill",
+          "prompt": "Overlooking:",
+          "options": [],
+          "answer": "forest",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "overlooking"
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-5",
+          "number": 5,
+          "type": "gap-fill",
+          "prompt": "Cost:",
+          "options": [],
+          "answer": "319",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "£"
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-6",
+          "number": 6,
+          "type": "gap-fill",
+          "prompt": "Cancellation cover:",
+          "options": [],
+          "answer": "10000",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "£",
+          "sectionRange": "Questions 6 – 10",
+          "sectionInstruction": "Complete the table below. Write ONE WORD AND/OR A NUMBER for each answer.",
+          "sectionTitle": "GREEK ISLAND HOLIDAYS — Insurance Benefits"
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-7",
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "Additional benefit:",
+          "options": [],
+          "answer": "relative",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "allows a",
+          "gapTrail": "to travel to resort"
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-8",
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "Missed departure:",
+          "options": [],
+          "answer": "missed",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-9",
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "Personal belongings:",
+          "options": [],
+          "answer": "item",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "£500 for one"
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-10",
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "Assistant Manager:",
+          "options": [],
+          "answer": "ludlow",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "Ben"
+        }
+      ],
+      "passageTitle": "Greek Island Holidays",
+      "notePassageLayout": "table",
+      "noteTables": [
+        {
+          "gapNumbers": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "instruction": "Questions 1 – 5\nComplete the table below. Write ONE WORD AND/OR A NUMBER for each answer.",
+          "headers": [
+            "Apartments",
+            "Facilities",
+            "Other Information",
+            "Cost"
+          ],
+          "rows": [
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Rose Garden Apartments"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "studio flat"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "entertainment programme: Greek dancing"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "£219"
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Blue Bay Apartments"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "large salt-water swimming pool"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "just "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 1
+                  },
+                  {
+                    "type": "static",
+                    "text": " metres from beach"
+                  },
+                  {
+                    "type": "break"
+                  },
+                  {
+                    "type": "static",
+                    "text": "near shops"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "£275"
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "2 "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 2
+                  },
+                  {
+                    "type": "static",
+                    "text": " Apartments"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "terrace"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "watersports"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "£490"
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "The Grand"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Greek paintings"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "overlooking "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 4
+                  },
+                  {
+                    "type": "break"
+                  },
+                  {
+                    "type": "static",
+                    "text": "near a supermarket and a disco"
+                  },
+                  {
+                    "type": "break"
+                  },
+                  {
+                    "type": "gap",
+                    "number": 3
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "5 £"
+                  },
+                  {
+                    "type": "gap",
+                    "number": 5
+                  }
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "gapNumbers": [
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "instruction": "Questions 6 – 10\nComplete the table below. Write ONE WORD AND/OR A NUMBER for each answer.",
+          "sectionTitle": "Insurance Benefits",
+          "headers": [
+            "",
+            "Maximum Amount"
+          ],
+          "rows": [
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Cancellation"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "6 £"
+                  },
+                  {
+                    "type": "gap",
+                    "number": 6
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Hospital"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "£600. Additional benefit allows a "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 7
+                  },
+                  {
+                    "type": "static",
+                    "text": " to travel to resort"
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "gap",
+                    "number": 8
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Up to £1000. Depends on reason"
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Personal belongings"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Up to £3000; £500 for one "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 9
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Name of Assistant Manager: Ben "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 10
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Direct phone line: 081260 543216"
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-ielts-cam9-test3-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 11–20",
+      "instruction": "Questions 11–13: Choose A, B or C. Questions 14–18: matching A–H. Questions 19–20: Complete the table.",
+      "audioUrl": "/catalog/listening/ielts-cam9-test3/listening.mp3",
+      "questions": [
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-11",
+          "number": 11,
+          "type": "multiple-choice",
+          "prompt": "Simon's idea for a theme park came from",
+          "options": [
+            {
+              "id": "A",
+              "label": "his childhood hobby"
+            },
+            {
+              "id": "B",
+              "label": "his interest in landscape design"
+            },
+            {
+              "id": "C",
+              "label": "his visit to another park"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio.",
+          "sectionRange": "Questions 11 – 13",
+          "sectionInstruction": "Choose the correct letter A, B or C."
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-12",
+          "number": 12,
+          "type": "multiple-choice",
+          "prompt": "When they started, the family decided to open the park only when",
+          "options": [
+            {
+              "id": "A",
+              "label": "the weather was expected to be good"
+            },
+            {
+              "id": "B",
+              "label": "the children weren't at school"
+            },
+            {
+              "id": "C",
+              "label": "there were fewer farming commitments"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-13",
+          "number": 13,
+          "type": "multiple-choice",
+          "prompt": "Since opening, the park has had",
+          "options": [
+            {
+              "id": "A",
+              "label": "50,000 visitors"
+            },
+            {
+              "id": "B",
+              "label": "1,000,000 visitors"
+            },
+            {
+              "id": "C",
+              "label": "1,500,000 visitors"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-14",
+          "number": 14,
+          "type": "matching",
+          "prompt": "Simon",
+          "options": [
+            {
+              "id": "A",
+              "label": "advertising"
+            },
+            {
+              "id": "B",
+              "label": "animal care"
+            },
+            {
+              "id": "C",
+              "label": "building"
+            },
+            {
+              "id": "D",
+              "label": "educational links"
+            },
+            {
+              "id": "E",
+              "label": "engine maintenance"
+            },
+            {
+              "id": "F",
+              "label": "food and drink"
+            },
+            {
+              "id": "G",
+              "label": "sales"
+            },
+            {
+              "id": "H",
+              "label": "staffing"
+            }
+          ],
+          "answer": "E",
+          "explanation": "",
+          "sectionRange": "Questions 14 – 18",
+          "sectionInstruction": "What is currently the main area of work of each of the following people? Choose FIVE answers from the box and write the correct letter A–H next to questions 14–18.",
+          "sectionTitle": "AREA OF WORK"
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-15",
+          "number": 15,
+          "type": "matching",
+          "prompt": "Liz",
+          "options": [
+            {
+              "id": "A",
+              "label": "advertising"
+            },
+            {
+              "id": "B",
+              "label": "animal care"
+            },
+            {
+              "id": "C",
+              "label": "building"
+            },
+            {
+              "id": "D",
+              "label": "educational links"
+            },
+            {
+              "id": "E",
+              "label": "engine maintenance"
+            },
+            {
+              "id": "F",
+              "label": "food and drink"
+            },
+            {
+              "id": "G",
+              "label": "sales"
+            },
+            {
+              "id": "H",
+              "label": "staffing"
+            }
+          ],
+          "answer": "H",
+          "explanation": ""
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-16",
+          "number": 16,
+          "type": "matching",
+          "prompt": "Sarah",
+          "options": [
+            {
+              "id": "A",
+              "label": "advertising"
+            },
+            {
+              "id": "B",
+              "label": "animal care"
+            },
+            {
+              "id": "C",
+              "label": "building"
+            },
+            {
+              "id": "D",
+              "label": "educational links"
+            },
+            {
+              "id": "E",
+              "label": "engine maintenance"
+            },
+            {
+              "id": "F",
+              "label": "food and drink"
+            },
+            {
+              "id": "G",
+              "label": "sales"
+            },
+            {
+              "id": "H",
+              "label": "staffing"
+            }
+          ],
+          "answer": "F",
+          "explanation": ""
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-17",
+          "number": 17,
+          "type": "matching",
+          "prompt": "Duncan",
+          "options": [
+            {
+              "id": "A",
+              "label": "advertising"
+            },
+            {
+              "id": "B",
+              "label": "animal care"
+            },
+            {
+              "id": "C",
+              "label": "building"
+            },
+            {
+              "id": "D",
+              "label": "educational links"
+            },
+            {
+              "id": "E",
+              "label": "engine maintenance"
+            },
+            {
+              "id": "F",
+              "label": "food and drink"
+            },
+            {
+              "id": "G",
+              "label": "sales"
+            },
+            {
+              "id": "H",
+              "label": "staffing"
+            }
+          ],
+          "answer": "C",
+          "explanation": ""
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-18",
+          "number": 18,
+          "type": "matching",
+          "prompt": "Judith",
+          "options": [
+            {
+              "id": "A",
+              "label": "advertising"
+            },
+            {
+              "id": "B",
+              "label": "animal care"
+            },
+            {
+              "id": "C",
+              "label": "building"
+            },
+            {
+              "id": "D",
+              "label": "educational links"
+            },
+            {
+              "id": "E",
+              "label": "engine maintenance"
+            },
+            {
+              "id": "F",
+              "label": "food and drink"
+            },
+            {
+              "id": "G",
+              "label": "sales"
+            },
+            {
+              "id": "H",
+              "label": "staffing"
+            }
+          ],
+          "answer": "G",
+          "explanation": ""
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-19",
+          "number": 19,
+          "type": "gap-fill",
+          "prompt": "Target age group (Railway):",
+          "options": [],
+          "answer": "120",
+          "explanation": "",
+          "wordLimit": 2
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-20",
+          "number": 20,
+          "type": "gap-fill",
+          "prompt": "Go-kart size:",
+          "options": [],
+          "answer": "5 to 12",
+          "explanation": "",
+          "wordLimit": 1
+        }
+      ],
+      "notePassageLayout": "table",
+      "noteTables": [
+        {
+          "gapNumbers": [
+            19,
+            20
+          ],
+          "instruction": "Questions 19 – 20\nComplete the table below. Write ONE WORD AND/OR A NUMBER for each answer.",
+          "headers": [
+            "Feature",
+            "Size",
+            "Biggest challenge",
+            "Target age group"
+          ],
+          "rows": [
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Railway"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "1.2 km"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Making tunnels"
+                  }
+                ],
+                [
+                  {
+                    "type": "gap",
+                    "number": 19
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Go-kart arena"
+                  }
+                ],
+                [
+                  {
+                    "type": "gap",
+                    "number": 20
+                  },
+                  {
+                    "type": "static",
+                    "text": " sq.m."
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Removing mounds on the track"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "… years old"
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-ielts-cam9-test3-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 21–30",
+      "instruction": "Complete the notes and table. Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
+      "audioUrl": "/catalog/listening/ielts-cam9-test3/listening.mp3",
+      "questions": [
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-21",
+          "number": 21,
+          "type": "gap-fill",
+          "prompt": "Dissertation topic:",
+          "options": [],
+          "answer": "fishing industry",
+          "explanation": "",
+          "wordLimit": 2
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-22",
+          "number": 22,
+          "type": "gap-fill",
+          "prompt": "Strength:",
+          "options": [],
+          "answer": "statistics",
+          "explanation": "",
+          "wordLimit": 2
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-23",
+          "number": 23,
+          "type": "gap-fill",
+          "prompt": "Weakness:",
+          "options": [],
+          "answer": "note-taking",
+          "explanation": "",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-24",
+          "number": 24,
+          "type": "gap-fill",
+          "prompt": "Benefit:",
+          "options": [],
+          "answer": "confidence",
+          "explanation": "",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-25",
+          "number": 25,
+          "type": "gap-fill",
+          "prompt": "Problem:",
+          "options": [],
+          "answer": "ideas",
+          "explanation": "",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-26",
+          "number": 26,
+          "type": "gap-fill",
+          "prompt": "Service:",
+          "options": [],
+          "answer": "student support",
+          "explanation": "",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-27",
+          "number": 27,
+          "type": "gap-fill",
+          "prompt": "Limited:",
+          "options": [],
+          "answer": "places",
+          "explanation": "",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-28",
+          "number": 28,
+          "type": "gap-fill",
+          "prompt": "Too:",
+          "options": [],
+          "answer": "general",
+          "explanation": "",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-29",
+          "number": 29,
+          "type": "gap-fill",
+          "prompt": "Read notes:",
+          "options": [],
+          "answer": "3 times",
+          "explanation": "",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-30",
+          "number": 30,
+          "type": "gap-fill",
+          "prompt": "Tutorial date:",
+          "options": [],
+          "answer": "25",
+          "explanation": "",
+          "wordLimit": 1
+        }
+      ],
+      "noteTables": [
+        {
+          "gapNumbers": [
+            24,
+            25,
+            26,
+            27,
+            28
+          ],
+          "instruction": "Complete the table below. Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
+          "title": "Study Strategies",
+          "headers": [
+            "Possible strategy",
+            "Benefits",
+            "Problems"
+          ],
+          "rows": [
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "peer group discussion"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "increases"
+                  },
+                  {
+                    "type": "gap",
+                    "number": 24
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "dissertations tend to contain the same"
+                  },
+                  {
+                    "type": "gap",
+                    "number": 25
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "use the"
+                  },
+                  {
+                    "type": "gap",
+                    "number": 26
+                  },
+                  {
+                    "type": "static",
+                    "text": "service"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "provides structured programme"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "limited"
+                  },
+                  {
+                    "type": "gap",
+                    "number": 27
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "consult study skills books"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "are a good source of reference"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "can be too"
+                  },
+                  {
+                    "type": "gap",
+                    "number": 28
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "notePassageSections": [
+        {
+          "gapNumbers": [
+            21,
+            22,
+            23
+          ],
+          "instruction": "Complete the notes below. Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
+          "title": "Study Skills Tutorial – Caroline Benning",
+          "blocks": [
+            {
+              "type": "static",
+              "text": "Dissertation topic: the"
+            },
+            {
+              "type": "gap",
+              "number": 21
+            },
+            {
+              "type": "section",
+              "text": "Strengths:"
+            },
+            {
+              "type": "gap",
+              "number": 22
+            },
+            {
+              "type": "static",
+              "text": "computer modelling"
+            },
+            {
+              "type": "section",
+              "text": "Weaknesses:"
+            },
+            {
+              "type": "static",
+              "text": "lack of background information"
+            },
+            {
+              "type": "static",
+              "text": "poor"
+            },
+            {
+              "type": "gap",
+              "number": 23
+            },
+            {
+              "type": "static",
+              "text": "skills"
+            }
+          ]
+        },
+        {
+          "gapNumbers": [
+            29,
+            30
+          ],
+          "instruction": "Complete the notes below. Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
+          "blocks": [
+            {
+              "type": "section",
+              "text": "Recommendations:"
+            },
+            {
+              "type": "static",
+              "text": "use a card index"
+            },
+            {
+              "type": "static",
+              "text": "read all notes"
+            },
+            {
+              "type": "gap",
+              "number": 29
+            },
+            {
+              "type": "static",
+              "text": "Next tutorial date:"
+            },
+            {
+              "type": "gap",
+              "number": 30
+            },
+            {
+              "type": "static",
+              "text": "January"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-ielts-cam9-test3-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 31–40",
+      "instruction": "Questions 31–32: Choose A, B or C. Questions 33–40: Complete the notes. Write ONE WORD AND/OR A NUMBER for each answer.",
+      "audioUrl": "/catalog/listening/ielts-cam9-test3/listening.mp3",
+      "questions": [
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-31",
+          "number": 31,
+          "type": "multiple-choice",
+          "prompt": "The owners of the underground house",
+          "options": [
+            {
+              "id": "A",
+              "label": "had no experience of living in a rural area"
+            },
+            {
+              "id": "B",
+              "label": "were interested in environmental issues"
+            },
+            {
+              "id": "C",
+              "label": "wanted a professional project manager"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Chọn theo audio.",
+          "sectionRange": "Questions 31 – 32",
+          "sectionInstruction": "Choose the correct letter A, B or C."
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-32",
+          "number": 32,
+          "type": "multiple-choice",
+          "prompt": "What does the speaker say about the site of the house?",
+          "options": [
+            {
+              "id": "A",
+              "label": "The land was quite cheap"
+            },
+            {
+              "id": "B",
+              "label": "Stone was being extracted nearby"
+            },
+            {
+              "id": "C",
+              "label": "It was in a completely unspoilt area"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-33",
+          "number": 33,
+          "type": "gap-fill",
+          "prompt": "Constructed of two layers of:",
+          "options": [],
+          "answer": "glass",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "sectionRange": "Questions 33 – 40",
+          "sectionInstruction": "Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer."
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-34",
+          "number": 34,
+          "type": "gap-fill",
+          "prompt": "Improve the:",
+          "options": [],
+          "answer": "insulation",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-35",
+          "number": 35,
+          "type": "gap-fill",
+          "prompt": "Internal mirrors and:",
+          "options": [],
+          "answer": "windows",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-36",
+          "number": 36,
+          "type": "gap-fill",
+          "prompt": "Produce more:",
+          "options": [],
+          "answer": "electricity",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-37",
+          "number": 37,
+          "type": "gap-fill",
+          "prompt": "Recycled wood for the:",
+          "options": [],
+          "answer": "floor",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-38",
+          "number": 38,
+          "type": "gap-fill",
+          "prompt": "Processing domestic:",
+          "options": [],
+          "answer": "waste",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-39",
+          "number": 39,
+          "type": "gap-fill",
+          "prompt": "Large quantities of:",
+          "options": [],
+          "answer": "concrete",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test3-q-40",
+          "number": 40,
+          "type": "gap-fill",
+          "prompt": "Within:",
+          "options": [],
+          "answer": "15 years",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 2
+        }
+      ],
+      "passageTitle": "The Underground House",
+      "notePassage": [
+        {
+          "type": "section",
+          "text": "Design"
+        },
+        {
+          "type": "static",
+          "text": "• Built in the earth, with two floors"
+        },
+        {
+          "type": "static",
+          "text": "• The south-facing side was constructed of two layers of"
+        },
+        {
+          "type": "gap",
+          "number": 33
+        },
+        {
+          "type": "static",
+          "text": "• Photovoltaic tiles were attached"
+        },
+        {
+          "type": "static",
+          "text": "• A layer of foam was used to improve the"
+        },
+        {
+          "type": "gap",
+          "number": 34
+        },
+        {
+          "type": "static",
+          "text": "of the building"
+        },
+        {
+          "type": "section",
+          "text": "Special features"
+        },
+        {
+          "type": "static",
+          "text": "• To increase the light, the building has many internal mirrors and"
+        },
+        {
+          "type": "gap",
+          "number": 35
+        },
+        {
+          "type": "static",
+          "text": "• In future, the house may produce more"
+        },
+        {
+          "type": "gap",
+          "number": 36
+        },
+        {
+          "type": "static",
+          "text": "than it needs"
+        },
+        {
+          "type": "static",
+          "text": "• Recycled wood was used for the"
+        },
+        {
+          "type": "gap",
+          "number": 37
+        },
+        {
+          "type": "static",
+          "text": "of the house"
+        },
+        {
+          "type": "static",
+          "text": "• The system for processing domestic"
+        },
+        {
+          "type": "gap",
+          "number": 38
+        },
+        {
+          "type": "static",
+          "text": "is organic"
+        },
+        {
+          "type": "section",
+          "text": "Environmental issues"
+        },
+        {
+          "type": "static",
+          "text": "• The use of large quantities of"
+        },
+        {
+          "type": "gap",
+          "number": 39
+        },
+        {
+          "type": "static",
+          "text": "in construction was environmentally harmful"
+        },
+        {
+          "type": "static",
+          "text": "• But the house will have paid its 'environmental debt' within"
+        },
+        {
+          "type": "gap",
+          "number": 40
+        }
+      ],
+      "notePassageLayout": "lecture"
+    }
+  ],
+  "catalogSlug": "ielts-cam9-test3",
+  "catalogBase": "/catalog/listening/ielts-cam9-test3"
+}

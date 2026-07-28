@@ -15,7 +15,7 @@ import { existsSync, readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-const PROJECT_REF = 'ntcagvtkwxwsmlxlumfo'
+const PROJECT_REF = 'afryrzlcmieedcndyeug'
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 
 /** Load .env.deploy if present (not committed). */

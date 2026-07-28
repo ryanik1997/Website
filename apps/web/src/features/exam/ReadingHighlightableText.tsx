@@ -35,7 +35,9 @@ export default function ReadingHighlightableText({
       {segments.map((segment, segIndex) => {
         const classNames = [
           segment.highlighted
-            ? (segment.evidence ? 'reading-test-highlight reading-test-highlight--evidence' : 'reading-test-highlight')
+            ? (segment.evidence
+              ? 'reading-test-highlight reading-test-highlight--evidence'
+              : `reading-test-highlight reading-test-highlight--${segment.color ?? 'yellow'}`)
             : '',
           segment.note ? 'reading-test-note' : '',
         ].filter(Boolean).join(' ')

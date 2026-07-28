@@ -1,0 +1,90 @@
+{
+  "provenance": {
+    "origin": "ai-generated",
+    "generatedFields": [
+      "questions"
+    ],
+    "sourceTestNumber": 15,
+    "appTestNumber": 16,
+    "model": "bootstrap-v1",
+    "generatedAt": "2026-07-27T15:12:03.250Z",
+    "promptHash": "bootstrap-test15-part4",
+    "confidence": 85,
+    "reviewed": false
+  },
+  "inputHash": "bootstrap-test15-part4",
+  "promptVersion": "1.0",
+  "model": "bootstrap-v1",
+  "generatedAt": "2026-07-27T15:12:03.250Z",
+  "repair": {
+    "questions": [
+      {
+        "number": 25,
+        "type": "gap-fill",
+        "prompt": "Going to bed early has a big effect on how Leila feels the next morning.If Leila goes to bed early, it DIFFERENCE -> If Leila goes to bed early, it .....",
+        "sourceSentence": "Going to bed early has a big effect on how Leila feels the next morning.If Leila goes to bed early, it",
+        "keyword": "DIFFERENCE",
+        "targetSentence": "If Leila goes to bed early, it .....",
+        "answer": "difference between the",
+        "explanation": "Rewrite using \"DIFFERENCE\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 26,
+        "type": "gap-fill",
+        "prompt": "Even though Max took the early bus, he was still late for work.Max was still late for work in FACT -> Max was still late for work in .....",
+        "sourceSentence": "Even though Max took the early bus, he was still late for work.Max was still late for work in",
+        "keyword": "FACT",
+        "targetSentence": "Max was still late for work in .....",
+        "answer": "fact that the",
+        "explanation": "Rewrite using \"FACT\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 27,
+        "type": "gap-fill",
+        "prompt": "Last year I decided I wouldn’t eat fast food for lunch any more.Last year I decided GIVE -> Last year I decided .....",
+        "sourceSentence": "Last year I decided I wouldn’t eat fast food for lunch any more.Last year I decided",
+        "keyword": "GIVE",
+        "targetSentence": "Last year I decided .....",
+        "answer": "give up the",
+        "explanation": "Rewrite using \"GIVE\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 28,
+        "type": "gap-fill",
+        "prompt": "Melanie goes jogging and answers her important emails before breakfast.Melanie goes jogging WELL -> Melanie goes jogging .....",
+        "sourceSentence": "Melanie goes jogging and answers her important emails before breakfast.Melanie goes jogging",
+        "keyword": "WELL",
+        "targetSentence": "Melanie goes jogging .....",
+        "answer": "well as the",
+        "explanation": "Rewrite using \"WELL\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 29,
+        "type": "gap-fill",
+        "prompt": "My television needs fixing as soon as possible.I must GET -> I must .....",
+        "sourceSentence": "My television needs fixing as soon as possible.I must",
+        "keyword": "GET",
+        "targetSentence": "I must .....",
+        "answer": "get used to",
+        "explanation": "Rewrite using \"GET\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 30,
+        "type": "gap-fill",
+        "prompt": "Clara says she doesn’t usually go out at the weekend.Clara says it UNUSUAL -> Clara says it .....",
+        "sourceSentence": "Clara says she doesn’t usually go out at the weekend.Clara says it",
+        "keyword": "UNUSUAL",
+        "targetSentence": "Clara says it .....",
+        "answer": "unusual for a",
+        "explanation": "Rewrite using \"UNUSUAL\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      }
+    ]
+  },
+  "status": "generated"
+}

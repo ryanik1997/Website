@@ -1,0 +1,254 @@
+Vào đâu?
+
+Luyện thi → Cambridge → chọn level A2–C2 → nút:
+• Import thủ công Reading
+• Import thủ công Listening
+
+Trong modal Reading: bấm Tải JSON mẫu — template tự đổi theo level đang chọn.
+
+───
+
+Reading Cambridge A2–C2
+
+Bước 1 — Tải JSON mẫu
+Modal hiển thị bảng parts theo level (KET/PET/FCE/CAE/CPE).
+
+Bước 2 — Chuẩn bị nội dung từ file HTML bạn cung cấp (nguồn gốc 100%)
+(PDF chỉ dùng cho audio, ảnh, Answer Key (answer-key.pdf / answer-key.txt))
+
+Quy tắc chung:
+• Part 1 (A2/B1 signs): có thể dùng ảnh — không bắt buộc gõ text
+• Part 2 trở đi (mọi level): BẮT BUỘC copy text vào passage[].text để Highlight khi làm bài
+• Chỉ ảnh ở Part 2+ → không Highlight được
+
+Ảnh Part 1 (tuỳ chọn):
+┌─────────────────────┬──────────────────────────────────────┐
+│ File                │ Dùng cho                             │
+├─────────────────────┼──────────────────────────────────────┤
+│ part1-page.jpg      │ 1 ảnh cả trang signs                 │
+├─────────────────────┼──────────────────────────────────────┤
+│ part1-q1.jpg … q6   │ A2 KET — mỗi câu 1 sign (khuyên dùng)│
+└─────────────────────┴──────────────────────────────────────┘
+
+Bước 3 — Sửa JSON theo level
+
+A2 KET — 5 parts · 30 câu
+┌──────┬────────┬───────────────────┬─────────────────────────────┐
+│ Part │ Câu    │ Type              │ Passage                     │
+├──────┼────────┼───────────────────┼─────────────────────────────┤
+│ 1    │ 1–6    │ multiple-choice   │ 6 ảnh hoặc text signs       │
+│ 2    │ 7–13   │ multiple-choice   │ text + label người          │
+│ 3    │ 14–18  │ multiple-choice   │ copy đoạn đọc               │
+│ 4    │ 19–24  │ multiple-choice   │ gapped text + 3 từ A/B/C/gap│
+│ 5    │ 25–30  │ gap-fill          │ email + Example: 0 are      │
+└──────┴────────┴───────────────────┴─────────────────────────────┘
+⚠ Part 4 A2: đề gốc chọn từ (MC), không tự gõ gap-fill.
+
+A2 KET — bundle mẫu: ket-reading-test1.zip (Tainguyen/)
+Prompt AI: HDSD/Prompt-KET-A2-Reading-Universal.txt (§ JSON HỢP LỆ — tránh JSON.parse fail)
+
+B1 PET — 6 parts · 32 câu
+Part 1: 5 ảnh signs · Part 2: passage label A–H (8 market) · Part 3: reading MC A–D
+· Part 4: gapped text + passage câu A–H · Part 5: MC cloze · Part 6: open cloze
+
+Bundle mẫu: pet-reading-test1.zip (Tainguyen/)
+Prompt AI: HDSD/Prompt-PET-B1-Reading-Universal.txt (§ JSON HỢP LỆ — tránh JSON.parse fail)
+
+B2 FCE — 9 parts · 54 mục · 80 phút
+Part 1–4 Use of English · Part 5–7 Reading · Part 8–9 Writing (ảnh part8-page.jpg + part9-page.jpg)
+Part 7: options label Paragraph A … Paragraph D
+Bundle mẫu: fce-reading-test1.zip (Tainguyen/) · catalog catalog-reading-fce-b2-test1
+Prompt AI: HDSD/Prompt-FCE-B2-Reading-Universal.txt (§ JSON HỢP LỆ — tránh JSON.parse fail)
+
+C1 CAE — 8 parts · 56 câu · 90 phút
+┌──────┬────────┬───────────────────┬─────────────────────────────────────┐
+│ Part │ Câu    │ Type              │ Ghi chú                             │
+├──────┼────────┼───────────────────┼─────────────────────────────────────┤
+│ 1    │ 1–8    │ multiple-choice   │ MC cloze A–D                        │
+│ 2    │ 9–16   │ gap-fill          │ open cloze ONE WORD                 │
+│ 3    │ 17–24  │ gap-fill          │ word formation                      │
+│ 4    │ 25–30  │ gap-fill          │ key word transformation             │
+│ 5    │ 31–36  │ multiple-choice   │ reading A–D                         │
+│ 6    │ 37–40  │ matching-features │ cross-text — 4 reviews A–D          │
+│ 7    │ 41–46  │ matching-features │ gapped text — paragraphs A–G        │
+│ 8    │ 47–56  │ matching-features │ multiple matching — consultants A–E │
+└──────┴────────┴───────────────────┴─────────────────────────────────────┘
+
+C1 CAE — bundle mẫu: cae-Reading-test1/ (Tainguyen/)
+Prompt AI: HDSD/Prompt-CAE-C1-Reading-Universal.txt (§ JSON HỢP LỆ)
+Tóm tắt: HDSD/Prompt-CAE-C1-Reading.txt
+Pack ZIP: pnpm pack:reading:cae → cae-Reading-test1.zip
+Builtin: catalog-reading-cae-c1-test1 — 10 parts RW (pnpm build:catalog)
+UI: ReadingCaeRwTest · P6 Reviewer A–D · P8 Consultant A–E · P9–10 Writing (part9/10-page.jpg)
+Ảnh Writing: part9-page.jpg (Q57) + part10-page.jpg (Q58) — mỗi part 1 ảnh
+
+C2 CPE — bundle mẫu: cpe-Reading-test1/ (Tainguyen/)
+Prompt AI: HDSD/Prompt-CPE-C2-Reading-Universal.txt (§ JSON HỢP LỆ)
+Pack ZIP: exam.json + part8-page.jpg + part9-page.jpg
+Builtin: catalog-reading-cpe-c2-test1 — 9 parts RW (pnpm build:catalog)
+UI: ReadingCpeRwTest · P4 transform 1 câu/lần · P6 gapped A–H · P7 sections A–E · P8–9 Writing (ảnh only)
+Ảnh Writing: part8-page.jpg (Q1 essay) + part9-page.jpg (Q2–4 choice) — mỗi part 1 ảnh, không text passage
+
+Mỗi câu hỏi:
+• prompt — copy từ đề
+• options — A/B/C (hoặc A–D, A–E tuỳ part)
+• answer — a/b/c hoặc một từ (gap-fill)
+• explanation — giải thích tiếng Việt (tuỳ chọn)
+
+Bước 4 — Upload
+Cách A (khuyên dùng): ZIP gồm exam.json + ảnh → chọn ZIP bundle
+Cách B: JSON riêng + ảnh riêng
+
+Bước 5 — Preview → Lưu & làm bài
+App cảnh báo nếu Part sai type (vd A2 Part 4 dùng gap-fill thay vì MC).
+
+───
+
+Prompt AI tạo ZIP (Claude / ChatGPT)
+
+• KET A2 Reading: HDSD/Prompt-KET-A2.txt
+• KET A2 Listening: HDSD/Prompt-KET-A2-Listening-Universal.txt
+• PET B1 Reading: HDSD/Prompt-PET-B1.txt
+• PET B1 Listening: HDSD/Prompt-PET-B1-Listening-Universal.txt
+• FCE B2 Reading: HDSD/Prompt-FCE-B2-Reading-Universal.txt
+• FCE B2 Listening: HDSD/Prompt-FCE-B2-Listening-Universal.txt
+• CAE C1 Reading: HDSD/Prompt-CAE-C1-Reading-Universal.txt
+• CPE C2 Reading: HDSD/Prompt-CPE-C2-Reading-Universal.txt
+• CAE C1 Listening: HDSD/Prompt-CAE-C1-Listening-Universal.txt
+• CPE C2 Listening: HDSD/Prompt-CPE-C2-Listening-Universal.txt
+• IELTS Listening Cam 9 + 20: HDSD/Prompt-IELTS-Listening-Cam9-Cam20.txt
+• IELTS Listening import: HDSD/Import Listening IELTS.txt
+• JSON mẫu Part 1: templates/ielts-listening-p1-form.json (a3) · p1-table (a2) · p1-mixed-a4 · p1-mixed-a5
+• Mọi level Reading A2–C2: HDSD/Prompt-Reading-Cambridge.txt
+• Mọi level Listening A2–C2: HDSD/Prompt-Listening-Cambridge.txt
+
+Đính kèm: PDF đề + Answer Key + ảnh Part 1 (nếu có).
+
+───
+
+Listening Cambridge A2–C2
+
+Bước 1 — Tải JSON mẫu theo level (KET dùng examType: "ket").
+
+A2 KET — 5 parts · 25 câu
+┌──────┬────────┬───────────────────┬─────────────────────────────┐
+│ Part │ Câu    │ Type              │ Media                       │
+├──────┼────────┼───────────────────┼─────────────────────────────┤
+│ 1    │ 1–5    │ picture-mc        │ q1.jpg … q5.jpg (1 ảnh/câu A+B+C) │
+│ 2    │ 6–10   │ gap-fill          │ listening.mp3 (chung)       │
+│ 3    │ 11–15  │ multiple-choice   │ listening.mp3               │
+│ 4    │ 16–20  │ multiple-choice   │ listening.mp3               │
+│ 5    │ 21–25  │ matching A–H      │ listening.mp3               │
+└──────┴────────┴───────────────────┴─────────────────────────────┘
+
+A2 KET — bundle mẫu: ket-listening-test1.zip (Tainguyen/)
+Prompt AI: HDSD/Prompt-KET-A2-Listening-Universal.txt
+
+B1 PET — 4 parts · 25 câu
+┌──────┬────────┬───────────────────┬─────────────────────────────────────┐
+│ Part │ Câu    │ Type              │ Media / JSON đặc biệt               │
+├──────┼────────┼───────────────────┼─────────────────────────────────────┤
+│ 1    │ 1–7    │ picture-mc        │ q1.jpg … q7.jpg (1 ảnh/câu A+B+C)   │
+│ 2    │ 8–13   │ multiple-choice   │ context + prompt (You will hear…)   │
+│ 3    │ 14–19  │ gap-fill          │ passageTitle + gapLead/gapTrail     │
+│ 4    │ 20–25  │ multiple-choice   │ audioIntro + MC A/B/C               │
+└──────┴────────┴───────────────────┴─────────────────────────────────────┘
+
+B1 PET — bundle mẫu: pet-listening-test1.zip (Tainguyen/)
+Prompt AI: HDSD/Prompt-PET-B1-Listening-Universal.txt
+Đóng gói: pnpm pack:listening:pet
+
+B2 FCE — 4 parts · 30 câu · 40 phút
+┌──────┬────────┬───────────────────┬─────────────────────────────────────┐
+│ Part │ Câu    │ Type              │ Media / JSON đặc biệt               │
+├──────┼────────┼───────────────────┼─────────────────────────────────────┤
+│ 1    │ 1–8    │ multiple-choice   │ listening.mp3 (chung)               │
+│ 2    │ 9–18   │ gap-fill          │ passageTitle + imageFile q2.jpg     │
+│ 3    │ 19–23  │ matching A–H      │ Speaker 1–5 → thả chữ cái (a9.jpg)  │
+│ 4    │ 24–30  │ multiple-choice   │ phỏng vấn dài A/B/C                 │
+└──────┴────────┴───────────────────┴─────────────────────────────────────┘
+
+B2 FCE — bundle mẫu: fce-Listening-test1.zip (Tainguyen/)
+Prompt AI: HDSD/Prompt-FCE-B2-Listening-Universal.txt
+Đóng gói: pnpm pack:listening:fce
+Builtin: catalog-listening-fce-b2-test1 (pnpm build:catalog)
+
+C1 CAE — 4 parts · 30 câu · 40 phút
+┌──────┬────────┬───────────────────┬─────────────────────────────────────┐
+│ Part │ Câu    │ Type              │ Media / JSON đặc biệt               │
+├──────┼────────┼───────────────────┼─────────────────────────────────────┤
+│ 1    │ 1–6    │ multiple-choice   │ 3 extracts A/B/C                    │
+│ 2    │ 7–14   │ gap-fill          │ passageTitle TRIP TO SOUTH AFRICA   │
+│ 3    │ 15–20  │ multiple-choice   │ phỏng vấn dài A/B/C/D               │
+│ 4    │ 21–30  │ matching dual     │ Task One + Task Two (a10.jpg)       │
+└──────┴────────┴───────────────────┴─────────────────────────────────────┘
+
+C1 CAE — bundle mẫu: cae-Listening-test1/ (Tainguyen/)
+Prompt AI: HDSD/Prompt-CAE-C1-Listening-Universal.txt
+Đóng gói: pnpm pack:listening:cae
+Builtin: catalog-listening-cae-c1-test1 (pnpm build:catalog)
+
+C2 CPE — 4 parts · 30 câu · 40 phút
+┌──────┬────────┬───────────────────┬─────────────────────────────────────┐
+│ Part │ Câu    │ Type              │ Media / JSON đặc biệt               │
+├──────┼────────┼───────────────────┼─────────────────────────────────────┤
+│ 1    │ 1–6    │ multiple-choice   │ 3 extracts A/B/C                    │
+│ 2    │ 7–15   │ gap-fill          │ passageTitle — 9 câu (khác CAE)     │
+│ 3    │ 16–20  │ multiple-choice   │ phỏng vấn dài A/B/C/D               │
+│ 4    │ 21–30  │ matching dual     │ Task One + Task Two                 │
+└──────┴────────┴───────────────────┴─────────────────────────────────────┘
+
+C2 CPE — Prompt AI: HDSD/Prompt-CPE-C2-Listening-Universal.txt
+UI: ListeningFceTest · listening-cpe-cambridge · screenshot Listening_CPE_C2/
+
+IELTS — 4 parts · 40 câu · 30 phút
+┌──────┬────────┬───────────────────┬─────────────────────────────────────┐
+│ Part │ Câu    │ Type              │ Ghi chú                             │
+├──────┼────────┼───────────────────┼─────────────────────────────────────┤
+│ 1    │ 1–10   │ gap-fill          │ form / table completion             │
+│ 2    │ 11–20  │ matching / MC     │ map A–I hoặc MC + Choose TWO A–E    │
+│ 3    │ 21–30  │ matching / MC     │ discussion                          │
+│ 4    │ 31–40  │ gap-fill          │ lecture notes                       │
+└──────┴────────┴───────────────────┴─────────────────────────────────────┘
+
+IELTS Cam 9 + 20 — bundle: Tainguyen/IELTS/Listening IELTS_Test1_Cam9|Cam20/
+Script: python scripts/build-ielts-listening-tests.py
+Pack: pnpm pack:listening:ielts-cam9 | pack:listening:ielts-cam20
+Builtin: catalog-listening-ielts-cam9-test1 · catalog-listening-ielts-cam20-test1
+Prompt: HDSD/Prompt-IELTS-Listening-Cam9-Cam20.txt
+
+Bước 2 — Media:
+• 1 file listening.mp3 cho cả bài (gắn audioFile mỗi part)
+• Hoặc q1.mp3 … q25.mp3 từng câu
+• Part 1 KET (khuyến nghị): q1.jpg … q5.jpg — mỗi câu một ảnh lớn chứa A, B, C
+• Part 1 PET (khuyến nghị): q1.jpg … q7.jpg — mỗi câu một ảnh lớn chứa A, B, C
+• Part 1 (legacy): q1-a.jpg, q1-b.jpg, q1-c.jpg …
+
+Bước 3 — Upload ZIP hoặc JSON + file → Lưu & làm bài
+
+───
+
+Mẹo
+
+1. Đáp án từ answer key cuối PDF — điền thủ công, không cần AI
+2. title đề: `KET A2 Reading — Book {B} — Test {T}` — Book từ KET A2_Cam {B}; gom đúng card CAMBRIDGE KET {B}
+3. passageTitle nên mô tả ("Part 4 — The coldest place to live"), không chỉ "PART 4 — QUESTIONS …"
+4. Phân đoạn: PDF có bao nhiêu đoạn → passage[] có bấy nhiêu block { "text": "..." } — không gộp \n\n
+5. Part 5 KET: 1 email (label From/To) hoặc 2 email (1 block/email); đáp án kép → answer: "a/one"
+3. Bundle mẫu KET Test 1 Reading: Tainguyen/ket-reading-test1.zip — Prompt-KET-A2.txt
+4. Bundle mẫu KET Test 1 Listening: Tainguyen/ket-listening-test1.zip — Prompt-KET-A2-Listening.txt
+5. Bundle mẫu PET Test 1 Listening: Tainguyen/pet-listening-test1.zip — Prompt-PET-B1-Listening.txt
+6. Bundle mẫu FCE Test 1 Listening: Tainguyen/fce-Listening-test1.zip — Prompt-FCE-B2-Listening.txt
+7. Đề import có nút xóa (thùng rác) trong danh sách Reading / Listening
+
+───
+
+Từ vựng — import CSV/JSON (từ đơn + cụm từ)
+
+Vào: /app/vocab → chọn bộ → Nhập từ vựng
+
+• Universal: HDSD/Prompt-Vocab-Universal.txt
+• Chủ đề preset (IELTS/Oxford/TOEIC…): HDSD/Prompt-Vocab-Chu-De.txt
+• Hướng dẫn ngắn: HDSD/Import Vocab.txt
+
+Cột bắt buộc CSV: phrase, meaning — cụm OK (vd. get off the train)

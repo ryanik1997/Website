@@ -7,19 +7,30 @@ import {
   type RefObject,
 } from 'react'
 
-const SPLIT_STORAGE_KEY = 'ket-rw-split-pct'
 const SPLIT_MIN = 28
 const SPLIT_MAX = 72
 const DEFAULT_SPLIT = 50
+const DEFAULT_STORAGE_KEY = 'ket-rw-split-pct'
 
-function loadSplitPct(): number {
-  const raw = window.localStorage.getItem(SPLIT_STORAGE_KEY)
-  const n = raw ? Number(raw) : DEFAULT_SPLIT
-  return Number.isFinite(n) ? Math.min(SPLIT_MAX, Math.max(SPLIT_MIN, n)) : DEFAULT_SPLIT
+function loadSplitPct(initialSplit?: number, storageKey?: string): number {
+  const key = storageKey ?? DEFAULT_STORAGE_KEY
+  // Nếu initialSplit được truyền, ưu tiên nó
+  const valueToClamp = initialSplit ?? (() => {
+    const raw = window.localStorage.getItem(key)
+    return raw ? Number(raw) : DEFAULT_SPLIT
+  })()
+  return Number.isFinite(valueToClamp)
+    ? Math.min(SPLIT_MAX, Math.max(SPLIT_MIN, valueToClamp))
+    : DEFAULT_SPLIT
 }
 
-export function useKetRwSplitResize(bodyRef: RefObject<HTMLElement | null>) {
-  const [splitPct, setSplitPct] = useState(loadSplitPct)
+export function useKetRwSplitResize(
+  bodyRef: RefObject<HTMLElement | null>,
+  initialSplitPct?: number,
+  storageKey?: string,
+) {
+  const resolvedStorageKey = storageKey ?? DEFAULT_STORAGE_KEY
+  const [splitPct, setSplitPct] = useState(() => loadSplitPct(initialSplitPct, storageKey))
   const [isResizing, setIsResizing] = useState(false)
   const splitPctRef = useRef(splitPct)
   splitPctRef.current = splitPct
@@ -39,8 +50,8 @@ export function useKetRwSplitResize(bodyRef: RefObject<HTMLElement | null>) {
 
   const stopResizing = useCallback(() => {
     setIsResizing(false)
-    window.localStorage.setItem(SPLIT_STORAGE_KEY, String(splitPctRef.current))
-  }, [])
+    window.localStorage.setItem(resolvedStorageKey, String(splitPctRef.current))
+  }, [resolvedStorageKey])
 
   useEffect(() => {
     if (!isResizing) return

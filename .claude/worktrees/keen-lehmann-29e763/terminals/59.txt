@@ -1,0 +1,83 @@
+---
+pid: 43916
+cwd: "D:\App-English-Ryan\Website"
+command: "Set-Location D:\\App-English-Ryan\\Website; pnpm ielts:validate 'IELTS/Listening IELTS_Test1_Cam20'; pnpm ielts:pack 'IELTS/Listening IELTS_Test1_Cam20'; pnpm ielts:validate 'IELTS/Listening IELTS_Test2_Cam20'; pnpm ielts:pack 'IELTS/Listening IELTS_Test2_Cam20'; pnpm ielts:validate 'IELTS/Listening IELTS_Test3_Cam20'; pnpm ielts:pack 'IELTS/Listening IELTS_Test3_Cam20'; pnpm ielts:validate 'IELTS/Listening IELTS_Test4_Cam20'; pnpm ielts:pack 'IELTS/Listening IELTS_Test4_Cam20'"
+started_at: 2026-07-03T11:21:45.596Z
+running_for_ms: 17705014 
+---
+
+> ryan-english@ ielts:validate D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts validate "IELTS/Listening IELTS_Test1_Cam20"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test1_Cam20
+
+📋 IELTS Listening — Cambridge 20 Test 1
+   Parts: 1, 2, 3, 4 · 40 câu
+
+✓ Không có cảnh báo.
+
+> ryan-english@ ielts:pack D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts pack "IELTS/Listening IELTS_Test1_Cam20"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test1_Cam20
+✓ D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test1_Cam20.zip
+  2 files: exam.json, listening.mp3
+  → Luyện thi → IELTS → Import thủ công Listening → chọn ZIP
+
+> ryan-english@ ielts:validate D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts validate "IELTS/Listening IELTS_Test2_Cam20"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test2_Cam20
+
+📋 IELTS Listening — Cambridge 20 Test 2
+   Parts: 1, 2, 3, 4 · 40 câu
+
+⚠️  Cảnh báo:
+   • Part 1: notePassage static thiếu text.
+   • Part 4: notePassage static thiếu text.
+
+> ryan-english@ ielts:pack D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts pack "IELTS/Listening IELTS_Test2_Cam20"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test2_Cam20
+✓ D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test2_Cam20.zip
+  2 files: exam.json, listening.mp3
+  → Luyện thi → IELTS → Import thủ công Listening → chọn ZIP
+
+> ryan-english@ ielts:validate D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts validate "IELTS/Listening IELTS_Test3_Cam20"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test3_Cam20
+
+📋 IELTS Listening — Cambridge 20 Test 3
+   Parts: 1, 2, 3, 4 · 40 câu
+
+⚠️  Cảnh báo:
+   • Part 4: notePassage static thiếu text.
+   • Part 4: notePassage static thiếu text.
+
+> ryan-english@ ielts:pack D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts pack "IELTS/Listening IELTS_Test3_Cam20"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test3_Cam20
+✓ D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test3_Cam20.zip
+  3 files: exam.json, listening.mp3, map.jpg
+  → Luyện thi → IELTS → Import thủ công Listening → chọn ZIP
+
+> ryan-english@ ielts:validate D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts validate "IELTS/Listening IELTS_Test4_Cam20"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test4_Cam20
+
+📋 IELTS Listening — Cambridge 20 Test 4
+   Parts: 1, 2, 3, 4 · 40 câu
+
+✓ Không có cảnh báo.
+
+> ryan-english@ ielts:pack D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts pack "IELTS/Listening IELTS_Test4_Cam20"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test4_Cam20
+✓ D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test4_Cam20.zip
+  2 files: exam.json, listening.mp3
+  → Luyện thi → IELTS → Import thủ công Listening → chọn ZIP

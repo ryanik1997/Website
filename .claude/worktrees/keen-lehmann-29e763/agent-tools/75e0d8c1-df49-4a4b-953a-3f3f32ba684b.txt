@@ -1,0 +1,539 @@
+--- .next-id ---
+00000000000000000095
+--- 1.txt ---
+---
+pid: 46424
+cwd: "D:\App-English-Ryan\Website"
+command: "cd \"D:\\App-English-Ryan\\Website\"; vercel deploy --prod --yes"
+started_at: 2026-06-30T07:29:42.535Z
+running_for_ms: 35030008 
+---
+Vercel CLI 54.18.5 (Node.js 22.20.0)
+Retrieving project�?�
+Deploying ryanenglish/ryanenglishv2
+--- 10.txt ---
+---
+pid: 19696
+cwd: "D:\App-English-Ryan\Website"
+command: "$response = Invoke-WebRequest -Uri http://localhost:8787/api/tts -Method POST -ContentType \"application/json\" -Body '{\"text\":\"Hello world\",\"voice\":\"default\",\"speed\":1}' -TimeoutSec 300; \"Status: $($response.StatusCode)\"; \"Type: $($response.Headers['Content-Type'])\"; \"Cache: $($response.Headers['X-Cache'])\"; \"Bytes: $($response.RawContentLength)\""
+started_at: 2026-06-30T11:49:21.042Z
+running_for_ms: 19450014 
+---
+Status: 200
+Type: audio/wav
+Cache: MISS
+--- 11.txt ---
+---
+pid: 4008
+cwd: "D:\App-English-Ryan\Website"
+command: "Invoke-WebRequest -Uri \"http://127.0.0.1:8788/tts?text=Hello&voice=bf_emma&speed=1&lang=b\" -TimeoutSec 300 -OutFile \"D:\\App-English-Ryan\\Website\\server\\.cache\\direct-test.wav\"; (Get-Item \"D:\\App-English-Ryan\\Website\\server\\.cache\\direct-test.wav\").Length"
+started_at: 2026-06-30T11:49:42.572Z
+running_for_ms: 19430012 
+---
+39644
+--- 12.txt ---
+---
+pid: 19156
+cwd: "D:\App-English-Ryan\Website"
+command: "$headers = @{ Origin = 'http://localhost:5173'; 'Content-Type' = 'application/json' }; $r = Invoke-WebRequest -Uri http://localhost:8787/api/tts -Method POST -Headers $headers -Body '{\"text\":\"Test listening\",\"voice\":\"default\",\"speed\":1}' -TimeoutSec 120; \"Status: $($r.StatusCode)\"; \"CORS: $($r.Headers['Access-Control-Allow-Origin'])\"; \"Type: $($r.Headers['Content-Type'])\"; \"Bytes: $($r.RawContentLength)\""
+started_at: 2026-06-30T11:55:50.672Z
+running_for_ms: 19060013 
+---
+Status: 200
+CORS: *
+Type: audio/wav
+--- 13.txt ---
+---
+pid: 36000
+cwd: "D:\App-English-Ryan\Website"
+command: "cd D:\\App-English-Ryan\\Website; pnpm db:push 2>&1"
+started_at: 2026-06-30T14:42:32.206Z
+running_for_ms: 9060003  
+---
+
+> ryan-english@ db:push D:\App-English-Ryan\Website
+> node scripts/db-push.mjs
+--- 14.txt ---
+---
+pid: 39708
+cwd: "D:\App-English-Ryan\Website"
+command: "Set-Location D:\\App-English-Ryan\\Website; pnpm db:push"
+started_at: 2026-06-30T15:44:56.988Z
+running_for_ms: 5315001  
+---
+
+> ryan-english@ db:push D:\App-English-Ryan\Website
+> node scripts/db-push.mjs
+--- 15.txt ---
+---
+pid: 4552
+cwd: "D:\App-English-Ryan\Website"
+command: "Set-Location D:\\App-English-Ryan\\Website; pnpm db:push:dry"
+started_at: 2026-06-30T15:46:21.633Z
+running_for_ms: 5230002  
+---
+
+> ryan-english@ db:push:dry D:\App-English-Ryan\Website
+> node scripts/db-push.mjs --dry-run
+--- 16.txt ---
+---
+pid: 32868
+cwd: "D:\App-English-Ryan\Website"
+command: "Set-Location D:\\App-English-Ryan\\Website; pnpm db:push"
+started_at: 2026-06-30T15:47:52.080Z
+running_for_ms: 5140007  
+---
+
+> ryan-english@ db:push D:\App-English-Ryan\Website
+> node scripts/db-push.mjs
+--- 17.txt ---
+---
+pid: 46432
+cwd: "D:\App-English-Ryan\Website"
+command: "Set-Location D:\\App-English-Ryan\\Website; pnpm db:push"
+started_at: 2026-06-30T15:53:22.701Z
+running_for_ms: 4810007  
+---
+
+> ryan-english@ db:push D:\App-English-Ryan\Website
+> node scripts/db-push.mjs
+--- 18.txt ---
+---
+pid: 39384
+cwd: "D:\App-English-Ryan\Website"
+command: "cd D:\\App-English-Ryan\\Website; pnpm deploy:prod"
+started_at: 2026-06-30T16:13:46.471Z
+running_for_ms: 3585001  
+---
+
+> ryan-english@ deploy:prod D:\App-English-Ryan\Website
+> node scripts/db-push.mjs && pnpm build && vercel deploy --prod --yes
+--- 19.txt ---
+---
+pid: 15956
+cwd: "D:\App-English-Ryan\Website"
+command: "cd D:\\App-English-Ryan\\Website; pnpm deploy:prod"
+started_at: 2026-06-30T16:26:23.447Z
+running_for_ms: 2830001  
+---
+
+> ryan-english@ deploy:prod D:\App-English-Ryan\Website
+> node scripts/db-push.mjs && pnpm build && vercel deploy --prod --yes
+--- 2.txt ---
+---
+pid: 40720
+cwd: "D:\App-English-Ryan\Website"
+command: "cd \"D:\\App-English-Ryan\\Website\"; pnpm --filter web build; vercel deploy --prod --yes"
+started_at: 2026-06-30T07:48:16.430Z
+running_for_ms: 33915012 
+---
+
+> web@0.1.0 build D:\App-English-Ryan\Website\apps\web
+> tsc && vite build
+--- 20.txt ---
+---
+pid: 21508
+cwd: "D:\App-English-Ryan\Website"
+command: "cd D:\\App-English-Ryan\\Website; pnpm --filter web exec tsc --noEmit; pnpm deploy:prod"
+started_at: 2026-06-30T16:30:32.816Z
+running_for_ms: 2580002  
+---
+
+> ryan-english@ deploy:prod D:\App-English-Ryan\Website
+> node scripts/db-push.mjs && pnpm build && vercel deploy --prod --yes
+--- 21.txt ---
+---
+pid: 47860
+cwd: "D:\App-English-Ryan\Website"
+command: "cd D:\\App-English-Ryan\\Website; pnpm --filter web exec tsc --noEmit; pnpm deploy:prod"
+started_at: 2026-06-30T16:34:31.052Z
+running_for_ms: 2340000  
+---
+
+> ryan-english@ deploy:prod D:\App-English-Ryan\Website
+> node scripts/db-push.mjs && pnpm build && vercel deploy --prod --yes
+--- 22.txt ---
+---
+pid: 16896
+cwd: "D:\App-English-Ryan\Website"
+command: "cd D:\\App-English-Ryan\\Website; pnpm --filter web exec tsc --noEmit; pnpm deploy:prod"
+started_at: 2026-06-30T16:37:57.624Z
+running_for_ms: 2135011  
+---
+
+> ryan-english@ deploy:prod D:\App-English-Ryan\Website
+> node scripts/db-push.mjs && pnpm build && vercel deploy --prod --yes
+--- 23.txt ---
+---
+pid: 44704
+cwd: "D:\App-English-Ryan\Website"
+command: "cd D:\\App-English-Ryan\\Website; pnpm --filter web exec tsc --noEmit; pnpm deploy:prod"
+started_at: 2026-06-30T16:41:20.166Z
+running_for_ms: 1930000  
+---
+
+> ryan-english@ deploy:prod D:\App-English-Ryan\Website
+> node scripts/db-push.mjs && pnpm build && vercel deploy --prod --yes
+--- 24.txt ---
+---
+pid: 22904
+cwd: "D:\App-English-Ryan\Website"
+command: "cd D:\\App-English-Ryan\\Website; pnpm --filter web exec tsc --noEmit; pnpm deploy:prod"
+started_at: 2026-06-30T16:45:45.487Z
+running_for_ms: 1665012  
+---
+
+> ryan-english@ deploy:prod D:\App-English-Ryan\Website
+> node scripts/db-push.mjs && pnpm build && vercel deploy --prod --yes
+--- 25.txt ---
+---
+pid: 49020
+cwd: "D:\App-English-Ryan\Website"
+command: "cd D:\\App-English-Ryan\\Website; pnpm --filter web exec tsc --noEmit; pnpm deploy:prod"
+started_at: 2026-06-30T16:48:48.173Z
+running_for_ms: 1485012  
+---
+
+> ryan-english@ deploy:prod D:\App-English-Ryan\Website
+> node scripts/db-push.mjs && pnpm build && vercel deploy --prod --yes
+--- 26.txt ---
+---
+pid: 42936
+cwd: "D:\App-English-Ryan\Website"
+command: "cd D:\\App-English-Ryan\\Website; pnpm --filter web exec tsc --noEmit; pnpm deploy:prod"
+started_at: 2026-06-30T16:51:58.679Z
+running_for_ms: 1295012  
+---
+
+> ryan-english@ deploy:prod D:\App-English-Ryan\Website
+> node scripts/db-push.mjs && pnpm build && vercel deploy --prod --yes
+--- 27.txt ---
+---
+pid: 31352
+cwd: "D:\App-English-Ryan\Website"
+command: "cd D:\\App-English-Ryan\\Website; pnpm deploy:prod"
+started_at: 2026-06-30T16:58:00.662Z
+running_for_ms: 930005   
+---
+
+> ryan-english@ deploy:prod D:\App-English-Ryan\Website
+> node scripts/db-push.mjs && pnpm build && vercel deploy --prod --yes
+--- 28.txt ---
+---
+pid: 44932
+cwd: "D:\App-English-Ryan\Website"
+command: "cd D:\\App-English-Ryan\\Website; pnpm deploy:prod"
+started_at: 2026-06-30T17:02:55.553Z
+running_for_ms: 635007   
+---
+
+> ryan-english@ deploy:prod D:\App-English-Ryan\Website
+> node scripts/db-push.mjs && pnpm build && vercel deploy --prod --yes
+--- 29.txt ---
+---
+pid: 48548
+cwd: "D:\App-English-Ryan\Website"
+command: "cd D:\\App-English-Ryan\\Website; pnpm deploy:prod"
+started_at: 2026-06-30T17:06:14.330Z
+running_for_ms: 435002   
+---
+
+> ryan-english@ deploy:prod D:\App-English-Ryan\Website
+> node scripts/db-push.mjs && pnpm build && vercel deploy --prod --yes
+--- 3.txt ---
+---
+pid: 35980
+cwd: "D:\App-English-Ryan\Website"
+command: "cd D:\\App-English-Ryan\\Website; vercel deploy --prod --yes 2>&1"
+started_at: 2026-06-30T07:53:42.725Z
+running_for_ms: 33590006 
+---
+Vercel CLI 54.18.5 (Node.js 22.20.0)
+Retrieving project�?�
+Deploying ryanenglish/ryanenglishv2
+--- 30.txt ---
+---
+pid: 37960
+cwd: "D:\App-English-Ryan\Website"
+command: "cd D:\\App-English-Ryan\\Website; pnpm deploy:prod"
+started_at: 2026-06-30T17:09:35.714Z
+running_for_ms: 235008   
+---
+
+> ryan-english@ deploy:prod D:\App-English-Ryan\Website
+> node scripts/db-push.mjs && pnpm build && vercel deploy --prod --yes
+--- 31.txt ---
+---
+pid: 46136
+cwd: "D:\App-English-Ryan\Website"
+command: "cd D:\\App-English-Ryan\\Website\\apps\\web; npx tsc --noEmit 2>&1; pnpm build 2>&1"
+started_at: 2026-07-01T10:28:37.802Z
+running_for_ms: 2825011  
+---
+
+> web@0.1.0 build D:\App-English-Ryan\Website\apps\web
+> tsc && vite build
+--- 32.txt ---
+---
+pid: 47416
+cwd: "D:\App-English-Ryan\Website"
+command: "cd D:\\App-English-Ryan\\Website\\apps\\web; npx tsc --noEmit 2>&1; pnpm build 2>&1"
+started_at: 2026-07-01T10:35:46.402Z
+running_for_ms: 2395001  
+---
+
+> web@0.1.0 build D:\App-English-Ryan\Website\apps\web
+> tsc && vite build
+--- 33.txt ---
+---
+pid: 45704
+cwd: "D:\App-English-Ryan\Website"
+command: "cd D:\\App-English-Ryan\\Website\\apps\\web; npx tsc --noEmit 2>&1; pnpm build 2>&1"
+started_at: 2026-07-01T10:45:57.715Z
+running_for_ms: 1785009  
+---
+
+> web@0.1.0 build D:\App-English-Ryan\Website\apps\web
+> tsc && vite build
+--- 34.txt ---
+---
+pid: 46732
+cwd: "D:\App-English-Ryan\Website"
+command: "cd D:\\App-English-Ryan\\Website; pnpm build 2>&1"
+started_at: 2026-07-01T10:48:36.900Z
+running_for_ms: 1625014  
+---
+
+> ryan-english@ build D:\App-English-Ryan\Website
+> pnpm --filter web build
+--- 35.txt ---
+---
+pid: 24836
+cwd: "D:\App-English-Ryan\Website"
+command: "cd D:\\App-English-Ryan\\Website; vercel deploy --prod --yes 2>&1"
+started_at: 2
+
+... (output truncated) ...
+
+site
+> node scripts/db-push.mjs && vercel deploy --prod --yes
+--- 78.txt ---
+---
+pid: 37040
+cwd: "D:\App-English-Ryan\Website"
+command: "Set-Location \"C:\\Users\\ADMIN\\mcps\\chrome-devtools-mcp-main\\chrome-devtools-mcp-main\"; npm run build"
+started_at: 2026-07-08T04:02:24.032Z
+running_for_ms: 24060005 
+---
+
+> chrome-devtools-mcp@1.5.0 build
+> tsc && node scripts/post-build.ts
+--- 79.txt ---
+---
+pid: 17228
+cwd: "D:\App-English-Ryan\Website"
+command: "Set-Location D:\\App-English-Ryan\\Website; pnpm dev"
+started_at: 2026-07-08T08:47:12.997Z
+running_for_ms: 6985004  
+---
+
+> ryan-english@ dev D:\App-English-Ryan\Website
+> pnpm run dev:open
+--- 8.txt ---
+---
+pid: 34324
+cwd: "D:\App-English-Ryan\Website"
+command: "Set-Location D:\\App-English-Ryan\\Website; pnpm dev:server"
+started_at: 2026-06-30T11:45:06.765Z
+running_for_ms: 19720013 
+---
+
+> ryan-english@ dev:server D:\App-English-Ryan\Website
+> pnpm --filter server dev
+--- 80.txt ---
+---
+pid: 46108
+cwd: "D:\App-English-Ryan\Website"
+command: "Set-Location D:\\App-English-Ryan\\Website\\apps\\web; npx vite build 2>&1 | Select-Object -Last 40"
+started_at: 2026-07-08T08:47:20.587Z
+running_for_ms: 6960003  
+---
+dist/assets/WritingMockTest-BhUeq0JJ.js                  5.93 kB �", gzip:   2.12 kB
+dist/assets/writingPrompt-BMsZXsVX.js                    6.04 kB �", gzip:   2.39 kB
+dist/assets/ListeningTtsStatusBadge-CwsIy0ci.js          6.42 kB �", gzip:   2.36 kB
+--- 81.txt ---
+---
+pid: 20604
+cwd: "D:\App-English-Ryan\Website"
+command: "cd D:\\App-English-Ryan\\Website; pnpm --filter web run build 2>&1"
+started_at: 2026-07-08T08:48:56.522Z
+running_for_ms: 6865005  
+---
+
+> web@0.2.0 build D:\App-English-Ryan\Website\apps\web
+> tsc && vite build
+--- 82.txt ---
+---
+pid: 46560
+cwd: "D:\App-English-Ryan\Website"
+command: "cd D:\\App-English-Ryan\\Website\\apps\\web; npx --yes playwright install chromium 2>&1 | Select-Object -Last 3"
+started_at: 2026-07-08T08:52:45.191Z
+running_for_ms: 6640014  
+---
+|�-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-�                |  89% of 0.1 MiB
+|�-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-��-�| 100% of 0.1 MiB
+Winldd (playwright winldd v1007) downloaded to C:\Users\ADMIN\AppData\Local\ms-playwright\winldd-1007
+--- 83.txt ---
+---
+pid: 39808
+cwd: "D:\App-English-Ryan\Website"
+command: "Stop-Process -Id 6940 -Force -ErrorAction SilentlyContinue; Start-Sleep -Seconds 1; cd D:\\App-English-Ryan\\Website; pnpm dev"
+started_at: 2026-07-08T08:54:16.181Z
+running_for_ms: 6560004  
+---
+
+> ryan-english@ dev D:\App-English-Ryan\Website
+> pnpm run dev:open
+--- 84.txt ---
+---
+pid: 40932
+cwd: "D:\App-English-Ryan\Website"
+command: "cd D:\\App-English-Ryan\\Website; pnpm --filter web dev"
+started_at: 2026-07-08T08:54:41.033Z
+running_for_ms: 6535011  
+---
+
+> web@0.2.0 dev D:\App-English-Ryan\Website\apps\web
+> vite
+--- 85.txt ---
+---
+pid: 17876
+cwd: "D:\App-English-Ryan\Website"
+command: "cd C:\\Users\\ADMIN\\mcps\\pxpipe-main\\pxpipe-main; node bin/cli.js"
+started_at: 2026-07-08T09:50:36.503Z
+running_for_ms: 3180010  
+---
+[pxpipe] listening on http://127.0.0.1:47821
+[pxpipe] anthropic upstream �+' https://api.anthropic.com
+[pxpipe] openai upstream �+' https://api.openai.com
+--- 86.txt ---
+---
+pid: 51636
+cwd: "D:\App-English-Ryan\Website"
+command: "Get-NetTCPConnection -LocalPort 47821 -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force -ErrorAction SilentlyContinue }; Start-Sleep -Seconds 1; $env:OPENAI_UPSTREAM='https://api.freemodel.dev'; $env:PXPIPE_MODELS='gpt-5.5,gpt-5.6'; $env:PORT='47821'; cd C:\\Users\\ADMIN\\mcps\\pxpipe-main\\pxpipe-main; node bin\\cli.js"
+started_at: 2026-07-08T09:54:17.141Z
+running_for_ms: 2960008  
+---
+[pxpipe] listening on http://127.0.0.1:47821
+[pxpipe] anthropic upstream �+' https://api.anthropic.com
+[pxpipe] openai upstream �+' https://api.freemodel.dev
+--- 87.txt ---
+---
+pid: 52984
+cwd: "D:\App-English-Ryan\Website"
+command: "Get-NetTCPConnection -LocalPort 47821 -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force -ErrorAction SilentlyContinue }; Start-Sleep -Seconds 1; $env:ANTHROPIC_UPSTREAM='https://cc.freemodel.dev'; $env:OPENAI_UPSTREAM='https://api.freemodel.dev'; $env:PXPIPE_MODELS='claude-fable-5,gpt-5.5,gpt-5.6'; $env:PORT='47821'; cd C:\\Users\\ADMIN\\mcps\\pxpipe-main\\pxpipe-main; node bin\\cli.js"
+started_at: 2026-07-08T09:55:45.906Z
+running_for_ms: 2870015  
+---
+[pxpipe] listening on http://127.0.0.1:47821
+[pxpipe] anthropic upstream �+' https://cc.freemodel.dev
+[pxpipe] openai upstream �+' https://api.freemodel.dev
+--- 88.txt ---
+---
+pid: 43180
+cwd: "D:\App-English-Ryan\Website"
+command: "powershell -File C:\\Users\\ADMIN\\mcps\\start-pxpipe.ps1 2>&1"
+started_at: 2026-07-08T09:58:39.619Z
+running_for_ms: 2685006  
+---
+[pxpipe] Stopping PID 14432 on port 47821...
+[pxpipe] ANTHROPIC_UPSTREAM=https://cc.freemodel.dev  (Claude Code)
+[pxpipe] OPENAI_UPSTREAM=https://api.freemodel.dev  (Codex)
+--- 89.txt ---
+---
+pid: 18064
+cwd: "D:\App-English-Ryan\Website"
+command: "Set-Location \"D:\\App-English-Ryan\\Website\\apps\\web\"; npx vite build 2>&1 | Select-Object -Last 40"
+started_at: 2026-07-08T10:31:10.963Z
+running_for_ms: 730003   
+---
+dist/assets/WritingMockTest-DGePEQ1T.js                  5.93 kB �", gzip:   2.12 kB
+dist/assets/writingPrompt-BMsZXsVX.js                    6.04 kB �", gzip:   2.39 kB
+dist/assets/ListeningTtsStatusBadge-kQIw93km.js          6.42 kB �", gzip:   2.37 kB
+--- 9.txt ---
+---
+pid: 46688
+cwd: "D:\App-English-Ryan\Website"
+command: "$response = Invoke-WebRequest -Uri http://localhost:8787/api/tts -Method POST -ContentType \"application/json\" -Body '{\"text\":\"Hello world\",\"voice\":\"default\",\"speed\":1}'; Write-Host \"Status:\" $response.StatusCode; Write-Host \"Content-Type:\" $response.Headers[\"Content-Type\"]; Write-Host \"X-Cache:\" $response.Headers[\"X-Cache\"]; Write-Host \"Bytes:\" $response.RawContentLength; $response.Content | Set-Content -Path \"D:\\App-English-Ryan\\Website\\server\\.cache\\test-sample.wav\" -Encoding Byte"
+started_at: 2026-06-30T11:47:10.209Z
+running_for_ms: 19579999 
+---
+Status: Invoke-WebRequest : {"ok":false,"engine":"kokoro","error":"Kokoro synthesis failed","message":"This operation was 
+
+Bytes: 
+--- 90.txt ---
+---
+pid: 38292
+cwd: "D:\App-English-Ryan\Website"
+command: "$port5173 = Get-NetTCPConnection -LocalPort 5173 -State Listen -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique; if ($port5173) { foreach ($p in $port5173) { Stop-Process -Id $p -Force -ErrorAction SilentlyContinue; Write-Host \"Stopped PID $p on 5173\" } }; Start-Sleep -Seconds 2; Set-Location \"D:\\App-English-Ryan\\Website\"; pnpm --filter web dev"
+started_at: 2026-07-08T10:34:40.337Z
+running_for_ms: 534993   
+---
+Stopped PID 35804 on 5173
+
+> web@0.2.0 dev D:\App-English-Ryan\Website\apps\web
+--- 91.txt ---
+---
+pid: 28408
+cwd: "D:\App-English-Ryan\Website"
+command: "Set-Location \"D:\\App-English-Ryan\\Website\\apps\\web\"; npx vite build 2>&1 | Select-Object -Last 30"
+started_at: 2026-07-08T10:35:47.453Z
+running_for_ms: 455003   
+---
+dist/assets/WritingDashboardPage-D_bz-rlC.js            11.39 kB �", gzip:   3.57 kB
+dist/assets/listeningImportNormalize-BJ7CX7uy.js        12.86 kB �", gzip:   4.03 kB
+dist/assets/ieltsListeningDocxImport-imD5sTVc.js        16.16 kB �", gzip:   6.10 kB
+--- 92.txt ---
+---
+pid: 35196
+cwd: "D:\App-English-Ryan\Website"
+command: "Set-Location \"D:\\App-English-Ryan\\Website\"; npm install --no-save playwright@1.49.0 2>&1 | Select-Object -Last 3; node scripts/check-ielts-track.mjs 2>&1"
+started_at: 2026-07-08T10:38:44.527Z
+running_for_ms: 280013   
+---
+npm warn   2 more (@typescript-eslint/rule-tester, @typescript-eslint/type-utils)
+npm error Cannot read properties of null (reading 'matches')
+npm error A complete log of this run can be found in: 
+--- 93.txt ---
+---
+pid: 36748
+cwd: "D:\App-English-Ryan\Website"
+command: "cd \"D:\\App-English-Ryan\\Website\\apps\\web\"; npx vite build 2>&1 | Select-Object -Last 60"
+started_at: 2026-07-08T10:42:13.840Z
+running_for_ms: 70002    
+---
+dist/assets/WritingIeltsGenrePage-Df0iMW1Q.js            2.00 kB �", gzip:   0.94 kB
+dist/assets/WritingCambridgeGenrePage-CzEvFylz.js        2.00 kB �", gzip:   0.94 kB
+dist/assets/TranslationGenrePage-6oRCiM52.js             2.02 kB �", gzip:   0.93 kB
+--- 94.txt ---
+---
+pid: 20872
+cwd: "D:\App-English-Ryan\Website"
+command: "$port5173 = Get-NetTCPConnection -LocalPort 5173 -State Listen -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique; if ($port5173) { foreach ($p in $port5173) { Stop-Process -Id $p -Force -ErrorAction SilentlyContinue } }; Set-Location D:\\App-English-Ryan\\Website; pnpm --filter web dev"
+started_at: 2026-07-08T10:44:30.371Z
+running_for_ms: 11095009 
+---
+
+> web@0.2.0 dev D:\App-English-Ryan\Website\apps\web
+> vite
+--- 95.txt ---
+---
+pid: 46348
+cwd: "D:\App-English-Ryan\Website"
+command: "Set-Location D:\\App-English-Ryan\\Website\\apps\\web; npx vite build 2>&1 | Select-Object -Last 5"
+started_at: 2026-07-08T10:46:02.706Z
+running_for_ms: 10990014 
+---
+dist/assets/ReadingTest-CTwNxJqz.js                    144.86 kB �", gzip:  28.84 kB
+dist/assets/IeltsReadingImportWizard-CfoU2ooF.js       178.26 kB �", gzip:  56.99 kB
+dist/assets/listeningNotePassage-By58RYTi.js           231.75 kB �", gzip:  64.35 kB

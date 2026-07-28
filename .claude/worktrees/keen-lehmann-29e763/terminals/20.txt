@@ -1,0 +1,171 @@
+---
+pid: 21508
+cwd: "D:\App-English-Ryan\Website"
+command: "cd D:\\App-English-Ryan\\Website; pnpm --filter web exec tsc --noEmit; pnpm deploy:prod"
+started_at: 2026-06-30T16:30:32.816Z
+running_for_ms: 2580002  
+---
+
+> ryan-english@ deploy:prod D:\App-English-Ryan\Website
+> node scripts/db-push.mjs && pnpm build && vercel deploy --prod --yes
+
+→ Supabase db push (apply) — project ntcagvtkwxwsmlxlumfo
+Finished supabase link.
+Timeout while shutting down PostHog. Some events may not have been sent.
+Try rerunning the command with --debug to troubleshoot the error.
+Connecting to remote database...
+Remote database is up to date.
+✓ Migrations đã push — mọi user dùng schema mới.
+
+> ryan-english@ build D:\App-English-Ryan\Website
+> pnpm --filter web build
+
+
+> web@0.1.0 build D:\App-English-Ryan\Website\apps\web
+> tsc && vite build
+
+vite v5.4.21 building for production...
+transforming...
+✓ 1813 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                         0.67 kB │ gzip:   0.39 kB
+dist/assets/cambridgeHub-3Cyk0Kzq.css                   2.16 kB │ gzip:   0.83 kB
+dist/assets/HomePage-BBAaNUbA.css                       2.35 kB │ gzip:   0.76 kB
+dist/assets/WritingLibraryPage-DCr48-O3.css             3.78 kB │ gzip:   1.17 kB
+dist/assets/AppShell-BtqWwQ90.css                       4.01 kB │ gzip:   1.19 kB
+dist/assets/WritingDashboardPage-DqZtvpkz.css           4.71 kB │ gzip:   1.25 kB
+dist/assets/TranslationPracticePage-DOEMqZ2B.css        4.83 kB │ gzip:   1.16 kB
+dist/assets/SentenceStructurePage-BtPcA48R.css          6.24 kB │ gzip:   1.49 kB
+dist/assets/WritingEditor-DwxeoIxJ.css                 12.18 kB │ gzip:   2.49 kB
+dist/assets/index-CaY8ek_c.css                         27.15 kB │ gzip:   5.78 kB
+dist/assets/VocabularyPage-D-PHUaF7.css                44.32 kB │ gzip:   7.48 kB
+dist/assets/chevron-down-B0mKAt8G.js                    0.30 kB │ gzip:   0.24 kB
+dist/assets/chevron-right-DGYBfEai.js                   0.30 kB │ gzip:   0.25 kB
+dist/assets/play-q4ruuwKc.js                            0.30 kB │ gzip:   0.25 kB
+dist/assets/loader-circle-BCLDIOlL.js                   0.31 kB │ gzip:   0.26 kB
+dist/assets/plus-D3ZLhEE2.js                            0.32 kB │ gzip:   0.25 kB
+dist/assets/x-dHTC6Z3S.js                               0.32 kB │ gzip:   0.25 kB
+dist/assets/arrow-left-ByPloHSx.js                      0.33 kB │ gzip:   0.27 kB
+dist/assets/arrow-right-zc6a8tQ7.js                     0.33 kB │ gzip:   0.27 kB
+dist/assets/search-X1Krzmvs.js                          0.34 kB │ gzip:   0.27 kB
+dist/assets/circle-check-DnElZF49.js                    0.34 kB │ gzip:   0.27 kB
+dist/assets/clock-D46nhnOU.js                           0.35 kB │ gzip:   0.27 kB
+dist/assets/trending-up-BxBzWbzs.js                     0.37 kB │ gzip:   0.28 kB
+dist/assets/headphones-CppiDdML.js                      0.41 kB │ gzip:   0.29 kB
+dist/assets/book-marked-BWKhBLc_.js                     0.42 kB │ gzip:   0.31 kB
+dist/assets/circle-alert-BKssbvNp.js                    0.42 kB │ gzip:   0.29 kB
+dist/assets/eye-B5aPhnMd.js                             0.42 kB │ gzip:   0.30 kB
+dist/assets/triangle-alert-DAvIdvZA.js                  0.43 kB │ gzip:   0.31 kB
+dist/assets/shield-CYQab93e.js                          0.44 kB │ gzip:   0.32 kB
+dist/assets/git-branch-UahYeeMD.js                      0.44 kB │ gzip:   0.32 kB
+dist/assets/pencil-C6LO1MmN.js                          0.45 kB │ gzip:   0.32 kB
+dist/assets/pen-line-DbWnKT0t.js                        0.45 kB │ gzip:   0.33 kB
+dist/assets/flame-CV8yjLVd.js                           0.45 kB │ gzip:   0.33 kB
+dist/assets/book-open-BXzCnR-f.js                       0.45 kB │ gzip:   0.31 kB
+dist/assets/lightbulb-D2-jzu7B.js                       0.46 kB │ gzip:   0.33 kB
+dist/assets/speakPhrase-CKRoxpEq.js                     0.46 kB │ gzip:   0.29 kB
+dist/assets/languages-CBrHn8hB.js                       0.49 kB │ gzip:   0.32 kB
+dist/assets/refresh-cw-C9hWLSJ5.js                      0.49 kB │ gzip:   0.32 kB
+dist/assets/file-text-Bk-11YL1.js                       0.50 kB │ gzip:   0.32 kB
+dist/assets/PanelEmpty-5JZJHi4Y.js                      0.50 kB │ gzip:   0.31 kB
+dist/assets/trash-2-D8L18Bfu.js                         0.53 kB │ gzip:   0.35 kB
+dist/assets/plans-DlkoDfNG.js                           0.53 kB │ gzip:   0.22 kB
+dist/assets/volume-2-B5hYg7Co.js                        0.56 kB │ gzip:   0.38 kB
+dist/assets/eye-off-C669aiib.js                         0.60 kB │ gzip:   0.38 kB
+dist/assets/CopyButton-DXGNff-6.js                      0.61 kB │ gzip:   0.44 kB
+dist/assets/PanelHeader-C0cBHN9D.js                     0.61 kB │ gzip:   0.36 kB
+dist/assets/star-DF39ssZx.js                            0.64 kB │ gzip:   0.40 kB
+dist/assets/react-DjnFGr-Q.js                           0.65 kB │ gzip:   0.41 kB
+dist/assets/sparkles-NdsgciiS.js                        0.68 kB │ gzip:   0.40 kB
+dist/assets/target-BEtNgads.js                          0.76 kB │ gzip:   0.36 kB
+dist/assets/upload-B-J35gnE.js                          0.81 kB │ gzip:   0.37 kB
+dist/assets/WritingLayout-Cn5qKtkD.js                   0.85 kB │ gzip:   0.47 kB
+dist/assets/AuthCallback-C-ecMY_o.js                    0.88 kB │ gzip:   0.59 kB
+dist/assets/settings-DdOr1rih.js                        0.89 kB │ gzip:   0.45 kB
+dist/assets/scheduler-VT_irDtq.js                       0.92 kB │ gzip:   0.51 kB
+dist/assets/rotate-ccw-DPnSxLJl.js                      1.22 kB │ gzip:   0.53 kB
+dist/assets/dexie-react-hooks-ByAEghYp.js               1.31 kB │ gzip:   0.59 kB
+dist/assets/contact-CS9PT2gf.js                         1.40 kB │ gzip:   0.56 kB
+dist/assets/listeningMeta-4QIA5H_3.js                   1.59 kB │ gzip:   0.82 kB
+dist/assets/EmptyStateCard-BFEUEx99.js                  1.60 kB │ gzip:   0.68 kB
+dist/assets/vocabStore-DkThmsvF.js                      1.69 kB │ gzip:   0.74 kB
+dist/assets/WritingPracticePage-Xi5WK-W5.js             1.75 kB │ gzip:   0.88 kB
+dist/assets/TranslationPage-zjVmWykT.js                 1.75 kB │ gzip:   0.88 kB
+dist/assets/WritingCambridgePage-CG7qODqY.js            1.77 kB │ gzip:   0.89 kB
+dist/assets/writingRepo-Bw9Pnpa7.js                     1.83 kB │ gzip:   0.84 kB
+dist/assets/WritingIeltsGenrePage-BbBkoGvy.js           2.00 kB │ gzip:   0.94 kB
+dist/assets/WritingCambridgeGenrePage-DlIya3Fc.js       2.00 kB │ gzip:   0.94 kB
+dist/assets/TranslationGenrePage-BYTicidW.js            2.02 kB │ gzip:   0.93 kB
+dist/assets/provider-DACBsysQ.js                        2.07 kB │ gzip:   1.11 kB
+dist/assets/ListeningTtsStatusBadge-COU18ENm.js         2.33 kB │ gzip:   1.15 kB
+dist/assets/listeningUtils-BvOsV8qR.js                  2.35 kB │ gzip:   1.08 kB
+dist/assets/WritingCambridgePracticePage-VKE5nYPf.js    3.27 kB │ gzip:   1.67 kB
+dist/assets/WritingIeltsPracticePage-CQVLiMjN.js        3.30 kB │ gzip:   1.67 kB
+dist/assets/WritingLibraryPage-DGjacWGD.js              3.36 kB │ gzip:   0.89 kB
+dist/assets/ieltsCatalog-Bw8yV-Sm.js                    3.80 kB │ gzip:   1.76 kB
+dist/assets/tts-Dbh8Wc06.js                             3.90 kB │ gzip:   1.79 kB
+dist/assets/cambridgeCatalog-C317WMq5.js                5.18 kB │ gzip:   2.20 kB
+dist/assets/ListeningLayout-78ieC-RX.js                 5.51 kB │ gzip:   2.68 kB
+dist/assets/writingPrompt-BMsZXsVX.js                   6.04 kB │ gzip:   2.39 kB
+dist/assets/AiSettingsPanel-CsHfBaWU.js                 6.53 kB │ gzip:   2.53 kB
+dist/assets/translationCatalog-By_qcq8X.js              6.73 kB │ gzip:   2.72 kB
+dist/assets/useNotifications-CvVlx60v.js                9.02 kB │ gzip:   3.61 kB
+dist/assets/WritingDashboardPage-DB5rSstO.js           11.39 kB │ gzip:   3.56 kB
+dist/assets/SentenceStructurePage-Cs8Nykdd.js          13.56 kB │ gzip:   4.90 kB
+dist/assets/AdminPage-BcDnuYNJ.js                      14.79 kB │ gzip:   4.24 kB
+dist/assets/HomePage-C9YNLC8p.js                       15.11 kB │ gzip:   5.10 kB
+dist/assets/SettingsPage-DQ7DBG36.js                   26.15 kB │ gzip:   7.57 kB
+dist/assets/MindmapPage-DdHMmZEG.js                    26.44 kB │ gzip:   9.40 kB
+dist/assets/LandingPage-BPxdeRcK.js                    27.02 kB │ gzip:   7.94 kB
+dist/assets/AppShell-BKPSo-_R.js                       28.41 kB │ gzip:   8.79 kB
+dist/assets/ListeningLibraryPage-BjO_WlVy.js           31.43 kB │ gzip:   8.13 kB
+dist/assets/ListeningLessonPage-D1sc8S2K.js            36.15 kB │ gzip:  11.41 kB
+dist/assets/TranslationPracticePage-TE_pBTlp.js        38.14 kB │ gzip:  11.69 kB
+dist/assets/WritingEditor-c6bn6iG5.js                  43.57 kB │ gzip:  12.02 kB
+dist/assets/VocabularyPage-Db8yvP38.js                 88.64 kB │ gzip:  24.60 kB
+dist/assets/schema-Cdfyc0_R.js                        100.92 kB │ gzip:  32.83 kB
+dist/assets/index-47WexlJ9.js                         396.86 kB │ gzip: 115.24 kB
+✓ built in 4.24s
+Vercel CLI 54.18.5 (Node.js 22.20.0)
+Retrieving project…
+Deploying ryanenglish/ryanenglishv2
+Uploading [--------------------] (0.0B/1.1MB)
+Uploading [=====---------------] (277.9KB/1.1MB)
+Uploading [==========----------] (547.7KB/1.1MB)
+Uploading [===============-----] (831.2KB/1.1MB)
+Uploading [====================] (1.1MB/1.1MB)
+https://ryanenglishv2-hjv9imz9n-ryanenglish.vercel.app  Inspect         https://vercel.com/ryanenglish/ryanenglishv2/9CoqHCbNbvpt4goZvRS56oRwRCMc
+  Production      https://ryanenglishv2-hjv9imz9n-ryanenglish.vercel.app
+Building…
+Building…
+Running build in Washington, D.C., USA (East) – iad1
+Build machine configuration: 2 cores, 8 GB
+Retrieving list of deployment files...
+Downloading 495 deployment files...
+Restored build cache from previous deployment (C1PC52YGCXXwJj1REetpmwxwv8FX)
+Running "vercel build"
+Vercel CLI 54.18.4
+Warning: Detected "engines": { "node": ">=22" } in your `package.json` that will automatically upgrade when a new major Node.js Version is released. Learn More: https://vercel.link/node-version
+Detected `pnpm-lock.yaml` version 9 generated by pnpm@10.x with package.json#packageManager pnpm@9.15.0
+Running "install" command: `pnpm install --ignore-scripts`...
+Scope: all 6 workspace projects
+Lockfile is up to date, resolution step is skipped
+Already up to date
+Done in 786ms
+Scope: all 6 workspace projects
+Lockfile is up to date, resolution step is skipped
+Already up to date
+Done in 740ms
+> web@0.1.0 build /vercel/path1/apps/web
+> tsc && vite build
+vite v5.4.21 building for production...
+transforming...
+✓ 1813 modules transformed.
+rendering chunks...
+  Production      https://ryanenglishv2-hjv9imz9n-ryanenglish.vercel.app
+Completing…
+▲ Aliased         https://ryanenglishv2.vercel.app
+
+✓ Ready in 33s
+> Tip: Run `npx plugins add vercel/vercel-plugin` to enhance your agent experience

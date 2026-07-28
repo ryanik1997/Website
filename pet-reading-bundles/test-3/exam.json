@@ -1,0 +1,682 @@
+{
+  "version": 1,
+  "title": "PET B1 Reading — Test 3",
+  "durationMinutes": 45,
+  "bandHint": "B1 Preliminary Reading",
+  "examTrack": "cambridge",
+  "cambridgeLevel": "b1",
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–5",
+      "passageTitle": "Part 1 — Signs and messages",
+      "passage": [
+        {
+          "imageFile": "part1-q1.webp"
+        },
+        {
+          "imageFile": "part1-q2.webp"
+        },
+        {
+          "imageFile": "part1-q3.webp"
+        },
+        {
+          "imageFile": "part1-q4.webp"
+        },
+        {
+          "imageFile": "part1-q5.webp"
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 1–5",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 1,
+              "type": "multiple-choice",
+              "prompt": "",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Chloe has bought cake for the person she is meeting."
+                },
+                {
+                  "id": "B",
+                  "label": "Chloe wants the person to arrive before the tea gets cold."
+                },
+                {
+                  "id": "C",
+                  "label": "Chloe expects the person to pay for their own order when they arrive."
+                }
+              ],
+              "answer": "",
+              "explanation": ""
+            },
+            {
+              "number": 2,
+              "type": "multiple-choice",
+              "prompt": "",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "The outdoor pool is only available when the indoor pool is closed."
+                },
+                {
+                  "id": "B",
+                  "label": "Guests cannot swim in the ground floor pool for three hours on Monday mornings."
+                },
+                {
+                  "id": "C",
+                  "label": "Both pools are unavailable to guests on Monday mornings."
+                }
+              ],
+              "answer": "b",
+              "explanation": "The notice says the ground floor pool is closed on Mondays 'between 8 a.m. and 11 a.m.,' which is a period of three hours. Option A is incorrect because the outdoor pool is described as open 'at any time,' not only when the indoor pool is closed. Option C is incorrect because the outdoor pool remains open even while the indoor pool is being cleaned."
+            },
+            {
+              "number": 3,
+              "type": "multiple-choice",
+              "prompt": "",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "You cannot enter the museum if you are over sixteen."
+                },
+                {
+                  "id": "B",
+                  "label": "Young people should bring something that shows how old they are."
+                },
+                {
+                  "id": "C",
+                  "label": "The museum closes one hour after the last person enters."
+                }
+              ],
+              "answer": "b",
+              "explanation": "'Proof of age may be requested' means young people should bring something like a student card or passport that shows their date of birth. Option A is incorrect because the sign advertises free entry for under 16s; it does not say over 16s cannot enter, only that they must pay. Option C is incorrect because 'last admission one hour before closing' means the final entry time is one hour before the museum shuts, not that the museum closes one hour after the last person comes in."
+            },
+            {
+              "number": 4,
+              "type": "multiple-choice",
+              "prompt": "",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Staff should remove all food from the fridge before Friday."
+                },
+                {
+                  "id": "B",
+                  "label": "The food will be kept until the owner asks for it back."
+                },
+                {
+                  "id": "C",
+                  "label": "Unlabelled food that is too old will not be stored any longer."
+                }
+              ],
+              "answer": "c",
+              "explanation": "The manager says the forgotten lunch 'will be thrown away' if not collected by Friday, which means the old, unlabelled food will not be kept any longer. Option A is incorrect because the message is about one specific forgotten lunch, not a general instruction to empty the fridge. Option B is incorrect because there is a clear deadline; the food will not be stored there forever."
+            },
+            {
+              "number": 5,
+              "type": "multiple-choice",
+              "prompt": "",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Richard wants guests to bring food to share with the group."
+                },
+                {
+                  "id": "B",
+                  "label": "The event will be cancelled if the weather is bad."
+                },
+                {
+                  "id": "C",
+                  "label": "Guests should not expect to find a chair ready for them when they arrive."
+                }
+              ],
+              "answer": "c",
+              "explanation": "Richard says he has only four chairs and asks guests to bring something to sit on. This means guests should not expect a chair to be available for them. Answer A is wrong because Richard says he has 'all the food sorted.' B is wrong because he has a rain plan; the event will move inside, it will not be cancelled."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "rangeLabel": "Questions 6–10",
+      "passageTitle": "Part 2 — Matching people",
+      "passage": [],
+      "questionGroups": [
+        {
+          "range": "Questions 6–10",
+          "type": "matching-features",
+          "features": [
+            {
+              "id": "A",
+              "label": "Story Night at the Book Café"
+            },
+            {
+              "id": "B",
+              "label": "Family Craft Fair"
+            },
+            {
+              "id": "C",
+              "label": "Food and Jazz Evening"
+            },
+            {
+              "id": "D",
+              "label": "Town Orchestra Concert"
+            },
+            {
+              "id": "E",
+              "label": "Trail Run and Breakfast"
+            },
+            {
+              "id": "F",
+              "label": "Lakeside Outdoor Cinema"
+            },
+            {
+              "id": "G",
+              "label": "Community Choir Taster Evening"
+            },
+            {
+              "id": "H",
+              "label": "Weekend Market and Street Food"
+            }
+          ],
+          "questions": [
+            {
+              "number": 6,
+              "type": "matching-features",
+              "prompt": "Isaac is visiting his grandparents in a small town this weekend. He wants to take them somewhere local on Saturday afternoon where they can sit comfortably and listen to something. His grandmother uses a wheelchair, so the venue must be easy to access. He doesn't mind paying for tickets in advance.",
+              "answer": "d",
+              "explanation": "The Town Orchestra Concert is a music performance in a hall where the audience sits and listens. The concert venue has step-free access, reserved wheelchair spaces, and accessible toilets, which makes it fully suitable for his grandmother. It also offers a discount for senior citizens. Option B is also on a weekend and is indoors, but it is a hands-on craft fair where people move around and make things, which does not match the idea of sitting comfortably and listening. Option H takes place on Saturday afternoon and has music, but it is described as busy and noisy."
+            },
+            {
+              "number": 7,
+              "type": "matching-features",
+              "prompt": "Zara has just finished her final exams and wants to celebrate with her friends on Friday night. She wants somewhere lively with music, but she also wants to eat. She and her friends are all eighteen, so the event must allow people their age. She would prefer to pay a single price that includes everything rather than buying things separately.",
+              "answer": "c",
+              "explanation": "Zara wants a Friday night celebration with music and food in one place, and the Food and Jazz Evening event offers a three-course meal and live jazz included in the ticket price. This matches her wish to pay a single amount that covers everything. The event is for over-18s only, and because Zara and her friends are eighteen, they are allowed to attend. Option G is also on Friday and is free, but it is a calm choir session with tea, not a lively celebration. Option F is on Friday with food available, but the food is sold separately and the event is outdoors and weather-dependent."
+            },
+            {
+              "number": 8,
+              "type": "matching-features",
+              "prompt": "Kamil is a father of three young children. He wants a family activity for Sunday morning that will keep everyone busy for a couple of hours. He doesn't want to spend a lot on tickets because buying for five people adds up quickly. The children like making things with their hands, and he would enjoy getting involved too.",
+              "answer": "b",
+              "explanation": "Kamil wants a Sunday morning activity for his young children, and the Family Craft Fair runs from 10 a.m. to 1 p.m. The children can make things with their hands, and adults are welcome to join in. Kamil is concerned about the cost for five people, and this event allows him to pay only for the activities they choose, with each one costing between £1 and £3. Option H is free to enter and runs on Sunday, but it is a market where people walk around and buy things rather than a structured making activity."
+            },
+            {
+              "number": 9,
+              "type": "matching-features",
+              "prompt": "Rosa is new to the area and wants to meet people in a calm, relaxed setting. She is free on Saturday evenings and would like an event that happens regularly, so she can become a familiar face. She enjoys listening to people tell stories and would like somewhere she can have a hot drink while she listens.",
+              "answer": "a",
+              "explanation": "Rosa wants an event on Saturday evening that is calm and regular, and Story Night at the Book Café takes place every Saturday evening at 7:30 p.m. The atmosphere is described as peaceful and friendly, and visitors sit and listen to stories while having a hot drink. Many people come alone, which suits Rosa because she wants to become a familiar face. Option C is also on Saturday evening and has music, but it is a lively dinner event rather than a quiet place to listen. Option G is a regular Friday event, but Rosa said she is only considering Saturdays."
+            },
+            {
+              "number": 10,
+              "type": "matching-features",
+              "prompt": "Ben and his partner are keen runners. They want a Sunday event that is a physical challenge, but they also want to enjoy the scenery while they run. They are happy to travel a little way out of the city. They would like something that ends with a social gathering. ABCDEFGH A. Story Night at the Book Café Every Saturday evening at 7:30 p.m., we invite local writers and storytellers to share short stories and personal tales. The café serves hot drinks, cakes and light snacks throughout the evening. Seating is around small tables, and the atmosphere is peaceful and friendly. Free entry; just buy a drink. Many regulars come alone, so you'll feel welcome even if it's your first time. B. Family Craft Fair This Sunday from 10 a.m. to 1 p.m., the town hall is hosting a hands-on craft fair. Children and adults can try pottery painting, candle making, and simple woodwork. Each activity costs between £1 and £3 per person, so you only pay for what you do. No need to book. The café on the ground floor sells affordable snacks and drinks. C. Food and Jazz Evening A special evening at The Riverside Restaurant. Your ticket includes a three-course meal and live jazz from a local band. Music plays throughout the night, and the dance floor is open after 10 p.m. Doors open at 7 p.m. this Friday. Tickets £35 per person. Please note: this event is for over-18s only. Booking strongly advised. D. Town Orchestra Concert The Town Orchestra presents a programme of classical and film music in the beautiful Victoria Hall. The performance lasts approximately 90 minutes with a short break. The hall has step-free access, reserved spaces for wheelchair users, and accessible toilets. Tickets £12, or £10 for senior citizens. Booking online is recommended. This Saturday's performance starts at 2:30 p.m. E. Trail Run and Breakfast A guided 10-kilometre run through woodland and along the river path. The route is marked and suitable for regular runners. At the finish line, all participants receive a free hot breakfast and a drink in the village hall. The event is about 25 minutes by car from the city centre. £18 per person, including breakfast. The next run is this Sunday, starting at 9 a.m. F. Lakeside Outdoor Cinema On Friday evening at 8:30 p.m., watch a classic film on a large outdoor screen by the lake. Bring your own blanket or chair. Food vans will be on site selling burgers, pizza and ice cream. Tickets £10. Please note: this event is weather-dependent and may be cancelled if it rains. The ground is uneven in places and not suitable for wheelchairs. G. Community Choir Taster Evening Have you ever wanted to sing in a group? Join us on Friday at 6:30 p.m. for a relaxed taster session. No experience needed. We'll learn a simple song together and perform it at the end. Tea and biscuits provided. Free of charge. The choir meets every Friday, and new members are always welcome. The venue is on the first floor with no lift. H. Weekend Market and Street Food Every Saturday and Sunday, the old market square comes alive with stalls selling handmade goods, fresh produce, and street food from around the world. Live music from local musicians throughout the afternoon. Free entry. Open 10 a.m. to 5 p.m. Plenty of benches and tables. Very busy and noisy at peak times. <div class=\"",
+              "answer": "e",
+              "explanation": "Ben and his partner are keen runners who want a Sunday physical challenge with scenery, and the Trail Run and Breakfast offers a 10-kilometre guided run through woodland and along a river. They don't mind travelling not too far from the city, and the event is about 25 minutes by car. The run finishes with a free breakfast and drink in the village hall, which matches their wish for a social gathering at the end. Option C has a social atmosphere but is a dinner and jazz event, not a run. Option H is outdoors but involves walking around a market, not a running challenge."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "rangeLabel": "Questions 11–15",
+      "passageTitle": "Part 3 — Reading passage",
+      "passage": [
+        {
+          "text": "For each question choose the correct answer.\n\nThe Photograph on the WallWhen I was a child, my grandmother had a small black-and-white photograph hanging in her kitchen. It showed a young man standing beside a motorcycle on a country road, squinting into the sun. He looked happy, I always thought, but also a little unsure, as if someone had just called his name and he had turned around at the exact moment the picture was taken.\n\nI asked my grandmother about the photograph many times over the years. Her answer was always the same: 'That's your grandfather, before I met him.' Then she would change the subject. I learned not to ask again, but I never stopped being curious.\n\nMy grandfather died when I was six. I had only a few memories of him: the smell of oil and metal in his workshop, his laugh, and the way he could whistle through his teeth. The man in the photograph seemed younger and freer than the grandfather I remembered. I wanted to know his story, but my grandmother clearly preferred not to tell it.\n\nLast spring, my grandmother moved out of the house she had lived in for over fifty years. I helped her pack boxes in the kitchen, and when I took the photograph off the wall, she paused and looked at it for a long moment. Then she said, quietly, 'He rode that motorcycle all the way from the coast to come and find me.'\n\nShe sat down at the kitchen table and began to talk. She told me that my grandfather had been a delivery rider before the war, taking packages between villages on his motorcycle. One day he arrived at her parents' farm with a parcel and saw her in the garden. He came back the following week without any package to deliver. He just wanted to see her again.\n\nOver the next hour, she told me dozens of stories I had never heard. Some were funny, some were sad, and a few surprised me so much that I laughed out loud. It was as though the young man in the photograph had finally stepped out of the frame and become a real person. I learned that my grandfather loved dancing but was terrible at it, that he once tried to build a boat, and that he wrote my grandmother a letter every single week until she agreed to marry him.\n\nI had spent years wondering about that photograph. In the end, the person who knew him best just needed the right moment to share his story. I still have the photograph. It sits on my own kitchen wall now, and it makes me smile every time I look at it."
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 11–15",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 11,
+              "type": "multiple-choice",
+              "prompt": "What does the writer say about the photograph in her grandmother's kitchen?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "It was the only picture her grandmother owned."
+                },
+                {
+                  "id": "B",
+                  "label": "The young man in it appeared to be laughing at the camera."
+                },
+                {
+                  "id": "C",
+                  "label": "It had been taken before her grandparents met."
+                },
+                {
+                  "id": "D",
+                  "label": "The writer thought the man looked confident."
+                }
+              ],
+              "answer": "c",
+              "explanation": "The grandmother tells the writer that the photograph shows 'your grandfather, before I met him,' which means it was taken before their relationship began. Option A is incorrect &#8211; the text does not say it was the only photograph. We don't go with Option B &#8211; the man is described as looking 'unsure' and having been caught turning around, not laughing at the camera.Option D &#8211; the writer says he looked 'a little unsure,' which is the opposite of completely confident."
+            },
+            {
+              "number": 12,
+              "type": "multiple-choice",
+              "prompt": "Why did the writer stop asking her grandmother about the photograph?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "She lost interest in it as she grew older."
+                },
+                {
+                  "id": "B",
+                  "label": "Her grandmother seemed unwilling to talk about it."
+                },
+                {
+                  "id": "C",
+                  "label": "Her mother told her not to mention it again."
+                },
+                {
+                  "id": "D",
+                  "label": "She was worried she would upset her grandfather."
+                }
+              ],
+              "answer": "b",
+              "explanation": "The writer says that whenever she asked about the photograph, her grandmother would give the same brief answer and 'then she would change the subject.' The writer adds, 'I learned not to ask again,' which suggests she understood her grandmother did not want to talk. Option A is incorrect because the writer says she 'never stopped being curious.' Option C &#8211; the mother is not mentioned in this part of the text. Option D &#8211; the grandfather had died when the writer was six, so she could not have worried about upsetting him."
+            },
+            {
+              "number": 13,
+              "type": "multiple-choice",
+              "prompt": "How did the grandmother react when the writer took the photograph off the wall?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "She asked the writer to put it back where it had been."
+                },
+                {
+                  "id": "B",
+                  "label": "She took it from the writer's hands and held it herself."
+                },
+                {
+                  "id": "C",
+                  "label": "She looked at it briefly, then told the writer to carry on working."
+                },
+                {
+                  "id": "D",
+                  "label": "She stopped what she was doing and seemed lost in thought for a moment."
+                }
+              ],
+              "answer": "d",
+              "explanation": "The text says the grandmother 'paused and looked at it for a long moment.' This shows she stopped her activity and became thoughtful. She then sat down and began to talk. A is incorrect because she did not ask for it to be put back; it now hangs in the writer's kitchen. B is incorrect because the text does not say she took it from the writer. C is incorrect because she did not tell the writer to continue; instead, she sat down and shared stories."
+            },
+            {
+              "number": 14,
+              "type": "multiple-choice",
+              "prompt": "What did the writer discover about her grandfather during that conversation?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "He had always wanted to become a professional dancer."
+                },
+                {
+                  "id": "B",
+                  "label": "He had first visited the farm for a work-related reason."
+                },
+                {
+                  "id": "C",
+                  "label": "He had been a soldier during the war."
+                },
+                {
+                  "id": "D",
+                  "label": "He had written to her grandmother before they ever met."
+                }
+              ],
+              "answer": "b",
+              "explanation": "The grandmother explains that the grandfather was a delivery rider who arrived at her parents' farm 'with a parcel' for work. He then returned the following week 'without any package to deliver' because he wanted to see her again. This means his first visit was for a work-related reason. Option A is incorrect because the text says he loved dancing but was terrible at it; it does not say he wanted to be a professional. Option C is wrong because the text mentions the war only as a time reference, not as something the grandfather took part in. Option D doesn't fit &#8211; he wrote letters only after they had already met, not before."
+            },
+            {
+              "number": 15,
+              "type": "multiple-choice",
+              "prompt": "Which of the following best captures what the writer learned from this experience?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Old photographs rarely show what a person was really like."
+                },
+                {
+                  "id": "B",
+                  "label": "Sometimes people need time before they are ready to share memories."
+                },
+                {
+                  "id": "C",
+                  "label": "It is better to learn about family history from books than from relatives."
+                },
+                {
+                  "id": "D",
+                  "label": "You should always ask difficult questions while you still have the chance."
+                }
+              ],
+              "answer": "b",
+              "explanation": "Throughout the story, the grandmother avoided talking about the photograph for years. Then, during the packing, she 'just needed the right moment' to share her stories. The writer learned that the person who knew him best needed time before she was ready. This matches the idea that people sometimes need time before sharing memories. Option A is wrong as the photograph did reflect something real; the grandmother's stories brought it to life. Option C is doesn't work here &#8211; the story is entirely about learning from a relative, not from books. Option D is incorrect because the writer did not push with difficult questions; she waited, and the moment came naturally."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 4,
+      "rangeLabel": "Questions 16–20",
+      "passageTitle": "Part 4 — A Job Worth Keeping",
+      "passage": [
+        {
+          "text": "A Job Worth KeepingThe email arrived on a Tuesday morning, just as I was finishing my breakfast. It was from a company I had applied to weeks earlier, and I had already given up hope of hearing back. They were offering me an interview for a summer position at their city centre office. [GAP 16] The salary was better than anything my friends had found, and the role was exactly what I wanted.\n\nThe interview was set for Friday at ten. I spent the next three days preparing. I read the company website from top to bottom, practised answers to questions I thought they might ask, and even bought a new shirt. [GAP 17] I walked around the building three times before I found the right entrance, and by the time I reached reception I was sweating.\n\nSomehow, the interview went well. The manager was friendly and seemed genuinely interested in what I had to say. She told me I would hear back within a week. On the bus home, I replayed every answer in my head, wondering if I had said the right things. The waiting was worse than the interview itself. [GAP 18]\n\nThe following Thursday, my phone rang. It was the manager. She said they had been impressed and wanted to offer me the position. I accepted immediately, barely able to get the words out. Afterwards, I sat on my bed and stared at the wall. It felt like something had finally gone my way.\n\nThat summer job changed everything, but not because of the skills I learned or the money I earned. It changed me because it was the first time I had wanted something, worked for it, and actually got it. Before that, I had always assumed that success was for other people. [GAP 19] I still think about that feeling whenever I face something difficult.\n\nThe company closed its city centre branch two years ago, and the building now belongs to a bank. I walk past it sometimes, and it looks smaller than I remember. [GAP 20] That stays with you."
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 16–20",
+          "type": "matching-features",
+          "features": [
+            {
+              "id": "A",
+              "label": "I never applied for another office job after that summer ended."
+            },
+            {
+              "id": "B",
+              "label": "I checked the email twice to make sure I had read it correctly."
+            },
+            {
+              "id": "C",
+              "label": "By Thursday evening, I had convinced myself they had chosen someone else."
+            },
+            {
+              "id": "D",
+              "label": "None of that stopped me from feeling nervous on the day, however."
+            },
+            {
+              "id": "E",
+              "label": "I told all my friends immediately, and they were delighted for me."
+            },
+            {
+              "id": "F",
+              "label": "That moment taught me that I could be one of those people too."
+            },
+            {
+              "id": "G",
+              "label": "The office itself was on the fifth floor, and the phone signal was poor once you stepped inside."
+            },
+            {
+              "id": "H",
+              "label": "But the confidence it gave me has never really gone away."
+            }
+          ],
+          "questions": [
+            {
+              "number": 16,
+              "type": "matching-features",
+              "prompt": "n up hope of hearing back. They were offering me an interview for a summer position at their city centre office. 16 ABC<",
+              "answer": "b",
+              "explanation": "The sentence before the gap explains that the company offered the writer an interview. Sentence B shows the writer's reaction: checking the email twice to be sure it was real. This is a natural response to unexpected good news, and it connects smoothly to the following sentence where the writer thinks about the good salary and interesting role."
+            },
+            {
+              "number": 17,
+              "type": "matching-features",
+              "prompt": "ebsite from top to bottom, practised answers to questions I thought they might ask, and even bought a new shirt. 17 ABC<",
+              "answer": "d",
+              "explanation": "The sentence before the gap describes three days of careful preparation. The sentence after the gap explains how nervous the writer felt on the day, getting lost and sweating before reaching reception. Sentence D creates the contrast by acknowledging the preparation but stating that it did not stop the nerves. The word 'however' signals this shift perfectly."
+            },
+            {
+              "number": 18,
+              "type": "matching-features",
+              "prompt": "ry answer in my head, wondering if I had said the right things. The waiting was worse than the interview itself. 18 ABC<",
+              "answer": "c",
+              "explanation": "The sentence before the gap describes the agony of waiting for a reply after the interview. Sentence C continues this feeling by explaining that the writer had convinced herself the answer would be bad. The time reference 'by Thursday evening' leads naturally into the following sentence, which begins with 'The following Thursday,' when the phone call finally comes. The contrast between her negative expectation and the positive outcome is effective."
+            },
+            {
+              "number": 19,
+              "type": "matching-features",
+              "prompt": "ething, worked for it, and actually got it. Before that, I had always assumed that success was for other people. 19 ABC<",
+              "answer": "f",
+              "explanation": "The author focuses on the idea how success is something others have, not her. Sentence F shows the turning point: the summer job taught her that she could be one of those successful people too. The phrase 'that moment' refers back to receiving the job offer. The following sentence about remembering the feeling ties everything together."
+            },
+            {
+              "number": 20,
+              "type": "matching-features",
+              "prompt": "ars ago, and the building now belongs to a bank. I walk past it sometimes, and it looks smaller than I remember. 20 ABC<",
+              "answer": "h",
+              "explanation": "'That stays with you' – the short closing sentence of the text points at the idea of confidence. The confidence the job gave the writer, something he didn't have previously. The contrast between the building changing and the confidence remaining creates a satisfying ending."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 5,
+      "rangeLabel": "Questions 21–26",
+      "passageTitle": "Part 5 — The Watch",
+      "passage": [],
+      "questionGroups": [
+        {
+          "range": "Questions 21–26",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 21,
+              "type": "multiple-choice",
+              "prompt": "ew, and the leather strap was worn so thin in places that I was worried it might ____ . But I liked the simple design, and wearing it made me feel close to him. A few months later, I noticed that the watch had started losing time. At first it was only a minute or two each day, but soon it was",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "fall apart"
+                },
+                {
+                  "id": "B",
+                  "label": "go out"
+                },
+                {
+                  "id": "C",
+                  "label": "come off"
+                },
+                {
+                  "id": "D",
+                  "label": "get away"
+                }
+              ],
+              "answer": "a",
+              "explanation": "'Fall apart' means to break into pieces because something is old or damaged. It fits the worn leather strap perfectly.'Go out' refers to lights or fires stopping. 'Come off' means to become detached from something, but the strap is still attached; it is just thin. Finally, 'get away' means to escape."
+            },
+            {
+              "number": 22,
+              "type": "multiple-choice",
+              "prompt": "rted losing time. At first it was only a minute or two each day, but soon it was ____ behind by almost half an hour. I took it to a repair shop, where the man behind the counter examined it carefully and shook his head. 'I'm sorry,' he said, 'but the parts inside are too old. There's nothing I can do.' I went home feeling upset. I knew the watch was not",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "running"
+                },
+                {
+                  "id": "B",
+                  "label": "going"
+                },
+                {
+                  "id": "C",
+                  "label": "staying"
+                },
+                {
+                  "id": "D",
+                  "label": "keeping"
+                }
+              ],
+              "answer": "a",
+              "explanation": "The phrase 'running behind' is a fixed expression used for clocks and watches that are showing a time earlier than the real time. It fits perfectly with the idea of the watch losing time. 'Going behind' doesn't make sense in this context as it usually means literally going behind something. 'Staying behind' means remaining in a place after others have left. 'Keeping behind' is not a natural collocation."
+            },
+            {
+              "number": 23,
+              "type": "multiple-choice",
+              "prompt": ". There's nothing I can do.' I went home feeling upset. I knew the watch was not ____ much money, but that did not matter to me. It had belonged to someone I loved, and that made it precious in a different way. I put it in a drawer, thinking I would never wear it again. A few weeks later, I happened to mention the situation to a colleague at work. She listened and then said, 'My brother repairs old watches. He might be able to help.' I decided to",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "worth"
+                },
+                {
+                  "id": "B",
+                  "label": "cost"
+                },
+                {
+                  "id": "C",
+                  "label": "value"
+                },
+                {
+                  "id": "D",
+                  "label": "price"
+                }
+              ],
+              "answer": "a",
+              "explanation": "The adjective 'worth' is used to describe the financial value of something, and it is followed by a noun or noun phrase. 'The watch was not worth much money' means it did not have high monetary value. In this sentence, 'cost' cannot be used correctly because the structure requires an adjective after 'was'. 'Value' as a verb normally means 'to appreciate something'. 'Price' is a noun."
+            },
+            {
+              "number": 24,
+              "type": "multiple-choice",
+              "prompt": "n said, 'My brother repairs old watches. He might be able to help.' I decided to ____ it a go. I gave her the watch, and she passed it on to her brother. A few weeks went by with no news, and I began to think I had made a mistake. Then, one afternoon, she appeared at my desk holding a small box. Inside was the watch, working perfectly. Her brother had managed to find an old part from a",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "make"
+                },
+                {
+                  "id": "B",
+                  "label": "give"
+                },
+                {
+                  "id": "C",
+                  "label": "do"
+                },
+                {
+                  "id": "D",
+                  "label": "take"
+                }
+              ],
+              "answer": "b",
+              "explanation": "The expression 'give it a go' is a common informal phrase meaning 'to try something.' The writer decides to try the colleague’s suggestion and see whether the watch can be repaired. Option A is incorrect because 'make it a go' is not a natural English expression. Option C is wrong because although 'do' is used in many general actions, we do not say 'do it a go.' Option D is incorrect because 'take it a go' is not a valid collocation in English."
+            },
+            {
+              "number": 25,
+              "type": "multiple-choice",
+              "prompt": "the watch, working perfectly. Her brother had managed to find an old part from a ____ watch and fit it into mine. I wear the watch every day now. It still looks old, but that is exactly what I like about it. Every time I check the",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "similar"
+                },
+                {
+                  "id": "B",
+                  "label": "same"
+                },
+                {
+                  "id": "C",
+                  "label": "equal"
+                },
+                {
+                  "id": "D",
+                  "label": "matching"
+                }
+              ],
+              "answer": "a",
+              "explanation": "'Similar' means almost the same but not identical. The repairman found an old part from a watch that was like the grandfather's watch. We can't go with 'same' because it wouldn't need a definite article ('the same'). 'Equal' is used for measurements, amounts, or value, not for describing objects. 'Matching' is an adjective usually used for things that look the same or go together well, so it focuses on the visual rather than mechanical part."
+            },
+            {
+              "number": 26,
+              "type": "multiple-choice",
+              "prompt": "till looks old, but that is exactly what I like about it. Every time I check the ____ , I am reminded not only of my grandfather but also of the kindness of a colleague who went out of her way to help. <div class=\"",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "moment"
+                },
+                {
+                  "id": "B",
+                  "label": "hour"
+                },
+                {
+                  "id": "C",
+                  "label": "time"
+                },
+                {
+                  "id": "D",
+                  "label": "watch"
+                }
+              ],
+              "answer": "c",
+              "explanation": "The phrase 'check the time' is a very common collocation meaning to look at a watch or clock to see what time it is. It fits naturally at the end of the story. Option A is incorrect because 'check the moment' is not a natural expression. Option B is incorrect because 'check the hour' suggests looking at a specific hour rather than telling the time in general. Option D is incorrect because while 'check the watch' is possible, 'check the time' is the much more common and natural phrase."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 6,
+      "rangeLabel": "Questions 27–32",
+      "passageTitle": "Part 6 — Making a Decision",
+      "passage": [
+        {
+          "text": "Write one word for each gap.\n\nMaking a DecisionOut of the blue, my friend Lena told me she decided to leave her job and go back to university. She was thirty-two and had been working in the same office"
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 27–32",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "number": 27,
+              "type": "gap-fill",
+              "prompt": "she was twenty-two. She said she had thought about it for a long time and had finally decided it was now",
+              "answer": "since",
+              "explanation": "'Since\" with a specific point in time shows when something started. Lena began working at the office when she was twenty-two and stayed there until last year. The word \"for\" would be incorrect here because \"for\" is used with a period of time, not a starting point."
+            },
+            {
+              "number": 28,
+              "type": "gap-fill",
+              "prompt": "never. I was surprised. She had a good salary and got on well with her colleagues. But she explained that she had always wanted to study history, and she felt that life was too short to keep waiting f...",
+              "answer": "or",
+              "explanation": "\"Now or never\" is a common fixed expression meaning that if you do not act now, you will lose your chance. The word \"and\" would not express this sense of choice."
+            },
+            {
+              "number": 29,
+              "type": "gap-fill",
+              "prompt": "the rest of my life,\" she said. The first few months were hard. She went from earning a regular wage to having very little money. Her evenings were filled with books instead of friends, and she someti...",
+              "answer": "for",
+              "explanation": "\"For the rest of my life\" means from now until the end of your life. It is the only preposition that fits this time expression."
+            },
+            {
+              "number": 30,
+              "type": "gap-fill",
+              "prompt": "she had made a terrible mistake. There were moments",
+              "answer": "if",
+              "explanation": "The verb \"wondered\" is often followed by \"if\" to introduce a question or uncertain thought. She asked herself whether she had made a mistake."
+            },
+            {
+              "number": 31,
+              "type": "gap-fill",
+              "prompt": "she felt like giving up and going back to her old boss to ask for her job back. But she kept going, and slowly things improved. She discovered that she loved researching and writing, and her professor...",
+              "answer": "when",
+              "explanation": "This word introduces a relative clause describing the noun \"moments.\" It tells us that during these particular moments, she felt like giving up."
+            },
+            {
+              "number": 32,
+              "type": "gap-fill",
+              "prompt": "seen her. \"It was the best decision I ever made,\" she said.",
+              "answer": "ever",
+              "explanation": "\"Happier than I had ever seen her\" is a common structure using the past perfect with \"ever\" to mean at any time up to that point. The word \"never\" would create the opposite meaning.\n\nVocabularyThe vocabulary below is meant to help you with the more difficult words. If the word isn't on the list then you are either supposed to know it or it is too specific to be worth learning and you don't have to know it to answer the question. Symbols in brackets mean part of speech(see bottom of the list). Sentences in italics give examples of usage for some more complex words and phrases.\n\nAnd remember — you are not given a vocabulary list (or a dictionary) at your real exam."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

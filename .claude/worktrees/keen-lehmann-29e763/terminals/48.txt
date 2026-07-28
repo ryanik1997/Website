@@ -1,0 +1,7 @@
+---
+pid: 27760
+cwd: "D:\App-English-Ryan\Website"
+command: "Set-Location \"D:\\App-English-Ryan\\Website\"; foreach ($f in @(\"IELTS/Listening IELTS_Test1_Cam11\",\"IELTS/Listening IELTS_Test2_Cam11\",\"IELTS/Listening IELTS_Test3_Cam11\",\"IELTS/Listening IELTS_Test4_Cam11\",\"IELTS/Listening IELTS_Test1_Cam12\",\"IELTS/Listening IELTS_Test2_Cam12\",\"IELTS/Listening IELTS_Test3_Cam12\",\"IELTS/Listening IELTS_Test4_Cam12\")) { pnpm ielts:validate $f 2>&1 | Select-String -Pattern \"cảnh báo|Lỗi|Không có\" }"
+started_at: 2026-07-03T06:57:21.148Z
+running_for_ms: 45006    
+---

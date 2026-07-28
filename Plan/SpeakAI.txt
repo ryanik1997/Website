@@ -1,0 +1,531 @@
+Mình khuyên làm MVP Speaking AI trước, đừng tích hợp cả 3 provider ngay từ đầu: Gemini làm mặc định cho voice, DeepSeek làm lựa chọn chat tiết kiệm, còn Grok để sau vì chính sách API/free tier có thể thay đổi.
+
+
+
+1. Mục tiêu tính năng
+
+
+Thêm nút Speaking AI trên toolbar để người học có thể:
+
+
+
+Bấm nút và mở cửa sổ hội thoại.
+Nói bằng micro, hệ thống tự ghi âm.
+Chuyển giọng nói thành văn bản.
+Gửi nội dung đến AI.
+Nhận câu trả lời bằng text và giọng nói.
+Luyện hội thoại tiếng Anh theo chủ đề.
+Được sửa lỗi ngữ pháp, từ vựng và phát âm.
+Xem lại lịch sử hội thoại và tiến bộ.
+
+
+Luồng chính:
+
+
+
+User bấm Speaking AI
+→ chọn chủ đề / trình độ
+→ bấm micro và nói
+→ Speech-to-Text
+→ AI phân tích và trả lời
+→ Text-to-Speech đọc câu trả lời
+→ user tiếp tục hội thoại
+
+
+2. UX trên toolbar
+
+
+Thêm item:
+
+
+
+[🎙 Speaking AI]
+
+
+Khi click, mở panel bên phải hoặc modal lớn, không nên chuyển sang trang mới.
+
+
+
+Panel gồm:
+
+
+
+Header: Speaking AI
+Nút chọn provider/model
+Chọn trình độ: A1, A2, B1, B2, C1
+Chọn chế độ:
+
+Free Conversation
+Roleplay
+Job Interview
+Travel English
+Daily English
+Pronunciation Practice
+Grammar Correction
+Khu vực chat
+Nút micro lớn ở cuối màn hình
+Nút dừng ghi âm
+Nút phát lại câu trả lời
+Nút “Sửa câu này”
+Nút “Nói chậm hơn”
+Nút “Hiển thị bản dịch”
+
+
+Trạng thái micro phải rõ ràng:
+
+
+
+Idle → Recording → Processing → AI Speaking → Ready
+
+
+Đừng dùng một icon micro không có trạng thái, người dùng sẽ không biết app đang ghi âm hay đã dừng.
+
+
+
+3. MVP nên bao gồm
+
+
+Bắt buộc
+
+
+Ghi âm từ trình duyệt hoặc mobile.
+Xin quyền microphone rõ ràng.
+Speech-to-Text.
+Chat text với AI.
+Text-to-Speech.
+Lưu lịch sử hội thoại.
+Chọn trình độ và chủ đề.
+Hiển thị transcript.
+Retry khi API lỗi.
+Giới hạn thời lượng ghi âm, ví dụ 60 giây/lượt.
+Loading và error state đầy đủ.
+
+
+Nên có ngay sau MVP
+
+
+Chấm điểm câu trả lời.
+Sửa grammar.
+Gợi ý cách nói tự nhiên hơn.
+Đánh dấu từ vựng mới.
+Replay câu của AI.
+Tốc độ đọc 0.75x, 1x, 1.25x.
+Conversation summary sau mỗi buổi.
+Theo dõi số phút luyện nói.
+
+
+Chưa nên làm ở phiên bản đầu
+
+
+Chấm phát âm từng âm vị cực kỳ chi tiết.
+Voice-to-voice realtime hoàn toàn.
+Avatar 3D.
+Nhiều AI agent cùng lúc.
+Tích hợp cả DeepSeek, Gemini, Grok vào cùng một màn hình.
+Tự động chấm điểm phát âm nếu chưa có dữ liệu benchmark.
+
+
+4. Kiến trúc kỹ thuật đề xuất
+
+
+Không gọi API AI trực tiếp từ frontend. API key phải nằm ở backend hoặc serverless function.
+
+
+
+Frontend
+  ├── Speaking AI Toolbar Button
+  ├── Recording Controller
+  ├── Chat UI
+  └── Audio Player
+
+Backend
+  ├── /api/speech/transcribe
+  ├── /api/chat/respond
+  ├── /api/speech/synthesize
+  ├── /api/conversations
+  └── Provider Router
+
+Provider Layer
+  ├── Gemini Adapter
+  ├── DeepSeek Adapter
+  └── Grok Adapter
+
+
+Tạo interface chung để sau này đổi provider không phải sửa toàn bộ app:
+
+
+
+interface AIProvider {
+  chat(input: ChatRequest): Promise<ChatResponse>
+  transcribe(audio: AudioFile): Promise<Transcript>
+  synthesize(text: string, voice: VoiceConfig): Promise<AudioFile>
+}
+
+
+Backend nên có:
+
+
+
+Rate limit theo user.
+Giới hạn số phút nói mỗi ngày.
+Log lỗi nhưng không lưu API key.
+Timeout cho từng provider.
+Fallback provider khi provider chính lỗi.
+Kiểm soát nội dung không phù hợp.
+Xóa audio sau một thời gian nếu user không yêu cầu lưu.
+
+
+5. Phân chia trách nhiệm giữa các API
+
+
+Gemini
+
+
+Dùng làm provider chính cho:
+
+
+
+Chat hội thoại.
+Xử lý audio nếu model/API hỗ trợ workflow bạn chọn.
+Phân tích câu trả lời.
+Sinh phản hồi tự nhiên.
+Làm tutor tiếng Anh.
+
+
+Gemini hiện có hướng bắt đầu miễn phí với giới hạn nhất định, nhưng cần kiểm tra quota thực tế theo model trước khi public tính năng. Tài liệu chính thức: Gemini API pricing.
+
+
+
+DeepSeek
+
+
+Dùng cho:
+
+
+
+Chat text.
+Grammar correction.
+Giải thích ngữ pháp.
+Tạo bài luyện tập.
+Tối ưu chi phí.
+
+
+Không nên mặc định dùng DeepSeek cho toàn bộ voice pipeline nếu bạn vẫn phải dùng dịch vụ khác để transcribe và synthesize. Tài liệu chính thức: DeepSeek pricing.
+
+
+
+Grok
+
+
+Dùng sau để thử nghiệm:
+
+
+
+Conversation style khác biệt.
+Roleplay.
+Phản hồi tự nhiên hoặc vui hơn.
+
+
+Đừng quảng cáo “Grok API free” cho đến khi xác nhận chính sách API, quota và điều kiện tài khoản chính thức. “Free trên app Grok” không đồng nghĩa với “free API cho developer”.
+
+
+
+6. Prompt hệ thống cho AI tutor
+
+
+AI không nên chỉ trả lời như chatbot bình thường. Prompt cần ép nó đóng vai giáo viên:
+
+
+
+You are an English speaking tutor.
+
+Student level: {{level}}
+Conversation topic: {{topic}}
+Native language: Vietnamese
+Correction mode: {{correctionMode}}
+
+Rules:
+1. Reply naturally in English.
+2. Keep responses appropriate for the student's level.
+3. Ask only one follow-up question at a time.
+4. Do not interrupt the conversation with excessive corrections.
+5. After the student finishes, provide:
+   - Corrected sentence
+   - More natural alternative
+   - Short explanation in Vietnamese
+   - One useful vocabulary item
+6. If the student's meaning is unclear, ask for clarification.
+7. Never invent pronunciation scores without audio analysis.
+
+
+Response nên trả về JSON để frontend render ổn định:
+
+
+
+{
+  "reply": "That sounds interesting. What did you do there?",
+  "correction": {
+    "original": "I go to Bangkok last week",
+    "corrected": "I went to Bangkok last week",
+    "explanation": "Use the past tense because the action happened last week."
+  },
+  "vocabulary": [
+    {
+      "word": "interesting",
+      "meaning": "thú vị",
+      "example": "The trip was interesting."
+    }
+  ],
+  "follow_up_question": "What did you enjoy most about the trip?"
+}
+
+
+7. Voice pipeline
+
+
+Ghi âm
+
+
+Dùng MediaRecorder.
+Ưu tiên webm/opus trên web.
+Có fallback cho browser không hỗ trợ.
+Hiển thị waveform đơn giản.
+Giới hạn 60 giây mỗi lần.
+Cho phép hủy trước khi gửi.
+Không tự động ghi âm khi chưa có thao tác rõ ràng từ user.
+
+
+Speech-to-Text
+
+
+Pipeline:
+
+
+
+Audio file
+→ upload backend
+→ transcribe
+→ clean transcript
+→ send transcript to AI
+
+
+Cần xử lý:
+
+
+
+Tiếng ồn.
+Im lặng quá lâu.
+User nói tiếng Việt thay vì tiếng Anh.
+Audio rỗng.
+Phát hiện transcript quá ngắn.
+Nhận diện câu nói chưa hoàn chỉnh.
+
+
+Text-to-Speech
+
+
+Chỉ đọc câu trả lời chính, không đọc toàn bộ phần correction trừ khi user bấm nghe.
+Có nút stop.
+Có nút replay.
+Cache audio theo nội dung nếu cần giảm chi phí.
+Cho phép chọn giọng nam/nữ ở giai đoạn sau.
+
+
+8. Database model
+
+
+Tạo tối thiểu 3 bảng hoặc collection:
+
+
+
+conversations
+- id
+- user_id
+- title
+- level
+- topic
+- provider
+- started_at
+- ended_at
+- total_duration
+
+messages
+- id
+- conversation_id
+- role
+- text
+- audio_url
+- corrected_text
+- feedback_json
+- created_at
+
+speaking_usage
+- user_id
+- date
+- audio_seconds
+- request_count
+- estimated_cost
+
+
+Không lưu audio vĩnh viễn mặc định. Lưu transcript lâu dài, còn audio có thể tự xóa sau 7 hoặc 30 ngày.
+
+
+
+9. Kế hoạch triển khai theo phase
+
+
+Phase 0: Chốt scope
+
+
+Chọn web, mobile hay cả hai.
+Chọn provider mặc định.
+Chọn giới hạn miễn phí.
+Chốt có lưu audio hay chỉ lưu transcript.
+Chốt level và topic cho MVP.
+
+
+Kết quả: một tài liệu yêu cầu ngắn, không bắt đầu code khi scope còn mơ hồ.
+
+
+
+Phase 1: Toolbar và giao diện
+
+
+Thêm nút Speaking AI.
+Tạo panel chat.
+Tạo trạng thái recording.
+Tạo audio player.
+Tạo empty state, loading state và error state.
+Tạo màn hình chọn level/topic.
+
+
+Acceptance criteria: user có thể mở, đóng và bắt đầu một phiên luyện nói mà không bị mất ngữ cảnh.
+
+
+
+Phase 2: Recording
+
+
+Xin microphone permission.
+Ghi âm.
+Dừng, hủy, phát lại.
+Upload audio.
+Hiển thị thời lượng.
+Xử lý lỗi permission và browser.
+
+
+Acceptance criteria: audio được gửi thành công ở Chrome, Safari và mobile browser chính.
+
+
+
+Phase 3: AI chat
+
+
+Tạo backend provider adapter.
+Kết nối provider đầu tiên.
+Thêm system prompt.
+Gửi transcript.
+Render reply.
+Thêm retry và timeout.
+
+
+Acceptance criteria: từ một câu nói, app trả lời đúng level và hỏi tiếp một câu tự nhiên.
+
+
+
+Phase 4: Correction và feedback
+
+
+Hiển thị câu gốc.
+Hiển thị câu sửa.
+Giải thích lỗi.
+Hiển thị từ mới.
+Thêm nút “Try again”.
+
+
+Acceptance criteria: user hiểu mình sai ở đâu mà không bị một màn hình feedback quá dài.
+
+
+
+Phase 5: Text-to-Speech
+
+
+Sinh audio từ reply.
+Auto-play tùy cài đặt.
+Replay, stop, tốc độ đọc.
+Xử lý lỗi TTS.
+
+
+Acceptance criteria: AI trả lời bằng giọng nói ổn định, không tự phát âm thanh ngoài ý muốn.
+
+
+
+Phase 6: Lịch sử và usage
+
+
+Lưu conversation.
+Xem lại transcript.
+Hiển thị phút đã luyện.
+Áp giới hạn free quota.
+Thêm cảnh báo khi gần hết quota.
+
+
+Phase 7: Multi-provider
+
+
+Thêm DeepSeek cho text mode.
+Thêm Gemini làm voice/tutor mode.
+Thêm Grok chỉ khi API và quota được xác nhận.
+Tạo setting chọn provider.
+So sánh chất lượng và chi phí.
+
+
+10. Tiêu chí chất lượng
+
+
+Tính năng chỉ nên public khi đạt các mức sau:
+
+
+
+Thời gian từ lúc gửi audio đến khi có transcript: dưới 5 giây trong điều kiện bình thường.
+Thời gian có phản hồi AI: dưới 8 giây.
+Không làm lộ API key.
+Không mất conversation khi API lỗi.
+User luôn biết app đang nghe, đang xử lý hay đang phát âm thanh.
+AI không trả lời vượt quá trình độ người học.
+AI không sửa mọi câu một cách khó chịu.
+Tỷ lệ request lỗi có thông báo rõ ràng và nút thử lại.
+Có giới hạn chi phí theo user.
+
+
+11. Rủi ro cần xử lý sớm
+
+
+API key bị lộ: bắt buộc dùng backend.
+Chi phí tăng nhanh: giới hạn phút nói, token và số lượt mỗi ngày.
+Voice latency cao: MVP dùng push-to-talk, chưa làm realtime.
+AI sửa sai hoặc chấm phát âm ảo: chỉ chấm những gì API thực sự phân tích được.
+Privacy: xin consent, cho phép xóa lịch sử, không lưu audio mặc định.
+Provider không ổn định: provider router và fallback.
+Ghi âm trong môi trường ồn: thêm thông báo “hãy nói gần micro” và cho phép ghi lại.
+
+
+12. Bản MVP mình chốt
+
+
+Phiên bản đầu nên là:
+
+
+
+Toolbar Speaking AI
++ chọn level/topic
++ push-to-talk
++ speech-to-text
++ Gemini hoặc provider voice phù hợp
++ AI trả lời bằng text và audio
++ sửa grammar cơ bản
++ lưu transcript
++ giới hạn 10 phút/ngày/user
+
+
+Đừng bắt đầu bằng realtime voice và 3 API cùng lúc. Làm push-to-talk với một provider trước, đo latency, chất lượng transcript và chi phí thực tế, rồi mới mở rộng sang DeepSeek và Grok.

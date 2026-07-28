@@ -3,6 +3,8 @@ import { db } from '@ryan/db'
 import type { ReviewLog } from '@ryan/db'
 import { getCardStudyStatus } from '../cardStatus'
 import { isWeakWord } from './weakWords'
+import { useVocabStore } from '../vocabStore'
+import { filterCardsByUnitKind } from '../vocabUnitKind'
 
 export interface DeckAnalytics {
   totalReviews: number
@@ -40,14 +42,17 @@ function calcStreak(logs: ReviewLog[]): number {
 }
 
 export function useDeckAnalytics(deckId: string | null): DeckAnalytics | undefined {
+  const unitKind = useVocabStore(s => s.unitKind)
   return useLiveQuery(async () => {
     if (!deckId) return null
 
-    const [cards, srsRows] = await Promise.all([
+    const [allCards, allSrs] = await Promise.all([
       db.cards.where('deckId').equals(deckId).toArray(),
       db.srs.where('deckId').equals(deckId).toArray(),
     ])
+    const cards = filterCardsByUnitKind(allCards, unitKind)
     const cardIds = new Set(cards.map(c => c.id))
+    const srsRows = allSrs.filter(s => cardIds.has(s.cardId))
     const cardMap = new Map(cards.map(c => [c.id, c]))
 
     const allLogs = await db.reviewLog.toArray()
@@ -122,5 +127,5 @@ export function useDeckAnalytics(deckId: string | null): DeckAnalytics | undefin
       statusCounts,
       topWeak,
     }
-  }, [deckId]) ?? undefined
+  }, [deckId, unitKind]) ?? undefined
 }

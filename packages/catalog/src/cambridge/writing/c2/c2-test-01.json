@@ -1,0 +1,82 @@
+{
+  "id": "c2-test-01",
+  "level": "c2",
+  "testNumber": 1,
+  "title": "CPE C2 Digital Sample Test 1",
+  "sourceUrl": "https://ceq.inspera.com/player/?assessmentRunId=146745736&context=exam#/section/7185437720868/question/143372866/scorableItem/1",
+  "sourceFile": "docs/research/ceq.inspera.com/writing/c2.questions.json",
+  "tasks": [
+    {
+      "id": "c2-test-01-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Question 1",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write an essay summarising and evaluating the key points from both texts in 240–280 words.",
+      "promptText": "Use your own words throughout as far as possible, and include your own ideas in your answers.\nText 1: Shifting sands: behavioural change\nNowadays, in some cultures there may often be confusion between generations about what is acceptable behaviour in certain situations.\nOlder people sometimes complain, for example, about the real or imagined rudeness of others, such as in the use of electronic devices in public places.\nText 2: Follow my leader?\nShould we always aim to do what society expects of us? No, what society needs is individuality.\nWorrying about what other people think inhibits enthusiasm and creativity.",
+      "wordLimit": {
+        "min": 240,
+        "max": 280,
+        "displayText": "240–280 words"
+      },
+      "metadata": {
+        "compulsory": true,
+        "sourceQuestionNumber": "1"
+      }
+    },
+    {
+      "id": "c2-test-01-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Question 2",
+      "genre": "review",
+      "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+      "promptText": "A literary magazine is running a series of reviews of books that people enjoyed reading as a child and would recommend for children today.\nYou decide to send in a review in which you describe a book you enjoyed and the attractions it had for you as a child.\nYou should also explain why you feel it remains relevant for children today.\nWrite your review.",
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false,
+        "sourceQuestionNumber": "2"
+      }
+    },
+    {
+      "id": "c2-test-01-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Question 3",
+      "genre": "report",
+      "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+      "promptText": "A jobs fair was recently held in your town for international organisations and companies to promote careers available for young people.\nYou have been asked to write a report of the jobs fair for your college website.\nYou should briefly describe the event and identify two or three promotions of particular interest and relevance.\nYou should also evaluate the extent to which such events can open young people’s minds to new challenges and career opportunities.\nWrite your report.",
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false,
+        "sourceQuestionNumber": "3"
+      }
+    },
+    {
+      "id": "c2-test-01-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Question 4",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+      "promptText": "An international travel magazine is running a series of articles on alternatives to travelling by plane.\nThe magazine has invited readers to send in articles briefly describing a memorable long-distance train or bus journey they have made.\nThe article should explain the advantages of travelling a long distance by train or bus and consider whether in general travelling to your destination more slowly may result in a more satisfying travel experience.\nWrite your article.",
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false,
+        "sourceQuestionNumber": "4"
+      }
+    }
+  ]
+}

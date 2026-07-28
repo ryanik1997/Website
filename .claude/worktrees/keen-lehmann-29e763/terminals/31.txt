@@ -1,0 +1,146 @@
+---
+pid: 46136
+cwd: "D:\App-English-Ryan\Website"
+command: "cd D:\\App-English-Ryan\\Website\\apps\\web; npx tsc --noEmit 2>&1; pnpm build 2>&1"
+started_at: 2026-07-01T10:28:37.802Z
+running_for_ms: 2825011  
+---
+
+> web@0.1.0 build D:\App-English-Ryan\Website\apps\web
+> tsc && vite build
+
+vite v5.4.21 building for production...
+transforming...
+✓ 1881 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                          0.67 kB │ gzip:   0.39 kB
+dist/assets/cambridgeHub-3Cyk0Kzq.css                    2.16 kB │ gzip:   0.83 kB
+dist/assets/WritingLibraryPage-DCr48-O3.css              3.78 kB │ gzip:   1.17 kB
+dist/assets/examHub-Bm4tlIeY.css                         4.37 kB │ gzip:   1.07 kB
+dist/assets/WritingDashboardPage-DqZtvpkz.css            4.71 kB │ gzip:   1.25 kB
+dist/assets/TranslationPracticePage-DOEMqZ2B.css         4.83 kB │ gzip:   1.16 kB
+dist/assets/AppShell-aVqRSf8-.css                        5.26 kB │ gzip:   1.49 kB
+dist/assets/HomePage-CmpD4txb.css                        6.06 kB │ gzip:   1.53 kB
+dist/assets/structurePractice-DSd5l9Nk.css               9.74 kB │ gzip:   2.03 kB
+dist/assets/WritingEditor-DwxeoIxJ.css                  12.18 kB │ gzip:   2.49 kB
+dist/assets/listeningTest-B5Wgsn1W.css                  14.40 kB │ gzip:   2.56 kB
+dist/assets/ReadingTest-D-oR9MDO.css                    15.88 kB │ gzip:   2.97 kB
+dist/assets/index-picnhXDF.css                          30.76 kB │ gzip:   6.50 kB
+dist/assets/VocabularyPage-D-PHUaF7.css                 44.32 kB │ gzip:   7.48 kB
+dist/assets/audioRepo-BBwzMeP8.js                        0.20 kB │ gzip:   0.17 kB
+dist/assets/minus-B9haMMX1.js                            0.29 kB │ gzip:   0.24 kB
+dist/assets/chevron-down-CRiaII3c.js                     0.30 kB │ gzip:   0.24 kB
+dist/assets/chevron-left-x2i28L7b.js                     0.30 kB │ gzip:   0.25 kB
+dist/assets/chevron-right-Cmq75rAI.js                    0.30 kB │ gzip:   0.25 kB
+dist/assets/play-CsOU3dvV.js                             0.30 kB │ gzip:   0.25 kB
+dist/assets/loader-circle-BUJuSteZ.js                    0.31 kB │ gzip:   0.26 kB
+dist/assets/plus-l9xFr7SU.js                             0.32 kB │ gzip:   0.25 kB
+dist/assets/x-B8VGyTJe.js                                0.32 kB │ gzip:   0.25 kB
+dist/assets/arrow-right-BNxSsaXu.js                      0.33 kB │ gzip:   0.26 kB
+dist/assets/arrow-left-CpqEwbF1.js                       0.33 kB │ gzip:   0.26 kB
+dist/assets/search-wEGCjejC.js                           0.34 kB │ gzip:   0.27 kB
+dist/assets/circle-check-D-agLWU7.js                     0.34 kB │ gzip:   0.27 kB
+dist/assets/clock-CBLfrS15.js                            0.35 kB │ gzip:   0.27 kB
+dist/assets/circle-play-fEgaf8U2.js                      0.36 kB │ gzip:   0.27 kB
+dist/assets/trending-up-Kqu-92qf.js                      0.37 kB │ gzip:   0.28 kB
+dist/assets/bell-B2QPAM_c.js                             0.38 kB │ gzip:   0.29 kB
+dist/assets/headphones-D1emijEG.js                       0.41 kB │ gzip:   0.28 kB
+dist/assets/book-marked-DguTzaD-.js                      0.42 kB │ gzip:   0.31 kB
+dist/assets/circle-alert-DGtDOBIv.js                     0.42 kB │ gzip:   0.29 kB
+dist/assets/eye-DQ-EKrs8.js                              0.42 kB │ gzip:   0.30 kB
+dist/assets/upload-t3Ne_JgY.js                           0.43 kB │ gzip:   0.32 kB
+dist/assets/download-CsnazHS5.js                         0.43 kB │ gzip:   0.32 kB
+dist/assets/triangle-alert-DSpeIybf.js                   0.43 kB │ gzip:   0.31 kB
+dist/assets/shield-CKafZ2LA.js                           0.44 kB │ gzip:   0.32 kB
+dist/assets/git-branch-pCIaen-6.js                       0.44 kB │ gzip:   0.32 kB
+dist/assets/pencil-HxecPHH6.js                           0.45 kB │ gzip:   0.32 kB
+dist/assets/pen-line-D8B16yg6.js                         0.45 kB │ gzip:   0.33 kB
+dist/assets/flame-bPMA-bmZ.js                            0.45 kB │ gzip:   0.33 kB
+dist/assets/book-open-BaJ16mjE.js                        0.45 kB │ gzip:   0.31 kB
+dist/assets/lightbulb-BUWPlPcc.js                        0.46 kB │ gzip:   0.33 kB
+dist/assets/speakPhrase-BIVJh4SM.js                      0.46 kB │ gzip:   0.29 kB
+dist/assets/maximize-2-tukQJLZg.js                       0.47 kB │ gzip:   0.31 kB
+dist/assets/languages-DAtstcqi.js                        0.49 kB │ gzip:   0.32 kB
+dist/assets/refresh-cw-BZyYI8Sz.js                       0.49 kB │ gzip:   0.33 kB
+dist/assets/PanelEmpty-AyETDwmK.js                       0.50 kB │ gzip:   0.31 kB
+dist/assets/file-text-CJG9s5xr.js                        0.50 kB │ gzip:   0.32 kB
+dist/assets/trash-2-Bf0m8eP6.js                          0.53 kB │ gzip:   0.35 kB
+dist/assets/plans-DlkoDfNG.js                            0.53 kB │ gzip:   0.22 kB
+dist/assets/volume-2-BMUzr-dS.js                         0.56 kB │ gzip:   0.38 kB
+dist/assets/examTracks-CYRovGd2.js                       0.57 kB │ gzip:   0.42 kB
+dist/assets/eye-off-Dj2JklBp.js                          0.60 kB │ gzip:   0.38 kB
+dist/assets/CopyButton-9JTaaF4z.js                       0.61 kB │ gzip:   0.44 kB
+dist/assets/PanelHeader-CcAietdg.js                      0.61 kB │ gzip:   0.35 kB
+dist/assets/star-BBuKpQST.js                             0.64 kB │ gzip:   0.40 kB
+dist/assets/react-B4DzzDU2.js                            0.65 kB │ gzip:   0.40 kB
+dist/assets/sparkles-CzOTRq2E.js                         0.68 kB │ gzip:   0.40 kB
+dist/assets/target-B5vG47a3.js                           0.76 kB │ gzip:   0.36 kB
+dist/assets/WritingTest-BJJGHoRS.js                      0.82 kB │ gzip:   0.51 kB
+dist/assets/WritingLayout-B_Drh-W5.js                    0.85 kB │ gzip:   0.47 kB
+dist/assets/AuthCallback-AKtKLO6q.js                     0.88 kB │ gzip:   0.59 kB
+dist/assets/settings-IGrQjd3g.js                         0.89 kB │ gzip:   0.45 kB
+dist/assets/contact-z-3j4HJI.js                          1.07 kB │ gzip:   0.50 kB
+dist/assets/ExamHome-CYOO5Fa7.js                         1.15 kB │ gzip:   0.53 kB
+dist/assets/rotate-ccw-pIWEoU8-.js                       1.22 kB │ gzip:   0.53 kB
+dist/assets/dexie-react-hooks-CP04KC37.js                1.31 kB │ gzip:   0.59 kB
+dist/assets/structurePractice-CprWA6hW.js                1.49 kB │ gzip:   0.80 kB
+dist/assets/fullMockSession-BaXoGVEy.js                  1.51 kB │ gzip:   0.83 kB
+dist/assets/listeningMeta-C1BdGytG.js                    1.59 kB │ gzip:   0.82 kB
+dist/assets/EmptyStateCard-DA9CcIkM.js                   1.60 kB │ gzip:   0.68 kB
+dist/assets/vocabStore-CRLmZFe0.js                       1.69 kB │ gzip:   0.74 kB
+dist/assets/WritingPracticePage-B9QUNFpr.js              1.75 kB │ gzip:   0.89 kB
+dist/assets/TranslationPage-_5eJSMLk.js                  1.75 kB │ gzip:   0.88 kB
+dist/assets/WritingCambridgePage-DW6no43Q.js             1.77 kB │ gzip:   0.89 kB
+dist/assets/practiceUtils-BKTaevXt.js                    1.78 kB │ gzip:   0.85 kB
+dist/assets/writingRepo-ChhXes1y.js                      1.83 kB │ gzip:   0.84 kB
+dist/assets/WritingIeltsGenrePage-BWcTaeGK.js            2.00 kB │ gzip:   0.94 kB
+dist/assets/WritingCambridgeGenrePage-ota_A-xm.js        2.00 kB │ gzip:   0.94 kB
+dist/assets/TranslationGenrePage-i-COjgRl.js             2.02 kB │ gzip:   0.94 kB
+dist/assets/FullMockStageResult-D9lRbuAS.js              2.17 kB │ gzip:   0.86 kB
+dist/assets/FullMockSummary-JOs2LG19.js                  2.34 kB │ gzip:   0.90 kB
+dist/assets/listeningUtils-B-4bbfYf.js                   2.35 kB │ gzip:   1.08 kB
+dist/assets/provider-BKToNop1.js                         2.39 kB │ gzip:   1.33 kB
+dist/assets/FullMockIntro-B6jBwqaA.js                    2.43 kB │ gzip:   1.17 kB
+dist/assets/WritingCambridgePracticePage-DgpONI8y.js     3.31 kB │ gzip:   1.69 kB
+dist/assets/WritingIeltsPracticePage-CPLtPXn1.js         3.33 kB │ gzip:   1.69 kB
+dist/assets/WritingLibraryPage-DgfcvPoO.js               3.36 kB │ gzip:   0.89 kB
+dist/assets/cambridgeSampleBuilders-CQ8A7Y7r.js          3.42 kB │ gzip:   1.19 kB
+dist/assets/SentenceStructurePracticePage-D70l0ZSg.js    3.77 kB │ gzip:   1.54 kB
+dist/assets/ieltsCatalog-Bw8yV-Sm.js                     3.80 kB │ gzip:   1.76 kB
+dist/assets/StudyFireworks-f__blG1G.js                   3.81 kB │ gzip:   1.87 kB
+dist/assets/WritingMockTest-Caw6rx1U.js                  3.89 kB │ gzip:   1.69 kB
+dist/assets/ListeningLayout-CxG4xQ8a.js                  5.51 kB │ gzip:   2.68 kB
+dist/assets/cambridgeCatalog-C4oDWI9U.js                 5.55 kB │ gzip:   2.32 kB
+dist/assets/writingPrompt-BMsZXsVX.js                    6.04 kB │ gzip:   2.39 kB
+dist/assets/ListeningTtsStatusBadge-DNym32fb.js          6.42 kB │ gzip:   2.36 kB
+dist/assets/AiSettingsPanel-DAL4KC4-.js                  6.53 kB │ gzip:   2.53 kB
+dist/assets/translationCatalog-By_qcq8X.js               6.73 kB │ gzip:   2.72 kB
+dist/assets/tts-C-5ybu4V.js                              7.21 kB │ gzip:   2.74 kB
+dist/assets/readingPdfKetPrompt-LEsEiBre.js              7.28 kB │ gzip:   3.31 kB
+dist/assets/readingPdfPetPrompt-icEg0MdK.js              7.41 kB │ gzip:   3.32 kB
+dist/assets/useNotifications-DlV7hx_l.js                 9.02 kB │ gzip:   3.61 kB
+dist/assets/SentenceStructureListPage-odj95kgV.js        9.17 kB │ gzip:   3.50 kB
+dist/assets/ExamTrackPage-CS_1veXP.js                   10.35 kB │ gzip:   3.18 kB
+dist/assets/WritingDashboardPage-BAlTX0Sw.js            11.39 kB │ gzip:   3.56 kB
+dist/assets/AdminPage-DRWe1koJ.js                       14.79 kB │ gzip:   4.25 kB
+dist/assets/HomePage-Brmri7RM.js                        17.02 kB │ gzip:   5.73 kB
+dist/assets/listeningExamLoader-QPSGB0ml.js             19.42 kB │ gzip:   7.96 kB
+dist/assets/ImportListeningModal-CcQYHpPT.js            23.29 kB │ gzip:   9.19 kB
+dist/assets/ListeningTest-DPeIN96F.js                   24.57 kB │ gzip:   7.04 kB
+dist/assets/MindmapPage-BS1yAcbw.js                     26.07 kB │ gzip:   9.34 kB
+dist/assets/SettingsPage-BhBHs2AR.js                    26.56 kB │ gzip:   7.71 kB
+dist/assets/LandingPage-BaoD63Vi.js                     27.07 kB │ gzip:   7.96 kB
+dist/assets/ImportReadingPdfModal-CF-fsGzZ.js           30.66 kB │ gzip:  10.37 kB
+dist/assets/examLoader-Bzr_qiyR.js                      32.03 kB │ gzip:  11.18 kB
+dist/assets/AppShell-DdYsGYcw.js                        33.51 kB │ gzip:  10.04 kB
+dist/assets/TranslationPracticePage-Btr2eT9g.js         38.14 kB │ gzip:  11.69 kB
+dist/assets/ReadingTest-CfxOHFd-.js                     38.58 kB │ gzip:  10.36 kB
+dist/assets/ListeningLibraryPage-Dq8hm8HN.js            41.45 kB │ gzip:   9.78 kB
+dist/assets/WritingEditor-CY27E1Xp.js                   43.31 kB │ gzip:  11.99 kB
+dist/assets/ListeningLessonPage-Cbb96xJH.js             44.04 kB │ gzip:  13.56 kB
+dist/assets/VocabularyPage-Kh5ANYl0.js                  89.13 kB │ gzip:  24.82 kB
+dist/assets/schema-8I0_3NA3.js                         102.18 kB │ gzip:  32.88 kB
+dist/assets/index-D4EBjfDS.js                          399.21 kB │ gzip: 116.00 kB
+dist/assets/pdf-D35c9CSk.js                            476.82 kB │ gzip: 142.05 kB
+✓ built in 5.80s

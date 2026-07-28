@@ -1,0 +1,831 @@
+{
+  "totalTemplates": 73,
+  "errors": [],
+  "uniqueTriplets": 63,
+  "collisions": {
+    "1::matching-headings|gap-fill": [
+      "p1-r1-headings-gap",
+      "p1-r1-headings-notes"
+    ],
+    "1::gap-fill|tfng": [
+      "p1-r1-notes-tfng",
+      "p1-r1-notes-tfng-8",
+      "p1-r1-table-tfng"
+    ],
+    "1::tfng|gap-fill": [
+      "p1-r1-tfng-gap",
+      "p1-r1-tfng-table",
+      "p1-r1-tfng-notes"
+    ],
+    "2::tfng|gap-fill": [
+      "p2-r2-tfng-diagram",
+      "p2-r2-tfng-notes"
+    ],
+    "3::matching-paragraph|gap-fill|matching-features": [
+      "p3-r3-match-table-features",
+      "p3-r3-match-summary-features"
+    ],
+    "3::summary-completion|ynng|multiple-choice": [
+      "p3-r3-summary-ynng-mc",
+      "p3-r3-summary-bank-ynng-mc"
+    ],
+    "3::multiple-choice|summary-completion|ynng": [
+      "p3-r3-mc-summary-ynng",
+      "p3-r3-mc-endings-ynng"
+    ],
+    "3::ynng|summary-completion|multiple-choice": [
+      "p3-r3-ynng-summary-mc",
+      "p3-r3-ynng-summary-bank-mc"
+    ]
+  },
+  "map": {
+    "1::tfng|multiple-choice": "p1-r1-tfng-mc",
+    "1::gap-fill|tfng": "p1-r1-notes-tfng",
+    "1::tfng|gap-fill": "p1-r1-tfng-gap",
+    "1::tfng|gap-fill|gap-fill": "p1-r1-tfng-gap-table",
+    "1::matching-headings|multiple-choice": "p1-r1-headings-mc",
+    "1::sentence-completion|multiple-choice": "p1-r1-sentence-mc",
+    "1::matching-headings|gap-fill": "p1-r1-headings-gap",
+    "1::gap-fill|multiple-choice": "p1-r1-gap-mc",
+    "1::tfng|matching-features|gap-fill": "p1-r1-tfng-match-notes",
+    "1::tfng|matching-features|summary-completion": "p1-r1-tfng-match-summary",
+    "1::matching-paragraph|matching-features|multiple-choice|multiple-choice": "p1-r1-match-choose-two",
+    "1::matching-paragraph|ynng|matching-features": "p1-r1-match-ynng-features",
+    "1::gap-fill|tfng|gap-fill": "p1-r1-notes-tfng-table",
+    "1::gap-fill|gap-fill|tfng": "p1-r1-notes-table-tfng",
+    "1::sentence-completion|gap-fill|tfng": "p1-r1-sentence-table-tfng",
+    "1::matching-paragraph|gap-fill|matching-features": "p1-r1-match-summary-features",
+    "1::matching-paragraph|gap-fill|multiple-choice|multiple-choice": "p1-r1-match-summary-choose-two",
+    "2::matching-paragraph|matching-features|multiple-choice": "p2-r2-match-mc",
+    "2::ynng|matching-paragraph|matching-features|multiple-choice": "p2-r2-ynng-match",
+    "2::matching-headings|gap-fill|ynng": "p2-r2-headings-ynng",
+    "2::tfng|matching-paragraph|matching-features|multiple-choice": "p2-r2-tfng-match",
+    "2::gap-fill|matching-features|matching-paragraph": "p2-r2-gap-match",
+    "2::matching-headings|gap-fill|multiple-choice": "p2-r2-headings-summary-mc",
+    "2::summary-completion|ynng|multiple-choice": "p2-r2-summary-ynng-mc",
+    "2::tfng|summary-completion|gap-fill": "p2-r2-tfng-endings-summary",
+    "2::multiple-choice|tfng|summary-completion": "p2-r2-mc-tfng-endings",
+    "2::tfng|gap-fill": "p2-r2-tfng-diagram",
+    "2::matching-headings|tfng|sentence-completion": "p2-r2-headings-tfng-sentence",
+    "2::multiple-choice|summary-completion|ynng": "p2-r2-mc-summary-ynng",
+    "2::matching-headings|matching-features|gap-fill": "p2-r2-headings-match-summary",
+    "2::matching-paragraph|multiple-choice|multiple-choice|gap-fill": "p2-r2-match-choose-two-summary",
+    "2::matching-paragraph|tfng|multiple-choice|multiple-choice": "p2-r2-match-tfng-choose-two",
+    "2::matching-paragraph|matching-features|sentence-completion": "p2-r2-match-features-sentence",
+    "2::multiple-choice|ynng|summary-completion": "p2-r2-mc-ynng-summary",
+    "2::matching-headings|multiple-choice|gap-fill": "p2-r2-headings-mc-summary",
+    "2::multiple-choice|matching-features|ynng": "p2-r2-mc-features-ynng",
+    "2::matching-paragraph|sentence-completion|multiple-choice|multiple-choice": "p2-r2-match-sentence-choose-two",
+    "2::matching-paragraph|sentence-completion|matching-features": "p2-r2-match-sentence-features",
+    "2::matching-paragraph|matching-features|gap-fill": "p2-r2-match-features-summary",
+    "2::matching-paragraph|gap-fill|multiple-choice|multiple-choice": "p2-r2-match-summary-choose-two",
+    "2::matching-headings|multiple-choice|multiple-choice|gap-fill": "p2-r2-headings-choose-two-notes",
+    "3::tfng|multiple-choice": "p3-r3-tfng-mc",
+    "3::gap-fill|tfng|summary-completion|multiple-choice": "p3-r3-gap-tfng-flow-mc",
+    "3::ynng|multiple-choice": "p3-r3-ynng-mc",
+    "3::gap-fill|ynng|multiple-choice": "p3-r3-gap-ynng-mc",
+    "3::summary-completion|ynng|multiple-choice": "p3-r3-summary-ynng-mc",
+    "3::summary-completion|multiple-choice|ynng": "p3-r3-summary-mc-ynng",
+    "3::gap-fill|tfng|multiple-choice": "p3-r3-gap-tfng-mc",
+    "3::matching-paragraph|gap-fill|matching-features": "p3-r3-match-table-features",
+    "3::multiple-choice|summary-completion|ynng": "p3-r3-mc-summary-ynng",
+    "3::matching-paragraph|sentence-completion": "p3-r3-match-paragraph-sentence",
+    "3::matching-headings|summary-completion|ynng": "p3-r3-headings-summary-ynng",
+    "3::matching-headings|gap-fill|ynng": "p3-r3-headings-gap-ynng",
+    "3::matching-headings|multiple-choice|ynng": "p3-r3-headings-mc-ynng",
+    "3::gap-fill|ynng|matching-paragraph": "p3-r3-table-ynng-match",
+    "3::gap-fill|multiple-choice|summary-completion": "p3-r3-summary-mc-endings",
+    "3::matching-features|ynng|gap-fill": "p3-r3-features-ynng-summary",
+    "3::tfng|gap-fill|multiple-choice": "p3-r3-tfng-notes-mc",
+    "3::summary-completion|summary-completion|multiple-choice": "p3-r3-endings-summary-mc",
+    "3::ynng|summary-completion|multiple-choice": "p3-r3-ynng-summary-mc",
+    "3::multiple-choice|gap-fill|ynng": "p3-r3-mc-summary-gap-ynng",
+    "3::matching-features|summary-completion|multiple-choice": "p3-r3-features-endings-mc",
+    "3::matching-paragraph|matching-features|gap-fill": "p3-r3-match-features-summary"
+  },
+  "entries": [
+    {
+      "kind": "p1-r1-tfng-mc",
+      "passage": 1,
+      "triplet": [
+        "tfng",
+        "multiple-choice"
+      ],
+      "key": "tfng|multiple-choice"
+    },
+    {
+      "kind": "p1-r1-notes-tfng",
+      "passage": 1,
+      "triplet": [
+        "gap-fill",
+        "tfng"
+      ],
+      "key": "gap-fill|tfng"
+    },
+    {
+      "kind": "p1-r1-tfng-gap",
+      "passage": 1,
+      "triplet": [
+        "tfng",
+        "gap-fill"
+      ],
+      "key": "tfng|gap-fill"
+    },
+    {
+      "kind": "p1-r1-tfng-gap-table",
+      "passage": 1,
+      "triplet": [
+        "tfng",
+        "gap-fill",
+        "gap-fill"
+      ],
+      "key": "tfng|gap-fill|gap-fill"
+    },
+    {
+      "kind": "p1-r1-headings-mc",
+      "passage": 1,
+      "triplet": [
+        "matching-headings",
+        "multiple-choice"
+      ],
+      "key": "matching-headings|multiple-choice"
+    },
+    {
+      "kind": "p1-r1-sentence-mc",
+      "passage": 1,
+      "triplet": [
+        "sentence-completion",
+        "multiple-choice"
+      ],
+      "key": "sentence-completion|multiple-choice"
+    },
+    {
+      "kind": "p1-r1-headings-gap",
+      "passage": 1,
+      "triplet": [
+        "matching-headings",
+        "gap-fill"
+      ],
+      "key": "matching-headings|gap-fill"
+    },
+    {
+      "kind": "p1-r1-gap-mc",
+      "passage": 1,
+      "triplet": [
+        "gap-fill",
+        "multiple-choice"
+      ],
+      "key": "gap-fill|multiple-choice"
+    },
+    {
+      "kind": "p1-r1-tfng-match-notes",
+      "passage": 1,
+      "triplet": [
+        "tfng",
+        "matching-features",
+        "gap-fill"
+      ],
+      "key": "tfng|matching-features|gap-fill"
+    },
+    {
+      "kind": "p1-r1-tfng-match-summary",
+      "passage": 1,
+      "triplet": [
+        "tfng",
+        "matching-features",
+        "summary-completion"
+      ],
+      "key": "tfng|matching-features|summary-completion"
+    },
+    {
+      "kind": "p1-r1-match-choose-two",
+      "passage": 1,
+      "triplet": [
+        "matching-paragraph",
+        "matching-features",
+        "multiple-choice",
+        "multiple-choice"
+      ],
+      "key": "matching-paragraph|matching-features|multiple-choice|multiple-choice"
+    },
+    {
+      "kind": "p1-r1-headings-notes",
+      "passage": 1,
+      "triplet": [
+        "matching-headings",
+        "gap-fill"
+      ],
+      "key": "matching-headings|gap-fill"
+    },
+    {
+      "kind": "p1-r1-notes-tfng-8",
+      "passage": 1,
+      "triplet": [
+        "gap-fill",
+        "tfng"
+      ],
+      "key": "gap-fill|tfng"
+    },
+    {
+      "kind": "p1-r1-table-tfng",
+      "passage": 1,
+      "triplet": [
+        "gap-fill",
+        "tfng"
+      ],
+      "key": "gap-fill|tfng"
+    },
+    {
+      "kind": "p1-r1-match-ynng-features",
+      "passage": 1,
+      "triplet": [
+        "matching-paragraph",
+        "ynng",
+        "matching-features"
+      ],
+      "key": "matching-paragraph|ynng|matching-features"
+    },
+    {
+      "kind": "p1-r1-notes-tfng-table",
+      "passage": 1,
+      "triplet": [
+        "gap-fill",
+        "tfng",
+        "gap-fill"
+      ],
+      "key": "gap-fill|tfng|gap-fill"
+    },
+    {
+      "kind": "p1-r1-notes-table-tfng",
+      "passage": 1,
+      "triplet": [
+        "gap-fill",
+        "gap-fill",
+        "tfng"
+      ],
+      "key": "gap-fill|gap-fill|tfng"
+    },
+    {
+      "kind": "p1-r1-tfng-table",
+      "passage": 1,
+      "triplet": [
+        "tfng",
+        "gap-fill"
+      ],
+      "key": "tfng|gap-fill"
+    },
+    {
+      "kind": "p1-r1-sentence-table-tfng",
+      "passage": 1,
+      "triplet": [
+        "sentence-completion",
+        "gap-fill",
+        "tfng"
+      ],
+      "key": "sentence-completion|gap-fill|tfng"
+    },
+    {
+      "kind": "p1-r1-match-summary-features",
+      "passage": 1,
+      "triplet": [
+        "matching-paragraph",
+        "gap-fill",
+        "matching-features"
+      ],
+      "key": "matching-paragraph|gap-fill|matching-features"
+    },
+    {
+      "kind": "p1-r1-match-summary-choose-two",
+      "passage": 1,
+      "triplet": [
+        "matching-paragraph",
+        "gap-fill",
+        "multiple-choice",
+        "multiple-choice"
+      ],
+      "key": "matching-paragraph|gap-fill|multiple-choice|multiple-choice"
+    },
+    {
+      "kind": "p1-r1-tfng-notes",
+      "passage": 1,
+      "triplet": [
+        "tfng",
+        "gap-fill"
+      ],
+      "key": "tfng|gap-fill"
+    },
+    {
+      "kind": "p2-r2-match-mc",
+      "passage": 2,
+      "triplet": [
+        "matching-paragraph",
+        "matching-features",
+        "multiple-choice"
+      ],
+      "key": "matching-paragraph|matching-features|multiple-choice"
+    },
+    {
+      "kind": "p2-r2-ynng-match",
+      "passage": 2,
+      "triplet": [
+        "ynng",
+        "matching-paragraph",
+        "matching-features",
+        "multiple-choice"
+      ],
+      "key": "ynng|matching-paragraph|matching-features|multiple-choice"
+    },
+    {
+      "kind": "p2-r2-headings-ynng",
+      "passage": 2,
+      "triplet": [
+        "matching-headings",
+        "gap-fill",
+        "ynng"
+      ],
+      "key": "matching-headings|gap-fill|ynng"
+    },
+    {
+      "kind": "p2-r2-tfng-match",
+      "passage": 2,
+      "triplet": [
+        "tfng",
+        "matching-paragraph",
+        "matching-features",
+        "multiple-choice"
+      ],
+      "key": "tfng|matching-paragraph|matching-features|multiple-choice"
+    },
+    {
+      "kind": "p2-r2-gap-match",
+      "passage": 2,
+      "triplet": [
+        "gap-fill",
+        "matching-features",
+        "matching-paragraph"
+      ],
+      "key": "gap-fill|matching-features|matching-paragraph"
+    },
+    {
+      "kind": "p2-r2-headings-summary-mc",
+      "passage": 2,
+      "triplet": [
+        "matching-headings",
+        "gap-fill",
+        "multiple-choice"
+      ],
+      "key": "matching-headings|gap-fill|multiple-choice"
+    },
+    {
+      "kind": "p2-r2-summary-ynng-mc",
+      "passage": 2,
+      "triplet": [
+        "summary-completion",
+        "ynng",
+        "multiple-choice"
+      ],
+      "key": "summary-completion|ynng|multiple-choice"
+    },
+    {
+      "kind": "p2-r2-tfng-endings-summary",
+      "passage": 2,
+      "triplet": [
+        "tfng",
+        "summary-completion",
+        "gap-fill"
+      ],
+      "key": "tfng|summary-completion|gap-fill"
+    },
+    {
+      "kind": "p2-r2-mc-tfng-endings",
+      "passage": 2,
+      "triplet": [
+        "multiple-choice",
+        "tfng",
+        "summary-completion"
+      ],
+      "key": "multiple-choice|tfng|summary-completion"
+    },
+    {
+      "kind": "p2-r2-tfng-diagram",
+      "passage": 2,
+      "triplet": [
+        "tfng",
+        "gap-fill"
+      ],
+      "key": "tfng|gap-fill"
+    },
+    {
+      "kind": "p2-r2-headings-tfng-sentence",
+      "passage": 2,
+      "triplet": [
+        "matching-headings",
+        "tfng",
+        "sentence-completion"
+      ],
+      "key": "matching-headings|tfng|sentence-completion"
+    },
+    {
+      "kind": "p2-r2-mc-summary-ynng",
+      "passage": 2,
+      "triplet": [
+        "multiple-choice",
+        "summary-completion",
+        "ynng"
+      ],
+      "key": "multiple-choice|summary-completion|ynng"
+    },
+    {
+      "kind": "p2-r2-headings-match-summary",
+      "passage": 2,
+      "triplet": [
+        "matching-headings",
+        "matching-features",
+        "gap-fill"
+      ],
+      "key": "matching-headings|matching-features|gap-fill"
+    },
+    {
+      "kind": "p2-r2-match-choose-two-summary",
+      "passage": 2,
+      "triplet": [
+        "matching-paragraph",
+        "multiple-choice",
+        "multiple-choice",
+        "gap-fill"
+      ],
+      "key": "matching-paragraph|multiple-choice|multiple-choice|gap-fill"
+    },
+    {
+      "kind": "p2-r2-match-tfng-choose-two",
+      "passage": 2,
+      "triplet": [
+        "matching-paragraph",
+        "tfng",
+        "multiple-choice",
+        "multiple-choice"
+      ],
+      "key": "matching-paragraph|tfng|multiple-choice|multiple-choice"
+    },
+    {
+      "kind": "p2-r2-tfng-notes",
+      "passage": 2,
+      "triplet": [
+        "tfng",
+        "gap-fill"
+      ],
+      "key": "tfng|gap-fill"
+    },
+    {
+      "kind": "p2-r2-match-features-sentence",
+      "passage": 2,
+      "triplet": [
+        "matching-paragraph",
+        "matching-features",
+        "sentence-completion"
+      ],
+      "key": "matching-paragraph|matching-features|sentence-completion"
+    },
+    {
+      "kind": "p2-r2-mc-ynng-summary",
+      "passage": 2,
+      "triplet": [
+        "multiple-choice",
+        "ynng",
+        "summary-completion"
+      ],
+      "key": "multiple-choice|ynng|summary-completion"
+    },
+    {
+      "kind": "p2-r2-headings-mc-summary",
+      "passage": 2,
+      "triplet": [
+        "matching-headings",
+        "multiple-choice",
+        "gap-fill"
+      ],
+      "key": "matching-headings|multiple-choice|gap-fill"
+    },
+    {
+      "kind": "p2-r2-mc-features-ynng",
+      "passage": 2,
+      "triplet": [
+        "multiple-choice",
+        "matching-features",
+        "ynng"
+      ],
+      "key": "multiple-choice|matching-features|ynng"
+    },
+    {
+      "kind": "p2-r2-match-sentence-choose-two",
+      "passage": 2,
+      "triplet": [
+        "matching-paragraph",
+        "sentence-completion",
+        "multiple-choice",
+        "multiple-choice"
+      ],
+      "key": "matching-paragraph|sentence-completion|multiple-choice|multiple-choice"
+    },
+    {
+      "kind": "p2-r2-match-sentence-features",
+      "passage": 2,
+      "triplet": [
+        "matching-paragraph",
+        "sentence-completion",
+        "matching-features"
+      ],
+      "key": "matching-paragraph|sentence-completion|matching-features"
+    },
+    {
+      "kind": "p2-r2-match-features-summary",
+      "passage": 2,
+      "triplet": [
+        "matching-paragraph",
+        "matching-features",
+        "gap-fill"
+      ],
+      "key": "matching-paragraph|matching-features|gap-fill"
+    },
+    {
+      "kind": "p2-r2-match-summary-choose-two",
+      "passage": 2,
+      "triplet": [
+        "matching-paragraph",
+        "gap-fill",
+        "multiple-choice",
+        "multiple-choice"
+      ],
+      "key": "matching-paragraph|gap-fill|multiple-choice|multiple-choice"
+    },
+    {
+      "kind": "p2-r2-headings-choose-two-notes",
+      "passage": 2,
+      "triplet": [
+        "matching-headings",
+        "multiple-choice",
+        "multiple-choice",
+        "gap-fill"
+      ],
+      "key": "matching-headings|multiple-choice|multiple-choice|gap-fill"
+    },
+    {
+      "kind": "p3-r3-tfng-mc",
+      "passage": 3,
+      "triplet": [
+        "tfng",
+        "multiple-choice"
+      ],
+      "key": "tfng|multiple-choice"
+    },
+    {
+      "kind": "p3-r3-gap-tfng-flow-mc",
+      "passage": 3,
+      "triplet": [
+        "gap-fill",
+        "tfng",
+        "summary-completion",
+        "multiple-choice"
+      ],
+      "key": "gap-fill|tfng|summary-completion|multiple-choice"
+    },
+    {
+      "kind": "p3-r3-ynng-mc",
+      "passage": 3,
+      "triplet": [
+        "ynng",
+        "multiple-choice"
+      ],
+      "key": "ynng|multiple-choice"
+    },
+    {
+      "kind": "p3-r3-gap-ynng-mc",
+      "passage": 3,
+      "triplet": [
+        "gap-fill",
+        "ynng",
+        "multiple-choice"
+      ],
+      "key": "gap-fill|ynng|multiple-choice"
+    },
+    {
+      "kind": "p3-r3-summary-ynng-mc",
+      "passage": 3,
+      "triplet": [
+        "summary-completion",
+        "ynng",
+        "multiple-choice"
+      ],
+      "key": "summary-completion|ynng|multiple-choice"
+    },
+    {
+      "kind": "p3-r3-summary-mc-ynng",
+      "passage": 3,
+      "triplet": [
+        "summary-completion",
+        "multiple-choice",
+        "ynng"
+      ],
+      "key": "summary-completion|multiple-choice|ynng"
+    },
+    {
+      "kind": "p3-r3-gap-tfng-mc",
+      "passage": 3,
+      "triplet": [
+        "gap-fill",
+        "tfng",
+        "multiple-choice"
+      ],
+      "key": "gap-fill|tfng|multiple-choice"
+    },
+    {
+      "kind": "p3-r3-match-table-features",
+      "passage": 3,
+      "triplet": [
+        "matching-paragraph",
+        "gap-fill",
+        "matching-features"
+      ],
+      "key": "matching-paragraph|gap-fill|matching-features"
+    },
+    {
+      "kind": "p3-r3-mc-summary-ynng",
+      "passage": 3,
+      "triplet": [
+        "multiple-choice",
+        "summary-completion",
+        "ynng"
+      ],
+      "key": "multiple-choice|summary-completion|ynng"
+    },
+    {
+      "kind": "p3-r3-match-paragraph-sentence",
+      "passage": 3,
+      "triplet": [
+        "matching-paragraph",
+        "sentence-completion"
+      ],
+      "key": "matching-paragraph|sentence-completion"
+    },
+    {
+      "kind": "p3-r3-headings-summary-ynng",
+      "passage": 3,
+      "triplet": [
+        "matching-headings",
+        "summary-completion",
+        "ynng"
+      ],
+      "key": "matching-headings|summary-completion|ynng"
+    },
+    {
+      "kind": "p3-r3-headings-gap-ynng",
+      "passage": 3,
+      "triplet": [
+        "matching-headings",
+        "gap-fill",
+        "ynng"
+      ],
+      "key": "matching-headings|gap-fill|ynng"
+    },
+    {
+      "kind": "p3-r3-headings-mc-ynng",
+      "passage": 3,
+      "triplet": [
+        "matching-headings",
+        "multiple-choice",
+        "ynng"
+      ],
+      "key": "matching-headings|multiple-choice|ynng"
+    },
+    {
+      "kind": "p3-r3-table-ynng-match",
+      "passage": 3,
+      "triplet": [
+        "gap-fill",
+        "ynng",
+        "matching-paragraph"
+      ],
+      "key": "gap-fill|ynng|matching-paragraph"
+    },
+    {
+      "kind": "p3-r3-summary-mc-endings",
+      "passage": 3,
+      "triplet": [
+        "gap-fill",
+        "multiple-choice",
+        "summary-completion"
+      ],
+      "key": "gap-fill|multiple-choice|summary-completion"
+    },
+    {
+      "kind": "p3-r3-features-ynng-summary",
+      "passage": 3,
+      "triplet": [
+        "matching-features",
+        "ynng",
+        "gap-fill"
+      ],
+      "key": "matching-features|ynng|gap-fill"
+    },
+    {
+      "kind": "p3-r3-tfng-notes-mc",
+      "passage": 3,
+      "triplet": [
+        "tfng",
+        "gap-fill",
+        "multiple-choice"
+      ],
+      "key": "tfng|gap-fill|multiple-choice"
+    },
+    {
+      "kind": "p3-r3-endings-summary-mc",
+      "passage": 3,
+      "triplet": [
+        "summary-completion",
+        "summary-completion",
+        "multiple-choice"
+      ],
+      "key": "summary-completion|summary-completion|multiple-choice"
+    },
+    {
+      "kind": "p3-r3-match-summary-features",
+      "passage": 3,
+      "triplet": [
+        "matching-paragraph",
+        "gap-fill",
+        "matching-features"
+      ],
+      "key": "matching-paragraph|gap-fill|matching-features"
+    },
+    {
+      "kind": "p3-r3-ynng-summary-mc",
+      "passage": 3,
+      "triplet": [
+        "ynng",
+        "summary-completion",
+        "multiple-choice"
+      ],
+      "key": "ynng|summary-completion|multiple-choice"
+    },
+    {
+      "kind": "p3-r3-summary-bank-ynng-mc",
+      "passage": 3,
+      "triplet": [
+        "summary-completion",
+        "ynng",
+        "multiple-choice"
+      ],
+      "key": "summary-completion|ynng|multiple-choice"
+    },
+    {
+      "kind": "p3-r3-mc-endings-ynng",
+      "passage": 3,
+      "triplet": [
+        "multiple-choice",
+        "summary-completion",
+        "ynng"
+      ],
+      "key": "multiple-choice|summary-completion|ynng"
+    },
+    {
+      "kind": "p3-r3-mc-summary-gap-ynng",
+      "passage": 3,
+      "triplet": [
+        "multiple-choice",
+        "gap-fill",
+        "ynng"
+      ],
+      "key": "multiple-choice|gap-fill|ynng"
+    },
+    {
+      "kind": "p3-r3-ynng-summary-bank-mc",
+      "passage": 3,
+      "triplet": [
+        "ynng",
+        "summary-completion",
+        "multiple-choice"
+      ],
+      "key": "ynng|summary-completion|multiple-choice"
+    },
+    {
+      "kind": "p3-r3-features-endings-mc",
+      "passage": 3,
+      "triplet": [
+        "matching-features",
+        "summary-completion",
+        "multiple-choice"
+      ],
+      "key": "matching-features|summary-completion|multiple-choice"
+    },
+    {
+      "kind": "p3-r3-match-features-summary",
+      "passage": 3,
+      "triplet": [
+        "matching-paragraph",
+        "matching-features",
+        "gap-fill"
+      ],
+      "key": "matching-paragraph|matching-features|gap-fill"
+    }
+  ]
+}

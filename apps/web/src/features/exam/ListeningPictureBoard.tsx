@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { resolveExamMediaUrl } from './examMediaUrl'
 import { useBlobMediaUrl } from './useBlobMediaUrl'
 import type { ListeningQuestion } from './listeningExamData'
 
@@ -12,7 +11,7 @@ export default function ListeningPictureBoard({ question, className }: Props) {
   const [failed, setFailed] = useState(false)
   const src = useBlobMediaUrl(
     question.pictureImageKey,
-    resolveExamMediaUrl(question.pictureImageUrl),
+    question.pictureImageUrl,
   )
   const showImage = Boolean(src) && !failed
 

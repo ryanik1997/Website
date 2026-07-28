@@ -1,0 +1,20 @@
+node_modules/
+dist/
+.turbo/
+*.local
+.env
+.env.*
+!.env.example
+
+.vercel
+.env.deploy
+
+# Supabase CLI link cache (local only)
+supabase/.branches
+supabase/.temp
+
+# Exam source bundles — keep outside repo or junction only (see docs/TAINGUYEN.md)
+# Real media for production lives in apps/web/public/catalog (committed / prebuilt)
+Tainguyen/
+Tainguyen
+_recover_wizard/

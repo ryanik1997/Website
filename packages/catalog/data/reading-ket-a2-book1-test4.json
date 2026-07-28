@@ -1,0 +1,793 @@
+{
+  "id": "catalog-reading-ket-a2-book1-test4",
+  "title": "KET A2 Reading — Book 1 — Test 4",
+  "durationMinutes": 60,
+  "bandHint": "A2 Key Reading — 5 parts",
+  "parts": [
+    {
+      "id": "catalog-reading-ket-a2-book1-test4-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–6",
+      "passageTitle": "Signs and messages",
+      "passageSubtitle": "",
+      "passage": [
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book1-test4/part1-q1.jpg"
+        },
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book1-test4/part1-q2.jpg"
+        },
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book1-test4/part1-q3.jpg"
+        },
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book1-test4/part1-q4.jpg"
+        },
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book1-test4/part1-q5.jpg"
+        },
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book1-test4/part1-q6.jpg"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book1-test4-part-1-g0",
+          "range": "Questions 1–6",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book1-test4-part-1-q1",
+              "number": 1,
+              "type": "multiple-choice",
+              "prompt": "What does Harry's mother want Harry to do?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Harry's mother is finding out what Harry wants for dinner."
+                },
+                {
+                  "id": "B",
+                  "label": "Harry's mother is telling Harry not to be late home tonight."
+                },
+                {
+                  "id": "C",
+                  "label": "Harry's mother is asking Harry to buy something for her."
+                }
+              ],
+              "answer": "c",
+              "explanation": "Mẹ nhờ Harry mua sữa trên đường về nhà.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test4-part-1-q2",
+              "number": 2,
+              "type": "multiple-choice",
+              "prompt": "What does Tom want to change?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "the time he'll meet Sammy"
+                },
+                {
+                  "id": "B",
+                  "label": "the place where he'll meet Sammy"
+                },
+                {
+                  "id": "C",
+                  "label": "the movie he and Sammy will see"
+                }
+              ],
+              "answer": "a",
+              "explanation": "Tom đề nghị gặp sớm hơn bình thường → thay đổi thời gian.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test4-part-1-q3",
+              "number": 3,
+              "type": "multiple-choice",
+              "prompt": "What does the notice say?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Everyone who comes to the picnic should bring some food."
+                },
+                {
+                  "id": "B",
+                  "label": "The picnic won't happen if the weather is bad."
+                },
+                {
+                  "id": "C",
+                  "label": "Some people who come to the picnic must pay."
+                }
+              ],
+              "answer": "c",
+              "explanation": "Sinh viên Harwood miễn phí, khách phải trả £5 → có người phải trả.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test4-part-1-q4",
+              "number": 4,
+              "type": "multiple-choice",
+              "prompt": "What does Carol want Emily to do?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "to share the cost of driving to college."
+                },
+                {
+                  "id": "B",
+                  "label": "to give her a lift to college some days."
+                },
+                {
+                  "id": "C",
+                  "label": "to help pay for parking at college."
+                }
+              ],
+              "answer": "a",
+              "explanation": "Carol đề nghị Emily trả một ít tiền xăng để đi cùng → chia sẻ chi phí.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test4-part-1-q5",
+              "number": 5,
+              "type": "multiple-choice",
+              "prompt": "What is the problem today?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Trains might be late."
+                },
+                {
+                  "id": "B",
+                  "label": "Passengers might fall."
+                },
+                {
+                  "id": "C",
+                  "label": "The station might need to close."
+                }
+              ],
+              "answer": "b",
+              "explanation": "Cảnh báo cẩn thận băng trên sân ga → hành khách có thể bị ngã.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test4-part-1-q6",
+              "number": 6,
+              "type": "multiple-choice",
+              "prompt": "What is Liz doing?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "asking Emma to buy something"
+                },
+                {
+                  "id": "B",
+                  "label": "asking Emma for some advice"
+                },
+                {
+                  "id": "C",
+                  "label": "asking Emma to a party"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Liz hỏi ý kiến Emma về quà sinh nhật Frank → xin lời khuyên.",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book1-test4-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 7–13",
+      "passageTitle": "Future stars of classical music",
+      "passageSubtitle": "",
+      "passage": [
+        {
+          "label": "Eugenia",
+          "text": "My mother and father both play the violin in an orchestra, so that's what they began teaching me to play, even before I went to school. Now I've finished university and I'm a member of the same orchestra. I believe it's important for everyone to go to see music being played. Tickets are expensive, but it's a much better experience than just listening to recorded music. Over the years, I've won a few violin competitions and I love making music with my friends."
+        },
+        {
+          "label": "Laura",
+          "text": "When I was a child, my father had a café and the only music there, and in our house, was jazz on the radio. But when I was 12, I went on a school trip and heard classical guitar for the first time. I loved it, and my mother bought me a guitar and paid for lessons. My parents couldn't believe it when I came first in a national guitar competition. I've left university now, but I'm still learning new things every day. There's so much information online."
+        },
+        {
+          "label": "Ellie",
+          "text": "I'm now playing in my university orchestra and taking classes there in writing music, which is what I want to do as a career. I love using the internet to discuss things I'm working on with other musicians. I was lucky to be able to have classical violin lessons at school and, by the time I was eight, I was in the children's orchestra and playing in local competitions. In my opinion, more schools should offer music lessons. Music is so important."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book1-test4-part-2-g0",
+          "range": "Questions 7–13",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book1-test4-part-2-q7",
+              "number": 7,
+              "type": "multiple-choice",
+              "prompt": "Who thinks not enough music is taught in schools?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Eugenia"
+                },
+                {
+                  "id": "B",
+                  "label": "Laura"
+                },
+                {
+                  "id": "C",
+                  "label": "Ellie"
+                }
+              ],
+              "answer": "c",
+              "explanation": "Ellie nói 'more schools should offer music lessons' → nghĩ rằng không đủ.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test4-part-2-q8",
+              "number": 8,
+              "type": "multiple-choice",
+              "prompt": "Who grew up in a home without much classical music?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Eugenia"
+                },
+                {
+                  "id": "B",
+                  "label": "Laura"
+                },
+                {
+                  "id": "C",
+                  "label": "Ellie"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Laura chỉ có nhạc jazz ở nhà, không có nhạc cổ điển.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test4-part-2-q9",
+              "number": 9,
+              "type": "multiple-choice",
+              "prompt": "Who likes to share ideas about music with people online?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Eugenia"
+                },
+                {
+                  "id": "B",
+                  "label": "Laura"
+                },
+                {
+                  "id": "C",
+                  "label": "Ellie"
+                }
+              ],
+              "answer": "c",
+              "explanation": "Ellie thích dùng internet để thảo luận với các nhạc sĩ khác.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test4-part-2-q10",
+              "number": 10,
+              "type": "multiple-choice",
+              "prompt": "Who says she thinks people should go to concerts?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Eugenia"
+                },
+                {
+                  "id": "B",
+                  "label": "Laura"
+                },
+                {
+                  "id": "C",
+                  "label": "Ellie"
+                }
+              ],
+              "answer": "a",
+              "explanation": "Eugenia cho rằng mọi người nên đến xem nhạc sống.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test4-part-2-q11",
+              "number": 11,
+              "type": "multiple-choice",
+              "prompt": "Who started learning to play an instrument after she was given one?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Eugenia"
+                },
+                {
+                  "id": "B",
+                  "label": "Laura"
+                },
+                {
+                  "id": "C",
+                  "label": "Ellie"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Laura được mẹ mua đàn guitar và bắt đầu học.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test4-part-2-q12",
+              "number": 12,
+              "type": "multiple-choice",
+              "prompt": "Who is now studying music at university?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Eugenia"
+                },
+                {
+                  "id": "B",
+                  "label": "Laura"
+                },
+                {
+                  "id": "C",
+                  "label": "Ellie"
+                }
+              ],
+              "answer": "c",
+              "explanation": "Ellie đang chơi trong dàn nhạc đại học và học viết nhạc.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test4-part-2-q13",
+              "number": 13,
+              "type": "multiple-choice",
+              "prompt": "Who says her parents were surprised when she won a competition?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Eugenia"
+                },
+                {
+                  "id": "B",
+                  "label": "Laura"
+                },
+                {
+                  "id": "C",
+                  "label": "Ellie"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Laura kể bố mẹ không tin khi cô đạt giải nhất.",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book1-test4-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 14–18",
+      "passageTitle": "A lucky teenager",
+      "passageSubtitle": "",
+      "passage": [
+        {
+          "text": "Fifteen-year-old British student Jonathan Davis has always loved learning about the past. So, when he saw a newspaper article about people who enjoy looking in the countryside for very old things made of metal, such as coins, he wanted to try the hobby himself."
+        },
+        {
+          "text": "To get started, he had to have something called a detector. You hold this machine over the ground, and it makes a loud noise if there is metal there. He bought a small one and began using it near the village where he lives."
+        },
+        {
+          "text": "He didn't find much for the first few months. Then, one day, he and a friend were looking in a field. 'We were a bit bored,' he says. 'But suddenly, I found a few bits of metal lying in the grass. As soon as I saw them, I had a feeling they might be really old, so I showed them to my friend. We kept looking, and together we found 200 more pieces that day!'"
+        },
+        {
+          "text": "Jonathan took the pieces to a museum. The staff there told him they were almost two thousand years old. They explained that at that time people sometimes cut silver bowls and cups into small pieces, and then used the pieces as money."
+        },
+        {
+          "text": "The museum later had a special exhibition of the silver pieces, which Jonathan went to. He said, 'It was really exciting to see what the people at the museum were able to do to clean the pieces of silver and find out exactly what they are. They look really different now. I'm so pleased I found them and that now other people can see them too.'"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book1-test4-part-3-g0",
+          "range": "Questions 14–18",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book1-test4-part-3-q14",
+              "number": 14,
+              "type": "multiple-choice",
+              "prompt": "What do we learn about Jonathan from the first paragraph?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "He's interested in history."
+                },
+                {
+                  "id": "B",
+                  "label": "He has lots of unusual hobbies."
+                },
+                {
+                  "id": "C",
+                  "label": "He enjoys collecting old things."
+                }
+              ],
+              "answer": "a",
+              "explanation": "Anh ấy luôn thích tìm hiểu về quá khứ → quan tâm đến lịch sử.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test4-part-3-q15",
+              "number": 15,
+              "type": "multiple-choice",
+              "prompt": "What is the writer doing in the second paragraph?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "giving information about a village"
+                },
+                {
+                  "id": "B",
+                  "label": "saying how some equipment works"
+                },
+                {
+                  "id": "C",
+                  "label": "describing a problem Jonathan had"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Đoạn văn giải thích cách máy dò kim loại hoạt động.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test4-part-3-q16",
+              "number": 16,
+              "type": "multiple-choice",
+              "prompt": "What does Jonathan say in the third paragraph about the metal pieces?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "He thought they looked interesting."
+                },
+                {
+                  "id": "B",
+                  "label": "It took several days to find all of them."
+                },
+                {
+                  "id": "C",
+                  "label": "He was pleased when his friend found them."
+                }
+              ],
+              "answer": "a",
+              "explanation": "Anh ấy có cảm giác chúng có thể rất cổ → thấy thú vị.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test4-part-3-q17",
+              "number": 17,
+              "type": "multiple-choice",
+              "prompt": "What did the staff at the museum tell Jonathan about the metal pieces?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "They were not as old as Jonathan thought."
+                },
+                {
+                  "id": "B",
+                  "label": "It's a shame they were so small."
+                },
+                {
+                  "id": "C",
+                  "label": "In the past, people used them to buy and sell things."
+                }
+              ],
+              "answer": "c",
+              "explanation": "Chúng được dùng như tiền để mua bán.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test4-part-3-q18",
+              "number": 18,
+              "type": "multiple-choice",
+              "prompt": "How did Jonathan feel when he visited the exhibition?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "surprised so many people came to see the silver"
+                },
+                {
+                  "id": "B",
+                  "label": "happy he could share the silver with others"
+                },
+                {
+                  "id": "C",
+                  "label": "sad that the silver looked so different"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Anh ấy vui vì người khác cũng có thể xem chúng.",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book1-test4-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 19–24",
+      "passageTitle": "Toni Morrison",
+      "passageSubtitle": "",
+      "passage": [
+        {
+          "text": "The African-American writer Toni Morrison was born in 1931. When she was growing up, her parents (19) ________ her about African-American history and music. She often said that (20) ________ stories was an important (21) ________ of her family's daily life. She also loved books and spent a lot of her free time reading."
+        },
+        {
+          "text": "In 1949, Toni Morrison went to Howard University in Washington, D.C. to study English. After (22) ________ her course, her first job was teaching. She wrote her first book, The Bluest Eye, in 1970. Her later books were very popular, (23) ________ Beloved, which is now a well-known film. Toni Morrison (24) ________ many national and international prizes, including the Nobel Prize for Literature in 1993. She became the first black woman ever to receive this."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book1-test4-part-4-g0",
+          "range": "Questions 19–24",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book1-test4-part-4-q19",
+              "number": 19,
+              "type": "multiple-choice",
+              "prompt": "When she was growing up, her parents (19) ________ her about African-American history and music.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "learned"
+                },
+                {
+                  "id": "B",
+                  "label": "studied"
+                },
+                {
+                  "id": "C",
+                  "label": "taught"
+                }
+              ],
+              "answer": "c",
+              "explanation": "Cha mẹ dạy cô về lịch sử và âm nhạc → taught.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test4-part-4-q20",
+              "number": 20,
+              "type": "multiple-choice",
+              "prompt": "She often said that (20) ________ stories was an important ...",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "telling"
+                },
+                {
+                  "id": "B",
+                  "label": "saying"
+                },
+                {
+                  "id": "C",
+                  "label": "talking"
+                }
+              ],
+              "answer": "a",
+              "explanation": "Kể chuyện (telling stories) là phần quan trọng.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test4-part-4-q21",
+              "number": 21,
+              "type": "multiple-choice",
+              "prompt": "... was an important (21) ________ of her family's daily life.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "thing"
+                },
+                {
+                  "id": "B",
+                  "label": "piece"
+                },
+                {
+                  "id": "C",
+                  "label": "part"
+                }
+              ],
+              "answer": "c",
+              "explanation": "part of daily life = một phần của đời sống.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test4-part-4-q22",
+              "number": 22,
+              "type": "multiple-choice",
+              "prompt": "After (22) ________ her course, her first job was teaching.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "closing"
+                },
+                {
+                  "id": "B",
+                  "label": "finishing"
+                },
+                {
+                  "id": "C",
+                  "label": "returning"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Sau khi hoàn thành khóa học → finishing.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test4-part-4-q23",
+              "number": 23,
+              "type": "multiple-choice",
+              "prompt": "Her later books were very popular, (23) ________ Beloved, which is now a well-known film.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "usually"
+                },
+                {
+                  "id": "B",
+                  "label": "really"
+                },
+                {
+                  "id": "C",
+                  "label": "especially"
+                }
+              ],
+              "answer": "c",
+              "explanation": "Đặc biệt là cuốn Beloved → especially.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test4-part-4-q24",
+              "number": 24,
+              "type": "multiple-choice",
+              "prompt": "Toni Morrison (24) ________ many national and international prizes, including the Nobel Prize for Literature in 1993.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "won"
+                },
+                {
+                  "id": "B",
+                  "label": "made"
+                },
+                {
+                  "id": "C",
+                  "label": "took"
+                }
+              ],
+              "answer": "a",
+              "explanation": "Đoạt giải thưởng → won.",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book1-test4-part-5",
+      "partNumber": 5,
+      "rangeLabel": "Questions 25–30",
+      "passageTitle": "Email about basketball team",
+      "passageSubtitle": "",
+      "passage": [
+        {
+          "label": "From",
+          "text": "Marcia"
+        },
+        {
+          "label": "To",
+          "text": "Annie"
+        },
+        {
+          "text": "I am trying (0) ________ start a girls' basketball team at college. Are you interested (25) ________ joining it? Basketball's (26) ________ excellent way to get exercise, and it can also be a (27) ________ of fun."
+        },
+        {
+          "text": "Our sports teacher, Mrs Thompson, says she will be our coach, but only (28) ________ we can get enough girls for a team. We will probably practise once or twice a week in the college gym."
+        },
+        {
+          "text": "(29) ________ you know any other girls we can ask to be on the team? Let me know as soon (30) ________ possible so we can begin practising."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book1-test4-part-5-g0",
+          "range": "Questions 25–30",
+          "instruction": "For each question, write the correct answer. Write ONE word for each gap.",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book1-test4-part-5-q25",
+              "number": 25,
+              "type": "gap-fill",
+              "prompt": "Write ONE word.",
+              "options": [],
+              "answer": "in",
+              "explanation": "interested in + V-ing.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test4-part-5-q26",
+              "number": 26,
+              "type": "gap-fill",
+              "prompt": "Write ONE word.",
+              "options": [],
+              "answer": "an",
+              "explanation": "an excellent way (vì excellent bắt đầu bằng nguyên âm).",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test4-part-5-q27",
+              "number": 27,
+              "type": "gap-fill",
+              "prompt": "Write ONE word.",
+              "options": [],
+              "answer": "lot/load",
+              "explanation": "a lot of fun – cụm từ chỉ số lượng lớn.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test4-part-5-q28",
+              "number": 28,
+              "type": "gap-fill",
+              "prompt": "Write ONE word.",
+              "options": [],
+              "answer": "if/when",
+              "explanation": "Điều kiện: chỉ khi có đủ thành viên.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test4-part-5-q29",
+              "number": 29,
+              "type": "gap-fill",
+              "prompt": "Write ONE word.",
+              "options": [],
+              "answer": "Do",
+              "explanation": "Câu hỏi với 'you' – dùng Do.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test4-part-5-q30",
+              "number": 30,
+              "type": "gap-fill",
+              "prompt": "Write ONE word.",
+              "options": [],
+              "answer": "as",
+              "explanation": "as soon as possible – cụm từ cố định.",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "examTrack": "cambridge",
+  "cambridgeLevel": "a2",
+  "catalogSlug": "ket-a2-book1-test4",
+  "catalogBase": "/catalog/reading/ket-a2-book1-test4"
+}

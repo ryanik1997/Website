@@ -1,0 +1,1261 @@
+{
+  "id": "catalog-listening-ielts-cam18-test3",
+  "title": "IELTS Listening — Cambridge 18 Test 3",
+  "durationMinutes": 30,
+  "bandHint": "IELTS · Cambridge 18 · Test 3 · 4 parts · 40 câu",
+  "examType": "ielts",
+  "examMode": "practice",
+  "parts": [
+    {
+      "id": "catalog-listening-ielts-cam18-test3-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–10",
+      "instruction": "Questions 1–4: Complete the form below. Write ONE WORD AND/OR A NUMBER for each answer. Questions 5–10: Complete the table below. Write NO MORE THAN TWO WORDS for each answer.",
+      "audioUrl": "/catalog/listening/ielts-cam18-test3/listening.mp3",
+      "questions": [
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-1",
+          "number": 1,
+          "type": "gap-fill",
+          "prompt": "Home address: 52 … Street, Peacetown:",
+          "options": [],
+          "answer": "marrowfield",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "sectionRange": "Questions 1 – 4",
+          "sectionInstruction": "Complete the form below. Write ONE WORD AND/OR A NUMBER for each answer.",
+          "sectionTitle": "Wayside Camera Club membership form"
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-2",
+          "number": 2,
+          "type": "gap-fill",
+          "prompt": "Heard about us: from a …:",
+          "options": [],
+          "answer": "relative",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-3",
+          "number": 3,
+          "type": "gap-fill",
+          "prompt": "Reasons for joining: to …:",
+          "options": [],
+          "answer": "socialise/socialize",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-4",
+          "number": 4,
+          "type": "gap-fill",
+          "prompt": "Type of membership: … membership (£30):",
+          "options": [],
+          "answer": "full",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-5",
+          "number": 5,
+          "type": "gap-fill",
+          "prompt": "Title of competition '…':",
+          "options": [],
+          "answer": "domestic life",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 2,
+          "sectionRange": "Questions 5 – 10",
+          "sectionInstruction": "Complete the table below. Write NO MORE THAN TWO WORDS for each answer.",
+          "sectionTitle": "Photography competitions"
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-6",
+          "number": 6,
+          "type": "gap-fill",
+          "prompt": "Scene must show some …:",
+          "options": [],
+          "answer": "clouds",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 2
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-7",
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "The … was wrong:",
+          "options": [],
+          "answer": "timing",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 2
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-8",
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "Title of competition '…':",
+          "options": [],
+          "answer": "animal magic",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 2
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-9",
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "Scene must show …:",
+          "options": [],
+          "answer": "animal movement/movement",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 2
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-10",
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "The photograph was too …:",
+          "options": [],
+          "answer": "dark",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 2
+        }
+      ],
+      "passageTitle": "Wayside Camera Club membership form",
+      "notePassageLayout": "table",
+      "noteTables": [
+        {
+          "gapNumbers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "instruction": "Questions 1 – 4\nComplete the form below. Write ONE WORD AND/OR A NUMBER for each answer.",
+          "title": "Wayside Camera Club membership form",
+          "headers": [
+            "Field",
+            "Details"
+          ],
+          "rows": [
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Name"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Dan Green"
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Email address"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "dan1068@market.com"
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Home address"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "52 "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 1
+                  },
+                  {
+                    "type": "static",
+                    "text": " Street, Peacetown"
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Heard about us"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "from a "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 2
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Reasons for joining"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "to enter competitions; to "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 3
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Type of membership"
+                  }
+                ],
+                [
+                  {
+                    "type": "gap",
+                    "number": 4
+                  },
+                  {
+                    "type": "static",
+                    "text": " membership (£30)"
+                  }
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "gapNumbers": [
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "instruction": "Questions 5 – 10\nComplete the table below. Write NO MORE THAN TWO WORDS for each answer.",
+          "title": "Photography competitions",
+          "headers": [
+            "Title of competition",
+            "Instructions",
+            "Feedback to Dan"
+          ],
+          "rows": [
+            {
+              "cells": [
+                [
+                  {
+                    "type": "gap",
+                    "number": 5
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "A scene in the home"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "The picture's composition was not good."
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "'Beautiful Sunsets'"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Scene must show some "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 6
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "The "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 7
+                  },
+                  {
+                    "type": "static",
+                    "text": " was wrong."
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "gap",
+                    "number": 8
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Scene must show "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 9
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "The photograph was too "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 10
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-ielts-cam18-test3-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 11–20",
+      "instruction": "Questions 11–12 and 13–14: Choose TWO A–E. Questions 15–20: Choose A, B or C.",
+      "audioUrl": "/catalog/listening/ielts-cam18-test3/listening.mp3",
+      "questions": [
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-11",
+          "number": 11,
+          "type": "matching",
+          "prompt": "Which TWO warnings does Dan give about picking mushrooms?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Don't pick more than one variety of mushroom at a time."
+            },
+            {
+              "id": "B",
+              "label": "Don't pick mushrooms near busy roads."
+            },
+            {
+              "id": "C",
+              "label": "Don't eat mushrooms given to you."
+            },
+            {
+              "id": "D",
+              "label": "Don't eat mushrooms while picking them."
+            },
+            {
+              "id": "E",
+              "label": "Don't pick old mushrooms."
+            }
+          ],
+          "answer": "B/C",
+          "explanation": "Không gần đường (B) và không ăn khi hái (C).",
+          "sectionRange": "Questions 11 and 12",
+          "sectionInstruction": "Choose TWO letters, A–E."
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-12",
+          "number": 12,
+          "type": "matching",
+          "prompt": "Which TWO warnings does Dan give about picking mushrooms?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Don't pick more than one variety of mushroom at a time."
+            },
+            {
+              "id": "B",
+              "label": "Don't pick mushrooms near busy roads."
+            },
+            {
+              "id": "C",
+              "label": "Don't eat mushrooms given to you."
+            },
+            {
+              "id": "D",
+              "label": "Don't eat mushrooms while picking them."
+            },
+            {
+              "id": "E",
+              "label": "Don't pick old mushrooms."
+            }
+          ],
+          "answer": "B/C",
+          "explanation": "Không gần đường (B) và không ăn khi hái (C). (cặp 11–12)"
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-13",
+          "number": 13,
+          "type": "matching",
+          "prompt": "Which TWO ideas about wild mushrooms does Dan say are correct?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Mushrooms should always be peeled before eating."
+            },
+            {
+              "id": "B",
+              "label": "Mushrooms eaten by animals may be unsafe."
+            },
+            {
+              "id": "C",
+              "label": "Cooking destroys toxins in mushrooms."
+            },
+            {
+              "id": "D",
+              "label": "Brightly coloured mushrooms can be edible."
+            },
+            {
+              "id": "E",
+              "label": "All poisonous mushrooms have a bad smell."
+            }
+          ],
+          "answer": "B/D",
+          "explanation": "Động vật ăn không an toàn (B) và màu sáng có thể ăn được (D).",
+          "sectionRange": "Questions 13 and 14",
+          "sectionInstruction": "Choose TWO letters, A–E."
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-14",
+          "number": 14,
+          "type": "matching",
+          "prompt": "Which TWO ideas about wild mushrooms does Dan say are correct?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Mushrooms should always be peeled before eating."
+            },
+            {
+              "id": "B",
+              "label": "Mushrooms eaten by animals may be unsafe."
+            },
+            {
+              "id": "C",
+              "label": "Cooking destroys toxins in mushrooms."
+            },
+            {
+              "id": "D",
+              "label": "Brightly coloured mushrooms can be edible."
+            },
+            {
+              "id": "E",
+              "label": "All poisonous mushrooms have a bad smell."
+            }
+          ],
+          "answer": "B/D",
+          "explanation": "Động vật ăn không an toàn (B) và màu sáng có thể ăn được (D). (cặp 13–14)"
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-15",
+          "number": 15,
+          "type": "multiple-choice",
+          "prompt": "What advice does Dan give about picking mushrooms in parks?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Choose wooded areas."
+            },
+            {
+              "id": "B",
+              "label": "Don't disturb wildlife."
+            },
+            {
+              "id": "C",
+              "label": "Get there early."
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio.",
+          "sectionRange": "Questions 15 – 20",
+          "sectionInstruction": "Choose the correct letter, A, B or C."
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-16",
+          "number": 16,
+          "type": "multiple-choice",
+          "prompt": "Dan says it is a good idea for beginners to",
+          "options": [
+            {
+              "id": "A",
+              "label": "use a mushroom app."
+            },
+            {
+              "id": "B",
+              "label": "join a group."
+            },
+            {
+              "id": "C",
+              "label": "take a reference book."
+            }
+          ],
+          "answer": "B",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-17",
+          "number": 17,
+          "type": "multiple-choice",
+          "prompt": "What does Dan say is important for conservation?",
+          "options": [
+            {
+              "id": "A",
+              "label": "selecting only fully grown mushrooms"
+            },
+            {
+              "id": "B",
+              "label": "picking a limited amount of mushrooms"
+            },
+            {
+              "id": "C",
+              "label": "avoiding areas where rare mushroom species grow"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-18",
+          "number": 18,
+          "type": "multiple-choice",
+          "prompt": "According to Dan, some varieties of wild mushrooms are in decline because there is",
+          "options": [
+            {
+              "id": "A",
+              "label": "a huge demand for them from restaurants."
+            },
+            {
+              "id": "B",
+              "label": "a lack of rain in this part of the country."
+            },
+            {
+              "id": "C",
+              "label": "a rise in building developments locally."
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-19",
+          "number": 19,
+          "type": "multiple-choice",
+          "prompt": "Dan says that when storing mushrooms, people should",
+          "options": [
+            {
+              "id": "A",
+              "label": "keep them in the fridge for no more than two days."
+            },
+            {
+              "id": "B",
+              "label": "keep them in a brown bag in a dark room."
+            },
+            {
+              "id": "C",
+              "label": "leave them for a period after washing them."
+            }
+          ],
+          "answer": "A",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-20",
+          "number": 20,
+          "type": "multiple-choice",
+          "prompt": "What does Dan say about trying new varieties of mushrooms?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Experiment with different recipes."
+            },
+            {
+              "id": "B",
+              "label": "Expect some to have a strong taste."
+            },
+            {
+              "id": "C",
+              "label": "Cook them for a long time."
+            }
+          ],
+          "answer": "A",
+          "explanation": "Chọn theo audio."
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-ielts-cam18-test3-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 21–30",
+      "instruction": "Questions 21–22 and 23–24: Choose TWO A–E. Questions 25–30: Matching A–G.",
+      "audioUrl": "/catalog/listening/ielts-cam18-test3/listening.mp3",
+      "questions": [
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-21",
+          "number": 21,
+          "type": "matching",
+          "prompt": "Which TWO opinions about the Luddites do the students express?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Their actions were ineffective."
+            },
+            {
+              "id": "B",
+              "label": "They are still influential today."
+            },
+            {
+              "id": "C",
+              "label": "They have received unfair criticism."
+            },
+            {
+              "id": "D",
+              "label": "They were proved right."
+            },
+            {
+              "id": "E",
+              "label": "Their attitude is understandable."
+            }
+          ],
+          "answer": "A/E",
+          "explanation": "Không hiệu quả (A) và thái độ dễ hiểu (E).",
+          "sectionRange": "Questions 21 and 22",
+          "sectionInstruction": "Choose TWO letters, A–E."
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-22",
+          "number": 22,
+          "type": "matching",
+          "prompt": "Which TWO opinions about the Luddites do the students express?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Their actions were ineffective."
+            },
+            {
+              "id": "B",
+              "label": "They are still influential today."
+            },
+            {
+              "id": "C",
+              "label": "They have received unfair criticism."
+            },
+            {
+              "id": "D",
+              "label": "They were proved right."
+            },
+            {
+              "id": "E",
+              "label": "Their attitude is understandable."
+            }
+          ],
+          "answer": "A/E",
+          "explanation": "Không hiệu quả (A) và thái độ dễ hiểu (E). (cặp 21–22)"
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-23",
+          "number": 23,
+          "type": "matching",
+          "prompt": "Which TWO predictions about the future of work are the students doubtful about?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Work will be more rewarding."
+            },
+            {
+              "id": "B",
+              "label": "Unemployment will fall."
+            },
+            {
+              "id": "C",
+              "label": "People will want to delay retiring."
+            },
+            {
+              "id": "D",
+              "label": "Working hours will be shorter."
+            },
+            {
+              "id": "E",
+              "label": "People will change jobs more frequently."
+            }
+          ],
+          "answer": "B/D",
+          "explanation": "Thất nghiệp giảm (B) và giờ làm ngắn hơn (D).",
+          "sectionRange": "Questions 23 and 24",
+          "sectionInstruction": "Choose TWO letters, A–E."
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-24",
+          "number": 24,
+          "type": "matching",
+          "prompt": "Which TWO predictions about the future of work are the students doubtful about?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Work will be more rewarding."
+            },
+            {
+              "id": "B",
+              "label": "Unemployment will fall."
+            },
+            {
+              "id": "C",
+              "label": "People will want to delay retiring."
+            },
+            {
+              "id": "D",
+              "label": "Working hours will be shorter."
+            },
+            {
+              "id": "E",
+              "label": "People will change jobs more frequently."
+            }
+          ],
+          "answer": "B/D",
+          "explanation": "Thất nghiệp giảm (B) và giờ làm ngắn hơn (D). (cặp 23–24)"
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-25",
+          "number": 25,
+          "type": "matching",
+          "prompt": "Accountants",
+          "options": [
+            {
+              "id": "A",
+              "label": "These jobs are likely to be at risk."
+            },
+            {
+              "id": "B",
+              "label": "Their role has become more interesting in recent years."
+            },
+            {
+              "id": "C",
+              "label": "The number of people working in this sector has fallen dramatically."
+            },
+            {
+              "id": "D",
+              "label": "This job will require more qualifications."
+            },
+            {
+              "id": "E",
+              "label": "Higher disposable income has led to a huge increase in jobs."
+            },
+            {
+              "id": "F",
+              "label": "There is likely to be a significant rise in demand for this service."
+            },
+            {
+              "id": "G",
+              "label": "Both employment and productivity have risen."
+            }
+          ],
+          "answer": "A",
+          "explanation": "Chọn theo audio.",
+          "sectionRange": "Questions 25 – 30",
+          "sectionInstruction": "What comment do the students make about each of the following jobs? Choose SIX answers from the box and write the correct letter, A–G, next to Questions 25–30.",
+          "sectionTitle": "Jobs"
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-26",
+          "number": 26,
+          "type": "matching",
+          "prompt": "Hairdressers",
+          "options": [
+            {
+              "id": "A",
+              "label": "These jobs are likely to be at risk."
+            },
+            {
+              "id": "B",
+              "label": "Their role has become more interesting in recent years."
+            },
+            {
+              "id": "C",
+              "label": "The number of people working in this sector has fallen dramatically."
+            },
+            {
+              "id": "D",
+              "label": "This job will require more qualifications."
+            },
+            {
+              "id": "E",
+              "label": "Higher disposable income has led to a huge increase in jobs."
+            },
+            {
+              "id": "F",
+              "label": "There is likely to be a significant rise in demand for this service."
+            },
+            {
+              "id": "G",
+              "label": "Both employment and productivity have risen."
+            }
+          ],
+          "answer": "F",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-27",
+          "number": 27,
+          "type": "matching",
+          "prompt": "Administrative staff",
+          "options": [
+            {
+              "id": "A",
+              "label": "These jobs are likely to be at risk."
+            },
+            {
+              "id": "B",
+              "label": "Their role has become more interesting in recent years."
+            },
+            {
+              "id": "C",
+              "label": "The number of people working in this sector has fallen dramatically."
+            },
+            {
+              "id": "D",
+              "label": "This job will require more qualifications."
+            },
+            {
+              "id": "E",
+              "label": "Higher disposable income has led to a huge increase in jobs."
+            },
+            {
+              "id": "F",
+              "label": "There is likely to be a significant rise in demand for this service."
+            },
+            {
+              "id": "G",
+              "label": "Both employment and productivity have risen."
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-28",
+          "number": 28,
+          "type": "matching",
+          "prompt": "Agricultural workers",
+          "options": [
+            {
+              "id": "A",
+              "label": "These jobs are likely to be at risk."
+            },
+            {
+              "id": "B",
+              "label": "Their role has become more interesting in recent years."
+            },
+            {
+              "id": "C",
+              "label": "The number of people working in this sector has fallen dramatically."
+            },
+            {
+              "id": "D",
+              "label": "This job will require more qualifications."
+            },
+            {
+              "id": "E",
+              "label": "Higher disposable income has led to a huge increase in jobs."
+            },
+            {
+              "id": "F",
+              "label": "There is likely to be a significant rise in demand for this service."
+            },
+            {
+              "id": "G",
+              "label": "Both employment and productivity have risen."
+            }
+          ],
+          "answer": "E",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-29",
+          "number": 29,
+          "type": "matching",
+          "prompt": "Care workers",
+          "options": [
+            {
+              "id": "A",
+              "label": "These jobs are likely to be at risk."
+            },
+            {
+              "id": "B",
+              "label": "Their role has become more interesting in recent years."
+            },
+            {
+              "id": "C",
+              "label": "The number of people working in this sector has fallen dramatically."
+            },
+            {
+              "id": "D",
+              "label": "This job will require more qualifications."
+            },
+            {
+              "id": "E",
+              "label": "Higher disposable income has led to a huge increase in jobs."
+            },
+            {
+              "id": "F",
+              "label": "There is likely to be a significant rise in demand for this service."
+            },
+            {
+              "id": "G",
+              "label": "Both employment and productivity have risen."
+            }
+          ],
+          "answer": "B",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-30",
+          "number": 30,
+          "type": "matching",
+          "prompt": "Bank clerks",
+          "options": [
+            {
+              "id": "A",
+              "label": "These jobs are likely to be at risk."
+            },
+            {
+              "id": "B",
+              "label": "Their role has become more interesting in recent years."
+            },
+            {
+              "id": "C",
+              "label": "The number of people working in this sector has fallen dramatically."
+            },
+            {
+              "id": "D",
+              "label": "This job will require more qualifications."
+            },
+            {
+              "id": "E",
+              "label": "Higher disposable income has led to a huge increase in jobs."
+            },
+            {
+              "id": "F",
+              "label": "There is likely to be a significant rise in demand for this service."
+            },
+            {
+              "id": "G",
+              "label": "Both employment and productivity have risen."
+            }
+          ],
+          "answer": "G",
+          "explanation": "Chọn theo audio."
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-ielts-cam18-test3-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 31–40",
+      "instruction": "Complete the notes below. Write ONE WORD ONLY for each answer.",
+      "audioUrl": "/catalog/listening/ielts-cam18-test3/listening.mp3",
+      "questions": [
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-31",
+          "number": 31,
+          "type": "gap-fill",
+          "prompt": "would aim to set up legal and … ways of improving safety:",
+          "options": [],
+          "answer": "technical",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "sectionTitle": "Space Traffic Management"
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-32",
+          "number": 32,
+          "type": "gap-fill",
+          "prompt": "Satellites are now quite … and therefore more widespread:",
+          "options": [],
+          "answer": "cheap",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-33",
+          "number": 33,
+          "type": "gap-fill",
+          "prompt": "there are constellations made up of … of satellites:",
+          "options": [],
+          "answer": "thousands",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-34",
+          "number": 34,
+          "type": "gap-fill",
+          "prompt": "satellites are not required to transmit information to help with their …:",
+          "options": [],
+          "answer": "identification",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-35",
+          "number": 35,
+          "type": "gap-fill",
+          "prompt": "There are few systems for … satellites:",
+          "options": [],
+          "answer": "tracking",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-36",
+          "number": 36,
+          "type": "gap-fill",
+          "prompt": "Operators may be unwilling to share details of satellites used for … or commercial reasons:",
+          "options": [],
+          "answer": "military",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-37",
+          "number": 37,
+          "type": "gap-fill",
+          "prompt": "It may be hard to collect details of the object's … at a given time:",
+          "options": [],
+          "answer": "location",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-38",
+          "number": 38,
+          "type": "gap-fill",
+          "prompt": "Scientists can only make a … about where the satellite will go:",
+          "options": [],
+          "answer": "prediction",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-39",
+          "number": 39,
+          "type": "gap-fill",
+          "prompt": "The information should be combined in one …:",
+          "options": [],
+          "answer": "database",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam18-test3-q-40",
+          "number": 40,
+          "type": "gap-fill",
+          "prompt": "A coordinated system must be designed to create … in its users:",
+          "options": [],
+          "answer": "trust",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        }
+      ],
+      "passageTitle": "Space Traffic Management",
+      "notePassage": [
+        {
+          "type": "section",
+          "text": "A Space Traffic Management system"
+        },
+        {
+          "type": "static",
+          "text": "is a concept similar to Air Traffic Control, but for satellites rather than planes."
+        },
+        {
+          "type": "static",
+          "text": "would aim to set up legal and "
+        },
+        {
+          "type": "gap",
+          "number": 31
+        },
+        {
+          "type": "static",
+          "text": " ways of improving safety."
+        },
+        {
+          "type": "static",
+          "text": "does not actually exist at present."
+        },
+        {
+          "type": "section",
+          "text": "Problems in developing effective Space Traffic Management"
+        },
+        {
+          "type": "static",
+          "text": "• Satellites are now quite "
+        },
+        {
+          "type": "gap",
+          "number": 32
+        },
+        {
+          "type": "static",
+          "text": " and therefore more widespread"
+        },
+        {
+          "type": "static",
+          "text": "• (e.g. there are constellations made up of"
+        },
+        {
+          "type": "gap",
+          "number": 33
+        },
+        {
+          "type": "static",
+          "text": " of satellites)."
+        },
+        {
+          "type": "static",
+          "text": "• At present, satellites are not required to transmit information to help with their "
+        },
+        {
+          "type": "gap",
+          "number": 34
+        },
+        {
+          "type": "static",
+          "text": "."
+        },
+        {
+          "type": "static",
+          "text": "• There are few systems for "
+        },
+        {
+          "type": "gap",
+          "number": 35
+        },
+        {
+          "type": "static",
+          "text": " satellites."
+        },
+        {
+          "type": "static",
+          "text": "• Small pieces of debris may be difficult to identify."
+        },
+        {
+          "type": "static",
+          "text": "• Operators may be unwilling to share details of satellites used for "
+        },
+        {
+          "type": "gap",
+          "number": 36
+        },
+        {
+          "type": "static",
+          "text": " or commercial reasons."
+        },
+        {
+          "type": "static",
+          "text": "• It may be hard to collect details of the object's "
+        },
+        {
+          "type": "gap",
+          "number": 37
+        },
+        {
+          "type": "static",
+          "text": " at a given time."
+        },
+        {
+          "type": "static",
+          "text": "• Scientists can only make a "
+        },
+        {
+          "type": "gap",
+          "number": 38
+        },
+        {
+          "type": "static",
+          "text": " • about where the satellite will go."
+        },
+        {
+          "type": "section",
+          "text": "Solutions"
+        },
+        {
+          "type": "static",
+          "text": "• Common standards should be agreed on for the presentation of information."
+        },
+        {
+          "type": "static",
+          "text": "• The information should be combined in one "
+        },
+        {
+          "type": "gap",
+          "number": 39
+        },
+        {
+          "type": "static",
+          "text": "."
+        },
+        {
+          "type": "static",
+          "text": "• A coordinated system must be designed to create "
+        },
+        {
+          "type": "gap",
+          "number": 40
+        },
+        {
+          "type": "static",
+          "text": " in its users."
+        }
+      ],
+      "notePassageLayout": "lecture"
+    }
+  ],
+  "catalogSlug": "ielts-cam18-test3",
+  "catalogBase": "/catalog/listening/ielts-cam18-test3"
+}

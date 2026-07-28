@@ -436,7 +436,7 @@
   color: var(--wr-text);
   font-size: 1.0625rem;
   line-height: 1.7;
-  font-family: Inter, system-ui, sans-serif;
+  font-family: var(--font-app);
 }
 
 .writing-textarea::placeholder {
@@ -916,4 +916,40 @@
   padding-top: 0.5rem;
   border-top: 1px dashed var(--border-color);
   color: var(--text-muted) !important;
+}
+/* Guide biên soạn sẵn (HTML từ ngân hàng đề) */
+.writing-guide-source {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--wr-text);
+}
+
+.writing-guide-source p,
+.writing-guide-source div {
+  margin: 0 0 0.5rem;
+}
+
+.writing-guide-source strong,
+.writing-guide-source b {
+  color: var(--wr-text);
+}
+
+.writing-guide-source img {
+  max-width: 100%;
+  border-radius: 0.5rem;
+  margin: 0.5rem auto;
+  display: block;
+  background: #fff;
+}
+
+.writing-guide-source ul,
+.writing-guide-source ol {
+  margin: 0 0 0.5rem;
+  padding-left: 1.25rem;
+}
+
+.writing-guide-source hr {
+  border: none;
+  border-top: 1px solid var(--wr-border, var(--border-color));
+  margin: 0.75rem 0;
 }

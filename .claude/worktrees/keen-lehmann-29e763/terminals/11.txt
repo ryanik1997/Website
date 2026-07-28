@@ -1,0 +1,8 @@
+---
+pid: 4008
+cwd: "D:\App-English-Ryan\Website"
+command: "Invoke-WebRequest -Uri \"http://127.0.0.1:8788/tts?text=Hello&voice=bf_emma&speed=1&lang=b\" -TimeoutSec 300 -OutFile \"D:\\App-English-Ryan\\Website\\server\\.cache\\direct-test.wav\"; (Get-Item \"D:\\App-English-Ryan\\Website\\server\\.cache\\direct-test.wav\").Length"
+started_at: 2026-06-30T11:49:42.572Z
+running_for_ms: 19430012 
+---
+39644

@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react'
 import { audioRepo } from '@ryan/db'
-import { resolveExamMediaUrl } from './examMediaUrl'
+import { resolvePlayableMediaUrl } from '../../lib/protectedMedia'
 
 /**
  * Resolve ảnh/audio từ Dexie blob key và/hoặc URL tĩnh (catalog / cloud).
  *
  * Ưu tiên **blobKey** (media import local) trước static URL.
- * Trước đây static thắng → import ZIP xong vẫn hiện ảnh catalog (sai).
+ * Mode A: static /catalog/* → signed URL in production.
  */
 export function useBlobMediaUrl(blobKey?: string, staticUrl?: string): string | null {
-  const resolvedStatic = resolveExamMediaUrl(staticUrl)
   const [url, setUrl] = useState<string | null>(null)
 
   useEffect(() => {
@@ -32,7 +31,18 @@ export function useBlobMediaUrl(blobKey?: string, staticUrl?: string): string | 
       }
 
       if (cancelled) return
-      setUrl(resolvedStatic ?? null)
+      if (!staticUrl?.trim()) {
+        setUrl(null)
+        return
+      }
+      try {
+        const resolved = await resolvePlayableMediaUrl(staticUrl)
+        if (cancelled) return
+        setUrl(resolved ?? null)
+      } catch (err) {
+        console.warn('[useBlobMediaUrl] resolve failed', staticUrl, err)
+        if (!cancelled) setUrl(null)
+      }
     }
 
     void load()
@@ -41,7 +51,7 @@ export function useBlobMediaUrl(blobKey?: string, staticUrl?: string): string | 
       cancelled = true
       if (objectUrl) URL.revokeObjectURL(objectUrl)
     }
-  }, [blobKey, resolvedStatic])
+  }, [blobKey, staticUrl])
 
   return url
 }

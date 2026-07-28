@@ -1,0 +1,24 @@
+---
+pid: 46916
+cwd: "D:\App-English-Ryan\Website"
+command: "cd \"D:\\App-English-Ryan\\Website\"; pnpm dev:web"
+started_at: 2026-07-03T16:00:44.649Z
+running_for_ms: 985009   
+---
+
+> ryan-english@ dev:web D:\App-English-Ryan\Website
+> pnpm --filter web dev
+
+
+> web@0.2.0 dev D:\App-English-Ryan\Website\apps\web
+> vite
+
+Port 5173 is in use, trying another one...
+
+  VITE v5.4.21  ready in 297 ms
+
+  ➜  Local:   http://localhost:5174/
+  ➜  Network: use --host to expose
+11:08:48 PM [vite] page reload src/features/exam/listeningNotePassage.ts
+11:08:48 PM [vite] page reload src/features/exam/ListeningIeltsNotePassageBox.tsx
+11:12:10 PM [vite] page reload src/features/exam/listeningNotePassage.ts

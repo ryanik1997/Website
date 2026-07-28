@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
-import { X, Search, Volume2, Plus, Clock, Loader2, AlertCircle, Bookmark } from 'lucide-react'
+import { X, Search, Volume2, Plus, Clock, Loader2, AlertCircle, Bookmark, Copy } from 'lucide-react'
 import { db, dictRepo, writingRepo, notebookRepo } from '@ryan/db'
 import {
   callAI, type AIProvider, buildDictionaryPrompt, type DictResult,
@@ -8,16 +8,28 @@ import {
 } from '@ryan/core'
 import { useDictStore } from './dictStore'
 import SaveToDeckModal from './SaveToDeckModal'
-import CopyButton from '../../components/CopyButton'
-import { lookupOfflineDict, offlineDictSize } from './offlineDictPack'
+import {
+  lookupOfflineDict,
+  offlineDictPart2Size,
+  offlineDictPart3Size,
+  offlineDictPart4Size,
+  offlineDictPart5Size,
+  offlineDictPhrasalSize,
+  offlineDictIdiomsSize,
+  offlineDictCollocationsSize,
+  offlineDictSize,
+} from './offlineDictPack'
+import { enrichDictResult } from './enrichDictResult'
+import { copyToClipboard } from '../../lib/copyToClipboard'
+import { speakPhrase, type SpeakVariant } from '../vocab/study/speakPhrase'
+import './dictionaryModal.css'
 
 function formatDictResult(result: DictResult): string {
   const lines = [result.word]
   if (result.ipaUS) lines.push(`US ${result.ipaUS}`)
   if (result.ipaUK) lines.push(`UK ${result.ipaUK}`)
   result.definitions.forEach((def, i) => {
-    const prefix = result.definitions.length > 1 ? `${i + 1}. ` : ''
-    lines.push(`${prefix}${def.meaning}`)
+    lines.push(`${i + 1}. ${def.meaning}`)
     if (def.example) lines.push(`  "${def.example}"`)
     if (def.exampleVi) lines.push(`  → ${def.exampleVi}`)
   })
@@ -26,12 +38,17 @@ function formatDictResult(result: DictResult): string {
   return lines.join('\n')
 }
 
-function speakWord(word: string) {
-  speechSynthesis.cancel()
-  const utt = new SpeechSynthesisUtterance(word)
-  utt.lang = 'en-US'
-  utt.rate = 0.85
-  speechSynthesis.speak(utt)
+/** Kokoro TTS — US (`a`) / UK (`b`); fallback Web Speech trong speakPhrase. */
+async function speakDictWord(word: string, variant: SpeakVariant = 'us') {
+  const text = word.trim()
+  if (!text) return
+  await speakPhrase(text, 0.9, undefined, variant)
+}
+
+function sourceLabel(hint: 'cache' | 'offline' | 'ai' | null): string {
+  if (hint === 'offline' || hint === 'cache') return 'Đã lưu trên máy'
+  if (hint === 'ai') return 'AI (Pro)'
+  return ''
 }
 
 export default function DictionaryModal() {
@@ -45,6 +62,8 @@ export default function DictionaryModal() {
   const [showSave, setShowSave] = useState(false)
   const [notebookBusy, setNotebookBusy] = useState(false)
   const [notebookFlash, setNotebookFlash] = useState<string | null>(null)
+  const [copied, setCopied] = useState(false)
+  const [speaking, setSpeaking] = useState<'us' | 'uk' | null>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const plan = useLiveQuery(
     () => db.settings.get('plan').then(s => (s?.value as Plan) ?? 'free'),
@@ -57,8 +76,9 @@ export default function DictionaryModal() {
     setResult(null)
     setError('')
     setSourceHint(null)
+    setSpeaking(null)
     setQuery(initialQuery)
-    loadRecent()
+    void loadRecent()
     setTimeout(() => inputRef.current?.focus(), 80)
     if (initialQuery.trim()) void lookup(initialQuery.trim())
   }, [isOpen, initialQuery])
@@ -66,6 +86,13 @@ export default function DictionaryModal() {
   async function loadRecent() {
     const entries = await dictRepo.recent(12)
     setRecent(entries.map(e => (e.data as DictResult | null)?.word ?? e.word))
+  }
+
+  function applyResult(data: DictResult, hint: 'cache' | 'offline' | 'ai') {
+    const full = enrichDictResult(data)
+    setResult(full)
+    setSourceHint(hint)
+    return full
   }
 
   async function lookup(word: string) {
@@ -77,35 +104,32 @@ export default function DictionaryModal() {
     setSourceHint(null)
 
     try {
-      // 1. Cache (đã tra trước)
+      // 1. Offline pack (ưu tiên — luôn enrich full true.jpg)
+      const offline = lookupOfflineDict(w)
+      if (offline) {
+        const full = applyResult(offline, 'offline')
+        try { await dictRepo.save(w, full) } catch { /* ignore */ }
+        setLoading(false)
+        void loadRecent()
+        return
+      }
+
+      // 2. Cache
       const fresh = await dictRepo.isFresh(w)
       if (fresh) {
         const cached = await dictRepo.get(w)
         if (cached) {
-          setResult(cached.data as DictResult)
-          setSourceHint('cache')
+          applyResult(cached.data as DictResult, 'cache')
           setLoading(false)
           void loadRecent()
           return
         }
       }
 
-      // 2. Offline pack cơ bản (mọi gói)
-      const offline = lookupOfflineDict(w)
-      if (offline) {
-        setResult(offline)
-        setSourceHint('offline')
-        // cache local để recent list
-        try { await dictRepo.save(w, offline) } catch { /* ignore */ }
-        setLoading(false)
-        void loadRecent()
-        return
-      }
-
-      // 3. AI — chỉ Pro / trial / lifetime
+      // 3. AI
       if (!aiAllowed) {
         setError(
-          `Không có trong gói offline (${offlineDictSize()} từ). Nâng Pro để tra AI mọi từ, hoặc thử từ phổ biến (environment, education…).`,
+          `Không có trong gói offline (${offlineDictSize()} từ). Nâng Pro để tra AI mọi từ.`,
         )
         setLoading(false)
         return
@@ -129,9 +153,8 @@ export default function DictionaryModal() {
         )
       } catch { /* ignore */ }
 
-      await dictRepo.save(w, data)
-      setResult(data)
-      setSourceHint('ai')
+      const full = applyResult(data, 'ai')
+      await dictRepo.save(w, full)
       void loadRecent()
     } catch (e) {
       setError(
@@ -144,78 +167,65 @@ export default function DictionaryModal() {
     }
   }
 
+  async function handleCopy() {
+    if (!result) return
+    try {
+      await copyToClipboard(formatDictResult(result))
+      setCopied(true)
+      window.setTimeout(() => setCopied(false), 1200)
+    } catch { /* ignore */ }
+  }
+
   if (!isOpen) return null
 
   return (
     <>
-      {/* Backdrop */}
-      <div
-        className="fixed inset-0 z-50 bg-black/30 flex items-start justify-center pt-16 px-4"
-        onClick={close}
-      >
-        {/* Modal */}
-        <div
-          className="w-full max-w-md rounded-2xl shadow-2xl flex flex-col"
-          style={{
-            background: 'var(--bg-card)',
-            border: '1px solid var(--border-color)',
-            maxHeight: 'calc(100vh - 5rem)',
-          }}
-          onClick={e => e.stopPropagation()}
-        >
-          {/* Search bar */}
-          <div
-            className="flex items-center gap-2 px-4 py-3 border-b shrink-0"
-            style={{ borderColor: 'var(--border-color)' }}
-          >
-            <Search size={15} className="shrink-0" style={{ color: 'var(--text-muted)' }} />
+      <div className="dict-overlay" onClick={close}>
+        <div className="dict-modal-shell" onClick={e => e.stopPropagation()}>
+          {/* Search — true.jpg: 🔍 input | Tra | × | × */}
+          <div className="dict-search">
+            <Search size={16} strokeWidth={2} style={{ color: 'var(--text-muted)', flexShrink: 0 }} />
             <input
               ref={inputRef}
               value={query}
               onChange={e => setQuery(e.target.value)}
-              onKeyDown={e => e.key === 'Enter' && lookup(query)}
+              onKeyDown={e => e.key === 'Enter' && void lookup(query)}
               placeholder="Nhập từ hoặc cụm từ..."
-              className="flex-1 outline-none text-sm bg-transparent"
-              style={{ color: 'var(--text-primary)' }}
+              className="dict-search__input"
             />
-            {query.trim() && (
-              <button
-                onClick={() => lookup(query)}
-                className="px-3 py-1 rounded-lg text-xs text-white font-medium shrink-0"
-                style={{ background: 'var(--color-primary)' }}
-              >
-                Tra
-              </button>
-            )}
-            {query && (
-              <button
-                onClick={() => { setQuery(''); setResult(null); setError('') }}
-                className="shrink-0 p-0.5 rounded"
-                style={{ color: 'var(--text-muted)' }}
-              >
-                <X size={13} />
-              </button>
-            )}
             <button
-              onClick={close}
-              className="shrink-0 p-1 rounded-lg hover:bg-[var(--bg-secondary)]"
-              style={{ color: 'var(--text-muted)' }}
+              type="button"
+              className="dict-search__tra"
+              onClick={() => void lookup(query)}
             >
-              <X size={16} />
+              Tra
+            </button>
+            <button
+              type="button"
+              className="dict-search__icon-btn"
+              title="Xóa"
+              onClick={() => { setQuery(''); setResult(null); setError('') }}
+            >
+              <X size={15} />
+            </button>
+            <button
+              type="button"
+              className="dict-search__icon-btn"
+              title="Đóng"
+              onClick={close}
+            >
+              <X size={15} />
             </button>
           </div>
 
-          {/* Body */}
           <div className="flex-1 overflow-y-auto">
-            {/* Loading */}
             {loading && (
               <div className="flex items-center justify-center py-14 gap-3">
-                <Loader2 size={22} className="animate-spin" style={{ color: 'var(--color-primary)' }} />
+                <Loader2 size={22} className="animate-spin" style={{ color: '#7c6cf0' }} />
                 <span className="text-sm" style={{ color: 'var(--text-muted)' }}>Đang tra từ...</span>
               </div>
             )}
 
-            {/* Error */}
             {error && !loading && (
               <div
                 className="mx-4 mt-4 flex items-start gap-2 px-4 py-3 rounded-xl text-sm"
@@ -226,7 +236,6 @@ export default function DictionaryModal() {
               </div>
             )}
 
-            {/* Recent words (empty state) */}
             {!loading && !result && !error && recent.length > 0 && (
               <div className="p-4">
                 <p
@@ -239,9 +248,9 @@ export default function DictionaryModal() {
                   {recent.map(w => (
                     <button
                       key={w}
-                      onClick={() => { setQuery(w); lookup(w) }}
-                      className="px-3 py-1.5 rounded-full text-xs font-medium border transition-colors hover:text-[var(--color-primary)] hover:border-[var(--color-primary)]"
-                      style={{ borderColor: 'var(--border-color)', color: 'var(--text-muted)' }}
+                      type="button"
+                      onClick={() => { setQuery(w); void lookup(w) }}
+                      className="dict-chip dict-chip--outline"
                     >
                       {w}
                     </button>
@@ -250,114 +259,114 @@ export default function DictionaryModal() {
               </div>
             )}
 
-            {/* Empty state when nothing */}
             {!loading && !result && !error && !recent.length && (
               <div className="flex flex-col items-center py-12 text-center px-6">
                 <BookOpenIcon />
                 <p className="font-medium mt-3 mb-1" style={{ color: 'var(--text-primary)' }}>Từ điển</p>
                 <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
-                  Gói offline {offlineDictSize()} mục (Part 1 + cụm từ) · AI khi Pro.<br />
-                  Chọn từ trên trang rồi nhấn FAB để tra nhanh.
+                  Offline {offlineDictSize()} mục · P2–P5 {offlineDictPart2Size() + offlineDictPart3Size() + offlineDictPart4Size() + offlineDictPart5Size()} · PV {offlineDictPhrasalSize()} · Idiom {offlineDictIdiomsSize()} · Colloc {offlineDictCollocationsSize()} · AI khi Pro.
                 </p>
               </div>
             )}
 
-            {/* Result */}
+            {/* Result — true.jpg */}
             {result && !loading && (
-              <div className="p-4">
-                {sourceHint && (
-                  <p className="text-[11px] font-semibold uppercase tracking-wide mb-2" style={{ color: 'var(--text-muted)' }}>
-                    {sourceHint === 'offline' && `Offline pack · ${offlineDictSize()} từ`}
-                    {sourceHint === 'cache' && 'Đã lưu trên máy'}
-                    {sourceHint === 'ai' && 'AI (Pro)'}
-                  </p>
-                )}
-                {/* Word header */}
-                <div className="flex items-start gap-3 mb-4">
-                  <div className="flex-1">
-                    <div className="flex items-center flex-wrap gap-2 mb-1">
-                      <h2 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>
-                        {result.word}
-                      </h2>
-                      {result.pos && (
-                        <span
-                          className="text-xs font-semibold px-2 py-0.5 rounded-full"
-                          style={{ background: '#6366f120', color: '#818cf8' }}
-                        >
-                          {result.pos}
-                        </span>
-                      )}
-                      {result.level && (
-                        <span
-                          className="text-xs font-bold px-2 py-0.5 rounded-full"
-                          style={{ background: '#f9731620', color: '#f97316' }}
-                        >
-                          {result.level}
-                        </span>
-                      )}
+              <div className="dict-result">
+                <p className="dict-result__source">{sourceLabel(sourceHint)}</p>
+
+                <div className="dict-result__head">
+                  <div className="min-w-0 flex-1">
+                    <div className="dict-result__word-row">
+                      <h2 className="dict-result__word">{result.word}</h2>
+                      {result.pos && <span className="dict-pill dict-pill--pos">{result.pos}</span>}
+                      {result.level && <span className="dict-pill dict-pill--level">{result.level}</span>}
                     </div>
                     {(result.ipaUS || result.ipaUK) && (
-                      <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
-                        {result.ipaUS && <span>US {result.ipaUS}</span>}
-                        {result.ipaUS && result.ipaUK && <span className="mx-2">·</span>}
-                        {result.ipaUK && <span>UK {result.ipaUK}</span>}
-                      </p>
+                      <div className="dict-result__ipa-row" role="group" aria-label="Phiên âm IPA">
+                        {result.ipaUS && (
+                          <div className="dict-ipa-card">
+                            <span className="dict-ipa-card__label">US</span>
+                            <span className="dict-ipa-card__text">{result.ipaUS}</span>
+                            <button
+                              type="button"
+                              className="dict-ipa-card__speak"
+                              title="Nghe giọng Mỹ (Kokoro US)"
+                              disabled={speaking !== null}
+                              onClick={() => {
+                                setSpeaking('us')
+                                void speakDictWord(result.word, 'us').finally(() => setSpeaking(null))
+                              }}
+                            >
+                              {speaking === 'us'
+                                ? <Loader2 size={15} className="animate-spin" />
+                                : <Volume2 size={15} />}
+                              <span>Nghe US</span>
+                            </button>
+                          </div>
+                        )}
+                        {result.ipaUK && (
+                          <div className="dict-ipa-card">
+                            <span className="dict-ipa-card__label">UK</span>
+                            <span className="dict-ipa-card__text">{result.ipaUK}</span>
+                            <button
+                              type="button"
+                              className="dict-ipa-card__speak"
+                              title="Nghe giọng Anh (Kokoro UK)"
+                              disabled={speaking !== null}
+                              onClick={() => {
+                                setSpeaking('uk')
+                                void speakDictWord(result.word, 'uk').finally(() => setSpeaking(null))
+                              }}
+                            >
+                              {speaking === 'uk'
+                                ? <Loader2 size={15} className="animate-spin" />
+                                : <Volume2 size={15} />}
+                              <span>Nghe UK</span>
+                            </button>
+                          </div>
+                        )}
+                      </div>
                     )}
                   </div>
-                  <div className="flex items-center gap-0.5 shrink-0">
-                    <CopyButton text={formatDictResult(result)} title="Copy kết quả" size={16} />
+                  <div className="flex items-center shrink-0">
                     <button
-                      onClick={() => speakWord(result.word)}
-                      className="p-2 rounded-lg transition-colors hover:bg-[var(--bg-secondary)]"
-                      style={{ color: 'var(--text-muted)' }}
-                      title="Nghe phát âm"
+                      type="button"
+                      className="dict-icon-btn"
+                      title={copied ? 'Đã copy' : 'Copy'}
+                      onClick={() => void handleCopy()}
                     >
-                      <Volume2 size={18} />
+                      <Copy size={16} />
                     </button>
                   </div>
                 </div>
 
-                {/* Definitions */}
-                <div className="flex flex-col gap-3 mb-4">
+                <div className="dict-defs">
                   {result.definitions.map((def, i) => (
-                    <div
-                      key={i}
-                      className="pl-3 border-l-2"
-                      style={{ borderColor: 'var(--color-primary)' }}
-                    >
-                      <p className="text-sm font-medium leading-relaxed" style={{ color: 'var(--text-primary)' }}>
-                        {result.definitions.length > 1 && (
-                          <span className="mr-1.5 font-bold" style={{ color: 'var(--text-muted)' }}>{i + 1}.</span>
-                        )}
+                    <div key={i} className="dict-def">
+                      <p className="dict-def__meaning">
+                        <span className="dict-def__num">{i + 1}.</span>
                         {def.meaning}
                       </p>
                       {def.example && (
-                        <p className="text-xs italic mt-1 leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-                          "{def.example}"
-                        </p>
+                        <p className="dict-def__example">&ldquo;{def.example}&rdquo;</p>
                       )}
                       {def.exampleVi && (
-                        <p className="text-xs mt-0.5" style={{ color: 'var(--text-muted)' }}>
-                          → {def.exampleVi}
-                        </p>
+                        <p className="dict-def__example-vi">→ {def.exampleVi}</p>
                       )}
                     </div>
                   ))}
                 </div>
 
-                {/* Collocations */}
-                {result.collocations && result.collocations.length > 0 && (
-                  <div className="mb-3">
-                    <p className="text-xs font-semibold uppercase tracking-wide mb-2" style={{ color: 'var(--text-muted)' }}>
-                      Cụm từ thường gặp
-                    </p>
-                    <div className="flex flex-wrap gap-1.5">
+                {!!result.collocations?.length && (
+                  <div className="dict-section">
+                    <p className="dict-section__label">Cụm từ thường gặp</p>
+                    <div className="dict-chips">
                       {result.collocations.map(c => (
                         <button
                           key={c}
-                          onClick={() => { setQuery(c); lookup(c) }}
-                          className="text-xs px-2.5 py-1 rounded-full border transition-colors hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
-                          style={{ borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
+                          type="button"
+                          className="dict-chip dict-chip--outline"
+                          onClick={() => { setQuery(c); void lookup(c) }}
                         >
                           {c}
                         </button>
@@ -366,19 +375,16 @@ export default function DictionaryModal() {
                   </div>
                 )}
 
-                {/* Synonyms */}
-                {result.synonyms && result.synonyms.length > 0 && (
-                  <div className="mb-4">
-                    <p className="text-xs font-semibold uppercase tracking-wide mb-2" style={{ color: 'var(--text-muted)' }}>
-                      Từ đồng nghĩa
-                    </p>
-                    <div className="flex flex-wrap gap-1.5">
+                {!!result.synonyms?.length && (
+                  <div className="dict-section">
+                    <p className="dict-section__label">Từ đồng nghĩa</p>
+                    <div className="dict-chips">
                       {result.synonyms.map(s => (
                         <button
                           key={s}
-                          onClick={() => { setQuery(s); lookup(s) }}
-                          className="text-xs px-2.5 py-1 rounded-full transition-colors hover:text-[var(--color-primary)]"
-                          style={{ background: 'var(--bg-secondary)', color: 'var(--text-muted)' }}
+                          type="button"
+                          className="dict-chip dict-chip--soft"
+                          onClick={() => { setQuery(s); void lookup(s) }}
                         >
                           {s}
                         </button>
@@ -387,17 +393,18 @@ export default function DictionaryModal() {
                   </div>
                 )}
 
-                <div className="flex flex-col gap-2">
+                <div className="dict-actions">
                   <button
                     type="button"
                     disabled={notebookBusy}
+                    className="dict-btn dict-btn--ghost"
                     onClick={async () => {
                       if (!result) return
                       setNotebookBusy(true)
                       try {
                         const { created } = await notebookRepo.save({
                           phrase: result.word,
-                          meaning: result.definitions[0]?.meaning ?? '',
+                          meaning: result.definitions.map(d => d.meaning).join('; '),
                           example: result.definitions[0]?.example,
                           ipaUS: result.ipaUS,
                           ipaUK: result.ipaUK,
@@ -410,19 +417,16 @@ export default function DictionaryModal() {
                         setNotebookBusy(false)
                       }
                     }}
-                    className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-medium border transition-colors hover:bg-[color-mix(in_srgb,var(--color-primary)_8%,transparent)]"
-                    style={{ borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
                   >
-                    <Bookmark size={14} style={{ color: 'var(--color-primary)' }} />
+                    <Bookmark size={15} />
                     {notebookFlash ?? (notebookBusy ? 'Đang lưu…' : 'Lưu sổ ghi chú')}
                   </button>
                   <button
                     type="button"
+                    className="dict-btn dict-btn--primary"
                     onClick={() => setShowSave(true)}
-                    className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-medium border transition-colors hover:bg-[color-mix(in_srgb,var(--color-primary)_8%,transparent)]"
-                    style={{ borderColor: 'var(--color-primary)', color: 'var(--color-primary)' }}
                   >
-                    <Plus size={14} />
+                    <Plus size={15} />
                     Thêm vào bộ thẻ từ vựng
                   </button>
                 </div>

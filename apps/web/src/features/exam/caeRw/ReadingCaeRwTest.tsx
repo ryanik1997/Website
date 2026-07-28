@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
-import { Bell, Loader2, Wifi } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Bell, Loader2, Wifi } from 'lucide-react'
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import ExamTimerControls from '../ExamTimerControls'
 import ExamFontControls from '../ExamFontControls'
@@ -59,6 +59,9 @@ export default function ReadingCaeRwTest() {
   } = useReadingFontSettings()
 
   const allQuestions = useMemo(() => (exam ? getExamQuestions(exam) : []), [exam])
+  const activeQuestionIndex = activeQuestionId
+    ? allQuestions.findIndex(q => q.id === activeQuestionId)
+    : -1
   const currentPart = exam?.parts[partIndex] ?? null
   const storageKey = exam ? `${STORAGE_PREFIX}${exam.id}` : ''
   const { isHydrated, markHydrated } = useExamDraftGate(storageKey)
@@ -292,6 +295,15 @@ export default function ReadingCaeRwTest() {
       )}
       <header className="ket-rw-header">
         <div className="ket-rw-header__brand">
+          <button
+            type="button"
+            className="ket-rw-icon-btn"
+            aria-label="Exit"
+            title="Exit"
+            onClick={reviewMode ? () => setReviewMode(false) : handleExit}
+          >
+            <ArrowLeft size={16} />
+          </button>
           <span className="ket-rw-header__shield" aria-hidden>CE</span>
           <span>Cambridge English</span>
         </div>
@@ -345,19 +357,35 @@ export default function ReadingCaeRwTest() {
         )}
       </RwExamMain>
 
+      <div className="ket-rw-adjacent-nav" aria-label="Question navigation">
+        <button
+          type="button"
+          disabled={activeQuestionIndex <= 0}
+          onClick={() => goAdjacentQuestion(-1)}
+          aria-label="Previous question"
+        >
+          <ArrowLeft size={20} />
+        </button>
+        <button
+          type="button"
+          disabled={activeQuestionIndex < 0 || activeQuestionIndex >= allQuestions.length - 1}
+          onClick={() => goAdjacentQuestion(1)}
+          aria-label="Next question"
+        >
+          <ArrowRight size={20} />
+        </button>
+      </div>
+
       <KetRwFooter
         exam={exam}
         partIndex={partIndex}
         activeQuestionId={activeQuestionId}
         answers={answers}
-        allQuestions={allQuestions}
         onGoToPart={goToPart}
         onSelectQuestion={handleSelectQuestion}
-        onAdjacentQuestion={goAdjacentQuestion}
-        onExit={reviewMode ? () => setReviewMode(false) : handleExit}
+        onSubmit={() => setConfirmSubmit(true)}
         reviewMode={reviewMode}
         getQuestionReviewStatus={getQuestionReviewStatus}
-        exitLabel={reviewMode ? 'Về báo cáo' : undefined}
       />
 
       {confirmSubmit && (

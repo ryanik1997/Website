@@ -27,6 +27,7 @@ import {
   isUserImportedListeningExamId,
 } from './examListFilter'
 import { db } from '@ryan/db'
+import { CAMBRIDGE_WRITING_MANIFEST } from '@ryan/catalog'
 import { deletePublishedReadingExam } from './readingExamPublish'
 import { deletePublishedListeningExam } from './listeningExamPublish'
 import {
@@ -119,6 +120,9 @@ function safeListeningRow(exam: ListeningExam, isAdmin: boolean): {
 } {
   try {
     const qCount = getListeningExamQuestions(exam).length
+      || (typeof (exam as { questionCount?: number }).questionCount === 'number'
+        ? (exam as { questionCount?: number }).questionCount!
+        : 0)
     const completion = readListeningDraftCompletion(exam)
     const parsed = exam.title.match(/Test\s*(\d+)/i)
     const sourceLabel = exam.id.startsWith('catalog-')
@@ -148,6 +152,7 @@ function safeListeningRow(exam: ListeningExam, isAdmin: boolean): {
 }
 
 const ImportReadingManualModal = lazy(() => import('./ImportReadingManualModal'))
+const BatchReadingImportModal = lazy(() => import('./BatchReadingImportModal'))
 const ImportListeningModal = lazy(() => import('./ImportListeningModal'))
 const IeltsListeningImportWizard = lazy(() => import('./ieltsListeningWizard/IeltsListeningImportWizard'))
 const IeltsReadingImportWizard = lazy(() => import('./ieltsReadingWizard/IeltsReadingImportWizard'))
@@ -173,6 +178,7 @@ function ExamTrackPageInner() {
   const canImport = isAdmin === true
 
   const [showImportManual, setShowImportManual] = useState(false)
+  const [showBatchImportReading, setShowBatchImportReading] = useState(false)
   const [showImportListening, setShowImportListening] = useState(false)
   const [showIeltsWizard, setShowIeltsWizard] = useState(false)
   const [showReadingWizard, setShowReadingWizard] = useState(false)
@@ -287,6 +293,11 @@ function ExamTrackPageInner() {
     : cambridgeLevel
       ? filterListeningByTypes(listeningExams, cambridgeLevel.listeningExamTypes)
       : []
+  const writingCount = cambridgeLevel && ['a2', 'b1', 'b2', 'c1', 'c2'].includes(cambridgeLevel.slug)
+    ? (cambridgeLevel.slug === 'a2'
+      ? 1
+      : CAMBRIDGE_WRITING_MANIFEST[cambridgeLevel.slug as 'b1' | 'b2' | 'c1' | 'c2'].testCount)
+    : 0
 
   // User thường luôn xem full catalog (không ẩn đề mẫu / filter import)
   const effectiveImportsOnly = canImport && importsOnly
@@ -421,8 +432,12 @@ function ExamTrackPageInner() {
   // Chưa chọn skill → Page1 (Listening / Reading)
   if (useLibraryArchiveLayout && !activeSkill) {
     const skills = activeTrack.skills.filter(
-      (s): s is ExamSkillPick => s === 'reading' || s === 'listening',
+      (s): s is 'reading' | 'listening' => s === 'reading' || s === 'listening',
     )
+    const pickerSkills: ExamSkillPick[] = [...skills]
+    if (cambridgeLevel && ['a2', 'b1', 'b2', 'c1', 'c2'].includes(cambridgeLevel.slug) && writingCount > 0) {
+      pickerSkills.push('writing')
+    }
     return (
       <>
         <ExamSkillPicker
@@ -431,9 +446,17 @@ function ExamTrackPageInner() {
           onBack={() => navigate(skillPickerBackPath)}
           listeningCount={listeningList.length}
           readingCount={readingList.length}
-          skills={skills}
-          readingTitle={cambridgeLevel ? 'Reading - Writing' : 'Reading'}
-          onPick={skill => navigate(`${skillBasePath}/${skill}`)}
+          writingCount={writingCount}
+          skills={pickerSkills}
+          readingTitle={cambridgeLevel ? 'Reading' : 'Reading'}
+          ieltsCardStyle={isIeltsTrack}
+          onPick={skill => {
+            if (skill === 'writing' && cambridgeLevel) {
+              navigate(`/app/writing/cambridge/${cambridgeLevel.slug}`)
+              return
+            }
+            navigate(`${skillBasePath}/${skill}`)
+          }}
         />
         {canImport && showImportListening && (
           <Suspense fallback={<div className="fixed inset-0 z-50 flex items-center justify-center"><Loader2 className="animate-spin" /></div>}>
@@ -495,6 +518,12 @@ function ExamTrackPageInner() {
                   <button type="button" className="exam-hub-cta exam-hub-cta--ghost" onClick={() => setShowImportManual(true)}>
                     <FileJson size={14} />
                     Import thủ công Reading
+                  </button>
+                )}
+                {showReadingArchive && (
+                  <button type="button" className="exam-hub-cta exam-hub-cta--ghost" onClick={() => setShowBatchImportReading(true)}>
+                    <FileJson size={14} />
+                    Import hàng loạt Reading
                   </button>
                 )}
                 {track.id === 'ielts' && showReadingArchive && (
@@ -682,6 +711,17 @@ function ExamTrackPageInner() {
               setShowImportManual(false)
               navigate(`/app/exam/reading/${id}`)
             }}
+          />
+        </Suspense>
+      )}
+
+      {canImport && showBatchImportReading && (
+        <Suspense fallback={<div className="fixed inset-0 z-50 flex items-center justify-center"><Loader2 className="animate-spin" /></div>}>
+          <BatchReadingImportModal
+            examTrack={track.id === 'ielts' ? 'ielts' : 'cambridge'}
+            cambridgeLevel={cambridgeLevel?.slug}
+            onClose={() => setShowBatchImportReading(false)}
+            onImported={() => setShowBatchImportReading(false)}
           />
         </Suspense>
       )}

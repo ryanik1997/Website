@@ -1,0 +1,128 @@
+Deploy từ thư mục gốc dự án:
+
+cd D:\App-English-Ryan\Website
+vercel deploy --prod --yes
+
+Nên build trước để chắc không lỗi:
+
+cd D:\App-English-Ryan\Website
+pnpm --filter web build
+vercel deploy --prod --yes
+
+Lưu ý:
+• Chạy trong terminal đã đăng nhập Vercel (vercel login nếu chưa)
+• Env trên Vercel cần có VITE_SUPABASE_URL và VITE_SUPABASE_ANON_KEY
+• Production: https://ryanenglishv2.vercel.app
+
+
+Test local (nhanh ~2 giây)
+
+pnpm build:catalog
+
+Rồi nếu pnpm dev đang chạy → Ctrl+Shift+R. Xong.
+
+Full build local chỉ cần khi đổi code TypeScript/React hoặc muốn preview production trên máy.
+
+Deploy production (bỏ build local)
+
+Vercel tự build trên server. Lệnh local pnpm --filter web build trước vercel deploy = build 2 lần.
+
+Chỉ cần:
+
+pnpm deploy:web
+
+hoặc:
+
+vercel deploy --prod --yes
+
+Đã cập nhật vercel.json để Vercel chạy build:catalog + vite build (trước đó thiếu build:catalog).
+
+Script mới
+
+┌──────────────────────┬──────────────────────────────────────────┐
+│ Lệnh                 │ Khi nào dùng                             │
+├──────────────────────┼──────────────────────────────────────────┤
+│ pnpm fix:ielts-notes │ Sửa bullet/notes 48 đề + rebuild catalog │
+├──────────────────────┼──────────────────────────────────────────┤
+│ pnpm deploy:web      │ Deploy web, không build local            │
+├──────────────────────┼──────────────────────────────────────────┤
+│ pnpm deploy:prod     │ DB migration + deploy (khi release)      │
+└──────────────────────┴──────────────────────────────────────────┘
+
+Tóm lại: tôi sửa data → bạn chỉ pnpm build:catalog + refresh dev. Lên prod → pnpm deploy:web, không build local trước.
+
+
+pnpm build:catalog   # ~2s
+pnpm dev             # Ctrl+Shift+R
+
+
+
+Làm đúng thứ tự này:
+
+# Terminal 1 — dừng dev server nếu đang chạy (Ctrl+C), rồi:
+cd D:\App-English-Ryan\Website
+pnpm build:catalog
+pnpm dev
+
+Đã xác nhận vấn đề.
+
+Port 5173 hiện không có process nào đang chạy (web dev server chưa khởi động).
+
+Nguyên nhân
+Lệnh pnpm dev (dùng --stream --parallel) chỉ hiện output của server, phần --filter web dev:open không in ra log Vite (có thể do cách pnpm stream output trên PowerShell hoặc web bị lỗi thầm).
+
+───
+
+Cách khắc phục nhanh (khuyến nghị)
+
+1. Dừng lệnh đang chạy hiện tại
+   Trong terminal đang chạy pnpm dev, nhấn Ctrl + C.
+
+2. Chạy riêng phần web (sẽ thấy rõ output Vite):
+
+pnpm --filter web dev
+
+   Bạn sẽ thấy dòng tương tự:
+
+VITE v5.x.x  ready in XXX ms
+
+   ➜  Local:   http://localhost:5173/
+   ➜  Network: ...
+
+3. Mở trình duyệt thủ công
+   Truy cập: http://localhost:5173
+
+   (Nếu muốn Vite tự mở browser, dùng lệnh này thay thế:)
+
+pnpm --filter web dev:open
+
+───
+
+Nếu muốn chạy cả server (Kokoro) + web cùng lúc
+
+Mở 2 terminal:
+
+• Terminal 1 (TTS):
+
+pnpm dev:server
+
+• Terminal 2 (Web):
+
+pnpm --filter web dev
+
+───
+
+Sau khi web chạy được
+
+1. Vào app.
+2. Hard refresh: Ctrl + Shift + R
+3. Vào Luyện thi → IELTS → Cam9 Test 1
+4. Kiểm tra Part 1 Q9 và Part 4 Q32 như đã hướng dẫn trước.
+
+Chạy thử lệnh pnpm --filter web dev và paste lại output (đặc biệt nếu có lỗi đỏ) để mình hỗ trợ tiếp nếu Vite vẫn không khởi động.
+
+Bạn chạy xong bước 2 chưa?
+
+
+-----------------------------------------------
+Vercel: Đã xác minh đúng tài khoản ryanik1997 và project liên kết là ryanenglishv2. Worktree có các thay đổi bảo mật/RLS đang chờ deploy cùng vài file người dùng; mình giữ nguyên tất cả và chỉ chạy vercel deploy --prod --yes

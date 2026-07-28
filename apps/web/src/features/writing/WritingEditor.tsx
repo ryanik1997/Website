@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+﻿import { useState, useEffect } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
 import {
   Sparkles, Settings2, PenLine, CheckCircle2, Send, Brain, Save, Trash2,
@@ -8,26 +8,28 @@ import { db, writingRepo } from '@ryan/db'
 import type { WritingDoc } from '@ryan/db'
 import {
   callAI, type AIProvider,
-  buildWritingGradePrompt, buildWritingGuidePrompt, attachGuideImage,
-  attachImagesToUserMessage, buildWritingRewritePrompt, buildChartDescribePrompt,
-  providerSupportsVision, canUse, type Plan, type WritingScore, type WritingGuide,
-  type CambridgeScore, type WritingRewrite, type ChartDescribeResult,
+  buildWritingGuidePrompt, attachGuideImage,
+  buildWritingRewritePrompt, buildChartDescribePrompt,
+  providerSupportsVision, canUse, type Plan, type WritingGuide,
+  type WritingRewrite, type ChartDescribeResult,
   isCambridgeScore, isIELTSScore,
 } from '@ryan/core'
 import { getWritingUiConfig } from './writingUiConfig'
+import { findTidTaskForPrompt } from './promptBank/promptBank'
 import { useWritingStore } from './writingStore'
 import ScorePanel from './ScorePanel'
 import AiSettingsModal from './AiSettingsModal'
 import EditWritingPromptModal from './EditWritingPromptModal'
 import WritingTopicPanel from './WritingTopicPanel'
 import { useWritingTimer } from './useWritingTimer'
+import { useWritingGrading } from './useWritingGrading'
 import './writingStudy.css'
 
 const TYPE_CONFIG: Record<string, { label: string; target: number; color: string }> = {
   ielts_task2: { label: 'IELTS Task 2', target: 250, color: '#6366f1' },
   ielts_task1: { label: 'IELTS Task 1', target: 150, color: '#8b5cf6' },
   ielts:       { label: 'IELTS',        target: 250, color: '#6366f1' },
-  master:      { label: 'Viết tự do',   target: 0,   color: '#10b981' },
+  master:      { label: 'Viáº¿t tá»± do',   target: 0,   color: '#10b981' },
   cambridge_a2: { label: 'Cambridge A2', target: 35, color: '#3b82f6' },
   cambridge_b1: { label: 'Cambridge B1', target: 100, color: '#2563eb' },
   cambridge_b2: { label: 'Cambridge B2', target: 140, color: '#1d4ed8' },
@@ -42,13 +44,12 @@ const RATE_LIMITS: Record<Plan, number> = {
 export default function WritingEditor({
   allowedTypes,
 }: {
-  /** Chỉ hiển thị bài thuộc track hiện tại (IELTS vs Cambridge) */
+  /** Chá»‰ hiá»ƒn thá»‹ bÃ i thuá»™c track hiá»‡n táº¡i (IELTS vs Cambridge) */
   allowedTypes?: WritingDoc['type'][]
 } = {}) {
   const {
-    activeDocId, score, isGrading, gradingError,
+    activeDocId,
     guide, guideDocId, isGuideLoading, guideError,
-    setScore, setGrading, setError, clearScore,
     setGuide, setGuideLoading, setGuideError, clearGuide,
   } = useWritingStore()
   const doc = useLiveQuery(
@@ -57,7 +58,6 @@ export default function WritingEditor({
   )
 
   const [text, setText] = useState('')
-  const [showAiSettings, setShowAiSettings] = useState(false)
   const [showFeedback, setShowFeedback] = useState(false)
   const [savedFlash, setSavedFlash] = useState(false)
   const [guideOpen, setGuideOpen] = useState(false)
@@ -80,6 +80,25 @@ export default function WritingEditor({
     setChartDescribe(null)
     setChartDescribeError(null)
   }, [doc?.id])
+
+  const {
+    score,
+    isGrading,
+    gradingError,
+    showAiSettings,
+    setShowAiSettings,
+    clearScore,
+    setGradingError,
+    grade,
+  } = useWritingGrading({
+    doc,
+    text,
+    minWords: doc ? TYPE_CONFIG[doc.type as keyof typeof TYPE_CONFIG]?.target : undefined,
+    persistText: async (nextText) => {
+      if (!activeDocId) return
+      await writingRepo.updateDoc(activeDocId, { text: nextText })
+    },
+  })
 
   useEffect(() => {
     if (!activeDocId || !doc || text === doc.text) return
@@ -122,8 +141,29 @@ export default function WritingEditor({
   async function requestGuide() {
     if (!doc || !activeDocId || isGuideLoading) return
 
+    // Äá» tá»« ngÃ¢n hÃ ng Ä‘á»: dÃ¹ng guide biÃªn soáº¡n sáºµn, khÃ´ng bao giá» gá»i AI
+    const bankTask = await findTidTaskForPrompt(doc.prompt)
+    if (bankTask) {
+      if (bankTask.guideHtml) {
+        setGuide(activeDocId, {
+          taskSummary: '',
+          outline: [],
+          keyPhrases: [],
+          tips: [],
+          sampleEssay: '',
+          sampleNote: '',
+          sourceHtml: bankTask.guideHtml,
+        })
+        setGuideError(null)
+      } else {
+        setGuideError('Äá» nÃ y chÆ°a cÃ³ hÆ°á»›ng dáº«n biÃªn soáº¡n sáºµn trong ngÃ¢n hÃ ng Ä‘á».')
+      }
+      setGuideOpen(true)
+      return
+    }
+
     if (!canRequestGuide()) {
-      setGuideError('Cần nhập đề bài (Task 2) hoặc import ảnh (Task 1).')
+      setGuideError('Cáº§n nháº­p Ä‘á» bÃ i (Task 2) hoáº·c import áº£nh (Task 1).')
       setGuideOpen(true)
       return
     }
@@ -137,7 +177,7 @@ export default function WritingEditor({
 
     const plan = ((await writingRepo.getSetting('plan')) as Plan) ?? 'free'
     if (!canUse(plan, 'writing_ai')) {
-      setGuideError('Tính năng AI chỉ dành cho gói TRIAL, PRO hoặc LIFETIME.')
+      setGuideError('TÃ­nh nÄƒng AI chá»‰ dÃ nh cho gÃ³i TRIAL, PRO hoáº·c LIFETIME.')
       setGuideOpen(true)
       return
     }
@@ -146,7 +186,7 @@ export default function WritingEditor({
     if (limit !== Infinity) {
       const used = await writingRepo.getTodayUsage('writing_ai')
       if (used >= limit) {
-        setGuideError(`Đã đạt giới hạn ${limit} lần AI/ngày (gói ${plan.toUpperCase()}).`)
+        setGuideError(`ÄÃ£ Ä‘áº¡t giá»›i háº¡n ${limit} láº§n AI/ngÃ y (gÃ³i ${plan.toUpperCase()}).`)
         setGuideOpen(true)
         return
       }
@@ -168,13 +208,13 @@ export default function WritingEditor({
       const data = JSON.parse(result.content) as WritingGuide
 
       if (!data.outline?.length || !data.sampleEssay) {
-        throw new Error('AI trả về dữ liệu không đầy đủ.')
+        throw new Error('AI tráº£ vá» dá»¯ liá»‡u khÃ´ng Ä‘áº§y Ä‘á»§.')
       }
 
       setGuide(activeDocId, data)
       await writingRepo.recordUsage('writing_ai', result.inputTokens + result.outputTokens)
     } catch (e) {
-      const msg = e instanceof Error ? e.message : 'Lỗi không xác định'
+      const msg = e instanceof Error ? e.message : 'Lá»—i khÃ´ng xÃ¡c Ä‘á»‹nh'
       setGuideError(msg.slice(0, 200))
     } finally {
       setGuideLoading(false)
@@ -190,69 +230,18 @@ export default function WritingEditor({
     }
     const plan = ((await writingRepo.getSetting('plan')) as Plan) ?? 'free'
     if (!canUse(plan, 'writing_ai')) {
-      setError('Tính năng AI chỉ dành cho gói TRIAL, PRO hoặc LIFETIME.')
+      setGradingError('Tï¿½nh nang AI ch? dï¿½nh cho gï¿½i TRIAL, PRO ho?c LIFETIME.')
       return null
     }
     const limit = RATE_LIMITS[plan]
     if (limit !== Infinity) {
       const used = await writingRepo.getTodayUsage('writing_ai')
       if (used >= limit) {
-        setError(`Đã đạt giới hạn ${limit} lần AI/ngày (gói ${plan.toUpperCase()}).`)
+        setGradingError('Đã đạt giới hạn AI/ngày cho gói hiện tại.')
         return null
       }
     }
     return { provider, apiKey, plan }
-  }
-
-  async function grade() {
-    if (!doc || !text.trim() || isGrading) return
-
-    const ready = await ensureAiReady()
-    if (!ready) return
-    const { provider, apiKey } = ready
-
-    const cached = await writingRepo.getCachedScore(text)
-    if (cached) {
-      setScore(cached.score as WritingScore)
-      setShowFeedback(true)
-      return
-    }
-
-    setGrading(true)
-    setShowFeedback(true)
-    try {
-      let messages = buildWritingGradePrompt(doc.type, doc.prompt, text)
-      // Task 1 + vision: gửi ảnh biểu đồ để chấm Task Achievement chính xác hơn
-      if (
-        doc.promptImage
-        && providerSupportsVision(provider)
-        && (doc.type === 'ielts_task1' || doc.type === 'master')
-      ) {
-        messages = attachImagesToUserMessage(
-          messages,
-          [doc.promptImage],
-          'Attached image is the Task 1 chart/graph/map. Score whether the report accurately covers key features.',
-        )
-      }
-
-      const result = await callAI(messages, apiKey, provider)
-      const parsed = JSON.parse(result.content) as WritingScore
-      const scoreData: WritingScore = doc.type.startsWith('cambridge_')
-        ? { ...(parsed as CambridgeScore), framework: 'cambridge' }
-        : parsed
-
-      await writingRepo.saveScore(doc.id, text, scoreData)
-      await writingRepo.recordImprovements(scoreData.improvements ?? [])
-      await writingRepo.recordUsage('writing_ai', result.inputTokens + result.outputTokens)
-
-      setScore(scoreData)
-      setRewrite(null)
-    } catch (e) {
-      const msg = e instanceof Error ? e.message : 'Lỗi không xác định'
-      setError(msg.slice(0, 150))
-    } finally {
-      setGrading(false)
-    }
   }
 
   async function requestRewrite() {
@@ -295,11 +284,11 @@ export default function WritingEditor({
       )
       const result = await callAI(messages, apiKey, provider)
       const data = JSON.parse(result.content) as WritingRewrite
-      if (!data.rewrittenText?.trim()) throw new Error('AI không trả bài rewrite.')
+      if (!data.rewrittenText?.trim()) throw new Error('AI khÃ´ng tráº£ bÃ i rewrite.')
       setRewrite(data)
       await writingRepo.recordUsage('writing_ai', result.inputTokens + result.outputTokens)
     } catch (e) {
-      setRewriteError(e instanceof Error ? e.message.slice(0, 200) : 'Lỗi rewrite.')
+      setRewriteError(e instanceof Error ? e.message.slice(0, 200) : 'Lá»—i rewrite.')
     } finally {
       setRewriteLoading(false)
     }
@@ -319,7 +308,7 @@ export default function WritingEditor({
     const { provider, apiKey } = ready
 
     if (!providerSupportsVision(provider)) {
-      setChartDescribeError('Provider hiện tại không hỗ trợ vision. Dùng OpenAI hoặc Gemini để OCR/mô tả biểu đồ.')
+      setChartDescribeError('Provider hiá»‡n táº¡i khÃ´ng há»— trá»£ vision. DÃ¹ng OpenAI hoáº·c Gemini Ä‘á»ƒ OCR/mÃ´ táº£ biá»ƒu Ä‘á»“.')
       return
     }
 
@@ -331,7 +320,7 @@ export default function WritingEditor({
       const result = await callAI(messages, apiKey, provider)
       const data = JSON.parse(result.content) as ChartDescribeResult
       if (!data.descriptionVi?.trim() && !data.suggestedPromptEn?.trim()) {
-        throw new Error('AI không trả mô tả biểu đồ.')
+        throw new Error('AI khÃ´ng tráº£ mÃ´ táº£ biá»ƒu Ä‘á»“.')
       }
       setChartDescribe(data)
       if (data.suggestedPromptEn?.trim() && (!doc.prompt.trim() || doc.prompt.trim().length < 40)) {
@@ -339,7 +328,7 @@ export default function WritingEditor({
       }
       await writingRepo.recordUsage('writing_ai', result.inputTokens + result.outputTokens)
     } catch (e) {
-      setChartDescribeError(e instanceof Error ? e.message.slice(0, 200) : 'Lỗi mô tả biểu đồ.')
+      setChartDescribeError(e instanceof Error ? e.message.slice(0, 200) : 'Lá»—i mÃ´ táº£ biá»ƒu Ä‘á»“.')
     } finally {
       setChartDescribeLoading(false)
     }
@@ -347,7 +336,7 @@ export default function WritingEditor({
 
   function clearEssay() {
     if (!text.trim()) return
-    if (!confirm('Xóa toàn bộ nội dung bài viết?')) return
+    if (!confirm('XÃ³a toÃ n bá»™ ná»™i dung bÃ i viáº¿t?')) return
     setText('')
     clearScore()
   }
@@ -359,9 +348,9 @@ export default function WritingEditor({
       <div className="flex-1 flex items-center justify-center" style={{ background: 'var(--bg-primary)' }}>
         <div className="text-center">
           <PenLine size={44} className="mx-auto mb-4" style={{ color: 'var(--border-color)' }} />
-          <p className="font-medium mb-1" style={{ color: 'var(--text-primary)' }}>Chọn bài viết</p>
+          <p className="font-medium mb-1" style={{ color: 'var(--text-primary)' }}>Chá»n bÃ i viáº¿t</p>
           <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
-            Chọn hoặc tạo bài viết mới từ danh sách bên trái
+            Chá»n hoáº·c táº¡o bÃ i viáº¿t má»›i tá»« danh sÃ¡ch bÃªn trÃ¡i
           </p>
         </div>
       </div>
@@ -383,7 +372,7 @@ export default function WritingEditor({
           <span style={{ fontWeight: 600, color: 'var(--wr-text)' }}>{cfg.label}</span>
           {(isSaved && text.length > 0) || savedFlash ? (
             <span className="flex items-center gap-1 text-xs" style={{ color: 'var(--wr-success)' }}>
-              <CheckCircle2 size={12} /> Đã lưu
+              <CheckCircle2 size={12} /> ÄÃ£ lÆ°u
             </span>
           ) : null}
         </div>
@@ -392,7 +381,7 @@ export default function WritingEditor({
           <div className={`writing-timer-pill${timer.urgent ? ' wr-urgent' : ''}`}>
             <div className="flex items-center gap-2">
               <Clock size={14} />
-              <span>Thời gian làm bài</span>
+              <span>Thá»i gian lÃ m bÃ i</span>
               <span className="wr-time">{timer.label}</span>
             </div>
             <span style={{ width: 1, height: 16, background: 'var(--wr-border)' }} />
@@ -403,7 +392,7 @@ export default function WritingEditor({
               onClick={timer.togglePause}
             >
               {timer.paused ? <PlayCircle size={14} /> : <PauseCircle size={14} />}
-              {timer.paused ? 'Tiếp tục' : 'Tạm dừng'}
+              {timer.paused ? 'Tiáº¿p tá»¥c' : 'Táº¡m dá»«ng'}
             </button>
             <span style={{ width: 1, height: 16, background: 'var(--wr-border)' }} />
             <button
@@ -422,7 +411,7 @@ export default function WritingEditor({
           type="button"
           onClick={() => setShowAiSettings(true)}
           className="writing-icon-btn"
-          title="Cài đặt AI"
+          title="CÃ i Ä‘áº·t AI"
         >
           <Settings2 size={15} />
         </button>
@@ -493,7 +482,7 @@ export default function WritingEditor({
             {gradingError && (
               <div className="writing-error-banner" style={{ marginTop: '0.75rem' }}>
                 <span>{gradingError}</span>
-                <button type="button" onClick={() => setError(null)} className="text-xs underline">Đóng</button>
+                <button type="button" onClick={() => setGradingError(null)} className="text-xs underline">ÄÃ³ng</button>
               </div>
             )}
 
@@ -510,28 +499,28 @@ export default function WritingEditor({
               <button
                 type="button"
                 className="writing-btn-primary"
-                onClick={() => void grade()}
+                onClick={() => void grade().then(() => setShowFeedback(true))}
                 disabled={isGrading || !text.trim()}
               >
                 <Send size={14} />
-                {isGrading ? 'Đang chấm…' : ui.submitLabel}
+                {isGrading ? 'Äang cháº¥mâ€¦' : ui.submitLabel}
               </button>
               <button
                 type="button"
                 className="writing-btn-secondary"
-                onClick={() => void grade()}
+                onClick={() => void grade().then(() => setShowFeedback(true))}
                 disabled={isGrading || !text.trim()}
               >
                 <Brain size={14} />
-                CHẤM KỸ AI
+                CHáº¤M Ká»¸ AI
               </button>
               <button type="button" className="writing-btn-secondary" onClick={() => void saveNow()}>
                 <Save size={14} />
-                LƯU NHÁP
+                LÆ¯U NHÃP
               </button>
               <button type="button" className="writing-btn-secondary wr-danger" onClick={clearEssay}>
                 <Trash2 size={14} />
-                XÓA
+                XÃ“A
               </button>
             </div>
           </div>
@@ -587,3 +576,5 @@ export default function WritingEditor({
     </div>
   )
 }
+
+

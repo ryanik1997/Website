@@ -1,0 +1,42 @@
+- main "Đăng nhập Ryan English" [ref=e6]:
+  - generic [ref=e7]:
+    - generic [ref=e8]:
+      - generic [ref=e9]: R
+      - generic [ref=e10]:
+        - paragraph [ref=e11]: Ryan English
+        - paragraph [ref=e12]: IELTS · Cambridge · SRS
+    - generic [ref=e13]:
+      - button "Đăng nhập" [ref=e14] [cursor=pointer]
+      - button "Đăng ký" [ref=e15] [cursor=pointer]
+  - generic [ref=e16]:
+    - paragraph [ref=e17]: Vào lớp học
+    - heading "Chào mừng trở lại" [level=1] [ref=e18]
+    - paragraph [ref=e19]: Đăng nhập để đồng bộ tiến độ, streak và tiếp tục lộ trình học của bạn.
+    - form "Đăng nhập bằng email" [ref=e20]:
+      - generic [ref=e21]:
+        - generic [ref=e22]: Email
+        - generic [ref=e23]:
+          - generic [ref=e24]: "@"
+          - textbox "Email" [ref=e25]:
+            - /placeholder: email@example.com
+      - generic [ref=e26]:
+        - generic [ref=e27]:
+          - generic [ref=e28]: Mật khẩu
+          - generic [ref=e29]: Quên mật khẩu?
+        - generic [ref=e30]:
+          - textbox "Mật khẩu" [ref=e35]:
+            - /placeholder: Nhập mật khẩu
+          - button "Hiện mật khẩu" [ref=e36] [cursor=pointer]
+      - button "Đăng nhập ngay →" [disabled] [ref=e41]:
+        - generic [ref=e42]: Đăng nhập ngay
+        - generic [ref=e43]: →
+    - generic [ref=e44]: Hoặc tiếp tục với
+    - button "Google" [ref=e46] [cursor=pointer]
+    - paragraph [ref=e53]: Thông tin được bảo mật tuyệt đối
+    - generic [ref=e54]:
+      - generic [ref=e55]: © 2026 Ryan English. All rights reserved.
+      - generic [ref=e56]:
+        - link "Điều khoản" [ref=e57] [cursor=pointer]:
+          - /url: /terms
+        - link "Quyền riêng tư" [ref=e58] [cursor=pointer]:
+          - /url: /privacy

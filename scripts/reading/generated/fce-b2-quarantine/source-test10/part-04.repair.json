@@ -1,0 +1,90 @@
+{
+  "provenance": {
+    "origin": "ai-generated",
+    "generatedFields": [
+      "questions"
+    ],
+    "sourceTestNumber": 10,
+    "appTestNumber": 11,
+    "model": "bootstrap-v1",
+    "generatedAt": "2026-07-27T15:12:03.222Z",
+    "promptHash": "bootstrap-test10-part4",
+    "confidence": 85,
+    "reviewed": false
+  },
+  "inputHash": "bootstrap-test10-part4",
+  "promptVersion": "1.0",
+  "model": "bootstrap-v1",
+  "generatedAt": "2026-07-27T15:12:03.222Z",
+  "repair": {
+    "questions": [
+      {
+        "number": 25,
+        "type": "gap-fill",
+        "prompt": "Joan was in favour of visiting the museum.Joan thought it would be IDEA -> Joan thought it would be .....",
+        "sourceSentence": "Joan was in favour of visiting the museum.Joan thought it would be",
+        "keyword": "IDEA",
+        "targetSentence": "Joan thought it would be .....",
+        "answer": "idea of the",
+        "explanation": "Rewrite using \"IDEA\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 26,
+        "type": "gap-fill",
+        "prompt": "Arthur has the talent to become a concert pianist.Arthur is so THAT -> Arthur is so .....",
+        "sourceSentence": "Arthur has the talent to become a concert pianist.Arthur is so",
+        "keyword": "THAT",
+        "targetSentence": "Arthur is so .....",
+        "answer": "that was the",
+        "explanation": "Rewrite using \"THAT\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 27,
+        "type": "gap-fill",
+        "prompt": "Do you know when the match starts, Sally? asked Mary.Mary asked Sally IF -> Mary asked Sally .....",
+        "sourceSentence": "Do you know when the match starts, Sally? asked Mary.Mary asked Sally",
+        "keyword": "IF",
+        "targetSentence": "Mary asked Sally .....",
+        "answer": "if it were",
+        "explanation": "Rewrite using \"IF\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 28,
+        "type": "gap-fill",
+        "prompt": "I knocked for ages at Ruth s door but I got no reply.I LONG -> I .....",
+        "sourceSentence": "I knocked for ages at Ruth s door but I got no reply.I",
+        "keyword": "LONG",
+        "targetSentence": "I .....",
+        "answer": "long before the",
+        "explanation": "Rewrite using \"LONG\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 29,
+        "type": "gap-fill",
+        "prompt": "Everyone says that the band is planning to go on a world tour next year.The band SAID -> The band .....",
+        "sourceSentence": "Everyone says that the band is planning to go on a world tour next year.The band",
+        "keyword": "SAID",
+        "targetSentence": "The band .....",
+        "answer": "said that the",
+        "explanation": "Rewrite using \"SAID\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 30,
+        "type": "gap-fill",
+        "prompt": "I d prefer not to cancel the meeting.I d rather CALL -> I d rather .....",
+        "sourceSentence": "I d prefer not to cancel the meeting.I d rather",
+        "keyword": "CALL",
+        "targetSentence": "I d rather .....",
+        "answer": "call for a",
+        "explanation": "Rewrite using \"CALL\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      }
+    ]
+  },
+  "status": "generated"
+}

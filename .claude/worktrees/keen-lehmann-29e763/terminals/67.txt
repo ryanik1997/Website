@@ -1,0 +1,32 @@
+---
+pid: 12244
+cwd: "D:\App-English-Ryan\Website"
+command: "cd \"D:\\App-English-Ryan\\Website\"; pnpm ielts:merge \"IELTS/Listening IELTS_Test3_Cam11\"; pnpm ielts:validate \"IELTS/Listening IELTS_Test3_Cam11\"; pnpm ielts:pack \"IELTS/Listening IELTS_Test3_Cam11\"; pnpm --filter web exec tsc --noEmit"
+started_at: 2026-07-05T06:33:20.028Z
+running_for_ms: 9315013  
+---
+
+> ryan-english@ ielts:merge D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts merge "IELTS/Listening IELTS_Test3_Cam11"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test3_Cam11
+✓ D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test3_Cam11\exam.json
+  4 part(s) · 40 câu
+
+> ryan-english@ ielts:validate D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts validate "IELTS/Listening IELTS_Test3_Cam11"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test3_Cam11
+
+📋 IELTS Listening — Cambridge 11 Test 3
+   Parts: 1, 2, 3, 4 · 40 câu
+
+✓ Không có cảnh báo.
+
+> ryan-english@ ielts:pack D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts pack "IELTS/Listening IELTS_Test3_Cam11"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test3_Cam11
+✓ D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test3_Cam11.zip
+  3 files: exam.json, listening.mp3, map.jpg
+  → Luyện thi → IELTS → Import thủ công Listening → chọn ZIP

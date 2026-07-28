@@ -44,7 +44,13 @@ export default function ReviewHubMode({
           <div className="vs-session-info">
             <h3>Ôn tập</h3>
             <div className="vs-session-meta">
-              <span><b>{hub.dueNow}</b> thẻ cần ôn</span>
+              <span><b>{hub.dueNow}</b> cần ôn</span>
+              {hub.newCount > 0 && (
+                <>
+                  <span className="dot" />
+                  <span><b>{hub.newCount}</b> từ mới</span>
+                </>
+              )}
               <span className="dot" />
               <span>{topic}</span>
             </div>
@@ -53,11 +59,15 @@ export default function ReviewHubMode({
         <button
           type="button"
           className="vs-btn-primary"
-          disabled={hub.dueNow === 0}
+          disabled={hub.dueNow === 0 && hub.newCount === 0}
           onClick={() => startStudy('srs')}
         >
           <Play size={14} />
-          Bắt đầu ôn ({hub.dueNow})
+          {hub.dueNow > 0
+            ? `Bắt đầu ôn (${hub.dueNow})`
+            : hub.newCount > 0
+              ? `Học từ mới (${Math.min(hub.newCount, 50)})`
+              : 'Bắt đầu ôn (0)'}
         </button>
       </div>
 
@@ -68,11 +78,20 @@ export default function ReviewHubMode({
               <Sparkles size={28} />
             </div>
             <div className="vs-review-hero-text">
-              <h2>{hub.dueNow > 0 ? 'Đến giờ ôn tập!' : 'Bạn đã ôn xong hôm nay'}</h2>
+              <h2>
+                {hub.dueNow > 0
+                  ? 'Đến giờ ôn tập!'
+                  : hub.newCount > 0
+                    ? 'Sẵn sàng học từ mới'
+                    : 'Bạn đã ôn xong hôm nay'}
+              </h2>
               <p>
                 {hub.dueNow > 0
-                  ? <>Bạn có <strong>{hub.dueNow}</strong> từ trong <strong>{deck.name}</strong> cần được ôn lại.</>
-                  : <>Không có thẻ đến hạn — xem lịch ôn sắp tới bên dưới.</>}
+                  ? <>Bạn có <strong>{hub.dueNow}</strong> từ trong <strong>{deck.name}</strong> cần được ôn lại
+                    {hub.newCount > 0 ? <> · <strong>{hub.newCount}</strong> từ mới chưa học</> : null}.</>
+                  : hub.newCount > 0
+                    ? <>Chưa có thẻ cần ôn lại. Có <strong>{hub.newCount}</strong> từ mới trong <strong>{deck.name}</strong> — bấm học để bắt đầu (SRS chỉ đếm “ôn lại” sau khi bạn đã rating).</>
+                    : <>Không có thẻ đến hạn — xem lịch ôn sắp tới bên dưới.</>}
               </p>
             </div>
           </div>

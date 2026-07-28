@@ -1,0 +1,64 @@
+---
+pid: 41580
+cwd: "D:\App-English-Ryan\Website"
+command: "Set-Location D:\\App-English-Ryan\\Website; node scripts/batch-ielts-reading-bundle.mjs; pnpm --filter web exec tsc --noEmit"
+started_at: 2026-07-07T03:16:56.231Z
+running_for_ms: 41510007 
+---
+
+── Reading IELTS_Test1_Cam10 ──
+
+> ryan-english@ ielts:reading:bundle D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-reading-bundle.ts all "IELTS/Reading IELTS_Test1_Cam10"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Reading IELTS_Test1_Cam10
+✓ D:\App-English-Ryan\Website\Tainguyen\IELTS\Reading IELTS_Test1_Cam10\exam.json
+  3 passage(s) · 40 câu
+
+📋 IELTS Reading — Cambridge 10 Test 1
+   Passages: 1, 2, 3 · 40 câu
+
+✓ Không có cảnh báo.
+✓ D:\App-English-Ryan\Website\Tainguyen\IELTS\Reading IELTS_Test1_Cam10.zip
+  1 files: exam.json
+  → Luyện thi → IELTS → Import thủ công Reading → chọn ZIP
+
+── Reading IELTS_Test3_Cam11 ──
+
+> ryan-english@ ielts:reading:bundle D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-reading-bundle.ts all "IELTS/Reading IELTS_Test3_Cam11"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Reading IELTS_Test3_Cam11
+✓ D:\App-English-Ryan\Website\Tainguyen\IELTS\Reading IELTS_Test3_Cam11\exam.json
+  3 passage(s) · 40 câu
+
+📋 IELTS Reading — Cambridge 11 Test 3
+   Passages: 1, 2, 3 · 40 câu
+
+✓ Không có cảnh báo.
+✓ D:\App-English-Ryan\Website\Tainguyen\IELTS\Reading IELTS_Test3_Cam11.zip
+  1 files: exam.json
+  → Luyện thi → IELTS → Import thủ công Reading → chọn ZIP
+
+── Reading IELTS_Test4_Cam10 ──
+
+> ryan-english@ ielts:reading:bundle D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-reading-bundle.ts all "IELTS/Reading IELTS_Test4_Cam10"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Reading IELTS_Test4_Cam10
+✓ D:\App-English-Ryan\Website\Tainguyen\IELTS\Reading IELTS_Test4_Cam10\exam.json
+  3 passage(s) · 40 câu
+
+📋 IELTS Reading — Cambridge 10 Test 4
+   Passages: 1, 2, 3 · 40 câu
+
+✓ Không có cảnh báo.
+✓ D:\App-English-Ryan\Website\Tainguyen\IELTS\Reading IELTS_Test4_Cam10.zip
+  1 files: exam.json
+  → Luyện thi → IELTS → Import thủ công Reading → chọn ZIP
+
+📊 Reading bundle batch
+   Folders: 48
+   Sẵn sàng (3 passages): 3
+   Bundled OK: 3
+   Failed: 0

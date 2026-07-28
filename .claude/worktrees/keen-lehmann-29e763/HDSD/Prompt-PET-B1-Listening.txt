@@ -1,0 +1,223 @@
+Bạn là trợ lý tạo ZIP bundle import đề Listening PET B1 vào web app "Ryan English".
+
+## Tài liệu đính kèm
+1. Test_1_Listening_PET_B1.pdf — đề Listening (Parts 1–4)
+2. Answer Key.pdf — đáp án Listening
+3. Test_1_Listening_PET_B1_Audio.mp3 — file audio cả bài (~25 MB, nghe liên tục cho toàn test)
+
+## Deliverable
+ZIP: `pet-listening-test1.zip` — file CÙNG CẤP, không thư mục con:
+```
+exam.json
+Test_1_Listening_PET_B1_Audio.mp3    (hoặc đổi tên listening.mp3)
+q1.jpg … q7.jpg                       (Part 1: mỗi câu 1 ảnh lớn chứa A+B+C)
+```
+
+```json
+{
+  "version": 1,
+  "title": "PET B1 Listening — Test 1",
+  "durationMinutes": 30,
+  "bandHint": "B1 Preliminary Listening · 4 parts · 25 câu",
+  "examType": "pet",
+  "examMode": "practice",
+  "parts": [ /* 4 parts, 25 câu */ ]
+}
+```
+
+## Cấu trúc 4 parts (25 câu Listening)
+
+| Part | Câu | Type | Ghi chú UI app |
+|------|-----|------|----------------|
+| 1 | 1–7 | picture-mc | **7 câu** (+2 so với KET) — `q1.jpg`…`q7.jpg` (A+B+C trên cùng ảnh) |
+| 2 | 8–13 | multiple-choice | Mỗi câu có `context` ("You will hear…") + `prompt` + A/B/C |
+| 3 | 14–19 | gap-fill | Khung `passageTitle` + câu `gapLead` / `gapTrail` + `audioIntro` |
+| 4 | 20–25 | multiple-choice | Phỏng vấn dài — `audioIntro` + MC A/B/C |
+
+Tham chiếu giao diện: `Giaodien/a3.jpg` (Part 2), `Giaodien/a4.jpg` (Part 3), Part 4 giống đề in Cambridge.
+
+---
+
+## Audio
+
+- Một file MP3 cho cả bài → gắn `"audioFile": "Test_1_Listening_PET_B1_Audio.mp3"` (hoặc `listening.mp3`) vào **mỗi part**.
+- App tự dedupe — chỉ lưu 1 bản MP3 trong Dexie.
+- Audio **không dừng** khi chuyển Part trong app.
+
+---
+
+## Part 1 (Q1–7) — Picture multiple choice
+
+```json
+{
+  "partNumber": 1,
+  "rangeLabel": "Questions 1–7",
+  "instruction": "For each question, choose the correct answer.",
+  "audioFile": "Test_1_Listening_PET_B1_Audio.mp3",
+  "questions": [
+    {
+      "number": 1,
+      "type": "picture-mc",
+      "prompt": "What did the girl buy on her shopping trip?",
+      "imageFile": "q1.jpg",
+      "options": [
+        { "id": "A", "label": "Picture A" },
+        { "id": "B", "label": "Picture B" },
+        { "id": "C", "label": "Picture C" }
+      ],
+      "answer": "B",
+      "explanation": "Giải thích ngắn tiếng Việt."
+    }
+  ]
+}
+```
+
+- **Ảnh composite (khuyến nghị):** crop từ PDF **một khung/câu** gồm 3 tranh A, B, C → `q1.jpg` … `q7.jpg`.
+- Không có ảnh → bỏ `imageFile`, giữ `label` (app hiện nút A/B/C).
+- Legacy: `q1-a.jpg`, `q1-b.jpg`, `q1-c.jpg` trên từng option.
+
+---
+
+## Part 2 (Q8–13) — Short extracts + multiple choice
+
+Mỗi câu có **2 dòng**: ngữ cảnh nghe + câu hỏi.
+
+```json
+{
+  "partNumber": 2,
+  "rangeLabel": "Questions 8–13",
+  "instruction": "For each question, choose the correct answer.",
+  "audioFile": "Test_1_Listening_PET_B1_Audio.mp3",
+  "questions": [
+    {
+      "number": 8,
+      "type": "multiple-choice",
+      "context": "You will hear two friends talking about a new clothes shop.",
+      "prompt": "What does the girl say about it?",
+      "options": [
+        { "id": "A", "label": "The staff are helpful." },
+        { "id": "B", "label": "It only has the latest fashions." },
+        { "id": "C", "label": "Prices are reduced at the moment." }
+      ],
+      "answer": "A",
+      "explanation": "…"
+    }
+  ]
+}
+```
+
+- `context` = dòng "You will hear …" (copy từ PDF).
+- `prompt` = câu hỏi chính (không gộp vào context).
+
+---
+
+## Part 3 (Q14–19) — Gap-fill trong khung văn
+
+```json
+{
+  "partNumber": 3,
+  "rangeLabel": "Questions 14–19",
+  "instruction": "For each question, write the correct answer in the gap. Write one or two words or a number or a date or a time.",
+  "audioFile": "Test_1_Listening_PET_B1_Audio.mp3",
+  "audioIntro": "You will hear a radio presenter called Anita talking about her holiday in Cuba.",
+  "passageTitle": "ANITA'S HOLIDAY IN CUBA:",
+  "questions": [
+    {
+      "number": 14,
+      "type": "gap-fill",
+      "prompt": "National Gardens attraction",
+      "gapLead": "In the National Gardens, the",
+      "gapTrail": "was the thing that attracted most people.",
+      "answer": "waterfall",
+      "wordLimit": 2,
+      "explanation": "…"
+    }
+  ]
+}
+```
+
+- `passageTitle` — tiêu đề in hoa trong khung (copy PDF).
+- `audioIntro` — đoạn mô tả trước khung điền.
+- `gapLead` + `gapTrail` — câu có ô trống giữa chừng (giống `Giaodien/a4.jpg`).
+- `answer`: 1–2 từ / số — chấp nhận biến thể từ answer key (vd. `(fantastic) waterfall`, `rings`).
+
+---
+
+## Part 4 (Q20–25) — Interview multiple choice
+
+```json
+{
+  "partNumber": 4,
+  "rangeLabel": "Questions 20–25",
+  "instruction": "For each question, choose the correct answer.",
+  "audioFile": "Test_1_Listening_PET_B1_Audio.mp3",
+  "audioIntro": "You will hear an interview with a woman called Vicky Prince, a champion swimmer who now works as a swimming coach.",
+  "questions": [
+    {
+      "number": 20,
+      "type": "multiple-choice",
+      "prompt": "Vicky first went in for competitions because",
+      "options": [
+        { "id": "A", "label": "she had joined a swimming club." },
+        { "id": "B", "label": "her parents were keen on swimming." },
+        { "id": "C", "label": "her swimming teacher encouraged her." }
+      ],
+      "answer": "C",
+      "explanation": "…"
+    }
+  ]
+}
+```
+
+---
+
+## Đáp án Test 1 (Answer Key — Sample Paper PV1)
+
+| Part | Câu | Đáp án |
+|------|-----|--------|
+| 1 | 1–7 | B, B, A, C, B, B, C |
+| 2 | 8–13 | A, B, C, A, A, A |
+| 3 | 14–19 | waterfall, sharks, horse, musical, sugar, rings |
+| 4 | 20–25 | C, A, B, A, A, C |
+
+Part 3 — chấp nhận thêm (theo mark scheme): `a/an/the`, `fantastic`, `waterfal` (lỗi chính tả), `suger`, v.v.
+
+---
+
+## Đóng gói ZIP
+
+```bash
+pnpm pack:listening:pet
+```
+
+Hoặc:
+```bash
+node scripts/pack-listening-bundle.mjs pet-listening-test1
+```
+
+Thư mục nguồn: `Tainguyen/pet-listening-test1/`
+Output: `Tainguyen/pet-listening-test1.zip`
+
+---
+
+## Import trên app
+
+1. Luyện thi → Cambridge → **B1** → **Import thủ công Listening**
+2. Upload `pet-listening-test1.zip`
+3. Preview phải ✓ MP3 + 7 ảnh → **Lưu & làm bài**
+4. App dùng `ListeningPetTest` — 4 Part, 25 câu, timer **30 phút**
+5. Mỗi lần sửa bundle: xóa đề import cũ → import lại
+
+Bundle mẫu: `Tainguyen/pet-listening-test1.zip`
+
+---
+
+## Cách dùng prompt (Claude / ChatGPT)
+
+Đính kèm:
+1. HDSD/Prompt-PET-B1-Listening.txt
+2. Test_1_Listening_PET_B1.pdf + Answer Key.pdf
+3. Test_1_Listening_PET_B1_Audio.mp3
+4. Ảnh q1.jpg … q7.jpg (crop từ PDF Part 1)
+
+Bắt đầu xử lý file đính kèm.

@@ -1,0 +1,90 @@
+{
+  "provenance": {
+    "origin": "ai-generated",
+    "generatedFields": [
+      "questions"
+    ],
+    "sourceTestNumber": 22,
+    "appTestNumber": 23,
+    "model": "bootstrap-v1",
+    "generatedAt": "2026-07-27T15:12:03.284Z",
+    "promptHash": "bootstrap-test22-part4",
+    "confidence": 85,
+    "reviewed": false
+  },
+  "inputHash": "bootstrap-test22-part4",
+  "promptVersion": "1.0",
+  "model": "bootstrap-v1",
+  "generatedAt": "2026-07-27T15:12:03.284Z",
+  "repair": {
+    "questions": [
+      {
+        "number": 25,
+        "type": "gap-fill",
+        "prompt": "‘You shouldn’t go out’ the doctor told me. The doctor ADVISED ->  The doctor .....",
+        "sourceSentence": "‘You shouldn’t go out’ the doctor told me. The doctor",
+        "keyword": "ADVISED",
+        "targetSentence": " The doctor .....",
+        "answer": "advised me to",
+        "explanation": "Rewrite using \"ADVISED\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 26,
+        "type": "gap-fill",
+        "prompt": "My hair needs cutting this weekend. I need to HAVE ->  I need to .....",
+        "sourceSentence": "My hair needs cutting this weekend. I need to",
+        "keyword": "HAVE",
+        "targetSentence": " I need to .....",
+        "answer": "have to be",
+        "explanation": "Rewrite using \"HAVE\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 27,
+        "type": "gap-fill",
+        "prompt": "I haven’t seen David for three years. It s SINCE ->  It s .....",
+        "sourceSentence": "I haven’t seen David for three years. It s",
+        "keyword": "SINCE",
+        "targetSentence": " It s .....",
+        "answer": "since the time",
+        "explanation": "Rewrite using \"SINCE\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 28,
+        "type": "gap-fill",
+        "prompt": "I broke the teapot by accident. I MEAN ->  I .....",
+        "sourceSentence": "I broke the teapot by accident. I",
+        "keyword": "MEAN",
+        "targetSentence": " I .....",
+        "answer": "mean to say",
+        "explanation": "Rewrite using \"MEAN\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 29,
+        "type": "gap-fill",
+        "prompt": "The exam wasn’t as easy as I’d expected. The exam was MORE ->  The exam was .....",
+        "sourceSentence": "The exam wasn’t as easy as I’d expected. The exam was",
+        "keyword": "MORE",
+        "targetSentence": " The exam was .....",
+        "answer": "more than the",
+        "explanation": "Rewrite using \"MORE\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 30,
+        "type": "gap-fill",
+        "prompt": "It was a mistake not to accept her offer. I shouldn’t TURNED ->  I shouldn’t .....",
+        "sourceSentence": "It was a mistake not to accept her offer. I shouldn’t",
+        "keyword": "TURNED",
+        "targetSentence": " I shouldn’t .....",
+        "answer": "turned out to",
+        "explanation": "Rewrite using \"TURNED\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      }
+    ]
+  },
+  "status": "generated"
+}

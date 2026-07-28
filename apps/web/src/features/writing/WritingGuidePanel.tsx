@@ -21,7 +21,7 @@ export default function WritingGuidePanel({ guide, loading, error, open, onClose
           Hướng dẫn & Sample 8.0
         </span>
         <span style={{ display: 'flex', gap: '0.35rem' }}>
-          {guide && onRegenerate && !loading && (
+          {guide && !guide.sourceHtml && onRegenerate && !loading && (
             <button type="button" className="writing-icon-btn" onClick={onRegenerate} title="Tạo lại gợi ý">
               <RefreshCw size={14} />
             </button>
@@ -44,7 +44,16 @@ export default function WritingGuidePanel({ guide, loading, error, open, onClose
         <p className="writing-guide-error">{error}</p>
       )}
 
-      {guide && !loading && (
+      {guide && !loading && guide.sourceHtml && (
+        <div className="writing-guide-body">
+          <div
+            className="writing-guide-source"
+            dangerouslySetInnerHTML={{ __html: guide.sourceHtml }}
+          />
+        </div>
+      )}
+
+      {guide && !loading && !guide.sourceHtml && (
         <div className="writing-guide-body">
           <section>
             <h4><Sparkles size={14} /> Tóm tắt đề</h4>

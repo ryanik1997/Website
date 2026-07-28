@@ -3,7 +3,7 @@ import ExamHighlightZone from './ExamHighlightZone'
 import ListeningExamAudioBar from './ListeningExamAudioBar'
 import ReadingHighlightableText from './ReadingHighlightableText'
 import { useExamHighlights } from './examHighlightContext'
-import { resolveExamMediaUrl } from './examMediaUrl'
+
 import type { ExamReviewStatus } from './examReviewUtils'
 import type { ListeningPart, ListeningQuestion, ListeningQuestionOption } from './listeningExamData'
 import {
@@ -72,7 +72,7 @@ export default function ListeningKetPart1PictureView({
 
   const compositeSrc = useBlobMediaUrl(
     question.pictureImageKey,
-    resolveExamMediaUrl(question.pictureImageUrl),
+    question.pictureImageUrl,
   )
   const [compositeFailed, setCompositeFailed] = useState(false)
   const showComposite = isComposite && Boolean(compositeSrc) && !compositeFailed
@@ -186,7 +186,7 @@ function SplitOptionCard({
   const [failed, setFailed] = useState(false)
   const src = useBlobMediaUrl(
     preferSplit ? option.imageKey : undefined,
-    preferSplit ? resolveExamMediaUrl(option.imageUrl) : undefined,
+    preferSplit ? option.imageUrl : undefined,
   )
   const show = Boolean(src) && !failed
 

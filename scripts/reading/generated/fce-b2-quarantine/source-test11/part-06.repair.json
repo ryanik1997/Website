@@ -1,0 +1,283 @@
+{
+  "provenance": {
+    "origin": "ai-generated",
+    "generatedFields": [
+      "passage",
+      "features",
+      "questions"
+    ],
+    "sourceTestNumber": 11,
+    "appTestNumber": 12,
+    "model": "bootstrap-v1",
+    "generatedAt": "2026-07-27T15:12:03.230Z",
+    "promptHash": "bootstrap-test11-part6",
+    "confidence": 85,
+    "reviewed": false
+  },
+  "inputHash": "bootstrap-test11-part6",
+  "promptVersion": "1.0",
+  "model": "bootstrap-v1",
+  "generatedAt": "2026-07-27T15:12:03.230Z",
+  "repair": {
+    "passage": [
+      {
+        "text": "Public Transport Systems is a topic that has attracted considerable attention. (37) ..... The reasons for this growing interest are varied. (38) ..... Many people now recognise the importance of this issue.\n\nAccording to recent surveys, engagement with this topic has increased significantly. (39) ..... This trend is expected to continue in the coming years. (40) ..... However, there are still challenges that need to be addressed.\n\nExperts suggest several approaches to dealing with these challenges. (41) ..... Early evidence suggests that these methods are effective. (42) ..... Only time will tell whether these efforts will succeed."
+      }
+    ],
+    "features": [
+      {
+        "id": "A",
+        "name": "It has become a major topic of discussion in Cape Town."
+      },
+      {
+        "id": "B",
+        "name": "One key factor is the growing awareness among young Manchester residents."
+      },
+      {
+        "id": "C",
+        "name": "The number of people involved has risen by over 50% in the last decade."
+      },
+      {
+        "id": "D",
+        "name": "This change has been particularly noticeable in urban areas across the country."
+      },
+      {
+        "id": "E",
+        "name": "Finding adequate funding remains a significant obstacle for many organisations."
+      },
+      {
+        "id": "F",
+        "name": "Education and community engagement are seen as the most promising strategies."
+      },
+      {
+        "id": "G",
+        "name": "Several pilot projects have already shown encouraging results."
+      }
+    ],
+    "questions": [
+      {
+        "number": 37,
+        "type": "matching-features",
+        "prompt": "Gap (37)",
+        "answer": "b",
+        "options": [
+          {
+            "id": "a",
+            "label": "A"
+          },
+          {
+            "id": "b",
+            "label": "B"
+          },
+          {
+            "id": "c",
+            "label": "C"
+          },
+          {
+            "id": "d",
+            "label": "D"
+          },
+          {
+            "id": "e",
+            "label": "E"
+          },
+          {
+            "id": "f",
+            "label": "F"
+          },
+          {
+            "id": "g",
+            "label": "G"
+          }
+        ],
+        "explanation": "Sentence B fits logically in gap 37."
+      },
+      {
+        "number": 38,
+        "type": "matching-features",
+        "prompt": "Gap (38)",
+        "answer": "a",
+        "options": [
+          {
+            "id": "a",
+            "label": "A"
+          },
+          {
+            "id": "b",
+            "label": "B"
+          },
+          {
+            "id": "c",
+            "label": "C"
+          },
+          {
+            "id": "d",
+            "label": "D"
+          },
+          {
+            "id": "e",
+            "label": "E"
+          },
+          {
+            "id": "f",
+            "label": "F"
+          },
+          {
+            "id": "g",
+            "label": "G"
+          }
+        ],
+        "explanation": "Sentence A fits logically in gap 38."
+      },
+      {
+        "number": 39,
+        "type": "matching-features",
+        "prompt": "Gap (39)",
+        "answer": "c",
+        "options": [
+          {
+            "id": "a",
+            "label": "A"
+          },
+          {
+            "id": "b",
+            "label": "B"
+          },
+          {
+            "id": "c",
+            "label": "C"
+          },
+          {
+            "id": "d",
+            "label": "D"
+          },
+          {
+            "id": "e",
+            "label": "E"
+          },
+          {
+            "id": "f",
+            "label": "F"
+          },
+          {
+            "id": "g",
+            "label": "G"
+          }
+        ],
+        "explanation": "Sentence C fits logically in gap 39."
+      },
+      {
+        "number": 40,
+        "type": "matching-features",
+        "prompt": "Gap (40)",
+        "answer": "d",
+        "options": [
+          {
+            "id": "a",
+            "label": "A"
+          },
+          {
+            "id": "b",
+            "label": "B"
+          },
+          {
+            "id": "c",
+            "label": "C"
+          },
+          {
+            "id": "d",
+            "label": "D"
+          },
+          {
+            "id": "e",
+            "label": "E"
+          },
+          {
+            "id": "f",
+            "label": "F"
+          },
+          {
+            "id": "g",
+            "label": "G"
+          }
+        ],
+        "explanation": "Sentence D fits logically in gap 40."
+      },
+      {
+        "number": 41,
+        "type": "matching-features",
+        "prompt": "Gap (41)",
+        "answer": "f",
+        "options": [
+          {
+            "id": "a",
+            "label": "A"
+          },
+          {
+            "id": "b",
+            "label": "B"
+          },
+          {
+            "id": "c",
+            "label": "C"
+          },
+          {
+            "id": "d",
+            "label": "D"
+          },
+          {
+            "id": "e",
+            "label": "E"
+          },
+          {
+            "id": "f",
+            "label": "F"
+          },
+          {
+            "id": "g",
+            "label": "G"
+          }
+        ],
+        "explanation": "Sentence F fits logically in gap 41."
+      },
+      {
+        "number": 42,
+        "type": "matching-features",
+        "prompt": "Gap (42)",
+        "answer": "e",
+        "options": [
+          {
+            "id": "a",
+            "label": "A"
+          },
+          {
+            "id": "b",
+            "label": "B"
+          },
+          {
+            "id": "c",
+            "label": "C"
+          },
+          {
+            "id": "d",
+            "label": "D"
+          },
+          {
+            "id": "e",
+            "label": "E"
+          },
+          {
+            "id": "f",
+            "label": "F"
+          },
+          {
+            "id": "g",
+            "label": "G"
+          }
+        ],
+        "explanation": "Sentence E fits logically in gap 42."
+      }
+    ]
+  },
+  "status": "generated"
+}

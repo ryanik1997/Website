@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title">
+  <title id="title">Bird mascot thinking while studying</title>
+  <text id="question-mark" x="94" y="27" fill="#58B9D6" stroke="#3A3632" stroke-width="1" font-family="system-ui,sans-serif" font-size="24" font-weight="800">?</text>
+  <g id="bird-studying" class="bird state-studying" stroke="#3A3632" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path id="tail" d="M48 94 39 106 55 102 61 110 67 100" fill="#58B9D6"/>
+    <path id="leg-left" d="M52 97v9m-6 0h11" fill="none"/><path id="leg-right" d="M70 97v9m-5 0h11" fill="none"/>
+    <ellipse id="body" cx="61" cy="77" rx="28" ry="29" fill="#73D6B4"/>
+    <ellipse id="belly" cx="61" cy="82" rx="17" ry="19" fill="#FFF3C9" stroke="none"/>
+    <path id="wing-left" d="M36 69q-13 9-7 25 11-3 16-16" fill="#58B9D6"/>
+    <path id="wing-right" d="M84 72q13-12 10-29-15 2-23 17" fill="#58B9D6"/>
+    <circle id="head" cx="61" cy="43" r="31" fill="#73D6B4"/>
+    <path id="tuft" d="M50 15q8-9 12 1 8-9 11 2" fill="#73D6B4"/>
+    <circle id="eye-left" cx="51" cy="42" r="5.5" fill="#3A3632" stroke="none"/><circle id="eye-right" cx="73" cy="38" r="5.5" fill="#3A3632" stroke="none"/>
+    <circle id="eye-shine-left" cx="53" cy="40" r="1.7" fill="#FFFFFF" stroke="none"/><circle id="eye-shine-right" cx="75" cy="36" r="1.7" fill="#FFFFFF" stroke="none"/>
+    <path id="beak" d="m57 51 13 5-13 6Z" fill="#FF9B66"/>
+    <path id="thinking-mouth" d="M59 65h7" fill="none"/>
+    <path id="wing-to-head" d="M83 61q7-12 4-22" fill="none"/>
+  </g>
+</svg>

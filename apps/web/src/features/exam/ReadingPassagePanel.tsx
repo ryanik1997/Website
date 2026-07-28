@@ -177,6 +177,11 @@ function PassageBlocks({
   return part.passage.map((block, index) => {
     const hasText = Boolean(block.text?.trim())
     const hasImage = Boolean(block.imageKey || block.imageUrl)
+    const isFcePart7 = cambridgeLevel === 'b2' && part.partNumber === 7
+    const rawLabel = block.label?.trim() ?? ''
+    const sectionLabel = isFcePart7 && /^[A-E]$/i.test(rawLabel)
+      ? `${rawLabel.toUpperCase()}.`
+      : block.label
 
     if (!hasText && hasImage) {
       const anchorId = readingPassageBlockAnchorId(part.id, index)
@@ -211,9 +216,12 @@ function PassageBlocks({
         )}
         {hasText && (
           <p className="reading-test-paragraph">
-            {block.label && (
-              <span className="reading-test-paragraph__label" data-highlight-skip>
-                {block.label}
+            {sectionLabel && (
+              <span
+                className={`reading-test-paragraph__label${isFcePart7 ? ' reading-test-paragraph__label--fce-part7' : ''}`}
+                data-highlight-skip
+              >
+                {sectionLabel}
               </span>
             )}
             <ReadingHighlightableText

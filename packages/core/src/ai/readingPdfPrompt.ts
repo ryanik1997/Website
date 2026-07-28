@@ -51,7 +51,7 @@ export interface ParsedReadingPart {
   passageTitle: string
   passageSubtitle?: string
   rangeLabel: string
-  passage: Array<{ label?: string; text: string }>
+  passage: Array<{ label?: string; heading?: string; text: string }>
   questionGroups: ParsedReadingQuestionGroup[]
 }
 

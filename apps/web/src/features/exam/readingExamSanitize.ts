@@ -48,6 +48,62 @@ const GROUP_TYPE_ALIASES: Record<string, ReadingQuestionGroup['type']> = {
   'sentence-completion': 'sentence-completion',
 }
 
+/* ── QuestionSanitizeContext ────────────────────────────────── */
+
+interface QuestionSanitizeContext {
+  examId: string
+  partIndex: number
+  partNumber: number
+  groupIndex: number
+  questionIndex: number
+  usedQuestionIds: Set<string>
+}
+
+function isValidQuestionId(value: unknown): value is string {
+  return typeof value === 'string' && value.trim().length > 0
+}
+
+function questionFallbackId(context: QuestionSanitizeContext): string {
+  const { examId, partNumber, groupIndex, questionIndex } = context
+  return [
+    examId,
+    `part-${partNumber}`,
+    `group-${groupIndex + 1}`,
+    `question-${questionIndex + 1}`,
+  ].join(':')
+}
+
+function sanitizeQuestionId(
+  rawId: unknown,
+  context: QuestionSanitizeContext,
+): string {
+  const fallback = questionFallbackId(context)
+  const candidate = isValidQuestionId(rawId)
+    ? rawId.trim()
+    : fallback
+
+  if (!context.usedQuestionIds.has(candidate)) {
+    context.usedQuestionIds.add(candidate)
+    return candidate
+  }
+
+  // Một ID hợp lệ nhưng bị lặp cũng phải thay bằng fallback ổn định
+  if (!context.usedQuestionIds.has(fallback)) {
+    context.usedQuestionIds.add(fallback)
+    return fallback
+  }
+
+  let suffix = 2
+  let unique = `${fallback}-${suffix}`
+  while (context.usedQuestionIds.has(unique)) {
+    suffix += 1
+    unique = `${fallback}-${suffix}`
+  }
+
+  context.usedQuestionIds.add(unique)
+  return unique
+}
+
 function inferGroupType(group: {
   type?: string
   noteTable?: { headers?: string[] }
@@ -158,7 +214,7 @@ function stripTriStateLegendFromPrompt(prompt: string): string {
   return kept.join('\n').trim() || prompt.trim()
 }
 
-function sanitizeQuestion(group: ReadingQuestionGroup, q: ReadingQuestion): ReadingQuestion {
+function sanitizeQuestion(group: ReadingQuestionGroup, q: ReadingQuestion, context: QuestionSanitizeContext): ReadingQuestion {
   const answer = typeof q.answer === 'string' ? q.answer : ''
   let options = Array.isArray(q.options) ? q.options : []
   let prompt = typeof q.prompt === 'string' ? q.prompt : `Question ${q.number}`
@@ -183,6 +239,8 @@ function sanitizeQuestion(group: ReadingQuestionGroup, q: ReadingQuestion): Read
 
   return {
     ...q,
+    // id phải nằm sau ...q để ghi đè giá trị null
+    id: sanitizeQuestionId(q.id, context),
     type: group.type === 'ynng'
       ? 'yes-no-not-given'
       : group.type === 'tfng'
@@ -347,7 +405,10 @@ function coerceTriStateGroupType(
   return preliminary
 }
 
-function sanitizeGroup(group: ReadingQuestionGroup): ReadingQuestionGroup {
+function sanitizeGroup(
+  group: ReadingQuestionGroup,
+  context: Omit<QuestionSanitizeContext, 'groupIndex' | 'questionIndex'> & { groupIndex: number },
+): ReadingQuestionGroup {
   // Choose TWO: AI hay bỏ options câu 2 → share bank A–E trước khi detect type
   const preChooseTwo = normalizeReadingChooseTwoGroup(group)
   const preliminary = normalizeReadingGroupType(preChooseTwo.type, preChooseTwo)
@@ -381,7 +442,14 @@ function sanitizeGroup(group: ReadingQuestionGroup): ReadingQuestionGroup {
     paragraphLetters: Array.isArray(preChooseTwo.paragraphLetters)
       ? preChooseTwo.paragraphLetters.map(l => String(l ?? '').trim()).filter(Boolean)
       : preChooseTwo.paragraphLetters,
-    questions: (preChooseTwo.questions ?? []).map(q => sanitizeQuestion({ ...preChooseTwo, type }, q)),
+    questions: (preChooseTwo.questions ?? []).map(
+      (question, questionIndex) =>
+        sanitizeQuestion(
+          { ...preChooseTwo, type },
+          question,
+          { ...context, questionIndex },
+        ),
+    ),
   }
 
   // Xóa hẳn field nếu undefined (tránh JSON còn noteTable: null)
@@ -393,7 +461,16 @@ function sanitizeGroup(group: ReadingQuestionGroup): ReadingQuestionGroup {
   return next
 }
 
-export function sanitizeReadingPart(part: ReadingPart): ReadingPart {
+/* ── Part sanitizer (internal + public wrapper) ─────────────── */
+
+function sanitizeReadingPartWithContext(
+  part: ReadingPart,
+  context: {
+    examId: string
+    partIndex: number
+    usedQuestionIds: Set<string>
+  },
+): ReadingPart {
   return {
     ...part,
     rangeLabel: typeof part.rangeLabel === 'string' ? part.rangeLabel : `Part ${part.partNumber}`,
@@ -402,13 +479,74 @@ export function sanitizeReadingPart(part: ReadingPart): ReadingPart {
       ...block,
       text: typeof block.text === 'string' ? block.text : '',
     })),
-    questionGroups: (part.questionGroups ?? []).map(sanitizeGroup),
+    questionGroups: (part.questionGroups ?? []).map(
+      (group, groupIndex) =>
+        sanitizeGroup(group, {
+          examId: context.examId,
+          partIndex: context.partIndex,
+          partNumber:
+            typeof part.partNumber === 'number'
+              ? part.partNumber
+              : context.partIndex + 1,
+          groupIndex,
+          usedQuestionIds: context.usedQuestionIds,
+        }),
+    ),
+  }
+}
+
+export function sanitizeReadingPart(part: ReadingPart): ReadingPart {
+  return sanitizeReadingPartWithContext(part, {
+    examId: 'reading-exam',
+    partIndex: 0,
+    usedQuestionIds: new Set<string>(),
+  })
+}
+
+/* ── Exam-level sanitizer ───────────────────────────────────── */
+
+function validateQuestionIds(exam: ReadingExam): void {
+  if (typeof import.meta === 'undefined' || !import.meta.env?.DEV) return
+
+  const ids = exam.parts.flatMap(part =>
+    part.questionGroups.flatMap(group =>
+      group.questions.map(q => q.id),
+    ),
+  )
+
+  const invalid = ids.filter(
+    id => typeof id !== 'string' || id.length === 0,
+  )
+
+  const duplicate = ids.filter(
+    (id, index) => ids.indexOf(id) !== index,
+  )
+
+  if (invalid.length || duplicate.length) {
+    console.error('[readingExamSanitize] Invalid question IDs', {
+      invalid,
+      duplicate,
+    })
   }
 }
 
 export function sanitizeReadingExam(exam: ReadingExam): ReadingExam {
-  return {
+  const usedQuestionIds = new Set<string>()
+
+  const sanitized: ReadingExam = {
     ...exam,
-    parts: (exam.parts ?? []).map(sanitizeReadingPart),
+    parts: (exam.parts ?? []).map((part, partIndex) =>
+      sanitizeReadingPartWithContext(part, {
+        examId:
+          typeof exam.id === 'string' && exam.id.trim()
+            ? exam.id.trim()
+            : 'reading-exam',
+        partIndex,
+        usedQuestionIds,
+      }),
+    ),
   }
+
+  validateQuestionIds(sanitized)
+  return sanitized
 }

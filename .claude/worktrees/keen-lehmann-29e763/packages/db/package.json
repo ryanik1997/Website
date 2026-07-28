@@ -1,0 +1,16 @@
+{
+  "name": "@ryan/db",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "dexie": "^4.0.9"
+  },
+  "peerDependencies": {
+    "@supabase/supabase-js": "^2"
+  }
+}

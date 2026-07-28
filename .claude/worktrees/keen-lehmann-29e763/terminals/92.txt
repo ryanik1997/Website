@@ -1,0 +1,33 @@
+---
+pid: 35196
+cwd: "D:\App-English-Ryan\Website"
+command: "Set-Location \"D:\\App-English-Ryan\\Website\"; npm install --no-save playwright@1.49.0 2>&1 | Select-Object -Last 3; node scripts/check-ielts-track.mjs 2>&1"
+started_at: 2026-07-08T10:38:44.527Z
+running_for_ms: 280013   
+---
+npm warn   2 more (@typescript-eslint/rule-tester, @typescript-eslint/type-utils)
+npm error Cannot read properties of null (reading 'matches')
+npm error A complete log of this run can be found in: 
+C:\Users\ADMIN\AppData\Local\npm-cache\_logs\2026-07-08T10_38_44_902Z-debug-0.log
+node : node:internal/modules/package_json_reader:266
+At line:1 char:115
++ ... 2>&1 | Select-Object -Last 3; node scripts/check-ielts-track.mjs 2>&1
++                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (node:internal/m...json_reader:266:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+        ^
+Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'playwright' imported from 
+D:\App-English-Ryan\Website\scripts\check-ielts-track.mjs
+    at Object.getPackageJSONURL (node:internal/modules/package_json_reader:266:9)
+    at packageResolve (node:internal/modules/esm/resolve:767:81)
+    at moduleResolve (node:internal/modules/esm/resolve:853:18)
+    at defaultResolve (node:internal/modules/esm/resolve:983:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:731:20)
+    at ModuleLoader.resolve (node:internal/modules/esm/loader:708:38)
+    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:310:38)
+    at ModuleJob._link (node:internal/modules/esm/module_job:183:49) {
+  code: 'ERR_MODULE_NOT_FOUND'
+}
+Node.js v22.20.0

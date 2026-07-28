@@ -13,6 +13,8 @@ interface Props {
   onNotesChange: (notes: TextNote[]) => void
   children: ReactNode
   mainRef?: RefObject<HTMLDivElement | null>
+  readOnly?: boolean
+  selectionToolbar?: 'default' | 'none'
 }
 
 export default function RwExamMain({
@@ -23,13 +25,15 @@ export default function RwExamMain({
   onNotesChange,
   children,
   mainRef: mainRefProp,
+  readOnly = false,
+  selectionToolbar = 'default',
 }: Props) {
   const internalRef = useRef<HTMLDivElement>(null)
   const mainRef = mainRefProp ?? internalRef
 
   return (
     <main ref={mainRef as LegacyRef<HTMLElement>} className="ket-rw-main">
-      {partId && (
+      {partId && selectionToolbar !== 'none' && (
         <ReadingHighlightToolbar
           rootRef={mainRef}
           highlights={highlights}
@@ -37,6 +41,7 @@ export default function RwExamMain({
           notes={notes}
           onNotesChange={onNotesChange}
           resetKey={partId}
+          readOnly={readOnly}
         />
       )}
       <ExamHighlightProvider highlights={highlights} notes={notes}>

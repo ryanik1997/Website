@@ -9,6 +9,7 @@ import ListeningKetPart3McListView from './ListeningKetPart3McListView'
 import ListeningQuestionAnswerPanel from './ListeningQuestionAnswerPanel'
 import ListeningQuestionPromptPanel from './ListeningQuestionPromptPanel'
 import ListeningSplitResizer from './ListeningSplitResizer'
+import ListeningTranscriptSidePanel from './ListeningTranscriptSidePanel'
 import { usesCompositePictureBoard } from './listeningPictureMc'
 import {
   isKetDragMatchingPart,
@@ -33,8 +34,13 @@ import ExamReviewAiPanel from './ExamReviewAiPanel'
 import { useExamReviewAi } from './useExamReviewAi'
 import { useListeningReviewTranscript } from './useListeningReviewTranscript'
 import { useExamQuestionAudio } from './useExamQuestionAudio'
+import { useAudioSync } from './useAudioSync'
 import { useListeningPlayLimits } from './useListeningPlayLimits'
-import { hasExamAudioSource, ketSharedExamAudioSource } from './listeningExamAudio'
+import {
+  hasExamAudioSource,
+  resolveListeningAudioSource,
+  sharedExamAudioSource,
+} from './listeningExamAudio'
 import { registerListeningAutoPlay } from './listeningExamAutoPlayBridge'
 import { resetListeningSplitPanes } from './listeningScrollUtils'
 import { useListeningSplitPane } from './useListeningSplitPane'
@@ -67,6 +73,7 @@ export default function ListeningKetTest({ exam, sessionStarted = true }: Props)
   const [partIndex, setPartIndex] = useState(0)
   const [activeQuestionId, setActiveQuestionId] = useState<string | null>(null)
   const [submitted, setSubmitted] = useState(false)
+  const [transcriptPanelOpen, setTranscriptPanelOpen] = useState(false)
   const [reviewMode, setReviewMode] = useState(false)
   const [confirmSubmit, setConfirmSubmit] = useState(false)
 
@@ -91,7 +98,15 @@ export default function ListeningKetTest({ exam, sessionStarted = true }: Props)
     () => allQuestions.find(q => q.id === activeQuestionId) ?? null,
     [activeQuestionId, allQuestions],
   )
-  const examAudioSource = useMemo(() => ketSharedExamAudioSource(exam), [exam])
+  /**
+   * 1 MP3 full-test → shared source (đổi part không đổi track).
+   * 5 file part1…part5 → audio theo currentPart (trước đây ketSharedExamAudioSource
+   * rơi về empty khi parts không cùng key → "Không tìm thấy file audio").
+   */
+  const audioSource = useMemo(
+    () => resolveListeningAudioSource(exam, currentPart),
+    [exam, currentPart],
+  )
   const isGroupedGapFill = Boolean(currentPart && isKetGroupedGapFillPart(currentPart))
   const isDragMatching = Boolean(currentPart && isKetDragMatchingPart(currentPart))
   const isPart3McList =
@@ -106,18 +121,39 @@ export default function ListeningKetTest({ exam, sessionStarted = true }: Props)
     buffering,
     progressPct,
     timeLabel,
+    audioCurrentTime,
+    audioDuration,
     play,
     seekToPct,
     stopPlayback,
     resetPlayback,
     playError,
+    speed,
+    toggleSpeed,
   } = useExamQuestionAudio()
 
+  const { markManualInteraction } = useAudioSync({
+    audioCurrentTime,
+    audioDuration,
+    playing,
+    exam,
+    currentPart,
+    submitted,
+    reviewMode,
+    activeQuestionId,
+    onQuestionChange: setActiveQuestionId,
+    onPartChange: setPartIndex,
+    scrollRoot: bodyRef.current,
+  })
+
   const { canPlay, playsLeft, recordPlay, resetPlayCounts } = useListeningPlayLimits(exam.examMode)
-  /** Một file MP3 chung — đếm lượt nghe theo cả bài, không reset khi đổi câu */
-  const playKey = `exam-${exam.id}`
+  /** 1 MP3 chung → 1 playKey cả bài. Nhiều part*.mp3 → đếm theo part. */
+  const playKey = useMemo(() => {
+    if (sharedExamAudioSource(exam)) return `exam-${exam.id}`
+    if (currentPart) return `exam-${exam.id}-part-${currentPart.partNumber}`
+    return `exam-${exam.id}`
+  }, [exam, currentPart])
   const maxPlays = exam.examMode === 'exam' ? 3 : undefined
-  const audioSource = examAudioSource
   const hasAudioFile = hasExamAudioSource(audioSource)
   const left = playsLeft(playKey, maxPlays)
   const blocked = !canPlay(playKey, maxPlays)
@@ -128,6 +164,28 @@ export default function ListeningKetTest({ exam, sessionStarted = true }: Props)
     beforePlay: () => canPlay(playKey, maxPlays),
     onPlayCounted: () => recordPlay(playKey),
   }), [canPlay, exam.examMode, maxPlays, playKey, recordPlay])
+
+  /**
+   * Đề import nhiều file part1…part5.mp3: bấm chuyển part → auto phát audio
+   * part đó (gọi trong click gesture nên không vướng autoplay policy).
+   * 1 MP3 full-test (shared) → giữ nguyên track, không phát lại.
+   */
+  const autoPlayPartAudio = useCallback((index: number) => {
+    if (submitted || reviewMode || !sessionStarted) return
+    if (sharedExamAudioSource(exam)) return
+    const part = exam.parts[index]
+    if (!part) return
+    const source = resolveListeningAudioSource(exam, part)
+    if (!hasExamAudioSource(source)) return
+    const key = `exam-${exam.id}-part-${part.partNumber}`
+    if (!canPlay(key, maxPlays)) return
+    void play(source, {
+      rate: 1,
+      allowSeek: exam.examMode === 'practice',
+      beforePlay: () => canPlay(key, maxPlays),
+      onPlayCounted: () => recordPlay(key),
+    })
+  }, [canPlay, exam, maxPlays, play, recordPlay, reviewMode, sessionStarted, submitted])
 
   /** Đăng ký play cho nút Play overlay — phải gọi trong click gesture */
   useEffect(() => {
@@ -237,7 +295,8 @@ export default function ListeningKetTest({ exam, sessionStarted = true }: Props)
     const qs = getPartQuestions(exam.parts[index])
     setPartIndex(index)
     setActiveQuestionId(qs[0]?.id ?? null)
-  }, [exam.parts])
+    autoPlayPartAudio(index)
+  }, [exam.parts, autoPlayPartAudio])
 
   const handleSelectQuestion = useCallback((questionId: string) => {
     setActiveQuestionId(questionId)
@@ -338,7 +397,10 @@ export default function ListeningKetTest({ exam, sessionStarted = true }: Props)
   }
 
   return (
-    <div className={`listening-exam-shell listening-ket-cambridge${isResizing ? ' is-resizing' : ''}${reviewMode ? ' is-review' : ''}`}>
+    <div
+      className={`listening-exam-shell listening-ket-cambridge${isResizing ? ' is-resizing' : ''}${reviewMode ? ' is-review' : ''}`}
+      onPointerDownCapture={markManualInteraction}
+    >
       {reviewMode && (
         <div
           className="flex items-center justify-between gap-2 px-4 py-2 text-sm font-semibold"
@@ -411,6 +473,15 @@ export default function ListeningKetTest({ exam, sessionStarted = true }: Props)
           {!reviewMode && (
             <ExamTimerControls timeLeft={timeLeft} onReset={resetTimer} onChange={setTimeLeft} />
           )}
+          <button
+            type="button"
+            className={`listening-transcript-toggle${transcriptPanelOpen ? ' is-on' : ''}`}
+            onClick={() => setTranscriptPanelOpen(o => !o)}
+            title="Xem transcript (split màn hình)"
+          >
+            <Edit3 size={14} />
+            Transcript
+          </button>
           <Wifi size={19} />
           <Bell size={19} />
           <Menu size={22} />
@@ -462,6 +533,8 @@ export default function ListeningKetTest({ exam, sessionStarted = true }: Props)
             playBlocked: blocked,
             playError,
             onPlayNormal: () => void play(audioSource, makePlayOpts(1)),
+            speed,
+            onToggleSpeed: toggleSpeed,
             onSeek: (pct: number) => seekToPct(pct, exam.examMode === 'practice'),
             onStop: stopPlayback,
           }
@@ -642,6 +715,16 @@ export default function ListeningKetTest({ exam, sessionStarted = true }: Props)
           <Check size={24} />
         </button>
       </footer>
+
+      <ListeningTranscriptSidePanel
+        exam={exam}
+        currentPart={currentPart}
+        open={transcriptPanelOpen}
+        onClose={() => setTranscriptPanelOpen(false)}
+        audioCurrentTime={audioCurrentTime}
+        audioDuration={audioDuration}
+        playing={playing}
+      />
 
       {confirmSubmit && (
         <div

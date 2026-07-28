@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { ArrowLeft, Clock3 } from 'lucide-react'
 
-const SERIF: React.CSSProperties = { fontFamily: "'Instrument Serif', serif" }
+const SERIF: React.CSSProperties = { fontFamily: 'var(--font-app)' }
 
 export type BlogPost = {
   id: string

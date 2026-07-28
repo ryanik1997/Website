@@ -2,6 +2,11 @@ import { supabase } from '../../lib/supabase'
 import type { ReadingExam, ReadingPart } from './examData'
 import { READING_EXAMS } from './examData'
 import { fillReadingExamFromSources } from './fillReadingExamMedia'
+import { stripExamAnswerFields } from './examAnswerSecurity'
+import {
+  deletePublishedExamVault,
+  uploadPublishedExamVault,
+} from './publishedExamVault'
 
 interface PublishedRow {
   id: string
@@ -21,7 +26,15 @@ function rowToExam(row: PublishedRow): ReadingExam {
     title: row.title,
     durationMinutes: row.duration_minutes,
     bandHint: row.band_hint ?? '',
-    parts: row.parts,
+    parts: (row.parts as unknown[]).map((raw, index) => {
+      const part = raw as Record<string, unknown>
+      return {
+        ...part,
+        id: typeof part.id === 'string' && part.id.trim()
+          ? part.id.trim()
+          : `${row.id}-part-${(part.partNumber as number) ?? index + 1}`,
+      } as ReadingPart
+    }),
     examTrack: (row.exam_track as ReadingExam['examTrack']) ?? undefined,
     cambridgeLevel: (row.cambridge_level as ReadingExam['cambridgeLevel']) ?? undefined,
   }
@@ -47,13 +60,20 @@ function catalogDonorForPublish(exam: ReadingExam): ReadingExam | null {
   const exact = READING_EXAMS.find(e => e.id === exam.id) ?? null
   if (exact) return exact
   if (!exam.cambridgeLevel) return null
+  const testOf = (t: string) => t.toLowerCase().match(/\btest\s*(\d+)\b/)?.[1]
+  const bookOf = (t: string) => t.toLowerCase().match(/\bbook\s*(\d+)\b/)?.[1]
+  const wantTest = testOf(exam.title)
+  const wantBook = bookOf(exam.title)
+  if (!wantTest) return null
   return (
-    READING_EXAMS.find(
-      e =>
-        e.id.startsWith('catalog-')
-        && e.cambridgeLevel === exam.cambridgeLevel
-        && e.parts.length === exam.parts.length,
-    ) ?? null
+    READING_EXAMS.find(e => {
+      if (!e.id.startsWith('catalog-')) return false
+      if (e.cambridgeLevel !== exam.cambridgeLevel) return false
+      if (e.parts.length !== exam.parts.length) return false
+      if (testOf(e.title) !== wantTest) return false
+      if (wantBook && bookOf(e.title) && bookOf(e.title) !== wantBook) return false
+      return true
+    }) ?? null
   )
 }
 
@@ -64,7 +84,11 @@ export async function publishReadingExamToCloud(
 ): Promise<void> {
   // Vá imageUrl/text từ catalog trước khi strip imageKey (tránh Part 1/7 mất ảnh)
   const withCatalogMedia = fillReadingExamFromSources(exam, [catalogDonorForPublish(exam)])
-  const clean = stripLocalMediaKeys(withCatalogMedia)
+  await uploadPublishedExamVault(
+    withCatalogMedia as unknown as Record<string, unknown> & { id: string },
+    'reading',
+  )
+  const clean = stripLocalMediaKeys(stripExamAnswerFields(withCatalogMedia))
   const { data: userData } = await supabase.auth.getUser()
   const payload = {
     id: clean.id,
@@ -130,4 +154,5 @@ export async function deletePublishedReadingExam(examId: string): Promise<void> 
     .delete()
     .eq('id', examId)
   if (error) throw new Error(error.message)
+  await deletePublishedExamVault(examId, 'reading')
 }

@@ -1,0 +1,168 @@
+# CHECKLIST — Listening Cambridge A2–C2 (trước khi xuất ZIP / sau DeepSeek)
+
+Dùng cùng **Prompt-*-Listening-Universal.txt** + file này.  
+Tick hết trước khi import app. App sửa được một số lỗi — **không thay** checklist.
+
+---
+
+## 0) Gửi DeepSeek (mỗi lần 1 test)
+
+- [ ] Prompt đúng level (KET / PET / FCE / CAE / CPE Universal)
+- [ ] **Đề Listening:** PDF **hoặc** TXT UTF-8 (`exam-text.txt` / `Test_N_Listening.txt`) — đúng 1 Test N
+- [ ] `answer-key.txt` **hoặc** `answer-key.pdf` (ưu tiên `.txt`)
+- [ ] `audioscript.txt` nếu key scan / cần transcript (có thể gộp trong TXT đề nếu có marker AUDIOSCRIPT)
+- [ ] Dòng context: `Book B · Test T · examType … · audioFile listening.mp3 · nguồn: TXT|PDF`
+- [ ] **Không** gửi MP3 cho DeepSeek (chỉ pack ZIP sau)
+- [ ] Ảnh Part 1 (KET/PET): crop sau — không bắt buộc gửi AI
+
+---
+
+## 1) JSON hợp lệ
+
+- [ ] `JSON.parse` PASS — 1 object, không `}{` dính
+- [ ] `version: 1`
+- [ ] `examType`: `ket` | `pet` | `fce` | `cae` | `cpe` (đúng level)
+- [ ] `examMode`: `practice` (hoặc `exam`)
+- [ ] `durationMinutes` đúng level (25 / 30 / 40)
+- [ ] `title` có **Book N** + **Test N**  
+  VD: `"KET A2 Listening — Book 1 — Test 2"`
+- [ ] Không `questionGroups` / `examTrack` / `cambridgeLevel` (schema Listening)
+- [ ] Không dấu `"` ASCII trần trong chuỗi explanation
+- [ ] Gap-fill đáp án kép: `answer: "8/eight"` **và/hoặc** `acceptableAnswers: ["8","eight"]` (không `"8 (or eight)"`)
+- [ ] Ảnh: jpg **hoặc webp** (`q1.webp` OK dù JSON ghi `q1.jpg`)
+
+---
+
+## 2) Parts & số câu (theo level)
+
+| Level | examType | Parts | Câu | Phút |
+|-------|----------|-------|-----|------|
+| A2 KET | ket | 5 | 25 (1–25) | 25 |
+| B1 PET | pet | 4 | 25 (1–25) | 30 |
+| B2 FCE | fce | 4 | 30 (1–30) | 40 |
+| C1 CAE | cae | 4 | 30 (1–30) | 40 |
+| C2 CPE | cpe | 4 | 30 (1–30) | 40 |
+
+- [ ] Đủ số part
+- [ ] Số câu liên tục, không nhảy
+- [ ] Mỗi part: `partNumber`, `rangeLabel`, `instruction`, `audioFile`, `questions[]`
+- [ ] Mọi part: `"audioFile": "listening.mp3"`
+
+---
+
+## 3) Type câu theo Part (nhanh)
+
+### A2 KET
+- [ ] P1 Q1–5: `picture-mc` + `q1.jpg|webp`…`q5.jpg|webp` (composite A+B+C)
+- [ ] P2 Q6–10: `gap-fill` — **xem §4 form** · đáp án kép dùng `/` hoặc `acceptableAnswers`
+- [ ] P3 Q11–15: `multiple-choice` A/B/C
+- [ ] P4 Q16–20: `multiple-choice` A/B/C
+- [ ] P5 Q21–25: `matching` options A–H
+
+### B1 PET
+- [ ] P1 Q1–7: `picture-mc` + `q1.jpg|webp`…`q7.jpg|webp`
+- [ ] P2 Q8–13: `multiple-choice` + `context` (nếu đề có)
+- [ ] P3 Q14–19: `gap-fill` + `passageTitle` / gapLead·gapTrail nếu cần
+- [ ] P4 Q20–25: `multiple-choice` + `audioIntro` nếu đề có
+
+### B2 FCE
+- [ ] P1 Q1–8: `multiple-choice`
+- [ ] P2 Q9–18: `gap-fill` + `passageTitle` (+ `imageFile` q2.jpg nếu có)
+- [ ] P3 Q19–23: `matching` A–H
+- [ ] P4 Q24–30: `multiple-choice`
+
+### C1 CAE
+- [ ] P1 Q1–6: MC (3 extracts)
+- [ ] P2 Q7–14: `gap-fill`
+- [ ] P3 Q15–20: MC **4 đáp án** A–D
+- [ ] P4 Q21–30: `matching` + `matchingDualTask: true`
+
+### C2 CPE
+- [ ] P1 Q1–6: MC
+- [ ] P2 Q7–15: `gap-fill` (**9 câu**, khác CAE)
+- [ ] P3 Q16–20: MC A–D
+- [ ] P4 Q21–30: dual matching
+
+---
+
+## 4) Gap-fill form — CẤM double (KET P2, PET P3, FCE/CAE/CPE P2…)
+
+- [ ] `instruction` = chỉ “You will hear…” (+ dòng **tĩnh đã điền**, vd. `Name of other team: Tigers`)
+- [ ] `passageTitle` = tiêu đề form (vd. `Hockey match`) — **không** lặp cả form trong instruction
+- [ ] `questions[].prompt` = **chỉ label** gap: `"Day:"`, `"Name of village:"`
+- [ ] **Không** ghi `Day: (6)` / cả block form trong `instruction` nếu đã có `prompt` từng câu
+- [ ] Mở preview Part gap: **không** thấy label lặp 2 lần
+
+SAI:
+```
+instruction: "...\nHockey match\nDay: (6)\nName of village: (7)"
+prompt: "Day:"
+```
+
+ĐÚNG:
+```
+instruction: "You will hear…\n\nName of other team: Tigers"
+passageTitle: "Hockey match"
+prompt: "Day:"
+```
+
+---
+
+## 5) answer
+
+- [ ] MC / picture-mc: `"A"` / `"B"` / `"C"` (hoặc a/b/c) — không `"B (best)"`
+- [ ] matching: một chữ A–H
+- [ ] gap-fill: một từ/số/ngày — bỏ ngoặc key `(August)` → `August`
+- [ ] Đáp án kép: `a/one` hoặc `could/may`
+- [ ] Đối chiếu **từng câu** với answer-key.txt
+- [ ] `explanation` tiếng Việt ngắn (khuyến nghị)
+
+---
+
+## 6) ZIP pack (import app)
+
+File **CÙNG CẤP** (không bọc folder con khi zip):
+
+```
+exam.json
+listening.mp3
+answer-key.txt          ← hoặc answer-key.pdf
+audioscript.txt         ← Cambridge transcript (khuyến nghị)
+q1.jpg …                ← theo level
+```
+
+- [ ] Tên MP3: **`listening.mp3`** (app cũng nhận `Audio.mp3` — vẫn nên chuẩn hóa)
+- [ ] ZIP ≤ 80MB, UTF-8, không `__MACOSX`
+- [ ] Preview import: `listening.mp3` **found**
+- [ ] Sau import: phát được audio (không lỗi blob)
+
+---
+
+## 7) Transcript (Cambridge)
+
+- [ ] Có `audioscript.txt` **hoặc** block AUDIOSCRIPT trong key → app gắn `ttsText`
+- [ ] Hoặc khi xem lại: nút **Hiện transcript (AI)**
+- [ ] IELTS Listening: **không** auto từ PDF — chỉ AI khi xem cùng đề
+
+---
+
+## 8) Sau import — smoke test 2 phút
+
+- [ ] Library: đúng Book / Test / meta bandHint
+- [ ] Part 1 ảnh (KET/PET) hiện
+- [ ] Part gap-fill: **không double** form
+- [ ] Audio play OK
+- [ ] Nộp bài / xem lại: đáp án + transcript (nếu có)
+
+---
+
+## Prompt chi tiết theo level
+
+| Level | File |
+|-------|------|
+| Chung | `HDSD/Prompt-Listening-Cambridge.txt` |
+| A2 | `HDSD/Prompt-KET-A2-Listening-Universal.txt` |
+| B1 | `HDSD/Prompt-PET-B1-Listening-Universal.txt` |
+| B2 | `HDSD/Prompt-FCE-B2-Listening-Universal.txt` |
+| C1 | `HDSD/Prompt-CAE-C1-Listening-Universal.txt` |
+| C2 | `HDSD/Prompt-CPE-C2-Listening-Universal.txt` |

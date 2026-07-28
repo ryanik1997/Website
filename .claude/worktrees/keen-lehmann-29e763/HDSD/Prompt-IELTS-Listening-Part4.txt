@@ -1,0 +1,169 @@
+Bạn là trợ lý tạo `exam.json` — **Part 4** (Questions 31–40) IELTS Listening cho web app "Ryan English".
+
+═══════════════════════════════════════════════════════════════
+PHẦN A — USER CẦN ĐÍNH KÈM KHI GỬI PROMPT NÀY
+═══════════════════════════════════════════════════════════════
+
+1. PDF đề Listening (hoặc ảnh/screenshot **Part 4 / Section 4**)
+2. Answer Key câu 31–40
+3. (Tuỳ chọn) Ảnh tham chiếu UI — lecture notes dạng list:
+   - Cam9 P4 ≈ d1 (sections + bullet •)
+   - Cam20 P4 ≈ d2 (ONE WORD, gap liên tiếp)
+4. **1 file JSON mẫu** (bắt buộc):
+   Tainguyen/templates/ielts-listening-p4-d1-template.json  — Cam9 Whales
+   Tainguyen/templates/ielts-listening-p4-d2-template.json  — Cam20 Rivers
+   Tainguyen/templates/ielts-listening-p4-d3-template.json  — generic
+5. (Tuỳ chọn) User ghi sẵn đề thuộc dạng nào — Bảng B.
+
+═══════════════════════════════════════════════════════════════
+PHẦN B — NHẬN DẠNG DẠNG → FILE MẪU
+═══════════════════════════════════════════════════════════════
+
+| Nếu PDF Part 4 có…                                              | Dạng | File mẫu              |
+|-----------------------------------------------------------------|------|-----------------------|
+| Lecture notes, nhiều section + dòng static xen gap              | d1   | p4-d1-template.json   |
+| ONE WORD, nhiều gap liên tiếp, câu 39–40 cùng 1 câu tách đôi    | d2   | p4-d2-template.json   |
+| Lecture notes chuẩn, word limit THREE WORDS AND/OR A NUMBER     | d3   | p4-d3-template.json   |
+
+**Tham chiếu builtin:**
+- Cam9 Test 1 P4 ≈ d1 — "Mass Strandings of Whales and Dolphins", TWO WORDS
+- Cam20 Test 1 P4 ≈ d2 — "Reclaiming urban rivers", ONE WORD
+
+**Lưu ý:** Part 4 IELTS gần như luôn là **note completion** (10 câu gap-fill 31–40).
+Không có MC / Choose TWO / matching / map / diagram trong Part 4 chuẩn Cam9–Cam20.
+
+═══════════════════════════════════════════════════════════════
+PHẦN C — QUY TẮC JSON (BẮT BUỘC)
+═══════════════════════════════════════════════════════════════
+
+## Schema Part 4
+
+```json
+{
+  "partNumber": 4,
+  "rangeLabel": "Questions 31–40",
+  "instruction": "Complete the notes below. Write ONE WORD ONLY for each answer.",
+  "passageTitle": "Reclaiming urban rivers",
+  "audioFile": "listening.mp3",
+  "notePassage": [
+    { "type": "section", "text": "Historical background" },
+    { "type": "static", "text": "Nearly all major cities were built on a river." },
+    { "type": "gap", "number": 31 },
+    { "type": "gap", "number": 32 }
+  ],
+  "questions": [
+    {
+      "number": 31,
+      "type": "gap-fill",
+      "prompt": "Pollution source:",
+      "gapLead": "pollution from",
+      "gapTrail": "on the river bank",
+      "wordLimit": 1,
+      "answer": "factories",
+      "explanation": "Nhà máy."
+    }
+  ]
+}
+```
+
+## Thứ tự `questions[]`
+
+Part 4 chỉ có **10 câu gap-fill liên tiếp** (31→40). Không cần sectionRange trên từng câu
+(trừ khi đề PDF có nhiều nhóm instruction — hiếm ở P4).
+
+## notePassage blocks
+
+| type    | Ý nghĩa                                      |
+|---------|----------------------------------------------|
+| static  | Dòng chữ cố định (mô tả bài giảng)           |
+| section | Tiêu đề mục (Parasites, Historical background) |
+| gap     | Ô trống — number = questions[].number        |
+
+**Bắt buộc:** Khai báo **đầy đủ thứ tự** static + section + gap như trên đề PDF.
+App render y hệt đề gốc — thiếu dòng static = layout sai.
+
+## gapLead / gapTrail
+
+Trên **mỗi câu** `gap-fill` trong `questions[]`:
+
+- `gapLead` — chữ ngay **trước** ô trống (có thể gồm bullet `•`)
+- `gapTrail` — chữ ngay **sau** ô trống
+
+Dùng khi chữ trước/sau gap nằm **cùng dòng** với ô trống (inline), không phải block `static` riêng.
+
+**Ví dụ d1 (bullet sub-item):**
+```json
+{ "number": 36, "gapLead": "• were all", "answer": "healthy" }
+{ "number": 37, "gapLead": "• were not in a", "answer": "group" }
+```
+→ `notePassage` có 2 gap liên tiếp (36, 37) sau dòng static "The Bahamas…".
+
+**Ví dụ d2 (câu tách 39–40):**
+```json
+{ "number": 39, "gapLead": "goods could be transported by large freight barges and electric", "answer": "bikes" }
+{ "number": 40, "gapLead": ", or in the future, by", "answer": "drone" }
+```
+→ Hai gap liên tiếp; gapLead câu 40 bắt đầu bằng dấu phẩy nối từ câu trước.
+
+## wordLimit
+
+| Instruction trên đề              | wordLimit |
+|----------------------------------|-----------|
+| ONE WORD ONLY                    | 1         |
+| NO MORE THAN TWO WORDS           | 2         |
+| NO MORE THAN THREE WORDS AND/OR A NUMBER | 3 |
+
+`instruction` ở cấp Part phải khớp đề PDF.
+
+## Không dùng
+
+- `notePassageSections[]` — chỉ Part 3 (nhiều khối note tách instruction)
+- `noteTable` / `noteTables[]` — Part 4 lecture notes không phải bảng
+- `notePassageLayout: "form"` — Part 4 dùng list (bỏ qua field hoặc không khai báo)
+
+═══════════════════════════════════════════════════════════════
+PHẦN D — PROMPT MẪU (USER COPY DÁN VÀO CHATGPT)
+═══════════════════════════════════════════════════════════════
+
+```
+Đọc file HDSD/Prompt-IELTS-Listening-Part4.txt.
+
+Tạo object JSON `parts[3]` (partNumber: 4) cho IELTS Listening.
+
+## Đính kèm
+- [PDF / ảnh Part 4]
+- [Answer Key 31–40]
+- [File mẫu: ielts-listening-p4-d?-template.json]
+
+## Part 4 đề này thuộc dạng: [d1 / d2 / d3]
+- wordLimit: [1 / 2 / 3] theo instruction đề
+
+## Yêu cầu
+1. Copy CẤU TRÚC từ file mẫu d?.
+2. notePassage[] — đủ static + section + gap theo ĐÚNG THỨ TỰ trên PDF.
+3. questions[] — đủ 10 câu gap-fill (31–40), thứ tự 31→40.
+4. Mỗi gap trong notePassage có câu tương ứng trong questions.
+5. gapLead/gapTrail trên từng câu — đặc biệt bullet • (d1) và câu tách (d2).
+6. passageTitle = tiêu đề lecture trên đề.
+7. explanation tiếng Việt ngắn; answer lowercase (trừ tên riêng).
+8. audioFile: "listening.mp3".
+
+Xuất JSON thuần. Không markdown.
+```
+
+═══════════════════════════════════════════════════════════════
+PHẦN E — CHECKLIST TRƯỚC IMPORT
+═══════════════════════════════════════════════════════════════
+
+[ ] Đủ 10 câu (31–40), đúng thứ tự, type "gap-fill"
+[ ] notePassage: mỗi gap 31–40 xuất hiện đúng 1 lần
+[ ] static/section giữa các gap khớp PDF (không bỏ dòng)
+[ ] gapLead/gapTrail: bullet • và câu nối 39–40 nếu có
+[ ] wordLimit khớp instruction Part
+[ ] passageTitle = tiêu đề lecture
+[ ] ZIP: exam.json + listening.mp3 cùng cấp
+
+Tham chiếu: HDSD/Import Listening IELTS.txt
+Prompt 4 parts: HDSD/Prompt-IELTS-Listening-Cam9-Cam20.txt
+
+Bắt đầu xử lý file đính kèm.

@@ -1,0 +1,796 @@
+{
+  "id": "catalog-reading-ket-a2-book1-test3",
+  "title": "KET A2 Reading — Book 1 — Test 3",
+  "durationMinutes": 60,
+  "bandHint": "A2 Key Reading — 5 parts",
+  "parts": [
+    {
+      "id": "catalog-reading-ket-a2-book1-test3-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–6",
+      "passageTitle": "Signs and messages",
+      "passageSubtitle": "",
+      "passage": [
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book1-test3/part1-q1.jpg"
+        },
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book1-test3/part1-q2.jpg"
+        },
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book1-test3/part1-q3.jpg"
+        },
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book1-test3/part1-q4.jpg"
+        },
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book1-test3/part1-q5.jpg"
+        },
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book1-test3/part1-q6.jpg"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book1-test3-part-1-g0",
+          "range": "Questions 1–6",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book1-test3-part-1-q1",
+              "number": 1,
+              "type": "multiple-choice",
+              "prompt": "What is Markus doing?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Markus is letting Jessica know what time he's going running tonight."
+                },
+                {
+                  "id": "B",
+                  "label": "Markus is asking Jessica if she has arrived home from work yet."
+                },
+                {
+                  "id": "C",
+                  "label": "Markus is checking if Jessica will be home early enough to go running."
+                }
+              ],
+              "answer": "c",
+              "explanation": "Markus hỏi giờ về nhà để chạy trước khi trời tối, tức kiểm tra xem Jessica có về đủ sớm không.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test3-part-1-q2",
+              "number": 2,
+              "type": "multiple-choice",
+              "prompt": "What does the Arts Centre want to do?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "start a new theatre group"
+                },
+                {
+                  "id": "B",
+                  "label": "share members' experiences online"
+                },
+                {
+                  "id": "C",
+                  "label": "find out what people think of their website"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Trung tâm yêu cầu kể câu chuyện diễn xuất thay đổi cuộc sống và đưa lên website → chia sẻ trải nghiệm của thành viên.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test3-part-1-q3",
+              "number": 3,
+              "type": "multiple-choice",
+              "prompt": "Why has Glenn sent Marcia this message?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "to make sure she has taken her medicine"
+                },
+                {
+                  "id": "B",
+                  "label": "to ask if she is feeling better"
+                },
+                {
+                  "id": "C",
+                  "label": "to find out how he can help"
+                }
+              ],
+              "answer": "c",
+              "explanation": "Glenn hỏi Marcia có cần mua thuốc hay trái cây không → muốn biết cách giúp đỡ.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test3-part-1-q4",
+              "number": 4,
+              "type": "multiple-choice",
+              "prompt": "Ollie has emailed Harry to ...?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "to see if he wants to join the tennis club."
+                },
+                {
+                  "id": "B",
+                  "label": "to ask him for his opinion of the tennis club."
+                },
+                {
+                  "id": "C",
+                  "label": "to find out which tennis club he belongs to."
+                }
+              ],
+              "answer": "a",
+              "explanation": "Ollie rủ Harry trở thành thành viên tennis club.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test3-part-1-q5",
+              "number": 5,
+              "type": "multiple-choice",
+              "prompt": "What is the notice about?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Hurry if you would like to take part in the quiz."
+                },
+                {
+                  "id": "B",
+                  "label": "The winner of the quiz will get a prize of £10."
+                },
+                {
+                  "id": "C",
+                  "label": "The quiz will finish by 9 p.m. on 22nd March."
+                }
+              ],
+              "answer": "a",
+              "explanation": "Thông báo có quiz, chỗ gần hết, cần đặt sớm → vội nếu muốn tham gia.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test3-part-1-q6",
+              "number": 6,
+              "type": "multiple-choice",
+              "prompt": "Mark has texted Stefan to ...?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "to tell him to look online."
+                },
+                {
+                  "id": "B",
+                  "label": "to ask about the traffic."
+                },
+                {
+                  "id": "C",
+                  "label": "to offer him a lift."
+                }
+              ],
+              "answer": "c",
+              "explanation": "Mark hỏi có đón Stefan trên đường không → đề nghị chở.",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book1-test3-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 7–13",
+      "passageTitle": "Three great campsites to visit",
+      "passageSubtitle": "",
+      "passage": [
+        {
+          "label": "Hillside",
+          "text": "This campsite is quite near a main road, so it's easy to find. You can camp there anytime you like, even in winter, which is why most of the things to do are inside - the pool, the games room and the cafe. Families will enjoy it here, as the pool is very safe and there's a lovely playground. It's also very quiet at night - there's no disco or noisy groups of campers. The staff are good, but they should try to be more friendly."
+        },
+        {
+          "label": "Green Farm",
+          "text": "You can easily get lost on the way to Green Farm if you don't know where you're going. There are lots of activities for adults and teenagers to do on the campsite, including a golf course and a lake where you can go fishing and sailing. If you're interested in surfing, you should probably choose a different campsite, as Green Farm is quite a long way from the sea. If you need to buy food, there's a small supermarket next to the office."
+        },
+        {
+          "label": "Castletown",
+          "text": "Castletown is right next to a village, and just a short walk from a beach. It's open from April to October. It's probably not the best place for older people or young children, as there's a disco in the village that plays loud music until quite late. The shops in the village are very useful, as there aren't any on the campsite. Campsite staff can help you with any problems or questions, and are always smiling and chatting with visitors."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book1-test3-part-2-g0",
+          "range": "Questions 7–13",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book1-test3-part-2-q7",
+              "number": 7,
+              "type": "multiple-choice",
+              "prompt": "Which campsite is good for people who enjoy outdoor sports?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Hillside"
+                },
+                {
+                  "id": "B",
+                  "label": "Green Farm"
+                },
+                {
+                  "id": "C",
+                  "label": "Castletown"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Green Farm có golf, câu cá, chèo thuyền → thể thao ngoài trời.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test3-part-2-q8",
+              "number": 8,
+              "type": "multiple-choice",
+              "prompt": "Which campsite is near the sea?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Hillside"
+                },
+                {
+                  "id": "B",
+                  "label": "Green Farm"
+                },
+                {
+                  "id": "C",
+                  "label": "Castletown"
+                }
+              ],
+              "answer": "c",
+              "explanation": "Castletown gần bãi biển.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test3-part-2-q9",
+              "number": 9,
+              "type": "multiple-choice",
+              "prompt": "Which campsite has its own shop?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Hillside"
+                },
+                {
+                  "id": "B",
+                  "label": "Green Farm"
+                },
+                {
+                  "id": "C",
+                  "label": "Castletown"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Green Farm có siêu thị nhỏ cạnh văn phòng.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test3-part-2-q10",
+              "number": 10,
+              "type": "multiple-choice",
+              "prompt": "Which campsite can be difficult to find?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Hillside"
+                },
+                {
+                  "id": "B",
+                  "label": "Green Farm"
+                },
+                {
+                  "id": "C",
+                  "label": "Castletown"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Green Farm dễ lạc đường nếu không biết đường.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test3-part-2-q11",
+              "number": 11,
+              "type": "multiple-choice",
+              "prompt": "Which campsite has friendly staff?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Hillside"
+                },
+                {
+                  "id": "B",
+                  "label": "Green Farm"
+                },
+                {
+                  "id": "C",
+                  "label": "Castletown"
+                }
+              ],
+              "answer": "c",
+              "explanation": "Castletown nhân viên luôn mỉm cười và trò chuyện.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test3-part-2-q12",
+              "number": 12,
+              "type": "multiple-choice",
+              "prompt": "Which campsite is good for people with young children?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Hillside"
+                },
+                {
+                  "id": "B",
+                  "label": "Green Farm"
+                },
+                {
+                  "id": "C",
+                  "label": "Castletown"
+                }
+              ],
+              "answer": "a",
+              "explanation": "Hillside có hồ bơi an toàn và sân chơi cho trẻ em.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test3-part-2-q13",
+              "number": 13,
+              "type": "multiple-choice",
+              "prompt": "Which campsite can be noisy at night?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Hillside"
+                },
+                {
+                  "id": "B",
+                  "label": "Green Farm"
+                },
+                {
+                  "id": "C",
+                  "label": "Castletown"
+                }
+              ],
+              "answer": "c",
+              "explanation": "Castletown có disco ồn ào vào ban đêm.",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book1-test3-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 14–18",
+      "passageTitle": "An exciting hobby",
+      "passageSubtitle": "Tanya Phillips explains why she's crazy about motorbikes.",
+      "passage": [
+        {
+          "text": "I started riding a motorbike when I was 18. I was living in Edinburgh at the time, and I was using the bus to get to work, which I hated. I thought about learning to drive, but cars are expensive, so I bought a motorbike. I was the first of my friends to get one."
+        },
+        {
+          "text": "Over the next 5 years, I only used my motorbike in the city. Then a friend invited me on a motorbike ride through the Australian desert. It was amazing, and when I got home, I bought an adventure motorbike and started riding in wild places like forests in my free time."
+        },
+        {
+          "text": "Before any big ride, I make sure I know exactly where I'm going. I don't like asking for help, so I take maps and check the weather. Then when I'm riding, I can just forget about everything except me and the bike. That's what I like best."
+        },
+        {
+          "text": "I'm not afraid of riding in unusual places. I went to Iceland in the middle of winter. It was dark most of the day, so I had to be really careful and stay on the roads. I'd like to go again in summer when there's more light and then I can go on the smaller paths."
+        },
+        {
+          "text": "This year, I did my first 24-hour adventure motorbike race - across the African desert. It was really difficult, and when I finished all I wanted to do was sleep. But then I found out I was the winner - I couldn't believe it! I can't wait to enter next year's race."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book1-test3-part-3-g0",
+          "range": "Questions 14–18",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book1-test3-part-3-q14",
+              "number": 14,
+              "type": "multiple-choice",
+              "prompt": "Tanya first began riding a motorbike because",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "she didn't like driving a car in Edinburgh."
+                },
+                {
+                  "id": "B",
+                  "label": "her friends told her it was a good idea."
+                },
+                {
+                  "id": "C",
+                  "label": "she wanted a better way to travel to her job."
+                }
+              ],
+              "answer": "c",
+              "explanation": "Cô ghét đi xe buýt và không đủ tiền mua ô tô → muốn phương tiện tốt hơn đến chỗ làm.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test3-part-3-q15",
+              "number": 15,
+              "type": "multiple-choice",
+              "prompt": "When did riding a motorbike become Tanya's hobby?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "after a trip"
+                },
+                {
+                  "id": "B",
+                  "label": "after riding through a forest"
+                },
+                {
+                  "id": "C",
+                  "label": "after meeting someone in Australia"
+                }
+              ],
+              "answer": "a",
+              "explanation": "Sau chuyến đi qua sa mạc Australia, cô mua xe adventure và bắt đầu đi chơi ở nơi hoang dã → sở thích.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test3-part-3-q16",
+              "number": 16,
+              "type": "multiple-choice",
+              "prompt": "What's Tanya's favourite thing about riding a motorbike?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "She can spend time alone."
+                },
+                {
+                  "id": "B",
+                  "label": "She can look at the countryside."
+                },
+                {
+                  "id": "C",
+                  "label": "She can stop thinking about other things."
+                }
+              ],
+              "answer": "c",
+              "explanation": "Cô thích quên mọi thứ ngoại trừ mình và xe, không còn nghĩ về việc khác.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test3-part-3-q17",
+              "number": 17,
+              "type": "multiple-choice",
+              "prompt": "If Tanya goes to Iceland again,",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "she'll go to another part of the country."
+                },
+                {
+                  "id": "B",
+                  "label": "she'll go at a different time of year."
+                },
+                {
+                  "id": "C",
+                  "label": "she'll spend more time there."
+                }
+              ],
+              "answer": "b",
+              "explanation": "Cô muốn đến Iceland vào mùa hè (khác thời điểm) để có nhiều ánh sáng hơn.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test3-part-3-q18",
+              "number": 18,
+              "type": "multiple-choice",
+              "prompt": "After her first motorbike race, Tanya was surprised by",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "how well she did."
+                },
+                {
+                  "id": "B",
+                  "label": "how tired she felt."
+                },
+                {
+                  "id": "C",
+                  "label": "how difficult the race was."
+                }
+              ],
+              "answer": "a",
+              "explanation": "Cô không nghĩ mình thắng cuộc, nên ngạc nhiên vì kết quả tốt.",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book1-test3-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 19–24",
+      "passageTitle": "David Bowie",
+      "passageSubtitle": "",
+      "passage": [
+        {
+          "text": "The English pop star David Bowie was born David Robert Jones on 8th January, 1947. He was (19) ________ in music from an early age and began playing in bands when he was still a teenager. When he was 18, he changed his name to David Bowie as there was another musician in the US (20) ________ was also called David Jones."
+        },
+        {
+          "text": "David Bowie's song 'Space Oddity' was his first big hit, and it was popular around the world. He (21) ________ later that he got the (22) ________ for the song while he was watching a film called 2001: A Space Odyssey."
+        },
+        {
+          "text": "Through his career, David Bowie often changed the (23) ________ he looked and the kind of music he played. His final album was called 'Blackstar' and it became (24) ________ to his fans on his 69th birthday. This was just two days before he died on 10th January, 2016."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book1-test3-part-4-g0",
+          "range": "Questions 19–24",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book1-test3-part-4-q19",
+              "number": 19,
+              "type": "multiple-choice",
+              "prompt": "He was (19) ________ in music from an early age",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "interested"
+                },
+                {
+                  "id": "B",
+                  "label": "pleased"
+                },
+                {
+                  "id": "C",
+                  "label": "special"
+                }
+              ],
+              "answer": "a",
+              "explanation": "interested in music = quan tâm đến âm nhạc từ nhỏ.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test3-part-4-q20",
+              "number": 20,
+              "type": "multiple-choice",
+              "prompt": "another musician in the US (20) ________ was also called David Jones.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "which"
+                },
+                {
+                  "id": "B",
+                  "label": "where"
+                },
+                {
+                  "id": "C",
+                  "label": "who"
+                }
+              ],
+              "answer": "c",
+              "explanation": "who thay thế musician (người).",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test3-part-4-q21",
+              "number": 21,
+              "type": "multiple-choice",
+              "prompt": "He (21) ________ later that he got the idea",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "told"
+                },
+                {
+                  "id": "B",
+                  "label": "explained"
+                },
+                {
+                  "id": "C",
+                  "label": "talked"
+                }
+              ],
+              "answer": "b",
+              "explanation": "He explained later that ... = anh ấy giải thích sau.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test3-part-4-q22",
+              "number": 22,
+              "type": "multiple-choice",
+              "prompt": "he got the (22) ________ for the song",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "idea"
+                },
+                {
+                  "id": "B",
+                  "label": "experience"
+                },
+                {
+                  "id": "C",
+                  "label": "reason"
+                }
+              ],
+              "answer": "a",
+              "explanation": "got the idea for the song = nảy ra ý tưởng cho bài hát.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test3-part-4-q23",
+              "number": 23,
+              "type": "multiple-choice",
+              "prompt": "changed the (23) ________ he looked",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "thing"
+                },
+                {
+                  "id": "B",
+                  "label": "way"
+                },
+                {
+                  "id": "C",
+                  "label": "type"
+                }
+              ],
+              "answer": "b",
+              "explanation": "changed the way he looked = thay đổi ngoại hình.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test3-part-4-q24",
+              "number": 24,
+              "type": "multiple-choice",
+              "prompt": "it became (24) ________ to his fans",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "able"
+                },
+                {
+                  "id": "B",
+                  "label": "possible"
+                },
+                {
+                  "id": "C",
+                  "label": "available"
+                }
+              ],
+              "answer": "c",
+              "explanation": "became available to fans = được phát hành đến người hâm mộ.",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book1-test3-part-5",
+      "partNumber": 5,
+      "rangeLabel": "Questions 25–30",
+      "passageTitle": "Email from a friend",
+      "passageSubtitle": "",
+      "passage": [
+        {
+          "label": "From",
+          "text": "Ellie"
+        },
+        {
+          "label": "To",
+          "text": "Leah"
+        },
+        {
+          "text": "I'm really pleased you're coming (0) ________ stay at my house next week. We haven't seen each other for such (25) ________ long time!"
+        },
+        {
+          "text": "(26) ________ are lots of things to do (27) ________ my town, so I'm sure we'll have lots of fun. We can visit the museum and the theatre. And how about going shopping too? Our new shopping centre has some really great shops, and they're cheaper (28) ________ the ones in the city."
+        },
+        {
+          "text": "I'll meet you at the airport on Saturday. (29) ________ time does your flight arrive? Please let (30) ________ know and I'll make a plan. I can't wait to see you again!"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book1-test3-part-5-g0",
+          "range": "Questions 25–30",
+          "instruction": "For each question, write the correct answer. Write ONE word for each gap.",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book1-test3-part-5-q25",
+              "number": 25,
+              "type": "gap-fill",
+              "prompt": "Write ONE word.",
+              "options": [],
+              "answer": "a",
+              "explanation": "such a long time: cụm từ 'such a + danh từ'.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test3-part-5-q26",
+              "number": 26,
+              "type": "gap-fill",
+              "prompt": "Write ONE word.",
+              "options": [],
+              "answer": "There",
+              "explanation": "There are lots of things: cấu trúc there are.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test3-part-5-q27",
+              "number": 27,
+              "type": "gap-fill",
+              "prompt": "Write ONE word.",
+              "options": [],
+              "answer": "in",
+              "explanation": "in my town: giới từ chỉ địa điểm.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test3-part-5-q28",
+              "number": 28,
+              "type": "gap-fill",
+              "prompt": "Write ONE word.",
+              "options": [],
+              "answer": "than",
+              "explanation": "cheaper than: so sánh hơn.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test3-part-5-q29",
+              "number": 29,
+              "type": "gap-fill",
+              "prompt": "Write ONE word.",
+              "options": [],
+              "answer": "What",
+              "explanation": "What time: hỏi giờ.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test3-part-5-q30",
+              "number": 30,
+              "type": "gap-fill",
+              "prompt": "Write ONE word.",
+              "options": [],
+              "answer": "me",
+              "explanation": "let me know: cụm từ cố định.",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "examTrack": "cambridge",
+  "cambridgeLevel": "a2",
+  "catalogSlug": "ket-a2-book1-test3",
+  "catalogBase": "/catalog/reading/ket-a2-book1-test3"
+}

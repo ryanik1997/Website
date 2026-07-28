@@ -1,8 +1,13 @@
-import { Navigate } from 'react-router-dom'
 import { useAuth } from './AuthContext'
+import LoginPage from './LoginPage'
+
+/** Chỉ hoạt động ở dev: VITE_DEV_AUTH_BYPASS=1 để QA không cần Google login. */
+const DEV_BYPASS = import.meta.env.DEV && import.meta.env.VITE_DEV_AUTH_BYPASS === '1'
 
 export default function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { user, loading } = useAuth()
+
+  if (DEV_BYPASS) return <>{children}</>
 
   if (loading) {
     return (
@@ -13,7 +18,7 @@ export default function ProtectedRoute({ children }: { children: React.ReactNode
     )
   }
 
-  if (!user) return <Navigate to="/" replace />
+  if (!user) return <LoginPage />
 
   return <>{children}</>
 }

@@ -8,7 +8,6 @@ import type {
   WritingDoc,
 } from '@ryan/db'
 import { supabase } from '../../lib/supabase'
-import { dedupePresetDecks } from '../vocab/vocabSeedDecks'
 import {
   ADMIN_PUBLISHED_VOCAB_VERSION_KEY,
   computePublishedVocabPrunePlan,
@@ -74,6 +73,7 @@ async function ensureSrsForCards(cards: Card[]): Promise<void> {
  * 3) SRS thiếu + dedupe an toàn (legacy double)
  */
 async function mergeVocab(payload: VocabPublishPayload | Record<string, unknown>): Promise<void> {
+  const { dedupePresetDecks, seedPresetCards } = await import('../vocab/vocabSeedDecks')
   const raw = payload as VocabPublishPayload
   const normalized = normalizeVocabPublishPayload({
     groups: raw.groups,
@@ -124,6 +124,8 @@ async function mergeVocab(payload: VocabPublishPayload | Record<string, unknown>
   if (deckIds.length) {
     await cardRepo.dedupeAllDecks(deckIds)
   }
+  // Bổ sung thẻ builtin seed nếu publish chỉ có deck rỗng / thiếu thẻ
+  await seedPresetCards()
 }
 
 async function mergeLessons(lessons: Lesson[]): Promise<void> {

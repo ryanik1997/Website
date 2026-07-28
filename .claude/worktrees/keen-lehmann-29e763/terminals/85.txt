@@ -1,0 +1,18 @@
+---
+pid: 17876
+cwd: "D:\App-English-Ryan\Website"
+command: "cd C:\\Users\\ADMIN\\mcps\\pxpipe-main\\pxpipe-main; node bin/cli.js"
+started_at: 2026-07-08T09:50:36.503Z
+running_for_ms: 3180010  
+---
+[pxpipe] listening on http://127.0.0.1:47821
+[pxpipe] anthropic upstream → https://api.anthropic.com
+[pxpipe] openai upstream → https://api.openai.com
+[pxpipe] tracking events → C:\Users\ADMIN\.pxpipe\events.jsonl
+[pxpipe] dashboard → http://127.0.0.1:47821/
+[2026-07-08T09:50:59.972Z] GET /api/health → 404 (394ms) 
+[pxpipe 404] upstream body: {"type":"error","error":{"type":"not_found_error","message":"Not found"},"request_id":"req_011CcpPCCXYjgUcLywmFJNY3"}
+[2026-07-08T09:52:48.290Z] GET /api/state → 404 (425ms) 
+[pxpipe 404] upstream body: {"type":"error","error":{"type":"not_found_error","message":"Not found"},"request_id":"req_011CcpPLBNp3MLBiAeurTRQX"}
+[2026-07-08T09:52:48.617Z] GET /api/events → 404 (298ms) 
+[pxpipe 404] upstream body: {"type":"error","error":{"type":"not_found_error","message":"Not found"},"request_id":"req_011CcpPLD2nLGmTdRVz8Uy3U"}

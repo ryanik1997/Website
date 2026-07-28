@@ -1,0 +1,90 @@
+{
+  "provenance": {
+    "origin": "ai-generated",
+    "generatedFields": [
+      "questions"
+    ],
+    "sourceTestNumber": 20,
+    "appTestNumber": 21,
+    "model": "bootstrap-v1",
+    "generatedAt": "2026-07-27T15:12:03.275Z",
+    "promptHash": "bootstrap-test20-part4",
+    "confidence": 85,
+    "reviewed": false
+  },
+  "inputHash": "bootstrap-test20-part4",
+  "promptVersion": "1.0",
+  "model": "bootstrap-v1",
+  "generatedAt": "2026-07-27T15:12:03.275Z",
+  "repair": {
+    "questions": [
+      {
+        "number": 25,
+        "type": "gap-fill",
+        "prompt": "Lily hasn t taken karate lessons since she was 16. Lily WHEN ->  Lily .....",
+        "sourceSentence": "Lily hasn t taken karate lessons since she was 16. Lily",
+        "keyword": "WHEN",
+        "targetSentence": " Lily .....",
+        "answer": "when it comes",
+        "explanation": "Rewrite using \"WHEN\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 26,
+        "type": "gap-fill",
+        "prompt": "The outcome of the meeting was unexpected. The meeting didn t TURN ->  The meeting didn t .....",
+        "sourceSentence": "The outcome of the meeting was unexpected. The meeting didn t",
+        "keyword": "TURN",
+        "targetSentence": " The meeting didn t .....",
+        "answer": "turn out to",
+        "explanation": "Rewrite using \"TURN\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 27,
+        "type": "gap-fill",
+        "prompt": "The price of petrol went up again a moment ago. The price of petrol JUST ->  The price of petrol .....",
+        "sourceSentence": "The price of petrol went up again a moment ago. The price of petrol",
+        "keyword": "JUST",
+        "targetSentence": " The price of petrol .....",
+        "answer": "just as the",
+        "explanation": "Rewrite using \"JUST\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 28,
+        "type": "gap-fill",
+        "prompt": "I was on a skiing trip in the Alps when I met Tom. I met Tom WHILE ->  I met Tom .....",
+        "sourceSentence": "I was on a skiing trip in the Alps when I met Tom. I met Tom",
+        "keyword": "WHILE",
+        "targetSentence": " I met Tom .....",
+        "answer": "while I was",
+        "explanation": "Rewrite using \"WHILE\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 29,
+        "type": "gap-fill",
+        "prompt": "You must subscribe to use the music site. You have HAVE ->  You have .....",
+        "sourceSentence": "You must subscribe to use the music site. You have",
+        "keyword": "HAVE",
+        "targetSentence": " You have .....",
+        "answer": "have to be",
+        "explanation": "Rewrite using \"HAVE\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 30,
+        "type": "gap-fill",
+        "prompt": "I often chatted to an invisible friend when I was a child. I USED ->  I .....",
+        "sourceSentence": "I often chatted to an invisible friend when I was a child. I",
+        "keyword": "USED",
+        "targetSentence": " I .....",
+        "answer": "used to be",
+        "explanation": "Rewrite using \"USED\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      }
+    ]
+  },
+  "status": "generated"
+}

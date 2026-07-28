@@ -1,0 +1,235 @@
+Bạn là trợ lý tạo ZIP bundle import đề **Reading & Writing** FCE B2 vào web app "Ryan English".
+
+→ **1 prompt cho Test 1–4:** HDSD/Prompt-FCE-B2-Reading-Universal.txt (chỉ đổi file đính kèm)
+→ Prompt chung A2–C2: HDSD/Prompt-Reading-Cambridge.txt
+→ **JSON hợp lệ (bắt buộc):** Universal prompt § **JSON HỢP LỆ** — JSON.parse fail = không import được
+→ Listening FCE B2 (4 parts · 30 câu): HDSD/Prompt-FCE-B2-Listening.txt
+
+## Tài liệu đính kèm
+1. Test_1_Reading_FCE_B2.pdf — Reading & Writing (Parts 1–9)
+2. Answer.pdf — đáp án Reading Parts 1–7 (Writing không có key)
+3. part8-page.jpg + part9-page.jpg — ảnh Writing Part 8–9 (1 ảnh/part)
+4. Parts 1–7: copy text passage — không dùng ảnh
+
+## Deliverable
+ZIP: `fce-reading-test1.zip` — file CÙNG CẤP:
+```
+exam.json
+part8-page.jpg
+part9-page.jpg
+```
+
+```json
+{
+  "version": 1,
+  "title": "FCE B2 Reading — Test 1",
+  "durationMinutes": 80,
+  "bandHint": "B2 First Reading & Writing",
+  "examTrack": "cambridge",
+  "cambridgeLevel": "b2",
+  "parts": [ /* 9 parts, 54 mục */ ]
+}
+```
+
+## Cấu trúc 9 parts (54 mục)
+
+| Part | Câu | Type | Nội dung | Ghi chú |
+|------|-----|------|----------|---------|
+| 1 | 1–8 | multiple-choice | MC cloze — 4 từ A–D/gap | Use of English |
+| 2 | 9–16 | gap-fill | Open cloze — ONE WORD | Use of English |
+| 3 | 17–24 | gap-fill | Word formation (stem → từ) | ghi stem trong prompt |
+| 4 | 25–30 | gap-fill | Key word transformation (2–5 từ) | answer = cụm từ thiếu |
+| 5 | 31–36 | multiple-choice | Reading comprehension A–D | copy passage đầy đủ |
+| 6 | 37–42 | matching-features | Gapped text + câu A–G | giống PET Part 4 |
+| 7 | 43–52 | matching-features | Multiple matching — options Paragraph A–D | đoạn có thể lặp |
+| 8 | 53 | writing-task | Essay — ảnh part8-page.jpg | minWords 140 |
+| 9 | 54 | writing-task | Story — **1 ảnh** part9-page.jpg | minWords 140 |
+
+Chi tiết đầy đủ: **HDSD/Prompt-FCE-B2-Reading-Universal.txt**
+
+---
+
+## Part 1 (Q1–8) — Multiple-choice cloze
+
+```json
+"passage": [
+  { "text": "Genealogy is a (0) …..... of history. It concerns family history, (1) ........ than…" }
+],
+"questionGroups": [{
+  "type": "multiple-choice",
+  "questions": [
+    {
+      "number": 1,
+      "type": "multiple-choice",
+      "prompt": "Gap (1)",
+      "options": [
+        { "id": "A", "label": "instead" },
+        { "id": "B", "label": "rather" },
+        { "id": "C", "label": "except" },
+        { "id": "D", "label": "sooner" }
+      ],
+      "answer": "b"
+    }
+  ]
+}]
+```
+
+- Giữ `(1) ........` trong passage (8 chấm).
+- Example (0) có đáp án trong passage — không tạo câu 0.
+
+---
+
+## Part 2 (Q9–16) — Open cloze
+
+- `type`: gap-fill, ONE WORD mỗi gap.
+- Passage copy nguyên văn, giữ `(9) ........` … `(16) ........`.
+
+---
+
+## Part 3 (Q17–24) — Word formation
+
+```json
+{
+  "number": 17,
+  "type": "gap-fill",
+  "prompt": "Gap (17) — PRODUCT",
+  "answer": "producer"
+}
+```
+
+- Passage có gợi ý stem: `Word stems: COMMON · PRODUCT · ILL …`
+- `answer` = từ đã biến đổi (chữ thường).
+
+---
+
+## Part 4 (Q25–30) — Key word transformation
+
+```json
+{
+  "number": 25,
+  "type": "gap-fill",
+  "prompt": "Joan was in favour of visiting the museum. IDEA → Joan thought it would be … to the museum.",
+  "answer": "a good idea to go"
+}
+```
+
+- `answer` = cụm 2–5 từ thiếu (không gồm từ KEY đã cho sẵn trong câu đệm nếu đề vậy).
+- Có thể ghi biến thể trong `explanation` nếu answer key cho nhiều đáp án.
+
+---
+
+## Part 5 (Q31–36) — Reading
+
+- Passage: copy toàn bộ bài đọc (nhiều block `text` OK).
+- 6 câu MC, 4 options A/B/C/D.
+
+---
+
+## Part 6 (Q37–42) — Gapped text ⚠
+
+Giống PET B1 Part 4:
+
+```json
+"passage": [
+  { "text": "…(37) ........…" },
+  { "text": "Sentences" },
+  { "label": "A", "text": "Through endless tries at the usual exercises…" },
+  { "label": "G", "text": "It takes at least a decade…" }
+],
+"questionGroups": [{
+  "type": "matching-features",
+  "features": [
+    { "id": "a", "name": "Through endless tries…" }
+  ],
+  "questions": [
+    {
+      "number": 37,
+      "type": "matching-features",
+      "prompt": "Gap (37)",
+      "options": [ /* A–G */ ],
+      "answer": "d"
+    }
+  ]
+}]
+```
+
+- `features[].name` = chỉ nội dung câu (không prefix "A.").
+- Đủ 7 câu A–G; 6 gap 37–42; 1 câu thừa.
+
+---
+
+## Part 7 (Q43–52) — Multiple matching
+
+```json
+"passage": [
+  { "label": "A", "text": "…đoạn A…" },
+  { "label": "B", "text": "…đoạn B…" },
+  { "label": "C", "text": "…đoạn C…" },
+  { "label": "D", "text": "…đoạn D…" }
+],
+"questionGroups": [{
+  "type": "matching-features",
+  "features": [
+    { "id": "a", "name": "Paragraph A" },
+    { "id": "b", "name": "Paragraph B" },
+    { "id": "c", "name": "Paragraph C" },
+    { "id": "d", "name": "Paragraph D" }
+  ],
+  "questions": [
+    {
+      "number": 43,
+      "type": "matching-features",
+      "prompt": "states how surprised the writer was…?",
+      "options": [
+        { "id": "A", "label": "Paragraph A" },
+        { "id": "B", "label": "Paragraph B" },
+        { "id": "C", "label": "Paragraph C" },
+        { "id": "D", "label": "Paragraph D" }
+      ],
+      "answer": "a"
+    }
+  ]
+}]
+```
+
+- `passage[].label` = `A`–`D` — app hiển thị **Paragraph A** phía trên đoạn
+- `options[].label` = **Paragraph A** … **Paragraph D** (không chỉ A/B/C/D)
+- Một đoạn A–D có thể là đáp án nhiều câu
+
+---
+
+## Quy tắc bắt buộc
+
+1. Đủ **54 mục** (Q1–52 Reading + Q53–54 Writing).
+2. `passageTitle` mô tả nội dung từng part.
+3. Parts 1–7: `passage[].text` bắt buộc (Highlight). Part 8–9: ảnh JPG hoặc text.
+4. **Phân đoạn theo PDF:** mỗi đoạn văn PDF = 1 block `passage[]` — không gộp `\n\n`. Chi tiết: HDSD/Prompt-Reading-Cambridge.txt
+4. `answer`: MC/matching → chữ thường; gap-fill → từ/cụm từ tiếng Anh.
+5. `explanation`: tiếng Việt ngắn.
+
+## Lỗi thường gặp
+
+| Lỗi | Cách đúng |
+|-----|-----------|
+| Part 1 dùng gap-fill | Part 1 = multiple-choice + 4 options |
+| Part 6 dùng gap-fill | Part 6 = matching-features + câu A–G |
+| Part 6 thiếu câu trong passage | Thêm label A–G sau "Sentences" |
+| Part 7 options chỉ A/B/C/D | label = Paragraph A … Paragraph D |
+| Part 9 tách 3 ảnh | **1 ảnh** part9-page.jpg |
+| Thiếu Part 8–9 | Thêm part8-page.jpg + part9-page.jpg vào ZIP |
+
+## Answer Key — Test 1 (D251/01)
+
+| Part | Đáp án |
+|------|--------|
+| 1 | 1B 2C 3B 4D 5C 6A 7D 8B |
+| 2 | 9where 10so 11myself 12in 13which 14out 15from 16any |
+| 3 | 17producer 18illness 19effective 20scientists 21addition 22pressure 23disadvantage 24spicy |
+| 4 | 25a good idea to go 26talented that he 27if she knew what 28spent a long time 29is said to be 30not call off |
+| 5 | 31C 32D 33C 34A 35D 36A |
+| 6 | 37D 38G 39F 40A 41E 42C |
+| 7 | 43A 44D 45B 46D 47B 48A 49C 50B 51C 52D |
+
+Bundle mẫu: `Tainguyen/fce-reading-test1.zip`
+
+Bắt đầu xử lý file đính kèm.

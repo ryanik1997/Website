@@ -1,26 +1,48 @@
 import { lazy, Suspense, useEffect } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import ProtectedRoute from './features/auth/ProtectedRoute'
+import ProOnlyRoute from './features/auth/ProOnlyRoute'
 import PageFallback from './components/PageFallback'
 import TextSelectionToolbar from './components/TextSelectionToolbar'
 
 const LandingPage    = lazy(() => import('./pages/landing/LandingPage'))
+const LegalPage      = lazy(() => import('./pages/legal/LegalPage'))
 const AuthCallback   = lazy(() => import('./features/auth/AuthCallback'))
 const AppShell       = lazy(() => import('./pages/AppShell'))
 const HomePage       = lazy(() => import('./pages/HomePage'))
-const VocabularyPage = lazy(() => import('./pages/VocabularyPage'))
+/** Retry once if Vite/HMR ever serves an empty module (no default export) → white screen. */
+const VocabularyPage = lazy(async () => {
+  const load = () => import('./pages/VocabularyPage')
+  let mod = await load()
+  if (typeof mod.default !== 'function') {
+    await new Promise(r => setTimeout(r, 50))
+    mod = await load()
+  }
+  if (typeof mod.default !== 'function') {
+    throw new Error('VocabularyPage failed to load (empty module). Hard refresh (Ctrl+Shift+R) or restart pnpm dev.')
+  }
+  return mod
+})
 const WritingLayout        = lazy(() => import('./pages/WritingLayout'))
 const WritingLibraryPage   = lazy(() => import('./pages/WritingLibraryPage'))
 const WritingPracticePage  = lazy(() => import('./pages/WritingPracticePage'))
 const WritingIeltsGenrePage = lazy(() => import('./pages/WritingIeltsGenrePage'))
 const WritingIeltsPracticePage = lazy(() => import('./pages/WritingIeltsPracticePage'))
 const WritingCambridgePage = lazy(() => import('./pages/WritingCambridgePage'))
-const WritingCambridgeGenrePage = lazy(() => import('./pages/WritingCambridgeGenrePage'))
-const WritingCambridgePracticePage = lazy(() => import('./pages/WritingCambridgePracticePage'))
+const WritingCambridgeLevelPage = lazy(() => import('./pages/WritingCambridgeLevelPage'))
+const WritingCambridgeTestPage = lazy(() => import('./pages/WritingCambridgeTestPage'))
+const WritingCambridgeTaskPage = lazy(() => import('./pages/WritingCambridgeTaskPage'))
 const WritingDashboardPage = lazy(() => import('./pages/WritingDashboardPage'))
 const ListeningLayout      = lazy(() => import('./pages/ListeningLayout'))
 const ListeningLibraryPage = lazy(() => import('./features/listening/ListeningLibraryPage'))
 const ListeningLessonPage  = lazy(() => import('./features/listening/ListeningLessonPage'))
+const ShadowingLibraryPage = lazy(() => import('./features/shadowing/ShadowingLibraryPage'))
+const ShadowingLessonPage  = lazy(() => import('./features/shadowing/ShadowingLessonPage'))
+const SpeakingAiPage       = lazy(() => import('./features/speaking-ai/SpeakingAiPage'))
+const ReadingCornerHub     = lazy(() => import('./features/reading-corner/ReadingCornerHub'))
+const BilingualPressPortal = lazy(() => import('./features/reading-corner/BilingualPressPortal'))
+const BilingualBooksPage   = lazy(() => import('./features/reading-corner/BilingualBooksPage'))
+const BookReaderPage       = lazy(() => import('./features/reading-corner/BookReaderPage'))
 const ExamHome = lazy(() => import('./features/exam/ExamHome'))
 const ExamTrackPage = lazy(() => import('./features/exam/ExamTrackPage'))
 const FullMockIntro = lazy(() => import('./features/exam/FullMockIntro'))
@@ -43,6 +65,8 @@ const AdminPage      = lazy(() => import('./features/admin/AdminPage'))
 export default function App() {
   useEffect(() => {
     if (!('serviceWorker' in navigator)) return
+    // Dev: không register SW (tránh can thiệp HMR / module cache → trang trắng).
+    if (import.meta.env.DEV) return
     // Xóa Cache Storage catalog cũ (SW cache-first từng chặn MP3 → NS_ERROR_INTERCEPTION_FAILED trên Firefox)
     if (typeof caches !== 'undefined') {
       void caches.keys().then(keys =>
@@ -65,6 +89,8 @@ export default function App() {
       <Routes>
         {/* Public */}
         <Route path="/" element={<LandingPage />} />
+        <Route path="/terms" element={<LegalPage />} />
+        <Route path="/privacy" element={<LegalPage />} />
         <Route path="/auth/callback" element={<AuthCallback />} />
 
         {/* Protected — toàn bộ app học nằm dưới /app */}
@@ -76,7 +102,10 @@ export default function App() {
             </ProtectedRoute>
           }
         >
-          <Route index element={<Navigate to="/app/vocab" replace />} />
+          <Route path="settings"  element={<SettingsPage />} />
+          <Route path="admin"     element={<AdminPage />} />
+          <Route element={<ProOnlyRoute />}>
+          <Route index element={<Navigate to="/app/home" replace />} />
           <Route path="home"      element={<HomePage />} />
           <Route path="vocab"     element={<VocabularyPage />} />
           <Route path="writing" element={<WritingLayout />}>
@@ -85,8 +114,9 @@ export default function App() {
             <Route path="practice/:track" element={<WritingIeltsGenrePage />} />
             <Route path="practice/:track/:genre" element={<WritingIeltsPracticePage />} />
             <Route path="cambridge" element={<WritingCambridgePage />} />
-            <Route path="cambridge/:level" element={<WritingCambridgeGenrePage />} />
-            <Route path="cambridge/:level/:genre" element={<WritingCambridgePracticePage />} />
+            <Route path="cambridge/:level" element={<WritingCambridgeLevelPage />} />
+            <Route path="cambridge/:level/:testId" element={<WritingCambridgeTestPage />} />
+            <Route path="cambridge/:level/:testId/:taskId" element={<WritingCambridgeTaskPage />} />
             <Route path="dashboard" element={<WritingDashboardPage />} />
             <Route path="translate" element={<TranslationPage />} />
             <Route path="translate/:track" element={<TranslationGenrePage />} />
@@ -95,6 +125,17 @@ export default function App() {
           <Route path="listening" element={<ListeningLayout />}>
             <Route index element={<ListeningLibraryPage />} />
             <Route path=":lessonId" element={<ListeningLessonPage />} />
+          </Route>
+          <Route path="shadowing">
+            <Route index element={<ShadowingLibraryPage />} />
+            <Route path=":videoKey" element={<ShadowingLessonPage />} />
+          </Route>
+          <Route path="speaking-ai" element={<SpeakingAiPage />} />
+          <Route path="reading-corner">
+            <Route index element={<ReadingCornerHub />} />
+            <Route path="bao" element={<BilingualPressPortal />} />
+            <Route path="sach" element={<BilingualBooksPage />} />
+            <Route path="sach/read/:bookId" element={<BookReaderPage />} />
           </Route>
           <Route path="exam">
             <Route index element={<ExamHome />} />
@@ -113,8 +154,7 @@ export default function App() {
           <Route path="sentence-structure" element={<SentenceStructureListPage />} />
           <Route path="sentence-structure/history" element={<SentenceStructureHistoryPage />} />
           <Route path="sentence-structure/:structureId" element={<SentenceStructurePracticePage />} />
-          <Route path="settings"  element={<SettingsPage />} />
-          <Route path="admin"     element={<AdminPage />} />
+          </Route>
         </Route>
 
         {/* OAuth hash lạ (#access_token=...) — tránh màn trống */}

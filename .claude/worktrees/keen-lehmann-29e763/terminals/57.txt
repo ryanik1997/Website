@@ -1,0 +1,81 @@
+---
+pid: 26220
+cwd: "D:\App-English-Ryan\Website"
+command: "$tests = @('IELTS/Listening IELTS_Test1_Cam17','IELTS/Listening IELTS_Test2_Cam17','IELTS/Listening IELTS_Test3_Cam17','IELTS/Listening IELTS_Test4_Cam17','IELTS/Listening IELTS_Test1_Cam18','IELTS/Listening IELTS_Test2_Cam18','IELTS/Listening IELTS_Test3_Cam18','IELTS/Listening IELTS_Test4_Cam18'); $failed = @(); foreach ($t in $tests) { Write-Host \"`n=== $t ===\"; $out = npx vite-node scripts/ielts-listening-bundle.ts validate $t 2>&1 | Out-String; Write-Host $out; if ($out -notmatch 'Không có cảnh báo') { $failed += $t } }; if ($failed.Count) { Write-Host \"`nFAILED/WARNINGS: $($failed -join ', ')\"; exit 1 } else { Write-Host \"`nALL 8 PASSED\" }"
+started_at: 2026-07-03T10:12:08.606Z
+running_for_ms: 15009    
+---
+
+=== IELTS/Listening IELTS_Test1_Cam17 ===
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test1_Cam17
+
+📋 IELTS Listening — Cambridge 17 Test 1
+   Parts: 1, 2, 3, 4 · 40 câu
+
+✓ Không có cảnh báo.
+
+
+=== IELTS/Listening IELTS_Test2_Cam17 ===
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test2_Cam17
+
+📋 IELTS Listening — Cambridge 17 Test 2
+   Parts: 1, 2, 3, 4 · 40 câu
+
+✓ Không có cảnh báo.
+
+
+=== IELTS/Listening IELTS_Test3_Cam17 ===
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test3_Cam17
+
+📋 IELTS Listening — Cambridge 17 Test 3
+   Parts: 1, 2, 3, 4 · 40 câu
+
+✓ Không có cảnh báo.
+
+
+=== IELTS/Listening IELTS_Test4_Cam17 ===
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test4_Cam17
+
+📋 IELTS Listening — Cambridge 17 Test 4
+   Parts: 1, 2, 3, 4 · 40 câu
+
+✓ Không có cảnh báo.
+
+
+=== IELTS/Listening IELTS_Test1_Cam18 ===
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test1_Cam18
+
+📋 IELTS Listening — Cambridge 18 Test 1
+   Parts: 1, 2, 3, 4 · 40 câu
+
+✓ Không có cảnh báo.
+
+
+=== IELTS/Listening IELTS_Test2_Cam18 ===
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test2_Cam18
+
+📋 IELTS Listening — Cambridge 18 Test 2
+   Parts: 1, 2, 3, 4 · 40 câu
+
+✓ Không có cảnh báo.
+
+
+=== IELTS/Listening IELTS_Test3_Cam18 ===
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test3_Cam18
+
+📋 IELTS Listening — Cambridge 18 Test 3
+   Parts: 1, 2, 3, 4 · 40 câu
+
+✓ Không có cảnh báo.
+
+
+=== IELTS/Listening IELTS_Test4_Cam18 ===
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test4_Cam18
+
+📋 IELTS Listening — Cambridge 18 Test 4
+   Parts: 1, 2, 3, 4 · 40 câu
+
+✓ Không có cảnh báo.
+
+
+FAILED/WARNINGS: IELTS/Listening IELTS_Test1_Cam17, IELTS/Listening IELTS_Test2_Cam17, IELTS/Listening IELTS_Test3_Cam17, IELTS/Listening IELTS_Test4_Cam17, IELTS/Listening IELTS_Test1_Cam18, IELTS/Listening IELTS_Test2_Cam18, IELTS/Listening IELTS_Test3_Cam18, IELTS/Listening IELTS_Test4_Cam18

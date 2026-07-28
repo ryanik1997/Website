@@ -5,6 +5,7 @@ import { countWords, getPartQuestions } from '../examData'
 import RwHighlightText from '../rwHighlight/RwHighlightText'
 import RwInstruction from '../rwHighlight/RwInstruction'
 import RwMcRadioQuestion from '../rwHighlight/RwMcRadioQuestion'
+import RwPart5McGap from '../rwHighlight/RwPart5McGap'
 import { rwGapTextSegment } from '../rwHighlight/rwGapTextSegment'
 import { useBlobMediaUrl } from '../useBlobMediaUrl'
 import KetRwSplitPane from '../ketRw/KetRwSplitPane'
@@ -39,76 +40,31 @@ function FcePart7ParagraphBlock({
   partId,
   blockKey,
   label,
+  heading,
   text,
 }: {
   partId: string
   blockKey: string
   label?: string
+  heading?: string
   text: string
 }) {
+  const sectionLabel = /^[A-E]$/i.test(label?.trim() ?? '')
+    ? `${label!.trim().toUpperCase()}.`
+    : label?.trim()
+  const fullHeading = [sectionLabel, heading?.trim()].filter(Boolean).join(' ')
+
   return (
-    <div className="fce-rw-paragraph-block">
-      {label && (
-        <p className="fce-rw-paragraph-heading">
-          <RwHighlightText
-            blockId={`${partId}-${blockKey}-label`}
-            text={formatFceParagraphLabel(label)}
-          />
+    <section className="fce-rw-paragraph-block" data-fce-section={label?.toUpperCase()}>
+      {fullHeading && (
+        <p className="fce-rw-paragraph-heading" data-highlight-skip>
+          {fullHeading}
         </p>
       )}
       <p className="ket-rw-paragraph">
         <RwHighlightText blockId={`${partId}-${blockKey}-text`} text={text} />
       </p>
-    </div>
-  )
-}
-
-function InlineMcGap({
-  number,
-  question,
-  value,
-  open,
-  onToggle,
-  onSelect,
-}: {
-  number: number
-  question?: ReadingQuestion
-  value: string
-  open: boolean
-  onToggle: () => void
-  onSelect: (optionId: string) => void
-}) {
-  const selectedLabel = question?.options.find(
-    o => o.id.toLowerCase() === value.toLowerCase(),
-  )?.label
-  return (
-    <span className="ket-rw-gap-mc">
-      <button
-        type="button"
-        className={`ket-rw-gap-mc__btn${open ? ' is-open' : ''}${value ? ' is-filled' : ''}`}
-        data-highlight-skip
-        onClick={onToggle}
-      >
-        <span>{number}</span>
-        {selectedLabel && <span className="ket-rw-gap-mc__value">{selectedLabel}</span>}
-      </button>
-      {open && question && (
-        <div className="ket-rw-gap-mc__menu" role="listbox">
-          {question.options.map(opt => (
-            <button
-              key={opt.id}
-              type="button"
-              role="option"
-              className={`ket-rw-gap-mc__option${value === opt.id ? ' is-selected' : ''}`}
-              data-highlight-skip
-              onClick={() => onSelect(opt.id)}
-            >
-              {opt.label}
-            </button>
-          ))}
-        </div>
-      )}
-    </span>
+    </section>
   )
 }
 
@@ -148,6 +104,7 @@ function InlineGapDrop({
   bank,
   pickedId,
   onAssign,
+  onClear,
   onSelectQuestion,
 }: {
   number: number
@@ -156,15 +113,24 @@ function InlineGapDrop({
   bank: Array<{ id: string; label: string }>
   pickedId: string | null
   onAssign: (questionId: string, optionId: string) => void
+  onClear: (questionId: string) => void
   onSelectQuestion: (id: string) => void
 }) {
   const item = bank.find(b => b.id.toLowerCase() === value.toLowerCase())
+  const [isOver, setIsOver] = useState(false)
   return (
     <span className="pet-rw-inline-gap">
       <button
         type="button"
-        className={`pet-rw-drag__slot pet-rw-drag__slot--inline${value ? ' is-filled' : ''}`}
+        className={`pet-rw-drag__slot pet-rw-drag__slot--inline${value ? ' is-filled' : ''}${isOver ? ' is-over' : ''}`}
         data-highlight-skip
+        aria-label={
+          item
+            ? `Gap ${number}, answer ${item.id}`
+            : pickedId
+              ? `Gap ${number}, place ${pickedId} here`
+              : `Gap ${number}, empty`
+        }
         onClick={() => {
           if (pickedId) {
             onAssign(question.id, pickedId)
@@ -172,9 +138,12 @@ function InlineGapDrop({
           }
           onSelectQuestion(question.id)
         }}
+        onDragEnter={() => setIsOver(true)}
+        onDragLeave={() => setIsOver(false)}
         onDragOver={e => e.preventDefault()}
         onDrop={e => {
           e.preventDefault()
+          setIsOver(false)
           const opt = e.dataTransfer.getData('text/plain')
           if (opt) onAssign(question.id, opt)
         }}
@@ -186,6 +155,17 @@ function InlineGapDrop({
           <span className="pet-rw-drag__slot-placeholder">…</span>
         )}
       </button>
+      {item && (
+        <button
+          type="button"
+          className="pet-rw-drag__slot-clear"
+          data-highlight-skip
+          aria-label={`Clear gap ${number}`}
+          onClick={() => onClear(question.id)}
+        >
+          ×
+        </button>
+      )}
     </span>
   )
 }
@@ -305,7 +285,7 @@ export default function FceRwPartContent({
           if (!q) return <span key={`g-${i}`}>({seg.number})</span>
           const ans = answers[q.id] ?? ''
           return (
-            <InlineMcGap
+            <RwPart5McGap
               key={`g-${seg.number}`}
               number={seg.number}
               question={q}
@@ -315,10 +295,12 @@ export default function FceRwPartContent({
                 onSelectQuestion(q.id)
                 setOpenGap(openGap === seg.number ? null : seg.number)
               }}
+              onClose={() => setOpenGap(null)}
               onSelect={optId => {
                 onAnswer(q.id, optId)
                 setOpenGap(null)
               }}
+              disabled={reviewMode}
             />
           )
         })}
@@ -393,6 +375,7 @@ export default function FceRwPartContent({
               bank={bank}
               pickedId={pickedBankId}
               onAssign={assignGapLetter}
+              onClear={id => onAnswer(id, '')}
               onSelectQuestion={onSelectQuestion}
             />
           )
@@ -432,6 +415,11 @@ export default function FceRwPartContent({
             <h2 className="ket-rw-passage-title">
               <RwHighlightText blockId={`${partId}-title`} text={part.passageTitle ?? ''} />
             </h2>
+            {part.passageSubtitle && (
+              <p className="ket-rw-paragraph" data-testid="fce-part2-example">
+                <RwHighlightText blockId={`${partId}-example`} text={`Example: ${part.passageSubtitle}`} />
+              </p>
+            )}
             {bodyBlocks.map((block, idx) => (
               <div key={`p2-${idx}`} className="ket-rw-paragraph">
                 {renderOpenGapPassage(`p2-${idx}`, block.text ?? '', questions)}
@@ -508,7 +496,10 @@ export default function FceRwPartContent({
               </p>
             ))}
             {questions.map(q => {
-              const { sentence1, stem, sentence2 } = parseTransformationPrompt(q.prompt)
+              const parsed = parseTransformationPrompt(q.prompt)
+              const sentence1 = q.sourceSentence ?? parsed.sentence1
+              const stem = q.keyword ?? parsed.stem
+              const sentence2 = q.targetSentence ?? parsed.sentence2
               const value = answers[q.id] ?? ''
               const isActive = activeQuestionId === q.id
               return (
@@ -604,21 +595,20 @@ export default function FceRwPartContent({
                 )
                 const isPicked = pickedBankId === option.id
                 return (
-                  <div
+                  <button
                     key={option.id}
+                    type="button"
                     className={`pet-rw-drag__bank-card${isUsed ? ' is-used' : ''}${isPicked ? ' is-picked' : ''}`}
                     data-highlight-skip
-                    draggable={!isUsed}
+                    aria-pressed={isPicked}
+                    aria-label={`Option ${option.id}${isUsed ? ', already placed' : ''}${isPicked ? ', picked — now choose a gap' : ''}`}
+                    draggable
                     onDragStart={e => {
-                      if (isUsed) return
                       e.dataTransfer.setData('text/plain', option.id)
                     }}
                     onClick={() => {
-                      if (isUsed) return
                       setPickedBankId(pickedBankId === option.id ? null : option.id)
                     }}
-                    role="button"
-                    tabIndex={isUsed ? -1 : 0}
                   >
                     <span className="pet-rw-drag__bank-letter">{option.id}</span>
                     <p className="pet-rw-drag__bank-text">
@@ -627,7 +617,7 @@ export default function FceRwPartContent({
                         text={option.label}
                       />
                     </p>
-                  </div>
+                  </button>
                 )
               })}
             </div>
@@ -653,6 +643,7 @@ export default function FceRwPartContent({
                   partId={partId}
                   blockKey={`p7-${idx}`}
                   label={block.label}
+                  heading={block.heading}
                   text={block.text ?? ''}
                 />
               ))}

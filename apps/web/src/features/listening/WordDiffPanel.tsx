@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { buildWordDiff } from './practiceUtils'
 
 interface Props {
@@ -5,9 +6,30 @@ interface Props {
   correct: string
 }
 
+function maskDots(word: string): string {
+  const clean = word.replace(/[^a-zA-Z0-9'-]/g, '')
+  return '●'.repeat(Math.max(2, Math.min(clean.length, 9)))
+}
+
 export default function WordDiffPanel({ input, correct }: Props) {
   const items = buildWordDiff(input, correct)
+  const [open, setOpen] = useState<Set<number>>(() => new Set())
+
+  // Reset peeks when the target sentence changes
+  useEffect(() => {
+    setOpen(new Set())
+  }, [correct])
+
   if (!correct) return null
+
+  function toggle(i: number) {
+    setOpen(prev => {
+      const next = new Set(prev)
+      if (next.has(i)) next.delete(i)
+      else next.add(i)
+      return next
+    })
+  }
 
   return (
     <div
@@ -15,14 +37,6 @@ export default function WordDiffPanel({ input, correct }: Props) {
       style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-color)' }}
     >
       {items.map((item, i) => {
-        if (item.status === 'masked') {
-          const dots = '●'.repeat(Math.max(2, Math.min(item.word.replace(/[^a-zA-Z0-9'-]/g, '').length, 9)))
-          return (
-            <span key={i} className="text-sm font-medium" style={{ color: 'var(--text-muted)' }}>
-              {dots}{item.punct}
-            </span>
-          )
-        }
         if (item.status === 'correct') {
           return (
             <span
@@ -37,19 +51,29 @@ export default function WordDiffPanel({ input, correct }: Props) {
             </span>
           )
         }
-        const dots = '●'.repeat(Math.max(2, Math.min(item.word.replace(/[^a-zA-Z0-9'-]/g, '').length, 9)))
+
+        const revealed = open.has(i)
+        const isWrong = item.status === 'wrong'
+        const accent = isWrong ? 'var(--color-accent)' : 'var(--text-muted)'
+        const bg = isWrong
+          ? 'color-mix(in srgb, var(--color-accent) 15%, transparent)'
+          : 'var(--bg-card)'
+
         return (
-          <span
+          <button
             key={i}
-            className="px-2 py-0.5 rounded-md text-sm font-medium"
-            title={item.word}
+            type="button"
+            onClick={() => toggle(i)}
+            title={revealed ? 'Bấm để ẩn đáp án' : 'Bấm để xem đáp án'}
+            className="px-2 py-0.5 rounded-md text-sm font-medium cursor-pointer transition-opacity hover:opacity-80"
             style={{
-              background: 'color-mix(in srgb, var(--color-accent) 15%, transparent)',
-              color: 'var(--color-accent)',
+              background: bg,
+              color: accent,
+              border: revealed ? `1px solid ${accent}` : '1px solid transparent',
             }}
           >
-            {dots}{item.punct}
-          </span>
+            {revealed ? item.word : `${maskDots(item.word)}${item.punct}`}
+          </button>
         )
       })}
     </div>

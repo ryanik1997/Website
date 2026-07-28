@@ -22,8 +22,9 @@ export const writingRepo = {
     prompt: string,
     promptImage?: string,
     genre?: WritingGenre,
+    sourceMeta?: WritingDoc['sourceMeta'],
   ): Promise<WritingDoc> {
-    const doc: WritingDoc = { id: uid(), type, genre, prompt, text: '', promptImage, updatedAt: now() }
+    const doc: WritingDoc = { id: uid(), type, genre, prompt, text: '', promptImage, sourceMeta, updatedAt: now() }
     await db.writingDocs.add(doc)
     return doc
   },

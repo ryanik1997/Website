@@ -1,0 +1,211 @@
+/* Thư viện Writing — một nền theme, thẻ accent giữ màu brand */
+
+.writing-library {
+  flex: 1;
+  min-height: 100%;
+  overflow-y: auto;
+  padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 3vw, 2.5rem);
+  background: var(--bg-primary);
+}
+
+.writing-library-inner {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.writing-library-title {
+  text-align: center;
+  font-size: clamp(1.75rem, 4vw, 2.35rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 clamp(1.75rem, 4vw, 2.5rem);
+  color: var(--text-primary);
+}
+
+.writing-library-title .wr-accent {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.writing-library-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.writing-library-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr minmax(140px, 38%);
+  align-items: stretch;
+  min-height: 168px;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--border-color) 35%, transparent);
+  box-shadow: 0 8px 28px color-mix(in srgb, var(--bg-primary) 55%, transparent);
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.writing-library-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px color-mix(in srgb, var(--bg-primary) 65%, transparent);
+}
+
+.writing-library-card:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.writing-library-card-body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 1.5rem 1.65rem;
+}
+
+.writing-library-card-title {
+  margin: 0;
+  font-size: clamp(1.35rem, 3vw, 1.85rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: #fff;
+}
+
+.writing-library-card-desc {
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: color-mix(in srgb, #fff 88%, transparent);
+  max-width: 36rem;
+}
+
+.writing-library-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  align-self: flex-start;
+  margin-top: 0.35rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 9999px;
+  border: none;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.15s;
+}
+
+.writing-library-card:hover .writing-library-card-cta {
+  transform: translateX(2px);
+}
+
+.writing-library-card-art {
+  position: relative;
+  overflow: hidden;
+  min-height: 100%;
+  background: transparent;
+}
+
+/* Một gradient cho cả thẻ — vùng art chỉ là họa tiết */
+.writing-library-card--translate {
+  background: linear-gradient(135deg, #3d9a5f 0%, #2f7a4a 50%, #256b40 100%);
+}
+
+.writing-library-card--translate .writing-library-card-cta {
+  background: color-mix(in srgb, #1a4d30 75%, transparent);
+}
+
+.writing-library-card--practice {
+  background: linear-gradient(135deg, #e89545 0%, #d97a2e 50%, #c56a22 100%);
+}
+
+.writing-library-card--practice .writing-library-card-cta {
+  background: color-mix(in srgb, #8f4518 70%, transparent);
+}
+
+.writing-library-card--cambridge {
+  background: linear-gradient(135deg, #4a7fd4 0%, #3568b8 50%, #2a5299 100%);
+}
+
+.writing-library-card--cambridge .writing-library-card-cta {
+  background: color-mix(in srgb, #1a3560 70%, transparent);
+}
+
+.writing-library-card--dashboard {
+  background: linear-gradient(135deg, #6b5b95 0%, #5a4a82 50%, #4a3d6e 100%);
+}
+
+.writing-library-card--dashboard .writing-library-card-cta {
+  background: color-mix(in srgb, #2d2448 70%, transparent);
+}
+
+/* Geometric deco */
+.wr-deco {
+  position: absolute;
+  border-radius: 9999px;
+  opacity: 0.55;
+}
+
+.wr-deco--1 {
+  width: 88px;
+  height: 88px;
+  top: 18%;
+  right: 22%;
+  background: color-mix(in srgb, #fff 22%, transparent);
+}
+
+.wr-deco--2 {
+  width: 56px;
+  height: 56px;
+  top: 52%;
+  right: 48%;
+  background: color-mix(in srgb, #fff 14%, transparent);
+}
+
+.wr-deco--3 {
+  width: 120px;
+  height: 120px;
+  bottom: -20%;
+  right: 8%;
+  background: color-mix(in srgb, #000 18%, transparent);
+  border-radius: 1.5rem;
+  transform: rotate(18deg);
+}
+
+.wr-deco--4 {
+  width: 72px;
+  height: 72px;
+  top: 8%;
+  right: 55%;
+  border-radius: 0.75rem;
+  background: color-mix(in srgb, #fff 10%, transparent);
+  transform: rotate(-12deg);
+}
+
+.wr-deco--5 {
+  width: 100px;
+  height: 100px;
+  bottom: 10%;
+  right: 30%;
+  border: 3px solid color-mix(in srgb, #fff 20%, transparent);
+  background: transparent;
+}
+
+@media (max-width: 640px) {
+  .writing-library-card {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .writing-library-card-art {
+    min-height: 100px;
+  }
+}

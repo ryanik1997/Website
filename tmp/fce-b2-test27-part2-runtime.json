@@ -1,0 +1,31 @@
+{
+  "capturedAt": "2026-07-28T08:02:26.801Z",
+  "examUrl": "http://127.0.0.1:5174/app/exam/reading/catalog-reading-fce-b2-test27",
+  "title": "Shakespeare: the mysteries and the facts",
+  "example": "ALSO",
+  "inputCount": 8,
+  "submittedAnswers": {
+    "9": "has",
+    "10": "up",
+    "11": "think",
+    "12": "while",
+    "13": "for",
+    "14": "put",
+    "15": "difference",
+    "16": "majority"
+  },
+  "expectedScore": "8/52",
+  "browserLogs": [
+    "[debug] [vite] connecting...",
+    "[info] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold",
+    "[warning] ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.",
+    "[warning] ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.",
+    "[debug] [vite] connected.",
+    "[debug] [vite] connecting...",
+    "[debug] [vite] connected.",
+    "[info] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold",
+    "[warning] ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.",
+    "[warning] ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath."
+  ],
+  "screenshotPath": "tmp/fce-b2-test27-part2-runtime.png"
+}

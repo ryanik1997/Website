@@ -1,0 +1,64 @@
+---
+pid: 34324
+cwd: "D:\App-English-Ryan\Website"
+command: "Set-Location D:\\App-English-Ryan\\Website; pnpm dev:server"
+started_at: 2026-06-30T11:45:06.765Z
+running_for_ms: 19720013 
+---
+
+> ryan-english@ dev:server D:\App-English-Ryan\Website
+> pnpm --filter server dev
+
+
+> server@0.1.0 dev D:\App-English-Ryan\Website\server
+> tsx watch src/index.ts
+
+[local-tts] stub server listening on http://localhost:8787
+[local-tts] health: http://localhost:8787/api/tts/health
+6:46:26 PM [tsx] change in ./src\index.ts Restarting...
+[local-tts] listening on http://localhost:8787
+[local-tts] health: http://localhost:8787/api/tts/health
+[local-tts] python: C:\Users\ADMIN\AppData\Local\Programs\Python\Python312\python.exe
+[local-tts] cache: D:\App-English-Ryan\Website\server\.cache\tts
+[local-tts] kokoro target: http://127.0.0.1:8788
+[kokoro] Ryan English Kokoro TTS server running at http://127.0.0.1:8788
+[kokoro:err] C:\Users\ADMIN\AppData\Local\Programs\Python\Python312\Lib\site-packages\huggingface_hub\file_download.py:138: UserWarning: `huggingface_hub` cache-system uses symlinks by default to efficiently store duplicated files but your machine does not support them in D:\App-English-Ryan\Website\server\.cache\huggingface\hub\models--hexgrad--Kokoro-82M. Caching files will still work but in a degraded version that might require more space on your disk. This warning can be disabled by setting the `HF_HUB_DISABLE_SYMLINKS_WARNING` environment variable. For more details, see https://huggingface.co/docs/huggingface_hub/how-to-cache#limitations.
+To support symlinks on Windows, you either need to activate Developer Mode or to run Python as an administrator. In order to activate developer mode, see this article: https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
+  warnings.warn(message)
+[kokoro:err] C:\Users\ADMIN\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\nn\modules\rnn.py:1009: UserWarning: dropout option adds dropout after all but last recurrent layer, so non-zero dropout expects num_layers greater than 1, but got dropout=0.2 and num_layers=1
+  super().__init__("LSTM", *args, **kwargs)
+[kokoro:err] C:\Users\ADMIN\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\nn\utils\weight_norm.py:144: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+[kokoro:err] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+6:49:18 PM [tsx] change in ./src\config.ts Restarting...
+[local-tts] listening on http://localhost:8787
+[local-tts] health: http://localhost:8787/api/tts/health
+[local-tts] python: C:\Users\ADMIN\AppData\Local\Programs\Python\Python312\python.exe
+[local-tts] cache: D:\App-English-Ryan\Website\server\.cache\tts
+[kokoro] Ryan English Kokoro TTS server running at http://127.0.0.1:8788
+[local-tts] kokoro target: http://127.0.0.1:8788
+[kokoro:err] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[kokoro:err] C:\Users\ADMIN\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\nn\modules\rnn.py:1009: UserWarning: dropout option adds dropout after all but last recurrent layer, so non-zero dropout expects num_layers greater than 1, but got dropout=0.2 and num_layers=1
+  super().__init__("LSTM", *args, **kwargs)
+[kokoro:err] C:\Users\ADMIN\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\nn\utils\weight_norm.py:144: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+[kokoro:err] C:\Users\ADMIN\AppData\Local\Programs\Python\Python312\Lib\site-packages\huggingface_hub\file_download.py:138: UserWarning: `huggingface_hub` cache-system uses symlinks by default to efficiently store duplicated files but your machine does not support them in D:\App-English-Ryan\Website\server\.cache\huggingface\hub\models--hexgrad--Kokoro-82M. Caching files will still work but in a degraded version that might require more space on your disk. This warning can be disabled by setting the `HF_HUB_DISABLE_SYMLINKS_WARNING` environment variable. For more details, see https://huggingface.co/docs/huggingface_hub/how-to-cache#limitations.
+To support symlinks on Windows, you either need to activate Developer Mode or to run Python as an administrator. In order to activate developer mode, see this article: https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
+  warnings.warn(message)
+[kokoro] Ryan English Kokoro warmup OK: b
+6:55:21 PM [tsx] change in ./src\index.ts Restarting...
+[local-tts] listening on http://localhost:8787
+[local-tts] health: http://localhost:8787/api/tts/health
+[local-tts] python: C:\Users\ADMIN\AppData\Local\Programs\Python\Python312\python.exe
+[local-tts] cache: D:\App-English-Ryan\Website\server\.cache\tts
+[kokoro] Ryan English Kokoro TTS server running at http://127.0.0.1:8788
+[local-tts] kokoro target: http://127.0.0.1:8788
+[kokoro:err] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[kokoro:err] C:\Users\ADMIN\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\nn\modules\rnn.py:1009: UserWarning: dropout option adds dropout after all but last recurrent layer, so non-zero dropout expects num_layers greater than 1, but got dropout=0.2 and num_layers=1
+  super().__init__("LSTM", *args, **kwargs)
+[kokoro:err] C:\Users\ADMIN\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\nn\utils\weight_norm.py:144: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+[kokoro] Ryan English Kokoro warmup OK: b
+[kokoro:err] C:\Users\ADMIN\AppData\Local\Programs\Python\Python312\Lib\site-packages\huggingface_hub\file_download.py:138: UserWarning: `huggingface_hub` cache-system uses symlinks by default to efficiently store duplicated files but your machine does not support them in D:\App-English-Ryan\Website\server\.cache\huggingface\hub\models--hexgrad--Kokoro-82M. Caching files will still work but in a degraded version that might require more space on your disk. This warning can be disabled by setting the `HF_HUB_DISABLE_SYMLINKS_WARNING` environment variable. For more details, see https://huggingface.co/docs/huggingface_hub/how-to-cache#limitations.
+To support symlinks on Windows, you either need to activate Developer Mode or to run Python as an administrator. In order to activate developer mode, see this article: https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
+  warnings.warn(message)

@@ -1,0 +1,90 @@
+{
+  "provenance": {
+    "origin": "ai-generated",
+    "generatedFields": [
+      "questions"
+    ],
+    "sourceTestNumber": 17,
+    "appTestNumber": 18,
+    "model": "bootstrap-v1",
+    "generatedAt": "2026-07-27T15:12:03.259Z",
+    "promptHash": "bootstrap-test17-part4",
+    "confidence": 85,
+    "reviewed": false
+  },
+  "inputHash": "bootstrap-test17-part4",
+  "promptVersion": "1.0",
+  "model": "bootstrap-v1",
+  "generatedAt": "2026-07-27T15:12:03.259Z",
+  "repair": {
+    "questions": [
+      {
+        "number": 25,
+        "type": "gap-fill",
+        "prompt": "Some schools were closed for a couple of days because of the heavy snow. The heavy snow LED ->  The heavy snow .....",
+        "sourceSentence": "Some schools were closed for a couple of days because of the heavy snow. The heavy snow",
+        "keyword": "LED",
+        "targetSentence": " The heavy snow .....",
+        "answer": "led to the",
+        "explanation": "Rewrite using \"LED\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 26,
+        "type": "gap-fill",
+        "prompt": "Steve doesn’t take much notice of the weather forecast. Steve doesn’t ATTENTION ->  Steve doesn’t .....",
+        "sourceSentence": "Steve doesn’t take much notice of the weather forecast. Steve doesn’t",
+        "keyword": "ATTENTION",
+        "targetSentence": " Steve doesn’t .....",
+        "answer": "attention to the",
+        "explanation": "Rewrite using \"ATTENTION\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 27,
+        "type": "gap-fill",
+        "prompt": "John wishes he had taken an umbrella to work this morning. John TAKING ->  John .....",
+        "sourceSentence": "John wishes he had taken an umbrella to work this morning. John",
+        "keyword": "TAKING",
+        "targetSentence": " John .....",
+        "answer": "taking part in",
+        "explanation": "Rewrite using \"TAKING\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 28,
+        "type": "gap-fill",
+        "prompt": "Donna said that apart from Friday, every day last week had been really hot. Donna said that EXCEPTION ->  Donna said that .....",
+        "sourceSentence": "Donna said that apart from Friday, every day last week had been really hot. Donna said that",
+        "keyword": "EXCEPTION",
+        "targetSentence": " Donna said that .....",
+        "answer": "exception to the",
+        "explanation": "Rewrite using \"EXCEPTION\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 29,
+        "type": "gap-fill",
+        "prompt": "This is the worst weather we’ve ever had in July. We’ve AS ->  We’ve .....",
+        "sourceSentence": "This is the worst weather we’ve ever had in July. We’ve",
+        "keyword": "AS",
+        "targetSentence": " We’ve .....",
+        "answer": "as well as",
+        "explanation": "Rewrite using \"AS\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 30,
+        "type": "gap-fill",
+        "prompt": "I’m sure it was unbearably hot where you were staying. The MUST ->  The .....",
+        "sourceSentence": "I’m sure it was unbearably hot where you were staying. The",
+        "keyword": "MUST",
+        "targetSentence": " The .....",
+        "answer": "must have been",
+        "explanation": "Rewrite using \"MUST\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      }
+    ]
+  },
+  "status": "generated"
+}

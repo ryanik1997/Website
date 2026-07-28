@@ -1,0 +1,682 @@
+{
+  "version": 1,
+  "title": "PET B1 Reading — Test 5",
+  "durationMinutes": 45,
+  "bandHint": "B1 Preliminary Reading",
+  "examTrack": "cambridge",
+  "cambridgeLevel": "b1",
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–5",
+      "passageTitle": "Part 1 — Signs and messages",
+      "passage": [
+        {
+          "imageFile": "part1-q1.webp"
+        },
+        {
+          "imageFile": "part1-q2.webp"
+        },
+        {
+          "imageFile": "part1-q3.webp"
+        },
+        {
+          "imageFile": "part1-q4.webp"
+        },
+        {
+          "imageFile": "part1-q5.webp"
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 1–5",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 1,
+              "type": "multiple-choice",
+              "prompt": "",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Oscar has already bought all the ingredients except cheese."
+                },
+                {
+                  "id": "B",
+                  "label": "Oscar wants to know what kind of cheese to buy for the pasta."
+                },
+                {
+                  "id": "C",
+                  "label": "Oscar needs someone to help him cook the meal this evening."
+                }
+              ],
+              "answer": "a",
+              "explanation": "Oscar says he is making pasta and lists what he needs by saying 'Can you grab some cheese? I've got everything else.' This tells us cheese is the only missing ingredient. Option B misses the point because Oscar does not ask for advice on cheese type. Option C is incorrect because Oscar is happy to cook alone; he just needs an ingredient brought home."
+            },
+            {
+              "number": 2,
+              "type": "multiple-choice",
+              "prompt": "",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Alice will wait until 7:30 to hear whether her friend is coming."
+                },
+                {
+                  "id": "B",
+                  "label": "Alice has already reserved a place at a restaurant."
+                },
+                {
+                  "id": "C",
+                  "label": "Alice wants to know if her friend prefers a different restaurant."
+                }
+              ],
+              "answer": "b",
+              "explanation": "Alice says she has 'booked a table,' which means she has already made a reservation. Option A misses the deadline of 6 p.m. that Alice gives; she needs to know by then, not by the meal time itself. Option C is incorrect because Alice has already chosen the restaurant and does not ask for other suggestions."
+            },
+            {
+              "number": 3,
+              "type": "multiple-choice",
+              "prompt": "",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Guests can eat breakfast later on Saturdays and Sundays."
+                },
+                {
+                  "id": "B",
+                  "label": "Breakfast is not available on weekday mornings."
+                },
+                {
+                  "id": "C",
+                  "label": "Guests are welcome to take food back to their rooms."
+                }
+              ],
+              "answer": "a",
+              "explanation": "The sign states that breakfast is available until 10:30 a.m. at weekends, which is an hour later than on weekdays. This means guests can eat later on Saturdays and Sundays. Option B contradicts the first line. Option C is the opposite of the final instruction not to remove food."
+            },
+            {
+              "number": 4,
+              "type": "multiple-choice",
+              "prompt": "",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "You will have to pay if you cancel on the day of the appointment."
+                },
+                {
+                  "id": "B",
+                  "label": "You can change your appointment up to the day before without any charge."
+                },
+                {
+                  "id": "C",
+                  "label": "The dentist is asking you to confirm that you will attend on Friday."
+                }
+              ],
+              "answer": "b",
+              "explanation": "The email says to contact them at least 24 hours before to rearrange, and that a charge 'may apply for late cancellations.' This implies that cancelling with more than 24 hours' notice is free. Option A is not necessarily true; a charge 'may' apply, but it is not certain. Option C is incorrect because the email is a reminder, not a request for confirmation."
+            },
+            {
+              "number": 5,
+              "type": "multiple-choice",
+              "prompt": "",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "The biscuits must be kept in a fridge after the packet is opened."
+                },
+                {
+                  "id": "B",
+                  "label": "The biscuits should not be eaten after the middle of September."
+                },
+                {
+                  "id": "C",
+                  "label": "You should put the biscuits in a sealed container after opening."
+                }
+              ],
+              "answer": "c",
+              "explanation": "The label says to keep the biscuits in an airtight container after opening, which is a sealed container. Option A is incorrect because the fridge is not mentioned. Option B is incorrect because 'best before' is about quality, not safety, and does not mean they cannot be eaten after September."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "rangeLabel": "Questions 6–10",
+      "passageTitle": "Part 2 — Matching people",
+      "passage": [],
+      "questionGroups": [
+        {
+          "range": "Questions 6–10",
+          "type": "matching-features",
+          "features": [
+            {
+              "id": "A",
+              "label": "The Last Letter"
+            },
+            {
+              "id": "B",
+              "label": "Mission: Impossible Again"
+            },
+            {
+              "id": "C",
+              "label": "The Long Walk Home"
+            },
+            {
+              "id": "D",
+              "label": "Saturday Morning Kids' Club"
+            },
+            {
+              "id": "E",
+              "label": "Talk of the Town"
+            },
+            {
+              "id": "F",
+              "label": "Chase the Horizon"
+            },
+            {
+              "id": "G",
+              "label": "The Old Fire Station Café"
+            },
+            {
+              "id": "H",
+              "label": "Midnight in Paris: Director's Cut"
+            }
+          ],
+          "questions": [
+            {
+              "number": 6,
+              "type": "matching-features",
+              "prompt": "Michael wants to take his two children, aged 9 and 12, to see a film on Saturday afternoon. He is looking for something the whole family can enjoy together. The children get bored easily, so the film needs to be fast-moving and entertaining. He would prefer something with a positive message.",
+              "answer": "g",
+              "explanation": "Michael needs a family film for a Saturday afternoon that is fast-moving and entertaining for children aged 9 and 12, with a positive message. Chase the Horizon is an animated adventure with a quick pace, humour for both adults and children, and a message about believing in yourself. It screens at 2 p.m. and 4:30 p.m. on Saturdays. Option D is also for families and has a positive tone, but it is aimed at very young children and screens only on Saturday mornings, not afternoons. Its simple story would not hold the attention of a twelve-year-old."
+            },
+            {
+              "number": 7,
+              "type": "matching-features",
+              "prompt": "Leila is a university student who loves old films. She is particularly interested in cinema from the 1960s and 1970s. She doesn't mind subtitles, as she enjoys films from different countries. She is free on weekday evenings and has a limited budget.",
+              "answer": "h",
+              "explanation": "Leila wants an old film, particularly from the 1960s or 1970s, and she enjoys foreign cinema with subtitles. Midnight in Paris is a restored classic from 1964, it is French with English subtitles, and it screens on weekday evenings. The student ticket price of £5.50 suits her budget. Option A is also a foreign language film with a student discount, but it is a modern drama set in the 1950s, not a film made in the period Leila loves."
+            },
+            {
+              "number": 8,
+              "type": "matching-features",
+              "prompt": "Dev and his friends are looking for something to do on Friday night. They want a film that is funny, and they enjoy clever dialogue more than silly jokes. They would like to go somewhere they can eat afterwards without travelling far. One of them uses a wheelchair.",
+              "answer": "e",
+              "explanation": "Dev wants a funny film on Friday night with clever dialogue, not silly jokes. Talk of the Town is a witty comedy about rival journalists with fast, sharp dialogue. The cinema is wheelchair accessible, which is essential because one of Dev's friends uses a wheelchair. It also shares a building with a pizza restaurant, so they can eat afterwards without travelling far. Option H is also a comedy and screens on weekdays, but it is a French film from the 1960s with visual jokes rather than clever dialogue. The film only screens Monday to Thursday, so it is not available on Friday night."
+            },
+            {
+              "number": 9,
+              "type": "matching-features",
+              "prompt": "Ana is a secondary school teacher who wants to take her GCSE history class on a cinema trip. The film needs to connect to topics they have studied, such as World War II or the Cold War. It must be suitable for fifteen-year-olds. She needs a screening during school hours.",
+              "answer": "c",
+              "explanation": "Ana needs a film connected to World War II or the Cold War for a GCSE history class. The Long Walk Home is about the Berlin airlift of 1948, which is a Cold War topic. It is rated 12A, so it is suitable for fifteen-year-olds, and it offers special school screenings at 10:30 a.m. on weekdays. Option A is set in the 1950s but is not connected to the history curriculum in the same way. No other film offers a school-hours screening or a direct curriculum link."
+            },
+            {
+              "number": 10,
+              "type": "matching-features",
+              "prompt": "Hassan wants to see something on Sunday evening that will stay with him afterwards. He enjoys films that make him think deeply about life. He does not mind slow storytelling, as long as the characters feel real. He is happy to watch films from any country. ABCDEFGH A. The Last Letter A powerful drama set in rural Japan in the 1950s. When a young woman receives a letter from a stranger, she is forced to confront a family secret that changes everything. Beautifully acted and filmed, this is a quiet, thoughtful story about memory and forgiveness. Japanese with English subtitles. Rated 12A. Screens daily at 5 p.m. and 8 p.m. Tickets £9, students £6. B. Mission: Impossible Again The latest entry in this long-running action series. A retired agent is pulled back into duty when an old enemy reappears. Packed with chase scenes, explosions and narrow escapes. Critics say it is entertaining but not very original. Rated 12A. Screens daily at 2 p.m., 5 p.m. and 8 p.m. Tickets £11, children £8. Running time: 2 hours 20 minutes. C. The Long Walk Home A historical drama based on true events during the Berlin airlift of 1948. When the city is cut off, an ordinary pilot makes an extraordinary decision to help those in need. Educational resources are available for schools. Rated 12A. Special school screenings available Monday to Friday at 10:30 a.m. with group discounts. Public screenings daily at 6 p.m. Tickets £10, school groups £5 per student. D. Saturday Morning Kids' Club This week: a colourful animated adventure about a robot who dreams of becoming a chef. Light-hearted and full of songs, with a simple story suitable for very young viewers. Rated U. Saturdays only at 10 a.m. Tickets £4 per person, accompanying adults go free. Running time: 70 minutes. The cinema café opens at 9 a.m. for snacks and drinks. E. Talk of the Town A sharp, witty comedy about two rival journalists who are forced to share an office. The dialogue is fast and full of clever humour. Set in modern-day London. Rated 15. Screens Friday and Saturday at 6 p.m. and 9 p.m. The cinema is fully wheelchair accessible and shares a building with a popular pizza restaurant. Tickets £10. F. Chase the Horizon An animated family film about a young girl who builds a flying machine and sets off to find a lost city. Full of colour, humour and adventure, with a strong message about believing in yourself. The pace is quick, and there are jokes for adults as well as children. Rated PG. Screens daily at 11 a.m., 2 p.m. and 4:30 p.m. Tickets £10, children £7. G. The Old Fire Station Café A friendly, informal café on two floors of a converted fire station. The ground floor has sofas and small tables, while the upper floor has larger tables for groups. Simple food is served all day: soups, salads, sandwiches. Open Monday to Saturday 8 a.m. – 6 p.m., Sunday 10 a.m. – 4 p.m. No booking. Prices are moderate. The upper floor is accessed by stairs only. H. Midnight in Paris: Director's Cut A restored version of a classic 1964 French comedy about a group of friends who get lost on a road trip. Filled with visual jokes and charming performances. French with English subtitles. Screens Monday to Thursday at 6:15 p.m. This is a limited run, so booking is advised. Tickets £8, students £5.50. The cinema is a short walk from several restaurants and cafés. <div class=\"",
+              "answer": "a",
+              "explanation": "Hassan wants a film on Sunday evening that makes him think and features realistic characters. The Last Letter is a powerful drama about memory and forgiveness with subtle, thoughtful storytelling. It screens at 8 p.m. on Sundays. Option F is also a thoughtful, slow-paced drama that deals with deep themes, and it screens at 7 p.m. However, its story about an elderly couple is not as likely to stay with a viewer in the way Hassan describes; he wants something that makes him think deeply, and the family secret at the heart of The Last Letter fits that description more closely."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "rangeLabel": "Questions 11–15",
+      "passageTitle": "Part 3 — Reading passage",
+      "passage": [
+        {
+          "text": "For each question choose the correct answer.\n\nWhen the Lights Went OutNobody noticed the streetlamp at first. It was one of dozens along the main road, an old cast-iron thing that had stood there for over a century. The council had announced plans to replace the entire row with modern lighting, and residents had been informed of the plan, but most people had more pressing things to worry about. The letter sat unread on kitchen tables across the neighbourhood.\n\nAnna Malik, however, did read the letter. She was a photographer who had moved into the area three years earlier, and she had spent those three years documenting the streets around her home. She knew every detail: the cracked paving stone outside the bakery, the faded sign above the barber shop, the particular shade of green that the old streetlamps turned in rainy weather. To her, these were not just objects. They were the character of the place.\n\nThe council's plan was efficient and sensible. The new lights would be brighter, cheaper to run, and better for the environment. Nobody could reasonably argue against that. But Anna felt a quiet sense of loss as the removal date approached. She decided to photograph each of the old lamps before they disappeared. She started at the top of the road and worked her way down, capturing them in different lights: early morning mist, afternoon sunshine, and the soft glow of dusk.\n\nWord spread about what she was doing. A neighbour stopped her on the street and asked if she could take a picture of him standing next to the lamp outside his house. He explained that his grandfather had helped install the original lights back in the 1920s. Another neighbour told her that she had got engaged under the fourth lamp, the one near the postbox. A third remembered walking home from a school dance and stopping under the same lamp to look at the stars.\n\nBy the time the council arrived to begin the work, Anna had taken over two hundred photographs. She had also collected dozens of stories, which she wrote down in a notebook. An idea began to form. With help from a local printer, she produced a small book combining the images with the stories. There was no plan to make money off of it &#8211; she simply wanted people to have a record of something that was about to vanish.\n\nThe book sold out within a week. A second printing sold out too. The local newspaper ran a story about it. At a community meeting, the council agreed to keep two of the original lamps in place, restored and fitted with energy-saving bulbs. Anna had not set out to change anything. She had simply paid attention when others looked away. But in doing so, she had reminded a whole street of what it meant to share a place."
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 11–15",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 11,
+              "type": "multiple-choice",
+              "prompt": "What does the text say about the council's letter?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Most residents did not understand what it was about."
+                },
+                {
+                  "id": "B",
+                  "label": "It was delivered too late for people to respond."
+                },
+                {
+                  "id": "C",
+                  "label": "It was ignored by the majority of people who received it."
+                },
+                {
+                  "id": "D",
+                  "label": "It asked residents to vote on a design for the new lights."
+                }
+              ],
+              "answer": "c",
+              "explanation": "The text says the letter 'sat unread on kitchen tables across the neighbourhood,' which means most people ignored it. Answer A — most people ignored it, not misunderstood it. Answer B is wrong as no deadline of any kind is mentioned. Answer D is incorrect — there was no vote, the council simply announced their intention to replace the lights."
+            },
+            {
+              "number": 12,
+              "type": "multiple-choice",
+              "prompt": "Why did Anna feel differently about the streetlamps compared to her neighbours?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "She had a professional interest in street photography."
+                },
+                {
+                  "id": "B",
+                  "label": "She had spent years closely observing the streets around her home."
+                },
+                {
+                  "id": "C",
+                  "label": "She was responsible for maintaining them."
+                },
+                {
+                  "id": "D",
+                  "label": "She had been asked by the council to record them."
+                }
+              ],
+              "answer": "b",
+              "explanation": "Anna had spent three years paying close attention to her neighbourhood. This close observation is what made the lamps matter more to her. Answer A — even though she is a photographer, but her interest was personal, not professional. Answer C is not mentioned. Finally, the council did not approach her with any offers."
+            },
+            {
+              "number": 13,
+              "type": "multiple-choice",
+              "prompt": "What happened after Anna started taking photographs of the lamps?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Local people began to share their own memories connected to them."
+                },
+                {
+                  "id": "B",
+                  "label": "The council asked her to stop because the work was delayed."
+                },
+                {
+                  "id": "C",
+                  "label": "A newspaper offered to pay her for the images."
+                },
+                {
+                  "id": "D",
+                  "label": "Her neighbours complained that she was taking pictures of their houses."
+                }
+              ],
+              "answer": "a",
+              "explanation": "After Anna began photographing the lamps, neighbours approached her with stories, including one whose grandfather had helped install the lights and another who had got engaged under one of them. Option B is incorrect because the council did not ask her to stop. Option C is incorrect because the newspaper only became involved later, and there is no mention of payment. Option D is incorrect because neighbours were happy to share, not unhappy."
+            },
+            {
+              "number": 14,
+              "type": "multiple-choice",
+              "prompt": "The book Anna produced was",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "a commercial success that made her a significant profit."
+                },
+                {
+                  "id": "B",
+                  "label": "created with the help of the council's funding."
+                },
+                {
+                  "id": "C",
+                  "label": "intended as a way to remember what had been lost."
+                },
+                {
+                  "id": "D",
+                  "label": "criticised in the local newspaper for being too sentimental."
+                }
+              ],
+              "answer": "c",
+              "explanation": "There was no plan to make money, Anna 'simply wanted people to have a record of something that was about to vanish.' This matches the idea of remembering what was lost. Answer A is incorrect — even though it is said that the book sold out quickly, there is no information about how much money (if any) it made. The council didn't fund the book; a local printer helped. Answer D — the newspaper ran a positive story about the book, not a critical one."
+            },
+            {
+              "number": 15,
+              "type": "multiple-choice",
+              "prompt": "Which of the following best summarises what the text is about?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A photographer who accidentally started a successful publishing business."
+                },
+                {
+                  "id": "B",
+                  "label": "The importance of replacing old technology with modern alternatives."
+                },
+                {
+                  "id": "C",
+                  "label": "A council's failure to listen to the concerns of local residents."
+                },
+                {
+                  "id": "D",
+                  "label": "How paying attention to everyday things can reveal their hidden value."
+                }
+              ],
+              "answer": "d",
+              "explanation": "The whole story shows how Anna's quiet attention to the streetlamps uncovered their deeper meaning to the community, and the final line reinforces this idea. Answer A is too narrow and focuses on the business side, which was not Anna's goal. Answer B misses the point, as the story values old things rather than arguing for replacement. Answer C is incorrect because the council eventually agreed to keep two lamps, which suggests they did listen in the end."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 4,
+      "rangeLabel": "Questions 16–20",
+      "passageTitle": "Part 4 — A Difficult Customer",
+      "passage": [
+        {
+          "text": "A Difficult CustomerMy first job was in a small bookshop at the end of my street. I was sixteen, and I had never worked anywhere before. The owner, Mr Brennan, was a patient man who seemed to understand that I was nervous. For the first few weeks, he only asked me to do simple tasks: tidying shelves, pricing books, and making tea. [GAP 16] I was grateful for that, because the thought of dealing with customers still terrified me.\n\nOne Saturday afternoon, Mr Brennan had to leave the shop to visit a supplier. He asked me to manage things on my own for an hour. 'You'll be fine,' he said as he put on his coat. I was not so sure. For a while, everything went smoothly. A few customers came and went, and I managed the till without any problems. [GAP 17]\n\nThe man who walked in was wearing an expensive-looking coat and carrying a leather briefcase. He went straight to the counter and placed a book down with a loud thud. 'This book is damaged,' he said. 'I bought it here last week, and I want my money back.' I examined the book carefully. The cover was torn, and several pages had been folded back. [GAP 18] I started to explain our returns policy, which Mr Brennan had made me memorise word for word.\n\nThe man's face turned red. He raised his voice and demanded to speak to the manager. I told him he was not available, and he became angrier still. Other customers in the shop turned to look. My heart was racing, but I kept my voice calm. I repeated what I had said before and offered to order him a new copy at no extra cost. [GAP 19] He seemed surprised, as though he had expected me to argue.\n\nAfter the man left, I noticed a customer by the window giving me a small nod of approval. Mr Brennan returned twenty minutes later, and I told him what had happened. He listened quietly and then said something I have never forgotten. 'The hardest customers,' he said, 'teach you the most about yourself.' [GAP 20] I have carried those words with me ever since."
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 16–20",
+          "type": "matching-features",
+          "features": [
+            {
+              "id": "A",
+              "label": "He gradually let me spend more time at the counter."
+            },
+            {
+              "id": "B",
+              "label": "It looked almost as though someone had done it on purpose."
+            },
+            {
+              "id": "C",
+              "label": "I was starting to feel proud of myself, and then the door opened."
+            },
+            {
+              "id": "D",
+              "label": "He paused for a moment, and then his expression softened slightly."
+            },
+            {
+              "id": "E",
+              "label": "He was right, and I knew it even then."
+            },
+            {
+              "id": "F",
+              "label": "I did not know whether to laugh at his comment or just roll my eyes."
+            },
+            {
+              "id": "G",
+              "label": "He did not put me on the till until my third week."
+            },
+            {
+              "id": "H",
+              "label": "I had only been working there for half an hour, but I already wanted to leave."
+            }
+          ],
+          "questions": [
+            {
+              "number": 16,
+              "type": "matching-features",
+              "prompt": "s. For the first few weeks, he only asked me to do simple tasks: tidying shelves, pricing books, and making tea. 16 ABC<",
+              "answer": "g",
+              "explanation": "The text explains that the writer was only given simple tasks at first. Sentence G fits because it adds the specific detail that the till was not introduced until the third week. The following sentence confirms the writer was grateful for this gradual approach."
+            },
+            {
+              "number": 17,
+              "type": "matching-features",
+              "prompt": "r a while, everything went smoothly. A few customers came and went, and I managed the till without any problems. 17 ABC<",
+              "answer": "c",
+              "explanation": "The paragraph describes a quiet, problem-free period while the writer is alone. Sentence C captures the shift perfectly: the writer was starting to feel confident, and then the difficult customer arrived. The words 'and then the door opened' lead directly into the next sentence introducing the man in expensive clothing."
+            },
+            {
+              "number": 18,
+              "type": "matching-features",
+              "prompt": "want my money back.' I examined the book carefully. The cover was torn, and several pages had been folded back. 18 ABC<",
+              "answer": "b",
+              "explanation": "The writer examines the book and notes the torn cover and folded pages. Sentence B continues this observation by suggesting the damage looked deliberate. The following sentence explains the writer's response, which is to explain the returns policy."
+            },
+            {
+              "number": 19,
+              "type": "matching-features",
+              "prompt": "ut I kept my voice calm. I repeated what I had said before and offered to order him a new copy at no extra cost. 19 ABC<",
+              "answer": "d",
+              "explanation": "The author makes an offer to order a new copy, and the next sentence describes the man as surprised. Sentence D bridges this change in his reaction: he paused and his expression softened, which explains the shift from anger to surprise."
+            },
+            {
+              "number": 20,
+              "type": "matching-features",
+              "prompt": "en said something I have never forgotten. 'The hardest customers,' he said, 'teach you the most about yourself.' 20 ABC<",
+              "answer": "e",
+              "explanation": "'He was right, and I knew it even then' connects naturally to the sentence before, where Mr Brennan shares his wisdom about difficult customers. The phrase 'those words' in the final sentence refers back to both Mr Brennan's advice and the writer's immediate recognition that it was true. Option E was the previous distractor but has been removed from the set, as its reference to the offer did not fit the reflective tone of the ending."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 5,
+      "rangeLabel": "Questions 21–26",
+      "passageTitle": "Part 5 — A Long Wait",
+      "passage": [],
+      "questionGroups": [
+        {
+          "range": "Questions 21–26",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 21,
+              "type": "multiple-choice",
+              "prompt": "rowded, and the departure board showed that my train was running fifteen minutes ____ . I bought a cup of tea and settled down on a bench to wait. Fifteen minutes became thirty, and then an hour. An announcement told us that a tree had fallen onto the line further up the route, and engineers were working to clear it. There was nothing anyone could do. Some passengers grew angry and crowded around the information desk, demanding answers. Others simply gave up and went to",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "behind"
+                },
+                {
+                  "id": "B",
+                  "label": "late"
+                },
+                {
+                  "id": "C",
+                  "label": "back"
+                },
+                {
+                  "id": "D",
+                  "label": "slow"
+                }
+              ],
+              "answer": "b",
+              "explanation": "'Running late' is a fixed expression used for trains, buses and other forms of transport when they are delayed. 'Running behind' is much less frequently used in this meaning, mostly in informal speech. 'Running back' means returning to a place. 'Running slow' is not a collocation you would use for transportation that is too slow for its scheduled arrival."
+            },
+            {
+              "number": 22,
+              "type": "multiple-choice",
+              "prompt": "round the information desk, demanding answers. Others simply gave up and went to ____ a bus or a taxi. I decided to wait. I had no urgent reason to be home, and I had a book in my bag that I had been meaning to read for months. I opened it and began to read. The noise of the station seemed to",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "search"
+                },
+                {
+                  "id": "B",
+                  "label": "discover"
+                },
+                {
+                  "id": "C",
+                  "label": "look"
+                },
+                {
+                  "id": "D",
+                  "label": "find"
+                }
+              ],
+              "answer": "d",
+              "explanation": "The verb 'find' means to locate or obtain something you need, and it fits naturally in the phrase 'went to find a bus or a taxi.' 'Search' and 'look' both typically requires a preposition such as 'search/look for something' . 'Discover' suggests finding something by chance or uncovering something unknown, which does not fit the practical context of looking for transport."
+            },
+            {
+              "number": 23,
+              "type": "multiple-choice",
+              "prompt": "ad for months. I opened it and began to read. The noise of the station seemed to ____ quieter, and I found myself completely absorbed in the story. After another hour, I noticed an elderly woman sitting alone at the end of my bench. She looked tired and anxious, so I asked if she was all right. She told me she was travelling to visit her daughter and was worried she would miss a connecting train. I",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "turn"
+                },
+                {
+                  "id": "B",
+                  "label": "become"
+                },
+                {
+                  "id": "C",
+                  "label": "grow"
+                },
+                {
+                  "id": "D",
+                  "label": "fall"
+                }
+              ],
+              "answer": "c",
+              "explanation": "'Grow' here is used in the meaning of change. The phrase 'grow quieter' means the noise slowly reduced, which fits the scene of the writer becoming absorbed in a book. 'To turn/fall quieter' are not correct collocations. 'To become quieter' is grammatically possible but less natural than 'grow quieter' in descriptive writing."
+            },
+            {
+              "number": 24,
+              "type": "multiple-choice",
+              "prompt": "lling to visit her daughter and was worried she would miss a connecting train. I ____ to go and check the times for her. When I came back with the information, her face relaxed. We started talking, and she told me about her daughter, who had just had a baby. By the time the train finally arrived at half past nine, the woman and I had talked for over an hour. She thanked me for keeping her company and said the delay had not felt so bad",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "suggested"
+                },
+                {
+                  "id": "B",
+                  "label": "requested"
+                },
+                {
+                  "id": "C",
+                  "label": "offered"
+                },
+                {
+                  "id": "D",
+                  "label": "demanded"
+                }
+              ],
+              "answer": "c",
+              "explanation": "'Offered' is the only option here that shows a polite way to suggest something. The writer volunteered to check the train times for the elderly woman. The verb 'suggest' itself doesn't work here, as the structure would have to be 'suggested going to check.' To request means to ask for something, not to volunteer. 'Demanded' is too forceful for this helpful, kind situation."
+            },
+            {
+              "number": 25,
+              "type": "multiple-choice",
+              "prompt": "r. She thanked me for keeping her company and said the delay had not felt so bad ____ she had someone to talk to. I felt the same way. On the way home, I thought about the evening. I had expected to feel annoyed about the delay, but I did not. A stranger, a book, and a bit of patience had turned a frustrating situation into something rather lovely. Sometimes the best moments happen when your plans go",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "although"
+                },
+                {
+                  "id": "B",
+                  "label": "because"
+                },
+                {
+                  "id": "C",
+                  "label": "unless"
+                },
+                {
+                  "id": "D",
+                  "label": "why"
+                }
+              ],
+              "answer": "b",
+              "explanation": "We use 'because' to introduce a reason. The delay had not felt so bad because she had someone to talk to. This explains why she felt better. 'Although' introduces contrast that we do not need here. 'Unless' means 'if not', which, again, does not fit. 'While' can mean during the time that, but it does not express reason in the way the sentence requires."
+            },
+            {
+              "number": 26,
+              "type": "multiple-choice",
+              "prompt": "to something rather lovely. Sometimes the best moments happen when your plans go ____ . <div class=\"",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "missing"
+                },
+                {
+                  "id": "B",
+                  "label": "wrong"
+                },
+                {
+                  "id": "C",
+                  "label": "lost"
+                },
+                {
+                  "id": "D",
+                  "label": "off"
+                }
+              ],
+              "answer": "b",
+              "explanation": "The phrase 'go wrong' means to develop problems or not work out as planned. A very common expression that fits the idea that good moments can happen when plans fail. Option A is incorrect because 'go missing' means to disappear, which is too narrow for this context. 'Go lost' is not a natural collocation. Finally, 'go off' can mean to explode, to leave, or to start disliking something, so it does not fit here."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 6,
+      "rangeLabel": "Questions 27–32",
+      "passageTitle": "Part 6 — Sharing an Experience",
+      "passage": [
+        {
+          "text": "Write one word for each gap.\n\nSharing an ExperienceMy friend Ethan won two tickets to a music festival. He asked me to go with him, and I agreed immediately. The lineup included several bands we had always wanted to see, so it felt like an opportunity"
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 27–32",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "number": 27,
+              "type": "gap-fill",
+              "prompt": "good to miss. The festival was held in a large park on the edge of the city. We arrived early, found a good spot near the stage, and waited for the first band to start. The weather was warm, and the a...",
+              "answer": "too",
+              "explanation": "The structure 'too + adjective + to + verb' means that something is more than enough to prevent an action. In this sentence, the opportunity was so good that missing it was not an option. The word 'so' would be incorrect here because 'so good to miss' is an invalid expression. 'Very' is incorrect for the same reason; it does not work with 'to miss' in this pattern."
+            },
+            {
+              "number": 28,
+              "type": "gap-fill",
+              "prompt": "other since primary school, so we are comfortable just standing together without feeling the need to talk constantly. We did not expect to meet",
+              "answer": "each/one",
+              "explanation": "Ethan and the writer have known each other since primary school. Please note that 'each other' is much more common than 'one another'."
+            },
+            {
+              "number": 29,
+              "type": "gap-fill",
+              "prompt": "many people. By the end of the afternoon, we had talked to a group of students from Scotland, a couple who had travelled from Wales, and a woman who said she had been coming to this festival every yea...",
+              "answer": "so",
+              "explanation": "Here we use 'so many + plural noun' to highlight just how many new people they got to meet. The word 'such' wouldn't work here as 'such' is used with nouns without 'many,' as in 'such nice people.'"
+            },
+            {
+              "number": 30,
+              "type": "gap-fill",
+              "prompt": "the stage a guest performer who had not been announced. The crowd went silent for a moment, and then everyone began cheering. It was one of those rare moments",
+              "answer": "to/onto",
+              "explanation": "We normally use 'to' to mention destination. 'Onto' is also common, although more challenging grammatically – it is often used to talk about flat surfaces (like the stage in this example)."
+            },
+            {
+              "number": 31,
+              "type": "gap-fill",
+              "prompt": "something unexpected makes an experience truly unforgettable. We left the park tired but full of energy at the same time. Ethan said it was the best decision he had made all year. I agreed. Sometimes ...",
+              "answer": "when",
+              "explanation": "This word introduces a relative clause describing 'those rare moments.' It tells us that during these moments, something unexpected makes an experience unforgettable."
+            },
+            {
+              "number": 32,
+              "type": "gap-fill",
+              "prompt": "you remember the longest.",
+              "answer": "ones",
+              "explanation": "This pronoun replaces 'things' to help avoid repetition. 'The ones you remember the longest' means the things that stay in your memory the longest. The word 'things' would be a repetition error, and 'ones' is the correct substitute.\n\nVocabularyThe vocabulary below is meant to help you with the more difficult words. If the word isn't on the list then you are either supposed to know it or it is too specific to be worth learning and you don't have to know it to answer the question. Symbols in brackets mean part of speech(see bottom of the list). Sentences in italics give examples of usage for some more complex words and phrases.\n\nAnd remember — you are not given a vocabulary list (or a dictionary) at your real exam."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

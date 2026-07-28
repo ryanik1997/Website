@@ -1,5 +1,13 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { getActiveAudio, mapRateToSpeed, pauseActiveAudio, resumeActiveAudio, speak, stop } from './tts'
+import {
+  getActiveAudio,
+  mapRateToSpeed,
+  pauseActiveAudio,
+  playAudioUrl,
+  resumeActiveAudio,
+  speak,
+  stop,
+} from './tts'
 import { estimateSpeechDurationSec, formatAudioTime } from './practiceUtils'
 
 export function useListeningPlayback() {
@@ -60,7 +68,11 @@ export function useListeningPlayback() {
     stop()
   }, [cancelProgress])
 
-  const playTts = useCallback(async (text: string, rate = speed) => {
+  const playTts = useCallback(async (
+    text: string,
+    rate = speed,
+    media?: { audioUrl?: string; t0?: number; t1?: number },
+  ) => {
     const activeAudio = getActiveAudio()
     if (activeAudio && !activeAudio.ended) {
       if (activeAudio.paused) {
@@ -109,6 +121,31 @@ export function useListeningPlayback() {
     }
 
     try {
+      // Prefer real dictation clip when available
+      if (media?.audioUrl) {
+        try {
+          await playAudioUrl(media.audioUrl, {
+            playbackRate: rate === 0.5 ? 0.5 : rate === 0.75 ? 0.75 : 1,
+            startSec: media.t0,
+            endSec: media.t1,
+            onPlaybackStart: (audio) => {
+              const total = audio.duration && Number.isFinite(audio.duration)
+                ? audio.duration
+                : Math.max(0.5, (media.t1 ?? 0) - (media.t0 ?? 0) || estimatedTotal)
+              beginProgress(true, total)
+            },
+          })
+          const audio = getActiveAudio()
+          if (audio?.duration && Number.isFinite(audio.duration)) {
+            setProgressPct(100)
+            setTimeLabel(`${formatAudioTime(audio.duration)} / ${formatAudioTime(audio.duration)}`)
+          }
+          return
+        } catch (err) {
+          console.warn('[listening] clip play failed, fallback TTS:', err)
+        }
+      }
+
       await speak(text, {
         speed: kokoroSpeed,
         onPlaybackStart: (audio) => {

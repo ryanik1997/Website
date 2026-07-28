@@ -62,7 +62,7 @@ export const cardRepo = {
     await db.srs.add({
       cardId: card.id, deckId,
       ease: 2.5, interval: 0, reps: 0, lapses: 0,
-      dueAt: now(), state: 'new',
+      dueAt: now(), updatedAt: now(), state: 'new',
     })
     await db.decks.update(deckId, { updatedAt: now() })
     return card

@@ -1,0 +1,132 @@
+# CHECKLIST — Reading Cambridge A2–C2 (trước khi xuất ZIP / sau DeepSeek)
+
+Dùng cùng **Prompt-*-Reading-Universal.txt** + file này.  
+Tick hết trước khi import app.
+
+---
+
+## 0) Gửi DeepSeek (mỗi lần 1 test)
+
+- [ ] Prompt đúng level (KET / PET / FCE / CAE / CPE Reading Universal)
+- [ ] **Đề Reading:** PDF **hoặc** TXT UTF-8 (`exam-text.txt`) — đúng 1 Test N (kèm text Writing nếu level có)
+- [ ] `answer-key.txt` **hoặc** `answer-key.pdf` (ưu tiên `.txt`)
+- [ ] Ảnh Part 1 signs / Writing pages: crop sau nếu cần (**jpg hoặc webp**) — không bắt buộc gửi AI
+- [ ] Dòng context: `Book B · Test T · cambridgeLevel a2|b1|b2|c1|c2 · nguồn: TXT|PDF`
+- [ ] **Không** gộp nhiều test trong 1 JSON
+
+---
+
+## 1) JSON hợp lệ
+
+- [ ] `JSON.parse` PASS — 1 object
+- [ ] `version: 1`
+- [ ] `examTrack`: `"cambridge"`
+- [ ] `cambridgeLevel`: `"a2"` | `"b1"` | `"b2"` | `"c1"` | `"c2"`
+- [ ] `title` có **Book N** + **Test N**  
+  VD: `"KET A2 Reading — Book 1 — Test 2"`
+- [ ] `durationMinutes` đúng (KET RW 60, PET RW 75, FCE/CAE/CPE theo prompt)
+- [ ] Schema **Reading**: `parts[].questionGroups[].questions[]`  
+  (không dùng Listening `questions[]` thẳng trong part)
+- [ ] Không `"` ASCII trần trong explanation
+- [ ] Gap-fill đáp án kép: `answer: "từ1/từ2"` (không `"từ1 (or từ2)"`)
+- [ ] Ảnh: `imageFile` basename khớp file `.jpg` **hoặc** `.webp`
+
+---
+
+## 2) Parts & số câu (theo level)
+
+| Level | cambridgeLevel | Parts (RW) | Ghi chú |
+|-------|----------------|------------|---------|
+| A2 KET | a2 | **7** (Reading 1–5 + Writing 6–7) | Q1–32 |
+| B1 PET | b1 | **8** (R 1–6 + W 7–8) | theo Universal |
+| B2 FCE | b2 | **9** (R 1–7 + W 8–9) | theo Universal |
+| C1 CAE | c1 | **10** (R 1–8 + W 9–10) | theo Universal |
+| C2 CPE | c2 | **9** (R 1–7 + W 8–9) | theo Universal |
+
+- [ ] Đủ số part
+- [ ] Số câu liên tục theo bảng Universal level đó
+- [ ] Mỗi part: `partNumber`, `rangeLabel`, `passageTitle`, `passage[]`, `questionGroups[]`
+
+---
+
+## 3) Passage & media
+
+- [ ] Part đọc hiểu: `passage[].text` (để Highlight) — không chỉ ảnh nếu cần bôi đoạn
+- [ ] KET/PET Part 1 signs: `part1-q1.jpg|webp`… hoặc `imageFile` đúng basename
+- [ ] Writing: ảnh 1 file/part (jpg **hoặc webp**)  
+  - KET P6: `part6-page.jpg|webp`  
+  - KET P7: **`part7-page.jpg|webp`** (1 ảnh — không part7-p1…p3)  
+  - PET P7/P8, FCE P8/P9, CAE P9/P10, CPE P8/P9: `partN-page.jpg|webp`
+- [ ] `imageFile` trong JSON = basename; file ZIP có thể đổi đuôi `.webp`
+
+---
+
+## 4) questionGroups & type
+
+- [ ] Mỗi group: `range`, `instruction`, `type`, `questions[]`
+- [ ] Type hợp lệ: tfng | ynng | multiple-choice | matching-* | gap-fill | summary-completion | sentence-completion | writing-task
+- [ ] MC: options `id` A/B/C (hoặc a/b/c) + `answer` một ký tự
+- [ ] matching-headings: `headings[]` khớp `answer`
+- [ ] writing-task: `minWords`, `answer` có thể `""`
+
+---
+
+## 5) answer
+
+- [ ] Đối chiếu **từng câu Reading** với answer-key
+- [ ] MC: `"a"` / `"b"` / `"c"` — không `"B (best)"`
+- [ ] TFNG / YNNG: đúng enum app (`true`/`false`/`not-given` hoặc YES/NO/NOT GIVEN theo prompt level)
+- [ ] gap-fill: một từ; kép: `"a/one"` hoặc `"từ1/từ2"` (app chấm cả hai)
+- [ ] Writing: không bịa key — để trống + chấm AI sau
+- [ ] ZIP có `answer-key.txt` / `.pdf` → app chỉ **bổ sung** câu JSON đang trống
+
+---
+
+## 6) ZIP pack
+
+```
+exam.json
+answer-key.txt          ← hoặc answer-key.pdf
+part1-q1.jpg …
+part6-page.jpg          ← tuỳ level Writing
+part7-page.jpg
+```
+
+- [ ] File **CÙNG CẤP** (không bọc folder khi zip)
+- [ ] ZIP ≤ 40MB, UTF-8, không `__MACOSX`
+- [ ] Preview: answer-key notes (nếu có) + validate không lỗi đỏ
+
+---
+
+## 7) Sau import — smoke test
+
+- [ ] Library: đúng Book / Test / 7 parts (KET) v.v.
+- [ ] **Không double** Test 1 (catalog 5-part thua import 7-part — OK)
+- [ ] Passage Highlight được (có text)
+- [ ] Writing ảnh hiện 1 trang/part
+- [ ] Có thể **xóa** đề import (thùng rác); catalog không xóa
+
+---
+
+## 8) Lỗi hay gặp (nhanh)
+
+| Lỗi | Sửa |
+|-----|-----|
+| KET P7 3 ảnh p1–p3 | 1 file `part7-page.jpg` |
+| Listening schema trong Reading | Dùng `questionGroups` |
+| Title thiếu Book | `"… — Book 1 — Test 2"` |
+| Double form Listening P2 | → checklist Listening §4 (không áp Reading) |
+| PDF key scan | Xuất `answer-key.txt` |
+
+---
+
+## Prompt chi tiết theo level
+
+| Level | File |
+|-------|------|
+| Chung | `HDSD/Prompt-Reading-Cambridge.txt` |
+| A2 | `HDSD/Prompt-KET-A2-Reading-Universal.txt` |
+| B1 | `HDSD/Prompt-PET-B1-Reading-Universal.txt` |
+| B2 | `HDSD/Prompt-FCE-B2-Reading-Universal.txt` |
+| C1 | `HDSD/Prompt-CAE-C1-Reading-Universal.txt` |
+| C2 | `HDSD/Prompt-CPE-C2-Reading-Universal.txt` |

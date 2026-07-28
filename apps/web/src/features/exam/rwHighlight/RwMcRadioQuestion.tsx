@@ -1,4 +1,5 @@
-import type { CSSProperties } from 'react'
+import { useRef, type CSSProperties } from 'react'
+import { Bookmark } from 'lucide-react'
 import type { ReadingQuestion } from '../examData'
 import { isReadingAnswerCorrect } from '../examData'
 import {
@@ -17,6 +18,12 @@ interface Props {
   formatOptionLabel?: (label: string) => string
   reviewMode?: boolean
   reviewStatus?: ExamReviewStatus | null
+  /** Cambridge: câu đang chọn có khung số xanh */
+  isActive?: boolean
+  /** Cambridge: nút bookmark góc phải câu đang chọn */
+  showFlag?: boolean
+  flagged?: boolean
+  onToggleFlag?: () => void
 }
 
 export default function RwMcRadioQuestion({
@@ -28,7 +35,13 @@ export default function RwMcRadioQuestion({
   formatOptionLabel,
   reviewMode = false,
   reviewStatus = null,
+  isActive = false,
+  showFlag = false,
+  flagged = false,
+  onToggleFlag,
 }: Props) {
+  const pointerStartRef = useRef<{ x: number; y: number } | null>(null)
+  const textSelectionGestureRef = useRef(false)
   const fmt = formatOptionLabel ?? ((label: string) => label)
   const userAns = answers[question.id] ?? ''
   const status = reviewMode
@@ -45,7 +58,7 @@ export default function RwMcRadioQuestion({
 
   return (
     <div
-      className={`ket-rw-question${status ? ` is-review-${status}` : ''}`}
+      className={`ket-rw-question${status ? ` is-review-${status}` : ''}${isActive ? ' is-active' : ''}`}
       id={`reading-q-${question.id}`}
       style={borderStyle}
     >
@@ -71,6 +84,19 @@ export default function RwMcRadioQuestion({
           blockId={`${partId}-q-${question.id}-prompt`}
           text={question.prompt}
         />
+        {showFlag && (
+          <button
+            type="button"
+            className={`ket-rw-q-flag${flagged ? ' is-flagged' : ''}`}
+            data-highlight-skip
+            aria-pressed={flagged}
+            aria-label={`Bookmark question ${question.number}`}
+            title="Bookmark"
+            onClick={() => onToggleFlag?.()}
+          >
+            <Bookmark size={16} strokeWidth={1.5} fill={flagged ? 'currentColor' : 'none'} />
+          </button>
+        )}
       </p>
       <div className="ket-rw-radio-list">
         {question.options.map(opt => {
@@ -99,6 +125,33 @@ export default function RwMcRadioQuestion({
               key={opt.id}
               className={`ket-rw-radio${selected ? ' is-selected' : ''}${isKey ? ' is-review-key' : ''}`}
               style={optStyle}
+              onPointerDownCapture={event => {
+                pointerStartRef.current = {
+                  x: event.clientX,
+                  y: event.clientY,
+                }
+                textSelectionGestureRef.current = false
+              }}
+              onPointerUpCapture={event => {
+                const start = pointerStartRef.current
+                if (!start) return
+                const distance = Math.hypot(
+                  event.clientX - start.x,
+                  event.clientY - start.y,
+                )
+                const selectedText = window.getSelection()?.toString().trim()
+                if (distance > 3 && selectedText) {
+                  textSelectionGestureRef.current = true
+                }
+              }}
+              onClickCapture={event => {
+                if (!textSelectionGestureRef.current) {
+                  return
+                }
+                event.preventDefault()
+                event.stopPropagation()
+                textSelectionGestureRef.current = false
+              }}
             >
               <input
                 type="radio"

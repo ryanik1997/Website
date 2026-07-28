@@ -1,0 +1,1431 @@
+{
+  "testsAudited": 26,
+  "sectionsAudited": 110,
+  "headingsDetected": 93,
+  "headingMissing": 17,
+  "shapes": {
+    "label-heading-same-strong": 26,
+    "label-only-before-br": 17,
+    "label-strong-heading-text-before-br": 67
+  },
+  "tests": [
+    {
+      "sourceTestNumber": 1,
+      "appTestNumber": 2,
+      "sectionCount": 4,
+      "headingsDetected": 4,
+      "sections": [
+        {
+          "sourceTestNumber": 1,
+          "appTestNumber": 2,
+          "section": "A",
+          "rawStrongTexts": [
+            "A"
+          ],
+          "detectedHeading": "Phil Morston",
+          "bodyStart": "I remember sitting in the plane thinking to myself: ‘What have I let myself in for?’ . The first few days were scary: I ",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 1,
+          "appTestNumber": 2,
+          "section": "B",
+          "rawStrongTexts": [
+            "B"
+          ],
+          "detectedHeading": "Leila Stuart",
+          "bodyStart": "Without doubt, you meet all sorts of people when travelling alone. I even made a friend on the plane out there. Some peo",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 1,
+          "appTestNumber": 2,
+          "section": "C",
+          "rawStrongTexts": [
+            "C"
+          ],
+          "detectedHeading": "Danny Holt",
+          "bodyStart": "Travelling solo creates opportunities to meet people. There’s no substitute for sharing the experiences of the day with ",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 1,
+          "appTestNumber": 2,
+          "section": "D",
+          "rawStrongTexts": [
+            "D"
+          ],
+          "detectedHeading": "Kerry Winterton",
+          "bodyStart": "Fun as it is, travelling solo also has its low points, including occasional loneliness and the pressure that you’re unde",
+          "shape": "label-strong-heading-text-before-br"
+        }
+      ]
+    },
+    {
+      "sourceTestNumber": 2,
+      "appTestNumber": 3,
+      "sectionCount": 4,
+      "headingsDetected": 4,
+      "sections": [
+        {
+          "sourceTestNumber": 2,
+          "appTestNumber": 3,
+          "section": "A",
+          "rawStrongTexts": [
+            "A"
+          ],
+          "detectedHeading": "Tony: Racing driver",
+          "bodyStart": "‘Drive it like you stole it and keep it on the black stuff!’ I was quite nervous when I first started racing, but those ",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 2,
+          "appTestNumber": 3,
+          "section": "B",
+          "rawStrongTexts": [
+            "B"
+          ],
+          "detectedHeading": "David: Record producer",
+          "bodyStart": "Because Dad and I have always been close, there was no one moment when he imparted some big philosophical piece of advic",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 2,
+          "appTestNumber": 3,
+          "section": "C",
+          "rawStrongTexts": [
+            "C"
+          ],
+          "detectedHeading": "Andy: Buyer for a department store",
+          "bodyStart": "I was probably Dad’s most unruly son. He tried to teach me a lot of things – how much I’ve taken on board is another mat",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 2,
+          "appTestNumber": 3,
+          "section": "D",
+          "rawStrongTexts": [
+            "D"
+          ],
+          "detectedHeading": "Simon: Rugby player",
+          "bodyStart": "He had this catchphrase: ‘Under-prepare, and you prepare to fail.’ I heard it time and again. A typical teenager when th",
+          "shape": "label-strong-heading-text-before-br"
+        }
+      ]
+    },
+    {
+      "sourceTestNumber": 3,
+      "appTestNumber": 4,
+      "sectionCount": 4,
+      "headingsDetected": 4,
+      "sections": [
+        {
+          "sourceTestNumber": 3,
+          "appTestNumber": 4,
+          "section": "A",
+          "rawStrongTexts": [
+            "A"
+          ],
+          "detectedHeading": "Erin",
+          "bodyStart": "This old second-hand bike gets me from A to B all right because you don’t need flashy sets of gears or anything like tha",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 3,
+          "appTestNumber": 4,
+          "section": "B",
+          "rawStrongTexts": [
+            "B"
+          ],
+          "detectedHeading": "Luke",
+          "bodyStart": "I bought my bike from an Internet auction site and had to have it shipped from Germany in pieces. I then paid to have it",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 3,
+          "appTestNumber": 4,
+          "section": "C",
+          "rawStrongTexts": [
+            "C"
+          ],
+          "detectedHeading": "Claire",
+          "bodyStart": "My parents picked this bike up for me in New York. It’s a red and black cruiser with a burger-shaped bell — some of my f",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 3,
+          "appTestNumber": 4,
+          "section": "D",
+          "rawStrongTexts": [
+            "D"
+          ],
+          "detectedHeading": "Kieran",
+          "bodyStart": "My bike’s an early 1980s racer and I bought it off an old man who sells junk out of his garage. He reckoned it had once ",
+          "shape": "label-strong-heading-text-before-br"
+        }
+      ]
+    },
+    {
+      "sourceTestNumber": 4,
+      "appTestNumber": 5,
+      "sectionCount": 4,
+      "headingsDetected": 4,
+      "sections": [
+        {
+          "sourceTestNumber": 4,
+          "appTestNumber": 5,
+          "section": "A",
+          "rawStrongTexts": [
+            "A"
+          ],
+          "detectedHeading": "Katie",
+          "bodyStart": "I’m afraid of spiders. You won’t hear me scream, but I will certainly get out of the room until someone else has dealt w",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 4,
+          "appTestNumber": 5,
+          "section": "B",
+          "rawStrongTexts": [
+            "B"
+          ],
+          "detectedHeading": "Ellie",
+          "bodyStart": "The most challenging thing I’ve ever done, by far, was trekking in the Himalayas. It was something I’d always dreamed of",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 4,
+          "appTestNumber": 5,
+          "section": "C",
+          "rawStrongTexts": [
+            "C"
+          ],
+          "detectedHeading": "Daniel",
+          "bodyStart": "After high school I was accepted into a very good music school, by merit of my audition. I almost declined; I didn’t wan",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 4,
+          "appTestNumber": 5,
+          "section": "D",
+          "rawStrongTexts": [
+            "D"
+          ],
+          "detectedHeading": "Jack",
+          "bodyStart": "My fear of heights was affecting my life because I had difficulty going up and down stairs or over bridges, particularly",
+          "shape": "label-strong-heading-text-before-br"
+        }
+      ]
+    },
+    {
+      "sourceTestNumber": 5,
+      "appTestNumber": 6,
+      "sectionCount": 5,
+      "headingsDetected": 5,
+      "sections": [
+        {
+          "sourceTestNumber": 5,
+          "appTestNumber": 6,
+          "section": "A",
+          "rawStrongTexts": [
+            "A"
+          ],
+          "detectedHeading": "Charlie",
+          "bodyStart": "I’d travel back to the year I was born, and live my life again, but only if I could know then what I know now! I’d love ",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 5,
+          "appTestNumber": 6,
+          "section": "B",
+          "rawStrongTexts": [
+            "B"
+          ],
+          "detectedHeading": "Chloe",
+          "bodyStart": "I would not exchange today for any previous era. I have studied a lot of history and whilst I would be interested in cer",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 5,
+          "appTestNumber": 6,
+          "section": "C",
+          "rawStrongTexts": [
+            "C"
+          ],
+          "detectedHeading": "Emily",
+          "bodyStart": "Go back in time? Who’d want that? I mean, as soon as some people spotted you, you’d be the odd one out. And if you went ",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 5,
+          "appTestNumber": 6,
+          "section": "D",
+          "rawStrongTexts": [
+            "D"
+          ],
+          "detectedHeading": "Jack",
+          "bodyStart": "I have always dreamed of being a sailor in the merchant navy between 1920 and 1940. At that time, travelling to foreign ",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 5,
+          "appTestNumber": 6,
+          "section": "E",
+          "rawStrongTexts": [
+            "E"
+          ],
+          "detectedHeading": "Liam",
+          "bodyStart": "I’d go back maybe about five years and try to do a better job this time. I would never have ended the relationship with ",
+          "shape": "label-strong-heading-text-before-br"
+        }
+      ]
+    },
+    {
+      "sourceTestNumber": 6,
+      "appTestNumber": 7,
+      "sectionCount": 4,
+      "headingsDetected": 4,
+      "sections": [
+        {
+          "sourceTestNumber": 6,
+          "appTestNumber": 7,
+          "section": "A",
+          "rawStrongTexts": [
+            "A"
+          ],
+          "detectedHeading": "Harry",
+          "bodyStart": "Just north of Fregate I met two manta rays . They were seven or eight feet wide with massive outstretched fins that seem",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 6,
+          "appTestNumber": 7,
+          "section": "B",
+          "rawStrongTexts": [
+            "B"
+          ],
+          "detectedHeading": "Gabriel",
+          "bodyStart": "And so my first real trip to Asia unfolded in what seemed a series of dream-panels – adventures and faces and events so ",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 6,
+          "appTestNumber": 7,
+          "section": "C",
+          "rawStrongTexts": [
+            "C"
+          ],
+          "detectedHeading": "Maya",
+          "bodyStart": "As I stepped off the six-seater Cessna plane after a bumpy flight over the Okavango Delta and my feet touched the arid g",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 6,
+          "appTestNumber": 7,
+          "section": "D",
+          "rawStrongTexts": [
+            "D"
+          ],
+          "detectedHeading": "Tom",
+          "bodyStart": "I’d been to New York three times in the past but not for long and I couldn’t remember much of it. This time I only had f",
+          "shape": "label-strong-heading-text-before-br"
+        }
+      ]
+    },
+    {
+      "sourceTestNumber": 7,
+      "appTestNumber": 8,
+      "sectionCount": 4,
+      "headingsDetected": 4,
+      "sections": [
+        {
+          "sourceTestNumber": 7,
+          "appTestNumber": 8,
+          "section": "A",
+          "rawStrongTexts": [
+            "A"
+          ],
+          "detectedHeading": "Rodas Beach, the Cies Islands, Spain",
+          "bodyStart": "Some of Spain’s most spectacular beaches lie in Galicia on the Atlantic coast, and perhaps the most stunning of these ar",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 7,
+          "appTestNumber": 8,
+          "section": "B",
+          "rawStrongTexts": [
+            "B"
+          ],
+          "detectedHeading": "Whitehaven Beach, Whitsunday Islands, Australia",
+          "bodyStart": "Australia is famous for wonderful beaches, and Whitehaven must surely be one of its very best. Set against a background ",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 7,
+          "appTestNumber": 8,
+          "section": "C",
+          "rawStrongTexts": [
+            "C"
+          ],
+          "detectedHeading": "Matira Beach, Bora Bora, Tahiti",
+          "bodyStart": "Matira Beach on the Pacific island of Bora Bora has incredibly white sand, beautiful fish swimming in clear blue-green w",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 7,
+          "appTestNumber": 8,
+          "section": "D",
+          "rawStrongTexts": [
+            "D"
+          ],
+          "detectedHeading": "Anse Source d’Argent Beach, Seychelles",
+          "bodyStart": "This must be one of the most photographed beaches in the world, so don’t forget to get some shots of your own , especial",
+          "shape": "label-strong-heading-text-before-br"
+        }
+      ]
+    },
+    {
+      "sourceTestNumber": 8,
+      "appTestNumber": 9,
+      "sectionCount": 5,
+      "headingsDetected": 5,
+      "sections": [
+        {
+          "sourceTestNumber": 8,
+          "appTestNumber": 9,
+          "section": "A",
+          "rawStrongTexts": [
+            "A"
+          ],
+          "detectedHeading": "Nadia Hassan",
+          "bodyStart": "Although we’ve been living in different countries for a long time, I know I should have made more of an effort to stay i",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 8,
+          "appTestNumber": 9,
+          "section": "B",
+          "rawStrongTexts": [
+            "B"
+          ],
+          "detectedHeading": "Julia Nowak",
+          "bodyStart": "The first thing that struck me was that Natalia still looked much the same as she had ten years earlier , unlike some ot",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 8,
+          "appTestNumber": 9,
+          "section": "C",
+          "rawStrongTexts": [
+            "C"
+          ],
+          "detectedHeading": "Olivia Morgan",
+          "bodyStart": "Back in our school days I always liked Megan, but she was never keen on studying so I sort of took it for granted that s",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 8,
+          "appTestNumber": 9,
+          "section": "D",
+          "rawStrongTexts": [
+            "D"
+          ],
+          "detectedHeading": "Maite Silva",
+          "bodyStart": "I was delighted when Carla told me she has such a good job. Somehow I always knew she’d do well, though I must confess t",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 8,
+          "appTestNumber": 9,
+          "section": "E",
+          "rawStrongTexts": [
+            "E"
+          ],
+          "detectedHeading": "Уan Lin",
+          "bodyStart": "When I realised my old classmate Ming was trying to contact me I didn’t hesitate for a second in replying. Somehow I’d a",
+          "shape": "label-strong-heading-text-before-br"
+        }
+      ]
+    },
+    {
+      "sourceTestNumber": 9,
+      "appTestNumber": 10,
+      "sectionCount": 5,
+      "headingsDetected": 5,
+      "sections": [
+        {
+          "sourceTestNumber": 9,
+          "appTestNumber": 10,
+          "section": "A",
+          "rawStrongTexts": [
+            "A"
+          ],
+          "detectedHeading": "Leonor Sousa",
+          "bodyStart": "It can’t be denied that tourism has attracted investment, which has certainly raised living standards here, but the cost",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 9,
+          "appTestNumber": 10,
+          "section": "B",
+          "rawStrongTexts": [
+            "B"
+          ],
+          "detectedHeading": "Yusuf Demir",
+          "bodyStart": "When I was growing up in my home town there was a path I used to walk along to go to school, and last summer I went to s",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 9,
+          "appTestNumber": 10,
+          "section": "C",
+          "rawStrongTexts": [
+            "C"
+          ],
+          "detectedHeading": "Matt Walker",
+          "bodyStart": "Tourism has changed this town so much, even in the years since I was at junior school. In those days there was a footbal",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 9,
+          "appTestNumber": 10,
+          "section": "D",
+          "rawStrongTexts": [
+            "D"
+          ],
+          "detectedHeading": "Trisha Chandra",
+          "bodyStart": "I was just a child when tourism first took off here and those incredibly ugly houses were built for summer visitors. The",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 9,
+          "appTestNumber": 10,
+          "section": "E",
+          "rawStrongTexts": [
+            "E"
+          ],
+          "detectedHeading": "Daniela Navarro",
+          "bodyStart": "I know some of the new hotels and holiday apartment blocks are unattractive, and that the bars, restaurants and nightclu",
+          "shape": "label-strong-heading-text-before-br"
+        }
+      ]
+    },
+    {
+      "sourceTestNumber": 10,
+      "appTestNumber": 11,
+      "sectionCount": 4,
+      "headingsDetected": 0,
+      "sections": [
+        {
+          "sourceTestNumber": 10,
+          "appTestNumber": 11,
+          "section": "A",
+          "rawStrongTexts": [
+            "A"
+          ],
+          "detectedHeading": "",
+          "bodyStart": "It’s my first time driving to Chelsea’s training ground and I turn off slightly too early at the London University playi",
+          "shape": "label-only-before-br"
+        },
+        {
+          "sourceTestNumber": 10,
+          "appTestNumber": 11,
+          "section": "B",
+          "rawStrongTexts": [
+            "B"
+          ],
+          "detectedHeading": "",
+          "bodyStart": "Gavin, himself a fine footballer – a member of the national team in his time – and now a professional coach, sent Duncan",
+          "shape": "label-only-before-br"
+        },
+        {
+          "sourceTestNumber": 10,
+          "appTestNumber": 11,
+          "section": "C",
+          "rawStrongTexts": [
+            "C"
+          ],
+          "detectedHeading": "",
+          "bodyStart": "Duncan takes up the story: ‘The first half of that season I played in the youth team. I got lucky – the first-team manag",
+          "shape": "label-only-before-br"
+        },
+        {
+          "sourceTestNumber": 10,
+          "appTestNumber": 11,
+          "section": "D",
+          "rawStrongTexts": [
+            "D"
+          ],
+          "detectedHeading": "",
+          "bodyStart": "Not every kid gets advice from an ex-England player over dinner, nor their own private training sessions. Now Duncan is ",
+          "shape": "label-only-before-br"
+        }
+      ]
+    },
+    {
+      "sourceTestNumber": 11,
+      "appTestNumber": 12,
+      "sectionCount": 4,
+      "headingsDetected": 4,
+      "sections": [
+        {
+          "sourceTestNumber": 11,
+          "appTestNumber": 12,
+          "section": "A",
+          "rawStrongTexts": [
+            "A Jonas Hagen"
+          ],
+          "detectedHeading": "Jonas Hagen",
+          "bodyStart": "I bought my new mountain bike online and as soon as it was delivered to my home in kit form I set to work. Once it actua",
+          "shape": "label-heading-same-strong"
+        },
+        {
+          "sourceTestNumber": 11,
+          "appTestNumber": 12,
+          "section": "B",
+          "rawStrongTexts": [
+            "B Lili Huang"
+          ],
+          "detectedHeading": "Lili Huang",
+          "bodyStart": "I originally bought my bike just for occasional use, but now I go everywhere on it. It��s great exercise, every bit as g",
+          "shape": "label-heading-same-strong"
+        },
+        {
+          "sourceTestNumber": 11,
+          "appTestNumber": 12,
+          "section": "C",
+          "rawStrongTexts": [
+            "C James Thompson"
+          ],
+          "detectedHeading": "James Thompson",
+          "bodyStart": "This is only the second bicycle I’ve ever bought. It was on offer at the local cycle shop and I think I got something of",
+          "shape": "label-heading-same-strong"
+        },
+        {
+          "sourceTestNumber": 11,
+          "appTestNumber": 12,
+          "section": "D",
+          "rawStrongTexts": [
+            "D Mia Doherty"
+          ],
+          "detectedHeading": "Mia Doherty",
+          "bodyStart": "I actually chose this bike in something of a hurry. I’d left my old one outside the sports centre and when I came back i",
+          "shape": "label-heading-same-strong"
+        }
+      ]
+    },
+    {
+      "sourceTestNumber": 12,
+      "appTestNumber": 13,
+      "sectionCount": 4,
+      "headingsDetected": 0,
+      "sections": [
+        {
+          "sourceTestNumber": 12,
+          "appTestNumber": 13,
+          "section": "A",
+          "rawStrongTexts": [
+            "A"
+          ],
+          "detectedHeading": "",
+          "bodyStart": "There have been many great Olympic athletes in recent years, but few have been taken to their country’s heart quite as w",
+          "shape": "label-only-before-br"
+        },
+        {
+          "sourceTestNumber": 12,
+          "appTestNumber": 13,
+          "section": "B",
+          "rawStrongTexts": [
+            "B"
+          ],
+          "detectedHeading": "",
+          "bodyStart": "Jessica recognises that her normally easygoing nature is transformed into something much fiercer when she has to compete",
+          "shape": "label-only-before-br"
+        },
+        {
+          "sourceTestNumber": 12,
+          "appTestNumber": 13,
+          "section": "C",
+          "rawStrongTexts": [
+            "C"
+          ],
+          "detectedHeading": "",
+          "bodyStart": "She gets on well with her family, as she does with her husband Andy, saying she dislikes conflict and wherever possible ",
+          "shape": "label-only-before-br"
+        },
+        {
+          "sourceTestNumber": 12,
+          "appTestNumber": 13,
+          "section": "D",
+          "rawStrongTexts": [
+            "D"
+          ],
+          "detectedHeading": "",
+          "bodyStart": "By the time of the London Games in 2012 she was in the best shape of her life, and on this occasion she was fortunate en",
+          "shape": "label-only-before-br"
+        }
+      ]
+    },
+    {
+      "sourceTestNumber": 13,
+      "appTestNumber": 14,
+      "sectionCount": 5,
+      "headingsDetected": 5,
+      "sections": [
+        {
+          "sourceTestNumber": 13,
+          "appTestNumber": 14,
+          "section": "A",
+          "rawStrongTexts": [
+            "A Rob Stevenson, lorry driver"
+          ],
+          "detectedHeading": "Rob Stevenson, lorry driver",
+          "bodyStart": "The main problem is that the location of posters can be a safety hazard if they block your view of junctions or road sig",
+          "shape": "label-heading-same-strong"
+        },
+        {
+          "sourceTestNumber": 13,
+          "appTestNumber": 14,
+          "section": "B",
+          "rawStrongTexts": [
+            "B Josie Pelham, cabin crew"
+          ],
+          "detectedHeading": "Josie Pelham, cabin crew",
+          "bodyStart": "Walking through airports in uniform, I tend not to look around too much. That’s because I run the risk of being asked qu",
+          "shape": "label-heading-same-strong"
+        },
+        {
+          "sourceTestNumber": 13,
+          "appTestNumber": 14,
+          "section": "C",
+          "rawStrongTexts": [
+            "C Damian Stenton, lawyer"
+          ],
+          "detectedHeading": "Damian Stenton, lawyer",
+          "bodyStart": "To be honest, I can take or leave street advertising – I don’t pay it much attention and posters aren’t that obtrusive. ",
+          "shape": "label-heading-same-strong"
+        },
+        {
+          "sourceTestNumber": 13,
+          "appTestNumber": 14,
+          "section": "D",
+          "rawStrongTexts": [
+            "D Danni Rochas, interior designer"
+          ],
+          "detectedHeading": "Danni Rochas, interior designer",
+          "bodyStart": "I often feel surrounded by posters and advertising, it seems to be taking over our city. I am reminded of an episode of ",
+          "shape": "label-heading-same-strong"
+        },
+        {
+          "sourceTestNumber": 13,
+          "appTestNumber": 14,
+          "section": "E",
+          "rawStrongTexts": [
+            "E Naomi Hesketh, student"
+          ],
+          "detectedHeading": "Naomi Hesketh, student",
+          "bodyStart": "I try to walk straight past most posters as if they weren’t there, but some do manage to grab your attention nonetheless",
+          "shape": "label-heading-same-strong"
+        }
+      ]
+    },
+    {
+      "sourceTestNumber": 14,
+      "appTestNumber": 15,
+      "sectionCount": 4,
+      "headingsDetected": 4,
+      "sections": [
+        {
+          "sourceTestNumber": 14,
+          "appTestNumber": 15,
+          "section": "A",
+          "rawStrongTexts": [
+            "A CycleStreets"
+          ],
+          "detectedHeading": "CycleStreets",
+          "bodyStart": "You’re keen to get on your bike, but you’re not so keen on bumping over poor roads, sweating up hills or riding between ",
+          "shape": "label-heading-same-strong"
+        },
+        {
+          "sourceTestNumber": 14,
+          "appTestNumber": 15,
+          "section": "B",
+          "rawStrongTexts": [
+            "B Sefton Green Gym"
+          ],
+          "detectedHeading": "Sefton Green Gym",
+          "bodyStart": "If you visit Sefton Green Gym in Liverpool, don’t go expecting to see weights or rowing machines — this ‘gym’ just has r",
+          "shape": "label-heading-same-strong"
+        },
+        {
+          "sourceTestNumber": 14,
+          "appTestNumber": 15,
+          "section": "C",
+          "rawStrongTexts": [
+            "C The Project Group"
+          ],
+          "detectedHeading": "The Project Group",
+          "bodyStart": "from the small town of Oswestry, helps people with health problems and learning disabilities to build their self-esteem ",
+          "shape": "label-heading-same-strong"
+        },
+        {
+          "sourceTestNumber": 14,
+          "appTestNumber": 15,
+          "section": "D",
+          "rawStrongTexts": [
+            "D Cleanstream Carpets"
+          ],
+          "detectedHeading": "Cleanstream Carpets",
+          "bodyStart": "Every year, an astonishing three-and-a-half million carpet tiles are thrown away in South Wales and southwest England. R",
+          "shape": "label-heading-same-strong"
+        }
+      ]
+    },
+    {
+      "sourceTestNumber": 15,
+      "appTestNumber": 16,
+      "sectionCount": 4,
+      "headingsDetected": 4,
+      "sections": [
+        {
+          "sourceTestNumber": 15,
+          "appTestNumber": 16,
+          "section": "A",
+          "rawStrongTexts": [
+            "A"
+          ],
+          "detectedHeading": "Sadie Grossman",
+          "bodyStart": "Last year, I was one of 30,000 people who took part in La Tomatina, an annual festival held in Buñol, Spain, during whic",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 15,
+          "appTestNumber": 16,
+          "section": "B",
+          "rawStrongTexts": [
+            "B"
+          ],
+          "detectedHeading": "Joe Haythorpe",
+          "bodyStart": "I went with friends to the mud festival held in Boryeong, South Korea because several of them had been before, loved it ",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 15,
+          "appTestNumber": 16,
+          "section": "C",
+          "rawStrongTexts": [
+            "C"
+          ],
+          "detectedHeading": "Charlie Traynor",
+          "bodyStart": "Cheese Rolling on Cooper’s Hill in Gloucestershire, England is the ideal activity for fans of extreme sports whether as ",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 15,
+          "appTestNumber": 16,
+          "section": "D",
+          "rawStrongTexts": [
+            "D"
+          ],
+          "detectedHeading": "Louisa Darke",
+          "bodyStart": "During the Monkey Buffet Festival in Lopburi, Thailand, cakes, fruit and vegetables are piled up on tables in the street",
+          "shape": "label-strong-heading-text-before-br"
+        }
+      ]
+    },
+    {
+      "sourceTestNumber": 16,
+      "appTestNumber": 17,
+      "sectionCount": 5,
+      "headingsDetected": 5,
+      "sections": [
+        {
+          "sourceTestNumber": 16,
+          "appTestNumber": 17,
+          "section": "A",
+          "rawStrongTexts": [
+            "A Stefan"
+          ],
+          "detectedHeading": "Stefan",
+          "bodyStart": "Fame will bring you all the money, attention and love you could ever want! It will solve all your problems and make you ",
+          "shape": "label-heading-same-strong"
+        },
+        {
+          "sourceTestNumber": 16,
+          "appTestNumber": 17,
+          "section": "B",
+          "rawStrongTexts": [
+            "B Leo"
+          ],
+          "detectedHeading": "Leo",
+          "bodyStart": "One thing I’ve noticed about famous people is that they’ve often been through a negative event during their early lives ",
+          "shape": "label-heading-same-strong"
+        },
+        {
+          "sourceTestNumber": 16,
+          "appTestNumber": 17,
+          "section": "C",
+          "rawStrongTexts": [
+            "C Franz"
+          ],
+          "detectedHeading": "Franz",
+          "bodyStart": "To be honest, the idea of being on a stage and having everyone focus on you is quite appealing to me, but I know that th",
+          "shape": "label-heading-same-strong"
+        },
+        {
+          "sourceTestNumber": 16,
+          "appTestNumber": 17,
+          "section": "D",
+          "rawStrongTexts": [
+            "D Mahomet"
+          ],
+          "detectedHeading": "Mahomet",
+          "bodyStart": "There is nothing wrong with being famous if it’s because you are very skilled at something, whether you’ve written a bes",
+          "shape": "label-heading-same-strong"
+        },
+        {
+          "sourceTestNumber": 16,
+          "appTestNumber": 17,
+          "section": "E",
+          "rawStrongTexts": [
+            "E Johann"
+          ],
+          "detectedHeading": "Johann",
+          "bodyStart": "I try to avoid reading about so-called ‘stars’ – they’re just people like everyone else, and I really don’t care if they",
+          "shape": "label-heading-same-strong"
+        }
+      ]
+    },
+    {
+      "sourceTestNumber": 17,
+      "appTestNumber": 18,
+      "sectionCount": 5,
+      "headingsDetected": 0,
+      "sections": [
+        {
+          "sourceTestNumber": 17,
+          "appTestNumber": 18,
+          "section": "A",
+          "rawStrongTexts": [
+            "A"
+          ],
+          "detectedHeading": "",
+          "bodyStart": "The Sea Mammal Institute is a wildlife conservation organisation set up to protect whales, dolphins and porpoises. Our t",
+          "shape": "label-only-before-br"
+        },
+        {
+          "sourceTestNumber": 17,
+          "appTestNumber": 18,
+          "section": "B",
+          "rawStrongTexts": [
+            "B"
+          ],
+          "detectedHeading": "",
+          "bodyStart": "Our organisation relies heavily on volunteers, who help collect data and then input, organise and analyse it. Volunteers",
+          "shape": "label-only-before-br"
+        },
+        {
+          "sourceTestNumber": 17,
+          "appTestNumber": 18,
+          "section": "C",
+          "rawStrongTexts": [
+            "C"
+          ],
+          "detectedHeading": "",
+          "bodyStart": "Although we are pleased to receive any information on public sightings of whales, dolphins and porpoises, it is also imp",
+          "shape": "label-only-before-br"
+        },
+        {
+          "sourceTestNumber": 17,
+          "appTestNumber": 18,
+          "section": "D",
+          "rawStrongTexts": [
+            "D"
+          ],
+          "detectedHeading": "",
+          "bodyStart": "The Sea Mammal Institute has been running courses for over twenty years, making it the most experienced organisation for",
+          "shape": "label-only-before-br"
+        },
+        {
+          "sourceTestNumber": 17,
+          "appTestNumber": 18,
+          "section": "E",
+          "rawStrongTexts": [
+            "E"
+          ],
+          "detectedHeading": "",
+          "bodyStart": "One of the strengths of our organisation is that we do long-term, continuous research. Over the 25 years since Sea Watch",
+          "shape": "label-only-before-br"
+        }
+      ]
+    },
+    {
+      "sourceTestNumber": 18,
+      "appTestNumber": 19,
+      "sectionCount": 4,
+      "headingsDetected": 4,
+      "sections": [
+        {
+          "sourceTestNumber": 18,
+          "appTestNumber": 19,
+          "section": "A",
+          "rawStrongTexts": [
+            "A Alice"
+          ],
+          "detectedHeading": "Alice",
+          "bodyStart": "I was just married, and desperately wanted my new mother-in-law to like me. So, when she asked for my opinion of her out",
+          "shape": "label-heading-same-strong"
+        },
+        {
+          "sourceTestNumber": 18,
+          "appTestNumber": 19,
+          "section": "B",
+          "rawStrongTexts": [
+            "B Holly"
+          ],
+          "detectedHeading": "Holly",
+          "bodyStart": "My young son had been looking forward to his first sports day at primary school for weeks, and I’d promised to be there,",
+          "shape": "label-heading-same-strong"
+        },
+        {
+          "sourceTestNumber": 18,
+          "appTestNumber": 19,
+          "section": "C",
+          "rawStrongTexts": [
+            "C Cella"
+          ],
+          "detectedHeading": "Cella",
+          "bodyStart": "It was only a very small exaggeration really. Well, OK, it was more of a lie – but not a big, serious one. I was applyin",
+          "shape": "label-heading-same-strong"
+        },
+        {
+          "sourceTestNumber": 18,
+          "appTestNumber": 19,
+          "section": "D",
+          "rawStrongTexts": [
+            "D Emily"
+          ],
+          "detectedHeading": "Emily",
+          "bodyStart": "I had no idea what silver service was – but I said I did when I was being interviewed for a job as a waiter recently. I ",
+          "shape": "label-heading-same-strong"
+        }
+      ]
+    },
+    {
+      "sourceTestNumber": 19,
+      "appTestNumber": 20,
+      "sectionCount": 4,
+      "headingsDetected": 4,
+      "sections": [
+        {
+          "sourceTestNumber": 19,
+          "appTestNumber": 20,
+          "section": "A",
+          "rawStrongTexts": [
+            "A Amber"
+          ],
+          "detectedHeading": "Amber",
+          "bodyStart": "It was a really empowering moment. I’d imagined how it might feel, but the reality was much, much more exciting. When yo",
+          "shape": "label-heading-same-strong"
+        },
+        {
+          "sourceTestNumber": 19,
+          "appTestNumber": 20,
+          "section": "B",
+          "rawStrongTexts": [
+            "B Kush"
+          ],
+          "detectedHeading": "Kush",
+          "bodyStart": "It had been a challenging month. OK, to be totally honest, I’d hated every minute of it. An endless stream of revision, ",
+          "shape": "label-heading-same-strong"
+        },
+        {
+          "sourceTestNumber": 19,
+          "appTestNumber": 20,
+          "section": "C",
+          "rawStrongTexts": [
+            "C Katie"
+          ],
+          "detectedHeading": "Katie",
+          "bodyStart": "It started out as a pretty normal day for me, trying to get my head round a new story plot. I’d been passionate about cr",
+          "shape": "label-heading-same-strong"
+        },
+        {
+          "sourceTestNumber": 19,
+          "appTestNumber": 20,
+          "section": "D",
+          "rawStrongTexts": [
+            "D Alfie"
+          ],
+          "detectedHeading": "Alfie",
+          "bodyStart": "I guess most people would say that their red letter days include things like getting exam results or maybe something lik",
+          "shape": "label-heading-same-strong"
+        }
+      ]
+    },
+    {
+      "sourceTestNumber": 20,
+      "appTestNumber": 21,
+      "sectionCount": 4,
+      "headingsDetected": 0,
+      "sections": [
+        {
+          "sourceTestNumber": 20,
+          "appTestNumber": 21,
+          "section": "A",
+          "rawStrongTexts": [
+            "A"
+          ],
+          "detectedHeading": "",
+          "bodyStart": "You’d expect someone like me to have summer down as the best time of the year. After all, I have those long holiday week",
+          "shape": "label-only-before-br"
+        },
+        {
+          "sourceTestNumber": 20,
+          "appTestNumber": 21,
+          "section": "B",
+          "rawStrongTexts": [
+            "B"
+          ],
+          "detectedHeading": "",
+          "bodyStart": "Where I live we don’t get seasons like most countries do. It’s pretty much summer all year round, apart from the hurrica",
+          "shape": "label-only-before-br"
+        },
+        {
+          "sourceTestNumber": 20,
+          "appTestNumber": 21,
+          "section": "C",
+          "rawStrongTexts": [
+            "C"
+          ],
+          "detectedHeading": "",
+          "bodyStart": "I’m Russian and I know I should be used to the winter months, like most Russians, but I am definitely not! I absolutely ",
+          "shape": "label-only-before-br"
+        },
+        {
+          "sourceTestNumber": 20,
+          "appTestNumber": 21,
+          "section": "D",
+          "rawStrongTexts": [
+            "D"
+          ],
+          "detectedHeading": "",
+          "bodyStart": "What’s not to like about summer? For me – actually quite a lot. I’m one of those people who suffer when the pollen level",
+          "shape": "label-only-before-br"
+        }
+      ]
+    },
+    {
+      "sourceTestNumber": 21,
+      "appTestNumber": 22,
+      "sectionCount": 4,
+      "headingsDetected": 4,
+      "sections": [
+        {
+          "sourceTestNumber": 21,
+          "appTestNumber": 22,
+          "section": "A",
+          "rawStrongTexts": [
+            "A"
+          ],
+          "detectedHeading": "Melissa Evans",
+          "bodyStart": "I worked in a supermarket and I was horrified at the amount of food that was thrown away every day – literally dumped in",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 21,
+          "appTestNumber": 22,
+          "section": "B",
+          "rawStrongTexts": [
+            "B"
+          ],
+          "detectedHeading": "Dan Rudofsky",
+          "bodyStart": "I’d always wanted to set up my own company, but when I went to business school, I was alarmed that what we learnt was al",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 21,
+          "appTestNumber": 22,
+          "section": "C",
+          "rawStrongTexts": [
+            "C"
+          ],
+          "detectedHeading": "Helen Sousa",
+          "bodyStart": "Homelessness is a huge problem in my city, and when I lost my job two years ago, I decided to do something about it. I h",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 21,
+          "appTestNumber": 22,
+          "section": "D",
+          "rawStrongTexts": [
+            "D"
+          ],
+          "detectedHeading": "James Walker",
+          "bodyStart": "I definitely believe in breaking the rules and doing something different. Three years ago, I had a high-paid job in bank",
+          "shape": "label-strong-heading-text-before-br"
+        }
+      ]
+    },
+    {
+      "sourceTestNumber": 22,
+      "appTestNumber": 23,
+      "sectionCount": 4,
+      "headingsDetected": 4,
+      "sections": [
+        {
+          "sourceTestNumber": 22,
+          "appTestNumber": 23,
+          "section": "A",
+          "rawStrongTexts": [
+            "A"
+          ],
+          "detectedHeading": "Kevin Teller and Justin O’Brien",
+          "bodyStart": "Anyone who saw Together, the surprise arthouse hit, will have been as charmed by Jumping Gerald, the short film which ra",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 22,
+          "appTestNumber": 23,
+          "section": "B",
+          "rawStrongTexts": [
+            "B"
+          ],
+          "detectedHeading": "The Collins brothers",
+          "bodyStart": "Tim and Mark Collins first fell in love with the art of film-making when they were young boys. Their father was often ab",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 22,
+          "appTestNumber": 23,
+          "section": "C",
+          "rawStrongTexts": [
+            "C"
+          ],
+          "detectedHeading": "Brian Radley and Nicky Tomlinson",
+          "bodyStart": "Radley and Tomlinson’s very first short film More Cake Please was nominated for a prestigious award at the Cannes Film F",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 22,
+          "appTestNumber": 23,
+          "section": "D",
+          "rawStrongTexts": [
+            "D"
+          ],
+          "detectedHeading": "Hiroko Katsue and Mica Stevlovsky",
+          "bodyStart": "Katsue and Stevlovsky speak fondly of the days when every feature film at the cinema was preceded by a short film. Katsu",
+          "shape": "label-strong-heading-text-before-br"
+        }
+      ]
+    },
+    {
+      "sourceTestNumber": 23,
+      "appTestNumber": 24,
+      "sectionCount": 4,
+      "headingsDetected": 4,
+      "sections": [
+        {
+          "sourceTestNumber": 23,
+          "appTestNumber": 24,
+          "section": "A",
+          "rawStrongTexts": [
+            "A"
+          ],
+          "detectedHeading": "Graham Button",
+          "bodyStart": "My dad is a self-employed builder, like his father and his grandfather, and that means he was often out working in the e",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 23,
+          "appTestNumber": 24,
+          "section": "B",
+          "rawStrongTexts": [
+            "B"
+          ],
+          "detectedHeading": "Sue Smith",
+          "bodyStart": "My mother’s a nuclear physicist, which sounds very exciting. The truth is it’s a pretty tough profession. And I just don",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 23,
+          "appTestNumber": 24,
+          "section": "C",
+          "rawStrongTexts": [
+            "C"
+          ],
+          "detectedHeading": "Barry Porter",
+          "bodyStart": "When people find out my mother’s an actress, they always ask what Hollywood films she’s been in, and I have to explain t",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 23,
+          "appTestNumber": 24,
+          "section": "D",
+          "rawStrongTexts": [
+            "D"
+          ],
+          "detectedHeading": "Ruth Lawrence",
+          "bodyStart": "My father teaches maths at high school, which definitely used to come in handy when we had a maths test the next day! I ",
+          "shape": "label-strong-heading-text-before-br"
+        }
+      ]
+    },
+    {
+      "sourceTestNumber": 24,
+      "appTestNumber": 25,
+      "sectionCount": 4,
+      "headingsDetected": 4,
+      "sections": [
+        {
+          "sourceTestNumber": 24,
+          "appTestNumber": 25,
+          "section": "A",
+          "rawStrongTexts": [
+            "A"
+          ],
+          "detectedHeading": "Plumpton High School",
+          "bodyStart": "This school decided to arrange a variety of activities, some aimed at achieving a better understanding of environmental ",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 24,
+          "appTestNumber": 25,
+          "section": "B",
+          "rawStrongTexts": [
+            "B"
+          ],
+          "detectedHeading": "Cresswell College",
+          "bodyStart": "The staff and students at Cresswell College held a meeting and discussed a number of suggestions. The most popular sugge",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 24,
+          "appTestNumber": 25,
+          "section": "C",
+          "rawStrongTexts": [
+            "C"
+          ],
+          "detectedHeading": "Grayner Institute",
+          "bodyStart": "This school had already been involved in some projects connected with the environment, though naturally efforts were inc",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 24,
+          "appTestNumber": 25,
+          "section": "D",
+          "rawStrongTexts": [
+            "D"
+          ],
+          "detectedHeading": "Halliwell Academy",
+          "bodyStart": "The pupils at this inner-city secondary school felt that the best way to mark Environmental Awareness Day would be to he",
+          "shape": "label-strong-heading-text-before-br"
+        }
+      ]
+    },
+    {
+      "sourceTestNumber": 25,
+      "appTestNumber": 26,
+      "sectionCount": 4,
+      "headingsDetected": 4,
+      "sections": [
+        {
+          "sourceTestNumber": 25,
+          "appTestNumber": 26,
+          "section": "A",
+          "rawStrongTexts": [
+            "A"
+          ],
+          "detectedHeading": "Ian",
+          "bodyStart": "My sister Eva and I are twins, and we get on really well. I think we’re probably far closer than most brothers and siste",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 25,
+          "appTestNumber": 26,
+          "section": "B",
+          "rawStrongTexts": [
+            "B"
+          ],
+          "detectedHeading": "Ned",
+          "bodyStart": "I think that old friends are the best of all, and Sam and I have been friends all our lives. We were both born in the sa",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 25,
+          "appTestNumber": 26,
+          "section": "C",
+          "rawStrongTexts": [
+            "C"
+          ],
+          "detectedHeading": "Flora",
+          "bodyStart": "I’m a singer, and I’ve had a couple of hit singles. My album is selling well at the moment, and I’m getting more and mor",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 25,
+          "appTestNumber": 26,
+          "section": "D",
+          "rawStrongTexts": [
+            "D"
+          ],
+          "detectedHeading": "Paula",
+          "bodyStart": "Jane and I share a flat, but we’re complete opposites. She’s by far the most organised person that I know. Look at the w",
+          "shape": "label-strong-heading-text-before-br"
+        }
+      ]
+    },
+    {
+      "sourceTestNumber": 26,
+      "appTestNumber": 27,
+      "sectionCount": 4,
+      "headingsDetected": 4,
+      "sections": [
+        {
+          "sourceTestNumber": 26,
+          "appTestNumber": 27,
+          "section": "A",
+          "rawStrongTexts": [
+            "A"
+          ],
+          "detectedHeading": "Sally",
+          "bodyStart": "I’m going to spend the next few months on the magical Perhentian Islands, just a few miles off the coast of Malaysia. It",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 26,
+          "appTestNumber": 27,
+          "section": "B",
+          "rawStrongTexts": [
+            "B"
+          ],
+          "detectedHeading": "Jonah",
+          "bodyStart": "As you might imagine, the wilderness of Arctic Svalbard, halfway between Norway and the North Pole, is a place where the",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 26,
+          "appTestNumber": 27,
+          "section": "C",
+          "rawStrongTexts": [
+            "C"
+          ],
+          "detectedHeading": "Maria",
+          "bodyStart": "What am I doing this summer? I’m moving to New York City! For me, it’s always been a dream, and now I have an amazing op",
+          "shape": "label-strong-heading-text-before-br"
+        },
+        {
+          "sourceTestNumber": 26,
+          "appTestNumber": 27,
+          "section": "D",
+          "rawStrongTexts": [
+            "D"
+          ],
+          "detectedHeading": "Martin",
+          "bodyStart": "I’m one of those people who’s just crazy about sports, so the chance to volunteer as a sports coach in Ghana was too goo",
+          "shape": "label-strong-heading-text-before-br"
+        }
+      ]
+    }
+  ]
+}

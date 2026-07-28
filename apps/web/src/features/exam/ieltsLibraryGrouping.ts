@@ -11,22 +11,39 @@ export interface IeltsCambridgeBook<T> {
   exams: IeltsParsedExam<T>[]
 }
 
-const CAM_TITLE_RE = /Cambridge\s*(\d+)\s*Test\s*(\d+)/i
+/** Match "Cambridge 19 Test 2", "CAM 19 Test 2", "Cam19 Test2", etc. */
+const CAM_TITLE_RE =
+  /\b(?:cambridge|cam)\s*[-_]?\s*(\d{1,2})\s*[-_]?\s*test\s*[-_]?\s*(\d)\b/i
 
-export function parseIeltsCambridgeTitle(title: string): { cambridge: number; test: number } | null {
-  const match = title.match(CAM_TITLE_RE)
-  if (!match) return null
-  return { cambridge: Number(match[1]), test: Number(match[2]) }
+/** Fallback: catalog-cam-19-2-reading | ielts-cam19-test2 */
+const CAM_ID_RE =
+  /(?:^|[-_])cam[-_]?(\d{1,2})[-_](?:test)?(\d)(?:[-_]|$)/i
+
+export function parseIeltsCambridgeTitle(
+  title: string,
+  id?: string,
+): { cambridge: number; test: number } | null {
+  const fromTitle = title.match(CAM_TITLE_RE)
+  if (fromTitle) {
+    return { cambridge: Number(fromTitle[1]), test: Number(fromTitle[2]) }
+  }
+  if (id) {
+    const fromId = id.match(CAM_ID_RE)
+    if (fromId) {
+      return { cambridge: Number(fromId[1]), test: Number(fromId[2]) }
+    }
+  }
+  return null
 }
 
-export function groupExamsByCambridgeBook<T extends { title: string }>(
-  exams: T[],
-): { books: IeltsCambridgeBook<T>[]; ungrouped: T[] } {
+export function groupExamsByCambridgeBook<
+  T extends { title: string; id?: string },
+>(exams: T[]): { books: IeltsCambridgeBook<T>[]; ungrouped: T[] } {
   const byCam = new Map<number, IeltsParsedExam<T>[]>()
   const ungrouped: T[] = []
 
   for (const exam of exams) {
-    const parsed = parseIeltsCambridgeTitle(exam.title)
+    const parsed = parseIeltsCambridgeTitle(exam.title, exam.id)
     if (!parsed) {
       ungrouped.push(exam)
       continue

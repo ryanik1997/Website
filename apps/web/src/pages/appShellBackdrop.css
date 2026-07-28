@@ -1,0 +1,321 @@
+.app-shell {
+  position: relative;
+  isolation: isolate;
+}
+
+.app-shell__backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: var(--reading-corner-bg);
+}
+
+.app-shell__backdrop-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--reading-corner-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--reading-corner-grid-line) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.app-shell__backdrop::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: .028;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.app-shell__ribbon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 280vmax;
+  height: clamp(3.5rem, 9vh, 6rem);
+  border-radius: 999px;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  background-image: linear-gradient(
+    90deg,
+    var(--reading-ribbon-soft) 0%,
+    var(--reading-ribbon-mid) 22%,
+    var(--reading-ribbon-core) 48%,
+    var(--reading-ribbon-mid) 72%,
+    var(--reading-ribbon-soft) 100%
+  );
+  background-size: 200% 100%;
+  box-shadow:
+    0 .5rem 1.75rem color-mix(in srgb, var(--reading-ribbon-core) 22%, transparent),
+    inset 0 1px 0 color-mix(in srgb, var(--color-on-primary) 35%, transparent);
+  opacity: .88;
+  will-change: background-position;
+  animation: app-shell-ribbon-flow 5s linear infinite;
+}
+
+.app-shell__ribbon--1 {
+  height: clamp(3rem, 8vh, 5.25rem);
+  margin-top: -22vh;
+  animation-duration: 5.5s;
+}
+
+.app-shell__ribbon--2 {
+  height: clamp(4rem, 10vh, 6.75rem);
+  animation-duration: 4.5s;
+  animation-direction: reverse;
+  opacity: .78;
+}
+
+.app-shell__ribbon--3 {
+  height: clamp(2.75rem, 7.5vh, 4.875rem);
+  margin-top: 24vh;
+  animation-duration: 6s;
+  animation-delay: -1.2s;
+  opacity: .72;
+}
+
+.app-shell > aside,
+.app-shell__main {
+  position: relative;
+  z-index: 1;
+}
+
+.app-corner-sun {
+  position: fixed;
+  right: 1.5rem;
+  top: 1.25rem;
+  z-index: 3;
+  pointer-events: none;
+  animation: app-corner-sun-bob 5.2s cubic-bezier(.37, 0, .63, 1) infinite;
+}
+
+.app-corner-sun__companions {
+  position: relative;
+  width: 4rem;
+  height: 4rem;
+  animation: app-corner-sun-hide-seek 18s cubic-bezier(.45, .05, .55, .95) 30s infinite;
+}
+
+.app-corner-sun__mascot {
+  display: block;
+  width: 4rem;
+  height: 4rem;
+  filter: drop-shadow(0 .5rem .875rem color-mix(in srgb, var(--text-primary) 16%, transparent));
+}
+
+.app-corner-sun__cloud,
+.app-corner-sun__moon {
+  position: absolute;
+  left: -.6rem;
+  bottom: -.15rem;
+  font-size: 1.35rem;
+  line-height: 1;
+  filter: drop-shadow(0 .2rem .25rem color-mix(in srgb, var(--text-primary) 18%, transparent));
+  transform: rotate(-7deg);
+}
+
+.app-corner-sun__moon {
+  display: none;
+}
+
+
+[data-theme="mid"] .app-corner-sun__mascot,
+[data-theme="dark"] .app-corner-sun__mascot {
+  display: none;
+}
+
+[data-theme="mid"] .app-corner-sun__moon,
+[data-theme="dark"] .app-corner-sun__moon {
+  display: block;
+  left: 0;
+  bottom: 0;
+  width: 4rem;
+  font-size: 3.25rem;
+  text-align: center;
+  transform: none;
+}
+
+/* Shared primary-card surface: the bold outlined language from Reading Corner / Báo. */
+.app-shell :is(
+  .home-stat-card,
+  .home-checkin-card,
+  .home-quick-link,
+  .home-daily-goal,
+  .study-heatmap,
+  .cb-card,
+  .writing-library-card,
+  .vocab-deck-card,
+  .shadowing-card,
+  .exam-hub-track-card,
+  .exam-skill-card,
+  .ielts-library-card,
+  .ielts-library__book-hero,
+  .ielts-library-test-row,
+  .ss-hub-row,
+  .pb-card
+) {
+  border: 3px solid var(--text-primary) !important;
+  border-radius: 1.25rem !important;
+  background: var(--bg-card) !important;
+  box-shadow: .35rem .35rem 0 var(--text-primary) !important;
+  overflow: hidden;
+}
+
+.app-shell :is(
+  .home-quick-link,
+  .cb-card,
+  .writing-library-card,
+  .vocab-deck-card,
+  .shadowing-card,
+  .exam-hub-track-card,
+  .exam-skill-card,
+  .ielts-library-card
+) {
+  transition: transform .22s ease, box-shadow .22s ease !important;
+}
+
+.app-shell :is(
+  .home-quick-link,
+  .cb-card,
+  .writing-library-card,
+  .vocab-deck-card,
+  .shadowing-card,
+  .exam-hub-track-card,
+  .exam-skill-card,
+  .ielts-library-card
+):hover {
+  transform: translate(-.2rem, -.2rem) !important;
+  box-shadow: .55rem .55rem 0 var(--text-primary) !important;
+}
+
+.app-shell :is(
+  .home-quick-link,
+  .cb-card,
+  .writing-library-card,
+  .vocab-deck-card,
+  .shadowing-card,
+  .exam-hub-track-card,
+  .exam-skill-card,
+  .ielts-library-card
+):focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+/* Writing Library keeps its custom artwork, but shared light cards need dark copy. */
+.app-shell .writing-library-card .writing-library-card-title {
+  color: var(--text-primary) !important;
+}
+
+.app-shell .writing-library-card .writing-library-card-desc {
+  color: var(--text-muted) !important;
+}
+
+.app-shell .writing-library-card .writing-library-card-cta {
+  background: var(--color-primary) !important;
+  color: var(--color-on-primary) !important;
+}
+
+/* Cambridge skill cards used white-on-gradient copy before the shared card
+   surface replaced that gradient. Keep every text layer theme-aware in Light. */
+.app-shell .exam-skill-card .exam-skill-card__title {
+  color: var(--text-primary) !important;
+}
+
+.app-shell .exam-skill-card .exam-skill-card__desc {
+  color: var(--text-muted) !important;
+}
+
+.app-shell .exam-skill-card .exam-skill-card__chip {
+  background: color-mix(in srgb, var(--color-primary) 14%, transparent) !important;
+  color: var(--color-primary) !important;
+}
+
+.app-shell .exam-skill-card .exam-skill-card__badge {
+  background: var(--color-primary) !important;
+  color: var(--color-on-primary) !important;
+  box-shadow: none !important;
+}
+
+@keyframes app-corner-sun-bob {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(1.5deg); }
+  50% { transform: translate3d(0, -.35rem, 0) rotate(-1.5deg); }
+}
+
+@keyframes app-corner-sun-hide-seek {
+  0%, 18%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); opacity: 1; }
+  31% { transform: translate3d(-1.1rem, .35rem, 0) rotate(-8deg); opacity: 1; }
+  43% { transform: translate3d(.9rem, -.5rem, 0) rotate(7deg); opacity: .82; }
+  51% { transform: translate3d(4.75rem, -.4rem, 0) rotate(13deg); opacity: 0; }
+  59% { transform: translate3d(4.75rem, .5rem, 0) rotate(-10deg); opacity: 0; }
+  68% { transform: translate3d(.65rem, .2rem, 0) rotate(-4deg); opacity: .9; }
+  79% { transform: translate3d(-.65rem, -.3rem, 0) rotate(4deg); opacity: 1; }
+}
+
+.app-shell--backdrop .app-shell__main,
+.app-shell--backdrop .app-page-surface,
+.app-shell--backdrop .home-page,
+.app-shell--backdrop .writing-layout,
+.app-shell--backdrop .writing-layout__content,
+.app-shell--backdrop .writing-shell,
+.app-shell--backdrop .translation-practice-page > .flex-1 > .flex-1,
+.app-shell--backdrop .writing-library,
+.app-shell--backdrop .cb-hub,
+.app-shell--backdrop .wd-page,
+.app-shell--backdrop .listening-library-page,
+.app-shell--backdrop .shadowing-shell,
+.app-shell--backdrop .shadowing-main,
+.app-shell--backdrop .shadowing-detail,
+.app-shell--backdrop .exam-home,
+.app-shell--backdrop .exam-hub-page,
+.app-shell--backdrop .exam-skill-picker,
+.app-shell--backdrop .ss-shell,
+.app-shell--backdrop .ss-list-page {
+  background: transparent !important;
+}
+
+.app-shell--grid .vocab-card-panel {
+  background: transparent !important;
+}
+
+.app-shell--grid .vocab-study-shell {
+  background:
+    linear-gradient(var(--reading-corner-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--reading-corner-grid-line) 1px, transparent 1px),
+    var(--reading-corner-bg) !important;
+  background-size: 32px 32px !important;
+}
+
+.app-shell.app-shell--backdrop .app-shell__main .ss-list-page .ss-hub,
+.app-shell.app-shell--backdrop .app-shell__main .ss-list-page .ss-workspace,
+.app-shell.app-shell--backdrop .app-shell__main .ss-list-page .ss-main {
+  background: transparent !important;
+}
+
+.app-shell--backdrop .home-page::before,
+.app-shell--backdrop .listening-library-page::before,
+.app-shell--backdrop .exam-home::before,
+.app-shell--backdrop .ss-shell::before,
+.app-shell--backdrop .ss-list-page::before {
+  display: none;
+}
+
+@keyframes app-shell-ribbon-flow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+.app-shell__ribbon,
+  .app-corner-sun,
+  .app-corner-sun__companions {
+    animation: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .app-corner-sun {
+    display: none;
+  }
+}

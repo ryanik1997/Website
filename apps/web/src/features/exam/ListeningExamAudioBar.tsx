@@ -13,6 +13,8 @@ interface Props {
   playBlocked?: boolean
   playError?: string | null
   onPlayNormal: () => void
+  speed?: number
+  onToggleSpeed?: () => void
   onSeek: (pct: number) => void
   onStop: () => void
 }
@@ -29,6 +31,8 @@ export default function ListeningExamAudioBar({
   playBlocked = false,
   playError = null,
   onPlayNormal,
+  speed = 1,
+  onToggleSpeed,
   onSeek,
   onStop,
 }: Props) {
@@ -55,6 +59,18 @@ export default function ListeningExamAudioBar({
           )}
         </button>
 
+        {onToggleSpeed && (
+          <button
+            type="button"
+            className="listening-exam-audio__speed"
+            onClick={onToggleSpeed}
+            aria-label="Tốc độ phát audio"
+            title="Đổi tốc độ phát"
+          >
+            {speed}×
+          </button>
+        )}
+
         <Volume2 size={15} className="listening-exam-audio__volume" aria-hidden />
 
         <span className="listening-exam-audio__time">{timeLabel}</span>
@@ -63,17 +79,34 @@ export default function ListeningExamAudioBar({
           type="button"
           className="listening-exam-audio__track"
           disabled={!allowSeek}
-          onClick={e => {
+          onPointerDown={e => {
             if (!allowSeek) return
-            const rect = e.currentTarget.getBoundingClientRect()
-            const pct = ((e.clientX - rect.left) / rect.width) * 100
-            onSeek(pct)
+            const track = e.currentTarget
+            const seekFromEvent = (clientX: number) => {
+              const rect = track.getBoundingClientRect()
+              if (rect.width <= 0) return
+              const pct = ((clientX - rect.left) / rect.width) * 100
+              onSeek(Math.max(0, Math.min(100, pct)))
+            }
+            seekFromEvent(e.clientX)
+            track.setPointerCapture(e.pointerId)
+            const onMove = (ev: PointerEvent) => seekFromEvent(ev.clientX)
+            const onUp = (ev: PointerEvent) => {
+              track.releasePointerCapture(ev.pointerId)
+              track.removeEventListener('pointermove', onMove)
+              track.removeEventListener('pointerup', onUp)
+              track.removeEventListener('pointercancel', onUp)
+            }
+            track.addEventListener('pointermove', onMove)
+            track.addEventListener('pointerup', onUp)
+            track.addEventListener('pointercancel', onUp)
           }}
-          aria-label="Tiến độ audio"
+          aria-label="Tiến độ audio — kéo để tua"
+          title={allowSeek ? 'Kéo hoặc bấm để tua' : 'Chế độ thi — không tua'}
         >
           <span
             className="listening-exam-audio__fill"
-            style={{ transform: `scaleX(${progressPct / 100})` }}
+            style={{ transform: `translateY(-50%) scaleX(${Math.max(0, Math.min(100, progressPct)) / 100})` }}
           />
         </button>
       </div>

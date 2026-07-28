@@ -2,20 +2,102 @@
 .listening-library-page::before { content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .03; background-image: radial-gradient(var(--text-primary) .55px, transparent .55px); background-size: 5px 5px; }
 .listening-library-page__inner { max-width: 76rem; padding-top: clamp(2rem, 5vw, 5rem); }
 .listening-library-page__inner > header { position: relative; min-height: 17rem; margin-bottom: 3rem; padding: 2.4rem 2.5rem; overflow: hidden; border-radius: 2rem; background: color-mix(in srgb, var(--bg-card) 88%, transparent); box-shadow: inset 0 1px 0 color-mix(in srgb, var(--text-primary) 9%, transparent); }
-.listening-library-page__inner > header::after { content: 'LISTEN\A / 01'; white-space: pre; position: absolute; right: 7%; bottom: 1.5rem; color: color-mix(in srgb, var(--color-primary) 35%, transparent); font-family: Georgia, serif; font-size: clamp(3rem, 8vw, 7rem); font-style: italic; line-height: .8; text-align: right; transform: rotate(-7deg); pointer-events: none; }
+.listening-library-page__inner > header::after { content: 'LISTEN\A / 01'; white-space: pre; position: absolute; right: 7%; bottom: 1.5rem; color: color-mix(in srgb, var(--color-primary) 35%, transparent); font-family: var(--font-app); font-size: clamp(3rem, 8vw, 7rem); font-style: italic; line-height: .8; text-align: right; transform: rotate(-7deg); pointer-events: none; }
 .listening-library-page__inner > header h1,
 .listening-library-page__inner > header h2,
 .listening-library-page__inner > header > div { position: relative; z-index: 1; }
 .listening-library-page__inner > header h1,
-.listening-library-page__inner > header h2 { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(3rem, 7vw, 6rem); font-weight: 400; letter-spacing: -.065em; line-height: .92; }
+.listening-library-page__inner > header h2 { font-family: var(--font-app); font-size: clamp(3rem, 7vw, 6rem); font-weight: 700; letter-spacing: -.045em; line-height: .92; }
 .listening-library-page__inner > header h2 { color: var(--color-primary) !important; }
 .listening-library-page__inner > header > div { margin-top: 1.2rem; }
 .listening-library-page__inner > div.mb-5 { gap: 1rem; margin-bottom: 2.5rem; padding-bottom: 1rem; border-bottom: 1px solid color-mix(in srgb, var(--border-color) 55%, transparent); }
 .listening-library-page__inner .rounded-full { transition: transform 600ms cubic-bezier(.32,.72,0,1), background 600ms cubic-bezier(.32,.72,0,1), border-color 600ms cubic-bezier(.32,.72,0,1); }
 .listening-library-page__inner .rounded-full:hover { transform: translateY(-.15rem); }
 .listening-library-page__inner input[type='search'] { min-height: 1.4rem; }
-.listening-library-page__inner > div.flex.flex-col.gap-8 > section > h3 { margin-bottom: .9rem; color: var(--text-primary) !important; font-family: Georgia, serif; font-size: 1.2rem; font-weight: 400; letter-spacing: -.02em; text-transform: none; }
+.listening-library-page__inner > div.flex.flex-col.gap-8 > section > h3 { margin-bottom: .9rem; color: var(--text-primary) !important; font-family: var(--font-app); font-size: 1.2rem; font-weight: 700; letter-spacing: -.02em; text-transform: none; }
 .listening-library-page__inner > div.flex.flex-col.gap-8 > section > div { gap: 1rem; }
 .listening-library-page__inner > div.flex.flex-col.gap-8 > section > div > * { border-radius: 1.4rem; transition: transform 650ms cubic-bezier(.32,.72,0,1), box-shadow 650ms cubic-bezier(.32,.72,0,1); }
 .listening-library-page__inner > div.flex.flex-col.gap-8 > section > div > *:hover { transform: translateY(-.3rem); box-shadow: 0 1.5rem 3rem color-mix(in srgb, var(--color-primary) 9%, transparent); }
+
+/* Shared Reading Báo card language for both Cambridge packs and personal lessons. */
+.listening-library-page .listening-bao-card {
+  border: 2px solid var(--text-primary) !important;
+  border-radius: 1rem !important;
+  background: var(--bg-card) !important;
+  background-image: none !important;
+  box-shadow: .3rem .3rem 0 var(--text-primary);
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.listening-library-page .listening-bao-card:hover {
+  transform: translate(-.14rem, -.14rem) !important;
+  background: color-mix(in srgb, var(--color-primary) 6%, var(--bg-card)) !important;
+  box-shadow: .44rem .44rem 0 var(--text-primary) !important;
+}
+
+.listening-library-page .listening-bao-card > button:first-child {
+  border-bottom: 1px solid color-mix(in srgb, var(--text-primary) 18%, transparent);
+}
+
+.listening-library-page .listening-bao-subcard {
+  border: 1px solid color-mix(in srgb, var(--text-primary) 42%, transparent);
+  border-radius: .7rem !important;
+  background: color-mix(in srgb, var(--bg-card) 90%, var(--color-primary)) !important;
+  box-shadow: .16rem .16rem 0 color-mix(in srgb, var(--text-primary) 72%, transparent);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.listening-library-page .listening-bao-card::before,
+.listening-library-page .listening-bao-card::after,
+.listening-library-page .listening-bao-subcard::before,
+.listening-library-page .listening-bao-subcard::after,
+.listening-lesson-page .listening-bao-card::before,
+.listening-lesson-page .listening-bao-card::after,
+.listening-lesson-page .listening-bao-subcard::before,
+.listening-lesson-page .listening-bao-subcard::after {
+  display: none !important;
+  content: none !important;
+}
+
+.listening-library-page .listening-bao-subcard:hover {
+  transform: translate(-.08rem, -.08rem);
+  box-shadow: .24rem .24rem 0 color-mix(in srgb, var(--text-primary) 72%, transparent);
+}
+
+/* Lesson routes use the same card family as the library and Reading Báo. */
+.listening-lesson-page {
+  background-color: var(--bg-secondary) !important;
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--color-primary) 13%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--color-primary) 13%, transparent) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.listening-lesson-page .listening-bao-card {
+  border: 2px solid var(--text-primary) !important;
+  border-radius: 1rem !important;
+  background: var(--bg-card) !important;
+  background-image: none !important;
+  box-shadow: .3rem .3rem 0 var(--text-primary);
+}
+
+.listening-lesson-page .listening-bao-subcard {
+  border: 1px solid color-mix(in srgb, var(--text-primary) 42%, transparent) !important;
+  border-radius: .7rem !important;
+  background: color-mix(in srgb, var(--bg-card) 90%, var(--color-primary)) !important;
+  background-image: none !important;
+  box-shadow: .16rem .16rem 0 color-mix(in srgb, var(--text-primary) 72%, transparent);
+}
+
+.listening-lesson-page .listening-bao-card .rounded-xl,
+.listening-lesson-page .listening-bao-card .rounded-2xl {
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .listening-library-page .listening-bao-card,
+  .listening-library-page .listening-bao-subcard,
+  .listening-lesson-page .listening-bao-card,
+  .listening-lesson-page .listening-bao-subcard { transition: none; }
+}
 @media (max-width: 640px) { .listening-library-page__inner { padding-top: 1.5rem; } .listening-library-page__inner > header { min-height: 15rem; margin-bottom: 2rem; padding: 1.5rem 1.25rem; } .listening-library-page__inner > header::after { right: 4%; bottom: 1rem; font-size: 3.5rem; } .listening-library-page__inner > div.mb-5 { padding-bottom: 1rem; } }

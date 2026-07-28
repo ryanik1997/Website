@@ -7,6 +7,7 @@ import { useWritingStore } from '../features/writing/writingStore'
 import DocListPanel from '../features/writing/DocListPanel'
 import WritingEditor from '../features/writing/WritingEditor'
 import NewDocModal from '../features/writing/NewDocModal'
+import PromptSuggestPanel from '../features/writing/promptBank/PromptSuggestPanel'
 import EmptyStateCard from '../components/EmptyStateCard'
 import { IELTS_DOC_TYPE_OPTIONS } from '../features/writing/writingTypes'
 import {
@@ -66,6 +67,8 @@ export default function WritingIeltsPracticePage() {
         <span>/</span>
         <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>{genreDef.labelVi}</span>
       </div>
+
+      <PromptSuggestPanel track={track.slug} genre={genre} />
 
       <div className="flex flex-1 min-h-0 overflow-hidden">
         {!isEmpty && (

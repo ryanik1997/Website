@@ -38,7 +38,7 @@ export default function ListeningTopicAccordion({
 
   return (
     <div
-      className="overflow-hidden rounded-2xl transition-shadow"
+      className="listening-bao-card overflow-hidden rounded-2xl transition-shadow"
       style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)' }}
     >
       <button
@@ -102,7 +102,7 @@ export default function ListeningTopicAccordion({
                   return (
                     <div
                       key={lesson.id}
-                      className={`rounded-xl ${isCompact ? 'px-3 py-2.5' : 'px-3 py-3'}`}
+                      className={`listening-bao-subcard rounded-xl ${isCompact ? 'px-3 py-2.5' : 'px-3 py-3'}`}
                       style={{ background: 'var(--bg-secondary)' }}
                     >
                       {isGrid ? (

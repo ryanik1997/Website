@@ -1,0 +1,154 @@
+/* CAE C1 Reading & Writing — footer scroll for 10 parts + Part 6/8 labeled blocks */
+
+.cae-rw-shell .ket-rw-footer__parts {
+  overflow-x: auto;
+}
+
+.cae-rw-shell .ket-rw-footer-part {
+  min-width: 4.75rem;
+}
+
+.cae-rw-labeled-block {
+  margin-bottom: 1rem;
+}
+
+.cae-rw-labeled-block__heading {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ket-text);
+}
+
+.cae-rw-panel-title {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ket-text);
+}
+
+.cae-rw-writing-task {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border: 1px solid var(--ket-pane-border);
+  border-radius: 4px;
+  opacity: 0.72;
+  transition: opacity 0.15s, border-color 0.15s;
+}
+
+.cae-rw-writing-task.is-active {
+  opacity: 1;
+  border-color: var(--ket-accent);
+  background: color-mix(in srgb, var(--ket-accent) 6%, var(--ket-body-bg));
+}
+
+.cae-rw-writing-task h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--ket-text);
+}
+
+.cae-rw-keyword-list__title {
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ket-text);
+}
+
+.cae-rw-keyword-list__items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.cae-rw-keyword-list__item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--ket-pane-border);
+  border-radius: 4px;
+  background: var(--ket-body-bg);
+  color: var(--ket-text);
+  font-size: 0.88rem;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.cae-rw-keyword-list__item.is-active {
+  border-color: var(--ket-accent);
+  background: color-mix(in srgb, var(--ket-accent) 12%, var(--ket-body-bg));
+}
+
+.cae-rw-keyword-list__item.is-filled:not(.is-active) {
+  background: color-mix(in srgb, var(--ket-accent) 8%, var(--ket-body-bg));
+}
+
+.cae-rw-keyword-list__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 3px;
+  background: var(--ket-accent);
+  color: var(--ket-body-bg);
+  font-size: 0.72rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.cae-rw-keyword-list__stem {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.cae-rw-transform-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.cae-rw-transform {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--ket-pane-border);
+}
+
+.cae-rw-transform:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.cae-rw-transform.is-active {
+  background: color-mix(in srgb, var(--ket-accent) 6%, transparent);
+  border-radius: 4px;
+  padding: 0.65rem;
+  margin: -0.65rem;
+}
+
+.cae-rw-transform__source {
+  margin: 0 0 0.35rem;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--ket-text);
+}
+
+.cae-rw-transform__stem {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--ket-accent);
+}
+
+.cae-rw-transform__target {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--ket-text);
+}

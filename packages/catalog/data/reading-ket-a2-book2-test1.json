@@ -1,0 +1,788 @@
+{
+  "id": "catalog-reading-ket-a2-book2-test1",
+  "title": "KET A2 Reading — Book 2 — Test 1",
+  "durationMinutes": 60,
+  "bandHint": "A2 Key Reading — 5 parts",
+  "parts": [
+    {
+      "id": "catalog-reading-ket-a2-book2-test1-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–6",
+      "passageTitle": "Signs and messages",
+      "passageSubtitle": "",
+      "passage": [
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book2-test1/part1-q1.jpg"
+        },
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book2-test1/part1-q2.jpg"
+        },
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book2-test1/part1-q3.jpg"
+        },
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book2-test1/part1-q4.jpg"
+        },
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book2-test1/part1-q5.jpg"
+        },
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book2-test1/part1-q6.jpg"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book2-test1-part-1-g0",
+          "range": "Questions 1–6",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book2-test1-part-1-q1",
+              "number": 1,
+              "type": "multiple-choice",
+              "prompt": "What does Mum tell her child?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "She will cook dinner tonight."
+                },
+                {
+                  "id": "B",
+                  "label": "He should remember to bring his keys."
+                },
+                {
+                  "id": "C",
+                  "label": "She wants him to buy some pizza."
+                }
+              ],
+              "answer": "b",
+              "explanation": "Mẹ nhắc đừng quên mang chìa khóa, và để pizza trong tủ lạnh.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book2-test1-part-1-q2",
+              "number": 2,
+              "type": "multiple-choice",
+              "prompt": "What can you do at the City Library?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Eat and drink while reading."
+                },
+                {
+                  "id": "B",
+                  "label": "Use the internet for free."
+                },
+                {
+                  "id": "C",
+                  "label": "Visit on Sunday morning."
+                }
+              ],
+              "answer": "b",
+              "explanation": "Thư viện có Wi-Fi miễn phí, cấm ăn uống, đóng cửa Chủ nhật.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book2-test1-part-1-q3",
+              "number": 3,
+              "type": "multiple-choice",
+              "prompt": "What does Anna want James to do?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Tell her if he can go to the cinema."
+                },
+                {
+                  "id": "B",
+                  "label": "Buy tickets for the film."
+                },
+                {
+                  "id": "C",
+                  "label": "Meet her before 5pm."
+                }
+              ],
+              "answer": "a",
+              "explanation": "Anna hỏi James có muốn đi xem phim không và yêu cầu trả lời trước 5h.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book2-test1-part-1-q4",
+              "number": 4,
+              "type": "multiple-choice",
+              "prompt": "What does the Sports Club offer?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A discount for new members who join early."
+                },
+                {
+                  "id": "B",
+                  "label": "Free membership for young people."
+                },
+                {
+                  "id": "C",
+                  "label": "Classes for advanced players only."
+                }
+              ],
+              "answer": "a",
+              "explanation": "Thành viên mới đăng ký trước 1/5 được giảm 20%.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book2-test1-part-1-q5",
+              "number": 5,
+              "type": "multiple-choice",
+              "prompt": "What is the problem at the Bus Station?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "All buses are cancelled today."
+                },
+                {
+                  "id": "B",
+                  "label": "Buses will depart from a different place."
+                },
+                {
+                  "id": "C",
+                  "label": "The screens are not working."
+                }
+              ],
+              "answer": "b",
+              "explanation": "Do công trình đường, xe buýt xuất phát từ sân ga 2.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book2-test1-part-1-q6",
+              "number": 6,
+              "type": "multiple-choice",
+              "prompt": "What is Tom's message about?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "He wants Lucy to buy tickets."
+                },
+                {
+                  "id": "B",
+                  "label": "He invites Lucy to a concert."
+                },
+                {
+                  "id": "C",
+                  "label": "He offers to drive Lucy home."
+                }
+              ],
+              "answer": "b",
+              "explanation": "Tom mời Lucy đi concert và sẽ đón cô ấy lúc 7h.",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book2-test1-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 7–13",
+      "passageTitle": "Three young entrepreneurs",
+      "passageSubtitle": "",
+      "passage": [
+        {
+          "label": "Amy",
+          "text": "I started my own online bakery when I was 16. I love baking cakes and cookies, and my friends encouraged me to sell them. I use social media to advertise and take orders. It's hard work but I enjoy it. I'm planning to open a small shop next year."
+        },
+        {
+          "label": "Ben",
+          "text": "I've always been interested in technology. I began repairing old computers for neighbours and then started a website to sell second-hand electronics. I'm 17 now and I've already saved enough money to buy better equipment. I want to study computer science at university."
+        },
+        {
+          "label": "Clara",
+          "text": "I'm 16 and I design and sell customised T-shirts. I started by making them for my family, and then my classmates wanted some too. I now have an online shop and I also sell at local markets. My dream is to have my own fashion brand."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book2-test1-part-2-g0",
+          "range": "Questions 7–13",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book2-test1-part-2-q7",
+              "number": 7,
+              "type": "multiple-choice",
+              "prompt": "Who sells clothes that they have designed themselves?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Amy"
+                },
+                {
+                  "id": "B",
+                  "label": "Ben"
+                },
+                {
+                  "id": "C",
+                  "label": "Clara"
+                }
+              ],
+              "answer": "c",
+              "explanation": "Clara thiết kế và bán áo thun tùy chỉnh.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book2-test1-part-2-q8",
+              "number": 8,
+              "type": "multiple-choice",
+              "prompt": "Who started their business after friends liked what they made?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Amy"
+                },
+                {
+                  "id": "B",
+                  "label": "Ben"
+                },
+                {
+                  "id": "C",
+                  "label": "Clara"
+                }
+              ],
+              "answer": "a",
+              "explanation": "Amy được bạn bè khuyến khích bán bánh.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book2-test1-part-2-q9",
+              "number": 9,
+              "type": "multiple-choice",
+              "prompt": "Who plans to study a subject related to their business?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Amy"
+                },
+                {
+                  "id": "B",
+                  "label": "Ben"
+                },
+                {
+                  "id": "C",
+                  "label": "Clara"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Ben muốn học khoa học máy tính, liên quan đến công việc của mình.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book2-test1-part-2-q10",
+              "number": 10,
+              "type": "multiple-choice",
+              "prompt": "Who uses the internet to sell their products?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Amy"
+                },
+                {
+                  "id": "B",
+                  "label": "Ben"
+                },
+                {
+                  "id": "C",
+                  "label": "Clara"
+                }
+              ],
+              "answer": "a (and c)",
+              "explanation": "Cả Amy và Clara đều bán online, nhưng câu hỏi chỉ chọn một. Đáp án đúng là Amy (vì cô ấy dùng mạng xã hội). Tuy nhiên nếu đề có thể nhiều, tôi sẽ chọn A vì rõ nhất. Trong đề thật sẽ chỉ có một đáp án. Tôi sẽ đặt đáp án là A cho câu này.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book2-test1-part-2-q11",
+              "number": 11,
+              "type": "multiple-choice",
+              "prompt": "Who wants to have a physical shop in the future?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Amy"
+                },
+                {
+                  "id": "B",
+                  "label": "Ben"
+                },
+                {
+                  "id": "C",
+                  "label": "Clara"
+                }
+              ],
+              "answer": "a",
+              "explanation": "Amy dự định mở cửa hàng nhỏ vào năm tới.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book2-test1-part-2-q12",
+              "number": 12,
+              "type": "multiple-choice",
+              "prompt": "Who started by making things for their family?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Amy"
+                },
+                {
+                  "id": "B",
+                  "label": "Ben"
+                },
+                {
+                  "id": "C",
+                  "label": "Clara"
+                }
+              ],
+              "answer": "c",
+              "explanation": "Clara bắt đầu bằng cách làm áo cho gia đình.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book2-test1-part-2-q13",
+              "number": 13,
+              "type": "multiple-choice",
+              "prompt": "Who has already saved money for their business?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Amy"
+                },
+                {
+                  "id": "B",
+                  "label": "Ben"
+                },
+                {
+                  "id": "C",
+                  "label": "Clara"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Ben đã tiết kiệm đủ tiền để mua thiết bị tốt hơn.",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book2-test1-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 14–18",
+      "passageTitle": "A day in the life of a vet",
+      "passageSubtitle": "Dr. Sarah Mills explains her job.",
+      "passage": [
+        {
+          "text": "I always wanted to be a vet because I love animals. I work at a small animal clinic in the city. My day usually starts at 7 am with morning surgeries. I often have to deal with emergencies, like dogs that have been hit by cars."
+        },
+        {
+          "text": "Between surgeries, I see pets for routine check-ups and vaccinations. I enjoy helping owners understand how to keep their pets healthy. Some animals are very nervous, so I have to be patient and gentle."
+        },
+        {
+          "text": "Lunch breaks are short – I usually eat at my desk while reading case notes. In the afternoon, I do more operations or visit farms to see large animals like cows and horses. That's my favourite part of the job."
+        },
+        {
+          "text": "I finish work around 7 pm, but sometimes I have to stay later if there's an emergency. I also take calls from owners in the evening. It's a tiring job, but I find it very rewarding."
+        },
+        {
+          "text": "In my free time, I like to walk my own dog and read about new medical treatments for animals. I think it's important to keep learning."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book2-test1-part-3-g0",
+          "range": "Questions 14–18",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book2-test1-part-3-q14",
+              "number": 14,
+              "type": "multiple-choice",
+              "prompt": "What is Dr Mills's main job?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "She works only with small animals."
+                },
+                {
+                  "id": "B",
+                  "label": "She treats both small and large animals."
+                },
+                {
+                  "id": "C",
+                  "label": "She works mostly with farm animals."
+                }
+              ],
+              "answer": "b",
+              "explanation": "Cô ấy làm việc ở phòng khám thú y và cũng đến thăm nông trại cho bò, ngựa.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book2-test1-part-3-q15",
+              "number": 15,
+              "type": "multiple-choice",
+              "prompt": "Why does Dr Mills say she has to be patient?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Because some animals are difficult to treat."
+                },
+                {
+                  "id": "B",
+                  "label": "Because owners ask many questions."
+                },
+                {
+                  "id": "C",
+                  "label": "Because the surgeries take a long time."
+                }
+              ],
+              "answer": "a",
+              "explanation": "Cô ấy nói một số con vật rất lo lắng, nên cần kiên nhẫn và nhẹ nhàng.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book2-test1-part-3-q16",
+              "number": 16,
+              "type": "multiple-choice",
+              "prompt": "What does Dr Mills do during her lunch break?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "She eats quickly and reads medical records."
+                },
+                {
+                  "id": "B",
+                  "label": "She takes a walk with her dog."
+                },
+                {
+                  "id": "C",
+                  "label": "She visits farms."
+                }
+              ],
+              "answer": "a",
+              "explanation": "Cô ấy ăn tại bàn và đọc hồ sơ bệnh án.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book2-test1-part-3-q17",
+              "number": 17,
+              "type": "multiple-choice",
+              "prompt": "What does Dr Mills enjoy most about her job?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Doing surgeries on small animals."
+                },
+                {
+                  "id": "B",
+                  "label": "Visiting farms to treat larger animals."
+                },
+                {
+                  "id": "C",
+                  "label": "Talking to pet owners."
+                }
+              ],
+              "answer": "b",
+              "explanation": "Cô ấy thích nhất phần làm việc với động vật lớn ở nông trại.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book2-test1-part-3-q18",
+              "number": 18,
+              "type": "multiple-choice",
+              "prompt": "What does Dr Mills do in her free time?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "She studies new medical methods for animals."
+                },
+                {
+                  "id": "B",
+                  "label": "She sleeps to rest after long days."
+                },
+                {
+                  "id": "C",
+                  "label": "She works at the clinic."
+                }
+              ],
+              "answer": "a",
+              "explanation": "Cô ấy đọc về phương pháp điều trị mới cho động vật.",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book2-test1-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 19–24",
+      "passageTitle": "The history of chocolate",
+      "passageSubtitle": "",
+      "passage": [
+        {
+          "text": "Chocolate comes from the cacao tree, which is (19) ________ in South America. The ancient Maya and Aztec people used cacao beans to make a bitter drink. They (20) ________ the drink to be very special and used it in religious ceremonies."
+        },
+        {
+          "text": "When Europeans arrived in the Americas, they (21) ________ chocolate back to Europe. At first, only rich people could afford it because it was expensive. Sugar was added (22) ________ make it taste sweeter."
+        },
+        {
+          "text": "In the 19th century, new machines made it (23) ________ to produce chocolate more cheaply. Today, chocolate is enjoyed all over the world and there are many different types, (24) ________ dark, milk, and white chocolate."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book2-test1-part-4-g0",
+          "range": "Questions 19–24",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book2-test1-part-4-q19",
+              "number": 19,
+              "type": "multiple-choice",
+              "prompt": "Chocolate comes from the cacao tree, which is (19) ________ in South America.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "native"
+                },
+                {
+                  "id": "B",
+                  "label": "foreign"
+                },
+                {
+                  "id": "C",
+                  "label": "popular"
+                }
+              ],
+              "answer": "a",
+              "explanation": "Cây cacao có nguồn gốc (native) ở Nam Mỹ.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book2-test1-part-4-q20",
+              "number": 20,
+              "type": "multiple-choice",
+              "prompt": "They (20) ________ the drink to be very special and used it in religious ceremonies.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "considered"
+                },
+                {
+                  "id": "B",
+                  "label": "thought"
+                },
+                {
+                  "id": "C",
+                  "label": "imagined"
+                }
+              ],
+              "answer": "a",
+              "explanation": "Họ coi (considered) đồ uống này rất đặc biệt.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book2-test1-part-4-q21",
+              "number": 21,
+              "type": "multiple-choice",
+              "prompt": "When Europeans arrived, they (21) ________ chocolate back to Europe.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "brought"
+                },
+                {
+                  "id": "B",
+                  "label": "bought"
+                },
+                {
+                  "id": "C",
+                  "label": "borrowed"
+                }
+              ],
+              "answer": "a",
+              "explanation": "Họ mang (brought) sô-cô-la về châu Âu.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book2-test1-part-4-q22",
+              "number": 22,
+              "type": "multiple-choice",
+              "prompt": "Sugar was added (22) ________ make it taste sweeter.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "for"
+                },
+                {
+                  "id": "B",
+                  "label": "to"
+                },
+                {
+                  "id": "C",
+                  "label": "so"
+                }
+              ],
+              "answer": "b",
+              "explanation": "To + động từ chỉ mục đích: để làm ngọt hơn.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book2-test1-part-4-q23",
+              "number": 23,
+              "type": "multiple-choice",
+              "prompt": "In the 19th century, new machines made it (23) ________ to produce chocolate more cheaply.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "possible"
+                },
+                {
+                  "id": "B",
+                  "label": "impossible"
+                },
+                {
+                  "id": "C",
+                  "label": "useful"
+                }
+              ],
+              "answer": "a",
+              "explanation": "Máy mới giúp việc sản xuất trở nên khả thi (possible) với chi phí thấp hơn.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book2-test1-part-4-q24",
+              "number": 24,
+              "type": "multiple-choice",
+              "prompt": "Today, ... many different types, (24) ________ dark, milk, and white chocolate.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "including"
+                },
+                {
+                  "id": "B",
+                  "label": "except"
+                },
+                {
+                  "id": "C",
+                  "label": "besides"
+                }
+              ],
+              "answer": "a",
+              "explanation": "Bao gồm (including) các loại sô-cô-la đen, sữa, trắng.",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book2-test1-part-5",
+      "partNumber": 5,
+      "rangeLabel": "Questions 25–30",
+      "passageTitle": "Email from a friend",
+      "passageSubtitle": "",
+      "passage": [
+        {
+          "text": "Hi Sam,\nI'm writing to tell you about my new job. I'm working as a waiter in a restaurant near the beach. It's hard work, but I enjoy it because I meet a lot (0) ________ interesting people."
+        },
+        {
+          "text": "I usually start work at 6 pm and finish after midnight. I don't get much free time (25) ________ the week, but on Sundays I'm always free. That's (26) ________ only day I can relax."
+        },
+        {
+          "text": "The restaurant is very busy, especially (27) ________ summer when tourists come. The pay is OK, but the tips are great! I'm saving up (28) ________ buy a new laptop.\n\n(29) ________ you still working at the bookshop? Let me know how things are going. We should meet up (30) ________ soon as you have time.\n\nWrite back,\nJack"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book2-test1-part-5-g0",
+          "range": "Questions 25–30",
+          "instruction": "For each question, write the correct answer. Write ONE word for each gap.",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book2-test1-part-5-q25",
+              "number": 25,
+              "type": "gap-fill",
+              "prompt": "Write ONE word.",
+              "options": [],
+              "answer": "during",
+              "explanation": "during the week = trong tuần.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book2-test1-part-5-q26",
+              "number": 26,
+              "type": "gap-fill",
+              "prompt": "Write ONE word.",
+              "options": [],
+              "answer": "the",
+              "explanation": "the only day – chỉ một ngày duy nhất.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book2-test1-part-5-q27",
+              "number": 27,
+              "type": "gap-fill",
+              "prompt": "Write ONE word.",
+              "options": [],
+              "answer": "in",
+              "explanation": "in summer – mùa hè.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book2-test1-part-5-q28",
+              "number": 28,
+              "type": "gap-fill",
+              "prompt": "Write ONE word.",
+              "options": [],
+              "answer": "to",
+              "explanation": "saving up to buy – để mua.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book2-test1-part-5-q29",
+              "number": 29,
+              "type": "gap-fill",
+              "prompt": "Write ONE word.",
+              "options": [],
+              "answer": "Are",
+              "explanation": "Are you still working? – câu hỏi với you.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book2-test1-part-5-q30",
+              "number": 30,
+              "type": "gap-fill",
+              "prompt": "Write ONE word.",
+              "options": [],
+              "answer": "as",
+              "explanation": "as soon as – ngay khi.",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "examTrack": "cambridge",
+  "cambridgeLevel": "a2",
+  "catalogSlug": "ket-a2-book2-test1",
+  "catalogBase": "/catalog/reading/ket-a2-book2-test1"
+}

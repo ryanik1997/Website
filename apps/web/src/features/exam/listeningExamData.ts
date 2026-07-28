@@ -1,6 +1,9 @@
 import { CATALOG_LISTENING_EXAMS } from '@ryan/catalog'
 import { CAMBRIDGE_LISTENING_SAMPLES } from './cambridgeListeningSamples'
 import { IELTS_LISTENING_SAMPLES } from './ieltsListeningSamples'
+import { normalizeImportedAnswer } from './examResultOption'
+import { matchesListeningGapAnswer } from './listeningAnswerMatching'
+import type { WhisperSegment } from './audioSyncUtils'
 
 export type ListeningExamMode = 'practice' | 'exam'
 export type ListeningExamType = 'ket' | 'ielts' | 'pet' | 'fce' | 'cae' | 'cpe'
@@ -99,6 +102,9 @@ export interface ListeningQuestion {
   audioKey?: string
   audioUrl?: string
   ttsText?: string
+  transcript?: string
+  /** Optional transcript-derived start anchor for precise audio sync. */
+  audioAnchorSec?: number
   wordLimit?: number
   /** PET Part 2: "You will hear two friends talking about…" */
   context?: string
@@ -142,6 +148,21 @@ export interface ListeningPart {
   audioKey?: string
   audioUrl?: string
   ttsText?: string
+  transcript?: string
+  /** Published Whisper timing for production transcript highlight/scroll. */
+  transcriptSegments?: WhisperSegment[]
+  /** Transcript-derived boundaries for Parts sharing one audio file. */
+  audioStartSec?: number
+  audioEndSec?: number
+  /** Start of the repeated second pass within this Part. */
+  listenAgainSec?: number
+  /**
+   * Khi nhiều part dùng chung 1 file full MP3 (chưa có partN.mp3):
+   * tua tới % này lúc bắt đầu part (0–100).
+   */
+  audioStartPct?: number
+  /** % kết thúc gợi ý (0–100); UI có thể dừng tại đây */
+  audioEndPct?: number
   /** Giới hạn số lần nghe khi examMode = exam */
   maxPlays?: number
   /** PET Part 3 / FCE Part 2: tiêu đề đoạn (vd. Spectacled Bears) */
@@ -235,19 +256,7 @@ export function listeningGapAnswersMatch(
   given: string,
   wordLimit?: number,
 ): boolean {
-  if (!given || !expected) return false
-  if (given === expected) return true
-  const maxWords = wordLimit ?? 3
-  if (given.split(/\s+/).filter(Boolean).length > maxWords) return false
-  // Cho phép "eight" khớp "eights" ngắn / chứa số trong chuỗi dài hơn cẩn thận
-  if (given.length >= 1 && expected.length >= 1) {
-    if (given === expected) return true
-    // Số thuần: "8" vs "08"
-    if (/^\d+$/.test(given) && /^\d+$/.test(expected)) {
-      return Number(given) === Number(expected)
-    }
-  }
-  return given.includes(expected) || expected.includes(given)
+  return matchesListeningGapAnswer(expected, given, wordLimit)
 }
 
 export const LISTENING_EXAMS: ListeningExam[] = [
@@ -271,21 +280,23 @@ export function getListeningExamQuestions(exam: ListeningExam): ListeningQuestio
 }
 
 export function isListeningAnswerCorrect(question: ListeningQuestion, userAnswer: string): boolean {
-  if (!userAnswer.trim()) return false
+  const safeUserAnswer = normalizeImportedAnswer(userAnswer)
+  if (!safeUserAnswer) return false
 
   if (question.type === 'gap-fill') {
-    const given = normalizeListeningAnswer(userAnswer)
+    const given = normalizeListeningAnswer(safeUserAnswer)
     if (!given) return false
     const variants = listeningAnswerVariants(question.answer, question.acceptableAnswers)
     if (variants.length === 0) return false
     return variants.some(expected =>
-      listeningGapAnswersMatch(expected, given, question.wordLimit),
+      matchesListeningGapAnswer(expected, given, question.wordLimit),
     )
   }
 
   // MC / matching / picture — đáp án letter; vẫn hỗ trợ A/B (chọn một)
-  const given = userAnswer.trim().toUpperCase()
-  const expectedRaw = question.answer.trim()
+  const given = safeUserAnswer.toUpperCase()
+  const expectedRaw = normalizeImportedAnswer(question.answer)
+  if (!expectedRaw) return false
   if (/[/|]/.test(expectedRaw)) {
     const variants = expectedRaw.split(/[/|]/).map(s => s.trim().toUpperCase()).filter(Boolean)
     return variants.includes(given)
@@ -297,31 +308,32 @@ export function formatListeningAnswer(
   question: ListeningQuestion,
   answerId: string,
 ): string {
-  if (!answerId.trim()) return '—'
+  const safeAnswerId = normalizeImportedAnswer(answerId)
+  if (!safeAnswerId) return '—'
 
   // Gap-fill: hiện "8 hoặc eight" (không coi slash là option A/B)
   if (question.type === 'gap-fill') {
     const variants = listeningAnswerVariants(
-      answerId === question.answer ? question.answer : answerId,
-      answerId === question.answer ? question.acceptableAnswers : undefined,
+      safeAnswerId === question.answer ? question.answer : safeAnswerId,
+      safeAnswerId === question.answer ? question.acceptableAnswers : undefined,
     )
     if (variants.length > 1) return variants.join(' hoặc ')
     if (variants.length === 1) return variants[0]!
-    return answerId
+    return safeAnswerId
   }
 
-  if (/[/|]/.test(answerId)) {
-    const letters = answerId.split(/[/|]/).map(s => s.trim().toUpperCase()).filter(Boolean)
+  if (/[/|]/.test(safeAnswerId)) {
+    const letters = safeAnswerId.split(/[/|]/).map(s => s.trim().toUpperCase()).filter(Boolean)
     const parts = letters.map(id => {
-      const option = question.options.find(o => o.id.toUpperCase() === id)
-      return option ? `${option.id}. ${option.label}` : id
+      const option = question.options.find(o => String(o.id ?? '').toUpperCase() === id)
+      return option ? `${String(option.id ?? id)}. ${option.label}` : id
     })
-    return parts.length > 1 ? parts.join(' hoặc ') : parts[0] ?? answerId
+    return parts.length > 1 ? parts.join(' hoặc ') : parts[0] ?? safeAnswerId
   }
 
-  const option = question.options.find(o => o.id === answerId)
+  const option = question.options.find(o => String(o.id ?? '') === safeAnswerId)
   if (option) return `${option.id}. ${option.label}`
-  return answerId
+  return safeAnswerId
 }
 
 export function listeningExamAudioKey(examId: string, suffix: string): string {

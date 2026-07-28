@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { AlertCircle, Check, CloudUpload, Loader2 } from 'lucide-react'
+import AdminWritingPromptImagePanel from './AdminWritingPromptImagePanel'
 import {
   countAdminPublishableContent,
   publishAllAdminContent,
@@ -8,6 +9,7 @@ import {
   type AdminPublishProgress,
   type AdminPublishResult,
 } from './adminContentPublish'
+import { publishAllLocalExamsToCloud } from './publishLocalExamsBatch'
 
 const MODULE_LABELS: Record<keyof AdminModuleCounts, string> = {
   vocab: 'Từ vựng (preset)',
@@ -92,10 +94,30 @@ export default function AdminPublishExamsPanel() {
     }
   }
 
+  async function handlePublishNewItems() {
+    if (publishing) return
+    setPublishing(true)
+    setResult(null)
+    setProgress(null)
+    try {
+      const exams = await publishAllLocalExamsToCloud(progress => {
+        setProgress({ phase: 'exam', module: progress.skill === 'reading' ? 'reading_exams' : 'listening_exams', current: progress.current, total: progress.total, label: progress.title })
+      }, { prune: false })
+      setResult({ version: 0, modules: [], moduleCounts: counts, exams, errors: exams.errors.map(error => `${error.skill}: ${error.title} — ${error.message}`) })
+    } catch (err) {
+      setResult({ version: 0, modules: [], moduleCounts: counts, exams: { reading: { published: 0, skipped: 0, failed: 1 }, listening: { published: 0, skipped: 0, failed: 0 }, errors: [] }, errors: [err instanceof Error ? err.message : 'Publish thất bại'] })
+    } finally {
+      setPublishing(false)
+      setProgress(null)
+    }
+  }
+
   const moduleKeys = Object.keys(MODULE_LABELS) as (keyof AdminModuleCounts)[]
 
   return (
     <div className="p-6 max-w-3xl mx-auto space-y-6">
+      <AdminWritingPromptImagePanel />
+
       <div
         className="rounded-xl border p-5"
         style={{ background: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
@@ -143,11 +165,22 @@ export default function AdminPublishExamsPanel() {
           <li>• Không publish: SRS, deck cá nhân, bài viết đã làm, bài nghe user</li>
         </ul>
 
+        <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <button
+          type="button"
+          onClick={() => void handlePublishNewItems()}
+          disabled={publishing}
+          className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium disabled:opacity-50"
+          style={{ background: 'var(--bg-secondary)', color: 'var(--text-primary)', border: '1px solid var(--border-color)' }}
+        >
+          <CloudUpload size={16} />
+          Publish mục mới
+        </button>
         <button
           type="button"
           onClick={() => void handlePublishAll()}
           disabled={publishing || total === 0}
-          className="mt-5 w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium disabled:opacity-50"
+          className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium disabled:opacity-50"
           style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
         >
           {publishing ? (
@@ -162,6 +195,7 @@ export default function AdminPublishExamsPanel() {
             </>
           )}
         </button>
+        </div>
 
         {publishing && progress ? (
           <p className="mt-3 text-xs text-center" style={{ color: 'var(--text-muted)' }}>

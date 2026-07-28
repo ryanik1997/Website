@@ -1,0 +1,457 @@
+{
+  "popupCandidates": [
+    {
+      "cls": "header__optionsButton___1BF6Z",
+      "rect": {
+        "x": 1299,
+        "y": 0,
+        "w": 53,
+        "h": 72
+      }
+    },
+    {
+      "cls": "header__optionsButton___1BF6Z",
+      "rect": {
+        "x": 1351,
+        "y": 0,
+        "w": 56,
+        "h": 72
+      }
+    },
+    {
+      "cls": "container inlineChoice presentation-horizontalPopup",
+      "rect": {
+        "x": 16,
+        "y": 181,
+        "w": 1278,
+        "h": 513
+      }
+    },
+    {
+      "cls": "inlineChoiceInteraction__collapsedMenu___1AaB4",
+      "rect": {
+        "x": 715,
+        "y": 236,
+        "w": 240,
+        "h": 26
+      }
+    }
+  ],
+  "popupTree": {
+    "tag": "button",
+    "cls": "header__optionsButton___1BF6Z",
+    "rect": {
+      "x": 1299,
+      "y": 0,
+      "w": 53,
+      "h": 72
+    },
+    "styles": {
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "fontFamily": "Arial, sans-serif",
+      "color": "rgb(0, 0, 0)",
+      "width": "52.575px",
+      "height": "72px",
+      "display": "flex",
+      "flexDirection": "row",
+      "alignItems": "center",
+      "border": "0px none rgb(0, 0, 0)",
+      "borderTop": "0px none rgb(0, 0, 0)",
+      "borderBottom": "0px none rgb(0, 0, 0)",
+      "transition": "background-color 0.1s linear",
+      "cursor": "pointer",
+      "textAlign": "center",
+      "listStyle": "outside none disc"
+    },
+    "children": [
+      {
+        "tag": "span",
+        "cls": "header__icon___1ECrT",
+        "rect": {
+          "x": 1315,
+          "y": 24,
+          "w": 21,
+          "h": 25
+        },
+        "styles": {
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "fontFamily": "Arial, sans-serif",
+          "color": "rgb(0, 0, 0)",
+          "margin": "0px 16px",
+          "width": "20.575px",
+          "height": "24.8px",
+          "display": "block",
+          "flexDirection": "row",
+          "border": "0px none rgb(0, 0, 0)",
+          "borderTop": "0px none rgb(0, 0, 0)",
+          "borderBottom": "0px none rgb(0, 0, 0)",
+          "position": "relative",
+          "transition": "all",
+          "cursor": "pointer",
+          "textAlign": "center",
+          "listStyle": "outside none disc"
+        },
+        "children": [
+          {
+            "tag": "span",
+            "cls": "sr-only",
+            "rect": {
+              "x": 1314,
+              "y": 23,
+              "w": 1,
+              "h": 1
+            },
+            "text": "Options",
+            "styles": {
+              "fontSize": "16px",
+              "fontWeight": "400",
+              "fontFamily": "Arial, sans-serif",
+              "color": "rgb(0, 0, 0)",
+              "margin": "-1px",
+              "width": "1px",
+              "height": "1px",
+              "display": "block",
+              "flexDirection": "row",
+              "border": "0px none rgb(0, 0, 0)",
+              "borderTop": "0px none rgb(0, 0, 0)",
+              "borderBottom": "0px none rgb(0, 0, 0)",
+              "position": "absolute",
+              "transition": "all",
+              "cursor": "pointer",
+              "textAlign": "center",
+              "listStyle": "outside none disc"
+            },
+            "children": []
+          },
+          {
+            "tag": "i",
+            "cls": "fa fa-bars fa-3",
+            "rect": {
+              "x": 1315,
+              "y": 24,
+              "w": 21,
+              "h": 24
+            },
+            "text": "",
+            "styles": {
+              "fontSize": "24px",
+              "fontWeight": "400",
+              "fontFamily": "FontAwesome",
+              "lineHeight": "24px",
+              "color": "rgb(51, 51, 51)",
+              "width": "20.575px",
+              "height": "24px",
+              "display": "inline-block",
+              "flexDirection": "row",
+              "border": "0px none rgb(51, 51, 51)",
+              "borderTop": "0px none rgb(51, 51, 51)",
+              "borderBottom": "0px none rgb(51, 51, 51)",
+              "transition": "all",
+              "cursor": "pointer",
+              "textAlign": "center",
+              "listStyle": "outside none disc"
+            },
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  "gapTree": {
+    "tag": "span",
+    "cls": "inlineChoiceInteraction__inlineChoiceInteractionWrapper___253ts",
+    "rect": {
+      "x": 711,
+      "y": 264,
+      "w": 152,
+      "h": 18
+    },
+    "styles": {
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "fontFamily": "Arial, sans-serif",
+      "lineHeight": "48px",
+      "color": "rgb(0, 0, 0)",
+      "display": "inline",
+      "flexDirection": "row",
+      "border": "0px none rgb(0, 0, 0)",
+      "borderTop": "0px none rgb(0, 0, 0)",
+      "borderBottom": "0px none rgb(0, 0, 0)",
+      "position": "relative",
+      "transition": "all",
+      "textAlign": "start",
+      "listStyle": "outside none disc"
+    },
+    "children": [
+      {
+        "tag": "button",
+        "cls": "inlineChoiceInteraction__inlineChoiceInteractionActive___3lGzG",
+        "rect": {
+          "x": 715,
+          "y": 262,
+          "w": 144,
+          "h": 22
+        },
+        "styles": {
+          "fontSize": "16px",
+          "fontWeight": "700",
+          "fontFamily": "Arial, sans-serif",
+          "color": "rgb(255, 255, 255)",
+          "backgroundColor": "rgb(39, 39, 39)",
+          "padding": "1px 6px",
+          "margin": "0.8px 4px -1.6px",
+          "width": "144px",
+          "height": "22.4px",
+          "minWidth": "144px",
+          "display": "inline-block",
+          "flexDirection": "row",
+          "borderRadius": "3px",
+          "border": "0.8px solid rgb(65, 142, 200)",
+          "borderTop": "0.8px solid rgb(65, 142, 200)",
+          "borderBottom": "0.8px solid rgb(65, 142, 200)",
+          "boxShadow": "rgb(65, 142, 200) 0px 0px 0px 1px",
+          "position": "relative",
+          "zIndex": "1",
+          "transition": "border 0.1s linear",
+          "cursor": "pointer",
+          "textAlign": "center",
+          "listStyle": "outside none disc"
+        },
+        "children": [
+          {
+            "tag": "span",
+            "cls": "inlineChoiceInteraction__visuallyHidden___1I9i0",
+            "rect": {
+              "x": 782,
+              "y": 264,
+              "w": 76,
+              "h": 37
+            },
+            "text": "Single select:",
+            "styles": {
+              "fontSize": "16px",
+              "fontWeight": "700",
+              "fontFamily": "Arial, sans-serif",
+              "color": "rgb(255, 255, 255)",
+              "width": "75.65px",
+              "height": "36.8px",
+              "display": "block",
+              "flexDirection": "row",
+              "border": "0px none rgb(255, 255, 255)",
+              "borderTop": "0px none rgb(255, 255, 255)",
+              "borderBottom": "0px none rgb(255, 255, 255)",
+              "position": "absolute",
+              "top": "1.2px",
+              "left": "66.75px",
+              "zIndex": "-1",
+              "transition": "all",
+              "cursor": "pointer",
+              "textAlign": "center",
+              "listStyle": "outside none disc"
+            },
+            "children": []
+          },
+          {
+            "tag": "div",
+            "cls": "inlineChoiceInteraction__collapsedMenu___1AaB4",
+            "rect": {
+              "x": 715,
+              "y": 236,
+              "w": 240,
+              "h": 26
+            },
+            "styles": {
+              "fontSize": "16px",
+              "fontWeight": "700",
+              "fontFamily": "Arial, sans-serif",
+              "color": "rgb(255, 255, 255)",
+              "margin": "0px 0px 1px",
+              "width": "236.775px",
+              "height": "22.4px",
+              "display": "flex",
+              "flexDirection": "row",
+              "border": "1.6px solid rgb(65, 142, 200)",
+              "borderTop": "1.6px solid rgb(65, 142, 200)",
+              "borderBottom": "1.6px solid rgb(65, 142, 200)",
+              "position": "absolute",
+              "top": "-26.6px",
+              "transition": "all",
+              "cursor": "pointer",
+              "textAlign": "center",
+              "listStyle": "outside none disc"
+            },
+            "children": [
+              {
+                "tag": "option",
+                "rect": {
+                  "x": 717,
+                  "y": 238,
+                  "w": 25,
+                  "h": 22
+                },
+                "text": "",
+                "styles": {
+                  "fontSize": "16px",
+                  "fontWeight": "400",
+                  "fontFamily": "Arial, sans-serif",
+                  "color": "rgb(255, 255, 255)",
+                  "backgroundColor": "rgb(64, 64, 64)",
+                  "padding": "1px 6px",
+                  "width": "13.075px",
+                  "height": "20.4px",
+                  "minHeight": "19.2px",
+                  "display": "flex",
+                  "flexDirection": "row",
+                  "alignItems": "center",
+                  "border": "0px none rgb(255, 255, 255)",
+                  "borderTop": "0px none rgb(255, 255, 255)",
+                  "borderBottom": "0px none rgb(255, 255, 255)",
+                  "transition": "all",
+                  "cursor": "pointer",
+                  "textAlign": "center",
+                  "whiteSpace": "nowrap",
+                  "listStyle": "outside none disc"
+                },
+                "children": []
+              },
+              {
+                "tag": "option",
+                "rect": {
+                  "x": 742,
+                  "y": 238,
+                  "w": 47,
+                  "h": 22
+                },
+                "text": "gave",
+                "styles": {
+                  "fontSize": "16px",
+                  "fontWeight": "400",
+                  "fontFamily": "Arial, sans-serif",
+                  "color": "rgb(255, 255, 255)",
+                  "backgroundColor": "rgb(42, 108, 150)",
+                  "padding": "1px 6px",
+                  "width": "34.7px",
+                  "height": "20.4px",
+                  "minHeight": "19.2px",
+                  "display": "flex",
+                  "flexDirection": "row",
+                  "alignItems": "center",
+                  "border": "0px none rgb(255, 255, 255)",
+                  "borderTop": "0px none rgb(255, 255, 255)",
+                  "borderBottom": "0px none rgb(255, 255, 255)",
+                  "transition": "all",
+                  "cursor": "pointer",
+                  "textAlign": "center",
+                  "whiteSpace": "nowrap",
+                  "listStyle": "outside none disc"
+                },
+                "children": []
+              },
+              {
+                "tag": "option",
+                "rect": {
+                  "x": 789,
+                  "y": 238,
+                  "w": 67,
+                  "h": 22
+                },
+                "text": "showed",
+                "styles": {
+                  "fontSize": "16px",
+                  "fontWeight": "400",
+                  "fontFamily": "Arial, sans-serif",
+                  "color": "rgb(255, 255, 255)",
+                  "backgroundColor": "rgb(64, 64, 64)",
+                  "padding": "1px 6px",
+                  "width": "55.15px",
+                  "height": "20.4px",
+                  "minHeight": "19.2px",
+                  "display": "flex",
+                  "flexDirection": "row",
+                  "alignItems": "center",
+                  "border": "0px none rgb(255, 255, 255)",
+                  "borderTop": "0px none rgb(255, 255, 255)",
+                  "borderBottom": "0px none rgb(255, 255, 255)",
+                  "transition": "all",
+                  "cursor": "pointer",
+                  "textAlign": "center",
+                  "whiteSpace": "nowrap",
+                  "listStyle": "outside none disc"
+                },
+                "children": []
+              },
+              {
+                "tag": "option",
+                "rect": {
+                  "x": 856,
+                  "y": 238,
+                  "w": 34,
+                  "h": 22
+                },
+                "text": "put",
+                "styles": {
+                  "fontSize": "16px",
+                  "fontWeight": "400",
+                  "fontFamily": "Arial, sans-serif",
+                  "color": "rgb(255, 255, 255)",
+                  "backgroundColor": "rgb(39, 39, 39)",
+                  "padding": "1px 6px",
+                  "width": "22.25px",
+                  "height": "20.4px",
+                  "minHeight": "19.2px",
+                  "display": "flex",
+                  "flexDirection": "row",
+                  "alignItems": "center",
+                  "border": "0px none rgb(255, 255, 255)",
+                  "borderTop": "0px none rgb(255, 255, 255)",
+                  "borderBottom": "0px none rgb(255, 255, 255)",
+                  "transition": "all",
+                  "cursor": "pointer",
+                  "textAlign": "center",
+                  "whiteSpace": "nowrap",
+                  "listStyle": "outside none disc"
+                },
+                "children": []
+              },
+              {
+                "tag": "option",
+                "rect": {
+                  "x": 890,
+                  "y": 238,
+                  "w": 64,
+                  "h": 22
+                },
+                "text": "passed",
+                "styles": {
+                  "fontSize": "16px",
+                  "fontWeight": "400",
+                  "fontFamily": "Arial, sans-serif",
+                  "color": "rgb(255, 255, 255)",
+                  "backgroundColor": "rgb(64, 64, 64)",
+                  "padding": "1px 6px",
+                  "width": "51.6px",
+                  "height": "20.4px",
+                  "minHeight": "19.2px",
+                  "display": "flex",
+                  "flexDirection": "row",
+                  "alignItems": "center",
+                  "border": "0px none rgb(255, 255, 255)",
+                  "borderTop": "0px none rgb(255, 255, 255)",
+                  "borderBottom": "0px none rgb(255, 255, 255)",
+                  "transition": "all",
+                  "cursor": "pointer",
+                  "textAlign": "center",
+                  "whiteSpace": "nowrap",
+                  "listStyle": "outside none disc"
+                },
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

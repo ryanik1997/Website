@@ -1,5 +1,453 @@
 /* FCE B2 Reading & Writing — footer scroll for 9 parts + Part 3/4 UI */
 
+/* =====================================================================
+   INSPERA CEQ PLAYER 3.51.0 — FIDELITY LAYER
+   Trích từ https://ceq.inspera.com/player (B2 First Digital Sample Test 1)
+   Spec đầy đủ: docs/research/ceq.inspera.com/PAGE_TOPOLOGY.md
+   Chỉ scope trong .fce-rw-shell — KET/PET/CAE/CPE không bị ảnh hưởng.
+   ===================================================================== */
+
+.fce-rw-shell {
+  /* --- token gốc của Inspera ceq-theme --- */
+  --insp-app-bg: #f7fafa;
+  --insp-surface: #fff;
+  --insp-text: #000;
+  --insp-text-muted: #535353;
+  --insp-border: #c1c1c1;
+  --insp-primary: #2a6c96;
+  --insp-primary-hover: #19445f;
+  --insp-primary-active: #14364b;
+  --insp-icon: #333;
+  --insp-chrome-shadow: 0 0 45px rgba(0, 0, 0, 0.15);
+
+  --insp-input-border: #949494;
+  --insp-input-border-focus: #4b90c5;
+  --insp-input-border-active: #418ec8;
+  --insp-focus-ring: #007af5;
+
+  --insp-gap-open-bg: #272727;
+  --insp-menu-bg: #404040;
+  --insp-question-bg: #efefef;
+  --insp-question-hover-bg: #c8e2f5;
+  --insp-nav-bg: #666;
+  --insp-nav-disabled: #ddd;
+  --insp-deliver-hover: #c3d8ec;
+
+  --insp-header-h: 72px;
+  --insp-footer-h: 53px;
+  --insp-gap-line-height: 48px; /* --question--extra-line-height: 2.5em */
+
+  /* --- map hệ ket-rw sang token Inspera --- */
+  --ket-header-bg: var(--insp-surface);
+  --ket-header-border: var(--insp-border);
+  --ket-body-bg: var(--insp-app-bg);
+  --ket-pane-border: var(--insp-border);
+  --ket-text: var(--insp-text);
+  --ket-muted: var(--insp-text-muted);
+  --ket-accent: var(--insp-primary);
+  --ket-pill-bg: var(--insp-question-bg);
+  --ket-pill-active: var(--insp-primary);
+  --ket-nav-btn: var(--insp-nav-bg);
+  --ket-nav-next: var(--insp-primary);
+  --ket-footer-bg: var(--insp-surface);
+  --ket-footer-submit-bg: var(--insp-question-bg);
+  --ket-submit: var(--insp-primary);
+  --ket-submit-hover: var(--insp-primary-hover);
+
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+/* ---------- Header: 72px, viền dưới + đổ bóng chrome ---------- */
+.fce-rw-shell .ket-rw-header {
+  height: var(--insp-header-h);
+  padding: 0 16px;
+  gap: 16px;
+  border-bottom: 1px solid var(--insp-border);
+  box-shadow: var(--insp-chrome-shadow);
+  position: relative;
+  z-index: 3;
+}
+
+/* cụm nút phải: tách khỏi mép, Submit không dính rìa */
+.fce-rw-shell .ket-rw-header__actions {
+  gap: 4px;
+  padding-right: 4px;
+}
+
+.fce-rw-shell .ket-rw-header__actions .ket-rw-submit {
+  margin-left: 12px;
+}
+
+/* logo Cambridge English — 168×43, padding 14.4px 16px như bản gốc */
+.fce-rw-shell .fce-rw-header__logo {
+  width: 168px;
+  height: 43px;
+  object-fit: contain;
+  object-position: left center;
+  flex-shrink: 0;
+}
+
+.fce-rw-shell .ket-rw-header__brand {
+  gap: 8px;
+  padding: 14px 0;
+}
+
+/* "Candidate ID" nằm sát trái cạnh logo và canh TRÊN (y=8), không canh giữa */
+.fce-rw-shell .ket-rw-header__candidate {
+  margin-right: auto;
+  align-self: flex-start;
+  padding-top: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--insp-text);
+}
+
+.fce-rw-shell .ket-rw-icon-btn {
+  width: 56px;
+  height: var(--insp-header-h);
+  border-radius: 0;
+  color: var(--insp-icon);
+  transition: background-color 0.1s linear;
+}
+
+.fce-rw-shell .ket-rw-icon-btn:hover {
+  background: var(--insp-question-bg);
+}
+
+.fce-rw-shell .ket-rw-icon-btn:focus-visible {
+  outline: 2px solid var(--insp-focus-ring);
+  outline-offset: -2px;
+}
+
+/* ---------- Khối đề bài: card trắng, margin 16px ---------- */
+.fce-rw-shell .ket-rw-instruction {
+  margin: 16px 16px 0;
+  padding: 10px;
+  border: 1px solid var(--insp-border);
+  border-radius: 0;
+  background: var(--insp-surface);
+}
+
+.fce-rw-shell .ket-rw-instruction__range {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--insp-text);
+  margin: 0 0 10px;
+}
+
+.fce-rw-shell .ket-rw-instruction__text {
+  font-size: 16px;
+  color: var(--insp-text);
+}
+
+/* ---------- Vùng nội dung ---------- */
+.fce-rw-shell .ket-rw-body.is-split .ket-rw-pane-left,
+.fce-rw-shell .ket-rw-body.is-split .ket-rw-pane-right {
+  padding: 16px;
+}
+
+.fce-rw-shell .ket-rw-passage-title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 48px;
+}
+
+/* Part 1: đoạn văn có gap dùng line-height 48px để chừa chỗ popup mở lên trên */
+.fce-rw-shell .ket-rw-inline-passage {
+  font-size: 16px;
+  line-height: var(--insp-gap-line-height);
+}
+
+/* Part 1 gap: dùng RwPart5McGap (chung với KET P4 / PET P5) — style ở rwPart5McGap.css */
+
+/* ---------- Part 2/3/4 — ô nhập text inline ---------- */
+.fce-rw-shell .ket-rw-gap-input {
+  min-width: 212px;
+  height: 22px;
+  padding: 0 0.75em;
+  border: 1px solid var(--insp-input-border);
+  border-radius: 3px;
+  background: var(--insp-surface);
+  color: var(--insp-text);
+  font: 400 16px/1 Arial, sans-serif;
+}
+
+.fce-rw-shell .ket-rw-gap-input:focus {
+  border-color: var(--insp-input-border-focus);
+  box-shadow: 0 0 0 1px var(--insp-input-border-focus);
+  outline: none;
+}
+
+/* Part 2/3/4 dùng double-line-spacing */
+.fce-rw-shell .ket-rw-pane-left .ket-rw-gap-text,
+.fce-rw-shell .ket-rw-pane-right .ket-rw-gap-text {
+  vertical-align: baseline;
+}
+
+/* ---------- Part 6 — gapMatchInteraction (kéo–thả) ---------- */
+/* Số đo thật: dropZone 300×23.2, viền 1.6px dashed #418ec8, radius 5px, margin 1px
+   token 528×43.4, margin 5px, viền 0.8px #919191, radius 4px, cursor move */
+.fce-rw-shell .pet-rw-drag__slot--inline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  min-width: 300px;
+  height: 23px;
+  margin: 1px;
+  padding: 0;
+  border: 2px dashed var(--insp-input-border-active);
+  border-radius: 5px;
+  background: #fff;
+  font: 400 16px/20px Arial, sans-serif;
+  transition: border-color 0.1s linear, background 0.1s linear;
+}
+
+.fce-rw-shell .pet-rw-drag__slot--inline.is-filled {
+  border-style: solid;
+  border-color: #919191;
+  width: auto;
+  min-width: 300px;
+  height: auto;
+  min-height: 23px;
+  padding: 2px 6px;
+}
+
+.fce-rw-shell .pet-rw-drag__slot--inline.is-over {
+  border-color: #fa5101;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* ô trống chỉ hiện số câu, không có "…" */
+.fce-rw-shell .pet-rw-drag__slot-placeholder {
+  display: none;
+}
+
+/* số câu trong ô gap — canh giữa, không tách thành pill riêng */
+.fce-rw-shell .pet-rw-inline-gap__num {
+  background: none;
+  color: var(--insp-text);
+  font: 400 16px/20px Arial, sans-serif;
+  padding: 0;
+}
+
+.fce-rw-shell .pet-rw-drag__slot--inline.is-filled .pet-rw-inline-gap__num {
+  margin-right: 6px;
+  font-weight: 700;
+}
+
+.fce-rw-shell .pet-rw-drag__slot--inline:focus-visible {
+  outline: 2px solid var(--insp-focus-ring);
+  outline-offset: 1px;
+}
+
+.fce-rw-shell .pet-rw-drag__slot-clear {
+  margin-left: 2px;
+  border: 0;
+  background: none;
+  color: var(--insp-text-muted);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.fce-rw-shell .pet-rw-drag__slot-clear:hover {
+  color: #fa5101;
+}
+
+/* cột token bên phải — cách nhau 5px, không dính liền */
+.fce-rw-shell .pet-rw-drag__bank--column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  padding: 5px 0;
+}
+
+.fce-rw-shell .pet-rw-drag__bank-card {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 528px;
+  min-height: 43px;
+  margin: 5px;
+  padding: 6px 10px;
+  text-align: left;
+  border: 1px solid #919191;
+  border-radius: 4px;
+  background: #fff;
+  color: var(--insp-text);
+  font: 400 16px/1.35 Arial, sans-serif;
+  cursor: move;
+  transition: border-color 0.1s linear;
+}
+
+.fce-rw-shell .pet-rw-drag__bank-text {
+  margin: 0;
+}
+
+/* Cambridge không hiện chữ cái A/B/C trên token Part 6 */
+.fce-rw-shell .pet-rw-drag__bank-letter {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.fce-rw-shell .pet-rw-drag__bank-card:hover:not(:disabled),
+.fce-rw-shell .pet-rw-drag__bank-card.is-picked {
+  border-color: #0e98f0;
+}
+
+.fce-rw-shell .pet-rw-drag__bank-card:active {
+  cursor: grabbing;
+}
+
+/* đã đặt vào gap — mờ đi nhưng vẫn nhấc sang gap khác được */
+.fce-rw-shell .pet-rw-drag__bank-card.is-used {
+  opacity: 0.45;
+}
+
+.fce-rw-shell .pet-rw-drag__bank-card:focus-visible {
+  outline: 2px solid var(--insp-focus-ring);
+  outline-offset: 1px;
+}
+
+/* ---------- Part 5/7 — MC dọc ---------- */
+.fce-rw-shell .ket-rw-radio:hover {
+  background: #e4e4e4;
+}
+
+.fce-rw-shell .ket-rw-radio.is-selected {
+  background: #bbd8f0;
+  color: var(--insp-text);
+}
+
+/* ---------- Footer: 53px, nền trắng ---------- */
+.fce-rw-shell .ket-rw-footer {
+  height: var(--insp-footer-h);
+  background: var(--insp-surface);
+  color: var(--insp-text-muted);
+  box-shadow: var(--insp-chrome-shadow);
+  position: relative;
+  z-index: 3;
+}
+
+/* ô part: nền #efefef, viền trên 2.4px trắng; part đang mở → nền trắng, viền trên đen */
+.fce-rw-shell .ket-rw-footer-part {
+  min-width: 175px;
+  height: 50px;
+  margin: 0 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--insp-question-bg);
+  border: 0;
+  border-top: 2px solid var(--insp-surface);
+  border-radius: 0;
+}
+
+.fce-rw-shell .ket-rw-footer-part.is-current {
+  background: var(--insp-surface);
+  border-top-color: var(--insp-text);
+  min-width: 0;
+}
+
+.fce-rw-shell .ket-rw-footer-part__tab {
+  height: 50px;
+  padding: 16px 20px;
+  background: none;
+  color: var(--insp-text-muted);
+  font: 400 16px/1 Arial, sans-serif;
+  white-space: nowrap;
+}
+
+/* part đang mở: chữ đậm, KHÔNG tô nền xanh */
+.fce-rw-shell .ket-rw-footer-part.is-current .ket-rw-footer-part__tab {
+  background: none;
+  color: var(--insp-text-muted);
+  font-weight: 600;
+}
+
+/* số câu: viền trong suốt, chọn thì hiện viền xanh — không tô đặc */
+.fce-rw-shell .ket-rw-q-pill {
+  min-width: 0;
+  height: auto;
+  padding: 2px 4px;
+  margin: auto 0;
+  border: 2px solid transparent;
+  border-radius: 3px;
+  background: none;
+  color: var(--insp-text-muted);
+  font: 400 16px/1.25 Arial, sans-serif;
+}
+
+.fce-rw-shell .ket-rw-q-pill:hover {
+  background: var(--insp-question-hover-bg);
+  color: var(--insp-text-muted);
+}
+
+.fce-rw-shell .ket-rw-q-pill.is-answered {
+  border-color: var(--insp-primary);
+  background: none;
+}
+
+.fce-rw-shell .ket-rw-q-pill.is-current {
+  border-color: var(--insp-primary);
+  background: var(--insp-surface);
+  color: var(--insp-text);
+  font-weight: 700;
+}
+
+.fce-rw-shell .ket-rw-footer__submit {
+  min-width: 77px;
+  height: var(--insp-footer-h);
+  border-radius: 0;
+  background: var(--insp-question-bg);
+  color: var(--insp-text-muted);
+}
+
+.fce-rw-shell .ket-rw-footer__submit:hover {
+  background: var(--insp-deliver-hover);
+}
+
+/* ---------- Nút prev/next 56×56 ---------- */
+.fce-rw-shell .ket-rw-adjacent-nav button {
+  width: 56px;
+  height: 56px;
+  border-radius: 0;
+  background: var(--insp-nav-bg);
+  color: var(--insp-surface);
+  transition: background-color 0.1s linear;
+}
+
+.fce-rw-shell .ket-rw-adjacent-nav button:last-child {
+  background: var(--insp-primary);
+}
+
+.fce-rw-shell .ket-rw-adjacent-nav button:hover:not(:disabled) {
+  background: var(--insp-primary-hover);
+}
+
+.fce-rw-shell .ket-rw-adjacent-nav button:last-child:hover:not(:disabled) {
+  background: var(--insp-primary-active);
+}
+
+.fce-rw-shell .ket-rw-adjacent-nav button:disabled {
+  background: var(--insp-nav-disabled);
+  color: var(--insp-surface);
+}
+
+/* Highlight của thí sinh — Inspera dùng inset shadow vàng */
+.fce-rw-shell .rw-highlight {
+  box-shadow: 0 1em 0 rgba(255, 202, 0, 0.36863) inset;
+  background: transparent;
+}
+
 .fce-rw-shell .ket-rw-footer__parts {
   overflow-x: auto;
 }
@@ -114,12 +562,18 @@
 }
 
 .fce-rw-paragraph-block {
-  margin-bottom: 1rem;
+  margin-bottom: 1.75rem;
 }
 
 .fce-rw-paragraph-heading {
-  margin: 0 0 0.35rem;
+  display: block;
+  margin: 0 0 0.45rem;
   font-size: 0.95rem;
   font-weight: 700;
+  line-height: 1.35;
   color: var(--ket-text);
+}
+
+.fce-rw-paragraph-block .ket-rw-paragraph {
+  margin-top: 0;
 }

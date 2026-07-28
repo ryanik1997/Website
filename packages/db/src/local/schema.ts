@@ -33,7 +33,7 @@ export interface Card {
   createdAt: number
   updatedAt: number
 }
-export interface Srs        { cardId: string; deckId: string; ease: number; interval: number; reps: number; lapses: number; dueAt: number; lastReviewedAt?: number; state: 'new' | 'learning' | 'review' }
+export interface Srs        { cardId: string; deckId: string; ease: number; interval: number; reps: number; lapses: number; dueAt: number; lastReviewedAt?: number; updatedAt?: number; state: 'new' | 'learning' | 'review' }
 export interface ReviewLog  { id?: number; cardId: string; rating: number; mode: string; at: number }
 export interface DictEntry  { word: string; data: unknown; fetchedAt: number }
 export interface Lesson {
@@ -94,7 +94,13 @@ export interface TranslationSet {
   sentences: TranslationSentence[]
   createdAt: number
 }
-export interface AudioBlob  { key: string; blob: Blob }
+export interface AudioBlob  {
+  key: string
+  blob: Blob
+  bytes?: number
+  createdAt?: number
+  lastAccessedAt?: number
+}
 /** Phân loại bài viết — Cambridge + IELTS */
 export type WritingGenre =
   | 'email' | 'note' | 'story' | 'article' | 'essay' | 'letter' | 'editor_letter'
@@ -115,6 +121,15 @@ export interface WritingDoc {
   genre?: WritingGenre
   prompt: string
   text: string
+  sourceMeta?: {
+    examFamily?: 'cambridge'
+    level?: 'a2' | 'b1' | 'b2' | 'c1' | 'c2'
+    testId?: string
+    taskId?: string
+    genre?: WritingGenre
+    sourcePromptId?: string
+    docRole?: 'prompt_seed' | 'user_answer'
+  }
   /** Data URL ảnh đề (jpg/webp) — Task 1 chart hoặc minh họa */
   promptImage?: string
   updatedAt: number
@@ -220,6 +235,25 @@ export interface ExamBackupRecord {
   updatedAt: number
 }
 
+export type CambridgeWritingRecordLevel = 'a2' | 'b1' | 'b2' | 'c1' | 'c2'
+export type CambridgeWritingRecordStatus = 'draft' | 'published' | 'archived'
+export type CambridgeWritingRecordSource = 'admin_local' | 'published_sync'
+
+export interface CambridgeWritingTestRecord {
+  id: string
+  contentKey: string
+  level: CambridgeWritingRecordLevel
+  testNumber: number
+  status: CambridgeWritingRecordStatus
+  source: CambridgeWritingRecordSource
+  version: number
+  payload: unknown
+  createdAt: number
+  updatedAt: number
+  publishedAt?: number
+  createdBy?: string
+}
+
 export class RyanDB extends Dexie {
   groups!:         Table<Group, string>
   decks!:          Table<Deck, string>
@@ -244,9 +278,10 @@ export class RyanDB extends Dexie {
   listeningExams!:    Table<ListeningExamRecord, string>
   notebookEntries!:   Table<NotebookEntry, string>
   examBackups!:       Table<ExamBackupRecord, string>
+  cambridgeWritingTests!: Table<CambridgeWritingTestRecord, string>
 
-  constructor() {
-    super('RyanEnglishDB')
+  constructor(name = 'RyanEnglishDB') {
+    super(name)
     this.version(1).stores({
       groups:          '&id, order',
       decks:           '&id, groupId, updatedAt',
@@ -546,6 +581,92 @@ export class RyanDB extends Dexie {
       listeningExams:  '&id, examType, source, createdAt, updatedAt',
       notebookEntries: '&id, &phraseKey, sourceCardId, sourceDeckId, createdAt',
       examBackups:     '&id, skill, updatedAt, title',
+    })
+    // v16: compound hot-query indexes + bounded audio-cache LRU metadata.
+    this.version(16).stores({
+      groups:          '&id, order',
+      decks:           '&id, groupId, updatedAt',
+      cards:           '&id, deckId, phrase',
+      srs:             '&cardId, deckId, dueAt, state, [deckId+dueAt]',
+      reviewLog:       '++id, cardId, at, mode, [mode+at]',
+      dictionaryCache: '&word, fetchedAt',
+      lessons:         '&id, category, createdAt',
+      translationSets: '&id, category, genre, createdAt',
+      audioBlobs:      '&key, createdAt, lastAccessedAt',
+      writingDocs:     '&id, type, genre, updatedAt',
+      writingHistory:  '++id, docId, textHash, at',
+      errorBank:       '++id, &signature',
+      mindmaps:        '&id, updatedAt',
+      mindmapTombstones: '&id, deletedAt',
+      deckTombstones:  '&id, deletedAt',
+      cardTombstones:  '&id, deletedAt',
+      aiUsage:         '[day+feature], day',
+      settings:        '&key',
+      sentenceStructures: '&id, category, starred, updatedAt',
+      readingExams:    '&id, source, createdAt, updatedAt',
+      listeningExams:  '&id, examType, source, createdAt, updatedAt',
+      notebookEntries: '&id, &phraseKey, sourceCardId, sourceDeckId, createdAt',
+      examBackups:     '&id, skill, updatedAt, title',
+    }).upgrade(async tx => {
+      const now = Date.now()
+      await tx.table('audioBlobs').toCollection().modify((entry: AudioBlob) => {
+        entry.bytes = entry.blob?.size ?? 0
+        entry.createdAt ??= now
+        entry.lastAccessedAt ??= entry.createdAt
+      })
+    })
+    // v17: WritingDoc.sourceMeta cho prompt seed Cambridge Writing
+    this.version(17).stores({
+      groups:          '&id, order',
+      decks:           '&id, groupId, updatedAt',
+      cards:           '&id, deckId, phrase',
+      srs:             '&cardId, deckId, dueAt, state, [deckId+dueAt]',
+      reviewLog:       '++id, cardId, at, mode, [mode+at]',
+      dictionaryCache: '&word, fetchedAt',
+      lessons:         '&id, category, createdAt',
+      translationSets: '&id, category, genre, createdAt',
+      audioBlobs:      '&key, createdAt, lastAccessedAt',
+      writingDocs:     '&id, type, genre, updatedAt',
+      writingHistory:  '++id, docId, textHash, at',
+      errorBank:       '++id, &signature',
+      mindmaps:        '&id, updatedAt',
+      mindmapTombstones: '&id, deletedAt',
+      deckTombstones:  '&id, deletedAt',
+      cardTombstones:  '&id, deletedAt',
+      aiUsage:         '[day+feature], day',
+      settings:        '&key',
+      sentenceStructures: '&id, category, starred, updatedAt',
+      readingExams:    '&id, source, createdAt, updatedAt',
+      listeningExams:  '&id, examType, source, createdAt, updatedAt',
+      notebookEntries: '&id, &phraseKey, sourceCardId, sourceDeckId, createdAt',
+      examBackups:     '&id, skill, updatedAt, title',
+    })
+    // v18: local Cambridge Writing admin/published records
+    this.version(18).stores({
+      groups:          '&id, order',
+      decks:           '&id, groupId, updatedAt',
+      cards:           '&id, deckId, phrase',
+      srs:             '&cardId, deckId, dueAt, state, [deckId+dueAt]',
+      reviewLog:       '++id, cardId, at, mode, [mode+at]',
+      dictionaryCache: '&word, fetchedAt',
+      lessons:         '&id, category, createdAt',
+      translationSets: '&id, category, genre, createdAt',
+      audioBlobs:      '&key, createdAt, lastAccessedAt',
+      writingDocs:     '&id, type, genre, updatedAt',
+      writingHistory:  '++id, docId, textHash, at',
+      errorBank:       '++id, &signature',
+      mindmaps:        '&id, updatedAt',
+      mindmapTombstones: '&id, deletedAt',
+      deckTombstones:  '&id, deletedAt',
+      cardTombstones:  '&id, deletedAt',
+      aiUsage:         '[day+feature], day',
+      settings:        '&key',
+      sentenceStructures: '&id, category, starred, updatedAt',
+      readingExams:    '&id, source, createdAt, updatedAt',
+      listeningExams:  '&id, examType, source, createdAt, updatedAt',
+      notebookEntries: '&id, &phraseKey, sourceCardId, sourceDeckId, createdAt',
+      examBackups:     '&id, skill, updatedAt, title',
+      cambridgeWritingTests: '&id, &contentKey, level, status, source, testNumber, updatedAt, [level+testNumber]',
     })
   }
 }

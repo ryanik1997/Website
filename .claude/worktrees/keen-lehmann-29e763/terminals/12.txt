@@ -1,0 +1,11 @@
+---
+pid: 19156
+cwd: "D:\App-English-Ryan\Website"
+command: "$headers = @{ Origin = 'http://localhost:5173'; 'Content-Type' = 'application/json' }; $r = Invoke-WebRequest -Uri http://localhost:8787/api/tts -Method POST -Headers $headers -Body '{\"text\":\"Test listening\",\"voice\":\"default\",\"speed\":1}' -TimeoutSec 120; \"Status: $($r.StatusCode)\"; \"CORS: $($r.Headers['Access-Control-Allow-Origin'])\"; \"Type: $($r.Headers['Content-Type'])\"; \"Bytes: $($r.RawContentLength)\""
+started_at: 2026-06-30T11:55:50.672Z
+running_for_ms: 19060013 
+---
+Status: 200
+CORS: *
+Type: audio/wav
+Bytes: 84044

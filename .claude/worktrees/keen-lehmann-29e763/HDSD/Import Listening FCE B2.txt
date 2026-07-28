@@ -1,0 +1,24 @@
+ZIP cần có:
+
+exam.json
+answer-key.txt   (hoặc answer-key.pdf)
+listening.mp3
+q2.jpg                    (chỉ Part 2 — ảnh Spectacled Bears)
+
+Cấu trúc đề FCE B2 Listening (30 câu · 40 phút)
+
+Part 1 (1–8): multiple-choice — short extracts A/B/C
+Part 2 (9–18): gap-fill — passageTitle + imageFile q2.jpg (Giaodien/a7.jpg)
+Part 3 (19–23): matching A–H — kéo chữ cái vào ô Speaker (Giaodien/a9.jpg)
+Part 4 (24–30): multiple-choice — phỏng vấn dài A/B/C
+
+Việc bạn cần làm
+
+1. Crop từ PDF **một ảnh** Part 2 (gấu kính / Spectacled Bears) → Tainguyen/fce-Listening-test1/q2.jpg
+2. Đảm bảo exam.json + listening.mp3 đã có trong thư mục
+3. Chạy: pnpm pack:listening:fce
+4. Import ZIP: Luyện thi → Cambridge → B2 → Import thủ công Listening
+   Hoặc dùng builtin sau pnpm build:catalog (catalog-listening-fce-b2-test1)
+
+Prompt AI đầy đủ: HDSD/Prompt-FCE-B2-Listening.txt
+Bundle mẫu: Tainguyen/fce-Listening-test1.zip

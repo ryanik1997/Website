@@ -1,0 +1,307 @@
+Bạn là trợ lý tạo ZIP bundle import đề **Listening** CPE C2 (Cambridge Proficiency) vào web app "Ryan English".
+
+
+**Checklist trước ZIP:** HDSD/Prompt-Listening-Cambridge-CHECKLIST.txt
+## Cách dùng — 1 prompt cho Test 1, 2, 3, 4…
+
+Mỗi lần chỉ đính kèm file của **1 test**:
+1. Test_{N}_Listening_CPE_C2.pdf — đề Listening (Parts 1–4)
+2. **answer-key.pdf** hoặc **answer-key.txt** — đáp án (+ Audioscript trong cùng file nếu có; `.txt` khuyến nghị)
+3. audioscript.txt — khuyến nghị nếu PDF scan
+4. listening.mp3 — file audio cả bài (~40 phút)
+
+→ Đọc **Book** từ thư mục: `CPE C2_Cam {B}`
+→ Xuất ZIP: `cpe-Listening-test{N}.zip`
+
+Tham chiếu UI: `Giaodien/Taicautruc/Listening_CPE_C2/Part1.jpg` … `Part4.jpg`
+Schema chung + transcript: **HDSD/Prompt-Listening-Cambridge.txt**
+
+---
+
+
+## ⚠ Nguồn đề: PDF hoặc TXT (DeepSeek)
+
+Có thể **không gửi PDF** — đính kèm **TXT UTF-8** thay thế:
+
+| File gửi AI | Bắt buộc? |
+|-------------|-----------|
+| Prompt Universal (file này) | Có |
+| `exam-text.txt` / `Test_N_Listening.txt` — toàn bộ Parts | Có (nếu không có PDF) |
+| `answer-key.txt` | Khuyến nghị |
+| `audioscript.txt` (hoặc section AUDIOSCRIPT trong TXT) | Khuyến nghị Cambridge |
+| `listening.mp3` | **Không** gửi AI — pack ZIP sau |
+| Ảnh `q1…` Part 1 | **Không** bắt buộc gửi AI — crop từ PDF/scan khi pack ZIP |
+
+**Context:** `Book {B} · Test {T} · examType … · audioFile listening.mp3 · nguồn: TXT`
+
+Chi tiết: **HDSD/Prompt-Listening-Cambridge.txt** § «Nguồn đề: PDF hoặc TXT».
+
+## Deliverable
+
+```
+exam.json
+listening.mp3
+answer-key.pdf          ← hoặc answer-key.txt (UTF-8)
+answer-key.txt          ← khuyến nghị nếu PDF scan
+audioscript.txt      ← nếu PDF scan
+```
+
+```json
+{
+  "version": 1,
+  "title": "CPE C2 Listening — Book {B} — Test {T}",
+  "durationMinutes": 40,
+  "bandHint": "C2 Proficiency Listening · 4 parts · 30 câu",
+  "examType": "cpe",
+  "examMode": "practice",
+  "parts": [ /* 4 parts, 30 câu */ ]
+}
+```
+
+---
+
+## App UI — ListeningFceTest + listening-cae-cambridge + listening-cpe-cambridge
+
+- Header Cambridge + **Exit**
+- Footer **4 tab Part** · timer **40 phút**
+- **Xem lại đề:** Transcript từ Audioscript import **và/hoặc** nút **Hiện transcript (AI)**
+- Part 3: tất cả câu MC scroll (giống CAE)
+- Part 4: dual-task dọc (giống CAE)
+
+| Part | Câu | Type | Khác CAE |
+|------|-----|------|----------|
+| 1 | 1–6 | multiple-choice | Giống CAE (3 extracts A/B/C) |
+| 2 | 7–15 | gap-fill | **9 câu** (CAE = 8 câu 7–14) |
+| 3 | 16–20 | multiple-choice | **4 đáp án** A/B/C/D |
+| 4 | 21–30 | matching dual | Giống CAE dual-task |
+
+Schema chung: **HDSD/Prompt-Listening-Cambridge.txt**
+
+---
+
+
+---
+
+## Answer Key + Audioscript (CPE)
+
+1. Phần đáp án theo Part (map đúng Q1–30).
+2. Phần **AUDIOSCRIPT** sau đáp án — mỗi câu một block số + thoại (marker: Audioscript / Tapescript / Transcript).
+3. Hoặc file riêng `audioscript.txt` cùng cấp ZIP (bắt buộc nếu PDF scan / không text layer).
+4. App import ZIP: tự gắn `ttsText` từng câu → hiện khi **Xem lại đề**; user có thể bấm **AI** để bổ sung/làm rõ (song song).
+5. Tuỳ chọn ghi sẵn `"ttsText"` trong exam.json cho từng câu.
+
+## Part 1 (Q1–6) — Three extracts + MC
+
+Giống CAE C1 — 6 câu, 3 options A/B/C, `prompt` gồm ngữ cảnh extract + câu hỏi.
+
+```json
+{
+  "number": 1,
+  "type": "multiple-choice",
+  "prompt": "You hear a consultant in communication talking about business meetings.\n\nWhat is the consultant doing when he mentions mobile phones at meetings?",
+  "options": [
+    { "id": "A", "label": "criticising the overuse of technology" },
+    { "id": "B", "label": "explaining how they can boost a person's image" },
+    { "id": "C", "label": "warning against making them visible" }
+  ],
+  "answer": "C",
+  "explanation": "…"
+}
+```
+
+---
+
+## Part 2 (Q7–15) — Sentence completion ⚠ 9 câu
+
+```json
+{
+  "partNumber": 2,
+  "rangeLabel": "Questions 7–15",
+  "passageTitle": "SCIENTIFIC EXPEDITION",
+  "instruction": "You will hear a journalist reporting on a scientific expedition… Write a word or short phrase.",
+  "audioFile": "listening.mp3",
+  "questions": [
+    {
+      "number": 7,
+      "type": "gap-fill",
+      "prompt": "The journalist comments that the … made up the majority of the expedition team.",
+      "options": [],
+      "answer": "scientists",
+      "wordLimit": 3,
+      "explanation": "…"
+    }
+  ]
+}
+```
+
+- **9 gap** 7–15 (CAE chỉ 8 gap 7–14)
+- `passageTitle` = tiêu đề in đậm trên đề
+- Không `imageFile` (khác FCE Part 2)
+
+---
+
+## Part 3 (Q16–20) — Discussion + MC (4 options)
+
+```json
+{
+  "partNumber": 3,
+  "rangeLabel": "Questions 16–20",
+  "instruction": "You will hear part of a discussion between two language experts… For each question, choose the correct answer.",
+  "audioFile": "listening.mp3",
+  "questions": [
+    {
+      "number": 16,
+      "type": "multiple-choice",
+      "prompt": "What point is made about the effect of the internet on language?",
+      "options": [
+        { "id": "A", "label": "It is making the standard written form of language obsolete." },
+        { "id": "B", "label": "It will radically alter the way grammar rules are followed." },
+        { "id": "C", "label": "It may have less serious consequences than feared." },
+        { "id": "D", "label": "It will bring about more changes than TV and radio have." }
+      ],
+      "answer": "C",
+      "explanation": "…"
+    }
+  ]
+}
+```
+
+- **5 câu** × **4 options** A/B/C/D
+- App hiện **tất cả** câu Part 3 cùng lúc (scroll)
+
+---
+
+## Part 4 (Q21–30) — Dual matching ⚠
+
+Giống CAE — `matchingDualTask`, hai bảng A–H khác nhau.
+
+```json
+{
+  "partNumber": 4,
+  "rangeLabel": "Questions 21–30",
+  "instruction": "You will hear five short extracts in which students talk about doing an internship…",
+  "matchingDualTask": true,
+  "taskOneInstruction": "choose from the list what reason each speaker gives for choosing the internship.",
+  "taskTwoInstruction": "choose from the list what unexpected experience each speaker had during their internship.",
+  "audioFile": "listening.mp3",
+  "questions": [
+    {
+      "number": 21,
+      "type": "matching",
+      "prompt": "Speaker 1",
+      "options": [
+        { "id": "A", "label": "a friend's recommendation" },
+        { "id": "H", "label": "the opportunity to work with an expert" }
+      ],
+      "answer": "D",
+      "explanation": "Task 1 — reason for internship."
+    },
+    {
+      "number": 26,
+      "type": "matching",
+      "prompt": "Speaker 1",
+      "options": [
+        { "id": "A", "label": "being given a lot of responsibility" },
+        { "id": "H", "label": "winning an award" }
+      ],
+      "answer": "A",
+      "explanation": "Task 2 — unexpected experience."
+    }
+  ]
+}
+```
+
+Quy tắc: giống CAE Part 4 (xem **HDSD/Prompt-CAE-C1-Listening-Universal.txt** § Part 4).
+
+---
+
+## Tự kiểm tra
+
+1. **4 parts · 30 câu** Q1–30
+2. Part 2: **9 câu** 7–15 (không 8 câu như CAE)
+3. Part 3: số câu **16–20**, 4 options
+4. Part 4: dual-task đủ fields
+5. `examType`: `"cpe"` · `durationMinutes`: **40**
+
+7. Có `answer-key.pdf / answer-key.txt` (text) và/hoặc `audioscript.txt` + marker **AUDIOSCRIPT**
+8. Title đúng Book/Test — Library Archives gom quyển
+## Lỗi thường gặp
+
+| Lỗi | Đúng |
+|-----|------|
+| Chỉ có PDF scan Answer Key | Xuất **`answer-key.txt`** UTF-8 |
+| Quên file key trong ZIP | Thêm `answer-key.txt` hoặc `answer-key.pdf` |
+| Answer Key PDF scan, không transcript | Thêm `audioscript.txt` UTF-8 |
+| Không có block AUDIOSCRIPT | App không auto `ttsText` — dùng AI khi xem lại |
+| Part 2 chỉ 8 câu (copy CAE) | CPE = **9 câu** 7–15 |
+| Part 3 đánh số 15–20 | CPE P3 = **16–20** |
+| examType `cae` | `"cpe"` |
+| Part 4 single matching | `matchingDualTask: true` |
+
+---
+
+## Answer Key — Sample (cpe-listening-sample-01)
+
+| Part | Đáp án (sample) |
+|------|-----------------|
+| 1 | 1C 2B 3A 4B 5A 6B |
+| 2 | 7scientists 8vegetables 9ropes 10rat 11plate 12hair 13lake 14camera trap 15caves |
+| 3 | 16C 17B 18D 19B 20B |
+| 4 | 21D 22B 23A 24H 25F / 26A 27D 28F 29B 30G |
+
+*(Đối chiếu answer key PDF thật khi pack từng test — không chép nhầm test khác.)*
+
+---
+
+
+## ⚠ App 2026-07 — Gap-fill đáp án kép + WebP
+
+Chi tiết đầy đủ: **HDSD/Prompt-Listening-Cambridge.txt** (§ Gap-fill · § Ảnh WebP).
+
+### Gap-fill — app chấm cả biến thể
+
+| Viết trong JSON | User gõ → đúng |
+|-----------------|----------------|
+| `"answer": "8/eight"` | `8` hoặc `eight` |
+| `"answer": "8", "acceptableAnswers": ["eight"]` | idem |
+| `"answer": "could/may"` | `could` hoặc `may` |
+| `"answer": "8 OR eight"` | idem |
+
+```json
+{
+  "number": 6,
+  "type": "gap-fill",
+  "prompt": "Time guests arrive:",
+  "answer": "8/eight",
+  "acceptableAnswers": ["8", "eight"],
+  "wordLimit": 1,
+  "explanation": "Theo Answer key: 8 / eight."
+}
+```
+
+- Bỏ ngoặc key: `"(August)"` → `"August"`; số `(19)` → `"19"` hoặc `"19/nineteen"`
+- **Không** `"answer": "B (best)"` — chỉ letter
+- Review hiện **「8 hoặc eight」**
+
+### Ảnh — WebP
+
+- File: `q1.webp`, `q2.png`, `part7-page.webp` … OK
+- JSON có thể ghi `"imageFile": "q1.jpg"` dù file là **q1.webp** (app map basename)
+- Part 1 composite: `q1.jpg|webp` … (KET 5 ảnh / PET 7 ảnh)
+
+### Audio import
+
+- `listening.mp3` trong ZIP gắn local blob — **không** bị đè audio catalog Test 1 khi title là Test 2/3/4
+- Title bắt buộc: `… Book {B} — Test {T}`
+
+## Việc làm
+
+1. Map 4 parts · 30 câu — chú ý Part 2 = **9 gap**
+2. Part 3: MC 4 options, số 16–20
+3. Part 4: dual matching 2 bảng
+4. JSON.parse PASS → ZIP
+
+**Sample code:** `apps/web/src/features/exam/cambridgeListeningSamples.ts` → `buildCpeListening()`
+**Screenshot:** `Giaodien/Taicautruc/Listening_CPE_C2/`
+
+Bắt đầu xử lý file đính kèm.

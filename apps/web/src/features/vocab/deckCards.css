@@ -6,6 +6,18 @@
   gap: 1rem;
 }
 
+.vocab-deck-virtual-list {
+  position: relative;
+  width: 100%;
+}
+
+.vocab-deck-grid-item {
+  position: absolute;
+  top: 0;
+  content-visibility: auto;
+  contain-intrinsic-size: 184px;
+}
+
 @media (min-width: 640px) {
   .vocab-deck-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));

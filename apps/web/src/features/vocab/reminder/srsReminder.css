@@ -1,316 +1,165 @@
-/* Ported from P15.8.302 vh-review-reminder — popup nhắc học lại */
+/* Reminder modal — the outlined, physical card language of GÃ³c Ä‘á»c / BÃ¡o. */
 
 .srs-reminder-backdrop {
   position: fixed;
   inset: 0;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: clamp(1rem, 3vw, 2rem);
-  background:
-    radial-gradient(circle at 50% 10%, rgba(59, 130, 246, 0.18), transparent 34%),
-    rgba(2, 6, 23, 0.66);
-  backdrop-filter: blur(12px) saturate(1.08);
-  -webkit-backdrop-filter: blur(12px) saturate(1.08);
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 4vw, 2.5rem);
+  background: color-mix(in srgb, var(--text-primary) 52%, transparent);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  animation: srs-reminder-fade-in .38s cubic-bezier(.32,.72,0,1) both;
 }
 
 .srs-reminder-modal {
   position: relative;
-  width: min(640px, 100%);
-  max-height: min(88vh, 780px);
-  border-radius: 32px;
-  padding: clamp(1.15rem, 2.6vw, 1.65rem);
-  background:
-    radial-gradient(circle at 50% -18%, rgba(56, 189, 248, 0.18), transparent 42%),
-    linear-gradient(145deg, rgba(16, 27, 55, 0.985) 0%, rgba(17, 18, 42, 0.985) 54%, rgba(22, 15, 39, 0.985) 100%);
-  border: 1px solid rgba(125, 211, 252, 0.20);
-  box-shadow:
-    0 32px 90px rgba(0, 0, 0, 0.50),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  text-align: center;
-  color: #f8fafc;
+  width: min(38rem, 100%);
+  max-height: min(88dvh, 46rem);
+  padding: clamp(1.25rem, 3.2vw, 2rem);
+  border: 3px solid var(--text-primary);
+  border-radius: 1.5rem;
+  background: var(--bg-card);
+  box-shadow: .55rem .55rem 0 var(--text-primary);
+  color: var(--text-primary);
   overflow: hidden;
   isolation: isolate;
-  clip-path: inset(0 round 32px);
+  animation: srs-reminder-card-in .48s cubic-bezier(.22,1,.36,1) both;
+}
+
+.srs-reminder-modal::before {
+  content: '';
+  position: absolute;
+  inset: .38rem;
+  z-index: -1;
+  border: 1px solid color-mix(in srgb, var(--text-primary) 12%, transparent);
+  border-radius: calc(1.5rem - .38rem);
+  pointer-events: none;
 }
 
 .srs-reminder-scroll {
-  max-height: calc(88vh - 3rem);
+  max-height: calc(88dvh - 4rem);
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 0.25rem clamp(0.72rem, 2.1vw, 1rem) 0.45rem;
+  padding: .2rem .2rem .35rem;
   scrollbar-width: thin;
 }
 
 .srs-reminder-close {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  width: 2.45rem;
-  height: 2.45rem;
-  border-radius: 9999px;
-  color: #93c5fd;
-  background: rgba(96, 165, 250, 0.10);
-  border: 1px solid rgba(147, 197, 253, 0.22);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  top: .8rem;
+  right: .8rem;
+  width: 2.3rem;
+  height: 2.3rem;
+  display: inline-grid;
+  place-items: center;
+  border: 2px solid var(--text-primary);
+  border-radius: .75rem;
+  background: var(--bg-card);
+  color: var(--text-primary);
   cursor: pointer;
-  transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
-  z-index: 2;
+  transition: transform .22s cubic-bezier(.32,.72,0,1), box-shadow .22s cubic-bezier(.32,.72,0,1), background-color .22s cubic-bezier(.32,.72,0,1);
 }
 
-.srs-reminder-close:hover {
-  background: rgba(96, 165, 250, 0.18);
-  border-color: rgba(147, 197, 253, 0.38);
-  transform: scale(1.06);
-}
+.srs-reminder-close:hover { background: color-mix(in srgb, var(--color-primary) 12%, var(--bg-card)); box-shadow: .18rem .18rem 0 var(--text-primary); transform: translate(-.12rem, -.12rem); }
+.srs-reminder-close:focus-visible,
+.srs-reminder-action:focus-visible,
+.srs-reminder-deck-item:focus-visible,
+.srs-reminder-back:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 3px; }
 
 .srs-reminder-title {
-  font-size: clamp(1.55rem, 4.4vw, 2.05rem);
-  font-weight: 950;
-  letter-spacing: -0.04em;
-  line-height: 1.08;
-  margin: 0.25rem 2.8rem 1rem;
-  color: #f8fafc;
-  text-shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
-}
-
-.srs-reminder-mascot {
-  position: relative;
-  width: clamp(118px, 24vw, 146px);
-  height: clamp(118px, 24vw, 146px);
-  margin: 0.2rem auto 1.15rem;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: clamp(4rem, 9vw, 5rem);
-  line-height: 1;
-  background: radial-gradient(circle at 38% 30%, #7dd3fc, #3b82f6 58%, #1d4ed8);
-  box-shadow:
-    0 22px 48px rgba(37, 99, 235, 0.30),
-    inset 0 1px 0 rgba(255, 255, 255, 0.22);
-  overflow: hidden;
-  isolation: isolate;
-}
-
-.srs-reminder-mascot-bird {
-  display: inline-block;
-  transform-origin: 50% 60%;
-  animation: srs-bird-flight 6s ease-in-out infinite;
-  will-change: transform, opacity;
-  filter: drop-shadow(0 4px 10px rgba(2, 6, 23, 0.35));
-}
-
-@keyframes srs-bird-flight {
-  /* 0–26%: Bay vào từ ngoài (bên phải, trên cao) → giữa vòng tròn */
-  0%   { opacity: 0; transform: translate(150%, -100%) rotate(22deg) scale(0.45); }
-  8%   { opacity: 1; transform: translate(95%, -60%)  rotate(16deg) scale(0.65); }
-  18%  { opacity: 1; transform: translate(35%, -18%)  rotate(6deg)  scale(0.9);  }
-  26%  { opacity: 1; transform: translate(0%, 0%)     rotate(0deg)  scale(1);    }
-
-  /* 26–56%: Nhún nhảy tại chỗ — bounce lên xuống, đổi bên, quay đầu */
-  30%  { transform: translate(-4%, -18%) rotate(-8deg) scale(1); }
-  34%  { transform: translate(-4%, 0%)   rotate(-2deg) scale(1); }
-  38%  { transform: translate(4%, -18%)  rotate(8deg)  scale(1); }
-  42%  { transform: translate(4%, 0%)    rotate(2deg)  scale(1); }
-  46%  { transform: translate(-3%, -16%) rotate(-6deg) scale(1); }
-  50%  { transform: translate(-3%, 0%)   rotate(0deg)  scale(1); }
-  54%  { transform: translate(2%, -10%)  rotate(4deg)  scale(1); }
-  56%  { opacity: 1; transform: translate(0%, 0%)     rotate(0deg)  scale(1);    }
-
-  /* 56–82%: Bay đi mất về bên trái, ngược hướng đã vào */
-  64%  { opacity: 1; transform: translate(-35%, -22%) rotate(-12deg) scale(0.92); }
-  74%  { opacity: 1; transform: translate(-90%, -58%) rotate(-20deg) scale(0.7);  }
-  82%  { opacity: 0; transform: translate(-150%, -100%) rotate(-24deg) scale(0.45); }
-
-  /* 82–100%: Chờ ngoài khung, teleport về vị trí xuất phát để lặp lại mượt */
-  83%  { opacity: 0; transform: translate(150%, -100%) rotate(22deg) scale(0.45); }
-  100% { opacity: 0; transform: translate(150%, -100%) rotate(22deg) scale(0.45); }
-}
-
-/* Vỗ cánh — dùng transform trên phần tử con để cộng dồn với animation bay */
-.srs-reminder-mascot-bird::before {
-  content: none;
-}
-
-.srs-reminder-mascot-bird-inner {
-  display: inline-block;
-  animation: srs-bird-flap 0.32s ease-in-out infinite alternate;
-  transform-origin: 50% 55%;
-}
-
-@keyframes srs-bird-flap {
-  from { transform: translateY(0) scaleY(1); }
-  to   { transform: translateY(-2px) scaleY(0.94); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .srs-reminder-mascot-bird {
-    animation: none;
-    opacity: 1;
-    transform: none;
-  }
-  .srs-reminder-mascot-bird-inner {
-    animation: none;
-  }
-}
-
-.srs-reminder-count {
-  color: #38bdf8;
-  font-weight: 900;
-  font-size: clamp(1.02rem, 2.7vw, 1.18rem);
-  line-height: 1.35;
-  margin: 0 0 0.65rem;
-}
-
-.srs-reminder-desc {
-  color: #bae6fd;
-  line-height: 1.62;
-  font-size: clamp(0.96rem, 2.4vw, 1.06rem);
-  max-width: 500px;
-  margin: 0 auto 1.35rem;
-}
-
-.srs-reminder-action {
-  position: relative;
-  width: calc(100% - clamp(1.2rem, 3vw, 2rem));
-  max-width: 560px;
-  margin: 1.45rem auto 0;
-  min-height: 64px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.58rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  padding: 1rem 1.35rem;
-  color: #fff;
-  font-weight: 950;
-  font-size: clamp(0.98rem, 2.5vw, 1.08rem);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  background: linear-gradient(135deg, #2fb8ff 0%, #2f6df6 48%, #7c3aed 100%);
-  box-shadow:
-    0 18px 34px rgba(47, 109, 246, 0.24),
-    inset 0 1px 0 rgba(255, 255, 255, 0.28);
-  cursor: pointer;
-  overflow: hidden;
-  clip-path: inset(0 round 999px);
-  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
-}
-
-.srs-reminder-action::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.24), transparent);
-  transform: translateX(-120%);
-  transition: transform 0.55s ease;
-  pointer-events: none;
-}
-
-.srs-reminder-action:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.045) saturate(1.04);
-  box-shadow:
-    0 22px 42px rgba(47, 109, 246, 0.30),
-    inset 0 1px 0 rgba(255, 255, 255, 0.30);
-}
-
-.srs-reminder-action:hover::before { transform: translateX(120%); }
-
-.srs-reminder-action:active {
-  transform: translateY(0) scale(0.995);
-  box-shadow:
-    0 12px 24px rgba(47, 109, 246, 0.22),
-    inset 0 2px 7px rgba(15, 23, 42, 0.18);
-}
-
-.srs-reminder-action-icon {
-  font-size: 1.15rem;
-  opacity: 0.95;
-}
-
-.srs-reminder-deck-list {
-  display: grid;
-  gap: 0.78rem;
-  margin-top: 1rem;
+  margin: .2rem 3rem 1.35rem 0;
+  color: var(--text-primary);
+  font-family: var(--font-app);
+  font-size: clamp(1.5rem, 4.5vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -.035em;
+  line-height: 1.1;
   text-align: left;
 }
 
+.srs-reminder-mascot {
+  width: clamp(6.25rem, 21vw, 7.5rem);
+  height: clamp(6.25rem, 21vw, 7.5rem);
+  display: grid;
+  place-items: center;
+  margin: .25rem auto 1.15rem;
+  border: 3px solid var(--text-primary);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--color-primary) 13%, var(--bg-card));
+  box-shadow: .28rem .28rem 0 var(--text-primary);
+  font-size: clamp(3.4rem, 8vw, 4.3rem);
+  line-height: 1;
+}
+
+.srs-reminder-mascot-bird { display: inline-block; transform-origin: 50% 60%; animation: srs-bird-bob 3.6s cubic-bezier(.32,.72,0,1) infinite; }
+.srs-reminder-mascot-bird-inner { display: inline-block; animation: srs-bird-flap .75s cubic-bezier(.32,.72,0,1) infinite alternate; }
+
+.srs-reminder-count { margin: 0; color: var(--text-primary); font-size: clamp(1rem, 2.7vw, 1.14rem); font-weight: 750; line-height: 1.4; }
+.srs-reminder-desc { max-width: 31rem; margin: .55rem auto 1.3rem; color: var(--text-muted); font-size: .95rem; line-height: 1.6; }
+
+.srs-reminder-action,
+.srs-reminder-back {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
+  border: 2px solid var(--text-primary);
+  border-radius: .85rem;
+  padding: .9rem 1rem;
+  font-family: var(--font-app);
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform .22s cubic-bezier(.32,.72,0,1), box-shadow .22s cubic-bezier(.32,.72,0,1), background-color .22s cubic-bezier(.32,.72,0,1);
+}
+
+.srs-reminder-action { margin-top: .35rem; background: var(--color-primary); color: var(--color-on-primary); box-shadow: .28rem .28rem 0 var(--text-primary); }
+.srs-reminder-action:hover { transform: translate(-.16rem, -.16rem); box-shadow: .44rem .44rem 0 var(--text-primary); }
+.srs-reminder-action:active,
+.srs-reminder-deck-item:active,
+.srs-reminder-back:active { transform: translate(.08rem, .08rem) scale(.99); }
+.srs-reminder-action-icon { font-size: 1.05rem; }
+
+.srs-reminder-deck-list { display: grid; gap: .75rem; margin-top: .8rem; text-align: left; }
 .srs-reminder-deck-item {
   width: 100%;
-  border: 1px solid rgba(125, 211, 252, 0.18);
-  background: linear-gradient(135deg, rgba(96, 165, 250, 0.13), rgba(14, 165, 233, 0.08));
-  color: #e0f2fe;
-  border-radius: 1.35rem;
-  padding: 0.98rem 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  border: 2px solid var(--text-primary);
+  border-radius: 1rem;
+  padding: .9rem 1rem;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  box-shadow: .22rem .22rem 0 var(--text-primary);
   cursor: pointer;
-  transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
   text-align: left;
+  transition: transform .22s cubic-bezier(.32,.72,0,1), box-shadow .22s cubic-bezier(.32,.72,0,1), background-color .22s cubic-bezier(.32,.72,0,1);
 }
+.srs-reminder-deck-item:hover { background: color-mix(in srgb, var(--color-primary) 9%, var(--bg-card)); box-shadow: .35rem .35rem 0 var(--text-primary); transform: translate(-.12rem, -.12rem); }
+.srs-reminder-deck-title { display: block; margin-bottom: .18rem; font-weight: 800; }
+.srs-reminder-deck-sub { display: block; color: var(--text-muted); font-size: .82rem; }
+.srs-reminder-deck-count { min-width: 2.5rem; height: 2.5rem; display: inline-grid; place-items: center; border-radius: .7rem; background: var(--color-primary); color: var(--color-on-primary); font-weight: 800; }
+.srs-reminder-back { margin-top: 1rem; background: var(--bg-card); color: var(--text-primary); }
+.srs-reminder-back:hover { background: color-mix(in srgb, var(--color-primary) 9%, var(--bg-card)); transform: translate(-.12rem, -.12rem); box-shadow: .25rem .25rem 0 var(--text-primary); }
 
-.srs-reminder-deck-item:hover {
-  background: linear-gradient(135deg, rgba(96, 165, 250, 0.20), rgba(14, 165, 233, 0.12));
-  border-color: rgba(125, 211, 252, 0.32);
-  transform: translateY(-1px);
-}
+@keyframes srs-reminder-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes srs-reminder-card-in { from { opacity: 0; transform: translateY(1rem) scale(.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes srs-bird-bob { 0%, 100% { transform: translate3d(0, 0, 0) rotate(-4deg); } 50% { transform: translate3d(.15rem, -.42rem, 0) rotate(4deg); } }
+@keyframes srs-bird-flap { from { transform: scaleY(1); } to { transform: scaleY(.92) translateY(-.08rem); } }
 
-.srs-reminder-deck-title {
-  display: block;
-  font-weight: 900;
-  color: #f8fafc;
-  margin-bottom: 0.2rem;
-}
-
-.srs-reminder-deck-sub {
-  display: block;
-  font-size: 0.86rem;
-  color: #93c5fd;
-}
-
-.srs-reminder-deck-count {
-  min-width: 3rem;
-  height: 3rem;
-  border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #2fb8ff 0%, #2f6df6 52%, #7c3aed 100%);
-  color: #fff;
-  font-weight: 950;
-  box-shadow: 0 12px 22px rgba(47, 109, 246, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.25);
-  flex-shrink: 0;
-}
-
-.srs-reminder-back {
-  margin-top: 0.95rem;
-  width: 100%;
-  border-radius: 999px;
-  padding: 0.9rem 1rem;
-  background: rgba(148, 163, 184, 0.12);
-  border: 1px solid rgba(148, 163, 184, 0.18);
-  color: #e2e8f0;
-  font-weight: 850;
-  cursor: pointer;
-  transition: background 0.18s ease, transform 0.18s ease;
-}
-
-.srs-reminder-back:hover {
-  background: rgba(148, 163, 184, 0.18);
-  transform: translateY(-1px);
+@media (prefers-reduced-motion: reduce) {
+  .srs-reminder-backdrop,
+  .srs-reminder-modal,
+  .srs-reminder-mascot-bird,
+  .srs-reminder-mascot-bird-inner { animation: none; }
 }
 
 @media (max-width: 520px) {
-  .srs-reminder-modal { border-radius: 26px; clip-path: inset(0 round 26px); }
-  .srs-reminder-title { margin-inline: 2.2rem; }
-  .srs-reminder-action { width: calc(100% - 0.75rem); min-height: 58px; }
+  .srs-reminder-backdrop { align-items: end; padding: .75rem; }
+  .srs-reminder-modal { max-height: min(90dvh, 44rem); border-radius: 1.2rem; box-shadow: .38rem .38rem 0 var(--text-primary); }
+  .srs-reminder-scroll { max-height: calc(90dvh - 3rem); }
 }

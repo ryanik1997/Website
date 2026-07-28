@@ -15,6 +15,10 @@
   --ket-gap-border: color-mix(in srgb, var(--color-primary) 38%, var(--border-color));
   --ket-nav-btn: color-mix(in srgb, var(--text-primary) 42%, var(--bg-secondary));
   --ket-nav-next: var(--color-primary);
+  /* Footer chrome — khớp PET B1 Reading */
+  --ket-footer-bg: #ebebeb;
+  --ket-footer-submit-bg: #e0e1e1;
+  --ket-footer-nav-active: #008f95;
   --ket-submit: #2f6fad;
   --ket-submit-hover: #255a8f;
   --ket-submit-text: #ffffff;
@@ -28,7 +32,7 @@
   overflow: hidden;
   background: var(--ket-body-bg);
   color: var(--ket-text);
-  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-family: var(--font-app);
 }
 
 /* Nội dung đề theo font user chọn (không áp header/footer chrome) */
@@ -232,15 +236,40 @@
   padding: 1rem 1.25rem;
 }
 
-.ket-rw-body.is-split .ket-rw-pane-left {
+/* Resizable split — uses flex + --ket-split-pct */
+.ket-rw-body.is-split.is-resizable .ket-rw-pane-left {
   flex-shrink: 0;
   width: var(--ket-split-pct, 50%);
 }
 
-.ket-rw-body.is-split .ket-rw-pane-right {
+.ket-rw-body.is-split.is-resizable .ket-rw-pane-right {
   flex: 1;
   display: flex;
   flex-direction: column;
+}
+
+/* Fixed scrollbar split (PET Part 2) — grid 1fr 1fr, left scrollbar = middle bar */
+.ket-rw-body.is-split.is-fixed-scrollbar .ket-rw-pane-left,
+.ket-rw-body.is-split.is-fixed-scrollbar .ket-rw-pane-right {
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  height: 100%;
+  min-height: 0;
+  box-sizing: border-box;
+  flex: none;
+}
+
+/* Fixed divider split (PET Part 3) — grid 1fr 8px 1fr */
+.ket-rw-body.is-split.is-fixed-divider .ket-rw-pane-left,
+.ket-rw-body.is-split.is-fixed-divider .ket-rw-pane-right {
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  height: 100%;
+  min-height: 0;
+  box-sizing: border-box;
+  flex: none;
 }
 
 .ket-rw-resizer {
@@ -844,156 +873,198 @@
   gap: 0.75rem;
   flex-wrap: wrap;
   margin-bottom: 1rem;
+  /* Khung ảnh Part 7 = 1/2 bề ngang (mọi đề cũ + đề import sau này) */
+  max-width: 50%;
 }
 
 .ket-rw-pictures img {
   flex: 1;
-  /* 140px/32% → +15% → +25% nữa */
-  min-width: 201px;
+  min-width: 0;
   max-width: 46%;
   height: auto;
   border: 1px solid var(--ket-pane-border);
   border-radius: 4px;
 }
 
-/* Footer */
+/* 1 ảnh part7-page.jpg (cả 3 khung trong 1 file) — full width, không co 46% */
+.ket-rw-pictures.is-single-strip {
+  flex-wrap: nowrap;
+}
+
+.ket-rw-pictures.is-single-strip img {
+  flex: 1 1 100%;
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+}
+
+/* Footer — cùng layout với PET B1 Reading (Cambridge/Inspera) */
+.ket-rw-adjacent-nav {
+  position: fixed;
+  right: 32px;
+  bottom: 88px;
+  display: flex;
+  gap: 2px;
+  z-index: 21;
+}
+
+.ket-rw-adjacent-nav button {
+  width: 56px;
+  height: 55px;
+  border: 0;
+  display: grid;
+  place-items: center;
+  background: var(--ket-footer-nav-active);
+  color: #fff;
+  cursor: pointer;
+}
+
+.ket-rw-adjacent-nav button:disabled {
+  background: #ddd;
+  color: #fff;
+  cursor: default;
+}
+
 .ket-rw-footer {
   flex-shrink: 0;
   display: flex;
   align-items: stretch;
-  border-top: 1px solid var(--ket-header-border);
-  background: var(--ket-header-bg);
-  min-height: 3.25rem;
+  height: 52px;
+  background: var(--ket-footer-bg);
+  border-top: 3px solid #fff;
+  z-index: 20;
 }
 
 .ket-rw-footer__parts {
-  flex: 1;
+  flex: 1 1 auto;
   display: flex;
   align-items: stretch;
+  min-width: 0;
   overflow-x: auto;
   scrollbar-width: thin;
 }
 
 .ket-rw-footer-part {
+  flex: 1 1 0;
+  min-width: 0;
   display: flex;
-  flex-direction: column;
-  border-right: 1px solid var(--ket-pane-border);
-  min-width: 5.5rem;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border-right: 1px solid #fff;
+  font-size: 15px;
+  background: transparent;
+}
+
+/* Part đang mở: nền trắng, nhãn + pills bám sát mép trái ô */
+.ket-rw-footer-part.is-current {
+  flex: 0 1 auto;
+  min-width: max-content;
+  justify-content: flex-start;
+  padding: 0 14px;
+  background: #fff;
 }
 
 .ket-rw-footer-part__tab {
-  padding: 0.35rem 0.65rem 0.15rem;
-  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0 14px;
+  border: 0;
   background: transparent;
+  color: #111;
   cursor: pointer;
-  text-align: left;
 }
 
 .ket-rw-footer-part.is-current .ket-rw-footer-part__tab {
-  background: var(--ket-body-bg);
+  width: auto;
+  padding: 0;
 }
 
-.ket-rw-footer-part__label {
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--ket-muted);
+.ket-rw-footer-part__label,
+.ket-rw-footer-part__count {
+  font-size: 15px;
+  line-height: 1;
+  white-space: nowrap;
+  font-weight: 400;
+  color: #111;
 }
 
 .ket-rw-footer-part.is-current .ket-rw-footer-part__label {
-  color: var(--ket-text);
+  font-weight: 700;
 }
 
 .ket-rw-footer-part__count {
-  font-size: 0.68rem;
-  color: var(--ket-muted);
+  color: #596069;
 }
 
 .ket-rw-footer-part__pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.2rem;
-  padding: 0 0.45rem 0.35rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: nowrap;
 }
 
 .ket-rw-q-pill {
-  min-width: 1.55rem;
-  height: 1.55rem;
-  padding: 0 0.35rem;
-  border: none;
-  border-radius: 3px;
-  background: var(--ket-pill-bg);
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--ket-text);
+  width: auto;
+  min-width: 10px;
+  height: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #111;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1;
   cursor: pointer;
 }
 
 .ket-rw-q-pill.is-current {
-  background: var(--ket-pill-active);
-  color: #fff;
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #111;
+  border-radius: 2px;
+  background: #fff;
+  color: #111;
+  font-weight: 700;
 }
 
 .ket-rw-q-pill.is-answered:not(.is-current) {
-  background: color-mix(in srgb, var(--ket-accent) 22%, var(--ket-pill-bg));
-}
-
-.ket-rw-footer__controls {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.45rem 0.75rem;
-  flex-shrink: 0;
-  position: sticky;
-  right: 0;
-  z-index: 6;
-  background: var(--ket-header-bg);
-  border-left: 1px solid var(--ket-pane-border);
-  box-shadow: -6px 0 12px color-mix(in srgb, var(--ket-text) 8%, transparent);
-}
-
-.ket-rw-exit-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 3.75rem;
-  height: 2.35rem;
-  padding: 0 0.9rem;
-  border: 1px solid color-mix(in srgb, var(--ket-text) 22%, var(--ket-pane-border));
-  border-radius: 4px;
-  background: var(--ket-body-bg);
-  color: var(--ket-text);
-  font-size: 0.8rem;
+  background: transparent;
   font-weight: 700;
-  letter-spacing: 0.04em;
-  cursor: pointer;
-  flex-shrink: 0;
 }
 
-.ket-rw-exit-btn:hover {
-  background: color-mix(in srgb, var(--ket-text) 5%, var(--ket-body-bg));
-  border-color: color-mix(in srgb, var(--ket-text) 28%, var(--ket-pane-border));
-}
-
-.ket-rw-nav-btn {
+/* Review: pill có màu đúng/sai cần khung để đọc được trên nền phẳng */
+.ket-rw-footer.is-review .ket-rw-q-pill[data-review] {
+  min-width: 22px;
+  height: 22px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.35rem;
-  height: 2.35rem;
-  border: none;
-  border-radius: 4px;
-  background: var(--ket-nav-btn);
-  color: #fff;
+  padding: 0 3px;
+  border: 2px solid transparent;
+  border-radius: 3px;
+}
+
+.ket-rw-footer__submit {
+  flex: 0 0 77px;
+  width: 77px;
+  height: 100%;
+  border: 0;
+  border-left: 1px solid #d7dce1;
+  background: var(--ket-footer-submit-bg);
+  color: #111;
+  font-size: 22px;
+  line-height: 1;
   cursor: pointer;
-}
-
-.ket-rw-nav-btn:disabled {
-  opacity: 0.35;
-  cursor: not-allowed;
-}
-
-.ket-rw-nav-btn.is-next {
-  background: var(--ket-nav-next);
 }
 
 @media (max-width: 768px) {
@@ -1011,8 +1082,342 @@
     display: none;
   }
 
+  .ket-rw-pictures {
+    max-width: 100%;
+  }
+
   .ket-rw-pictures img {
     max-width: 100%;
+  }
+}
+
+/* ============================================================
+   KET A2 Part 2 (Q7–13) + Part 3 (Q14–18) — layout Cambridge/Inspera 1:1
+   Chrome màu cố định theo bản thi thật (giống PET B1 Part 3).
+   ============================================================ */
+.ket-rw-shell:is(.is-part-2, .is-part-3) {
+  --ket2-page: #f4f7f6;
+  --ket2-line: #d2d7da;
+  --ket2-text: #111;
+  --ket2-row: #f8f8f8;
+  --ket2-accent: #238ed0;
+  background: var(--ket2-page);
+  color: var(--ket2-text);
+}
+
+.ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-main,
+.ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-highlight-zone {
+  min-height: 0;
+  overflow: hidden;
+  background: var(--ket2-page);
+}
+
+/* Hộp đề bài trắng, viền xám, nổi trên nền xám nhạt */
+.ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-instruction {
+  margin: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--ket2-line);
+  border-radius: 4px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-instruction__range {
+  margin: 0 0 6px;
+  font-size: 17px;
+  line-height: 20px;
+  font-weight: 700;
+  color: var(--ket2-text);
+}
+
+.ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-instruction__text {
+  margin: 0;
+  font-size: 17px;
+  line-height: 20px;
+  font-weight: 400;
+  color: var(--ket2-text);
+}
+
+.ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-body.is-split {
+  min-height: 0;
+  overflow: hidden;
+  background: #fff;
+}
+
+.ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-body.is-split .ket-rw-pane-left {
+  padding: 4px 22px 56px 14px;
+  background: #fff;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  box-sizing: border-box;
+}
+
+.ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-body.is-split .ket-rw-pane-right {
+  padding: 4px 22px 80px 12px;
+  background: #fff;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  box-sizing: border-box;
+}
+
+/* Thanh chia đậm + tay kéo vuông trắng ↔ ở giữa */
+.ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-resizer {
+  width: 10px;
+  margin: 0;
+  flex-shrink: 0;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: col-resize;
+  position: relative;
+  z-index: 5;
+}
+
+.ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-resizer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: auto;
+  margin: 0;
+  background: #8f9395;
+  transition: background 0.15s;
+}
+
+.ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-resizer:hover::before,
+.ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-resizer.is-dragging::before {
+  background: #777b7d;
+}
+
+.ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-resizer__grip {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #707476;
+  border-radius: 0;
+  background: #fff;
+  color: #55595b;
+  font-size: 15px;
+  box-shadow: none;
+  z-index: 2;
+}
+
+/* Bài đọc: tiêu đề lớn, tên riêng in đậm trên dòng riêng */
+.ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-passage-title {
+  margin: 12px 0 18px;
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--ket2-text);
+}
+
+.ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-profile {
+  display: block;
+  margin: 0 0 20px;
+}
+
+.ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-profile .ket-rw-portrait {
+  float: left;
+  margin: 0 12px 6px 0;
+}
+
+.ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-profile__body {
+  overflow: hidden;
+}
+
+.ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-profile__name {
+  margin: 0 0 4px;
+  font-size: 17px;
+  line-height: 1.35;
+  font-weight: 700;
+  color: var(--ket2-text);
+}
+
+.ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-profile__name .ket-rw-paragraph__label {
+  margin-right: 0;
+}
+
+.ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-pane-left .ket-rw-paragraph {
+  margin: 0 0 6px;
+  font-size: 17px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--ket2-text);
+  white-space: normal;
+}
+
+/* Câu hỏi bên phải */
+.ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-pane-right .ket-rw-question {
+  margin: 0 0 14px;
+  padding: 0;
+}
+
+.ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-pane-right .ket-rw-q-prompt {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 6px;
+  padding: 4px 34px 4px 0;
+  font-size: 17px;
+  line-height: 1.3;
+  font-weight: 700;
+  color: var(--ket2-text);
+}
+
+/* Số câu: chữ đen, chỉ câu đang chọn mới có khung xanh */
+.ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-pane-right .ket-rw-q-num {
+  width: auto;
+  min-width: 26px;
+  height: auto;
+  margin: 0;
+  padding: 0 6px;
+  border: 2px solid transparent;
+  border-radius: 3px;
+  background: transparent;
+  color: var(--ket2-text);
+  font-size: 17px;
+  line-height: 1.35;
+  font-weight: 400;
+  text-align: center;
+  flex: 0 0 auto;
+}
+
+.ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-pane-right .ket-rw-question.is-active .ket-rw-q-num {
+  border-color: var(--ket2-accent);
+  background: #fff;
+}
+
+/* Bookmark góc phải câu đang chọn */
+.ket-rw-q-flag {
+  position: absolute;
+  top: 2px;
+  right: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #55595b;
+  cursor: pointer;
+}
+
+.ket-rw-q-flag.is-flagged {
+  color: var(--ket2-accent, #238ed0);
+}
+
+/* Dãy đáp án: băng xám nhạt, cách nhau bằng đường trắng */
+.ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-pane-right .ket-rw-radio-list {
+  gap: 0;
+  border: 0;
+  background: transparent;
+}
+
+.ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-pane-right .ket-rw-radio {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 14px;
+  border-bottom: 2px solid #fff;
+  background: var(--ket2-row);
+  color: var(--ket2-text);
+  font-size: 17px;
+  line-height: 1.3;
+  font-weight: 400;
+}
+
+.ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-pane-right .ket-rw-radio:hover {
+  background: #f0f0f0;
+}
+
+.ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-pane-right .ket-rw-radio.is-selected {
+  background: #eef6fb;
+}
+
+.ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-pane-right .ket-rw-radio input[type='radio'] {
+  width: 14px;
+  height: 14px;
+  margin: 0;
+  flex: 0 0 auto;
+  accent-color: var(--ket2-accent);
+}
+
+@media (max-width: 768px) {
+  .ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-body.is-split .ket-rw-pane-left {
+    padding: 4px 14px 20px;
+  }
+
+  .ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-body.is-split .ket-rw-pane-right {
+    padding: 4px 14px 72px;
+  }
+}
+
+/* Ô nhập Cambridge — PET B1 Part 6 + KET A2 Part 5 */
+
+.pet-rw-part6-gap {
+  display: inline-flex;
+  width: 186px;
+  height: 22px;
+  margin: 0 5px;
+  vertical-align: middle;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.pet-rw-part6-gap__input {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  padding: 0 8px;
+  box-sizing: border-box;
+  border: 1px solid #a7aaac;
+  border-radius: 3px;
+  background: #fff;
+  color: #050505;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  text-align: center;
+  outline: none;
+  box-shadow: none;
+}
+
+.pet-rw-part6-gap__input::placeholder {
+  color: #050505;
+  opacity: 1;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.pet-rw-part6-gap__input:focus {
+  border-color: #238ed0;
+  box-shadow: 0 0 0 1px #238ed0;
+  background: #fff;
+}
+
+.pet-rw-part6-gap__input:disabled {
+  opacity: 1;
+  cursor: default;
+  background: #fff;
+  color: #050505;
+}
+
+@media (max-width: 900px) {
+  .pet-rw-part6-gap {
+    width: 150px;
+    max-width: 42vw;
   }
 }
 
@@ -1053,4 +1458,219 @@
   text-decoration-color: var(--exam-note-color, #ff9800);
   text-underline-offset: 0.15em;
   cursor: help;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   KET A2 — layout theo bản crawl Cambridge (giống PET B1 Reading)
+   Chỉ áp cho shell KET A2 (.ket-a2-crawl), không đụng FCE/CAE/CPE.
+   ────────────────────────────────────────────────────────────── */
+.ket-a2-crawl {
+  --ket-body-bg: #f4f8f9;
+  --ket-crawl-header-h: 72px;
+}
+
+/* Header: logo Cambridge + Candidate ID đậm, icon phải */
+.ket-a2-crawl .ket-rw-header {
+  height: var(--ket-crawl-header-h);
+  min-height: var(--ket-crawl-header-h);
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0 16px;
+  box-sizing: border-box;
+  border-top: 2px solid #238ed0;
+  border-bottom: 1px solid #d2d7da;
+  background: #fff;
+}
+
+.ket-a2-crawl .ket-rw-header__identity {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding-top: 14px;
+  min-width: 0;
+}
+
+.ket-a2-crawl .ket-rw-header__logo {
+  display: block;
+  width: auto;
+  height: 43px;
+  max-width: 168px;
+}
+
+.ket-a2-crawl .ket-rw-header__candidate {
+  display: inline-flex;
+  align-items: center;
+  min-height: 43px;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 700;
+  color: #111;
+  white-space: nowrap;
+}
+
+.ket-a2-crawl .ket-rw-header__actions {
+  margin-left: auto;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.ket-a2-crawl .ket-rw-icon-btn {
+  width: 22px;
+  height: 22px;
+  border-radius: 0;
+  color: #222;
+}
+
+/* Vùng đề: nền xám xanh, đệm 16px */
+.ket-a2-crawl .ket-rw-main {
+  background: #f4f8f9;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+/* Ô hướng dẫn "Questions 1–6" viền trắng bo góc */
+.ket-a2-crawl .ket-rw-instruction {
+  width: 100%;
+  min-height: 65px;
+  margin: 0;
+  padding: 8px 10px;
+  background: #fff;
+  border: 1px solid #d2d7da;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.ket-a2-crawl .ket-rw-instruction__range {
+  margin: 0 0 6px;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 700;
+  color: #111;
+}
+
+.ket-a2-crawl .ket-rw-instruction__text {
+  margin: 0;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 400;
+  color: #111;
+}
+
+.ket-a2-crawl .ket-rw-body.is-single .ket-rw-pane-full {
+  padding: 0;
+}
+
+.ket-a2-crawl.is-part-1 .ket-rw-body.is-single {
+  padding-top: 28px;
+}
+
+/* Part 1 — khung ảnh biển báo */
+.ket-a2-crawl.is-part-1 .ket-rw-sign-box {
+  width: fit-content;
+  max-width: 760px;
+  margin: 0 0 28px;
+  padding: 12px;
+  box-sizing: border-box;
+  border: 1px solid #d9dee2;
+  border-radius: 0;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.ket-a2-crawl.is-part-1 .ket-rw-sign-box img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+/* Part 1 — câu hỏi: số câu trong ô viền xanh, chữ đậm */
+.ket-a2-crawl.is-part-1 .ket-rw-question {
+  position: relative;
+  margin: 0;
+  padding-right: 80px;
+}
+
+.ket-a2-crawl.is-part-1 .ket-rw-q-prompt {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 8px;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 700;
+  flex-wrap: wrap;
+}
+
+.ket-a2-crawl.is-part-1 .ket-rw-q-num {
+  width: 29px;
+  height: 27px;
+  min-width: 29px;
+  border-radius: 3px;
+  border: 2px solid #238ed0;
+  background: #fff;
+  color: #111;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 400;
+  margin-right: 0;
+}
+
+/* Part 1 — danh sách đáp án: hàng đầy, hover xám, chọn xanh nhạt */
+.ket-a2-crawl.is-part-1 .ket-rw-radio-list {
+  width: calc(100% - 96px);
+  max-width: 1312px;
+  margin-top: 8px;
+  gap: 0;
+  background: #fff;
+  border-top: 1px solid #edf0f1;
+}
+
+.ket-a2-crawl.is-part-1 .ket-rw-radio {
+  min-height: 44px;
+  align-items: center;
+  gap: 12px;
+  padding: 0 12px;
+  border-bottom: 1px solid #edf0f1;
+  background: #fff;
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.ket-a2-crawl.is-part-1 .ket-rw-radio:hover {
+  background: #e7e7e7;
+}
+
+.ket-a2-crawl.is-part-1 .ket-rw-radio.is-selected {
+  background: #cfe3f5;
+}
+
+.ket-a2-crawl.is-part-1 .ket-rw-radio input {
+  margin: 0;
+}
+
+/* Highlight / Note kiểu Cambridge (port từ PET B1) — chỉ KET A2 */
+.ket-a2-crawl [data-exam-highlight-zone] {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.ket-a2-crawl [data-highlight-block] {
+  -webkit-user-select: text !important;
+  user-select: text !important;
+  cursor: text;
+}
+
+.ket-a2-crawl [data-highlight-skip],
+.ket-a2-crawl input,
+.ket-a2-crawl textarea,
+.ket-a2-crawl select,
+.ket-a2-crawl button {
+  -webkit-user-select: none;
+  user-select: none;
 }

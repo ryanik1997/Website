@@ -1,0 +1,20 @@
+---
+pid: 47056
+cwd: "D:\App-English-Ryan\Website"
+command: "Set-Location \"D:\\App-English-Ryan\\Website\"
+foreach ($cam in 13,14) { 1..4 | ForEach-Object {
+  $out = pnpm ielts:validate \"IELTS/Listening IELTS_Test${_}_Cam$cam\" 2>&1 | Out-String
+  $ok = $out -match \"40 câu\" -and $out -notmatch \"❌\"
+  Write-Host \"$(if($ok){'OK'}else{'FAIL'}) Cam$cam T$_\"
+}}"
+started_at: 2026-07-03T07:47:37.551Z
+running_for_ms: 30555010 
+---
+FAIL Cam13 T1
+FAIL Cam13 T2
+FAIL Cam13 T3
+FAIL Cam13 T4
+FAIL Cam14 T1
+FAIL Cam14 T2
+FAIL Cam14 T3
+FAIL Cam14 T4

@@ -28,14 +28,18 @@ function GapInput({
   onSelect: () => void
 }) {
   return (
-    <span className={`listening-ielts-notes__gap-slot${isActive ? ' is-active' : ''}`}>
-      <span className="listening-ielts-notes__gap-num" aria-hidden>
-        {question.number}
-      </span>
+    <span
+      className={[
+        'listening-tid-gap',
+        isActive ? 'is-active' : '',
+        answer.trim() ? 'has-value' : '',
+      ].filter(Boolean).join(' ')}
+    >
       <input
         id={`ielts-gap-${question.id}`}
         type="text"
-        className="listening-ielts-notes__input listening-ielts-notes__input--inline"
+        autoComplete="off"
+        className="listening-tid-gap__input"
         value={answer}
         placeholder=""
         aria-label={`Question ${question.number}`}
@@ -43,6 +47,9 @@ function GapInput({
         onChange={e => onAnswer(e.target.value)}
         onFocus={onSelect}
       />
+      <span className="listening-tid-gap__num" aria-hidden>
+        {question.number}
+      </span>
     </span>
   )
 }

@@ -1,0 +1,20 @@
+[mcp_servers.claude-mem]
+command = "node"
+args = [
+    "./mcps/local-tool-bundles-mcp/server.mjs",
+    "claude-mem",
+]
+
+[mcp_servers.codebase-memory]
+command = "node"
+args = [
+    "./mcps/local-tool-bundles-mcp/server.mjs",
+    "codebase-memory",
+]
+
+[mcp_servers.codebase-memory-mcp]
+command = "node"
+args = [
+    "./mcps/local-tool-bundles-mcp/server.mjs",
+    "codebase-memory-mcp",
+]

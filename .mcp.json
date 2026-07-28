@@ -1,5 +1,14 @@
 {
   "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest",
+        "--cdp-endpoint",
+        "http://localhost:9222"
+      ]
+    },
     "claude-mem": {
       "cwd": ".",
       "command": "node",

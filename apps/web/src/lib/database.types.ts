@@ -13,6 +13,8 @@ export interface Database {
           plan: 'free' | 'trial' | 'basic' | 'pro' | 'lifetime'
           plan_expires_at: string | null
           is_admin: boolean
+          suspended_at: string | null
+          suspension_reason: string | null
           created_at: string
           updated_at: string
         }
@@ -240,6 +242,31 @@ export interface Database {
       }
     }
     Views: Record<string, never>
-    Functions: Record<string, never>
+    Functions: {
+      accept_legal_terms: {
+        Args: { version: string }
+        Returns: string
+      }
+      admin_list_profiles: {
+        Args: Record<string, never>
+        Returns: {
+          id: string
+          email: string
+          display_name: string | null
+          avatar_url: string | null
+          plan: string
+          plan_expires_at: string | null
+          is_admin: boolean
+          suspended_at: string | null
+          suspension_reason: string | null
+          last_sign_in_at: string | null
+          created_at: string
+        }[]
+      }
+      set_user_suspension: {
+        Args: { target_user_id: string; suspended: boolean; reason?: string | null }
+        Returns: undefined
+      }
+    }
   }
 }

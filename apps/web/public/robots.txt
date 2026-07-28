@@ -1,0 +1,14 @@
+# Mode B — discourage crawlers from scanning app/content endpoints.
+# Note: robots.txt is advisory only; real protection is private Storage + content-sign.
+
+User-agent: *
+Disallow: /app/
+Disallow: /catalog/
+Disallow: /data/
+Disallow: /auth/
+Allow: /$
+Allow: /images/
+Allow: /demo/
+
+# No sitemap of protected assets
+Sitemap:

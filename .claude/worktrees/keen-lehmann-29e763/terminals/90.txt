@@ -1,0 +1,17 @@
+---
+pid: 38292
+cwd: "D:\App-English-Ryan\Website"
+command: "$port5173 = Get-NetTCPConnection -LocalPort 5173 -State Listen -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique; if ($port5173) { foreach ($p in $port5173) { Stop-Process -Id $p -Force -ErrorAction SilentlyContinue; Write-Host \"Stopped PID $p on 5173\" } }; Start-Sleep -Seconds 2; Set-Location \"D:\\App-English-Ryan\\Website\"; pnpm --filter web dev"
+started_at: 2026-07-08T10:34:40.337Z
+running_for_ms: 534993   
+---
+Stopped PID 35804 on 5173
+
+> web@0.2.0 dev D:\App-English-Ryan\Website\apps\web
+> vite
+
+
+  VITE v5.4.21  ready in 337 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose

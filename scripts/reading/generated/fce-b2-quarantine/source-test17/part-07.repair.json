@@ -1,0 +1,293 @@
+{
+  "provenance": {
+    "origin": "ai-generated",
+    "generatedFields": [
+      "passage",
+      "questions"
+    ],
+    "sourceTestNumber": 17,
+    "appTestNumber": 18,
+    "model": "bootstrap-v1",
+    "generatedAt": "2026-07-27T15:12:03.262Z",
+    "promptHash": "bootstrap-test17-part7",
+    "confidence": 85,
+    "reviewed": false
+  },
+  "inputHash": "bootstrap-test17-part7",
+  "promptVersion": "1.0",
+  "model": "bootstrap-v1",
+  "generatedAt": "2026-07-27T15:12:03.262Z",
+  "repair": {
+    "passage": [
+      {
+        "label": "A",
+        "text": "Amelia recently experienced cultural festivals in Manchester. It was an unforgettable experience that changed her perspective. The highlights included meeting new people from different backgrounds and learning about local customs. She particularly enjoyed the cultural events organised by the hosts. Despite some initial difficulties with the language, she felt that the overall experience was extremely rewarding. Isabella recommends this experience to anyone interested in broadening their horizons."
+      },
+      {
+        "label": "B",
+        "text": "Ethan recently experienced cultural festivals in Berlin. It was a fascinating experience that changed his perspective. The challenges included meeting new people from different backgrounds and learning about local customs. He particularly enjoyed the practical workshops organised by the hosts. Despite some initial difficulties with the weather, he felt that the overall experience was extremely rewarding. Oliver recommends this experience to anyone looking for broadening their horizons."
+      },
+      {
+        "label": "C",
+        "text": "Lucas recently experienced cultural festivals in Amsterdam. It was an eye-opening experience that changed their perspective. The opportunities included meeting new people from different backgrounds and learning about local customs. They particularly enjoyed the guided tours organised by the hosts. Despite some initial difficulties with the schedule, they felt that the overall experience was extremely rewarding. Mason recommends this experience to anyone keen on broadening their horizons."
+      },
+      {
+        "label": "D",
+        "text": "Charlotte recently experienced cultural festivals in Cape Town. It was a memorable experience that changed her perspective. The activities included meeting new people from different backgrounds and learning about local customs. She particularly enjoyed the community projects organised by the hosts. Despite some initial difficulties with the transport, she felt that the overall experience was extremely rewarding. Amelia recommends this experience to anyone curious about broadening their horizons."
+      }
+    ],
+    "questions": [
+      {
+        "number": 43,
+        "type": "matching-features",
+        "prompt": "Who found the language challenging at first?",
+        "answer": "b",
+        "options": [
+          {
+            "id": "a",
+            "label": "A"
+          },
+          {
+            "id": "b",
+            "label": "B"
+          },
+          {
+            "id": "c",
+            "label": "C"
+          },
+          {
+            "id": "d",
+            "label": "D"
+          }
+        ],
+        "explanation": "The answer is B because the text mentions this."
+      },
+      {
+        "number": 44,
+        "type": "matching-features",
+        "prompt": "Which person attended cultural events?",
+        "answer": "a",
+        "options": [
+          {
+            "id": "a",
+            "label": "A"
+          },
+          {
+            "id": "b",
+            "label": "B"
+          },
+          {
+            "id": "c",
+            "label": "C"
+          },
+          {
+            "id": "d",
+            "label": "D"
+          }
+        ],
+        "explanation": "The answer is A because the text mentions this."
+      },
+      {
+        "number": 45,
+        "type": "matching-features",
+        "prompt": "Who recommends the experience to others?",
+        "answer": "a",
+        "options": [
+          {
+            "id": "a",
+            "label": "A"
+          },
+          {
+            "id": "b",
+            "label": "B"
+          },
+          {
+            "id": "c",
+            "label": "C"
+          },
+          {
+            "id": "d",
+            "label": "D"
+          }
+        ],
+        "explanation": "The answer is A because the text mentions this."
+      },
+      {
+        "number": 46,
+        "type": "matching-features",
+        "prompt": "Whose perspective was changed by the experience?",
+        "answer": "c",
+        "options": [
+          {
+            "id": "a",
+            "label": "A"
+          },
+          {
+            "id": "b",
+            "label": "B"
+          },
+          {
+            "id": "c",
+            "label": "C"
+          },
+          {
+            "id": "d",
+            "label": "D"
+          }
+        ],
+        "explanation": "The answer is C because the text mentions this."
+      },
+      {
+        "number": 47,
+        "type": "matching-features",
+        "prompt": "Who participated in practical workshops?",
+        "answer": "d",
+        "options": [
+          {
+            "id": "a",
+            "label": "A"
+          },
+          {
+            "id": "b",
+            "label": "B"
+          },
+          {
+            "id": "c",
+            "label": "C"
+          },
+          {
+            "id": "d",
+            "label": "D"
+          }
+        ],
+        "explanation": "The answer is D because the text mentions this."
+      },
+      {
+        "number": 48,
+        "type": "matching-features",
+        "prompt": "Which person had difficulties with arrangements?",
+        "answer": "b",
+        "options": [
+          {
+            "id": "a",
+            "label": "A"
+          },
+          {
+            "id": "b",
+            "label": "B"
+          },
+          {
+            "id": "c",
+            "label": "C"
+          },
+          {
+            "id": "d",
+            "label": "D"
+          }
+        ],
+        "explanation": "The answer is B because the text mentions this."
+      },
+      {
+        "number": 49,
+        "type": "matching-features",
+        "prompt": "Who met people from diverse backgrounds?",
+        "answer": "a",
+        "options": [
+          {
+            "id": "a",
+            "label": "A"
+          },
+          {
+            "id": "b",
+            "label": "B"
+          },
+          {
+            "id": "c",
+            "label": "C"
+          },
+          {
+            "id": "d",
+            "label": "D"
+          }
+        ],
+        "explanation": "The answer is A because the text mentions this."
+      },
+      {
+        "number": 50,
+        "type": "matching-features",
+        "prompt": "Whose experience involved community projects?",
+        "answer": "c",
+        "options": [
+          {
+            "id": "a",
+            "label": "A"
+          },
+          {
+            "id": "b",
+            "label": "B"
+          },
+          {
+            "id": "c",
+            "label": "C"
+          },
+          {
+            "id": "d",
+            "label": "D"
+          }
+        ],
+        "explanation": "The answer is C because the text mentions this."
+      },
+      {
+        "number": 51,
+        "type": "matching-features",
+        "prompt": "Who enjoyed guided tours?",
+        "answer": "d",
+        "options": [
+          {
+            "id": "a",
+            "label": "A"
+          },
+          {
+            "id": "b",
+            "label": "B"
+          },
+          {
+            "id": "c",
+            "label": "C"
+          },
+          {
+            "id": "d",
+            "label": "D"
+          }
+        ],
+        "explanation": "The answer is D because the text mentions this."
+      },
+      {
+        "number": 52,
+        "type": "matching-features",
+        "prompt": "Which person was looking for a new challenge?",
+        "answer": "c",
+        "options": [
+          {
+            "id": "a",
+            "label": "A"
+          },
+          {
+            "id": "b",
+            "label": "B"
+          },
+          {
+            "id": "c",
+            "label": "C"
+          },
+          {
+            "id": "d",
+            "label": "D"
+          }
+        ],
+        "explanation": "The answer is C because the text mentions this."
+      }
+    ]
+  },
+  "status": "generated"
+}

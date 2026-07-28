@@ -67,11 +67,29 @@ const BRAND_BASE_COLORS: Record<string, string> = {
   CPE: '#2a2a2a',
 }
 
+/** Palette bìa đa dạng theo số cuốn (như IELTS BOOK_COVER_COLORS) — không còn toàn nâu. */
+const BOOK_PALETTE: string[] = [
+  '#1e3a5f', // navy
+  '#9a6b45', // caramel
+  '#2d4a3e', // forest
+  '#5b3a8c', // violet
+  '#1a6b6b', // teal
+  '#7a3b4f', // wine
+  '#3d5a80', // steel blue
+  '#6b4423', // umber
+  '#1f1f1f', // charcoal
+  '#2c5282', // cobalt
+  '#7a5238', // clay
+  '#1a365d', // deep navy
+  '#4c5b2f', // olive
+  '#8c3a2a', // brick
+]
+
 export function getCambridgeBrandBookCoverColor(brand: string, book: number): string {
-  const base = BRAND_BASE_COLORS[brand] ?? '#4a5568'
-  if (book <= 1) return base
-  const hueShift = (book - 1) * 18
-  return `color-mix(in srgb, ${base} 72%, hsl(${(book * 41 + hueShift) % 360} 38% 32%))`
+  if (book <= 1) return BRAND_BASE_COLORS[brand] ?? '#4a5568'
+  // Offset theo brand để KET 5 và PET 5 không trùng màu bìa
+  const brandOffset = [...brand].reduce((acc, ch) => acc + ch.charCodeAt(0), 0)
+  return BOOK_PALETTE[(book + brandOffset) % BOOK_PALETTE.length]
 }
 
 export function filterCambridgeBooksByQuery<T extends { title: string }>(

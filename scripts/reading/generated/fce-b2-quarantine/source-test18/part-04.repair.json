@@ -1,0 +1,90 @@
+{
+  "provenance": {
+    "origin": "ai-generated",
+    "generatedFields": [
+      "questions"
+    ],
+    "sourceTestNumber": 18,
+    "appTestNumber": 19,
+    "model": "bootstrap-v1",
+    "generatedAt": "2026-07-27T15:12:03.265Z",
+    "promptHash": "bootstrap-test18-part4",
+    "confidence": 85,
+    "reviewed": false
+  },
+  "inputHash": "bootstrap-test18-part4",
+  "promptVersion": "1.0",
+  "model": "bootstrap-v1",
+  "generatedAt": "2026-07-27T15:12:03.265Z",
+  "repair": {
+    "questions": [
+      {
+        "number": 25,
+        "type": "gap-fill",
+        "prompt": "Julio thought people lived in the TV so he regularly talked to them. Julio WOULD ->  Julio .....",
+        "sourceSentence": "Julio thought people lived in the TV so he regularly talked to them. Julio",
+        "keyword": "WOULD",
+        "targetSentence": " Julio .....",
+        "answer": "would rather not",
+        "explanation": "Rewrite using \"WOULD\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 26,
+        "type": "gap-fill",
+        "prompt": "Richard hasn t believed in monsters for years. It s been LONG ->  It s been .....",
+        "sourceSentence": "Richard hasn t believed in monsters for years. It s been",
+        "keyword": "LONG",
+        "targetSentence": " It s been .....",
+        "answer": "long before the",
+        "explanation": "Rewrite using \"LONG\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 27,
+        "type": "gap-fill",
+        "prompt": "That day was the first time that William realised his mistake. William NEVER ->  William .....",
+        "sourceSentence": "That day was the first time that William realised his mistake. William",
+        "keyword": "NEVER",
+        "targetSentence": " William .....",
+        "answer": "never been so",
+        "explanation": "Rewrite using \"NEVER\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 28,
+        "type": "gap-fill",
+        "prompt": "Lucia thought that her brother s toys came alive at night. Lucia believed that the toys BELONGED ->  Lucia believed that the toys .....",
+        "sourceSentence": "Lucia thought that her brother s toys came alive at night. Lucia believed that the toys",
+        "keyword": "BELONGED",
+        "targetSentence": " Lucia believed that the toys .....",
+        "answer": "belonged to the",
+        "explanation": "Rewrite using \"BELONGED\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 29,
+        "type": "gap-fill",
+        "prompt": "Francesca started telling stories before her brother was born. Francesca SINCE ->  Francesca .....",
+        "sourceSentence": "Francesca started telling stories before her brother was born. Francesca",
+        "keyword": "SINCE",
+        "targetSentence": " Francesca .....",
+        "answer": "since the time",
+        "explanation": "Rewrite using \"SINCE\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 30,
+        "type": "gap-fill",
+        "prompt": "Luc was on a walk in the park when he saw something strange. Luc saw something strange while he THROUGH ->  Luc saw something strange while he .....",
+        "sourceSentence": "Luc was on a walk in the park when he saw something strange. Luc saw something strange while he",
+        "keyword": "THROUGH",
+        "targetSentence": " Luc saw something strange while he .....",
+        "answer": "through the use",
+        "explanation": "Rewrite using \"THROUGH\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      }
+    ]
+  },
+  "status": "generated"
+}

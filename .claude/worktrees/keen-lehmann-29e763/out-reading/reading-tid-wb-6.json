@@ -1,0 +1,636 @@
+{
+  "version": 1,
+  "title": "TID WB 6",
+  "durationMinutes": 60,
+  "examTrack": "ielts",
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "",
+      "passageTitle": "Making a change — How easy is it to change our lives?",
+      "passage": [
+        {
+          "text": "Making a change\nHow easy is it for us to change our lives — and why?\nIn 1990, a young American named Christopher McCandless gave up his career plans, left behind everyone he knew, including his family, and went off on an adventure. He was 22 at the time. In an act of kindness, he donated all his savings to the famous charity, Oxfam International, and hitchhiked his way through America to Alaska. His decisions were so unusual for his age that Jon Krakauer wrote a book about them called Into the Wild, and Sean Penn directed a film that had the same title.\nOf course, this is an unusual story. Most college graduates would not do quite the same thing. However, studies do show that in teenage years, people are more likely to try out new experiences. Instead of following the family career path, for example, and working his way up the same organisation like his grandfather did, a 15-year-old may dream about becoming a traveller — only to find in his early 20s that this fascination with new places is declining and change is less attractive. This age-related trend can be observed in all cultures.\nThe reason why people all over the world become less keen to change as they get older may be because people’s lives generally follow similar patterns and involve similar demands. Most people, wherever they are, aim to find a job and a partner. As they get older, they may have young children to look after and possibly elderly family members. These responsibilities cannot be achieved without some degree of consistency, which means that new experiences and ideas may not have a place in the person’s life. New experiences may bring excitement but also insecurity, and so most people prefer to stay with the familiar.\nHowever, not every individual is the same. One toddler may want to play a different game every day and get fed up if nothing changes at the nursery. Another may seek out and play with the same children and toys on every visit. Young children who avoid new experiences will grow up to be more conventional than others. Psychologists argue that those who have more open personalities as children are more open than others might be when they are older. They also suggest that young men have a greater interest in novelty than women, although, as they age, this desire for new experiences fades more quickly than it does in women."
+        },
+        {
+          "text": "The truth is that, as we get older, we prefer the things we know. We tend to order the same meals in restaurants, sit on the same side of the train when we commute to work, go on holiday to the same places and construct our day in the same way. If you are older than 20, remember that your openness to new experiences is slowly declining. So you are better off making a new start today than postponing it until later."
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 1–6",
+          "instruction": "Do the following statements agree with the claims of the writer in the Reading Passage?\nIn boxes 1–6 on your answer sheet, write\nYES  if the statement agrees with the claims of the writer\nNO  if the statement contradicts the claims of the writer\nNOT GIVEN  if it is impossible to say what the writer thinks about this",
+          "type": "ynng",
+          "questions": [
+            {
+              "number": 1,
+              "type": "yes-no-not-given",
+              "prompt": "Teenagers are more ready to have new experiences than young adults.",
+              "answer": "YES",
+              "explanation": "EN: 'studies do show that in teenage years, people are more likely to try out new experiences' compared to their early 20s. VI: 'các nghiên cứu thực sự chỉ ra rằng ở độ tuổi thiếu niên, con người có nhiều khả năng thử các trải nghiệm mới hơn' so với tuổi ngoài 20.",
+              "options": [
+                {
+                  "id": "yes",
+                  "label": "YES"
+                },
+                {
+                  "id": "no",
+                  "label": "NO"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ]
+            },
+            {
+              "number": 2,
+              "type": "yes-no-not-given",
+              "prompt": "Grandparents usually encourage their grandchildren to get a well-paid job.",
+              "answer": "NOT GIVEN",
+              "explanation": "EN: The text mentions a grandfather working up an organization but does not discuss whether grandparents encourage grandchildren to get well-paid jobs. VI: Văn bản đề cập đến người ông làm việc thăng tiến trong tổ chức nhưng không thảo luận về việc ông bà có khuyến khích cháu tìm công việc lương cao hay không.",
+              "options": [
+                {
+                  "id": "yes",
+                  "label": "YES"
+                },
+                {
+                  "id": "no",
+                  "label": "NO"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ]
+            },
+            {
+              "number": 3,
+              "type": "yes-no-not-given",
+              "prompt": "Life demands are different depending on which country you live in.",
+              "answer": "NO",
+              "explanation": "EN: The text states: 'The reason... may be because people's lives generally follow similar patterns and involve similar demands' and this 'can be observed in all cultures'. VI: Văn bản nêu rõ: 'Lý do... có thể là vì cuộc sống con người nhìn chung theo các khuôn mẫu tương tự và bao gồm các nhu cầu tương tự nhau' và điều này 'có thể được quan sát ở mọi nền văn hóa'.",
+              "options": [
+                {
+                  "id": "yes",
+                  "label": "YES"
+                },
+                {
+                  "id": "no",
+                  "label": "NO"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ]
+            },
+            {
+              "number": 4,
+              "type": "yes-no-not-given",
+              "prompt": "Some toddlers find repetitive activities boring.",
+              "answer": "YES",
+              "explanation": "EN: 'One toddler may want to play a different game every day and get fed up if nothing changes' (repetitive tasks are boring). VI: 'Một đứa trẻ chập chững có thể muốn chơi trò khác mỗi ngày và chán ngấy nếu không có gì thay đổi' (hoạt động lặp lại là nhàm chán).",
+              "options": [
+                {
+                  "id": "yes",
+                  "label": "YES"
+                },
+                {
+                  "id": "no",
+                  "label": "NO"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ]
+            },
+            {
+              "number": 5,
+              "type": "yes-no-not-given",
+              "prompt": "Children who dislike new experiences become more adventurous as adults.",
+              "answer": "NO",
+              "explanation": "EN: 'Young children who avoid new experiences will grow up to be more conventional than others'. VI: 'Trẻ nhỏ tránh các trải nghiệm mới lớn lên sẽ sống theo khuôn mẫu thông thường hơn những người khác'.",
+              "options": [
+                {
+                  "id": "yes",
+                  "label": "YES"
+                },
+                {
+                  "id": "no",
+                  "label": "NO"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ]
+            },
+            {
+              "number": 6,
+              "type": "yes-no-not-given",
+              "prompt": "If you want to change something in your life, you should avoid delay.",
+              "answer": "YES",
+              "explanation": "EN: 'So you are better off making a new start today than postponing it until later' (avoid delay). VI: 'Vì vậy bạn tốt hơn hết nên có khởi đầu mới ngay hôm nay thay vì trì hoãn nó cho đến sau này' (tránh trì hoãn).",
+              "options": [
+                {
+                  "id": "yes",
+                  "label": "YES"
+                },
+                {
+                  "id": "no",
+                  "label": "NO"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "range": "Questions 7–12",
+          "instruction": "Match each statement with the correct option, A–F.\nWrite the correct letter in boxes 7–12 on your answer sheet.",
+          "type": "matching-features",
+          "questions": [
+            {
+              "number": 7,
+              "type": "matching-features",
+              "prompt": "donate",
+              "answer": "D. to give money or goods to a person or organisation that needs help",
+              "explanation": "Bước 1: Keyword: donate.\nBước 2: Tìm đoạn: Đoạn 1: \"...he donated all his savings to the famous charity, Oxfam International...\"\nBước 3: Phân tích: Trong văn cảnh, Christopher đã \"quyên góp\" toàn bộ tiền tiết kiệm cho một tổ chức từ thiện. Điều này trùng khớp hoàn toàn với định nghĩa d: đưa tiền hoặc hàng hóa cho một người hoặc tổ chức cần giúp đỡ (to give money or goods to a person or organisation that needs help).\nĐáp án: D"
+            },
+            {
+              "number": 8,
+              "type": "matching-features",
+              "prompt": "consistency",
+              "answer": "F",
+              "explanation": "Bước 1: Keyword: consistency.\nBước 2: Tìm đoạn: Đoạn 3: \"These responsibilities cannot be achieved without some degree of consistency, which means that new experiences and ideas may not have a place...\"\nBước 3: Phân tích: Văn cảnh nói về việc cuộc sống cần sự ổn định, duy trì đều đặn để gánh vác trách nhiệm. Điều này trùng khớp với định nghĩa f: khi ai đó luôn hành xử hoặc thực hiện theo một cách tương tự nhau (when someone always behaves or performs in a similar way).\nĐáp án:"
+            },
+            {
+              "number": 9,
+              "type": "matching-features",
+              "prompt": "insecurity",
+              "answer": "A",
+              "explanation": "Bước 1: Keyword: insecurity.\nBước 2: Tìm đoạn: Đoạn 3: \"New experiences may bring excitement but also insecurity, and so most people prefer to stay with the familiar.\"\nBước 3: Phân tích: Rủi ro từ trải nghiệm mới mang lại sự \"bấp bênh, thiếu an toàn\" khiến người ta e ngại. Nó tương ứng với định nghĩa a: không có sự tự tin vào bản thân và những gì mình có thể làm (having no confidence in yourself and what you can do).\nĐáp án:"
+            },
+            {
+              "number": 10,
+              "type": "matching-features",
+              "prompt": "conventional",
+              "answer": "E",
+              "explanation": "Bước 1: Keyword: conventional.\nBước 2: Tìm đoạn: Đoạn 4: \"Young children who avoid new experiences will grow up to be more conventional than others.\"\nBước 3: Phân tích: Những đứa trẻ né tránh trải nghiệm mới lớn lên sẽ trở nên \"truyền thống, rập khuôn\" hơn. Từ này trùng khớp với định nghĩa e: truyền thống và không sẵn sàng thử các ý tưởng mới (traditional and not willing to try new ideas).\nĐáp án:"
+            },
+            {
+              "number": 11,
+              "type": "matching-features",
+              "prompt": "novelty",
+              "answer": "B",
+              "explanation": "Bước 1: Keyword: novelty.\nBước 2: Tìm đoạn: Đoạn 4: \"They also suggest that young men have a greater interest in novelty than women...\"\nBước 3: Phân tích: Đàn ông trẻ tuổi thường có hứng thú lớn hơn với \"sự mới lạ\". Trùng khớp với định nghĩa b: tính chất của sự mới mẻ hoặc khác lạ (the quality of being new or unusual).\nĐáp án:"
+            },
+            {
+              "number": 12,
+              "type": "matching-features",
+              "prompt": "openness (to)",
+              "answer": "C",
+              "explanation": "Bước 1: Keyword: openness (to).\nBước 2: Tìm đoạn: Đoạn 5: \"...remember that your openness to new experiences is slowly declining.\"\nBước 3: Phân tích: Sự \"cởi mở, sẵn sàng tiếp nhận\" đối với các trải nghiệm mới giảm dần theo thời gian. Từ này trùng khớp với định nghĩa c: sẵn sàng cân nhắc một cuộc thảo luận, gợi ý, trải nghiệm, v.v. (willing to consider a discussion, suggestion, experience, etc.).\nĐáp án:"
+            }
+          ],
+          "features": [
+            {
+              "id": "A",
+              "name": "having no confidence in yourself and what you can do"
+            },
+            {
+              "id": "B",
+              "name": "the quality of being new or unusual"
+            },
+            {
+              "id": "C",
+              "name": "willing to consider a discussion, suggestion, experience, etc."
+            },
+            {
+              "id": "D",
+              "name": "to give money or goods to a person or organisation that needs help"
+            },
+            {
+              "id": "E",
+              "name": "traditional and not willing to try new ideas"
+            },
+            {
+              "id": "F",
+              "name": "when someone always behaves or performs in a similar way"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "rangeLabel": "",
+      "passageTitle": "Breaking the habit — Why bad habits can stay with us for life",
+      "passage": [
+        {
+          "text": "Breaking the habit — Why bad habits can stay with us for life\nWhat is a bad habit? The most common definition is that it is something that we do regularly, almost without thinking about it, and which has some sort of negative consequence. Those who deny having bad habits are probably lying. Bad habits are part of what makes us human.\nMany early habits, like sucking our thumb, are broken when we are very young. We are either told to stop doing it by our parents, or we consciously or subconsciously observe that others do not have the same habit, and we gradually grow out of it. It is when we intentionally or unintentionally pick up new habits in our later childhood or early adulthood that it becomes a problem. Unless we can break that habit early on, it becomes a part of our life, and becomes 'programmed' into our brain.\nA recent study of human memory suggests that no matter how hard we try to change our habits, it is the old ways that tend to win, especially in situations where we are rushed, stressed or overworked. Habits that we thought we had got rid of can suddenly come back. During the study programme, the researchers showed a group of volunteers several pictures, and gave them words to associate with them. They then showed the volunteers the same pictures again, and gave them new words to associate with them. A few days later, the volunteers were given a test. Two weeks later, they were given the same test again. This time, most of them only gave the first set of words.\nThe study confirms that the responses we learn first are those that remain strongest over time. We may try to change our ways, but after a while, the response that comes to mind first is usually the first one we learned. The more that response is used, the more automatic it becomes and the harder it becomes to respond in any other way."
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 1–7",
+          "instruction": "Do the following statements agree with the claims of the writer in the Reading Passage?\nIn boxes 1–7 on your answer sheet, write\nYES  if the statement agrees with the claims of the writer\nNO  if the statement contradicts the claims of the writer\nNOT GIVEN  if it is impossible to say what the writer thinks about this",
+          "type": "ynng",
+          "questions": [
+            {
+              "number": 1,
+              "type": "yes-no-not-given",
+              "prompt": "We usually develop bad habits when we are very young.",
+              "answer": "NO",
+              "explanation": "EN: The text states: 'It is when we intentionally or unintentionally pick up new habits in our later childhood or early adulthood that it becomes a problem.' VI: Văn bản ghi rõ: 'Chính khi chúng ta vô tình hay hữu ý nhiễm các thói quen mới ở độ tuổi cuối trẻ thơ hoặc đầu trưởng thành mới là lúc nó thành vấn đề.'",
+              "options": [
+                {
+                  "id": "yes",
+                  "label": "YES"
+                },
+                {
+                  "id": "no",
+                  "label": "NO"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ]
+            },
+            {
+              "number": 2,
+              "type": "yes-no-not-given",
+              "prompt": "We can only break bad habits if people tell us to do so.",
+              "answer": "NO",
+              "explanation": "EN: Parents tell us to stop, 'or we consciously or subconsciously observe that others do not have the same habit, and we gradually grow out of it' (not ONLY because we are told). VI: Bố mẹ bảo chúng ta dừng lại, 'hoặc chúng ta vô thức hay có ý thức quan sát thấy người khác không có thói quen đó, và chúng ta dần từ bỏ nó' (không chỉ vì bị nhắc nhở).",
+              "options": [
+                {
+                  "id": "yes",
+                  "label": "YES"
+                },
+                {
+                  "id": "no",
+                  "label": "NO"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ]
+            },
+            {
+              "number": 3,
+              "type": "yes-no-not-given",
+              "prompt": "Bad habits may return when we are under pressure.",
+              "answer": "YES",
+              "explanation": "EN: 'old ways... tend to win, especially in situations where we are rushed, stressed or overworked' (under pressure). VI: 'các lối cũ... có xu hướng chiến thắng, đặc biệt trong các tình huống chúng ta vội vã, căng thẳng hay làm việc quá sức' (chịu áp lực).",
+              "options": [
+                {
+                  "id": "yes",
+                  "label": "YES"
+                },
+                {
+                  "id": "no",
+                  "label": "NO"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ]
+            },
+            {
+              "number": 4,
+              "type": "yes-no-not-given",
+              "prompt": "Researchers were surprised by the answers volunteers gave in the first test.",
+              "answer": "NO",
+              "explanation": "Hiểu ý bạn rồi! Mình sẽ làm đúng theo 3 bước: 1. Keyword, 2. Tìm đoạn, và 3. Phân tích để bạn thấy rõ tại sao đáp án D lại đúng nhé.\n\n1. Keyword (Từ khóa trong câu hỏi & đáp án)\nTrong câu hỏi: wildlife expert (chuyên gia), visit the Kalahari desert (đến sa mạc), reasons (lý do).\n\nTrong đáp án D: temporarily (tạm thời), catch (bắt), some honey badgers (vài con rái cá mật).\n\n2. Tìm đoạn (Thông tin nằm ở đâu trong bài?)\nDựa vào từ khóa wildlife expert và Kalahari desert, ta định vị được thông tin nằm ở Đoạn 2, dòng thứ 4 và 5:\n\n\"...They also planned to trap a few and study them close up before releasing them...\"\n\n3. Phân tích (Đối chiếu giữa bài đọc và đáp án)\nPhân tích hành động Bắt:\n\nBài đọc dùng từ trap (bẫy).\n\nĐáp án D dùng từ catch (bắt).\n->Bẫy động vật chính là hành động bắt chúng.\n\nPhân tích Số lượng:\n\nBài đọc dùng từ a few (một vài).\n\nĐáp án D dùng từ some (một vài).\n->Hai từ này đồng nghĩa.\n\nPhân tích Thời gian:\n\nBài đọc nói: before releasing them (trước khi thả chúng ra).\n\nĐáp án D dùng từ temporarily (tạm thời).\n->Bắt lên nghiên cứu rồi thả đi ngay chứ không nhốt luôn, nghĩa là chỉ bắt \"tạm thời\".",
+              "options": [
+                {
+                  "id": "yes",
+                  "label": "YES"
+                },
+                {
+                  "id": "no",
+                  "label": "NO"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ]
+            },
+            {
+              "number": 5,
+              "type": "yes-no-not-given",
+              "prompt": "The volunteers found the test more difficult when they did it the second time.",
+              "answer": "NOT GIVEN",
+              "explanation": "EN: The text describes what the volunteers answered in the second test but does not state whether they found it more difficult. VI: Văn bản mô tả những gì tình nguyện viên trả lời ở lần thứ hai nhưng không nêu rõ liệu họ có cảm thấy bài test khó hơn hay không.",
+              "options": [
+                {
+                  "id": "yes",
+                  "label": "YES"
+                },
+                {
+                  "id": "no",
+                  "label": "NO"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ]
+            },
+            {
+              "number": 6,
+              "type": "yes-no-not-given",
+              "prompt": "People find it more difficult to remember things they learnt when they were young.",
+              "answer": "NO",
+              "explanation": "EN: 'responses we learn first are those that remain strongest over time' (easier to remember things learned early). VI: 'những phản hồi ta học đầu tiên là những thứ duy trì mạnh mẽ nhất theo thời gian' (dễ nhớ những thứ học lúc trẻ hơn).",
+              "options": [
+                {
+                  "id": "yes",
+                  "label": "YES"
+                },
+                {
+                  "id": "no",
+                  "label": "NO"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ]
+            },
+            {
+              "number": 7,
+              "type": "yes-no-not-given",
+              "prompt": "If we develop bad habits early in life, they are harder to get rid of.",
+              "answer": "YES",
+              "explanation": "EN: 'The more that response is used, the more automatic it becomes and the harder it becomes to respond in any other way'. VI: 'Phản hồi đó càng được dùng nhiều, nó càng trở nên tự động và càng khó để phản ứng theo bất kỳ cách nào khác'.",
+              "options": [
+                {
+                  "id": "yes",
+                  "label": "YES"
+                },
+                {
+                  "id": "no",
+                  "label": "NO"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "range": "Questions 8–8",
+          "instruction": "Questions 8\nChoose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 8,
+              "type": "multiple-choice",
+              "prompt": "Read the title and subheading first. What do you think the writer is going to say about bad habits?",
+              "answer": "B",
+              "explanation": "Bước 1: Phân tích tiêu đề và tiêu đề phụ (Title & Subheading)\nTiêu đề phụ của bài viết tuyên bố rất rõ ràng: \"We all think we can break our bad habits – but they can stay with us for life\" (Tất cả chúng ta đều nghĩ mình có thể bỏ được thói quen xấu – nhưng chúng có thể theo chúng ta suốt đời).\n\nBước 2: Đối chiếu với các lựa chọn\n\nVế \"but they can stay with us for life\" nhấn mạnh tính chất dai dẳng, bám rễ sâu của thói quen xấu. Bản chất của việc \"theo ta suốt đời\" chính là minh chứng cho thấy việc từ bỏ chúng cực kỳ gian nan. Điều này trùng khớp hoàn toàn với ý nghĩa của câu b: It can be extremely hard to break a bad habit (Việc phá vỡ một thói quen xấu có thể cực kỳ khó khăn).\n\nCác phương án còn lại (a, c, d) có thể là những khía cạnh được tác giả mổ xẻ ở phần nội dung bên dưới, nhưng không phải là thông điệp bao quát được cài cắm trực diện ngay trên dòng tiêu đề phụ này.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Most people have bad habits that they’d like to+ break."
+                },
+                {
+                  "id": "B",
+                  "label": "It can be extremely hard to break a bad habit."
+                },
+                {
+                  "id": "C",
+                  "label": "People pick up most of their bad habits while they are growing up."
+                },
+                {
+                  "id": "D",
+                  "label": "People are not always aware that they have bad habits."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "rangeLabel": "",
+      "passageTitle": "Reducing errors in memory — The role of sleep",
+      "passage": [
+        {
+          "text": "Reducing errors in memory — The role of sleep\nSource: Michigan State University News / journal Learning & Memory.\nSleep may reduce mistakes in memory, according to a first-of-its-kind study led by a scientist at Michigan State University. The findings have practical implications for many people, from students doing multiple-choice tests to elderly people confusing their medicine, says Kimberly Fenn, principal investigator and assistant professor of psychology.\n'It's easy to muddle things in your mind,' Fenn says. 'This research suggests that after sleep, you're better able to pick out the incorrect parts of that memory.'\nStudy participants were 'trained' by being shown or listening to lists of words. Then, twelve hours later, they were shown individual words and asked to identify which words they had seen or heard in the earlier session. One group of students was trained at 10 a.m. and tested at 10 p.m. after a normal sleepless day. Another group was trained at night and tested twelve hours later in the morning, after about six hours of sleep. Three experiments were conducted. In each experiment, the results showed that students who had slept did not have as many problems with false memory and chose fewer incorrect words.\nFurther research is needed, she said, adding that she plans to study different population groups, particularly the elderly. 'We know older individuals generally have worse memory performance than younger individuals. We also know from other research that elderly individuals tend to be more prone to false memories,' Fenn said."
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 1–5",
+          "instruction": "Complete the summary using the list of phrases, A–J, below.",
+          "type": "summary-completion",
+          "questions": [
+            {
+              "number": 1,
+              "type": "gap-fill",
+              "prompt": "The groups in the study saw or heard lists of words at 1 ________ times of the day.",
+              "answer": "different",
+              "explanation": "EN: One group was trained at 10 a.m. (morning) and another at night (different times of the day, Option G). VI: Một nhóm được đào tạo lúc 10 giờ sáng và nhóm khác vào ban đêm (các thời điểm khác nhau trong ngày, Đáp án G)."
+            },
+            {
+              "number": 2,
+              "type": "gap-fill",
+              "prompt": "After 2 ________ hours, the groups tried to identify these words correctly in a test.",
+              "answer": "12",
+              "explanation": "EN: The text states: 'Then, twelve hours later, they were shown individual words...' (Option C, 12). VI: Văn bản cho biết: 'Sau đó, 12 giờ sau, họ được xem các từ riêng lẻ...' (Đáp án C, 12)."
+            },
+            {
+              "number": 3,
+              "type": "gap-fill",
+              "prompt": "Before the test, one group had 3 ________ sleep and chose words in the evening.",
+              "answer": "no",
+              "explanation": "EN: One group was tested 'after a normal sleepless day' (no sleep, Option H). VI: Một nhóm đã được kiểm tra 'sau một ngày không ngủ bình thường' (không ngủ, Đáp án H)."
+            },
+            {
+              "number": 4,
+              "type": "gap-fill",
+              "prompt": "In three experiments, the results were 4 ________:",
+              "answer": "the same",
+              "explanation": "EN: 'Three experiments were conducted. In each experiment, the results showed...' (results were the same, Option J). VI: 'Ba thí nghiệm được tiến hành. Trong mỗi thí nghiệm, kết quả đều chỉ ra...' (kết quả là như nhau, Đáp án J)."
+            },
+            {
+              "number": 5,
+              "type": "gap-fill",
+              "prompt": "the groups that had slept during the experiment remembered 5 ________ words correctly than the other groups.",
+              "answer": "more",
+              "explanation": "EN: Students who slept 'chose fewer incorrect words', meaning they remembered more words correctly (Option A). VI: Học sinh đi ngủ 'chọn ít từ sai hơn', nghĩa là họ nhớ nhiều từ đúng hơn (Đáp án A)."
+            }
+          ],
+          "notesTitle": "Fenn’s Memory Experiments",
+          "note": "The groups in the study saw or heard lists of words at [1] times of the day. After [2] hours, the groups tried to identify these words correctly in a test. Before the test, one group had [3] sleep and chose the words in the evening. The other group had their test in the morning.\nIn three experiments, the results were [4] the groups that had slept during the experiment remembered [5] words correctly than the other groups.\n"
+        }
+      ]
+    },
+    {
+      "partNumber": 4,
+      "rangeLabel": "",
+      "passageTitle": "Fighting fear using virtual reality (VRET)",
+      "passage": [
+        {
+          "text": "Fighting fear using virtual reality (VRET)\nMost people have at least one thing they are afraid of. A fear of things like snakes, spiders, dogs, heights or open spaces affects over 90% of the population. In extreme cases, a fear can develop into a phobia, where the fear of something is so powerful it can affect the way the sufferer lives their life. About 10% of people suffer from a phobia. Most sufferers never seek treatment, because the most common type of cure — exposure therapy — involves them being exposed to the object of their fear.\nThere is now a new cure for phobias, using something called virtual reality exposure therapy (VRET). The concept is simple. The person with the phobia wears a virtual reality headset. A computer, controlled by a therapist, then simulates a variety of situations in which the sufferer is gradually exposed to the object of their fear. At the same time, the therapist explains why they should not be afraid of it.\nSara Considine had a serious spider phobia, and had developed several spider-related behaviour patterns. Before going to bed, for example, she would check her room for spiders, then seal the windows with tape so none could get in. She had frightening dreams about spiders every night. Eventually, she decided to get treatment.\nDuring twelve one-hour virtual reality sessions over a three-month period, Ms Considine started very slowly. First, she stood a long way from the virtual spider and just looked at it. Slowly, she moved a little closer. After just two sessions, Ms Considine reported that although she still saw spiders in her dreams, they were no longer frightening. A few sessions later, the therapist encouraged her to hold the virtual spider in her virtual hand. The next stage was to introduce touch — a large toy spider was placed next to her.\nAfter her sessions were over, Sara Considine was able to stop her spider-related behaviour. She even took up camping, something she would never have considered before therapy. More recently she has appeared on a television nature programme, where for the first time she was able to hold a real spider in her hands."
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 1–5",
+          "instruction": "Complete the summary using the list of phrases, A–J, below.",
+          "type": "summary-completion",
+          "questions": [
+            {
+              "number": 1,
+              "type": "gap-fill",
+              "prompt": "Sara Considine's programme of treatments lasted for 7 ________ months.",
+              "answer": "three",
+              "explanation": "EN: 'During twelve one-hour virtual reality sessions over a three-month period' (Option I, three). VI: 'Trong mười hai buổi thực tế ảo kéo dài một giờ trong thời gian ba tháng' (Đáp án I, ba)."
+            },
+            {
+              "number": 2,
+              "type": "gap-fill",
+              "prompt": "At first, the sessions did not move very 8 ________,",
+              "answer": "quickly",
+              "explanation": "EN: 'Ms Considine started very slowly', meaning the sessions did not move very quickly (Option F). VI: 'Cô Considine bắt đầu rất chậm rãi', tức là các buổi trị liệu không tiến triển nhanh chóng (Đáp án F)."
+            },
+            {
+              "number": 3,
+              "type": "gap-fill",
+              "prompt": "as she just 9 ________ the virtual spider through her headset.",
+              "answer": "observed",
+              "explanation": "EN: She 'just looked at it' (Option E, observed). VI: Cô ấy 'chỉ nhìn vào nó' (Đáp án E, quan sát)."
+            },
+            {
+              "number": 4,
+              "type": "gap-fill",
+              "prompt": "It only took two sessions for her to stop being 10 ________ the spiders in her dreams.",
+              "answer": "afraid of",
+              "explanation": "EN: After two sessions, 'they were no longer frightening' in her dreams, meaning she stopped being afraid of them (Option A). VI: Sau hai buổi, 'chúng không còn đáng sợ nữa' trong giấc mơ của cô, nghĩa là cô không còn sợ chúng nữa (Đáp án A)."
+            },
+            {
+              "number": 5,
+              "type": "gap-fill",
+              "prompt": "the next stage involved making physical 11 ________ with a toy spider.",
+              "answer": "contact",
+              "explanation": "EN: 'The next stage was to introduce touch — a large toy spider was placed next to her' (physical contact, Option C). VI: 'Giai đoạn tiếp theo là giới thiệu sự chạm — một con nhện đồ chơi lớn được đặt bên cạnh cô' (tiếp xúc vật lý, Đáp án C)."
+            }
+          ],
+          "notesTitle": "Treating a phobia using VRET",
+          "note": "Sara Considine’s programme of treatments lasted for [1] months. At first, the sessions did not move very [2], as she just [3] the virtual spider through her headset. It only took two sessions for her to stop being [4] the spiders in her dreams. After a while, she could hold the virtual spider in her virtual hand, and the next stage involved making physical [5] with a toy spider.\n"
+        },
+        {
+          "range": "Questions 6–12",
+          "instruction": "Match each statement with the correct option, A–K.\nWrite the correct letter in boxes 6–12 on your answer sheet.",
+          "type": "matching-features",
+          "questions": [
+            {
+              "number": 6,
+              "type": "matching-features",
+              "prompt": "to do or make something which behaves or looks like something real, but which is not real",
+              "answer": "G",
+              "explanation": "Bước 1: Keyword: behaves, looks like something real, not real.\nBước 2: Tìm đoạn: Đoạn 2: \"A computer, controlled by a therapist, then simulates a variety of situations...\".\nBước 3: Phân tích: Định nghĩa mô tả hành động làm cho một thứ gì đó hoạt động hoặc trông giống như thật nhưng thực tế không phải, khớp hoàn toàn với từ \"simulates\" (mô phỏng) được in đậm trong đoạn 2.\nĐáp án: simulates"
+            },
+            {
+              "number": 7,
+              "type": "matching-features",
+              "prompt": "the work of treating mental or physical illness without surgery",
+              "answer": "B",
+              "explanation": "Bước 1: Keyword: work of treating, mental or physical illness, without surgery.\nBước 2: Tìm đoạn: Đoạn 1: \"Most sufferers never seek treatment, because the most common type of cure...\".\nBước 3: Phân tích: Định nghĩa nói về công việc chữa trị một căn bệnh về thể chất hoặc tinh thần mà không cần phẫu thuật, tương ứng với từ \"treatment\" (sự điều trị) được in đậm trong đoạn 1.\nĐáp án: treatment"
+            },
+            {
+              "number": 8,
+              "type": "matching-features",
+              "prompt": "using computer images and sounds that make you think an imagined situation or object is real",
+              "answer": "J",
+              "explanation": "Bước 1: Keyword: computer images and sounds, imagined situation or object is real.\nBước 2: Tìm đoạn: Đoạn 4: \"First, she stood a long way from the virtual spider and just looked at it.\".\nBước 3: Phân tích: Định nghĩa giải thích tính chất sử dụng hình ảnh và âm thanh máy tính để tạo cảm giác một tình huống hoặc vật thể tưởng tượng là có thật, trùng khớp với từ \"virtual\" (ảo) được in đậm trong đoạn 4.\nĐáp án: virtual"
+            },
+            {
+              "number": 9,
+              "type": "matching-features",
+              "prompt": "o make someone experience something or be affected by it",
+              "answer": "C",
+              "explanation": "Bước 1: Keyword: make someone experience, be affected by it.\nBước 2: Tìm đoạn: Đoạn 1: \"...involves them being exposed to the object of their fear...\".\nBước 3: Phân tích: Định nghĩa diễn đạt việc khiến ai đó phải trải qua hoặc bị tác động bởi một điều gì đó, tương ứng với từ \"exposed\" (tiếp xúc/đối mặt với) được in đậm trong đoạn 1.\nĐáp án: exposed"
+            },
+            {
+              "number": 10,
+              "type": "matching-features",
+              "prompt": "an extreme fear of something",
+              "answer": "A",
+              "explanation": "Bước 1: Keyword: extreme fear of something.\nBước 2: Tìm đoạn: Đoạn 1: \"In extreme cases, a fear can develop into a phobia, where the fear of something is so powerful...\".\nBước 3: Phân tích: Định nghĩa chỉ một nỗi sợ hãi tột độ về một điều gì đó, trùng khớp với từ \"phobia\" (chứng ám ảnh sợ hãi) được giải nghĩa trực tiếp trong đoạn 1.\nĐáp án: phobia"
+            },
+            {
+              "number": 11,
+              "type": "matching-features",
+              "prompt": "someone whose job is to treat a particular type of mental or physical illness",
+              "answer": "F",
+              "explanation": "Bước 1: Keyword: someone whose job, treat, mental or physical illness.\nBước 2: Tìm đoạn: Đoạn 2: \"A computer, controlled by a therapist, then simulates a variety of situations...\".\nBước 3: Phân tích: Định nghĩa chỉ một người có công việc chữa trị một loại bệnh cụ thể về tinh thần hoặc thể chất, chính là từ \"therapist\" (nhà trị liệu) được in đậm trong đoạn 2.\nĐáp án: therapist"
+            }
+          ],
+          "features": [
+            {
+              "id": "A",
+              "name": "phobia"
+            },
+            {
+              "id": "B",
+              "name": "treatment"
+            },
+            {
+              "id": "C",
+              "name": "exposed"
+            },
+            {
+              "id": "D",
+              "name": "virtual reality exposure therapy (VRET)"
+            },
+            {
+              "id": "E",
+              "name": "computer"
+            },
+            {
+              "id": "F",
+              "name": "therapist"
+            },
+            {
+              "id": "G",
+              "name": "simulates"
+            },
+            {
+              "id": "H",
+              "name": "demonstrates"
+            },
+            {
+              "id": "I",
+              "name": "tape"
+            },
+            {
+              "id": "J",
+              "name": "virtual"
+            },
+            {
+              "id": "K",
+              "name": "placed"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

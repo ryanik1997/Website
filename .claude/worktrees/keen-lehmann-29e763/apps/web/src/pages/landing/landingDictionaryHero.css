@@ -1,0 +1,724 @@
+/* Thick magical tome (Harry Potter-style) — pure CSS 3D */
+
+.ld-hero-stage {
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+  max-width: 38rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1800px;
+  perspective-origin: 50% 42%;
+  --ld-progress: 0.2;
+  --ld-open: 0.2;
+  --ld-flip: 0;
+  --ld-settle: 0;
+  --ld-px: 0px;
+  --ld-py: 0px;
+  --tome-depth: 2.85rem; /* độ dày khối trang */
+}
+
+.ld-hero-stage__caption {
+  position: absolute;
+  bottom: 0.15rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 8;
+  margin: 0;
+  padding: 0.4rem 0.95rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: color-mix(in srgb, var(--bg-card) 90%, transparent);
+  border: 1px solid var(--border-color);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.ld-hero-stage__atmosphere {
+  position: absolute;
+  inset: -12% -16%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(50% 48% at 50% 50%, color-mix(in srgb, #d4af37 22%, transparent), transparent 68%),
+    radial-gradient(38% 32% at 68% 28%, color-mix(in srgb, #7c3aed 12%, transparent), transparent 62%),
+    radial-gradient(30% 28% at 28% 70%, color-mix(in srgb, #c2410c 10%, transparent), transparent 60%);
+  opacity: calc(0.45 + var(--ld-open) * 0.4);
+}
+
+.ld-dust {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.ld-dust span {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #f5e6a8;
+  opacity: 0;
+  animation: ld-dust-float 6.5s ease-in-out infinite;
+  box-shadow: 0 0 6px #e8c96a;
+}
+
+.ld-dust span:nth-child(1) { left: 16%; top: 28%; animation-delay: 0s; }
+.ld-dust span:nth-child(2) { left: 64%; top: 20%; animation-delay: 1.1s; width: 2px; height: 2px; }
+.ld-dust span:nth-child(3) { left: 42%; top: 56%; animation-delay: 2.2s; }
+.ld-dust span:nth-child(4) { left: 80%; top: 46%; animation-delay: 0.7s; }
+.ld-dust span:nth-child(5) { left: 26%; top: 72%; animation-delay: 3s; }
+.ld-dust span:nth-child(6) { left: 55%; top: 35%; animation-delay: 1.8s; width: 2px; height: 2px; }
+.ld-dust span:nth-child(7) { left: 72%; top: 62%; animation-delay: 2.6s; }
+
+@keyframes ld-dust-float {
+  0%, 100% { opacity: 0; transform: translate3d(0, 10px, 0) scale(0.8); }
+  25% { opacity: 0.7; }
+  70% { opacity: 0.4; }
+  100% { opacity: 0; transform: translate3d(8px, -36px, 0) scale(1.1); }
+}
+
+/* ── Orbit cards ── */
+.ld-orbit-wrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  transform: translate3d(calc(var(--ld-px) * 0.3), calc(var(--ld-py) * 0.3), 0);
+  transition: transform 0.18s ease-out;
+}
+
+.ld-orbit-tilt {
+  position: relative;
+  width: min(100%, 32rem);
+  aspect-ratio: 1;
+  transform: rotateX(14deg);
+  transform-style: preserve-3d;
+}
+
+.ld-orbit-spin {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  animation: ld-orbit-spin 26s linear infinite;
+  will-change: transform;
+}
+
+.ld-hero-stage.is-settled .ld-orbit-spin {
+  animation-play-state: paused;
+}
+
+.ld-orbit-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10.4rem;
+  height: 6rem;
+  margin: -3rem 0 0 -5.2rem;
+  transform:
+    rotateY(calc(var(--i) * 72deg))
+    translateZ(calc(12.4rem + var(--i) * 0.12rem))
+    rotateY(calc(var(--i) * -72deg))
+    translateY(calc(var(--i) * 0.1rem - 0.25rem));
+  transform-style: preserve-3d;
+}
+
+.ld-orbit-card-inner {
+  width: 100%;
+  height: 100%;
+  padding: 0.6rem 0.7rem;
+  border-radius: 0.9rem;
+  background:
+    linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--accent, #6366f1) 18%, var(--bg-card)) 0%,
+      var(--bg-card) 52%,
+      color-mix(in srgb, var(--accent, #6366f1) 8%, var(--bg-card)) 100%
+    );
+  border: 1px solid color-mix(in srgb, var(--accent, #6366f1) 38%, var(--border-color));
+  box-shadow:
+    0 12px 30px color-mix(in srgb, var(--accent, #6366f1) 24%, transparent),
+    0 1px 0 color-mix(in srgb, #fff 22%, transparent) inset;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: 0.9;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease, box-shadow 0.35s ease;
+}
+
+.ld-hero-stage.is-settled .ld-orbit-card-inner {
+  opacity: 1;
+  transform: scale(1.05);
+  box-shadow:
+    0 16px 36px color-mix(in srgb, var(--accent, #6366f1) 30%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--accent, #6366f1) 28%, transparent) inset;
+}
+
+.ld-orbit-card__title {
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.ld-orbit-card__desc {
+  margin: 0.28rem 0 0;
+  font-size: 0.62rem;
+  line-height: 1.35;
+  color: var(--text-muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@keyframes ld-orbit-spin {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(-360deg); }
+}
+
+/* ═══════════════════════════════════════════
+   THICK MAGICAL TOME (3D)
+   ═══════════════════════════════════════════ */
+
+.ld-tome-scene {
+  position: relative;
+  z-index: 4;
+  width: min(78%, 17.5rem);
+  height: calc(min(78%, 17.5rem) * 1.22);
+  transform-style: preserve-3d;
+  transform:
+    translate3d(calc(var(--ld-px) * 0.75), calc(var(--ld-py) * 0.55), 0)
+    rotateX(calc(18deg - var(--ld-open) * 6deg))
+    rotateY(calc(-22deg + var(--ld-open) * 10deg))
+    rotateZ(-2deg);
+  transition: transform 0.14s ease-out;
+  filter: drop-shadow(0 32px 50px rgba(20, 10, 4, 0.55));
+}
+
+/* Outer wrapper for open animation */
+.ld-tome {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+
+/* ── Thick paper block (visible edge of hundreds of pages) ── */
+.ld-tome__block {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  top: 3%;
+  bottom: 3%;
+  transform-style: preserve-3d;
+  transform: translateZ(calc(var(--tome-depth) * -0.5));
+  z-index: 1;
+}
+
+/* Front face of page block */
+.ld-tome__block-face {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, #c4b49a 0%, #f0e6d2 6%, #faf6ec 50%, #efe6d4 94%, #c4b49a 100%);
+  border-radius: 2px 6px 6px 2px;
+  box-shadow: inset 0 0 20px rgba(120, 90, 50, 0.12);
+  transform: translateZ(calc(var(--tome-depth) * 0.5));
+  overflow: hidden;
+}
+
+/* Page lines on front */
+.ld-tome__block-face::after {
+  content: '';
+  position: absolute;
+  inset: 12% 14%;
+  background: repeating-linear-gradient(
+    transparent 0 11px,
+    color-mix(in srgb, #8b7355 18%, transparent) 11px 12px
+  );
+  opacity: calc(0.25 + var(--ld-open) * 0.45);
+  border-radius: 2px;
+}
+
+/* Top edge of thick pages */
+.ld-tome__block-top {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: var(--tome-depth);
+  transform-origin: top center;
+  transform: rotateX(90deg) translateZ(0);
+  background: repeating-linear-gradient(
+    90deg,
+    #e8dcc8 0px,
+    #f5efe3 1px,
+    #d9cbb0 2px,
+    #f0e6d2 3px
+  );
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* Bottom edge */
+.ld-tome__block-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--tome-depth);
+  transform-origin: bottom center;
+  transform: rotateX(-90deg) translateZ(0);
+  background: repeating-linear-gradient(
+    90deg,
+    #d4c4a8 0px,
+    #e8dcc8 1px,
+    #c4b49a 2px,
+    #e0d4bc 3px
+  );
+}
+
+/* Right edge (fore-edge) — thick page stack */
+.ld-tome__block-edge {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: var(--tome-depth);
+  transform-origin: right center;
+  transform: rotateY(90deg) translateZ(0);
+  background: repeating-linear-gradient(
+    180deg,
+    #f5efe3 0px,
+    #e8dcc8 1px,
+    #d9cbb0 2px,
+    #f0e6d2 3px,
+    #cfc0a8 4px
+  );
+  box-shadow:
+    inset 2px 0 6px rgba(0, 0, 0, 0.12),
+    2px 0 8px rgba(0, 0, 0, 0.15);
+  border-radius: 0 2px 2px 0;
+}
+
+/* Left edge against spine */
+.ld-tome__block-gutter {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: var(--tome-depth);
+  transform-origin: left center;
+  transform: rotateY(-90deg) translateZ(0);
+  background: linear-gradient(90deg, #3a2412 0%, #6b4a28 40%, #c4b49a 100%);
+}
+
+/* ── Spine (thick) ── */
+.ld-tome__spine {
+  position: absolute;
+  left: 0;
+  top: 2%;
+  bottom: 2%;
+  width: 12%;
+  z-index: 5;
+  transform-style: preserve-3d;
+  transform: translateZ(calc(var(--tome-depth) * 0.15));
+}
+
+.ld-tome__spine-face {
+  position: absolute;
+  inset: 0;
+  border-radius: 6px 2px 2px 6px;
+  background:
+    linear-gradient(90deg, #1a0e06 0%, #4a2814 25%, #7a4a22 50%, #4a2814 75%, #1a0e06 100%);
+  box-shadow:
+    inset 3px 0 8px rgba(255, 200, 100, 0.1),
+    inset -2px 0 10px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ld-tome__spine-title {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 0.55rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #e8c96a;
+  text-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+  opacity: 0.95;
+}
+
+.ld-tome__spine-bands {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  height: 5px;
+  background: linear-gradient(180deg, #c9a227, #8b6914, #c9a227);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  border-radius: 1px;
+}
+
+.ld-tome__spine-bands--1 { top: 14%; }
+.ld-tome__spine-bands--2 { top: 48%; }
+.ld-tome__spine-bands--3 { bottom: 14%; }
+
+/* ── Front cover (opens left) ── */
+.ld-tome__cover {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 88%;
+  left: 10%;
+  transform-style: preserve-3d;
+  transform-origin: left center;
+  z-index: 6;
+  /* closed ≈ 0; open swings to ~-155deg */
+  transform: rotateY(calc(-2deg - var(--ld-open) * 155deg));
+  transition: transform 0.08s linear;
+}
+
+.ld-tome__cover-front {
+  position: absolute;
+  inset: 0;
+  border-radius: 3px 12px 12px 3px;
+  background:
+    radial-gradient(80% 60% at 30% 20%, rgba(232, 201, 120, 0.22), transparent 55%),
+    radial-gradient(50% 40% at 70% 80%, rgba(0, 0, 0, 0.25), transparent 60%),
+    repeating-linear-gradient(
+      118deg,
+      transparent 0 4px,
+      rgba(0, 0, 0, 0.035) 4px 5px
+    ),
+    linear-gradient(148deg, #3d1f0a 0%, #6b3418 28%, #8b4518 52%, #5c2e10 78%, #2a1408 100%);
+  border: 1.5px solid rgba(20, 10, 4, 0.65);
+  box-shadow:
+    inset 0 1px 0 rgba(245, 230, 180, 0.28),
+    inset 0 -12px 24px rgba(0, 0, 0, 0.28),
+    4px 0 16px rgba(0, 0, 0, 0.25);
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+
+/* Cover thickness when open (edge of front board) */
+.ld-tome__cover-edge {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0.55rem;
+  transform-origin: left center;
+  transform: rotateY(-90deg) translateZ(0);
+  background: linear-gradient(180deg, #2a1408, #5c2e10, #2a1408);
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+.ld-tome__cover-backface {
+  position: absolute;
+  inset: 0;
+  border-radius: 3px 12px 12px 3px;
+  background:
+    linear-gradient(90deg, #c4b49a 0%, #ebe2d0 15%, #f5efe3 100%);
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  box-shadow: inset 4px 0 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Gold frame on cover */
+.ld-tome__cover-frame {
+  position: absolute;
+  inset: 7%;
+  border: 1.5px solid rgba(212, 175, 55, 0.55);
+  border-radius: 4px;
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.25),
+    0 0 20px rgba(212, 175, 55, 0.12);
+  pointer-events: none;
+}
+
+.ld-tome__cover-frame::before {
+  content: '';
+  position: absolute;
+  inset: 5%;
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  border-radius: 2px;
+}
+
+.ld-tome__cover-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #f8ecd4;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  padding: 12%;
+}
+
+.ld-tome__crest {
+  width: 3.4rem;
+  height: 3.4rem;
+  margin-bottom: 0.65rem;
+  border-radius: 50%;
+  border: 2px solid rgba(212, 175, 55, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  color: #f0d78c;
+  background:
+    radial-gradient(circle at 40% 35%, rgba(255, 230, 150, 0.2), transparent 60%),
+    radial-gradient(circle at 50% 50%, rgba(60, 30, 10, 0.5), rgba(20, 10, 4, 0.8));
+  box-shadow:
+    0 0 18px rgba(212, 175, 55, 0.35),
+    inset 0 1px 0 rgba(255, 240, 200, 0.25);
+}
+
+.ld-tome__cover-label strong {
+  font-size: 0.95rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: #f0d78c;
+  line-height: 1.2;
+}
+
+.ld-tome__cover-label em {
+  margin-top: 0.35rem;
+  font-size: 0.58rem;
+  font-style: normal;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  color: #e8c96a;
+}
+
+.ld-tome__cover-label span {
+  margin-top: 0.55rem;
+  font-size: 0.62rem;
+  line-height: 1.4;
+  opacity: 0.88;
+  max-width: 9em;
+}
+
+/* Gold corner clasps */
+.ld-tome__clasp {
+  position: absolute;
+  width: 1.1rem;
+  height: 1.1rem;
+  z-index: 2;
+  background:
+    linear-gradient(135deg, #f0d78c 0%, #c9a227 40%, #8b6914 70%, #e8c96a 100%);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 200, 0.4);
+}
+
+.ld-tome__clasp--tl { top: 0.45rem; left: 0.45rem; border-radius: 2px 0 8px 0; clip-path: polygon(0 0, 100% 0, 0 100%); }
+.ld-tome__clasp--tr { top: 0.45rem; right: 0.45rem; border-radius: 0 2px 0 8px; clip-path: polygon(0 0, 100% 0, 100% 100%); }
+.ld-tome__clasp--bl { bottom: 0.45rem; left: 0.45rem; border-radius: 0 8px 0 2px; clip-path: polygon(0 0, 0 100%, 100% 100%); }
+.ld-tome__clasp--br { bottom: 0.45rem; right: 0.45rem; border-radius: 8px 0 2px 0; clip-path: polygon(100% 0, 0 100%, 100% 100%); }
+
+/* Metal latch on fore-edge */
+.ld-tome__latch {
+  position: absolute;
+  right: -0.15rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.7rem;
+  height: 2.4rem;
+  border-radius: 2px 4px 4px 2px;
+  background: linear-gradient(90deg, #8b6914, #e8c96a 45%, #c9a227 70%, #6b4f12);
+  box-shadow:
+    2px 0 6px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 240, 180, 0.45);
+  z-index: 3;
+  opacity: calc(1 - var(--ld-open) * 0.85);
+  transition: opacity 0.2s ease;
+}
+
+/* ── Back cover (static thick board) ── */
+.ld-tome__back {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 10%;
+  width: 88%;
+  border-radius: 3px 10px 10px 3px;
+  background:
+    linear-gradient(148deg, #2a1408 0%, #4a2814 40%, #3d1f0a 100%);
+  border: 1px solid rgba(15, 8, 4, 0.7);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.35);
+  transform: translateZ(calc(var(--tome-depth) * -0.55));
+  z-index: 0;
+}
+
+/* ── Flip pages (thin sheets on top of block) ── */
+.ld-tome__flip-layer {
+  position: absolute;
+  left: 14%;
+  top: 5%;
+  bottom: 5%;
+  width: 80%;
+  transform-style: preserve-3d;
+  transform: translateZ(calc(var(--tome-depth) * 0.52));
+  z-index: 4;
+  pointer-events: none;
+  opacity: calc(0.15 + var(--ld-open) * 0.95);
+  transition: opacity 0.15s ease;
+}
+
+.ld-tome__flip-page {
+  position: absolute;
+  inset: 0;
+  border-radius: 0 6px 6px 0;
+  background:
+    linear-gradient(90deg, #d4c4a8 0%, #f3ead6 7%, #faf6ec 100%);
+  border: 1px solid rgba(180, 160, 130, 0.5);
+  box-shadow: -2px 0 10px rgba(40, 25, 10, 0.12);
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  padding: 8% 8% 8% 10%;
+  overflow: hidden;
+  color: #3a3228;
+  font-size: 0.46rem;
+  line-height: 1.5;
+  backface-visibility: hidden;
+}
+
+.ld-tome__flip-page h4 {
+  margin: 0 0 0.4rem;
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #5c4030;
+  border-bottom: 1px solid rgba(160, 130, 90, 0.35);
+  padding-bottom: 0.25rem;
+}
+
+.ld-tome__flip-page p {
+  margin: 0 0 0.2rem;
+  opacity: 0.88;
+}
+
+.ld-tome__flip-page .ld-ipa {
+  font-style: italic;
+  opacity: 0.65;
+  font-size: 0.4rem;
+}
+
+.ld-tome__flip-page--1 {
+  transform: rotateY(calc(var(--ld-flip) * -170deg));
+  z-index: 5;
+}
+
+.ld-tome__flip-page--2 {
+  transform: rotateY(calc(var(--ld-flip) * -105deg));
+  z-index: 4;
+}
+
+.ld-tome__flip-page--0 {
+  z-index: 3;
+}
+
+/* Magical glow under tome */
+.ld-tome__aura {
+  position: absolute;
+  inset: -25% -35%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 55%, rgba(212, 175, 55, 0.4) 0%, rgba(124, 58, 237, 0.12) 42%, transparent 70%);
+  opacity: calc(0.35 + var(--ld-open) * 0.55);
+  filter: blur(2px);
+  animation: ld-aura-pulse 4.5s ease-in-out infinite;
+}
+
+@keyframes ld-aura-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.85; }
+  50% { transform: scale(1.06); opacity: 1; }
+}
+
+/* Floating runes */
+.ld-rune {
+  position: absolute;
+  z-index: 2;
+  font-size: 0.75rem;
+  color: rgba(232, 201, 106, 0.55);
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+  pointer-events: none;
+  animation: ld-rune-float 5s ease-in-out infinite;
+}
+
+.ld-rune:nth-child(1) { left: 8%; top: 18%; animation-delay: 0s; }
+.ld-rune:nth-child(2) { right: 10%; top: 24%; animation-delay: 1.2s; }
+.ld-rune:nth-child(3) { left: 12%; bottom: 22%; animation-delay: 2s; }
+
+@keyframes ld-rune-float {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.35; }
+  50% { transform: translateY(-10px) scale(1.08); opacity: 0.75; }
+}
+
+@media (max-width: 767px) {
+  .ld-hero-stage {
+    min-height: 340px;
+    max-width: 22rem;
+    --tome-depth: 2.1rem;
+  }
+
+  .ld-orbit-tilt {
+    display: none;
+  }
+
+  .ld-tome-scene {
+    width: 68%;
+    height: calc(68% * 1.35);
+    max-width: 14rem;
+  }
+
+  .ld-hero-stage__caption {
+    font-size: 0.6rem;
+  }
+
+  .ld-dust {
+    opacity: 0.5;
+  }
+
+  .ld-rune {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ld-orbit-spin {
+    animation: none;
+    transform: rotateY(-40deg);
+  }
+
+  .ld-dust span,
+  .ld-tome__aura,
+  .ld-rune {
+    animation: none;
+  }
+
+  .ld-tome-scene {
+    transition: none;
+  }
+}

@@ -1,16 +1,19 @@
 import { Outlet, useLocation, Link } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
 
+const WRITING_LIBRARY_LABEL = 'Th\u01b0 Vi\u1ec7n Writing'
+
 export default function WritingLayout() {
   const { pathname } = useLocation()
   const isHub = pathname === '/app/writing' || pathname === '/app/writing/'
+  const isCambridgeFlow = pathname.startsWith('/app/writing/cambridge')
 
   return (
     <div
-      className="flex flex-col h-full min-h-0 overflow-hidden"
+      className="writing-layout flex flex-col h-full min-h-0 overflow-hidden"
       style={{ background: 'var(--bg-primary)' }}
     >
-      {!isHub && (
+      {!isHub && !isCambridgeFlow && (
         <div
           className="shrink-0 flex items-center gap-2 px-4 py-2.5 border-b"
           style={{ background: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
@@ -21,12 +24,12 @@ export default function WritingLayout() {
             style={{ color: 'var(--color-primary)' }}
           >
             <ArrowLeft size={15} />
-            Thư Viện Writing
+            {WRITING_LIBRARY_LABEL}
           </Link>
         </div>
       )}
       <div
-        className="flex-1 min-h-0 overflow-y-auto flex flex-col"
+        className={`writing-layout__content flex-1 min-h-0 flex flex-col ${isCambridgeFlow ? 'overflow-hidden' : 'overflow-y-auto'}`}
         style={{ background: 'var(--bg-primary)' }}
       >
         <Outlet />

@@ -1,0 +1,645 @@
+Bạn là trợ lý tạo ZIP bundle import đề **Reading & Writing** KET A2 (Cambridge) vào web app "Ryan English".
+
+
+**Checklist trước ZIP:** HDSD/Prompt-Reading-Cambridge-CHECKLIST.txt
+## Cách dùng — 1 prompt cho Test 1, 2, 3, 4…
+
+Mỗi lần chỉ đính kèm file của **1 test** (PDF **hoặc** TXT — xem § Nguồn đề; không gộp nhiều test):
+1. Test_{N}_Reading_KET_A2.pdf **hoặc** `exam-text.txt` — đề Reading & Writing (Parts 1–7)
+2. **answer-key.pdf** hoặc **answer-key.txt** — đáp án Reading (Writing parts không có key; app ZIP nhận cả hai định dạng)
+3. part1-q1.jpg … part1-q6.jpg — 6 ảnh signs Part 1
+4. part6-page.jpg — screenshot trang đề Part 6 (Writing email) — **tuỳ chọn ảnh thay text**
+5. part7-page.jpg — 1 ảnh truyện Part 7 (Writing; 3 khung trong 1 file)
+
+→ Đọc **Book** từ thư mục: `KET A2_Cam 1` → Book 1, `KET A2_Cam 2` → Book 2
+→ Đọc **Test** từ tên PDF / thư mục: `Test_3_Reading` hoặc `Test 3` → Test 3
+→ Xuất ZIP: ket-reading-test{N}.zip (tên file ZIP tuỳ ý; quan trọng là `title` trong exam.json)
+
+Không cần đổi prompt — chỉ đổi file đính kèm + ghi đúng Book.
+
+---
+
+
+## ⚠ Nguồn đề: PDF hoặc TXT (DeepSeek)
+
+Có thể **không gửi PDF** — đính kèm **TXT UTF-8**:
+
+| File gửi AI | Bắt buộc? |
+|-------------|-----------|
+| Prompt Universal (file này) | Có |
+| `exam-text.txt` — passage + câu hỏi đủ Parts | Có (nếu không có PDF) |
+| `answer-key.txt` | Khuyến nghị |
+| Ảnh signs / Writing page | Crop khi pack ZIP — không bắt buộc gửi AI |
+
+**Context:** `Book {B} · Test {T} · cambridgeLevel … · nguồn: TXT`
+
+Chi tiết: **HDSD/Prompt-Reading-Cambridge.txt** § «Nguồn đề: PDF hoặc TXT».
+
+## Deliverable
+
+ZIP ket-reading-test{N}.zip — file CÙNG CẤP, không thư mục con:
+```
+exam.json
+answer-key.pdf          ← hoặc answer-key.txt
+answer-key.txt          ← khuyến nghị (UTF-8)
+part1-q1.jpg … part1-q6.jpg
+part6-page.jpg          ← Part 6 (ảnh đề email) HOẶC text trong JSON
+part7-page.jpg
+```
+
+```json
+{
+  "version": 1,
+  "title": "KET A2 Reading — Book {B} — Test {T}",
+  "durationMinutes": 60,
+  "bandHint": "A2 Key Reading & Writing",
+  "examTrack": "cambridge",
+  "cambridgeLevel": "a2",
+  "parts": [ /* 7 parts — Q1–32 */ ]
+}
+```
+
+---
+
+## ⚠ Title — gom đúng quyển trong Library
+
+**Bắt buộc** ghi `Book` trong title (app ưu tiên Book hơn công thức Test÷4):
+
+| Thư mục nguồn | title |
+|---------------|-------|
+| KET A2_Cam 1 / Test 1 | `"KET A2 Reading — Book 1 — Test 1"` |
+| KET A2_Cam 1 / Test 4 | `"KET A2 Reading — Book 1 — Test 4"` |
+| KET A2_Cam 2 / Test 1 | `"KET A2 Reading — Book 2 — Test 1"` |
+| KET A2_Cam 2 / Test 3 | `"KET A2 Reading — Book 2 — Test 3"` |
+
+- Card Library: **CAMBRIDGE KET 1** (Book 1) · **CAMBRIDGE KET 2** (Book 2)
+- **SAI:** `"KET A2 Reading — Test 6"` → app tự gom vào Book 2 (ceil(6/4))
+- **ĐÚNG:** `"KET A2 Reading — Book 1 — Test 6"` → vẫn nằm Book 1 nếu bạn cố ý
+
+---
+
+## ⚠ SCHEMA BẮT BUỘC — app từ chối nếu sai
+
+KHÔNG dùng: part, title, questions (ngoài questionGroups), id, question, options {label,text}.
+
+Mỗi part PHẢI có:
+- partNumber, rangeLabel, passageTitle
+- passage[] — mảng object (KHÔNG string)
+- questionGroups[] — MẢNG; mọi câu hỏi nằm TRONG questionGroups[].questions
+
+Mỗi câu PHẢI có:
+- number (KHÔNG id), type, prompt (KHÔNG question)
+- options: [{ "id": "A", "label": "..." }] (KHÔNG label+text)
+- answer, explanation
+
+---
+
+## ⚠ JSON HỢP LỆ — BẮT BUỘC (app từ chối nếu JSON.parse fail)
+
+`exam.json` phải là **JSON chuẩn RFC 8259** — app gọi `JSON.parse()` ngay khi import.
+**Một lỗi cú pháp → toàn bộ đề không import được** (không có cảnh báo từng câu).
+
+### 1. Dấu ngoặc kép `"` trong chuỗi — LỖI PHỔ BIẾN NHẤT
+
+Mọi giá trị text (`prompt`, `label`, `text`, `explanation`…) là chuỗi JSON.
+**Bên trong chuỗi KHÔNG được có dấu `"` ASCII trần** — phải escape `\"` hoặc **bỏ hẳn / thay bằng từ khác**.
+
+| SAI — JSON hỏng, import fail | ĐÚNG |
+|------------------------------|------|
+| `"explanation": "... câu hỏi "directly" và ..."` | `"explanation": "... câu hỏi directly và ..."` |
+| `"explanation": "... từ "made up of" = ..."` | `"explanation": "... cụm made up of = ..."` |
+| `"prompt": "He said "yes" to the plan."` | `"prompt": "He said yes to the plan."` |
+| `"text": "Don't" forget"` (nháy lẫn) | `"text": "Don't forget"` hoặc `"text": "Do not forget"` |
+
+**Quy tắc explanation (tiếng Việt):**
+- KHÔNG bọc từ tiếng Anh bằng `"..."` — ghi thẳng: `câu hỏi directly`, `cụm made up of`
+- Nếu bắt buộc nhấn mạnh từ EN → dùng **dấu nháy đơn** `'directly'` (an toàn trong JSON)
+- Hoặc escape: `\"directly\"` (ít dùng — dễ sót)
+
+### 2. Trường `answer` — chỉ giá trị chấm được, KHÔNG ghi chú
+
+| Loại câu | `answer` ĐÚNG | SAI — import / chấm lỗi |
+|----------|---------------|-------------------------|
+| multiple-choice (Part 1–4) | `"a"` hoặc `"b"` hoặc `"c"` — **chữ thường, 1 ký tự** | `"c (or all)"`, `"A"`, `"C - Liam"`, `"b or c"` |
+| gap-fill (Part 5) | **một từ** tiếng Anh: `"some"`, `"but"` | `"some (hoặc a few)"`, `"câu trả lời: but"` |
+| gap-fill đáp án kép (key có 2 từ) | `"a/one"`, `"the|a"` — chỉ `/` hoặc `\|` | `"a or one"`, `"a (one)"` |
+
+Khi answer key mơ hồ / nhiều đáp án: **chọn 1 đáp án chính theo key** → ghi `"c"`.
+Giải thích lựa chọn để trong `explanation`, **không** nhét vào `answer`.
+
+**Ví dụ thật (Test 3 Cam 2 — câu 10 Part 2):**
+
+SAI — JSON.parse fail + answer không hợp lệ (KHÔNG xuất file kiểu này):
+```json
+"answer": "c (or all)",
+"explanation": "Cả ba đều vui nhưng Liam đặc biệt nhấn mạnh nụ cười của người nhận xe. Tôi chọn C vì câu hỏi "directly" và câu trả lời rõ nhất."
+```
+
+ĐÚNG:
+```json
+"answer": "c",
+"explanation": "Cả ba đều vui nhưng Liam đặc biệt nhấn mạnh nụ cười của người nhận xe. Tôi chọn C vì câu hỏi directly và câu trả lời rõ nhất."
+```
+
+### 3. Các lỗi JSON khác — KHÔNG được phép
+
+- Trailing comma: `"answer": "a",}` hoặc phần tử cuối có `,` trước `]`
+- Comment: `// ...` hoặc `/* ... */` trong file JSON
+- Smart quotes: `"` `"` `'` `'` (Word/PDF) — chỉ dùng `"` ASCII làm delimiter JSON
+- Single quotes bọc key/value: `'answer': 'a'` — JSON chỉ dùng `"` cho key và string
+- Xuống dòng thật trong chuỗi — dùng `\n` nếu cần xuống dòng trong `text`
+- Backslash trần: `\` trong text → escape `\\` hoặc bỏ
+
+### 4. Tên file ảnh trong `imageFile` — khớp file ZIP
+
+| SAI | ĐÚNG |
+|-----|------|
+| `"imageFile": "part2-q1.jpg"` (Part 1) | `"imageFile": "part1-q1.jpg"` |
+| Thiếu `part1-q2.jpg` … `part1-q6.jpg` trong ZIP | Đủ 6 file `part1-q1.jpg` … `part1-q6.jpg` |
+
+### 5. Tự kiểm tra TRƯỚC KHI xuất ZIP (bắt buộc)
+
+1. **JSON.parse** toàn bộ `exam.json` — nếu fail thì sửa, không giao file
+2. Đếm: 7 parts · 32 mục (Q1–30 Reading + Q31–32 Writing)
+3. Mọi MC: `answer` khớp `/^[abc]$/`
+4. Mọi gap-fill: `answer` là 1 từ hoặc `từ1/từ2` theo key
+5. Quét nhanh: không còn pattern `"[^"]*"[^",:}\]]` trong explanation (dấu `"` lồng trong chuỗi)
+6. `imageFile` trong JSON = tên file thật trong ZIP
+7. **Part 5:** passage[] có From/To (`label` hoặc `From:\nTo:`) — không chỉ thân email
+
+---
+
+## 7 parts (32 mục) — giống nhau mọi test KET A2
+
+| Part | Câu | questionGroups.type | Passage |
+|------|-----|---------------------|---------|
+| 1 | 1–6 | multiple-choice | 6 ảnh part1-q1…q6 |
+| 2 | 7–13 | multiple-choice | label + text từng người |
+| 3 | 14–18 | multiple-choice | passageTitle + passageSubtitle + thân bài phân đoạn |
+| 4 | 19–24 | multiple-choice | gapped text (19) ........ — 3 từ A/B/C, KHÔNG gap-fill |
+| 5 | 25–30 | gap-fill | email + **From/To bắt buộc** + Example (0) are — ONE WORD |
+| 6 | 31 | writing-task | **ảnh** part6-page.jpg HOẶC text đề email — minWords 25 |
+| 7 | 32 | writing-task | 1 ảnh part7-page.jpg (bắt buộc) — minWords 35 |
+
+---
+
+## ⚠ Import Part 6–7 bằng ảnh JPG (app Ryan English)
+
+Dùng khi đề cũ chỉ có **5 part** (Reading) hoặc không muốn gõ text Part 6.
+
+### Trong ZIP / Import thủ công
+
+| File | Part | Ghi chú |
+|------|------|---------|
+| `part6-page.jpg` | Part 6 | Screenshot trang đề email (Q31). Alias: `part6.jpg`, `part6-prompt.jpg` |
+| `part7-page.jpg` | Part 7 | 1 ảnh toàn trang / 3 khung (alias: `part7.jpg`) |
+
+**App tự ghép** khi:
+- ZIP có `exam.json` **5 part** + ảnh Part 6–7, hoặc
+- Import JSON 5 part → bấm **「Part 6–7 bằng ảnh JPG」** → chọn ảnh
+
+Kết quả: thêm Part 6–7, `durationMinutes: 60`, `bandHint: "A2 Key Reading & Writing"`.
+
+### exam.json — Part 6 chỉ ảnh (không cần copy text)
+
+```json
+"passage": [{ "imageFile": "part6-page.jpg" }]
+```
+
+ZIP phải có file `part6-page.jpg` cùng cấp với `exam.json`.
+
+### exam.json — Part 6 text (không dùng ảnh)
+
+Copy nguyên đề email từ PDF vào `passage[].text` (xem mẫu bên dưới).
+
+### Khi pack bằng AI
+
+- **Ưu tiên ảnh Part 6:** chụp/cắt từ PDF → `part6-page.jpg` + JSON `imageFile` (không cần gõ bullet email).
+- **Part 7:** luôn **1 ảnh** `part7-page.jpg` (screenshot cả trang / 3 khung trong 1 file — không tách p1…p3).
+- Có thể xuất ZIP **5 part JSON + 2 ảnh Writing** (`part6-page.jpg` + `part7-page.jpg`) — app ghép Part 6–7 lúc import.
+
+---
+
+## Part 6 (Q31) — Writing email ⚠
+
+### Cách A — Ảnh (khuyến nghị nếu có screenshot PDF)
+
+```json
+{
+  "partNumber": 6,
+  "rangeLabel": "Question 31",
+  "passageTitle": "Writing Part 6",
+  "passage": [
+    { "imageFile": "part6-page.jpg" }
+  ],
+  "questionGroups": [{
+    "range": "Question 31",
+    "instruction": "Write 25 words or more.",
+    "type": "sentence-completion",
+    "questions": [{
+      "number": 31,
+      "type": "writing-task",
+      "prompt": "Write your email in the box on the right.",
+      "options": [],
+      "answer": "",
+      "minWords": 25,
+      "explanation": "Writing — chấm bằng AI."
+    }]
+  }]
+}
+```
+
+ZIP: `part6-page.jpg`
+
+### Cách B — Text (copy từ PDF)
+
+```json
+{
+  "partNumber": 6,
+  "rangeLabel": "Question 31",
+  "passageTitle": "Writing Part 6",
+  "passage": [
+    { "text": "You are going shopping with your English friend Pat tomorrow." },
+    { "text": "Write an email to Pat. Say:\n• where you want to meet\n• what time you want to meet\n• what you want to buy." }
+  ],
+  "questionGroups": [{
+    "range": "Question 31",
+    "instruction": "Write 25 words or more.",
+    "type": "sentence-completion",
+    "questions": [{
+      "number": 31,
+      "type": "writing-task",
+      "prompt": "Write your email in the box on the right.",
+      "options": [],
+      "answer": "",
+      "minWords": 25,
+      "explanation": "Writing — chấm bằng AI."
+    }]
+  }]
+}
+```
+
+- `answer` để `""` — Reading chấm tự động; Writing chấm AI sau Submit
+- Bắt buộc `minWords`: 25
+- Có thể dùng **Cách A (ảnh)** hoặc **Cách B (text)** — không gộp cả hai trừ khi PDF có thêm ghi chú
+
+---
+
+## Part 7 (Q32) — Writing picture story ⚠
+
+```json
+{
+  "partNumber": 7,
+  "rangeLabel": "Question 32",
+  "passageTitle": "Writing Part 7",
+  "passage": [
+    { "imageFile": "part7-page.jpg" }
+  ],
+  "questionGroups": [{
+    "range": "Question 32",
+    "instruction": "Write 35 words or more.",
+    "type": "sentence-completion",
+    "questions": [{
+      "number": 32,
+      "type": "writing-task",
+      "prompt": "Look at the three pictures. Write the story shown in the pictures. Write 35 words or more.",
+      "options": [],
+      "answer": "",
+      "minWords": 35,
+      "explanation": "Writing — chấm bằng AI."
+    }]
+  }]
+}
+```
+
+- ZIP **bắt buộc** có `part7-page.jpg` (1 ảnh — không tách part7-p1…p3)
+- `minWords`: 35
+
+---
+
+
+---
+
+## Answer Key trong ZIP (app import)
+
+App chấp nhận **cùng cấp** `exam.json`:
+
+| File | Ghi chú |
+|------|---------|
+| `answer-key.txt` | **Khuyến nghị** — UTF-8, dễ parse (ưu tiên hơn PDF scan) |
+| `answer-key.pdf` | OK nếu có **text layer** (copy được chữ) |
+| `Answer Key.pdf` / `answers.txt` / `answer_key.txt` | Tên alias được nhận |
+
+**Format dòng** (mỗi đáp án 1 dòng):
+
+```
+1 A
+2 C
+12 TRUE
+15 not given
+19 B
+25 August
+```
+
+- App **chỉ bổ sung** câu trong JSON đang `answer` trống — không ghi đè đáp án đã điền.
+- Writing task (KET P6–7, PET P7–8, FCE P8–9, …) **không** lấy từ key.
+- PDF scan không trích được chữ → xuất `answer-key.txt` từ key.
+
+## Part 1 (Q1–6) — Signs
+
+```json
+{
+  "partNumber": 1,
+  "rangeLabel": "Questions 1–6",
+  "passageTitle": "Signs and messages",
+  "passage": [
+    { "imageFile": "part1-q1.jpg" },
+    { "imageFile": "part1-q2.jpg" },
+    { "imageFile": "part1-q3.jpg" },
+    { "imageFile": "part1-q4.jpg" },
+    { "imageFile": "part1-q5.jpg" },
+    { "imageFile": "part1-q6.jpg" }
+  ],
+  "questionGroups": [{
+    "range": "Questions 1–6",
+    "instruction": "For each question, choose the correct answer.",
+    "type": "multiple-choice",
+    "questions": [
+      {
+        "number": 1,
+        "type": "multiple-choice",
+        "prompt": "[copy câu hỏi từ PDF]",
+        "options": [
+          { "id": "A", "label": "..." },
+          { "id": "B", "label": "..." },
+          { "id": "C", "label": "..." }
+        ],
+        "answer": "a",
+        "explanation": "[tiếng Việt ngắn]"
+      }
+    ]
+  }]
+}
+```
+
+---
+
+## Part 2 (Q7–13) — Matching people
+
+- passage: `{ "label": "Tên", "text": "..." }` — **1 block / người**
+- questions: MC, options = **tên người** A/B/C — KHÔNG matching-features
+
+---
+
+## Part 3 (Q14–18) — Reading comprehension
+
+PDF có khung: tiêu đề bold → subtitle italic → các đoạn thân bài.
+
+| PDF (trong khung) | JSON |
+|-------------------|------|
+| Tiêu đề bold | passageTitle |
+| Dòng italic | passageSubtitle |
+| Mỗi đoạn thân bài | passage[] — **1 block / đoạn** |
+
+SAI: passageTitle = "PART 3 — QUESTIONS 14–18"; gộp title+body vào 1 text \n\n
+ĐÚNG:
+```json
+{
+  "partNumber": 3,
+  "rangeLabel": "Questions 14–18",
+  "passageTitle": "[tiêu đề bold trong khung]",
+  "passageSubtitle": "[dòng italic, nếu có]",
+  "passage": [
+    { "text": "[đoạn 1]" },
+    { "text": "[đoạn 2]" }
+  ],
+  "questionGroups": [{
+    "range": "Questions 14–18",
+    "instruction": "For each question, choose the correct answer.",
+    "type": "multiple-choice",
+    "questions": [ /* 5 câu 14–18 */ ]
+  }]
+}
+```
+
+---
+
+## Part 4 (Q19–24) — Multiple-choice cloze ⚠
+
+Đề gốc: mỗi gap chọn **1 trong 3 từ** A/B/C — KHÔNG gap-fill tự gõ.
+
+```json
+"questionGroups": [{ "type": "multiple-choice", "questions": [
+  {
+    "number": 19,
+    "type": "multiple-choice",
+    "prompt": "Gap (19)",
+    "options": [
+      { "id": "A", "label": "early" },
+      { "id": "B", "label": "short" },
+      { "id": "C", "label": "quick" }
+    ],
+    "answer": "b"
+  }
+]}]
+```
+
+- passageTitle = tiêu đề bài trong PDF (vd "The coldest place to live")
+- passage giữ `(19) ........` — 1 block nếu PDF in liền; nhiều block nếu PDF phân đoạn
+
+---
+
+## Part 5 (Q25–30) — Email open cloze ⚠
+
+Tham chiếu layout PDF: **khung header xám có From: / To:** → 2+ đoạn thân email → (tuỳ đề) "Write soon!" / ký tên.
+
+### ⚠ From/To — BẮT BUỘC mọi test (lỗi import phổ biến)
+
+App **chỉ hiện** tiêu đề From/To khi JSON có một trong hai cách sau. **Không** chỉ copy thân email.
+
+| SAI — app không hiện From/To | ĐÚNG |
+|------------------------------|------|
+| Bắt đầu passage bằng `I'm really pleased…` / `I am trying…` — **bỏ header PDF** | Luôn ghi From + To **trước** thân email |
+| Chỉ `passageTitle`: "Email from a friend" — tên chung, không thay From/To | Copy **tên người** từ khung xám PDF |
+| Gộp From/To vào `passageTitle` thay vì passage[] | `label` From/To hoặc `From: …\nTo: …` trong `text` |
+
+**Ưu tiên 1 email (hầu hết Test 2–4):** dùng block `label` — app render header xám giống PDF.
+
+```json
+{ "label": "From", "text": "Ellie" },
+{ "label": "To", "text": "Leah" }
+```
+
+**2 email (Test 1):** nhúng trong block `text` đầu mỗi email:
+
+```json
+"From: Sylvia\nTo: Felix\n\n…"
+```
+
+### 1 email — format khuyến nghị (Test 2, 3, 4…)
+
+**Test 2 — Erin → Lara:**
+```json
+{
+  "partNumber": 5,
+  "rangeLabel": "Questions 25–30",
+  "passageTitle": "From Erin to Lara",
+  "passage": [
+    { "label": "From", "text": "Erin" },
+    { "label": "To", "text": "Lara" },
+    { "text": "How (0) are you? … (25) ........ … (27) ........ grow…" },
+    { "text": "It's taken me… (28) ........ … (30) ........ …" },
+    { "text": "Write soon!" }
+  ],
+  "questionGroups": [{ "type": "gap-fill", "questions": [ /* 25–30 */ ] }]
+}
+```
+
+**Test 3 — Ellie → Leah** (PDF có header; đừng bỏ):
+```json
+{
+  "partNumber": 5,
+  "rangeLabel": "Questions 25–30",
+  "passageTitle": "Email from a friend",
+  "passage": [
+    { "label": "From", "text": "Ellie" },
+    { "label": "To", "text": "Leah" },
+    { "text": "I'm really pleased you're coming (0) ________ stay at my house next week. We haven't seen each other for such (25) ________ long time!" },
+    { "text": "(26) ________ are lots of things to do (27) ________ my town, so I'm sure we'll have lots of fun. …" },
+    { "text": "I'll meet you at the airport on Saturday. (29) ________ time does your flight arrive? …" }
+  ],
+  "questionGroups": [{ "type": "gap-fill", "questions": [ /* 25–30 */ ] }]
+}
+```
+
+**Test 4 — Marcia → Annie:**
+```json
+{
+  "partNumber": 5,
+  "rangeLabel": "Questions 25–30",
+  "passageTitle": "Email about basketball team",
+  "passage": [
+    { "label": "From", "text": "Marcia" },
+    { "label": "To", "text": "Annie" },
+    { "text": "I am trying (0) ________ start a girls' basketball team at college. Are you interested (25) ________ joining it? …" },
+    { "text": "Our sports teacher, Mrs Thompson, says she will be our coach, but only (28) ________ we can get enough girls for a team. …" },
+    { "text": "(29) ________ you know any other girls we can ask to be on the team? …" }
+  ],
+  "questionGroups": [{ "type": "gap-fill", "questions": [ /* 25–30 */ ] }]
+}
+```
+
+### 2 email (Test 1 — Sylvia ↔ Felix) ⚠ Answer key có 2 phần
+
+PDF Part 5 có **2 email** — gaps 25–27 ở email 1, 28–30 ở email 2.
+
+```json
+"passage": [
+  {
+    "text": "From: Sylvia\nTo: Felix\n\nI'm so glad we (0) are doing… (25) ........ you think… (26) ........ don't we meet… (27) ........ give the project…"
+  },
+  {
+    "text": "From: Felix\nTo: Sylvia\n\nDon't worry! (28) ........ we work really hard… (29) ........ interesting books… (30) ........ I'm free on Friday…"
+  }
+]
+```
+
+- Mỗi email = **1 block** `text` (From/To + nội dung + gaps của email đó)
+- Không trộn gaps 25–27 với 28–30 vào cùng 1 block
+- Có thể dùng `label` From/To cho từng email nếu tách nhiều block — nhưng **2-email** thường gọn hơn với nhúng `From:\nTo:`
+
+### Gaps & Example (0)
+
+- Giữ Example `(0) are` / `(0) ________` trong text — **KHÔNG** tạo câu hỏi số 0
+- Gaps đánh số: `(25) ........` … `(30) ........` (8 chấm) — hoặc `(25) ________` nếu PDF dùng gạch dưới
+- App hiện **số câu 25–30** cạnh ô nhập — passage phải giữ marker `(25)` … `(30)`
+
+### Đáp án kép (answer key có 2 từ chấp nhận) ⚠
+
+Cambridge mark scheme đôi khi chấp nhận 2 từ cho 1 gap. Ghi trong `answer` bằng `/` hoặc `|`:
+
+```json
+{
+  "number": 28,
+  "type": "gap-fill",
+  "prompt": "Gap (28)",
+  "answer": "a/one",
+  "explanation": "a long time (answer key cũng chấp nhận one)."
+}
+```
+
+- App tự chấp nhận cả 2 từ khi chấm
+- Hiển thị kết quả: `a hoặc one`
+- Copy đúng từ answer key — không đoán; nếu key chỉ 1 từ thì chỉ ghi 1 từ
+
+### Quy tắc Part 5 (tóm tắt)
+
+1. **Luôn** có From + To — đọc từ khung xám PDF, không đoán từ passageTitle
+2. **1 email:** block `{ "label": "From" }` + `{ "label": "To" }` **đứng đầu** passage[], rồi từng đoạn thân (+ "Write soon!" nếu PDF có)
+3. **2 email:** 1 block `text` / email, đầu block = `From: …\nTo: …\n\n`
+4. Thân email: **mỗi đoạn PDF = 1 block** — KHÔNG gộp \n\n trong 1 block
+5. **KHÔNG** bắt đầu passage[] bằng câu thân email nếu PDF có header From/To phía trên
+
+---
+
+## Quy tắc bắt buộc (mọi test)
+
+1. Đủ Q1–32 (Reading 1–30 + Writing 31–32), không nhảy số
+2. Chỉ dùng PDF + Answer Key — không bịa
+3. **Phân đoạn theo PDF:** PDF có bao nhiêu đoạn → passage[] có bấy nhiêu block. KHÔNG gộp \n\n
+4. Part 2–5: passage[].text bắt buộc (Highlight)
+5. Part 6: `part6-page.jpg` HOẶC passage[].text · Part 7: **1 ảnh** `part7-page.jpg`
+6. answer: MC → **chỉ** `a` / `b` / `c` (chữ thường, 1 ký tự); gap-fill → một từ; kép → `a/one` hoặc `the|a`
+7. explanation: tiếng Việt ngắn — **KHÔNG** dùng dấu `"` ASCII bọc từ trong chuỗi JSON
+8. passageTitle = tiêu đề nội dung bài, KHÔNG "PART N — QUESTIONS"
+9. ZIP ≤ 40MB, UTF-8, không __MACOSX, không thư mục con
+
+## Lỗi thường gặp
+
+| Lỗi | Đúng |
+|-----|------|
+| Chỉ có PDF scan Answer Key | Xuất **`answer-key.txt`** UTF-8 |
+| Quên file key trong ZIP | Thêm `answer-key.txt` hoặc `answer-key.pdf` |
+| `"explanation": "... từ "directly" ..."` | Bỏ nháy kép hoặc dùng `'directly'` / ghi thẳng `directly` |
+| `"answer": "c (or all)"` | `"answer": "c"` — ghi chú vào explanation |
+| File JSON không hợp lệ (import fail) | Chạy JSON.parse trước khi xuất |
+| questions ở ngoài part | questionGroups[].questions |
+| part / id / question | partNumber / number / prompt |
+| Part 4 gap-fill | Part 4 multiple-choice + 3 options |
+| Part 2 matching-features | MC chọn tên người |
+| Gộp nhiều đoạn 1 block | 1 đoạn PDF = 1 block passage[] |
+| Ảnh `part2-q*.jpg` cho Part 1 | `part1-q1.jpg` … `part1-q6.jpg` |
+| Part 6–7 thiếu sau import 5-part | Thêm `part6-page.jpg` + `part7-page.jpg` vào ZIP hoặc import ảnh trong app |
+| Part 7 dùng part7-p1…p3 (cũ) | Đổi thành **1 file** `part7-page.jpg` |
+| Part 5 thiếu From/To — chỉ copy thân email | Thêm `{ "label": "From" }` + `{ "label": "To" }` hoặc `From: …\nTo: …` đầu block |
+| Part 5 bắt đầu bằng `I'm really pleased…` không header | Đọc khung xám PDF — copy tên người (vd Ellie → Leah, Marcia → Annie) |
+
+---
+
+
+## ⚠ App 2026-07 — Ảnh WebP + gap-fill đáp án kép
+
+Chi tiết: **HDSD/Prompt-Reading-Cambridge.txt**.
+
+### Ảnh
+- jpg / png / **webp** / gif trong ZIP
+- `imageFile: "part1-q1.jpg"` khớp file `part1-q1.webp`
+- Writing: `part7-page.webp`, `part8-page.jpg` … (1 ảnh/part)
+- Part 2 portrait: `part2-p1.webp` … (nếu có)
+
+### Gap-fill / open cloze
+- Đáp án kép answer key → `"answer": "từ1/từ2"` (user gõ từ1 **hoặc** từ2 đều đúng)
+- Bỏ ngoặc: `"(the)"` không nhét vào answer trừ khi đề yêu cầu
+
+## Việc làm
+
+1. Xác định {N} từ tên PDF đính kèm
+2. Đọc PDF → 7 parts (Reading 1–5 + Writing 6–7)
+3. Answer Key → answer + explanation
+4. **JSON.parse(exam.json) PASS** → validate schema + Part 4 MC + Part 5 gap-fill + **Part 5 có From/To** + phân đoạn + answer chỉ a/b/c
+5. Xuất ket-reading-test{N}.zip — gồm ảnh Part 6–7 nếu dùng import bằng JPG
+6. Bảng tóm tắt: Part | Câu | Type | Số block passage | Ảnh (nếu có) | Đáp án
+
+Bundle mẫu 7 part: `Tainguyen/Import Cambridge/KET_A2/KET A2_Cam 1/ket-reading-test1.zip`
+
+Bắt đầu xử lý file đính kèm.

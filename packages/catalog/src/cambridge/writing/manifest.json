@@ -1,0 +1,49 @@
+{
+  "b1": {
+    "examName": "PET",
+    "displayName": "PET · B1",
+    "testCount": 1,
+    "taskCount": 3,
+    "genres": [
+      "email",
+      "article",
+      "story"
+    ]
+  },
+  "b2": {
+    "examName": "FCE",
+    "displayName": "FCE · B2",
+    "testCount": 1,
+    "taskCount": 4,
+    "genres": [
+      "essay",
+      "review",
+      "article",
+      "email"
+    ]
+  },
+  "c1": {
+    "examName": "CAE",
+    "displayName": "CAE · C1",
+    "testCount": 1,
+    "taskCount": 4,
+    "genres": [
+      "essay",
+      "proposal",
+      "email",
+      "review"
+    ]
+  },
+  "c2": {
+    "examName": "CPE",
+    "displayName": "CPE · C2",
+    "testCount": 1,
+    "taskCount": 4,
+    "genres": [
+      "essay",
+      "review",
+      "report",
+      "article"
+    ]
+  }
+}

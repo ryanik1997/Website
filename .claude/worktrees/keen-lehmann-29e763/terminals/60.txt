@@ -1,0 +1,69 @@
+---
+pid: 33216
+cwd: "D:\App-English-Ryan\Website"
+command: "Set-Location D:\\App-English-Ryan\\Website; pnpm ielts:pack 'IELTS/Listening IELTS_Test1_Cam19'; pnpm ielts:validate 'IELTS/Listening IELTS_Test2_Cam19'; pnpm ielts:pack 'IELTS/Listening IELTS_Test2_Cam19'; pnpm ielts:validate 'IELTS/Listening IELTS_Test3_Cam19'; pnpm ielts:pack 'IELTS/Listening IELTS_Test3_Cam19'; pnpm ielts:validate 'IELTS/Listening IELTS_Test4_Cam19'; pnpm ielts:pack 'IELTS/Listening IELTS_Test4_Cam19'"
+started_at: 2026-07-03T11:21:45.596Z
+running_for_ms: 17705014 
+---
+
+> ryan-english@ ielts:pack D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts pack "IELTS/Listening IELTS_Test1_Cam19"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test1_Cam19
+✓ D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test1_Cam19.zip
+  3 files: exam.json, listening.mp3, map.jpg
+  → Luyện thi → IELTS → Import thủ công Listening → chọn ZIP
+
+> ryan-english@ ielts:validate D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts validate "IELTS/Listening IELTS_Test2_Cam19"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test2_Cam19
+
+📋 IELTS Listening — Cambridge 19 Test 2
+   Parts: 1, 2, 3, 4 · 40 câu
+
+✓ Không có cảnh báo.
+
+> ryan-english@ ielts:pack D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts pack "IELTS/Listening IELTS_Test2_Cam19"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test2_Cam19
+✓ D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test2_Cam19.zip
+  2 files: exam.json, listening.mp3
+  → Luyện thi → IELTS → Import thủ công Listening → chọn ZIP
+
+> ryan-english@ ielts:validate D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts validate "IELTS/Listening IELTS_Test3_Cam19"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test3_Cam19
+
+📋 IELTS Listening — Cambridge 19 Test 3
+   Parts: 1, 2, 3, 4 · 40 câu
+
+✓ Không có cảnh báo.
+
+> ryan-english@ ielts:pack D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts pack "IELTS/Listening IELTS_Test3_Cam19"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test3_Cam19
+✓ D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test3_Cam19.zip
+  2 files: exam.json, listening.mp3
+  → Luyện thi → IELTS → Import thủ công Listening → chọn ZIP
+
+> ryan-english@ ielts:validate D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts validate "IELTS/Listening IELTS_Test4_Cam19"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test4_Cam19
+
+📋 IELTS Listening — Cambridge 19 Test 4
+   Parts: 1, 2, 3, 4 · 40 câu
+
+✓ Không có cảnh báo.
+
+> ryan-english@ ielts:pack D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts pack "IELTS/Listening IELTS_Test4_Cam19"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test4_Cam19
+✓ D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test4_Cam19.zip
+  2 files: exam.json, listening.mp3
+  → Luyện thi → IELTS → Import thủ công Listening → chọn ZIP

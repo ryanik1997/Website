@@ -1,6 +1,9 @@
 import { useLiveQuery } from 'dexie-react-hooks'
+import { isSrsNew, isSrsReviewDue } from '@ryan/core'
 import { db } from '@ryan/db'
 import { isWeakWord } from './weakWords'
+import { useVocabStore } from '../vocabStore'
+import { filterCardsByUnitKind } from '../vocabUnitKind'
 
 export interface ReviewDayBucket {
   label: string
@@ -35,21 +38,27 @@ function dayLabel(key: string, todayKey: string): string {
 }
 
 export function useDeckReviewHub(deckId: string | null): ReviewHubData | undefined {
+  const unitKind = useVocabStore(s => s.unitKind)
   return useLiveQuery(async () => {
     if (!deckId) return null
-    const [cards, srsRows] = await Promise.all([
-      db.cards.where('deckId').equals(deckId).count(),
+    const [allCards, allSrs] = await Promise.all([
+      db.cards.where('deckId').equals(deckId).toArray(),
       db.srs.where('deckId').equals(deckId).toArray(),
     ])
+    const cards = filterCardsByUnitKind(allCards, unitKind)
+    const idSet = new Set(cards.map(c => c.id))
+    const srsRows = allSrs.filter(s => idSet.has(s.cardId))
     const now = Date.now()
     const todayKey = dayKey(now)
-    const dueNow = srsRows.filter(s => s.dueAt <= now).length
-    const newCount = srsRows.filter(s => s.state === 'new' || s.reps === 0).length
+    const dueNow = srsRows.filter(s => isSrsReviewDue(s, now)).length
+    const newCount = srsRows.filter(s => isSrsNew(s)).length
     const scheduled = srsRows.filter(s => s.dueAt > now).length
     const weakCount = srsRows.filter(isWeakWord).length
 
     const bucketMap = new Map<string, number>()
     for (const s of srsRows) {
+      // Lịch ôn: chỉ thẻ đã vào SRS (không nhét cả kho seed "new" vào "Hôm nay")
+      if (isSrsNew(s)) continue
       if (s.dueAt <= now) {
         const k = todayKey
         bucketMap.set(k, (bucketMap.get(k) ?? 0) + 1)
@@ -80,8 +89,8 @@ export function useDeckReviewHub(deckId: string | null): ReviewHubData | undefin
       newCount,
       scheduled,
       weakCount,
-      total: cards,
+      total: cards.length,
       upcoming: upcoming.filter(b => b.count > 0 || b.isToday || b.isPast),
     }
-  }, [deckId]) ?? undefined
+  }, [deckId, unitKind]) ?? undefined
 }

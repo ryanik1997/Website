@@ -38,7 +38,7 @@
 .writing-library-card {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr minmax(140px, 38%);
+  grid-template-columns: 1fr;
   align-items: stretch;
   min-height: 168px;
   border-radius: 1.25rem;

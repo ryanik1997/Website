@@ -1,10 +1,23 @@
 export const EXAM_HIGHLIGHT_ZONE_SELECTOR = '[data-exam-highlight-zone], [data-reading-highlight-zone]'
 
+export function selectionNodeElement(node: Node | null): Element | null {
+  if (!node) return null
+  if (node.nodeType === Node.TEXT_NODE) {
+    return node.parentElement
+  }
+  if (node.nodeType === Node.ELEMENT_NODE) {
+    return node as Element
+  }
+  return null
+}
+
 export function isInExamHighlightZone(el: Element | null | undefined): boolean {
   return Boolean(el?.closest(EXAM_HIGHLIGHT_ZONE_SELECTOR))
 }
 
 export type ReadingHighlightKind = 'user' | 'evidence'
+
+export type HighlightColor = 'yellow' | 'blue' | 'green' | 'pink'
 
 export interface ReadingHighlight {
   id: string
@@ -13,6 +26,8 @@ export interface ReadingHighlight {
   end: number
   /** user = tô vàng thủ công; evidence = AI chỉ đoạn đáp án (cam) */
   kind?: ReadingHighlightKind
+  /** Màu highlight — default 'yellow' nếu không set */
+  color?: HighlightColor
 }
 
 export interface TextNote {
@@ -29,6 +44,8 @@ export interface TextAnnotationSegment {
   /** true khi đoạn thuộc bằng chứng AI (cam) */
   evidence?: boolean
   note?: string
+  /** Màu highlight của segment */
+  color?: HighlightColor
 }
 
 export interface HighlightRange {
@@ -59,6 +76,15 @@ export function mergeRanges(ranges: { start: number; end: number }[]): { start: 
     }
   }
   return merged
+}
+
+function bestColorForRange(
+  highlights: ReadingHighlight[],
+  start: number,
+  end: number,
+): HighlightColor | undefined {
+  const inRange = highlights.filter(h => h.start < end && h.end > start)
+  return inRange[0]?.color
 }
 
 function collectBlockBreakpoints(
@@ -113,6 +139,7 @@ export function segmentsFromAnnotations(
       highlighted,
       evidence: evidence || undefined,
       note: overlappingNote?.text,
+      color: highlighted ? bestColorForRange(overlapping, start, end) : undefined,
     })
   }
 
@@ -170,32 +197,65 @@ function subtractRange(
   return result
 }
 
-function rangesToHighlights(byBlock: Map<string, { start: number; end: number }[]>): ReadingHighlight[] {
+function findOverlappingColor(
+  blockId: string,
+  start: number,
+  end: number,
+  existingColors: Map<string, HighlightColor>,
+): HighlightColor | undefined {
+  // Tìm màu của highlight gốc overlap với range đã merge
+  for (const [key, color] of existingColors) {
+    const parts = key.split(':')
+    const keyBlock = parts.slice(0, -2).join(':') // blockId có thể chứa dấu :
+    const keyStart = Number(parts[parts.length - 2])
+    const keyEnd = Number(parts[parts.length - 1])
+    if (keyBlock === blockId && keyStart < end && keyEnd > start) {
+      return color
+    }
+  }
+  return undefined
+}
+
+function rangesToHighlights(
+  byBlock: Map<string, { start: number; end: number }[]>,
+  existingColors?: Map<string, HighlightColor>,
+): ReadingHighlight[] {
   const result: ReadingHighlight[] = []
   for (const [blockId, ranges] of byBlock) {
     for (const range of mergeRanges(ranges)) {
       if (range.start >= range.end) continue
+      const color = existingColors
+        ? findOverlappingColor(blockId, range.start, range.end, existingColors)
+        : undefined
       result.push({
         id: newHighlightId(),
         blockId,
         start: range.start,
         end: range.end,
+        color,
       })
     }
   }
   return result.sort((a, b) => a.blockId.localeCompare(b.blockId) || a.start - b.start)
 }
 
+function colorKey(h: ReadingHighlight): string {
+  return `${h.blockId}:${h.start}:${h.end}`
+}
+
 export function addHighlights(
   existing: ReadingHighlight[],
   newRanges: HighlightRange[],
+  color?: HighlightColor,
 ): ReadingHighlight[] {
   const byBlock = new Map<string, { start: number; end: number }[]>()
+  const existingColors = new Map<string, HighlightColor>()
 
   for (const h of existing) {
     const list = byBlock.get(h.blockId) ?? []
     list.push({ start: h.start, end: h.end })
     byBlock.set(h.blockId, list)
+    existingColors.set(colorKey(h), h.color ?? 'yellow')
   }
 
   for (const r of newRanges) {
@@ -203,9 +263,10 @@ export function addHighlights(
     const list = byBlock.get(r.blockId) ?? []
     list.push({ start: r.start, end: r.end })
     byBlock.set(r.blockId, list)
+    existingColors.set(`${r.blockId}:${r.start}:${r.end}`, color ?? 'yellow')
   }
 
-  return rangesToHighlights(byBlock)
+  return rangesToHighlights(byBlock, existingColors)
 }
 
 export function removeHighlights(
@@ -213,11 +274,13 @@ export function removeHighlights(
   removeRanges: HighlightRange[],
 ): ReadingHighlight[] {
   const byBlock = new Map<string, { start: number; end: number }[]>()
+  const existingColors = new Map<string, HighlightColor>()
 
   for (const h of existing) {
     const list = byBlock.get(h.blockId) ?? []
     list.push({ start: h.start, end: h.end })
     byBlock.set(h.blockId, list)
+    existingColors.set(colorKey(h), h.color ?? 'yellow')
   }
 
   for (const remove of removeRanges) {
@@ -227,7 +290,7 @@ export function removeHighlights(
     byBlock.set(remove.blockId, next)
   }
 
-  return rangesToHighlights(byBlock)
+  return rangesToHighlights(byBlock, existingColors)
 }
 
 function isSkippedNode(node: Node): boolean {
@@ -256,9 +319,39 @@ export function getBlockTextLength(blockEl: HTMLElement): number {
   return len
 }
 
-function findBlockEl(node: Node | null): HTMLElement | null {
-  const el = node?.nodeType === Node.TEXT_NODE ? node.parentElement : (node as Element | null)
-  return el?.closest<HTMLElement>('[data-highlight-block]') ?? null
+function blockIdOf(blockEl: HTMLElement | null): string | null {
+  return blockEl?.dataset.blockId ?? null
+}
+
+function findBoundaryChildAtOffset(node: Node, offset: number): Node | null {
+  if (node.nodeType !== Node.ELEMENT_NODE) return null
+  const children = node.childNodes
+  if (children.length === 0) return null
+  if (offset <= 0) return children[0] ?? null
+  if (offset >= children.length) return children[children.length - 1] ?? null
+  return children[offset] ?? children[offset - 1] ?? null
+}
+
+function nearestHighlightBlock(node: Node | null, offset?: number): HTMLElement | null {
+  const element = selectionNodeElement(node)
+
+  if (element?.matches('[data-highlight-block]')) {
+    return element as HTMLElement
+  }
+
+  const closest = element?.closest<HTMLElement>('[data-highlight-block]') ?? null
+  if (closest) return closest
+
+  if (node && typeof offset === 'number') {
+    const boundaryChild = findBoundaryChildAtOffset(node, offset)
+    const boundaryElement = selectionNodeElement(boundaryChild)
+    if (boundaryElement?.matches('[data-highlight-block]')) {
+      return boundaryElement as HTMLElement
+    }
+    return boundaryElement?.closest<HTMLElement>('[data-highlight-block]') ?? null
+  }
+
+  return null
 }
 
 function getTextOffsetInBlock(
@@ -315,20 +408,30 @@ export function selectionToHighlightRanges(
   const text = selection.toString().trim()
   if (!text) return null
 
-  const anchorEl = selection.anchorNode?.parentElement
-  const focusEl = selection.focusNode?.parentElement
+  const anchorEl = selectionNodeElement(selection.anchorNode)
+  const focusEl = selectionNodeElement(selection.focusNode)
   if (!isInExamHighlightZone(anchorEl) || !isInExamHighlightZone(focusEl)) {
     return null
   }
   if (!root.contains(anchorEl ?? null) || !root.contains(focusEl ?? null)) return null
 
   const range = selection.getRangeAt(0)
-  const startBlock = findBlockEl(range.startContainer)
-  const endBlock = findBlockEl(range.endContainer)
-  if (!startBlock || !endBlock) return null
+  const startBlock = nearestHighlightBlock(range.startContainer, range.startOffset)
+  const endBlock = nearestHighlightBlock(range.endContainer, range.endOffset)
+  if (!startBlock || !endBlock) {
+    if (import.meta.env.DEV) {
+      console.debug('[selectionToHighlightRanges] no-highlight-ranges', {
+        startContainer: range.startContainer?.nodeName,
+        endContainer: range.endContainer?.nodeName,
+        startBlock: blockIdOf(startBlock),
+        endBlock: blockIdOf(endBlock),
+      })
+    }
+    return null
+  }
 
-  const startBlockId = startBlock.dataset.blockId
-  const endBlockId = endBlock.dataset.blockId
+  const startBlockId = blockIdOf(startBlock)
+  const endBlockId = blockIdOf(endBlock)
   if (!startBlockId || !endBlockId) return null
 
   const startOffset = getTextOffsetInBlock(startBlock, range.startContainer, range.startOffset)

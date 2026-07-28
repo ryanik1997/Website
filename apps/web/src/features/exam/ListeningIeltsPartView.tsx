@@ -265,7 +265,6 @@ function GapRow({
       )}
       {hasInline ? (
         <label className="listening-ielts-notes__sentence" htmlFor={`ielts-gap-${question.id}`}>
-          <span className="listening-ielts-notes__num">{question.number}</span>
           {question.gapLead && (
             <ReadingHighlightableText
               blockId={`${question.id}-lead`}
@@ -274,17 +273,28 @@ function GapRow({
               as="span"
             />
           )}
-          <input
-            id={`ielts-gap-${question.id}`}
-            type="text"
-            className="listening-ielts-notes__input"
-            value={answer}
-            placeholder={`${wordLimit} từ`}
-            data-highlight-skip
-            readOnly={reviewMode}
-            onChange={e => onAnswer(e.target.value)}
-            onFocus={onSelect}
-          />
+          <span
+            className={[
+              'listening-tid-gap',
+              isActive ? 'is-active' : '',
+              answer.trim() ? 'has-value' : '',
+            ].filter(Boolean).join(' ')}
+          >
+            <input
+              id={`ielts-gap-${question.id}`}
+              type="text"
+              autoComplete="off"
+              className="listening-tid-gap__input"
+              value={answer}
+              placeholder=""
+              aria-label={`Question ${question.number}`}
+              data-highlight-skip
+              readOnly={reviewMode}
+              onChange={e => onAnswer(e.target.value)}
+              onFocus={onSelect}
+            />
+            <span className="listening-tid-gap__num" aria-hidden>{question.number}</span>
+          </span>
           {question.gapTrail && (
             <ReadingHighlightableText
               blockId={`${question.id}-trail`}
@@ -296,7 +306,6 @@ function GapRow({
         </label>
       ) : (
         <label className="listening-ielts-notes__field" htmlFor={`ielts-gap-${question.id}`}>
-          <span className="listening-ielts-notes__num">{question.number}</span>
           <ReadingHighlightableText
             blockId={`${question.id}-prompt`}
             text={question.prompt}
@@ -304,17 +313,28 @@ function GapRow({
             className="listening-ielts-notes__prompt"
             as="span"
           />
-          <input
-            id={`ielts-gap-${question.id}`}
-            type="text"
-            className="listening-ielts-notes__input"
-            value={answer}
-            placeholder={`Tối đa ${wordLimit} từ`}
-            data-highlight-skip
-            readOnly={reviewMode}
-            onChange={e => onAnswer(e.target.value)}
-            onFocus={onSelect}
-          />
+          <span
+            className={[
+              'listening-tid-gap',
+              isActive ? 'is-active' : '',
+              answer.trim() ? 'has-value' : '',
+            ].filter(Boolean).join(' ')}
+          >
+            <input
+              id={`ielts-gap-${question.id}`}
+              type="text"
+              autoComplete="off"
+              className="listening-tid-gap__input"
+              value={answer}
+              placeholder=""
+              aria-label={`Question ${question.number}`}
+              data-highlight-skip
+              readOnly={reviewMode}
+              onChange={e => onAnswer(e.target.value)}
+              onFocus={onSelect}
+            />
+            <span className="listening-tid-gap__num" aria-hidden>{question.number}</span>
+          </span>
         </label>
       )}
       <ListeningGapCorrectHint
@@ -654,6 +674,7 @@ export default function ListeningIeltsPartView({
             <ListeningIeltsMatchingBlock
               key={`matching-${index}`}
               blockIdPrefix={`${part.id}-match-${index}`}
+              part={part}
               questions={segment.questions}
               answers={answers}
               activeQuestionId={activeQuestionId}

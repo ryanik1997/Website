@@ -162,6 +162,8 @@ export interface WritingGuide {
   tips: string[]
   sampleEssay: string
   sampleNote: string
+  /** Guide biên soạn sẵn dạng HTML (từ ngân hàng đề) — khi có thì render thay các trường trên, không gọi AI */
+  sourceHtml?: string
 }
 
 const GUIDE_SCHEMA = `{

@@ -1,0 +1,90 @@
+---
+pid: 6544
+cwd: "D:\App-English-Ryan\Website"
+command: "Set-Location \"D:\\App-English-Ryan\\Website\"; foreach ($f in @(\"IELTS/Listening IELTS_Test2_Cam11\",\"IELTS/Listening IELTS_Test3_Cam11\",\"IELTS/Listening IELTS_Test4_Cam11\",\"IELTS/Listening IELTS_Test1_Cam12\",\"IELTS/Listening IELTS_Test2_Cam12\",\"IELTS/Listening IELTS_Test3_Cam12\",\"IELTS/Listening IELTS_Test4_Cam12\")) { Write-Host \"--- $f ---\"; pnpm ielts:validate $f; if ($LASTEXITCODE -ne 0) { Write-Host \"FAILED $f\" } }"
+started_at: 2026-07-03T06:55:47.405Z
+running_for_ms: 139999   
+---
+--- IELTS/Listening IELTS_Test2_Cam11 ---
+
+> ryan-english@ ielts:validate D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts validate "IELTS/Listening IELTS_Test2_Cam11"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test2_Cam11
+
+📋 IELTS Listening — Cambridge 11 Test 2
+   Parts: 1, 2, 3, 4 · 40 câu
+
+⚠️  Cảnh báo:
+   • Part 4: câu 34 thiếu trong notePassage (IELTS note-completion).
+--- IELTS/Listening IELTS_Test3_Cam11 ---
+
+> ryan-english@ ielts:validate D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts validate "IELTS/Listening IELTS_Test3_Cam11"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test3_Cam11
+
+📋 IELTS Listening — Cambridge 11 Test 3
+   Parts: 1, 2, 3, 4 · 40 câu
+
+✓ Không có cảnh báo.
+--- IELTS/Listening IELTS_Test4_Cam11 ---
+
+> ryan-english@ ielts:validate D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts validate "IELTS/Listening IELTS_Test4_Cam11"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test4_Cam11
+
+📋 IELTS Listening — Cambridge 11 Test 4
+   Parts: 1, 2, 3, 4 · 40 câu
+
+✓ Không có cảnh báo.
+--- IELTS/Listening IELTS_Test1_Cam12 ---
+
+> ryan-english@ ielts:validate D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts validate "IELTS/Listening IELTS_Test1_Cam12"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test1_Cam12
+
+📋 IELTS Listening — Cambridge 12 Test 1
+   Parts: 1, 2, 3, 4 · 40 câu
+
+✓ Không có cảnh báo.
+--- IELTS/Listening IELTS_Test2_Cam12 ---
+
+> ryan-english@ ielts:validate D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts validate "IELTS/Listening IELTS_Test2_Cam12"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test2_Cam12
+
+📋 IELTS Listening — Cambridge 12 Test 2
+   Parts: 1, 2, 3, 4 · 40 câu
+
+⚠️  Cảnh báo:
+   • Part 1: câu 3 thiếu trong notePassage (IELTS note-completion).
+--- IELTS/Listening IELTS_Test3_Cam12 ---
+
+> ryan-english@ ielts:validate D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts validate "IELTS/Listening IELTS_Test3_Cam12"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test3_Cam12
+
+📋 IELTS Listening — Cambridge 12 Test 3
+   Parts: 1, 2, 3, 4 · 40 câu
+
+✓ Không có cảnh báo.
+--- IELTS/Listening IELTS_Test4_Cam12 ---
+
+> ryan-english@ ielts:validate D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts validate "IELTS/Listening IELTS_Test4_Cam12"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test4_Cam12
+
+📋 IELTS Listening — Cambridge 12 Test 4
+   Parts: 1, 2, 3, 4 · 40 câu
+
+⚠️  Cảnh báo:
+   • Part 1: câu 1 thiếu trong notePassage (IELTS note-completion).
+   • Part 4: notePassage static thiếu text.
+   • Part 4: notePassage static thiếu text.
+   • Part 4: notePassage static thiếu text.

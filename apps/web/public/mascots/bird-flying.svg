@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title">
+  <title id="title">Bird mascot flying</title>
+  <style>
+    #wing-left{transform-box:fill-box;transform-origin:right center;animation:wing-left-flap .72s ease-in-out infinite}
+    #wing-right{transform-box:fill-box;transform-origin:left center;animation:wing-right-flap .72s ease-in-out infinite}
+    #bird-flying{transform-origin:center;animation:bird-hover 1.15s ease-in-out infinite}
+    @keyframes wing-left-flap{0%,100%{transform:rotate(-20deg)}50%{transform:rotate(28deg)}}
+    @keyframes wing-right-flap{0%,100%{transform:rotate(20deg)}50%{transform:rotate(-28deg)}}
+    @keyframes bird-hover{0%,100%{transform:translateY(2px)}50%{transform:translateY(-3px)}}
+    @media(prefers-reduced-motion:reduce){#wing-left,#wing-right,#bird-flying{animation:none}}
+  </style>
+  <g id="bird-flying" class="bird state-flying" stroke="#3A3632" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path id="tail" d="M47 87 34 98 53 96 61 105 68 95 87 98 75 86" fill="#58B9D6"/>
+    <ellipse id="body" cx="61" cy="70" rx="28" ry="29" fill="#73D6B4"/>
+    <ellipse id="belly" cx="61" cy="76" rx="17" ry="18" fill="#FFF3C9" stroke="none"/>
+    <path id="wing-left" d="M39 64Q16 52 18 28q20 7 31 26" fill="#58B9D6"/>
+    <path id="wing-right" d="M83 64q23-12 21-36-20 7-31 26" fill="#58B9D6"/>
+    <circle id="head" cx="61" cy="39" r="31" fill="#73D6B4"/>
+    <path id="tuft" d="M50 11q8-9 12 1 8-9 11 2" fill="#73D6B4"/>
+    <circle id="eye-left" cx="50" cy="37" r="5.5" fill="#3A3632" stroke="none"/><circle id="eye-right" cx="72" cy="37" r="5.5" fill="#3A3632" stroke="none"/>
+    <circle id="eye-shine-left" cx="52" cy="35" r="1.7" fill="#FFFFFF" stroke="none"/><circle id="eye-shine-right" cx="74" cy="35" r="1.7" fill="#FFFFFF" stroke="none"/>
+    <path id="beak" d="m57 47 14 5-14 6Z" fill="#FF9B66"/>
+    <path id="smile" d="M58 60q4 3 8 0" fill="none"/>
+  </g>
+</svg>

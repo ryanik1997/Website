@@ -1,0 +1,90 @@
+{
+  "provenance": {
+    "origin": "ai-generated",
+    "generatedFields": [
+      "questions"
+    ],
+    "sourceTestNumber": 21,
+    "appTestNumber": 22,
+    "model": "bootstrap-v1",
+    "generatedAt": "2026-07-27T15:12:03.279Z",
+    "promptHash": "bootstrap-test21-part4",
+    "confidence": 85,
+    "reviewed": false
+  },
+  "inputHash": "bootstrap-test21-part4",
+  "promptVersion": "1.0",
+  "model": "bootstrap-v1",
+  "generatedAt": "2026-07-27T15:12:03.279Z",
+  "repair": {
+    "questions": [
+      {
+        "number": 25,
+        "type": "gap-fill",
+        "prompt": "It’s been five months since I last took an exam. I TAKEN ->  I .....",
+        "sourceSentence": "It’s been five months since I last took an exam. I",
+        "keyword": "TAKEN",
+        "targetSentence": " I .....",
+        "answer": "taken part in",
+        "explanation": "Rewrite using \"TAKEN\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 26,
+        "type": "gap-fill",
+        "prompt": "I first came to live here five years ago. I LIVING ->  I .....",
+        "sourceSentence": "I first came to live here five years ago. I",
+        "keyword": "LIVING",
+        "targetSentence": " I .....",
+        "answer": "living in the",
+        "explanation": "Rewrite using \"LIVING\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 27,
+        "type": "gap-fill",
+        "prompt": "We visited our grandparents every weekend. We WOULD ->  We .....",
+        "sourceSentence": "We visited our grandparents every weekend. We",
+        "keyword": "WOULD",
+        "targetSentence": " We .....",
+        "answer": "would rather not",
+        "explanation": "Rewrite using \"WOULD\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 28,
+        "type": "gap-fill",
+        "prompt": "I didn’t enjoy music lessons as a child. I USE ->  I .....",
+        "sourceSentence": "I didn’t enjoy music lessons as a child. I",
+        "keyword": "USE",
+        "targetSentence": " I .....",
+        "answer": "use of the",
+        "explanation": "Rewrite using \"USE\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 29,
+        "type": "gap-fill",
+        "prompt": "This was the first time I had ever met Charles. I NEVER ->  I .....",
+        "sourceSentence": "This was the first time I had ever met Charles. I",
+        "keyword": "NEVER",
+        "targetSentence": " I .....",
+        "answer": "never been so",
+        "explanation": "Rewrite using \"NEVER\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 30,
+        "type": "gap-fill",
+        "prompt": "My nephew no longer tries to do well at school. My nephew STOPPED ->  My nephew .....",
+        "sourceSentence": "My nephew no longer tries to do well at school. My nephew",
+        "keyword": "STOPPED",
+        "targetSentence": " My nephew .....",
+        "answer": "stopped by the",
+        "explanation": "Rewrite using \"STOPPED\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      }
+    ]
+  },
+  "status": "generated"
+}

@@ -26,6 +26,7 @@
   --vs-mode-tab-hover-bg: color-mix(in srgb, var(--color-primary) 8%, var(--bg-secondary));
   --vs-mode-tab-hover-text: var(--text-primary);
   --vs-dot: var(--text-muted);
+  --vs-due-color: var(--color-danger);
   --vs-panel-bg: var(--bg-card);
   --vs-panel-border: color-mix(in srgb, var(--color-primary) 18%, var(--border-color));
   --vs-panel-shadow: 0 12px 40px color-mix(in srgb, var(--color-primary) 10%, transparent);
@@ -91,6 +92,7 @@
   --vs-mode-tab-hover-bg: color-mix(in srgb, var(--color-primary) 14%, var(--bg-card));
   --vs-mode-tab-hover-text: var(--text-primary);
   --vs-dot: var(--text-muted);
+  --vs-due-color: #fbbf24;
   --vs-panel-bg: linear-gradient(160deg, color-mix(in srgb, var(--color-primary) 14%, var(--bg-card)) 0%, var(--bg-card) 55%);
   --vs-panel-border: color-mix(in srgb, var(--color-accent) 22%, var(--border-color));
   --vs-panel-shadow: 0 20px 50px color-mix(in srgb, #000 35%, transparent);
@@ -147,6 +149,7 @@
   --vs-mode-tab-hover-bg: rgba(255, 255, 255, 0.06);
   --vs-mode-tab-hover-text: #cbd5e1;
   --vs-dot: #475569;
+  --vs-due-color: #fbbf24;
   --vs-panel-bg: linear-gradient(160deg, rgba(67, 56, 202, 0.22) 0%, rgba(30, 27, 75, 0.5) 55%, rgba(15, 12, 41, 0.65) 100%);
   --vs-panel-border: rgba(139, 92, 246, 0.16);
   --vs-panel-shadow: 0 24px 70px rgba(0, 0, 0, 0.4);
@@ -184,7 +187,7 @@
 }
 
 .vocab-study-shell {
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: var(--font-app);
   color: var(--vs-text);
   min-height: 100%;
   display: flex;
@@ -437,7 +440,7 @@
   background: var(--vs-dot);
 }
 
-.vs-session-meta .due { color: #fbbf24; font-weight: 600; }
+.vs-session-meta .due { color: var(--vs-due-color); font-weight: 600; }
 
 .vs-btn-secondary {
   display: flex;
@@ -490,6 +493,7 @@
 
 .vs-flip-inner {
   display: grid;
+  position: relative;
   transform-style: preserve-3d;
   transition: transform 0.55s cubic-bezier(0.4, 0.2, 0.2, 1);
 }
@@ -502,13 +506,18 @@
   grid-area: 1 / 1;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  background: var(--vs-flashcard-bg);
+  visibility: visible;
+  background-color: var(--bg-card);
+  background-image: var(--vs-flashcard-bg);
   border: 1px solid var(--vs-panel-border);
   border-radius: 24px;
   box-shadow: var(--vs-panel-shadow), var(--vs-panel-inset);
   padding: 28px 36px 40px;
-  backdrop-filter: blur(20px);
-  transition: border-color 0.2s;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  transition:
+    border-color 0.2s,
+    visibility 0s linear 0.275s;
 }
 
 .vs-flip-scene:hover .vs-flip-face {
@@ -516,7 +525,16 @@
 }
 
 .vs-flip-face-back {
+  visibility: hidden;
   transform: rotateY(180deg);
+}
+
+.vs-flip-inner.is-flipped .vs-flip-face-front {
+  visibility: hidden;
+}
+
+.vs-flip-inner.is-flipped .vs-flip-face-back {
+  visibility: visible;
 }
 
 .vs-flashcard {
@@ -618,7 +636,7 @@
 }
 
 .vs-card-ipa-label {
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: var(--font-app);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -726,6 +744,13 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   margin-top: 28px;
+  position: sticky;
+  bottom: 12px;
+  z-index: 10;
+  padding: 10px;
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--bg-primary) 78%, transparent);
+  backdrop-filter: blur(8px);
 }
 
 .vs-rating-btn {
@@ -740,6 +765,9 @@
 }
 
 .vs-rating-btn:hover { transform: translateY(-2px); }
+.vs-rating-btn:disabled { cursor: not-allowed; }
+.vs-rating-row.is-locked .vs-rating-btn { opacity: .48; filter: saturate(.48); }
+.vs-rating-row.is-locked .vs-rating-btn:hover { transform: none; }
 
 .vs-rating-num {
   width: 28px;
@@ -762,13 +790,13 @@
   text-align: left;
 }
 
-.vs-rating-label { font-size: 14px; font-weight: 800; color: #fff; }
-.vs-rating-time { font-size: 11px; color: rgba(255, 255, 255, 0.75); font-weight: 600; }
+.vs-rating-label { font-size: 14px; font-weight: 800; color: var(--bg-card); }
+.vs-rating-time { font-size: 11px; color: color-mix(in srgb, var(--bg-card) 82%, transparent); font-weight: 700; }
 
-.vs-rt-forgot { background: linear-gradient(135deg, #ef4444, #dc2626); box-shadow: 0 6px 18px rgba(239, 68, 68, 0.3); }
-.vs-rt-hard { background: linear-gradient(135deg, #f59e0b, #d97706); box-shadow: 0 6px 18px rgba(245, 158, 11, 0.3); }
-.vs-rt-good { background: linear-gradient(135deg, #22c55e, #16a34a); box-shadow: 0 6px 18px rgba(34, 197, 94, 0.3); }
-.vs-rt-easy { background: linear-gradient(135deg, #8b5cf6, #7c3aed); box-shadow: 0 6px 18px rgba(139, 92, 246, 0.3); }
+.vs-rt-forgot { background: color-mix(in srgb, var(--color-danger) 99%, var(--bg-card)); border: 1px solid color-mix(in srgb, var(--color-danger) 100%, var(--vs-border)); box-shadow: none; }
+.vs-rt-hard { background: color-mix(in srgb, var(--color-accent) 95%, var(--bg-card)); border: 1px solid color-mix(in srgb, var(--color-accent) 100%, var(--vs-border)); box-shadow: none; }
+.vs-rt-good { background: color-mix(in srgb, var(--color-success) 95%, var(--bg-card)); border: 1px solid color-mix(in srgb, var(--color-success) 100%, var(--vs-border)); box-shadow: none; }
+.vs-rt-easy { background: color-mix(in srgb, var(--color-primary) 95%, var(--bg-card)); border: 1px solid color-mix(in srgb, var(--color-primary) 100%, var(--vs-border)); box-shadow: none; }
 
 .vs-kb-footer {
   display: flex;
@@ -2007,9 +2035,16 @@
   line-height: 1.45;
 }
 
+.vs-notebook-filters {
+  display: grid;
+  grid-template-columns: minmax(14rem, 1fr) minmax(9rem, .55fr) minmax(9rem, .55fr) auto;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
 .vs-notebook-search {
   position: relative;
-  margin-bottom: 16px;
 }
 
 .vs-notebook-search-icon {
@@ -2035,6 +2070,29 @@
 .vs-notebook-search-input:focus {
   border-color: var(--color-primary);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 18%, transparent);
+}
+
+.vs-notebook-filter-select {
+  min-width: 0;
+  height: 40px;
+  padding: 0 28px 0 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 12px;
+  outline: none;
+}
+
+.vs-notebook-filter-select:focus { border-color: var(--color-primary); box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 18%, transparent); }
+
+.vs-notebook-result-count { margin: 0; color: var(--text-muted); font-size: 11px; font-weight: 700; white-space: nowrap; }
+
+@media (max-width: 720px) {
+  .vs-notebook-filters { grid-template-columns: 1fr 1fr; }
+  .vs-notebook-search { grid-column: 1 / -1; }
+  .vs-notebook-result-count { grid-column: 1 / -1; }
 }
 
 .vs-notebook-empty {
@@ -2196,6 +2254,23 @@
   padding: 10px 12px;
   border-radius: 12px;
   background: color-mix(in srgb, var(--color-primary) 8%, var(--bg-secondary));
+}
+
+.vs-notebook-source {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 9px 0 0;
+}
+
+.vs-notebook-source span {
+  padding: 3px 7px;
+  border: 1px solid color-mix(in srgb, var(--color-primary) 35%, var(--border-color));
+  border-radius: 5px;
+  background: color-mix(in srgb, var(--color-primary) 10%, var(--bg-card));
+  color: var(--text-primary);
+  font-size: 11px;
+  font-weight: 700;
 }
 
 .vs-notebook-meta {
@@ -2473,4 +2548,142 @@
   .vs-stat-divider { margin: 0 10px; }
   .vs-quiz-card { padding: 24px 18px; }
   .vs-input-row, .vs-action-row { padding-left: 16px; padding-right: 16px; }
+}
+
+/* SRS Fade Reveal overrides: one class switches state; no 3D rotation. */
+.vs-flip-scene { perspective: none; }
+
+.vs-flip-inner {
+  isolation: isolate;
+  transform: none;
+  transform-style: flat;
+  background-color: color-mix(in srgb, var(--color-primary) 15%, transparent);
+  transition: background-color 360ms ease-out;
+}
+
+.vs-flip-inner.is-flipped {
+  transform: none;
+  background-color: color-mix(in srgb, var(--color-success) 15%, transparent);
+}
+
+.vs-flip-face {
+  backface-visibility: visible;
+  -webkit-backface-visibility: visible;
+  visibility: visible;
+  transform: none;
+  background: transparent;
+  background-image: none;
+  transition: opacity 190ms ease-out, transform 300ms ease-out;
+}
+
+.vs-flip-face-back {
+  visibility: visible;
+  transform: translateY(6px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.vs-flip-inner.is-flipped .vs-flip-face-front {
+  visibility: visible;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.vs-flip-inner.is-flipped .vs-flip-face-back {
+  visibility: visible;
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.vs-flip-face-front .vs-card-word {
+  transition: transform 340ms ease-out;
+  will-change: transform;
+}
+.vs-flip-inner.is-flipped .vs-flip-face-front .vs-card-word { transform: translateY(-18px) scale(.85); }
+
+.vs-flip-face-front .vs-flip-hint { transition: opacity 170ms ease-out, transform 170ms ease-out; }
+.vs-flip-inner.is-flipped .vs-flip-face-front .vs-flip-hint { opacity: 0; transform: translateY(-5px); }
+
+.vs-fade-word,
+.vs-fade-phonetic,
+.vs-flip-face-back .vs-card-meaning {
+  opacity: 0;
+  transform: translateY(8px);
+  will-change: opacity, transform;
+}
+
+.vs-fade-word {
+  margin: 0 0 9px;
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 800;
+  color: var(--vs-text-bright);
+  transition: opacity 200ms ease-out 0ms, transform 200ms ease-out 0ms;
+}
+
+.vs-fade-phonetic {
+  margin: 0 0 10px;
+  color: var(--vs-muted);
+  font-size: 14px;
+  font-style: italic;
+  transition: opacity 220ms ease-out 70ms, transform 220ms ease-out 70ms;
+}
+
+.vs-flip-face-back .vs-card-meaning {
+  transition: opacity 270ms cubic-bezier(.16, 1, .3, 1) 140ms, transform 270ms cubic-bezier(.16, 1, .3, 1) 140ms;
+}
+
+.vs-flip-inner.is-flipped .vs-fade-word,
+.vs-flip-inner.is-flipped .vs-fade-phonetic,
+.vs-flip-inner.is-flipped .vs-flip-face-back .vs-card-meaning {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Rating a card advances through the queue as a short horizontal pass. */
+.vs-flip-scene {
+  overflow: clip;
+}
+
+.vs-flip-scene.is-card-exiting .vs-flip-inner {
+  animation: vs-card-pass-out 180ms cubic-bezier(.4, 0, 1, 1) both;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.vs-flip-scene.is-card-entering .vs-flip-inner {
+  animation: vs-card-pass-in 240ms cubic-bezier(.16, 1, .3, 1) both;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+@keyframes vs-card-pass-out {
+  to {
+    opacity: 0;
+    transform: translateX(-12%);
+  }
+}
+
+@keyframes vs-card-pass-in {
+  from {
+    opacity: 0;
+    transform: translateX(12%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vs-flip-inner,
+  .vs-flip-face,
+  .vs-flip-face-front .vs-card-word,
+  .vs-flip-face-front .vs-flip-hint,
+  .vs-fade-word,
+  .vs-fade-phonetic,
+  .vs-flip-face-back .vs-card-meaning { transition-duration: 1ms; }
+
+  .vs-flip-scene.is-card-exiting .vs-flip-inner,
+  .vs-flip-scene.is-card-entering .vs-flip-inner { animation-duration: 1ms; }
 }

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Settings, Check } from 'lucide-react'
 import { useDailyGoal } from './useDailyGoal'
+import { useI18n } from '../../lib/language'
 
 function GoalRow({
   label,
@@ -46,6 +47,7 @@ function GoalRow({
 }
 
 export default function DailyGoalCard({ className }: { className?: string }) {
+  const { t } = useI18n()
   const {
     goalWords,
     goalTranslations,
@@ -106,14 +108,14 @@ export default function DailyGoalCard({ className }: { className?: string }) {
     >
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-sm font-semibold" style={{ color: 'var(--text-primary)' }}>
-          Mục tiêu hôm nay
+          {t('home.dailyGoal')}
         </h2>
         <button
           type="button"
           onClick={() => (editing ? saveGoals() : openEdit())}
           className="p-1.5 rounded-lg transition-colors hover:bg-[var(--bg-secondary)]"
           style={{ color: 'var(--text-muted)' }}
-          title={editing ? 'Lưu mục tiêu' : 'Sửa mục tiêu'}
+          title={editing ? t('home.saveGoal') : t('home.editGoal')}
         >
           {editing ? <Check size={15} /> : <Settings size={15} />}
         </button>
@@ -122,7 +124,7 @@ export default function DailyGoalCard({ className }: { className?: string }) {
       {editing ? (
         <div className="flex flex-col gap-3 mb-2">
           <label className="flex flex-col gap-1">
-            <span className="text-xs" style={{ color: 'var(--text-muted)' }}>Lượt ôn từ (SRS/quiz/…)</span>
+            <span className="text-xs" style={{ color: 'var(--text-muted)' }}>{t('home.reviewWords')} (SRS/quiz/…)</span>
             <input
               type="number"
               min={1}
@@ -134,7 +136,7 @@ export default function DailyGoalCard({ className }: { className?: string }) {
             />
           </label>
           <label className="flex flex-col gap-1">
-            <span className="text-xs" style={{ color: 'var(--text-muted)' }}>Ôn thẻ đến hạn (due)</span>
+            <span className="text-xs" style={{ color: 'var(--text-muted)' }}>{t('home.dueCards')} (due)</span>
             <input
               type="number"
               min={1}
@@ -146,7 +148,7 @@ export default function DailyGoalCard({ className }: { className?: string }) {
             />
           </label>
           <label className="flex flex-col gap-1">
-            <span className="text-xs" style={{ color: 'var(--text-muted)' }}>Dịch câu / ngày</span>
+            <span className="text-xs" style={{ color: 'var(--text-muted)' }}>{t('home.translatePerDay')}</span>
             <input
               type="number"
               min={1}
@@ -161,14 +163,14 @@ export default function DailyGoalCard({ className }: { className?: string }) {
       ) : (
         <div className="flex flex-col gap-4">
           <GoalRow
-            label="Thẻ đến hạn"
-            hint={dueCount > 0 ? `(còn ${dueCount})` : '(hết due)'}
+            label={t('home.dueCards')}
+            hint={dueCount > 0 ? `(due: ${dueCount})` : '(due: 0)'}
             current={dueReviewedToday}
             target={goalDue}
             pct={duePctDisplay}
           />
-          <GoalRow label="Lượt ôn từ" current={wordsToday} target={goalWords} pct={wordsPct} />
-          <GoalRow label="Dịch câu" current={translationsToday} target={goalTranslations} pct={translationsPct} />
+          <GoalRow label={t('home.reviewWords')} current={wordsToday} target={goalWords} pct={wordsPct} />
+          <GoalRow label={t('home.translate')} current={translationsToday} target={goalTranslations} pct={translationsPct} />
         </div>
       )}
 
@@ -178,7 +180,7 @@ export default function DailyGoalCard({ className }: { className?: string }) {
           style={{ color: 'var(--color-accent)' }}
         >
           <Check size={14} />
-          Đạt mục tiêu (due + ôn)!
+          {t('home.goalDone')}
         </p>
       )}
     </section>

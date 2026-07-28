@@ -1,0 +1,682 @@
+{
+  "version": 1,
+  "title": "PET B1 Reading — Test 2",
+  "durationMinutes": 45,
+  "bandHint": "B1 Preliminary Reading",
+  "examTrack": "cambridge",
+  "cambridgeLevel": "b1",
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–5",
+      "passageTitle": "Part 1 — Signs and messages",
+      "passage": [
+        {
+          "imageFile": "part1-q1.webp"
+        },
+        {
+          "imageFile": "part1-q2.webp"
+        },
+        {
+          "imageFile": "part1-q3.webp"
+        },
+        {
+          "imageFile": "part1-q4.webp"
+        },
+        {
+          "imageFile": "part1-q5.webp"
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 1–5",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 1,
+              "type": "multiple-choice",
+              "prompt": "",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Customers can leave their cars at the parking lot overnight."
+                },
+                {
+                  "id": "B",
+                  "label": "Cars may be taken away if they are left too long."
+                },
+                {
+                  "id": "C",
+                  "label": "Customers are allowed to park for a short time."
+                }
+              ],
+              "answer": "b",
+              "explanation": "The key idea in the sign is the warning at the end: cars 'may be removed' if they are left after the customer has finished using the facilities. This means parking is only allowed while someone is actually inside. Option B expresses this consequence clearly. Option A is not mentioned. Option C changes the meaning by introducing 'a short time,' which is not mentioned in the text."
+            },
+            {
+              "number": 2,
+              "type": "multiple-choice",
+              "prompt": "",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "They can receive their tickets by email before arriving."
+                },
+                {
+                  "id": "B",
+                  "label": "They will be able to buy tickets at the entrance."
+                },
+                {
+                  "id": "C",
+                  "label": "They should arrive early to pick up the tickets."
+                }
+              ],
+              "answer": "c",
+              "explanation": "Liam explains that the tickets have already been bought, but they must be collected at the venue, and he adds that they should arrive with enough time. This clearly suggests arriving early to pick them up. Option C reflects both ideas. Option A is incorrect because the tickets are not sent electronically. Option B is also wrong, as there is no need to buy tickets—they are already ordered."
+            },
+            {
+              "number": 3,
+              "type": "multiple-choice",
+              "prompt": "",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "The milk in the door should be used before the other one."
+                },
+                {
+                  "id": "B",
+                  "label": "The milk in the blue carton should be kept for later."
+                },
+                {
+                  "id": "C",
+                  "label": "Guests will use the milk from the fridge door."
+                }
+              ],
+              "answer": "b",
+              "explanation": "The note separates the milk into two types: one is for guests, and the other should be used now. This means the blue carton must be kept and not used yet, which is exactly what option B says. Option A focuses on using the other milk but does not clearly express the idea of saving the blue carton. Option C misunderstands the message by suggesting guests will use the milk from the door, which is the opposite of what the note says."
+            },
+            {
+              "number": 4,
+              "type": "multiple-choice",
+              "prompt": "",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Students can improve their work before Friday."
+                },
+                {
+                  "id": "B",
+                  "label": "All assignments will be marked after Friday."
+                },
+                {
+                  "id": "C",
+                  "label": "Work handed in late might not count towards the final result."
+                }
+              ],
+              "answer": "c",
+              "explanation": "The important part of the message is the condition 'otherwise it may not be included in your final mark.' This means that if students submit work after Friday, there is a risk it will not count. Option C expresses this idea accurately. Option A introduces a new idea about improving work, which is not mentioned. Option B also adds information that is not in the message, as there is no detail about when marking will happen."
+            },
+            {
+              "number": 5,
+              "type": "multiple-choice",
+              "prompt": "",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "They may not be able to sit inside as easily as usual."
+                },
+                {
+                  "id": "B",
+                  "label": "The café will close earlier than normal."
+                },
+                {
+                  "id": "C",
+                  "label": "Only takeaway orders will be accepted this evening."
+                }
+              ],
+              "answer": "a",
+              "explanation": "The notice explains that seating inside will be limited, which means there will be fewer places available than usual. Option A captures this idea. Option B is incorrect because there is no information about closing early. Option C is also wrong, as takeaway service will continue normally, so customers are not limited to takeaway only."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "rangeLabel": "Questions 6–10",
+      "passageTitle": "Part 2 — Matching people",
+      "passage": [],
+      "questionGroups": [
+        {
+          "range": "Questions 6–10",
+          "type": "matching-features",
+          "features": [
+            {
+              "id": "A",
+              "label": "Watercolour for Beginners"
+            },
+            {
+              "id": "B",
+              "label": "Pottery Open Studio"
+            },
+            {
+              "id": "C",
+              "label": "Parent and Child Craft Morning"
+            },
+            {
+              "id": "D",
+              "label": "Night Photography Workshop"
+            },
+            {
+              "id": "E",
+              "label": "One-Day Furniture Painting Masterclass"
+            },
+            {
+              "id": "F",
+              "label": "Digital Photography: Low Light Skills"
+            },
+            {
+              "id": "G",
+              "label": "Saturday Art Club for Kids"
+            },
+            {
+              "id": "H",
+              "label": "Introduction to Oil Painting"
+            }
+          ],
+          "questions": [
+            {
+              "number": 6,
+              "type": "matching-features",
+              "prompt": "Anton is a complete beginner at painting. He works Monday to Friday, 9 a.m. to 5:30 p.m., so he can only attend evening sessions. He doesn't want to spend a lot of money on materials upfront and would prefer a course where equipment is included in the price.",
+              "answer": "a",
+              "explanation": "Anton needs a class for complete beginners that runs in the evening. He also wants materials to be included in the price. Text A is for beginners, takes place on Tuesday evenings, and provides all paints and paper. Text H is also for beginners but runs at weekends and you must buy your own materials."
+            },
+            {
+              "number": 7,
+              "type": "matching-features",
+              "prompt": "Sofia is a university student studying photography. She is already quite skilled and wants to learn a very specific technique: how to take good pictures in low light without using a flash. She has a limited budget and needs a course that offers a student discount.",
+              "answer": "f",
+              "explanation": "Sofia is already good at photography and wants to learn about taking pictures in low light without flash. She also needs a student discount. Text F focuses exactly on low light photography and offers a lower price for students. Text D covers the same skill but has no student discount."
+            },
+            {
+              "number": 8,
+              "type": "matching-features",
+              "prompt": "Colton wants to find a weekend activity he can do with his eight-year-old daughter. He is not artistic himself, so he needs something structured where an instructor guides them step by step. He would like to take home whatever they make during the session.",
+              "answer": "c",
+              "explanation": "Colton wants a weekend activity to do together with his young daughter. He wants clear instructions and to take home what they make. Text C is on Saturday mornings, is for parents and children, and includes step-by-step guidance from a teacher. Text G is also on Saturdays for children, but parents do not stay."
+            },
+            {
+              "number": 9,
+              "type": "matching-features",
+              "prompt": "Margot is retired and has a lot of free time during the week. Years ago she enjoyed making things with her hands, and now she wants to take up a creative hobby again. She feels a bit rusty and would prefer a relaxed, social atmosphere where she can work at her own speed rather than following a strict lesson plan.",
+              "answer": "b",
+              "explanation": "Diane is free during weekdays. She has some past experience making things and wants a relaxed place to practise without strict lessons. Text B runs on weekday mornings, expects some previous experience, and lets people work independently with help available if they ask. Text A is in the evening and follows a set lesson plan for beginners."
+            },
+            {
+              "number": 10,
+              "type": "matching-features",
+              "prompt": "Leo is looking for a short, intensive course he can complete in just one day. He wants to learn a practical skill he can use immediately, preferably something related to home decoration. He is happy to pay more for individual attention from the teacher. ABCDEFGH A. Watercolour for Beginners A six-week course held every Tuesday evening from 7 p.m. to 9 p.m. No previous experience needed. All paints, brushes, and paper are provided. Just bring yourself. £85 for the full course. B. Pottery Open Studio Join our friendly community of pottery lovers. Sessions run Tuesday and Thursday mornings, 10 a.m. – 1 p.m. An experienced potter is available to give advice if you ask, but there is no formal teaching. Suitable for those with some previous experience who want to practise independently. £12 per session, pay as you go. Clay and glazes available to buy on site. C. Parent and Child Craft Morning Every Saturday, 10 a.m. – 11:30 a.m. Designed for children aged 5–10 and their grown-ups. Each week we make a different project—from painted plant pots to simple wooden toys. All materials included. The instructor demonstrates each step clearly, so no artistic ability is required. £18 per pair, per session. D. Night Photography Workshop A one-day intensive course for intermediate photographers. Learn to capture city scenes after dark without using flash. Saturday 2 p.m. – 9 p.m. (includes evening practical session). Bring your own camera and tripod. £95. Please note: no discounts are available for this specialist workshop. E. One-Day Furniture Painting Masterclass Transform an old piece of furniture in just one day. This course runs on occasional Sundays, 10 a.m. – 4 p.m. Because of the detailed nature of the work, class sizes are kept very small (maximum 4 students). You'll learn sanding, priming, and decorative finishing techniques. All paint and equipment provided. £120, including a light lunch. F. Digital Photography: Low Light Skills A four-week online course focusing specifically on night photography and indoor shooting without flash. The course is self-paced, with new video lessons released each Monday. Access to an online community forum for feedback on your work. £60 standard / £45 for students with valid ID. G. Saturday Art Club for Kids Drop your 7–12 year olds off for two hours of creative fun while you do the shopping. Our qualified art teachers lead structured activities including painting, collage, and clay modelling. Runs every Saturday 9:30 a.m. – 11:30 a.m. £15 per child, per session. Parents do not stay. H. Introduction to Oil Painting A weekend workshop for absolute beginners, Saturday and Sunday 10 a.m. – 3 p.m. You will complete one small canvas to take home. A list of required materials is sent after booking; you will need to buy your own brushes and paints (approximately £30–40). Course fee: £110. <div class=\"",
+              "answer": "e",
+              "explanation": "Leo is looking for a one-day course where he can learn a skill for home decoration. He is willing to pay more for small class sizes. Text E is a one-day furniture painting course with very small groups and all materials provided. Text H is a weekend course (two days), and Text D is about photography, not home decoration."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "rangeLabel": "Questions 11–15",
+      "passageTitle": "Part 3 — Reading passage",
+      "passage": [
+        {
+          "text": "For each question choose the correct answer.\n\nThe Wrong Train HomeLast October, I travelled to Edinburgh for a friend's wedding. It was a lovely weekend, full of celebration and catching up with people I hadn't seen in years. By Sunday afternoon, I was exhausted but happy. I made my way to Waverley Station, found a seat on the 15:42 train to Newcastle, and fell asleep almost immediately.\n\nI woke up about an hour later. The train was stationary, and the carriage was almost empty. Outside the window, the station sign said 'Carlisle.' For a moment, I felt confused. Carlisle is in the opposite direction from Newcastle. I had got on the wrong train.\n\nI grabbed my bag and hurried onto the platform just as the doors were closing. The station was small and quiet. The next train back towards Newcastle wasn't for another two hours. I sighed, found a bench, and accepted my mistake. There was no point getting angry about something I couldn't change.\n\nThat's when I noticed the bookshop. It was one of those tiny independent shops that you rarely see in big city stations anymore. The window display was full of old maps and travel writing. I had time to kill, so I went inside.\n\nThe owner was an elderly man with bright eyes and a Scottish accent so thick I had to concentrate to understand him. We started talking about the maps in the window, and somehow the conversation turned to my grandfather, who had worked on the railways his whole life. The man listened carefully, then disappeared into a back room. He returned with a worn book about the history of the Carlisle railway line. 'Your grandfather would have known this stretch well,' he said.\n\nI bought the book and spent the next two hours reading it on the platform bench, completely absorbed. When my train finally arrived, I almost didn't want to leave.\n\nI eventually got home around nine o'clock that evening, much later than planned. My flatmate asked if I was annoyed about the delay. I thought about the quiet station, the kind bookshop owner, and the book now sitting in my bag. 'No,' I said. 'It was actually the best part of the weekend.'"
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 11–15",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 11,
+              "type": "multiple-choice",
+              "prompt": "How did the writer feel when she got on the train at Edinburgh?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Annoyed that the weekend was over."
+                },
+                {
+                  "id": "B",
+                  "label": "Tired after a busy social event."
+                },
+                {
+                  "id": "C",
+                  "label": "Worried that she might fall asleep."
+                },
+                {
+                  "id": "D",
+                  "label": "Excited to be going home."
+                }
+              ],
+              "answer": "b",
+              "explanation": "The first paragraph says: 'By Sunday afternoon, I was exhausted but happy.' This matches 'tired after a busy social event.' A is wrong (she was happy, not annoyed). C is wrong (she wasn't worried; she fell asleep immediately). D is wrong (there is nothing in the text mentioning excitement about going home)."
+            },
+            {
+              "number": 12,
+              "type": "multiple-choice",
+              "prompt": "What did the writer do immediately after realising her mistake?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "She decided to wait on the train until the next stop."
+                },
+                {
+                  "id": "B",
+                  "label": "She became annoyed but tried to stay calm."
+                },
+                {
+                  "id": "C",
+                  "label": "She got off the train quickly."
+                },
+                {
+                  "id": "D",
+                  "label": "She looked around for a member of staff."
+                }
+              ],
+              "answer": "c",
+              "explanation": "In the third paragraph, the writer states that as soon as she realised she was in Carlisle, she 'grabbed my bag and hurried onto the platform just as the doors were closing.' This describes her getting off the train quickly. Option A is incorrect because although the train was stationary, she chose to get off rather than remain on board. Option B is incorrect because while she does later accept her mistake calmly, this reflection happens after she has already left the train and sat down on the bench. Option D is incorrect because the text makes no mention of her looking for a member of staff at this moment; the bookshop owner is not a staff member and he appears later in the story."
+            },
+            {
+              "number": 13,
+              "type": "multiple-choice",
+              "prompt": "What does the writer say about the bookshop at Carlisle station?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "It was larger than she had expected."
+                },
+                {
+                  "id": "B",
+                  "label": "It was the kind of shop rarely found in major stations."
+                },
+                {
+                  "id": "C",
+                  "label": "It only sold books about trains and railways."
+                },
+                {
+                  "id": "D",
+                  "label": "It was about to close when she arrived."
+                }
+              ],
+              "answer": "b",
+              "explanation": "Paragraph four: 'It was one of those tiny independent shops that you rarely see in big city stations anymore.' This is a direct match. A is wrong ('tiny,' not larger). C is wrong (it had maps and travel writing, not only railways). D is wrong (no mention of closing time)."
+            },
+            {
+              "number": 14,
+              "type": "multiple-choice",
+              "prompt": "How did the writer feel during the two hours she waited at Carlisle?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "She wished she had stayed on the train."
+                },
+                {
+                  "id": "B",
+                  "label": "She became interested in something unexpected."
+                },
+                {
+                  "id": "C",
+                  "label": "She kept checking the time, hoping the wait would pass quickly."
+                },
+                {
+                  "id": "D",
+                  "label": "She regretted not bringing something to read."
+                }
+              ],
+              "answer": "b",
+              "explanation": "After buying the book, the author spent the next two hours 'completely absorbed' in reading it on the platform bench. She adds that when her train finally arrived, she 'almost didn't want to leave.' This indicates that she became genuinely interested in something she had not expected to find during her wait. Option A is incorrect &#8211; she never expresses any wish that she had remained on the wrong train. Option C is wrong &#8211; rather than anxiously watching the clock, she was so engaged in the book that time passed without her noticing. Finally, answer D doesn't fit because although she did not have a book with her initially, the text does not say that she regretted this; she simply bought one when the opportunity came."
+            },
+            {
+              "number": 15,
+              "type": "multiple-choice",
+              "prompt": "Which of the following best describes what the writer learned from this experience?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "An unplanned change to your journey can sometimes lead to something valuable."
+                },
+                {
+                  "id": "B",
+                  "label": "It is always worth paying extra for a faster train ticket."
+                },
+                {
+                  "id": "C",
+                  "label": "Small bookshops are more interesting than large station shops."
+                },
+                {
+                  "id": "D",
+                  "label": "You should always check the destination before getting on a train."
+                }
+              ],
+              "answer": "a",
+              "explanation": "Throughout the text, the writer describes how what seemed like an annoying mistake &#8211; getting on the wrong train &#8211; led to a peaceful afternoon, a kind conversation with the bookshop owner, and a book that connected her to her grandfather's past. She tells her flatmate that the delay was 'the best part of the weekend.' Option B is incorrect because the text makes no comparison between trains and other forms of transport. Option C is a true detail from the passage, as the writer does mention that such small bookshops are rarely found in large stations, but this is only background information and does not represent the overall lesson or main point of the story. Option D is incorrect because the writer's mistake was boarding the wrong train, not waiting on the wrong platform, and more importantly, the story ends by valuing the experience rather than warning against future errors."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 4,
+      "rangeLabel": "Questions 16–20",
+      "passageTitle": "Part 4 — The Unexpected Garden",
+      "passage": [
+        {
+          "text": "The Unexpected GardenWhen my neighbour Mrs Chen moved into a care home last spring, she asked me to look after her garden. I agreed, mostly because I felt I should be helpful. [GAP 16] I lived in a flat and had never grown so much as a potted plant in my life.\n\nThe first time I unlocked her gate, I felt completely overwhelmed. The garden was much larger than it looked from the street. There were flower beds, a small vegetable patch, and a little greenhouse in the corner. [GAP 17] I pulled out my phone and spent twenty minutes searching for advice online, but it only made me more confused.\n\nI decided to start with something simple. I found a watering can in the shed and gave everything a good soak. [GAP 18] She told me which plants needed shade and which ones needed to be cut back. After an hour, I had filled three pages of notes.\n\nWeek by week, I began to understand the rhythm of the place. I learned that the tomatoes needed support sticks, that the roses hated being watered in the evening, and that something called bindweed had to be pulled out the moment it appeared. [GAP 19] I found myself looking forward to my visits. The quiet concentration of weeding or deadheading flowers cleared my mind in a way I hadn't expected.\n\nBy the end of the summer, the garden looked better than ever. Mrs Chen's son sent me a photo of her sitting by her window at the care home, smiling at a bunch of flowers I had picked from her own garden. [GAP 20] She just wanted to know that it was being loved. I realised then that I had got far more out of the arrangement than I had given."
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 16–20",
+          "type": "matching-features",
+          "features": [
+            {
+              "id": "A",
+              "label": "I didn't even know the names of most of the plants."
+            },
+            {
+              "id": "B",
+              "label": "She had left detailed instructions in a blue folder on the kitchen table."
+            },
+            {
+              "id": "C",
+              "label": "The truth was, though, that I had absolutely no idea what I was doing."
+            },
+            {
+              "id": "D",
+              "label": "It turned out that was exactly the right thing to do, according to Mrs Chen's granddaughter who stopped by later that week."
+            },
+            {
+              "id": "E",
+              "label": "My own flat started to feel smaller and more crowded every time I returned from there."
+            },
+            {
+              "id": "F",
+              "label": "That picture made me understand something important: she hadn't asked me to be an expert."
+            },
+            {
+              "id": "G",
+              "label": "I was worried that I might accidentally destroy something valuable."
+            },
+            {
+              "id": "H",
+              "label": "I immediately went out and bought several gardening books to study."
+            }
+          ],
+          "questions": [
+            {
+              "number": 16,
+              "type": "matching-features",
+              "prompt": "re home last spring, she asked me to look after her garden. I agreed, mostly because I felt I should be helpful. 16 ABC<",
+              "answer": "c",
+              "explanation": "The previous sentence explains that the writer agreed to look after the garden because she felt helpful. The following sentence reveals that she lived in a flat and had never grown anything. Sentence C bridges these two ideas perfectly: 'The truth was, though, that I had absolutely no idea what I was doing.' The word 'though' signals the contrast between her willingness to help and her complete lack of experience."
+            },
+            {
+              "number": 17,
+              "type": "matching-features",
+              "prompt": "looked from the street. There were flower beds, a small vegetable patch, and a little greenhouse in the corner. 17 ABC<",
+              "answer": "a",
+              "explanation": "The gap follows a description of the garden's size and its various sections, which made the writer feel overwhelmed. Sentence A continues this idea naturally: 'I didn't even know the names of most of the plants.' This explains why she then reached for her phone to search for advice online. The phrase 'even' adds emphasis to her sense of being out of her depth."
+            },
+            {
+              "number": 18,
+              "type": "matching-features",
+              "prompt": "d. I decided to start with something simple. I found a watering can in the shed and gave everything a good soak. 18 ABC<",
+              "answer": "d",
+              "explanation": "The sentence before the gap describes the writer's first action: watering everything with a can she found in the shed. Sentence D refers back to this action with 'that was exactly the right thing to do' and introduces Mrs Chen's granddaughter, who provides the detailed guidance mentioned in the following sentence ('She told me which plants needed shade&#8230;')."
+            },
+            {
+              "number": 19,
+              "type": "matching-features",
+              "prompt": "ed being watered in the evening, and that something called bindweed had to be pulled out the moment it appeared. 19 ABC<",
+              "answer": "e",
+              "explanation": "This paragraph describes how the writer gradually became more comfortable in the garden and began to enjoy her visits. Sentence E shows the effect this had on her life outside the garden: 'My own flat started to feel smaller and more crowded every time I returned from there.' This contrast reinforces the sense of peace and space she found in the garden."
+            },
+            {
+              "number": 20,
+              "type": "matching-features",
+              "prompt": "o of her sitting by her window at the care home, smiling at a bunch of flowers I had picked from her own garden. 20 ABC<",
+              "answer": "f",
+              "explanation": "The previous sentence describes the photograph of Mrs Chen smiling at the flowers. The following sentence explains what Mrs Chen really wanted: 'She just wanted to know that it was being loved.' Sentence F connects these ideas by expressing the writer's realisation: 'That picture made me understand something important: she hadn't asked me to be an expert.' The word 'that' refers directly to the photograph mentioned immediately before."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 5,
+      "rangeLabel": "Questions 21–26",
+      "passageTitle": "Part 5 — A New Way to Travel",
+      "passage": [],
+      "questionGroups": [
+        {
+          "range": "Questions 21–26",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 21,
+              "type": "multiple-choice",
+              "prompt": "to the coast. It was a distance of about eighty kilometres, which we knew would ____ us most of the day. We set off early on a Saturday morning. The first hour was lovely, with the sun just coming up and very",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "need"
+                },
+                {
+                  "id": "B",
+                  "label": "take"
+                },
+                {
+                  "id": "C",
+                  "label": "spend"
+                },
+                {
+                  "id": "D",
+                  "label": "pass"
+                }
+              ],
+              "answer": "b",
+              "explanation": "The verb 'take' is commonly used to describe the amount of time that an activity requires. We say 'it will take us most of the day' to mean that the journey will occupy that period. Option A is incorrect because 'need' would require a different grammatical structure, such as 'we would need most of the day.' Option C is incorrect because 'spend' must be followed by a person as the subject, as in 'we would spend most of the day.' Option D doesn't fit as 'pass' does not collocate naturally with a duration of time in this context."
+            },
+            {
+              "number": 22,
+              "type": "multiple-choice",
+              "prompt": "aturday morning. The first hour was lovely, with the sun just coming up and very ____ traffic on the country roads. By mid-morning, however, my legs were starting to ache. Maria was telling me to drink more water and to",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "few"
+                },
+                {
+                  "id": "B",
+                  "label": "little"
+                },
+                {
+                  "id": "C",
+                  "label": "light"
+                },
+                {
+                  "id": "D",
+                  "label": "small"
+                }
+              ],
+              "answer": "b",
+              "explanation": "'Traffic' is an uncountable noun, which means it must be used with 'little' rather than 'few.' The phrase 'very little traffic' means that there were not many cars on the road. We can't choose Option A for this reason. Option C is incorrect because 'light' is an adjective and the sentence already contains the word 'very,' which must be followed by an appropriate quantifier or adjective. We don't use Option D because 'small traffic' is an incorrect collocation."
+            },
+            {
+              "number": 23,
+              "type": "multiple-choice",
+              "prompt": ", my legs were starting to ache. Maria was telling me to drink more water and to ____ going no matter how tired I felt. 'We're nearly halfway,' she said, although I wasn't entirely sure I believed her. We stopped for lunch in a small village. There was a little café by the river where we ate sandwiches and rested for a while. The owner was very friendly and asked us where we were going. When we told him, he looked impressed and",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "keep"
+                },
+                {
+                  "id": "B",
+                  "label": "hold"
+                },
+                {
+                  "id": "C",
+                  "label": "carry"
+                },
+                {
+                  "id": "D",
+                  "label": "stay"
+                }
+              ],
+              "answer": "a",
+              "explanation": "To keep going means to continue moving forward, especially if it is difficult. Maria is encouraging the writer not to stop cycling, even though she is tired. 'Hold' doesn't collocate with 'going'; one can 'hold on' or 'keep holding on,' but not 'hold going.' Option C is incorrect because although 'carry on' is a valid phrasal verb meaning to continue, 'carry going' is not a standard expression. Finally, Option D is incorrect because 'stay going' is not a recognised collocation; 'stay' typically pairs with adjectives ('to stay strong') rather than with the verb 'going.'"
+            },
+            {
+              "number": 24,
+              "type": "multiple-choice",
+              "prompt": "ndly and asked us where we were going. When we told him, he looked impressed and ____ us both a free slice of cake. It was exactly what we needed. The afternoon was harder, but we pushed each other onwards. When we finally saw the sea in the distance, I felt a huge sense of",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "served"
+                },
+                {
+                  "id": "B",
+                  "label": "offered"
+                },
+                {
+                  "id": "C",
+                  "label": "provided"
+                },
+                {
+                  "id": "D",
+                  "label": "presented"
+                }
+              ],
+              "answer": "b",
+              "explanation": "The verb 'offered' means to present something to someone and allow them to accept or decline it. In this context, the café owner 'offered us a free slice of cake' as a kind gesture, which suggests generosity and gives the customers the freedom to accept. Option A is incorrect because 'served' is typically used when bringing food that has been formally ordered from a menu, whereas this cake was an unexpected gift. Option C doesn't fit because 'provided' is more formal in tone and is usually followed by 'with,' as in 'provided us with cake.' Option D is wrong as 'presented' is too formal for this friendly, casual encounter and often implies a ceremonial or official act of giving."
+            },
+            {
+              "number": 25,
+              "type": "multiple-choice",
+              "prompt": "her onwards. When we finally saw the sea in the distance, I felt a huge sense of ____ . We had actually done it. We found a place to stay, locked up our bikes, and went straight to the beach to put our feet in the cold water. It took us three days to recover, but I'm really glad we made the",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "pride"
+                },
+                {
+                  "id": "B",
+                  "label": "success"
+                },
+                {
+                  "id": "C",
+                  "label": "happiness"
+                },
+                {
+                  "id": "D",
+                  "label": "achievement"
+                }
+              ],
+              "answer": "d",
+              "explanation": "The expression 'a sense of achievement' is a common fixed phrase in English that describes the feeling of satisfaction a person has after completing something difficult or meaningful. It is the most appropriate choice here because the writer has just finished a long and demanding bicycle journey. While 'a sense of pride' is also a valid phrase, 'achievement' more directly captures the feeling of having successfully reached a goal. Option B is incorrect because 'a sense of success' is not a natural or widely used collocation. We don't go with answer C because 'a sense of happiness' is grammatically possible, but too general and lacks the specific connection to completing a challenge that the text hints at."
+            },
+            {
+              "number": 26,
+              "type": "multiple-choice",
+              "prompt": "he cold water. It took us three days to recover, but I'm really glad we made the ____ to go. I'd never travelled that way before, and it made the destination feel earned. <div class=\"",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "attempt"
+                },
+                {
+                  "id": "B",
+                  "label": "effort"
+                },
+                {
+                  "id": "C",
+                  "label": "try"
+                },
+                {
+                  "id": "D",
+                  "label": "move"
+                }
+              ],
+              "answer": "b",
+              "explanation": "If you make the effort to do something, then you put in the necessary work or energy to accomplish it. It fits the context perfectly because the writer is thinking about the challenging bicycle journey and expressing satisfaction that they went for it despite the difficulty. Option A is incorrect because 'made the attempt' implies that the action was tried but may not have been completed successfully; the text, however, confirms that they did reach the coast. 'Made the try' is not a natural collocation in English; while one can 'have a try' or 'give it a try,' the verb 'make' does not pair with 'try' in this way. Option D is wrong because 'made the move' typically refers to taking action, especially one that is risky or difficult."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 6,
+      "rangeLabel": "Questions 27–32",
+      "passageTitle": "Part 6 — A Strange Kind of Music",
+      "passage": [
+        {
+          "text": "Write one word for each gap.\n\nA Strange Kind of MusicWhen I was fourteen, my aunt gave me a musical instrument for my birthday. It was not a guitar or a piano,"
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 27–32",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "number": 27,
+              "type": "gap-fill",
+              "prompt": "a small wooden flute she had bought on a trip to South America. I thanked her politely, but secretly I thought it looked like a toy. I put it on a shelf and forgot",
+              "answer": "but",
+              "explanation": "We use 'but' to show a contrast between two ideas. The sentence says the instrument was not a guitar or piano, and then it tells us what it really was. The structure 'not&#8230; but&#8230;' is very common for this kind of correction. The word 'and' would be wrong here because 'and' adds information rather than showing a difference."
+            },
+            {
+              "number": 28,
+              "type": "gap-fill",
+              "prompt": "it for almost two years. Then, one rainy Sunday afternoon, I was bored and started looking through my old things. I found the flute, still in",
+              "answer": "about",
+              "explanation": "The phrase 'forget about something' means to stop thinking about it or to put it out of your mind. The writer put the flute on a shelf and then stopped thinking about it completely. The word 'of' does not work here because we do not say 'forget of it' in English."
+            },
+            {
+              "number": 29,
+              "type": "gap-fill",
+              "prompt": "original box, and decided to try it. The sound it made was unlike anything I had heard before. It was soft and slightly sad, and",
+              "answer": "its",
+              "explanation": "We need a word that shows the box belongs to the flute. 'Its' is the possessive form for things or animals. The word 'the' would be possible but not as natural here because the sentence is talking about the specific box that belonged to this particular flute."
+            },
+            {
+              "number": 30,
+              "type": "gap-fill",
+              "prompt": "note seemed to hang in the air for a long time. I started practising every evening after school. My family were not very patient at first. My brother said it sounded",
+              "answer": "each/every",
+              "explanation": "Both words mean 'all of them, one by one.' The writer is saying that every single note she played had this soft, hanging quality. The word 'the' would be incorrect because 'the note' would point to just one specific note, but she is describing all of them."
+            },
+            {
+              "number": 31,
+              "type": "gap-fill",
+              "prompt": "a cat in pain. But I kept going, and slowly I began to improve. I found videos online and learned how to play simple tunes. There was something calming about controlling my breathing and producing a c...",
+              "answer": "like",
+              "explanation": "We use 'sound like' to compare one sound to another thing. The brother compared her flute playing to the sound of a cat in pain. The word 'as' would be incorrect here because 'as' is followed by a full phrase with a verb, such as 'as if a cat was crying.'"
+            },
+            {
+              "number": 32,
+              "type": "gap-fill",
+              "prompt": "a long day. Now, several years later, I still play that same flute. My aunt passed away last year, and the instrument feels even more precious to me now. It reminds me that sometimes the best gifts ar...",
+              "answer": "after",
+              "explanation": "The sentence means that playing the flute helped her relax once the long day had finished. 'After a long day' is a very common time expression. The word 'in' would mean she relaxed during the day, but the text suggests she played in the evenings when the day was over.\n\nVocabularyThe vocabulary below is meant to help you with the more difficult words. If the word isn't on the list then you are either supposed to know it or it is too specific to be worth learning and you don't have to know it to answer the question. Symbols in brackets mean part of speech (see bottom of the list). Sentences in italics give examples of usage for some more complex words and phrases.\n\nAnd remember — you are not given a vocabulary list (or a dictionary) at your real exam."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
