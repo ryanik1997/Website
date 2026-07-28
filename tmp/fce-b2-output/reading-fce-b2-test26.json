@@ -8,16 +8,10 @@
       "id": "catalog-reading-fce-b2-test26-part-1",
       "partNumber": 1,
       "rangeLabel": "Questions 1–8",
-      "passageTitle": "Ecotourism: is there a downside?",
+      "passageTitle": "How polite are the British?",
       "passage": [
         {
-          "text": "Tourism is an important 0 _____ of the global economy and ecotourism has been growing more rapidly than any other sector in the industry recently. Over the past decade, it has grown 1 in over with by almost 400% – an unprecedented figure in such niche area."
-        },
-        {
-          "text": "Ecotourism aims to be the most sustainable, environmentally 2 amicable friendly acceptable safe tourism possible. The word has been in use 3 from since for after 1983 to describe how adventurous people visit relatively unexplored parts of the world without harming the environment. All the 4 money incomes profits benefits that are received from this type of tourism generally help support the local economy and environmental projects."
-        },
-        {
-          "text": "Is a tourist’s carbon 5 imprint handprint footprint fingerprint the only consideration? Sadly, it’s not. Let’s look at Kenya, where 6 journeys visits trips raids on safari are usually in the morning. This is when lions like to hunt. However, the ecotourists 7 upset frighten shock annoy many other animals away, meaning that any lions in the area have to hunt in the hot, tiring hours of the day. 8 Distinctly Clearly Openly Questionably , it’s better to shoot pictures of animals than to shoot guns at them, but ecotourists or not, the animals would probably just prefer to be left alone."
+          "text": "An 0_____ stereotype suggests that the British are polite, but have you (1) ..... asked yourself whether that’s really true? Imagine two situations: in the first, you are (2) ..... for a bus, when someone walks into you; in the second, you have (3) ..... sat down on the Tube, when the person next to you stands on your foot as they are getting up. Who should say sorry – you, or the person who made the mistake? In most countries, it would be the person (4) ..... for the mistake. However, it’s (5) ..... more likely in the UK that both you and the person who made the mistake would apologise to (6) ..... other! Why? The (7) ..... may come from a recent survey in a national newspaper which found that people tend to use the word ‘sorry’ automatically and most admit to never meaning it at all. Perhaps the British are not as polite (8) ..... we might think after all!"
         }
       ],
       "questionGroups": [
@@ -30,218 +24,242 @@
             {
               "id": "catalog-reading-fce-b2-test26-part-1-q1",
               "number": 1,
+              "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "ever.",
+              "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "Gap (1)",
               "options": [
                 {
-                  "id": "1",
-                  "label": "in"
+                  "id": "a",
+                  "label": "never"
                 },
                 {
-                  "id": "2",
-                  "label": "over"
+                  "id": "b",
+                  "label": "ever"
                 },
                 {
-                  "id": "3",
-                  "label": "with"
+                  "id": "c",
+                  "label": "yet"
                 },
                 {
-                  "id": "4",
-                  "label": "by"
+                  "id": "d",
+                  "label": "before"
                 }
-              ],
-              "answer": "d",
-              "explanation": "by.",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-1-q2",
               "number": 2,
+              "answer": "c",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "waiting.",
+              "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "Gap (2)",
               "options": [
                 {
-                  "id": "1",
-                  "label": "amicable"
+                  "id": "a",
+                  "label": "expecting"
                 },
                 {
-                  "id": "2",
-                  "label": "friendly"
+                  "id": "b",
+                  "label": "standing"
                 },
                 {
-                  "id": "3",
-                  "label": "acceptable"
+                  "id": "c",
+                  "label": "waiting"
                 },
                 {
-                  "id": "4",
-                  "label": "safe"
+                  "id": "d",
+                  "label": "looking"
                 }
-              ],
-              "answer": "b",
-              "explanation": "friendly.",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-1-q3",
               "number": 3,
+              "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "just.",
+              "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "Gap (3)",
               "options": [
                 {
-                  "id": "1",
-                  "label": "from"
+                  "id": "a",
+                  "label": "yet"
                 },
                 {
-                  "id": "2",
-                  "label": "since"
+                  "id": "b",
+                  "label": "just"
                 },
                 {
-                  "id": "3",
-                  "label": "for"
-                },
-                {
-                  "id": "4",
+                  "id": "c",
                   "label": "after"
+                },
+                {
+                  "id": "d",
+                  "label": "later"
                 }
-              ],
-              "answer": "b",
-              "explanation": "since.",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-1-q4",
               "number": 4,
+              "answer": "d",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "responsible.",
+              "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "Gap (4)",
               "options": [
                 {
-                  "id": "1",
-                  "label": "money"
+                  "id": "a",
+                  "label": "dishonest"
                 },
                 {
-                  "id": "2",
-                  "label": "incomes"
+                  "id": "b",
+                  "label": "charged"
                 },
                 {
-                  "id": "3",
-                  "label": "profits"
+                  "id": "c",
+                  "label": "wrong"
                 },
                 {
-                  "id": "4",
-                  "label": "benefits"
+                  "id": "d",
+                  "label": "responsible"
                 }
-              ],
-              "answer": "c",
-              "explanation": "profits.",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-1-q5",
               "number": 5,
+              "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "far.",
+              "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "Gap (5)",
               "options": [
                 {
-                  "id": "1",
-                  "label": "imprint"
+                  "id": "a",
+                  "label": "the"
                 },
                 {
-                  "id": "2",
-                  "label": "handprint"
+                  "id": "b",
+                  "label": "far"
                 },
                 {
-                  "id": "3",
-                  "label": "footprint"
+                  "id": "c",
+                  "label": "less"
                 },
                 {
-                  "id": "4",
-                  "label": "fingerprint"
+                  "id": "d",
+                  "label": "better"
                 }
-              ],
-              "answer": "c",
-              "explanation": "footprint.",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-1-q6",
               "number": 6,
+              "answer": "c",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "each.",
+              "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "Gap (6)",
               "options": [
                 {
-                  "id": "1",
-                  "label": "journeys"
+                  "id": "a",
+                  "label": "you"
                 },
                 {
-                  "id": "2",
-                  "label": "visits"
+                  "id": "b",
+                  "label": "an"
                 },
                 {
-                  "id": "3",
-                  "label": "trips"
+                  "id": "c",
+                  "label": "each"
                 },
                 {
-                  "id": "4",
-                  "label": "raids"
+                  "id": "d",
+                  "label": "one"
                 }
-              ],
-              "answer": "c",
-              "explanation": "trips.",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-1-q7",
               "number": 7,
+              "answer": "a",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "explanation.",
+              "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "Gap (7)",
               "options": [
                 {
-                  "id": "1",
-                  "label": "upset"
+                  "id": "a",
+                  "label": "explanation"
                 },
                 {
-                  "id": "2",
-                  "label": "frighten"
+                  "id": "b",
+                  "label": "example"
                 },
                 {
-                  "id": "3",
-                  "label": "shock"
+                  "id": "c",
+                  "label": "motive"
                 },
                 {
-                  "id": "4",
-                  "label": "annoy"
+                  "id": "d",
+                  "label": "notice"
                 }
-              ],
-              "answer": "b",
-              "explanation": "frighten.",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-1-q8",
               "number": 8,
+              "answer": "d",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "as.",
+              "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "Gap (8)",
               "options": [
                 {
-                  "id": "1",
-                  "label": "Distinctly"
+                  "id": "a",
+                  "label": "than"
                 },
                 {
-                  "id": "2",
-                  "label": "Clearly"
+                  "id": "b",
+                  "label": "that"
                 },
                 {
-                  "id": "3",
-                  "label": "Openly"
+                  "id": "c",
+                  "label": "so"
                 },
                 {
-                  "id": "4",
-                  "label": "Questionably"
+                  "id": "d",
+                  "label": "as"
                 }
-              ],
-              "answer": "b",
-              "explanation": "clearly.",
-              "answerConfidence": "key"
+              ]
             }
           ]
         }
@@ -251,10 +269,16 @@
       "id": "catalog-reading-fce-b2-test26-part-2",
       "partNumber": 2,
       "rangeLabel": "Questions 9–16",
-      "passageTitle": "Part 2",
+      "passageTitle": "Hero or thief?",
+      "passageSubtitle": "OF",
       "passage": [
         {
-          "text": "Part 2"
+          "text": "Robin Hood is such a famous character that everyone has heard 0 _____ him. The stories of his adventures are so exciting that they (9) ..... captured the imagination of generations in hundreds of books, films and TV series. Many agree that (10) ..... best film version was made in 1938 and starred Errol Flynn. (11) ..... , Robin Hood has made so many appearances on screen that it’s difficult to (12) ..... a decision about which should be your favourite.",
+          "_provenance": "source"
+        },
+        {
+          "text": "We all know that his story is about robbing the rich (13) ..... feed the poor, but did such a kind-hearted robber really exist? Historians have (14) ..... detailed research and most agree that his character is probably a combination of several different folk heroes from the past. (15) ..... the 13th century, outlaws often lived in forests like Sherwood, but they rarely did good; they were thieves who tried to simply make (16) ..... with rich people’s money. Perhaps this is why the stories were so popular with the poor.",
+          "_provenance": "source"
         }
       ],
       "questionGroups": [
@@ -267,82 +291,107 @@
             {
               "id": "catalog-reading-fce-b2-test26-part-2-q9",
               "number": 9,
+              "answer": "have",
+              "acceptedAnswers": [
+                "have"
+              ],
+              "explanation": "have.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (9)",
-              "options": [],
-              "answer": "has",
-              "explanation": "has.",
-              "answerConfidence": "key"
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-2-q10",
               "number": 10,
+              "answer": "the",
+              "acceptedAnswers": [
+                "the"
+              ],
+              "explanation": "the.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (10)",
-              "options": [],
-              "answer": "up",
-              "explanation": "up.",
-              "answerConfidence": "key"
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-2-q11",
               "number": 11,
+              "answer": "however",
+              "acceptedAnswers": [
+                "however",
+                "nevertheless"
+              ],
+              "explanation": "However/Nevertheless.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (11)",
-              "options": [],
-              "answer": "speak/think",
-              "explanation": "speak/think.",
-              "answerConfidence": "key"
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-2-q12",
               "number": 12,
+              "answer": "make",
+              "acceptedAnswers": [
+                "make"
+              ],
+              "explanation": "make.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (12)",
-              "options": [],
-              "answer": "a",
-              "explanation": "lthough/While.",
-              "answerConfidence": "key"
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-2-q13",
               "number": 13,
+              "answer": "to",
+              "acceptedAnswers": [
+                "to"
+              ],
+              "explanation": "to.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (13)",
-              "options": [],
-              "answer": "for",
-              "explanation": "for.",
-              "answerConfidence": "key"
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-2-q14",
               "number": 14,
+              "answer": "done",
+              "acceptedAnswers": [
+                "done"
+              ],
+              "explanation": "done.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (14)",
-              "options": [],
-              "answer": "put",
-              "explanation": "put.",
-              "answerConfidence": "key"
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-2-q15",
               "number": 15,
+              "answer": "i",
+              "acceptedAnswers": [
+                "i"
+              ],
+              "explanation": "n/During.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (15)",
-              "options": [],
-              "answer": "difference",
-              "explanation": "difference.",
-              "answerConfidence": "key"
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-2-q16",
               "number": 16,
+              "answer": "off",
+              "acceptedAnswers": [
+                "off"
+              ],
+              "explanation": "off.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (16)",
-              "options": [],
-              "answer": "majority",
-              "explanation": "majority.",
-              "answerConfidence": "key"
+              "size": 10
             }
           ]
         }
@@ -352,10 +401,10 @@
       "id": "catalog-reading-fce-b2-test26-part-3",
       "partNumber": 3,
       "rangeLabel": "Questions 17–24",
-      "passageTitle": "Part 3",
+      "passageTitle": "All about the Brits",
       "passage": [
         {
-          "text": "Part 3"
+          "text": "0 _____ from the UK! I’m having a great time, but I still haven’t been out of London. Have you ever been to Britain? Even though I have, I’ve still got lots of questions about British culture. Why do the Brits adore queuing up? They’re never (17) ..... . I’d heard that everyone sat in (18) ..... on the Tube, and it’s true! Are people too (19) ..... to talk to each other? The son in my host family is going to help me find some answers. Josh has just come back from Milan, so he’s got some questions about Italian culture too. The Brits love (20) ..... food and there’s lots of (21) ..... from different cultures here. We went out for a Malaysian meal last Friday and it was a really (22) ..... experience. (23) ..... , Indonesian food is really good too. I haven’t tried much British food yet. I’ve already decided I want to come back next year, but it’s expensive, so my parents are (24) ..... to agree."
         }
       ],
       "questionGroups": [
@@ -368,82 +417,114 @@
             {
               "id": "catalog-reading-fce-b2-test26-part-3-q17",
               "number": 17,
+              "answer": "impatient",
+              "acceptedAnswers": [
+                "impatient"
+              ],
+              "explanation": "impatient.",
+              "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (17)",
-              "options": [],
-              "answer": "nature",
-              "explanation": "nature.",
-              "answerConfidence": "key"
+              "prompt": "Gap (17) — PATIENT",
+              "baseWord": "PATIENT",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-3-q18",
               "number": 18,
+              "answer": "silence",
+              "acceptedAnswers": [
+                "silence"
+              ],
+              "explanation": "silence.",
+              "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (18)",
-              "options": [],
-              "answer": "geologist",
-              "explanation": "geologist.",
-              "answerConfidence": "key"
+              "prompt": "Gap (18) — SILENT",
+              "baseWord": "SILENT",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-3-q19",
               "number": 19,
+              "answer": "unsociable",
+              "acceptedAnswers": [
+                "unsociable"
+              ],
+              "explanation": "unsociable.",
+              "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (19)",
-              "options": [],
-              "answer": "sandy",
-              "explanation": "sandy.",
-              "answerConfidence": "key"
+              "prompt": "Gap (19) — SOCIABLE",
+              "baseWord": "SOCIABLE",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-3-q20",
               "number": 20,
+              "answer": "spicy",
+              "acceptedAnswers": [
+                "spicy"
+              ],
+              "explanation": "spicy.",
+              "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (20)",
-              "options": [],
-              "answer": "constantly",
-              "explanation": "constantly.",
-              "answerConfidence": "key"
+              "prompt": "Gap (20) — SPICE",
+              "baseWord": "SPICE",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-3-q21",
               "number": 21,
+              "answer": "choice",
+              "acceptedAnswers": [
+                "choice"
+              ],
+              "explanation": "choice.",
+              "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (21)",
-              "options": [],
-              "answer": "admire",
-              "explanation": "admire.",
-              "answerConfidence": "key"
+              "prompt": "Gap (21) — CHOOSE",
+              "baseWord": "CHOOSE",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-3-q22",
               "number": 22,
+              "answer": "memorable",
+              "acceptedAnswers": [
+                "memorable"
+              ],
+              "explanation": "memorable.",
+              "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (22)",
-              "options": [],
-              "answer": "knowledgeable",
-              "explanation": "knowledgeable.",
-              "answerConfidence": "key"
+              "prompt": "Gap (22) — MEMORY",
+              "baseWord": "MEMORY",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-3-q23",
               "number": 23,
+              "answer": "apparently",
+              "acceptedAnswers": [
+                "apparently"
+              ],
+              "explanation": "apparently.",
+              "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (23)",
-              "options": [],
-              "answer": "obviously",
-              "explanation": "obviously.",
-              "answerConfidence": "key"
+              "prompt": "Gap (23) — APPEAR",
+              "baseWord": "APPEAR",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-3-q24",
               "number": 24,
+              "answer": "unlikely",
+              "acceptedAnswers": [
+                "unlikely"
+              ],
+              "explanation": "unlikely.",
+              "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (24)",
-              "options": [],
-              "answer": "coastal",
-              "explanation": "coastal.",
-              "answerConfidence": "key"
+              "prompt": "Gap (24) — LIKELY",
+              "baseWord": "LIKELY",
+              "size": 10
             }
           ]
         }
@@ -454,11 +535,7 @@
       "partNumber": 4,
       "rangeLabel": "Questions 25–30",
       "passageTitle": "Part 4",
-      "passage": [
-        {
-          "text": "Part 4"
-        }
-      ],
+      "passage": [],
       "questionGroups": [
         {
           "id": "catalog-reading-fce-b2-test26-part-4-g0",
@@ -469,62 +546,99 @@
             {
               "id": "catalog-reading-fce-b2-test26-part-4-q25",
               "number": 25,
+              "answer": "such an important test that",
+              "acceptedAnswers": [
+                "such an important test that"
+              ],
+              "explanation": "such an important test that.",
+              "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "AFTER — He ate dinner before she got there. She turned",
-              "options": [],
-              "answer": "up after he had (eaten)",
-              "explanation": "up after he had (eaten).",
-              "answerConfidence": "key"
+              "prompt": "They studied really hard because it was a very important test. It was SUCH -> They studied really hard because it was a very important test.  It was ..... they studied really hard.",
+              "sourceSentence": "They studied really hard because it was a very important test. It was",
+              "keyword": "SUCH",
+              "targetSentence": "They studied really hard because it was a very important test.  It was ..... they studied really hard.",
+              "size": 40
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-4-q26",
               "number": 26,
+              "answer": "got used to skating",
+              "acceptedAnswers": [
+                "got used to skating"
+              ],
+              "explanation": "got used to skating.",
+              "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "BEEN — I’m sure you were furious when they didn’t apologise. You",
-              "options": [],
-              "answer": "must have been",
-              "explanation": "must have been.",
-              "answerConfidence": "key"
+              "prompt": "I found skating difficult at first, until I finally became accustomed to it. I finally USED -> I found skating difficult at first, until I finally became accustomed to it.  I finally ..... , although it was difficult at first.",
+              "sourceSentence": "I found skating difficult at first, until I finally became accustomed to it. I finally",
+              "keyword": "USED",
+              "targetSentence": "I found skating difficult at first, until I finally became accustomed to it.  I finally ..... , although it was difficult at first.",
+              "size": 40
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-4-q27",
               "number": 27,
+              "answer": "so tired that",
+              "acceptedAnswers": [
+                "so tired that"
+              ],
+              "explanation": "so tired that.",
+              "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "STARTED — I got to the cinema too late to see the beginning of the film. The film",
-              "options": [],
-              "answer": "had (already) started by the",
-              "explanation": "had (already) started by the.",
-              "answerConfidence": "key"
+              "prompt": "She was often too tired to go running after school. She was often SO -> She was often too tired to go running after school.  She was often ..... she couldn’t go running after school.",
+              "sourceSentence": "She was often too tired to go running after school. She was often",
+              "keyword": "SO",
+              "targetSentence": "She was often too tired to go running after school.  She was often ..... she couldn’t go running after school.",
+              "size": 40
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-4-q28",
               "number": 28,
+              "answer": "make a decision (about)",
+              "acceptedAnswers": [
+                "make a decision (about)",
+                "make up their minds (about)"
+              ],
+              "explanation": "make a decision (about)/make up their minds (about).",
+              "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "MIGHT — I’m not sure if we’ll get a ticket easily. The concert’s very soon. Getting a ticket",
-              "options": [],
-              "answer": "might be difficult/might not be easy",
-              "explanation": "might be difficult/might not be easy.",
-              "answerConfidence": "key"
+              "prompt": "They talked it over but couldn’t decide where to go on their holiday. Despite talking it over, they couldn’t MAKE -> They talked it over but couldn’t decide where to go on their holiday.  Despite talking it over, they couldn’t ..... where to go on their holiday.",
+              "sourceSentence": "They talked it over but couldn’t decide where to go on their holiday. Despite talking it over, they couldn’t",
+              "keyword": "MAKE",
+              "targetSentence": "They talked it over but couldn’t decide where to go on their holiday.  Despite talking it over, they couldn’t ..... where to go on their holiday.",
+              "size": 40
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-4-q29",
               "number": 29,
+              "answer": "do away with (showing)",
+              "acceptedAnswers": [
+                "do away with (showing)"
+              ],
+              "explanation": "do away with (showing).",
+              "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "PUT — Loud noise is something I can’t stand. I find it impossible",
-              "options": [],
-              "answer": "to put up with",
-              "explanation": "to put up with.",
-              "answerConfidence": "key"
+              "prompt": "I don’t think they should show advertisements before films in the cinema. They should AWAY -> I don’t think they should show advertisements before films in the cinema.  They should ..... the advertisements before films in the cinema",
+              "sourceSentence": "I don’t think they should show advertisements before films in the cinema. They should",
+              "keyword": "AWAY",
+              "targetSentence": "I don’t think they should show advertisements before films in the cinema.  They should ..... the advertisements before films in the cinema",
+              "size": 40
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-4-q30",
               "number": 30,
+              "answer": "you rather i went",
+              "acceptedAnswers": [
+                "you rather i went"
+              ],
+              "explanation": "you rather I went.",
+              "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "BY — I thought the mystery novels that he wrote were fascinating. I",
-              "options": [],
-              "answer": "was fascinated by",
-              "explanation": "was fascinated by.",
-              "answerConfidence": "key"
+              "prompt": "Do you want me to go home or stay with you? Would RATHER -> Do you want me to go home or stay with you?  Would ..... home or stayed with you?",
+              "sourceSentence": "Do you want me to go home or stay with you? Would",
+              "keyword": "RATHER",
+              "targetSentence": "Do you want me to go home or stay with you?  Would ..... home or stayed with you?",
+              "size": 40
             }
           ]
         }
@@ -537,177 +651,225 @@
       "passageTitle": "Part 5",
       "passage": [
         {
-          "text": "Part 5"
+          "text": "Two delightful evening walks in thick wet grass had given Marianne a violent cold. She felt heavy and feverish, with pains all over her body, but at first refused all medicines, saying that a good night’s rest was all that she needed."
+        },
+        {
+          "text": "The next day, however, she was worse, unable to do anything except lie miserably on a sofa, and after another restless, feverish night, Elinor was very ready to send for the Palmers’ doctor. After examining his patient, he said that she was suffering from an infection, and would recover in a few days. But the word ‘infection’ greatly alarmed Mrs Palmer, who feared that her baby might catch it, and she persuaded her husband to take her and the child to stay with a near relation, until there was no further danger of illness at Cleveland. Mrs Jennings kindly insisted on staying with the Dashwoods, as she felt responsible for the young ladies in their mother’s absence, and Colonel Brandon also offered to stay, in case a gentleman’s help was needed. Poor Marianne now felt really ill, and extremely miserable, as their return to Barton would have to be considerably delayed."
+        },
+        {
+          "text": "Several days passed, and Marianne’s condition remained the same. The doctor came every day, talking each time of a speedy recovery, and Elinor was just as hopeful. In her letters home, she had not told her mother of the seriousness of Marianne’s illness, and now congratulated herself on not alarming Mrs Dashwood unnecessarily. But that evening, Marianne became restless again, and Elinor stayed beside her bed, watching her turning feverishly from side to side. Suddenly Marianne sat up and cried wildly, ‘Is mama coming?’"
+        },
+        {
+          "text": "‘Not yet,’ replied Elinor, hiding her terror, and helping her sister lie down again. ‘It is a long way from Barton.’"
+        },
+        {
+          "text": "‘But she must come soon!’ cried Marianne desperately.’ ‘I shall never see her again if she does not come soon!’"
+        },
+        {
+          "text": "Elinor was so alarmed that she sent for the doctor at once, and decided to send a messenger to Barton to fetch her mother. She spoke immediately to Colonel Brandon, who, although greatly depressed and fearing the worst , was ready to help in any way, and offered to drive to Barton himself. How grateful Elinor was for the comfort of such a friend as the colonel at that moment! Not a second was lost in delay of any kind, and the colonel drove off into the night, leaving Elinor to watch over her sister."
+        },
+        {
+          "text": "Both sisters suffered greatly during that night, Marianne in her sleepless pain and fever, and Elinor in cruel anxiety that her mother would arrive too late to see her dead child alive. When the doctor came, he had to confess that his medicines had failed, and that the infection was stronger than ever. Elinor was calm, except when she thought of her mother, but she was almost without hope. She stayed by her sister’s bed all morning, her thoughts confused and sorrowful."
+        },
+        {
+          "text": "But at midday, she began to see signs of the fever going down. Cautiously, she told herself not to hope, but soon it seemed almost certain, and on the doctors next visit, he was able to congratulate her on Marianne’s slow but sure recovery. Mrs Jennings showed her delight by talking and laughing without stopping, but Elinor’s feelings were of a different kind. Her relief and happiness were strong, but silent. That evening Marianne fell into a quiet, comfortable sleep, and Elinor knew that at last she was out of danger."
+        },
+        {
+          "text": "Her thoughts now began to turn to her mother’s arrival, which was expected at any moment. Mrs Jennings persuaded her to leave Marianne’s bedside for a few minutes to drink some tea, but Elinor soon returned, to sit by her sleeping sister and wait for the travellers from Barton. The night was cold and stormy, but as long as Marianne slept peacefully, Elinor did not mind the beating of the rain on the windows, or the noise of the wind blowing around the house."
+        },
+        {
+          "text": "At eight o’clock she heard a carriage drive up to the front door. Knowing what her poor mother must be feeling, Elinor found it impossible to be calm, and hurried downstairs. She rushed into the sitting-room and saw – Willoughby."
+        },
+        {
+          "text": "With a look of horror, she stepped backwards, and was about to leave the room, when he said rapidly, ‘Miss Dashwood, I beg you to stay. I have something I must tell you.’"
         }
       ],
       "questionGroups": [
         {
           "id": "catalog-reading-fce-b2-test26-part-5-g0",
           "range": "Questions 31–36",
-          "instruction": "You are going to read an extract from a newspaper article. For questions 31-36, choose the answer (A, B, C or D) which you think fits best according to the text.",
+          "instruction": "",
           "type": "multiple-choice",
           "questions": [
             {
               "id": "catalog-reading-fce-b2-test26-part-5-q31",
               "number": 31,
+              "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
+              "answerConfidence": "key",
               "type": "multiple-choice",
-              "prompt": "What does ‘the abyss’ in Paragraph 1 mean?",
+              "prompt": "Mrs Palmer decided to leave her home",
               "options": [
                 {
-                  "id": "A",
-                  "label": "the mountains."
+                  "id": "a",
+                  "label": "to visit a family member who was unwell."
                 },
                 {
-                  "id": "B",
-                  "label": "the river."
+                  "id": "b",
+                  "label": "because of what the doctor had said."
                 },
                 {
-                  "id": "C",
-                  "label": "the deep hole."
+                  "id": "c",
+                  "label": "in spite of her husband’s advice."
                 },
                 {
-                  "id": "D",
-                  "label": "the edge of the cliffs."
+                  "id": "d",
+                  "label": "as soon as her child was feeling better."
                 }
-              ],
-              "answer": "c",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-5-q32",
               "number": 32,
+              "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
+              "answerConfidence": "key",
               "type": "multiple-choice",
-              "prompt": "What does ‘that’ underlined in Paragraph 1 refer to?",
+              "prompt": "From the third paragraph we understand that",
               "options": [
                 {
-                  "id": "A",
-                  "label": "my fear of heights."
+                  "id": "a",
+                  "label": "Marianne did not want to see her mother."
                 },
                 {
-                  "id": "B",
-                  "label": "the fantastic sight below me."
+                  "id": "b",
+                  "label": "Elinor was pleased that her mother didn’t know about Marianne’s illness."
                 },
                 {
-                  "id": "C",
-                  "label": "my need to write an article."
+                  "id": "c",
+                  "label": "Marianne was improving due to the doctor’s treatment."
                 },
                 {
-                  "id": "D",
-                  "label": "encouragement from my fellow tourists."
+                  "id": "d",
+                  "label": "Elinor believed her sister would soon get better."
                 }
-              ],
-              "answer": "b",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-5-q33",
               "number": 33,
+              "answer": "c",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
+              "answerConfidence": "key",
               "type": "multiple-choice",
-              "prompt": "Why do visitors have to cover their footwear?",
+              "prompt": "The phrase fearing the worst (Paragraph 6, underlined) suggests that Colonel Brandon",
               "options": [
                 {
-                  "id": "A",
-                  "label": "to keep the walking surface clean."
+                  "id": "a",
+                  "label": "felt more upset about the situation than Elinor."
                 },
                 {
-                  "id": "B",
-                  "label": "to give them a feeling of floating."
+                  "id": "b",
+                  "label": "believed that Mrs Dashwood would not be able to come."
                 },
                 {
-                  "id": "C",
-                  "label": "to avoid damaging the delicate floor."
+                  "id": "c",
+                  "label": "thought that Marianne might not live."
                 },
                 {
-                  "id": "D",
-                  "label": "to make them feel safer while walking."
+                  "id": "d",
+                  "label": "was afraid that the journey to Barton would take too long."
                 }
-              ],
-              "answer": "c",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-5-q34",
               "number": 34,
+              "answer": "c",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
+              "answerConfidence": "key",
               "type": "multiple-choice",
-              "prompt": "How was the Skywalk financed?",
+              "prompt": "What worried Elinor most about her sister’s illness?",
               "options": [
                 {
-                  "id": "A",
-                  "label": "by visitor donations to the national park."
+                  "id": "a",
+                  "label": "Marianne was not often awake."
                 },
                 {
-                  "id": "B",
-                  "label": "by tourists visiting the Hualapai Reservation."
+                  "id": "b",
+                  "label": "She did not think that the doctor was reliable."
                 },
                 {
-                  "id": "C",
-                  "label": "by companies investing in the area."
+                  "id": "c",
+                  "label": "Her mother might not arrive soon enough."
                 },
                 {
-                  "id": "D",
-                  "label": "by an individual from a nearby city."
+                  "id": "d",
+                  "label": "She could not decide on the best thing to do."
                 }
-              ],
-              "answer": "d",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-5-q35",
               "number": 35,
+              "answer": "a",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
+              "answerConfidence": "key",
               "type": "multiple-choice",
-              "prompt": "What point is the writer making when talking about the changes made to the area?",
+              "prompt": "Elinor was not sure that Marianne would recover until",
               "options": [
                 {
-                  "id": "A",
-                  "label": "The Hualapai will benefit financially."
+                  "id": "a",
+                  "label": "she had fallen asleep."
                 },
                 {
-                  "id": "B",
-                  "label": "The lives of local people will be at risk."
+                  "id": "b",
+                  "label": "the medicine had worked."
                 },
                 {
-                  "id": "C",
-                  "label": "Jobs will be created for outsiders."
+                  "id": "c",
+                  "label": "she had spoken to Mrs Jennings."
                 },
                 {
-                  "id": "D",
-                  "label": "Improvements will be expensive."
+                  "id": "d",
+                  "label": "the doctor had reported his conclusions."
                 }
-              ],
-              "answer": "a",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-5-q36",
               "number": 36,
+              "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
+              "answerConfidence": "key",
               "type": "multiple-choice",
-              "prompt": "What conclusion does the writer come to in the final paragraph?",
+              "prompt": "After entering the sitting room, Elinor",
               "options": [
                 {
-                  "id": "A",
-                  "label": "He is convinced of the benefits of tourism to the area."
+                  "id": "a",
+                  "label": "was keen to hear what the visitor wanted to say."
                 },
                 {
-                  "id": "B",
-                  "label": "He wonders if the Skywalk is right for the area."
+                  "id": "b",
+                  "label": "was shocked by what she discovered."
                 },
                 {
-                  "id": "C",
-                  "label": "He doubts whether visitors will appreciate the improvements."
+                  "id": "c",
+                  "label": "felt sorry that she had contacted her mother."
                 },
                 {
-                  "id": "D",
-                  "label": "He feels the new buildings add to the beauty of the area."
+                  "id": "d",
+                  "label": "wished she had not left Marianne so quickly."
                 }
-              ],
-              "answer": "b",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             }
           ]
         }
@@ -717,17 +879,38 @@
       "id": "catalog-reading-fce-b2-test26-part-6",
       "partNumber": 6,
       "rangeLabel": "Questions 37–42",
-      "passageTitle": "Part 6",
+      "passageTitle": "From rags to riches",
       "passage": [
         {
-          "text": "Part 6"
+          "text": "The award-winning actor Leonardo DiCaprio is frequently in the public eye, if not for his films, then for his celebrity lifestyle or his efforts to make people aware of environmental issues. But what did he use to be like when he was growing up?"
+        },
+        {
+          "text": "Leo grew up in an area of Los Angeles close to the glamorous film studios that would later make him a star. However, the neighbourhood in East Hollywood was both poor and dangerous, and he was used to seeing crime and violence near his home."
+        },
+        {
+          "text": "His parents were quite unconventional people, but they were proud of their son. (37) ..... . They were not rich, but did their best to make ends meet and provide a loving family life for Leo. Although they divorced soon after he was born, they lived next door to each other so that they could raise him together."
+        },
+        {
+          "text": "(38) ..... . At school, he didn’t use to get on well with some classmates, and bigger kids often bullied him. Every day, he saw the contrast of lifestyles between the rich and poor. He wanted a way to a better life and acting became his ambition. (39) ..... . Irmelin would drive him to acting classes and auditions. At the same time, Leo used to study films starring his favourite actors, like Robert De Niro, to learn more about acting. Eventually, he dropped out of school, and again his parents supported his decision. In fact, they also quit their jobs in order to help manage Leo’s acting career. He made appearances in a stream of advertisements, and soon got small roles in popular TV series."
+        },
+        {
+          "text": "In 1992, Leo auditioned for a part in a film with his role model, Robert De Niro. De Niro immediately recognised Leo’s talent and chose him from several hundred actors. (40) ..... . A few years later, in 1997, Leo achieved international fame playing the hero Jack Dawson in the blockbuster Titanic."
+        },
+        {
+          "text": "In his early twenties, Leo suddenly had to get used to a very different set of problems from those he had as a child. Like many young celebrities, he gained a reputation for being a bit rebellious and enjoying his new wealth. (41) ..... . But it was also clear that acting was still his passion."
+        },
+        {
+          "text": "He was careful to select roles that challenged his skills and involved intriguing and complex characters. (42) ..... . Eventually, in 2016, he finally won an Oscar for Best Actor for his performance in The Revenant."
+        },
+        {
+          "text": "Leo continues to receive a lot of media attention about his private life, but he also uses this to raise awareness of environmental issues such as climate change. He still has a house in Los Angeles, but life now could not be more different from what it used to be."
         }
       ],
       "questionGroups": [
         {
           "id": "catalog-reading-fce-b2-test26-part-6-g0",
           "range": "Questions 37–42",
-          "instruction": "You are going to read an article about an environmentalist. Six sentences have been removed from the article. Choose from the sentences A-G the one which fits each gap (37-42). There is one extra sentence which you do not need to use.",
+          "instruction": "You are going to read an article about an actor. Six sentences have been removed from the article. Choose from the sentences A-G the one which fits each gap (37-42). There is one extra sentence which you do not need to use.",
           "type": "matching-features",
           "paragraphLetters": [
             "A",
@@ -738,240 +921,288 @@
             "F",
             "G"
           ],
+          "features": [
+            {
+              "id": "a",
+              "name": "Fame and fortune meant he was often in the headlines, and not always for his appearances on screen."
+            },
+            {
+              "id": "b",
+              "name": "Leo’s early TV performances made him a successful teen idol, and soon he was accepting parts in Hollywood films."
+            },
+            {
+              "id": "c",
+              "name": "His mother Irmelin worked as a legal secretary and his father George was a comic book artist."
+            },
+            {
+              "id": "d",
+              "name": "Leo’s parents agreed to do what they could to make his dream come true."
+            },
+            {
+              "id": "e",
+              "name": "However, despite the love and support of his parents, it was a difficult time for Leo."
+            },
+            {
+              "id": "f",
+              "name": "While some of his films received mixed reviews, Leo always managed to make the people he played seem real."
+            },
+            {
+              "id": "g",
+              "name": "This was the start of his impressive movie career."
+            }
+          ],
           "questions": [
             {
               "id": "catalog-reading-fce-b2-test26-part-6-q37",
               "number": 37,
+              "answer": "c",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
+              "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (37)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
-              ],
-              "answer": "f",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-6-q38",
               "number": 38,
+              "answer": "e",
+              "acceptedAnswers": [
+                "e"
+              ],
+              "explanation": "E",
+              "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (38)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
-              ],
-              "answer": "a",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-6-q39",
               "number": 39,
+              "answer": "d",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
+              "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (39)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
-              ],
-              "answer": "b",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-6-q40",
               "number": 40,
+              "answer": "g",
+              "acceptedAnswers": [
+                "g"
+              ],
+              "explanation": "G",
+              "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (40)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
-              ],
-              "answer": "e",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-6-q41",
               "number": 41,
+              "answer": "a",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
+              "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (41)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
-              ],
-              "answer": "g",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-6-q42",
               "number": 42,
+              "answer": "f",
+              "acceptedAnswers": [
+                "f"
+              ],
+              "explanation": "F",
+              "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (42)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
-              ],
-              "answer": "c",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             }
           ]
         }
@@ -981,306 +1212,349 @@
       "id": "catalog-reading-fce-b2-test26-part-7",
       "partNumber": 7,
       "rangeLabel": "Questions 43–52",
-      "passageTitle": "Part 7",
+      "passageTitle": "Opposites attract!",
       "passage": [
         {
-          "text": "Part 7"
+          "label": "A",
+          "text": "Ian My sister Eva and I are twins, and we get on really well. I think we’re probably far closer than most brothers and sisters. Our friends are surprised when they find out that we’re twins, and I suppose that’s because they think we will be the same sort of people. And we aren’t – not at all. I’m not half as sociable as she is. I’m a bit of an introvert – very quiet and kind of shy. We go to parties most weekends, but I just like talking to people I already know. She’s just the opposite. I often complain that she never stops talking, but she loves to chat to new people and find out all about them. She’s a lot more outgoing than I am."
+        },
+        {
+          "label": "B",
+          "text": "Ned I think that old friends are the best of all, and Sam and I have been friends all our lives. We were both born in the same hospital, in rooms next to each other. He’s a little older than I am – but only by two hours. He was the cleverest kid in our school, and now he’s doing a degree in Chemistry. That suits him because he’s got quite a scientific mind, and he’s very practical and hard-working. For me, Science is the subject I’m the least interested in. I’m crazy about art and I’d love to be a painter. If that doesn’t work out, maybe I’ll go round the world or become a musician. We don’t see each other much, but close friends don’t need to, and when we do get together it’s like we haven’t been apart at all."
+        },
+        {
+          "label": "C",
+          "text": "Flora I’m a singer, and I’ve had a couple of hit singles. My album is selling well at the moment, and I’m getting more and more work. But I couldn’t have done any of this without Tim. He’s more than a manager – he’s a really good friend too. I’m not in the least a business person – I’m too emotional and sensitive. I can’t make difficult decisions, but that’s where Tim is so good. He makes decisions more quickly and more carefully than me. The more difficult the situation, the more clear-headed he becomes. And he never upsets people, because he’s so open and probably the most honest person I know."
+        },
+        {
+          "label": "D",
+          "text": "Paula Jane and I share a flat, but we’re complete opposites. She’s by far the most organised person that I know. Look at the way we found this flat: she went to different agents, made lists of all the advantages and disadvantages, and so on. I was much more laid-back about it. I came, had a quick look, said it seemed fine, and we moved in. That’s not to say that I rely on her all the time. She also benefits from me too. I’m much more spontaneous and enjoy doing things without thinking them through – like inviting people back to our flat for a party. That makes her panic because she’s so cautious, but generally I think she’s so also a bit happier and has more fun with me around."
         }
       ],
       "questionGroups": [
         {
           "id": "catalog-reading-fce-b2-test26-part-7-g0",
           "range": "Questions 43–52",
-          "instruction": "You are going to read an article about four young people having unusual jobs abroad. For questions",
+          "instruction": "You are going to read an article about the activities organised by four schools for Environmental Awareness Day. For questions",
           "type": "matching-features",
           "features": [
             {
               "id": "a",
-              "name": "Section A"
+              "name": "A"
             },
             {
               "id": "b",
-              "name": "Section B"
+              "name": "B"
             },
             {
               "id": "c",
-              "name": "Section C"
+              "name": "C"
             },
             {
               "id": "d",
-              "name": "Section D"
+              "name": "D"
             }
           ],
           "questions": [
             {
               "id": "catalog-reading-fce-b2-test26-part-7-q43",
               "number": 43,
+              "answer": "d",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
+              "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Gap (43)",
+              "prompt": "talks about not depending on another person all the time?",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 }
-              ],
-              "answer": "d",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-7-q44",
               "number": 44,
+              "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
+              "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Gap (44)",
+              "prompt": "thinks having a long friendship is important?",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 }
-              ],
-              "answer": "c",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-7-q45",
               "number": 45,
+              "answer": "d",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
+              "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Gap (45)",
+              "prompt": "sometimes acts without thinking?",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 }
-              ],
-              "answer": "b",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-7-q46",
               "number": 46,
+              "answer": "a",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
+              "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Gap (46)",
+              "prompt": "doesn’t like meeting new people?",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 }
-              ],
-              "answer": "a",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-7-q47",
               "number": 47,
+              "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
+              "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Gap (47)",
+              "prompt": "says good friends don’t have to spend a lot of time together?",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 }
-              ],
-              "answer": "b",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-7-q48",
               "number": 48,
+              "answer": "a",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
+              "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Gap (48)",
+              "prompt": "mentions going out to social occasions together?",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 }
-              ],
-              "answer": "c",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-7-q49",
               "number": 49,
+              "answer": "c",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
+              "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Gap (49)",
+              "prompt": "has a good working relationship?",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 }
-              ],
-              "answer": "a",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-7-q50",
               "number": 50,
+              "answer": "a",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
+              "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Gap (50)",
+              "prompt": "talks about having unexpectedly different personalities?",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 }
-              ],
-              "answer": "a",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-7-q51",
               "number": 51,
+              "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
+              "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Gap (51)",
+              "prompt": "wants to do something creative in the future?",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 }
-              ],
-              "answer": "b",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test26-part-7-q52",
               "number": 52,
+              "answer": "d",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
+              "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Gap (52)",
+              "prompt": "makes another person’s life more enjoyable?",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 }
-              ],
-              "answer": "c",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             }
           ]
         }

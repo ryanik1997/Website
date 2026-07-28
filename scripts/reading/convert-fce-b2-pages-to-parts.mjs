@@ -47,11 +47,57 @@ const inventory = []
 const converted = []
 const failures = []
 
+function allQuestions(part) {
+  return (part?.questionGroups ?? []).flatMap(group => group?.questions ?? [])
+}
+
+function validateDeterministicBody(body) {
+  for (const part of body.parts ?? []) {
+    const questions = allQuestions(part)
+    const passageText = (part.passage ?? []).map(block => String(block?.text ?? '')).join(' ').trim()
+    if ([1, 2, 3, 5, 6, 7].includes(part.partNumber) && passageText.length < 50) {
+      throw new Error(`${body.id} Part ${part.partNumber}: deterministic passage is empty or too short`)
+    }
+    if (part.partNumber === 4) {
+      for (const question of questions) {
+        if (!question.sourceSentence || !question.keyword || !question.targetSentence || question.targetSentence === '.....') {
+          throw new Error(`${body.id} Part 4 Q${question.number}: transformation fields incomplete`)
+        }
+      }
+    }
+    if (part.partNumber === 5) {
+      for (const question of questions) {
+        if (!question.prompt || /^Question \d+$/i.test(question.prompt)) {
+          throw new Error(`${body.id} Part 5 Q${question.number}: source prompt is missing`)
+        }
+      }
+    }
+    if (part.partNumber === 6) {
+      const features = part.questionGroups?.[0]?.features ?? []
+      if (features.length !== 7 || new Set(features.map(feature => feature.id)).size !== 7) {
+        throw new Error(`${body.id} Part 6: feature bank must contain seven unique IDs`)
+      }
+    }
+    if (part.partNumber === 7) {
+      const features = part.questionGroups?.[0]?.features ?? []
+      if (features.length < 4 || features.length > 5 || features.length !== (part.passage ?? []).length) {
+        throw new Error(`${body.id} Part 7: section bank and passage are inconsistent`)
+      }
+      for (const question of questions) {
+        if (!question.prompt || /^Question \d+$/i.test(question.prompt)) {
+          throw new Error(`${body.id} Part 7 Q${question.number}: source prompt is missing`)
+        }
+      }
+    }
+  }
+}
+
 for (const testNumber of tests) {
   try {
     const { raw } = await loadFceTestExamJson(testNumber, sourceRoot)
     const appTestNumber = testNumber + 1
     const result = convertFcePagesToReadingExam(raw, { sourceTestNumber: testNumber, appTestNumber })
+    validateDeterministicBody(result.body)
     inventory.push({
       sourceTestNumber: testNumber,
       appTestNumber,

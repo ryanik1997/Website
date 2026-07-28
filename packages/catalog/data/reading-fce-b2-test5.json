@@ -34,6 +34,9 @@
               "id": "catalog-reading-fce-b2-test5-part-1-q1",
               "number": 1,
               "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
               "explanation": "residences.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -61,6 +64,9 @@
               "id": "catalog-reading-fce-b2-test5-part-1-q2",
               "number": 2,
               "answer": "d",
+              "acceptedAnswers": [
+                "d"
+              ],
               "explanation": "whenever.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -88,6 +94,9 @@
               "id": "catalog-reading-fce-b2-test5-part-1-q3",
               "number": 3,
               "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
               "explanation": "public.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -115,6 +124,9 @@
               "id": "catalog-reading-fce-b2-test5-part-1-q4",
               "number": 4,
               "answer": "d",
+              "acceptedAnswers": [
+                "d"
+              ],
               "explanation": "displayed.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -142,6 +154,9 @@
               "id": "catalog-reading-fce-b2-test5-part-1-q5",
               "number": 5,
               "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
               "explanation": "intended.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -169,6 +184,9 @@
               "id": "catalog-reading-fce-b2-test5-part-1-q6",
               "number": 6,
               "answer": "d",
+              "acceptedAnswers": [
+                "d"
+              ],
               "explanation": "appearance.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -196,6 +214,9 @@
               "id": "catalog-reading-fce-b2-test5-part-1-q7",
               "number": 7,
               "answer": "c",
+              "acceptedAnswers": [
+                "c"
+              ],
               "explanation": "income.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -223,6 +244,9 @@
               "id": "catalog-reading-fce-b2-test5-part-1-q8",
               "number": 8,
               "answer": "c",
+              "acceptedAnswers": [
+                "c"
+              ],
               "explanation": "damaged.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -285,6 +309,9 @@
               "id": "catalog-reading-fce-b2-test5-part-2-q9",
               "number": 9,
               "answer": "still",
+              "acceptedAnswers": [
+                "still"
+              ],
               "explanation": "still.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -295,6 +322,9 @@
               "id": "catalog-reading-fce-b2-test5-part-2-q10",
               "number": 10,
               "answer": "myself",
+              "acceptedAnswers": [
+                "myself"
+              ],
               "explanation": "myself.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -305,6 +335,9 @@
               "id": "catalog-reading-fce-b2-test5-part-2-q11",
               "number": 11,
               "answer": "not",
+              "acceptedAnswers": [
+                "not"
+              ],
               "explanation": "not.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -315,6 +348,9 @@
               "id": "catalog-reading-fce-b2-test5-part-2-q12",
               "number": 12,
               "answer": "take",
+              "acceptedAnswers": [
+                "take"
+              ],
               "explanation": "take.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -325,6 +361,9 @@
               "id": "catalog-reading-fce-b2-test5-part-2-q13",
               "number": 13,
               "answer": "died",
+              "acceptedAnswers": [
+                "died"
+              ],
               "explanation": "died.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -335,6 +374,9 @@
               "id": "catalog-reading-fce-b2-test5-part-2-q14",
               "number": 14,
               "answer": "something",
+              "acceptedAnswers": [
+                "something"
+              ],
               "explanation": "something.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -344,7 +386,11 @@
             {
               "id": "catalog-reading-fce-b2-test5-part-2-q15",
               "number": 15,
-              "answer": "though/when",
+              "answer": "though",
+              "acceptedAnswers": [
+                "though",
+                "when"
+              ],
               "explanation": "though/when.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -354,7 +400,12 @@
             {
               "id": "catalog-reading-fce-b2-test5-part-2-q16",
               "number": 16,
-              "answer": "draw/work/sketch",
+              "answer": "draw",
+              "acceptedAnswers": [
+                "draw",
+                "work",
+                "sketch"
+              ],
               "explanation": "draw/work/sketch.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -372,8 +423,10 @@
       "passageTitle": "Part 3",
       "passage": [
         {
-          "text": "In today's (0) competitive world, it is essential to have (17) ..... skills. Your personal (18) ..... can make a real difference. Rising (19) ..... figures are a concern for many. Travel can help (20) ..... your horizons. He was (21) ..... about which path to choose. (22) ..... , the project was delayed. There is great (23) ..... about the future. She was (24) ..... about her new role.",
-          "_provenance": "ai-generated"
+          "text": "People in the world of 0 _____ have to be very (17) ..... in the way that they dress . It’s an (18) ..... fact that image is more than just a case of (19) ..... for a celebrity. How they present themselves is all part of their artistic personality. It would be (20) ..... though to think that somebody can be a successful celebrity just because of the clothes they wear . They don’t (21) ..... have to wear (22) ..... clothing but they do need to be talented and communicative and they also need to be (23) ..... of their fans who make them successful. They also need to be (24) ..... so that they can cope with all the public attention ."
+        },
+        {
+          "text": "0.ENTERTAIN 17.OBSERVE 18.REFUTE 19.DECORATE 20.FOOL 21.NECESSARY 22.FLASH 23.APPRECIATE 24.ADAPT"
         }
       ],
       "questionGroups": [
@@ -387,107 +440,117 @@
               "id": "catalog-reading-fce-b2-test5-part-3-q17",
               "number": 17,
               "answer": "observant",
+              "acceptedAnswers": [
+                "observant"
+              ],
               "explanation": "observant.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (17) — ",
-              "baseWord": "COMPETE",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (17) — OBSERVE",
+              "baseWord": "OBSERVE",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test5-part-3-q18",
               "number": 18,
               "answer": "irrefutable",
+              "acceptedAnswers": [
+                "irrefutable"
+              ],
               "explanation": "irrefutable.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (18) — ",
-              "baseWord": "STRONG",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (18) — REFUTE",
+              "baseWord": "REFUTE",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test5-part-3-q19",
               "number": 19,
               "answer": "decoration",
+              "acceptedAnswers": [
+                "decoration"
+              ],
               "explanation": "decoration.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (19) — ",
-              "baseWord": "EMPLOY",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (19) — DECORATE",
+              "baseWord": "DECORATE",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test5-part-3-q20",
               "number": 20,
               "answer": "foolish",
+              "acceptedAnswers": [
+                "foolish"
+              ],
               "explanation": "foolish.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (20) — ",
-              "baseWord": "BROAD",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (20) — FOOL",
+              "baseWord": "FOOL",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test5-part-3-q21",
               "number": 21,
               "answer": "necessarily",
+              "acceptedAnswers": [
+                "necessarily"
+              ],
               "explanation": "necessarily.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (21) — ",
-              "baseWord": "DECIDE",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (21) — NECESSARY",
+              "baseWord": "NECESSARY",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test5-part-3-q22",
               "number": 22,
               "answer": "flashy",
+              "acceptedAnswers": [
+                "flashy"
+              ],
               "explanation": "flashy.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (22) — ",
-              "baseWord": "FORTUNE",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (22) — FLASH",
+              "baseWord": "FLASH",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test5-part-3-q23",
               "number": 23,
               "answer": "appreciative",
+              "acceptedAnswers": [
+                "appreciative"
+              ],
               "explanation": "appreciative.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (23) — ",
-              "baseWord": "CERTAIN",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (23) — APPRECIATE",
+              "baseWord": "APPRECIATE",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test5-part-3-q24",
               "number": 24,
               "answer": "adaptable",
+              "acceptedAnswers": [
+                "adaptable"
+              ],
               "explanation": "adaptable.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (24) — ",
-              "baseWord": "ENTHUSE",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (24) — ADAPT",
+              "baseWord": "ADAPT",
+              "size": 10
             }
           ]
         }
-      ],
-      "_aiRepairMeta": {
-        "appliedAt": "2026-07-28T07:39:15.376Z",
-        "fields": [
-          "passage"
-        ]
-      }
+      ]
     },
     {
       "id": "catalog-reading-fce-b2-test5-part-4",
@@ -506,6 +569,9 @@
               "id": "catalog-reading-fce-b2-test5-part-4-q25",
               "number": 25,
               "answer": "haven’t heard from",
+              "acceptedAnswers": [
+                "haven’t heard from"
+              ],
               "explanation": "haven t heard from.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -519,6 +585,9 @@
               "id": "catalog-reading-fce-b2-test5-part-4-q26",
               "number": 26,
               "answer": "looked up to",
+              "acceptedAnswers": [
+                "looked up to"
+              ],
               "explanation": "looked up to.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -532,52 +601,64 @@
               "id": "catalog-reading-fce-b2-test5-part-4-q27",
               "number": 27,
               "answer": "in the mood to",
+              "acceptedAnswers": [
+                "in the mood to"
+              ],
               "explanation": "in the mood to.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Linda didn t feel like eating. MOOD -> Linda wasn t .....",
-              "sourceSentence": "Linda didn t feel like eating.",
+              "prompt": "Linda didn t feel like eating.Linda wasn t MOOD -> . Linda didn’t feel like eating.  Linda wasn’t ..... eat .",
+              "sourceSentence": "Linda didn t feel like eating.Linda wasn t",
               "keyword": "MOOD",
-              "targetSentence": "Linda wasn t .....",
+              "targetSentence": ". Linda didn’t feel like eating.  Linda wasn’t ..... eat .",
               "size": 40
             },
             {
               "id": "catalog-reading-fce-b2-test5-part-4-q28",
               "number": 28,
               "answer": "didn’t deserve to be",
+              "acceptedAnswers": [
+                "didn’t deserve to be"
+              ],
               "explanation": "didn t deserve to be.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "My brother was treated unfairly by his teachers. DESERVE -> My brother .....",
-              "sourceSentence": "My brother was treated unfairly by his teachers.",
+              "prompt": "My brother was treated unfairly by his teachers.My brother DESERVE -> . My brother was treated unfairly by his teachers.  My brother ..... treated that way by his teachers.",
+              "sourceSentence": "My brother was treated unfairly by his teachers.My brother",
               "keyword": "DESERVE",
-              "targetSentence": "My brother .....",
+              "targetSentence": ". My brother was treated unfairly by his teachers.  My brother ..... treated that way by his teachers.",
               "size": 40
             },
             {
               "id": "catalog-reading-fce-b2-test5-part-4-q29",
               "number": 29,
               "answer": "too expensive for him to",
+              "acceptedAnswers": [
+                "too expensive for him to"
+              ],
               "explanation": "too expensive for him to.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "He couldn t buy the car he wanted because he didn t have enough money. TOO -> The car he wanted was .....",
-              "sourceSentence": "He couldn t buy the car he wanted because he didn t have enough money.",
+              "prompt": "He couldn t buy the car he wanted because he didn t have enough money.The car he wanted was TOO -> . He couldn’t buy the car he wanted because he didn’t have enough money .  The car he wanted was ..... buy.",
+              "sourceSentence": "He couldn t buy the car he wanted because he didn t have enough money.The car he wanted was",
               "keyword": "TOO",
-              "targetSentence": "The car he wanted was .....",
+              "targetSentence": ". He couldn’t buy the car he wanted because he didn’t have enough money .  The car he wanted was ..... buy.",
               "size": 40
             },
             {
               "id": "catalog-reading-fce-b2-test5-part-4-q30",
               "number": 30,
               "answer": "the exception of joy",
+              "acceptedAnswers": [
+                "the exception of joy"
+              ],
               "explanation": "the exception of Joy.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "We all agreed with my father s proposal apart from Joy. EXCEPTION -> With .....",
-              "sourceSentence": "We all agreed with my father s proposal apart from Joy.",
+              "prompt": "We all agreed with my father s proposal apart from Joy.With EXCEPTION -> . We all agreed with my father’s proposal apart from Joy .  With ..... , we all agreed with my father’s proposal.",
+              "sourceSentence": "We all agreed with my father s proposal apart from Joy.With",
               "keyword": "EXCEPTION",
-              "targetSentence": "With .....",
+              "targetSentence": ". We all agreed with my father’s proposal apart from Joy .  With ..... , we all agreed with my father’s proposal.",
               "size": 40
             }
           ]
@@ -591,7 +672,103 @@
       "passageTitle": "Part 5",
       "passage": [
         {
-          "text": "The Psychology of Color. This is a subject that has fascinated researchers for many years. In a recent study conducted at the University of Toronto, scientists examined the various factors that contribute to our understanding of this topic. The study involved over 500 participants and lasted for approximately two years.\n\nThe results were surprising. The research team, led by Dr. Harper, found that there were significant differences between the groups they studied. One participant commented, 'I had no idea that this would be the outcome. It completely changed my perspective on the issue.'\n\nCritics of the study have pointed out some limitations. Professor Mason from Amsterdam University argues that the sample size was too small to draw definitive conclusions. 'While the findings are interesting,' he says, 'we need more research before we can apply them broadly.'\n\nDespite these criticisms, the study represents an important step forward. The authors emphasise that further investigation is needed, but they remain optimistic about the potential applications of their work. 'This is just the beginning,' Dr. Emma stated. 'We are already planning follow-up studies that will explore these questions in more depth.'"
+          "text": "“Come along, young fellow,” shouted Mr. Watson. “I’ll show you the school room.”"
+        },
+        {
+          "text": "He swept out of the drawing-room with giant strides and Philip hurriedly limped behind him . He was taken into a long, bare room with two tables that ran along its whole length; on each side of them were wooden forms."
+        },
+        {
+          "text": "“Nobody much here yet,” said Mr. Watson. “I’ll just show you the playground, and then I’ll leave you to shift for yourself.”"
+        },
+        {
+          "text": "Mr. Watson led the way. Philip found himself in a large playground with high brick walls on three sides of it. On the fourth was an iron railing through which you saw a vast lawn and beyond this some of the buildings of King’s School. One small boy was wandering disconsolately, kicking up the gravel as he walked."
+        },
+        {
+          "text": "“Hulloa, Venning,” shouted Mr. Watson. “When did you turn up?”"
+        },
+        {
+          "text": "The small boy came forward and shook hands."
+        },
+        {
+          "text": "“Here’s a new boy. He’s older and bigger than you, so don’t you bully him.”"
+        },
+        {
+          "text": "The headmaster glared amicably at the two children, filling them with fear by the roar of his voice , and then with a guffaw left them."
+        },
+        {
+          "text": "“What’s your name?”"
+        },
+        {
+          "text": "“Carey.”"
+        },
+        {
+          "text": "“What’s your father?”"
+        },
+        {
+          "text": "“He’s dead.”"
+        },
+        {
+          "text": "“Oh! Does your mother wash?”"
+        },
+        {
+          "text": "“My mother’s dead, too.”"
+        },
+        {
+          "text": "Philip thought this answer would cause the boy a certain awkwardness, but Venning was not to be turned from his facetiousness for so little."
+        },
+        {
+          "text": "“Well, did she wash?” he went on."
+        },
+        {
+          "text": "“Yes,” said Philip indignantly."
+        },
+        {
+          "text": "“She was a washerwoman then?”"
+        },
+        {
+          "text": "“No, she wasn’t.”"
+        },
+        {
+          "text": "“Then she didn’t wash.”"
+        },
+        {
+          "text": "The little boy crowed with delight at the success of his dialectic. Then he caught sight of Philip’s feet."
+        },
+        {
+          "text": "“What’s the matter with your foot?”"
+        },
+        {
+          "text": "Philip instinctively tried to withdraw it from sight. He hid it behind the one which was whole."
+        },
+        {
+          "text": "“I’ve got a club foot,” he answered."
+        },
+        {
+          "text": "“How did you get it?”"
+        },
+        {
+          "text": "“I’ve always had it.”"
+        },
+        {
+          "text": "“Let’s have a look.”"
+        },
+        {
+          "text": "“No.”"
+        },
+        {
+          "text": "“Don’t then.”"
+        },
+        {
+          "text": "The little boy accompanied the words with a sharp kick on Philip’s shin, which Philip did not expect and thus could not guard against. The pain was so great that it made him gasp, but greater than the pain was the surprise. He did not know why Venning kicked him. He had not the presence of mind to give him a black eye. Besides, the boy was smaller than he, and he had read in The Boy’s Own paper that it was a mean thing to hit anyone smaller than yourself. While Philip was nursing his shin, a third boy appeared and his tormentor left him . In a little while he noticed that the pair were talking about him, and he felt they were looking at his feet . He grew hot and uncomfortable."
+        },
+        {
+          "text": "But others arrived, a dozen together, and then more, and they began to talk about their doings during the holidays, where they had been, and what wonderful cricket they had played. A few new boys appeared, and with these presently Philip found himself talking! He was shy and nervous. He was anxious to make himself pleasant, but he could not think of anything to say. He was asked a great many questions and answered them all quite willingly. One boy asked him whether he could play cricket."
+        },
+        {
+          "text": "“No,” answered Philip. “I’ve got a club foot.”"
+        },
+        {
+          "text": "The boy looked down quickly and reddened. Philip saw that he felt he had asked an unseemly question. He was too shy to apologise and looked at Philip awkwardly."
         }
       ],
       "questionGroups": [
@@ -605,7 +782,10 @@
               "id": "catalog-reading-fce-b2-test5-part-5-q31",
               "number": 31,
               "answer": "c",
-              "explanation": "The correct answer is C.",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "What does strides mean? (Paragraph Two, underlined)",
@@ -632,7 +812,10 @@
               "id": "catalog-reading-fce-b2-test5-part-5-q32",
               "number": 32,
               "answer": "a",
-              "explanation": "The correct answer is A.",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "When Philip is shown around the school, it is",
@@ -659,7 +842,10 @@
               "id": "catalog-reading-fce-b2-test5-part-5-q33",
               "number": 33,
               "answer": "a",
-              "explanation": "The correct answer is D.",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "Why were the children afraid of Mr. Watson?",
@@ -686,7 +872,10 @@
               "id": "catalog-reading-fce-b2-test5-part-5-q34",
               "number": 34,
               "answer": "b",
-              "explanation": "The correct answer is B.",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "What does his tormentor refer to? (fourth paragraph from the bottom, underlined)",
@@ -713,7 +902,10 @@
               "id": "catalog-reading-fce-b2-test5-part-5-q35",
               "number": 35,
               "answer": "c",
-              "explanation": "The correct answer is A.",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "Why does Philip become hot and uncomfortable when the boys talked about his foot?",
@@ -740,7 +932,10 @@
               "id": "catalog-reading-fce-b2-test5-part-5-q36",
               "number": 36,
               "answer": "b",
-              "explanation": "The correct answer is C.",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "How do the boys who interact with Philip directly react to his club foot?",
@@ -777,25 +972,22 @@
           "text": "The thrill of skydiving is beyond any possible description. Falling at 120 mph with the wind screaming past your body is an unbelievable experience of total freedom. The sport is not without an element of danger; indeed, it is this fear that makes it so addictive. Yet there are relatively few serious injuries in this activity because of the tight regulations and safety requirements mandated for skydiving and parachuting organisations."
         },
         {
-          "text": "I still recall my first jump from 2,500 feet using what is called a static line . (37) ..... . The static line system is often used for those new to the sport. It is a means of helping them to deal with the sensation of falling, while ensuring that they will not actually hit anything."
+          "text": "I still recall my first jump from 2,500 feet using what is called a static line . 37 (37) ..... . The static line system is often used for those new to the sport. It is a means of helping them to deal with the sensation of falling, while ensuring that they will not actually hit anything."
         },
         {
-          "text": "(38) ..... . Still, there seems to be a little slice of missing time from the point where I let go of the aircraft to the parachute canopy actually opening . Pure terror sometimes does that! It was a moment where time ceased to exist, not quite a total blackout but still quite strange. Two days of training on the ground, the ceaseless drill of counting out “one thousand, two thousand, three thousand” and about all I seem to recall when I let go is something like “aaaaahhhhhh”. After a second and many subsequent jumps, this sensation soon faded to a dim recollection as I became accustomed to falling."
+          "text": "38 (38) ..... . Still, there seems to be a little slice of missing time from the point where I let go of the aircraft to the parachute canopy actually opening . Pure terror sometimes does that! It was a moment where time ceased to exist, not quite a total blackout but still quite strange. Two days of training on the ground, the ceaseless drill of counting out “one thousand, two thousand, three thousand” and about all I seem to recall when I let go is something like “aaaaahhhhhh”. After a second and many subsequent jumps, this sensation soon faded to a dim recollection as I became accustomed to falling."
         },
         {
-          "text": "The first real free fall commenced at about the fifth jump. This simply involved letting go of the aircraft and immediately deploying the canopy . (39) ..... . Starting from three seconds (let go and pull the ripcord) to five seconds (let go, count to three then pull the ripcord) increasing to seven seconds and so on. Once I made it to ten seconds and beyond, it became important to use an altimeter."
+          "text": "The first real free fall commenced at about the fifth jump. This simply involved letting go of the aircraft and immediately deploying the canopy . 39 (39) ..... . Starting from three seconds (let go and pull the ripcord) to five seconds (let go, count to three then pull the ripcord) increasing to seven seconds and so on. Once I made it to ten seconds and beyond, it became important to use an altimeter."
         },
         {
-          "text": "Free fall became really interesting at the 15-second mark because that is when the real training started. Turning, tumbling and rocketing forward by using different body positions put a completely new challenge before me. I learned it was possible to put my body in a position where forward ground speed was around 80 mph with an increase of downward velocity close to 200 mph – the ears tend to get a little warm! It is also quite important to flare out, slow and adopt a more stable position before deploying the canopy. Doing so at really high velocity really hurts, and I suspect everyone does this at least once. It is quite a lot of stress on your body when pulling up from 120 mph to 10 mph in about two or three seconds . (40) ..... ."
+          "text": "Free fall became really interesting at the 15-second mark because that is when the real training started. Turning, tumbling and rocketing forward by using different body positions put a completely new challenge before me. I learned it was possible to put my body in a position where forward ground speed was around 80 mph with an increase of downward velocity close to 200 mph – the ears tend to get a little warm! It is also quite important to flare out, slow and adopt a more stable position before deploying the canopy. Doing so at really high velocity really hurts, and I suspect everyone does this at least once. It is quite a lot of stress on your body when pulling up from 120 mph to 10 mph in about two or three seconds . 40 (40) ..... ."
         },
         {
-          "text": "One of my most fearful experiences occurred when I made a complete mess of trying to do a reverse tumble and became wildly unstable. Nothing I did seemed to correct the spinning and rolling, I was still at 5,000 feet and in desperation I deployed the canopy . (41) ..... . The bag wrapped around one of my legs. Luckily, by this time had enough free fall experience to have the presence of mind to see what was happening and it was not too difficult to reach down and disentangle the risers. I also knew there was plenty of time to correct the problem because I was far higher than the standard 2,500 deployment altitude. It turned out fine in the end."
+          "text": "One of my most fearful experiences occurred when I made a complete mess of trying to do a reverse tumble and became wildly unstable. Nothing I did seemed to correct the spinning and rolling, I was still at 5,000 feet and in desperation I deployed the canopy . 41 (41) ..... . The bag wrapped around one of my legs. Luckily, by this time had enough free fall experience to have the presence of mind to see what was happening and it was not too difficult to reach down and disentangle the risers. I also knew there was plenty of time to correct the problem because I was far higher than the standard 2,500 deployment altitude. It turned out fine in the end."
         },
         {
-          "text": "I would say one of my most memorable free falling experiences was above the Mornington Peninsula in Victoria, Australia . (42) ..... . From this altitude , I did some nice slow turns and drank in the scenery of Port Phillip Bay, out to sea, across the length of the peninsula to the city of Melbourne, all in an orange-red glow of the most amazing sunset I can ever remember. It was incredible."
-        },
-        {
-          "text": "A. There are few other ways to experience the total and utter freedom of flight .\n B. This is a strong nylon tape that is attached to the aircraft on one end, and to the release pin of the jumper’s canopy on the other.\n C. I think my ears are still ringing from that mistake .\n D. Altitudes increased gradually, as did time in free-fall .\n E. It was a 40-second fall from 14,000 feet , right at sunset.\n F. What happened next was not good at all .\n G. My first experience is still very sharp in my memory ."
+          "text": "I would say one of my most memorable free falling experiences was above the Mornington Peninsula in Victoria, Australia . 42 (42) ..... . From this altitude , I did some nice slow turns and drank in the scenery of Port Phillip Bay, out to sea, across the length of the peninsula to the city of Melbourne, all in an orange-red glow of the most amazing sunset I can ever remember. It was incredible."
         }
       ],
       "questionGroups": [
@@ -816,38 +1008,31 @@
           "features": [
             {
               "id": "a",
-              "name": "It has become a major topic of discussion in Vienna.",
-              "_provenance": "ai-generated"
+              "name": "There are few other ways to experience the total and utter freedom of flight ."
             },
             {
               "id": "b",
-              "name": "One key factor is the growing awareness among young Tokyo residents.",
-              "_provenance": "ai-generated"
+              "name": "This is a strong nylon tape that is attached to the aircraft on one end, and to the release pin of the jumper’s canopy on the other."
             },
             {
               "id": "c",
-              "name": "The number of people involved has risen by over 50% in the last decade.",
-              "_provenance": "ai-generated"
+              "name": "I think my ears are still ringing from that mistake ."
             },
             {
               "id": "d",
-              "name": "This change has been particularly noticeable in urban areas across the country.",
-              "_provenance": "ai-generated"
+              "name": "Altitudes increased gradually, as did time in free-fall ."
             },
             {
               "id": "e",
-              "name": "Finding adequate funding remains a significant obstacle for many organisations.",
-              "_provenance": "ai-generated"
+              "name": "It was a 40-second fall from 14,000 feet , right at sunset."
             },
             {
               "id": "f",
-              "name": "Education and community engagement are seen as the most promising strategies.",
-              "_provenance": "ai-generated"
+              "name": "What happened next was not good at all ."
             },
             {
               "id": "g",
-              "name": "Several pilot projects have already shown encouraging results.",
-              "_provenance": "ai-generated"
+              "name": "My first experience is still very sharp in my memory .\n\n<div"
             }
           ],
           "questions": [
@@ -855,37 +1040,40 @@
               "id": "catalog-reading-fce-b2-test5-part-6-q37",
               "number": 37,
               "answer": "b",
-              "explanation": "Sentence B fits logically in gap 37.",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (37)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -894,37 +1082,40 @@
               "id": "catalog-reading-fce-b2-test5-part-6-q38",
               "number": 38,
               "answer": "g",
-              "explanation": "Sentence A fits logically in gap 38.",
+              "acceptedAnswers": [
+                "g"
+              ],
+              "explanation": "G",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (38)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -933,37 +1124,40 @@
               "id": "catalog-reading-fce-b2-test5-part-6-q39",
               "number": 39,
               "answer": "d",
-              "explanation": "Sentence C fits logically in gap 39.",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (39)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -972,37 +1166,40 @@
               "id": "catalog-reading-fce-b2-test5-part-6-q40",
               "number": 40,
               "answer": "c",
-              "explanation": "Sentence D fits logically in gap 40.",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (40)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -1011,37 +1208,40 @@
               "id": "catalog-reading-fce-b2-test5-part-6-q41",
               "number": 41,
               "answer": "f",
-              "explanation": "Sentence F fits logically in gap 41.",
+              "acceptedAnswers": [
+                "f"
+              ],
+              "explanation": "F",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (41)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -1050,37 +1250,40 @@
               "id": "catalog-reading-fce-b2-test5-part-6-q42",
               "number": 42,
               "answer": "e",
-              "explanation": "Sentence E fits logically in gap 42.",
+              "acceptedAnswers": [
+                "e"
+              ],
+              "explanation": "E",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (42)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -1097,23 +1300,19 @@
       "passage": [
         {
           "label": "A",
-          "text": "Ethan recently experienced art exhibitions in Toronto. It was an unforgettable experience that changed her perspective. The highlights included meeting new people from different backgrounds and learning about local customs. She particularly enjoyed the cultural events organised by the hosts. Despite some initial difficulties with the language, she felt that the overall experience was extremely rewarding. Liam recommends this experience to anyone interested in broadening their horizons.",
-          "_provenance": "ai-generated"
+          "text": "Katie I’m afraid of spiders. You won’t hear me scream, but I will certainly get out of the room until someone else has dealt with it. Once, when I was a teenager, and my parents were both working late, I sat on the front steps of the house for nearly five hours waiting for help. There was a spider on the ceiling in the hallway, you see! I couldn’t get into the house! My father was quite angry with me when he got home; he thought I needed to learn to be more independent. “How will you ever survive if you have to live alone some day?” he asked. Well, I’m sure if I had to I would just deal with it, although it would be a challenge . But I’ve never had to live alone. I had flatmates at university, and now I’m married. Luckily my husband has no problem with spiders, and is tolerant of my phobia!"
         },
         {
           "label": "B",
-          "text": "Noah recently experienced art exhibitions in Rome. It was a fascinating experience that changed his perspective. The challenges included meeting new people from different backgrounds and learning about local customs. He particularly enjoyed the practical workshops organised by the hosts. Despite some initial difficulties with the weather, he felt that the overall experience was extremely rewarding. Isabella recommends this experience to anyone looking for broadening their horizons.",
-          "_provenance": "ai-generated"
+          "text": "Ellie The most challenging thing I’ve ever done, by far, was trekking in the Himalayas. It was something I’d always dreamed of doing and I was incredibly fortunate to have the opportunity to join a trek for charity . I always considered myself fit; I mean, I go to the gym two or three times a week. But as soon as we set out I realised I was quite out of my depth ; I’d never even carried a pack before. In retrospect, I can’t imagine what I was thinking. On the first day, we had a six-hour walk and after four hours I was so exhausted I felt that I couldn’t go on. I took off my pack, sat down, and cried. Apparently my reaction was fairly common so our group leader knew just how to deal with it. He calmly explained that we were only two more hours from our first camp, while I’d have to walk for four, alone, to go back! I had no choice. I had to continue. So I did, and when we eventually reached Everest base camp it was the proudest I’ve ever been."
         },
         {
           "label": "C",
-          "text": "Mia recently experienced art exhibitions in London. It was an eye-opening experience that changed their perspective. The opportunities included meeting new people from different backgrounds and learning about local customs. They particularly enjoyed the guided tours organised by the hosts. Despite some initial difficulties with the schedule, they felt that the overall experience was extremely rewarding. Sophia recommends this experience to anyone keen on broadening their horizons.",
-          "_provenance": "ai-generated"
+          "text": "Daniel After high school I was accepted into a very good music school, by merit of my audition. I almost declined; I didn’t want to go to university. It was a terribly difficult time because nobody could understand why I would make that decision. I was just so terrified that I would fail . I’m dyslexic, and I knew that even if I were studying music I would have to write essays for so many classes. I’d had some teachers in the past that were convinced that I was just careless, that I was lazy, when in fact I was spending much more time on the assignments than my classmates. In the end I went, but I had a terrible attitude. I missed a lot of classes; I wasn’t even trying. Eventually I found my way to an office that offered support to students with special needs; I think someone told me that I could get a free computer, or something . That turned my life around. To get the computer I had to attend regular meetings with an advisor, which I hated at first , but eventually I learned to recognise my strengths and be realistic about my weaknesses; I realised I could get help when I needed it, and that was OK. That was the hardest thing; but once I’d understood it, there was no stopping me."
         },
         {
           "label": "D",
-          "text": "Ethan recently experienced art exhibitions in Edinburgh. It was a memorable experience that changed her perspective. The activities included meeting new people from different backgrounds and learning about local customs. She particularly enjoyed the community projects organised by the hosts. Despite some initial difficulties with the transport, she felt that the overall experience was extremely rewarding. Sarah recommends this experience to anyone curious about broadening their horizons.",
-          "_provenance": "ai-generated"
+          "text": "Jack My fear of heights was affecting my life because I had difficulty going up and down stairs or over bridges, particularly if I could see down, beneath me. I would just get paralysed. I would feel nauseous, and my feet would feel heavy, as if they were made of lead. I had read that it was possible to get over phobias by exposure, so I put myself into difficult situations on purpose . It was exhausting, but I knew it was important. I noticed slight improvements, but only very slight. It was frustrating. Then I had the idea; I was going to try bungee jumping. I got a trusted friend to go with me; to make sure I didn’t change my mind . He told the people in charge they would have to push me, because I wouldn’t jump. It was all very fast; there was no time to think. The feeling was exhilarating, to be honest . And I’ve had no trouble in my day-to-day life since then. Though, I admit, I have no desire to do it again."
         }
       ],
       "questionGroups": [
@@ -1145,10 +1344,13 @@
               "id": "catalog-reading-fce-b2-test5-part-7-q43",
               "number": 43,
               "answer": "c",
-              "explanation": "The answer is B because the text mentions this.",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who found the language challenging at first?",
+              "prompt": "did not receive help willingly at first?",
               "options": [
                 {
                   "id": "a",
@@ -1166,17 +1368,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test5-part-7-q44",
               "number": 44,
               "answer": "b",
-              "explanation": "The answer is A because the text mentions this.",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Which person attended cultural events?",
+              "prompt": "did not realise how difficult something would be?",
               "options": [
                 {
                   "id": "a",
@@ -1194,17 +1398,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test5-part-7-q45",
               "number": 45,
               "answer": "a",
-              "explanation": "The answer is A because the text mentions this.",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who recommends the experience to others?",
+              "prompt": "did not feel a need to change?",
               "options": [
                 {
                   "id": "a",
@@ -1222,17 +1428,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test5-part-7-q46",
               "number": 46,
               "answer": "b",
-              "explanation": "The answer is C because the text mentions this.",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Whose perspective was changed by the experience?",
+              "prompt": "helped others while being challenged?",
               "options": [
                 {
                   "id": "a",
@@ -1250,17 +1458,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test5-part-7-q47",
               "number": 47,
               "answer": "a",
-              "explanation": "The answer is D because the text mentions this.",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who participated in practical workshops?",
+              "prompt": "can rely on a family member who does not share their phobia?",
               "options": [
                 {
                   "id": "a",
@@ -1278,17 +1488,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test5-part-7-q48",
               "number": 48,
               "answer": "c",
-              "explanation": "The answer is B because the text mentions this.",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Which person had difficulties with arrangements?",
+              "prompt": "was afraid of being unsuccessful?",
               "options": [
                 {
                   "id": "a",
@@ -1306,17 +1518,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test5-part-7-q49",
               "number": 49,
               "answer": "d",
-              "explanation": "The answer is A because the text mentions this.",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who met people from diverse backgrounds?",
+              "prompt": "felt a sense of great happiness while taking part in an extreme activity?",
               "options": [
                 {
                   "id": "a",
@@ -1334,17 +1548,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test5-part-7-q50",
               "number": 50,
               "answer": "d",
-              "explanation": "The answer is C because the text mentions this.",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Whose experience involved community projects?",
+              "prompt": "initially tried to overcome his/her difficulty alone?",
               "options": [
                 {
                   "id": "a",
@@ -1362,17 +1578,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test5-part-7-q51",
               "number": 51,
               "answer": "c",
-              "explanation": "The answer is D because the text mentions this.",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who enjoyed guided tours?",
+              "prompt": "took advantage of an offer which had conditions attached to it?",
               "options": [
                 {
                   "id": "a",
@@ -1390,17 +1608,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test5-part-7-q52",
               "number": 52,
               "answer": "d",
-              "explanation": "The answer is C because the text mentions this.",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Which person was looking for a new challenge?",
+              "prompt": "had the support of a friend?",
               "options": [
                 {
                   "id": "a",
@@ -1418,8 +1638,7 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             }
           ]
         }

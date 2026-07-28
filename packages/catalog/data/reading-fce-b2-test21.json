@@ -31,6 +31,9 @@
               "id": "catalog-reading-fce-b2-test21-part-1-q1",
               "number": 1,
               "answer": "a",
+              "acceptedAnswers": [
+                "a"
+              ],
               "explanation": "contrast.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -58,6 +61,9 @@
               "id": "catalog-reading-fce-b2-test21-part-1-q2",
               "number": 2,
               "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
               "explanation": "consists.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -85,6 +91,9 @@
               "id": "catalog-reading-fce-b2-test21-part-1-q3",
               "number": 3,
               "answer": "a",
+              "acceptedAnswers": [
+                "a"
+              ],
               "explanation": "start.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -112,6 +121,9 @@
               "id": "catalog-reading-fce-b2-test21-part-1-q4",
               "number": 4,
               "answer": "d",
+              "acceptedAnswers": [
+                "d"
+              ],
               "explanation": "scene.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -139,6 +151,9 @@
               "id": "catalog-reading-fce-b2-test21-part-1-q5",
               "number": 5,
               "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
               "explanation": "tendency.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -166,6 +181,9 @@
               "id": "catalog-reading-fce-b2-test21-part-1-q6",
               "number": 6,
               "answer": "a",
+              "acceptedAnswers": [
+                "a"
+              ],
               "explanation": "addition.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -193,6 +211,9 @@
               "id": "catalog-reading-fce-b2-test21-part-1-q7",
               "number": 7,
               "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
               "explanation": "face.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -220,6 +241,9 @@
               "id": "catalog-reading-fce-b2-test21-part-1-q8",
               "number": 8,
               "answer": "c",
+              "acceptedAnswers": [
+                "c"
+              ],
               "explanation": "least.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -251,12 +275,16 @@
       "id": "catalog-reading-fce-b2-test21-part-2",
       "partNumber": 2,
       "rangeLabel": "Questions 9–16",
-      "passageTitle": "Part 2",
-      "passageSubtitle": "",
+      "passageTitle": "A sculptor s home",
+      "passageSubtitle": "THE",
       "passage": [
         {
-          "text": "When it comes to education systems, there are several factors to consider. (9) ..... of all, it is important to understand the basic principles. Many people, (10) ..... , fail to recognise the significance of this. The reason (11) ..... this may be due to a lack of exposure. (12) ..... the other hand, those who have experience tend to disagree. It is worth noting that (13) ..... of the challenges we face can be overcome with patience. (14) ..... is also true that practice plays a crucial role. Finally, (15) ..... should be given to those who persist (16) ..... the face of difficulty.",
-          "_provenance": "ai-generated"
+          "text": "I’m currently sitting outside La Villa des Brillants, once 0 _____ home of well-known sculptor Auguste Rodin. Rodin purchased this property on the outskirts of Paris in 1895. By 1900, he (9) ..... turned it into a home and a studio where he worked until his death in 1917. As well as having around 50 assistants, Rodin (10) ..... regularly invite friends, family and art lovers to visit his studio.",
+          "_provenance": "source"
+        },
+        {
+          "text": "The house has been a museum (11) ..... Rodin’s death. Photographs were used to renovate the house in the latter part of the last century, so now we can see exactly what it was (12) ..... when Rodin lived there. What’s special about coming here (13) ..... that we can see his most famous works of art, as well as (14) ..... a sense of his daily life. Rodin is buried in the grounds of the house, under a statue of The Thinker, one of his most well-loved pieces. Needless to (15) ..... , this is a place where artists such as myself can pay respects to the man we look (16) ..... to.",
+          "_provenance": "source"
         }
       ],
       "questionGroups": [
@@ -269,9 +297,12 @@
             {
               "id": "catalog-reading-fce-b2-test21-part-2-q9",
               "number": 9,
-              "answer": "first",
-              "explanation": "The correct word is \"first\".",
-              "answerConfidence": "ai-generated",
+              "answer": "had",
+              "acceptedAnswers": [
+                "had"
+              ],
+              "explanation": "had.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (9)",
               "size": 10
@@ -279,9 +310,12 @@
             {
               "id": "catalog-reading-fce-b2-test21-part-2-q10",
               "number": 10,
-              "answer": "however",
-              "explanation": "The correct word is \"however\".",
-              "answerConfidence": "ai-generated",
+              "answer": "would",
+              "acceptedAnswers": [
+                "would"
+              ],
+              "explanation": "would.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (10)",
               "size": 10
@@ -289,9 +323,12 @@
             {
               "id": "catalog-reading-fce-b2-test21-part-2-q11",
               "number": 11,
-              "answer": "for",
-              "explanation": "The correct word is \"for\".",
-              "answerConfidence": "ai-generated",
+              "answer": "since",
+              "acceptedAnswers": [
+                "since"
+              ],
+              "explanation": "since.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (11)",
               "size": 10
@@ -299,9 +336,12 @@
             {
               "id": "catalog-reading-fce-b2-test21-part-2-q12",
               "number": 12,
-              "answer": "on",
-              "explanation": "The correct word is \"on\".",
-              "answerConfidence": "ai-generated",
+              "answer": "like",
+              "acceptedAnswers": [
+                "like"
+              ],
+              "explanation": "like.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (12)",
               "size": 10
@@ -309,9 +349,12 @@
             {
               "id": "catalog-reading-fce-b2-test21-part-2-q13",
               "number": 13,
-              "answer": "most",
-              "explanation": "The correct word is \"most\".",
-              "answerConfidence": "ai-generated",
+              "answer": "is",
+              "acceptedAnswers": [
+                "is"
+              ],
+              "explanation": "is.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (13)",
               "size": 10
@@ -319,9 +362,12 @@
             {
               "id": "catalog-reading-fce-b2-test21-part-2-q14",
               "number": 14,
-              "answer": "it",
-              "explanation": "The correct word is \"it\".",
-              "answerConfidence": "ai-generated",
+              "answer": "get",
+              "acceptedAnswers": [
+                "get"
+              ],
+              "explanation": "get.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (14)",
               "size": 10
@@ -329,9 +375,12 @@
             {
               "id": "catalog-reading-fce-b2-test21-part-2-q15",
               "number": 15,
-              "answer": "credit",
-              "explanation": "The correct word is \"credit\".",
-              "answerConfidence": "ai-generated",
+              "answer": "say",
+              "acceptedAnswers": [
+                "say"
+              ],
+              "explanation": "say.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (15)",
               "size": 10
@@ -339,35 +388,31 @@
             {
               "id": "catalog-reading-fce-b2-test21-part-2-q16",
               "number": 16,
-              "answer": "in",
-              "explanation": "The correct word is \"in\".",
-              "answerConfidence": "ai-generated",
+              "answer": "up",
+              "acceptedAnswers": [
+                "up"
+              ],
+              "explanation": "up.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (16)",
               "size": 10
             }
           ]
         }
-      ],
-      "_aiRepairMeta": {
-        "appliedAt": "2026-07-28T07:34:28.057Z",
-        "fields": [
-          "passage",
-          "questions",
-          "answers",
-          "explanations"
-        ]
-      }
+      ]
     },
     {
       "id": "catalog-reading-fce-b2-test21-part-3",
       "partNumber": 3,
       "rangeLabel": "Questions 17–24",
-      "passageTitle": "Part 3",
+      "passageTitle": "Is regifting ever acceptable?",
       "passage": [
         {
-          "text": "In today's (0) competitive world, it is essential to have (17) ..... skills. Your personal (18) ..... can make a real difference. Rising (19) ..... figures are a concern for many. Travel can help (20) ..... your horizons. He was (21) ..... about which path to choose. (22) ..... , the project was delayed. There is great (23) ..... about the future. She was (24) ..... about her new role.",
-          "_provenance": "ai-generated"
+          "text": "How would you feel if you spent time buying someone a gift and then found out that they went and gave it to someone else? Would you be happy that it had found a 0 _____ who wanted it, or would you think it was incredibly (17) ..... ? The act of regifting unwanted gifts is gaining in (18) ..... . It keeps our homes tidy, saves waste and makes gift-giving more (19) ..... ."
+        },
+        {
+          "text": "However, there are unwritten rules we should follow when regifting items that we’re (20) ..... with. We should avoid passing anything on that was made especially for us, even if we find it (21) ..... . We should also take care not to forget the (22) ..... of the gift giver and accidentally give the gift back to them. Giving anyone the opportunity to discover their gift was unwanted is (23) ..... and allowing it to happen is (24) ..... ."
         }
       ],
       "questionGroups": [
@@ -381,107 +426,117 @@
               "id": "catalog-reading-fce-b2-test21-part-3-q17",
               "number": 17,
               "answer": "impolite",
+              "acceptedAnswers": [
+                "impolite"
+              ],
               "explanation": "impolite.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (17) — ",
-              "baseWord": "COMPETE",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (17) — POLITE",
+              "baseWord": "POLITE",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test21-part-3-q18",
               "number": 18,
               "answer": "popularity",
+              "acceptedAnswers": [
+                "popularity"
+              ],
               "explanation": "popularity.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (18) — ",
-              "baseWord": "STRONG",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (18) — POPULAR",
+              "baseWord": "POPULAR",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test21-part-3-q19",
               "number": 19,
               "answer": "affordable",
+              "acceptedAnswers": [
+                "affordable"
+              ],
               "explanation": "affordable.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (19) — ",
-              "baseWord": "EMPLOY",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (19) — AFFORD",
+              "baseWord": "AFFORD",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test21-part-3-q20",
               "number": 20,
               "answer": "dissatisfied",
+              "acceptedAnswers": [
+                "dissatisfied"
+              ],
               "explanation": "dissatisfied.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (20) — ",
-              "baseWord": "BROAD",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (20) — SATISFY",
+              "baseWord": "SATISFY",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test21-part-3-q21",
               "number": 21,
               "answer": "unappealing",
+              "acceptedAnswers": [
+                "unappealing"
+              ],
               "explanation": "unappealing.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (21) — ",
-              "baseWord": "DECIDE",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (21) — APPEAL",
+              "baseWord": "APPEAL",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test21-part-3-q22",
               "number": 22,
               "answer": "identity",
+              "acceptedAnswers": [
+                "identity"
+              ],
               "explanation": "identity.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (22) — ",
-              "baseWord": "FORTUNE",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (22) — IDENTIFY",
+              "baseWord": "IDENTIFY",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test21-part-3-q23",
               "number": 23,
               "answer": "insensitive",
+              "acceptedAnswers": [
+                "insensitive"
+              ],
               "explanation": "insensitive.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (23) — ",
-              "baseWord": "CERTAIN",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (23) — SENSITIVE",
+              "baseWord": "SENSITIVE",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test21-part-3-q24",
               "number": 24,
               "answer": "irresponsible",
+              "acceptedAnswers": [
+                "irresponsible"
+              ],
               "explanation": "irresponsible.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (24) — ",
-              "baseWord": "ENTHUSE",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (24) — RESPONSIBLE",
+              "baseWord": "RESPONSIBLE",
+              "size": 10
             }
           ]
         }
-      ],
-      "_aiRepairMeta": {
-        "appliedAt": "2026-07-28T07:34:28.057Z",
-        "fields": [
-          "passage"
-        ]
-      }
+      ]
     },
     {
       "id": "catalog-reading-fce-b2-test21-part-4",
@@ -499,7 +554,12 @@
             {
               "id": "catalog-reading-fce-b2-test21-part-4-q25",
               "number": 25,
-              "answer": "stopped taking karate lessons when / gave up karate lessons when / last took karate lessons when",
+              "answer": "stopped taking karate lessons when",
+              "acceptedAnswers": [
+                "stopped taking karate lessons when",
+                "gave up karate lessons when",
+                "last took karate lessons when"
+              ],
               "explanation": "stopped taking karate lessons when / gave up karate lessons when / last took karate lessons when.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -512,7 +572,12 @@
             {
               "id": "catalog-reading-fce-b2-test21-part-4-q26",
               "number": 26,
-              "answer": "turn out as / turn out how / turn out the way",
+              "answer": "turn out as",
+              "acceptedAnswers": [
+                "turn out as",
+                "turn out how",
+                "turn out the way"
+              ],
               "explanation": "turn out as / turn out how / turn out the way.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -526,52 +591,64 @@
               "id": "catalog-reading-fce-b2-test21-part-4-q27",
               "number": 27,
               "answer": "has just gone up",
+              "acceptedAnswers": [
+                "has just gone up"
+              ],
               "explanation": "has just gone up.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "The price of petrol went up again a moment ago. JUST -> The price of petrol .....",
-              "sourceSentence": "The price of petrol went up again a moment ago.",
+              "prompt": "The price of petrol went up again a moment ago. The price of petrol JUST -> The price of petrol went up again a moment ago.  The price of petrol ..... again.",
+              "sourceSentence": "The price of petrol went up again a moment ago. The price of petrol",
               "keyword": "JUST",
-              "targetSentence": "The price of petrol .....",
+              "targetSentence": "The price of petrol went up again a moment ago.  The price of petrol ..... again.",
               "size": 40
             },
             {
               "id": "catalog-reading-fce-b2-test21-part-4-q28",
               "number": 28,
               "answer": "while i was",
+              "acceptedAnswers": [
+                "while i was"
+              ],
               "explanation": "while I was.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "I was on a skiing trip in the Alps when I met Tom. WHILE -> I met Tom .....",
-              "sourceSentence": "I was on a skiing trip in the Alps when I met Tom.",
+              "prompt": "I was on a skiing trip in the Alps when I met Tom. I met Tom WHILE -> I was on a skiing trip in the Alps when I met Tom.  I met Tom ..... skiing in the Alps.",
+              "sourceSentence": "I was on a skiing trip in the Alps when I met Tom. I met Tom",
               "keyword": "WHILE",
-              "targetSentence": "I met Tom .....",
+              "targetSentence": "I was on a skiing trip in the Alps when I met Tom.  I met Tom ..... skiing in the Alps.",
               "size": 40
             },
             {
               "id": "catalog-reading-fce-b2-test21-part-4-q29",
               "number": 29,
               "answer": "to have a subscription to",
+              "acceptedAnswers": [
+                "to have a subscription to"
+              ],
               "explanation": "to have a subscription to.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "You must subscribe to use the music site. HAVE -> You have .....",
-              "sourceSentence": "You must subscribe to use the music site.",
+              "prompt": "You must subscribe to use the music site. You have HAVE -> You must subscribe to use the music site.  You have ..... use the music site.",
+              "sourceSentence": "You must subscribe to use the music site. You have",
               "keyword": "HAVE",
-              "targetSentence": "You have .....",
+              "targetSentence": "You must subscribe to use the music site.  You have ..... use the music site.",
               "size": 40
             },
             {
               "id": "catalog-reading-fce-b2-test21-part-4-q30",
               "number": 30,
               "answer": "(often) used to chat to",
+              "acceptedAnswers": [
+                "(often) used to chat to"
+              ],
               "explanation": "(often) used to chat to.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "I often chatted to an invisible friend when I was a child. USED -> I .....",
-              "sourceSentence": "I often chatted to an invisible friend when I was a child.",
+              "prompt": "I often chatted to an invisible friend when I was a child. I USED -> I often chatted to an invisible friend when I was a child.  I ..... an invisible friend when I was a child.",
+              "sourceSentence": "I often chatted to an invisible friend when I was a child. I",
               "keyword": "USED",
-              "targetSentence": "I .....",
+              "targetSentence": "I often chatted to an invisible friend when I was a child.  I ..... an invisible friend when I was a child.",
               "size": 40
             }
           ]
@@ -617,7 +694,10 @@
               "id": "catalog-reading-fce-b2-test21-part-5-q31",
               "number": 31,
               "answer": "b",
-              "explanation": "",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "According to the writer, people take part in ultramarathons mainly because",
@@ -644,7 +724,10 @@
               "id": "catalog-reading-fce-b2-test21-part-5-q32",
               "number": 32,
               "answer": "c",
-              "explanation": "",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "The underlined word it in Paragraph 2 refers to",
@@ -671,7 +754,10 @@
               "id": "catalog-reading-fce-b2-test21-part-5-q33",
               "number": 33,
               "answer": "c",
-              "explanation": "",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "Which part of training for the ultramarathon did the writer find the most difficult?",
@@ -698,7 +784,10 @@
               "id": "catalog-reading-fce-b2-test21-part-5-q34",
               "number": 34,
               "answer": "b",
-              "explanation": "",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "How did the writer feel at the base camp, before the race?",
@@ -725,7 +814,10 @@
               "id": "catalog-reading-fce-b2-test21-part-5-q35",
               "number": 35,
               "answer": "a",
-              "explanation": "",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "The phrase hadn t bargained for (Paragraph 5) suggests that running with wet feet",
@@ -752,7 +844,10 @@
               "id": "catalog-reading-fce-b2-test21-part-5-q36",
               "number": 36,
               "answer": "b",
-              "explanation": "",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "What feeling does the writer have now?",
@@ -783,11 +878,28 @@
       "id": "catalog-reading-fce-b2-test21-part-6",
       "partNumber": 6,
       "rangeLabel": "Questions 37–42",
-      "passageTitle": "Part 6",
+      "passageTitle": "How did they do that?",
       "passage": [
         {
-          "text": "Public Transport Systems is a topic that has attracted considerable attention. (37) ..... The reasons for this growing interest are varied. (38) ..... Many people now recognise the importance of this issue.\n\nAccording to recent surveys, engagement with this topic has increased significantly. (39) ..... This trend is expected to continue in the coming years. (40) ..... However, there are still challenges that need to be addressed.\n\nExperts suggest several approaches to dealing with these challenges. (41) ..... Early evidence suggests that these methods are effective. (42) ..... Only time will tell whether these efforts will succeed.",
-          "_provenance": "ai-generated"
+          "text": "It’s impossible, isn’t it? An actor fluently speaking nine languages in a new film? OK. Maybe ‘unlikely’ is the word. And yes, surprise, surprise, he isn’t actually speaking those languages, it’s yet another clever technique developed for video using AI. It makes us believe the impossible."
+        },
+        {
+          "text": "What is really impossible is trying to keep up with the latest technological advances that affect our viewing experiences. Special effects have come a very long way since the ‘stop trick’ which was first used in 1895 when filming Mary Queen of Scots. The director came up with the idea of stopping the cameras just before the execution and substituting a dummy. (I’m sure the actor was relieved!) In those early days the effects were all created physically, with make-up, different backgrounds, models and trick photography. (37) ..... . ‘How did they do that?’ they asked. The question the film companies want us to keep asking."
+        },
+        {
+          "text": "Then digital got involved. Performance capture (performance what?) dazzled cinemagoers with films like The Polar Express (2004), where magically, it seemed Tom Hanks’ expressions and movements were superimposed on an animated character. (38) ..... . Performance capture is the combination of acting with computer animation and gives us remarkably human characters in an animated world. Think of the animals and birds in The Lion King. Some think that the creations are now almost too realistic to be called animations any longer."
+        },
+        {
+          "text": "In addition to this, high-tech fakery can allow real characters to do any actions they want. (39) ..... . What allows this magic to happen is ‘green screen’. This is where actors perform in front of a vividly-bright green background which can later be replaced digitally by almost anything from battle scenes to the interiors of exploding planets! The only limitation is the director’s imagination."
+        },
+        {
+          "text": "And it is not only the technology that is changing and advancing. It is also the skills of the actors involved. Gone are the days when film actors used costume, make-up and interaction with other actors to create a believable character. (40) ..... . Or for performance capture, an actor could be dressed in a skin-tight lycra suit with strange tiny balls stuck all over it to record individual muscle movements. He will again be depending on his imagination, this time perhaps to remember, for example, to touch the brim of an imaginary hat."
+        },
+        {
+          "text": "(41) ..... . This uses ‘face manipulation’ technology to match lip movements with words so that we’re convinced that the person is speaking. It is awesome in the real sense of the word and its potential for dubbing foreign language films is enormous. Remember that awkward mismatching of lips and sounds? Soon to be long gone."
+        },
+        {
+          "text": "But what next? I’m writing this in the present tense, but I know full well that what I record as revolutionary and new will soon become outdated. (42) ..... . Will we ever stop asking ‘How did they do that?’ Or maybe there will be an unexpected plot twist and we’ll turn our backs on technology and return to the early days of film. What do you think?"
         }
       ],
       "questionGroups": [
@@ -808,38 +920,31 @@
           "features": [
             {
               "id": "a",
-              "name": "It has become a major topic of discussion in London.",
-              "_provenance": "ai-generated"
+              "name": "For example, they can fly, ride on performance captured monsters or interact with giants in any location imaginable."
             },
             {
               "id": "b",
-              "name": "One key factor is the growing awareness among young Barcelona residents.",
-              "_provenance": "ai-generated"
+              "name": "In other words, there will be newer and more incredible ways to make the impossible possible."
             },
             {
               "id": "c",
-              "name": "The number of people involved has risen by over 50% in the last decade.",
-              "_provenance": "ai-generated"
+              "name": "Gollum, in Lord of the Rings (2001) is another unforgettable creation – a faded, slimy creature that uses Andy Serkis’ gestures and stares with the actor’s haunting eyes."
             },
             {
               "id": "d",
-              "name": "This change has been particularly noticeable in urban areas across the country.",
-              "_provenance": "ai-generated"
+              "name": "Frustratingly for many, today they may be alone in front of a green screen interacting with people or creatures in a location that is all completely imaginary."
             },
             {
               "id": "e",
-              "name": "Finding adequate funding remains a significant obstacle for many organisations.",
-              "_provenance": "ai-generated"
+              "name": "Audiences gasped as fires raged through office blocks or tsunamis towered over towns and people."
             },
             {
               "id": "f",
-              "name": "Education and community engagement are seen as the most promising strategies.",
-              "_provenance": "ai-generated"
+              "name": "They are often badly produced and intelligent cinemagoers become bored very quickly."
             },
             {
               "id": "g",
-              "name": "Several pilot projects have already shown encouraging results.",
-              "_provenance": "ai-generated"
+              "name": "So, we come back to the revolutionary technique that allows the actor to do the impossible and talk in nine languages."
             }
           ],
           "questions": [
@@ -847,37 +952,40 @@
               "id": "catalog-reading-fce-b2-test21-part-6-q37",
               "number": 37,
               "answer": "e",
-              "explanation": "Sentence B fits logically in gap 37.",
+              "acceptedAnswers": [
+                "e"
+              ],
+              "explanation": "E",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (37)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -886,37 +994,40 @@
               "id": "catalog-reading-fce-b2-test21-part-6-q38",
               "number": 38,
               "answer": "c",
-              "explanation": "Sentence A fits logically in gap 38.",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (38)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -925,37 +1036,40 @@
               "id": "catalog-reading-fce-b2-test21-part-6-q39",
               "number": 39,
               "answer": "a",
-              "explanation": "Sentence C fits logically in gap 39.",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (39)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -964,37 +1078,40 @@
               "id": "catalog-reading-fce-b2-test21-part-6-q40",
               "number": 40,
               "answer": "d",
-              "explanation": "Sentence D fits logically in gap 40.",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (40)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -1003,37 +1120,40 @@
               "id": "catalog-reading-fce-b2-test21-part-6-q41",
               "number": 41,
               "answer": "g",
-              "explanation": "Sentence F fits logically in gap 41.",
+              "acceptedAnswers": [
+                "g"
+              ],
+              "explanation": "G",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (41)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -1042,37 +1162,40 @@
               "id": "catalog-reading-fce-b2-test21-part-6-q42",
               "number": 42,
               "answer": "b",
-              "explanation": "Sentence E fits logically in gap 42.",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (42)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -1085,27 +1208,23 @@
       "id": "catalog-reading-fce-b2-test21-part-7",
       "partNumber": 7,
       "rangeLabel": "Questions 43–52",
-      "passageTitle": "Part 7",
+      "passageTitle": "The people s favourite season?",
       "passage": [
         {
           "label": "A",
-          "text": "Lucas recently experienced cultural festivals in Dublin. It was an unforgettable experience that changed her perspective. The highlights included meeting new people from different backgrounds and learning about local customs. She particularly enjoyed the cultural events organised by the hosts. Despite some initial difficulties with the language, she felt that the overall experience was extremely rewarding. Liam recommends this experience to anyone interested in broadening their horizons.",
-          "_provenance": "ai-generated"
+          "text": "You’d expect someone like me to have summer down as the best time of the year. After all, I have those long holiday weeks to look forward to, with no more evenings spent marking homework until September. I know many of my friends wish they had a break like I do, but they probably don’t see the drawbacks. My holidays are inevitably the same as the children’s and as a result summer beaches are usually really crowded and any holiday abroad costs a fortune because it’s peak season! Not only that but the hotels I can afford are the family ones and overrun with children. I imagine I’d appreciate places like this if I were a parent. But I’m not! Don’t get me wrong – I love children, but I share every working day with them and I’d just like to escape in the holidays. That’s my main beef about summer. Not my favourite time of the year."
         },
         {
           "label": "B",
-          "text": "Oliver recently experienced cultural festivals in New York. It was a fascinating experience that changed his perspective. The challenges included meeting new people from different backgrounds and learning about local customs. He particularly enjoyed the practical workshops organised by the hosts. Despite some initial difficulties with the weather, he felt that the overall experience was extremely rewarding. Sophia recommends this experience to anyone looking for broadening their horizons.",
-          "_provenance": "ai-generated"
+          "text": "Where I live we don’t get seasons like most countries do. It’s pretty much summer all year round, apart from the hurricane season when we get torrential rain and really destructive winds. The tourists love coming here because it’s practically guaranteed sunshine, but to tell the truth, for me it is SO boring. Every day the temperature is the same – no element of surprise at all – and that is hot, hot and maybe even hotter! If you’re out in the midday sun it just saps your energy, so I usually do my outdoor training early in the morning or late at night. I’ve competed in London and that’s where I would love to live. You can get four seasons in one day! Imagine not wearing T-shirts and shorts all year round, but investing in a proper wardrobe, with furry hats, boots, sweaters? Tourists think I’m crazy, but I’d swap the burning sand for some chilly frost and snow any time!"
         },
         {
           "label": "C",
-          "text": "Sophia recently experienced cultural festivals in London. It was an eye-opening experience that changed their perspective. The opportunities included meeting new people from different backgrounds and learning about local customs. They particularly enjoyed the guided tours organised by the hosts. Despite some initial difficulties with the schedule, they felt that the overall experience was extremely rewarding. James recommends this experience to anyone keen on broadening their horizons.",
-          "_provenance": "ai-generated"
+          "text": "I’m Russian and I know I should be used to the winter months, like most Russians, but I am definitely not! I absolutely detest the cold. Not only do I hate putting on layer after layer of clothing, but I also can’t bear the almost permanent feeling that I’m just about to come down with flu or something- which never actually happens. If I’d been born in Siberia or somewhere near the Arctic, apparently my body would be better adapted for the cold weather of long winters. Scientists say that people from that part of the world have a different physique – shorter bodies and limbs so as to keep as much body heat as possible. I’m tall and skinny and feel the cold terribly. So, for me, summer is when I come alive! There’s a buzz in the air and people have smiles on their faces and you don’t go to college and come home again in the dark. Give me summer any time."
         },
         {
           "label": "D",
-          "text": "Isabella recently experienced cultural festivals in Barcelona. It was a memorable experience that changed her perspective. The activities included meeting new people from different backgrounds and learning about local customs. She particularly enjoyed the community projects organised by the hosts. Despite some initial difficulties with the transport, she felt that the overall experience was extremely rewarding. Isabella recommends this experience to anyone curious about broadening their horizons.",
-          "_provenance": "ai-generated"
+          "text": "What’s not to like about summer? For me – actually quite a lot. I’m one of those people who suffer when the pollen levels start to rise, sneezing throughout the summer months. What’s more, I have the sort of blood that mosquitoes seem to love and if I’m out at dusk I get bitten to death! I haven’t had these allergies all my life, only in the last couple of years, and it’s a real pain because I used to adore the long days and the picnics and trips to the seaside. Now, it’s completely different. I have to take regular medicine, which makes me really sleepy by the way, and my job, which involves cutting lawns and hedges, is a bit of a challenge. Although it feels wrong on so many levels, I look forward to darker evenings and the changing colours of the leaves."
         }
       ],
       "questionGroups": [
@@ -1137,10 +1256,13 @@
               "id": "catalog-reading-fce-b2-test21-part-7-q43",
               "number": 43,
               "answer": "b",
-              "explanation": "The answer is B because the text mentions this.",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who found the language challenging at first?",
+              "prompt": "a desire for a complete change of environment?",
               "options": [
                 {
                   "id": "a",
@@ -1158,17 +1280,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test21-part-7-q44",
               "number": 44,
               "answer": "a",
-              "explanation": "The answer is A because the text mentions this.",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Which person attended cultural events?",
+              "prompt": "a belief that others should not be envious of her situation?",
               "options": [
                 {
                   "id": "a",
@@ -1186,17 +1310,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test21-part-7-q45",
               "number": 45,
               "answer": "d",
-              "explanation": "The answer is A because the text mentions this.",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who recommends the experience to others?",
+              "prompt": "having changed her attitude to a particular season?",
               "options": [
                 {
                   "id": "a",
@@ -1214,17 +1340,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test21-part-7-q46",
               "number": 46,
               "answer": "c",
-              "explanation": "The answer is C because the text mentions this.",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Whose perspective was changed by the experience?",
+              "prompt": "some people s biological suitability to a certain climate?",
               "options": [
                 {
                   "id": "a",
@@ -1242,17 +1370,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test21-part-7-q47",
               "number": 47,
               "answer": "a",
-              "explanation": "The answer is D because the text mentions this.",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who participated in practical workshops?",
+              "prompt": "a desire for some peace and quiet during the summer?",
               "options": [
                 {
                   "id": "a",
@@ -1270,17 +1400,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test21-part-7-q48",
               "number": 48,
               "answer": "a",
-              "explanation": "The answer is B because the text mentions this.",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Which person had difficulties with arrangements?",
+              "prompt": "an appreciation that her attitude might change under different circumstances?",
               "options": [
                 {
                   "id": "a",
@@ -1298,17 +1430,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test21-part-7-q49",
               "number": 49,
               "answer": "b",
-              "explanation": "The answer is A because the text mentions this.",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who met people from diverse backgrounds?",
+              "prompt": "resenting the predictability of the weather?",
               "options": [
                 {
                   "id": "a",
@@ -1326,17 +1460,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test21-part-7-q50",
               "number": 50,
               "answer": "d",
-              "explanation": "The answer is C because the text mentions this.",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Whose experience involved community projects?",
+              "prompt": "the start of health problems in certain months?",
               "options": [
                 {
                   "id": "a",
@@ -1354,17 +1490,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test21-part-7-q51",
               "number": 51,
               "answer": "b",
-              "explanation": "The answer is D because the text mentions this.",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who enjoyed guided tours?",
+              "prompt": "a preference for spending time outside at particular times of day?",
               "options": [
                 {
                   "id": "a",
@@ -1382,17 +1520,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test21-part-7-q52",
               "number": 52,
               "answer": "c",
-              "explanation": "The answer is C because the text mentions this.",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Which person was looking for a new challenge?",
+              "prompt": "not sharing the same attitudes as other people in her country?",
               "options": [
                 {
                   "id": "a",
@@ -1410,8 +1550,7 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             }
           ]
         }

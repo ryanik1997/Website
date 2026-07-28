@@ -40,6 +40,9 @@
               "id": "catalog-reading-fce-b2-test6-part-1-q1",
               "number": 1,
               "answer": "d",
+              "acceptedAnswers": [
+                "d"
+              ],
               "explanation": "priority.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -67,6 +70,9 @@
               "id": "catalog-reading-fce-b2-test6-part-1-q2",
               "number": 2,
               "answer": "d",
+              "acceptedAnswers": [
+                "d"
+              ],
               "explanation": "low-cost.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -94,6 +100,9 @@
               "id": "catalog-reading-fce-b2-test6-part-1-q3",
               "number": 3,
               "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
               "explanation": "proportion.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -121,6 +130,9 @@
               "id": "catalog-reading-fce-b2-test6-part-1-q4",
               "number": 4,
               "answer": "a",
+              "acceptedAnswers": [
+                "a"
+              ],
               "explanation": "recreational.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -148,6 +160,9 @@
               "id": "catalog-reading-fce-b2-test6-part-1-q5",
               "number": 5,
               "answer": "d",
+              "acceptedAnswers": [
+                "d"
+              ],
               "explanation": "Local.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -175,6 +190,9 @@
               "id": "catalog-reading-fce-b2-test6-part-1-q6",
               "number": 6,
               "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
               "explanation": "ensure.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -202,6 +220,9 @@
               "id": "catalog-reading-fce-b2-test6-part-1-q7",
               "number": 7,
               "answer": "a",
+              "acceptedAnswers": [
+                "a"
+              ],
               "explanation": "contact.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -229,6 +250,9 @@
               "id": "catalog-reading-fce-b2-test6-part-1-q8",
               "number": 8,
               "answer": "a",
+              "acceptedAnswers": [
+                "a"
+              ],
               "explanation": "copy.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -286,7 +310,11 @@
             {
               "id": "catalog-reading-fce-b2-test6-part-2-q9",
               "number": 9,
-              "answer": "for/during",
+              "answer": "for",
+              "acceptedAnswers": [
+                "for",
+                "during"
+              ],
               "explanation": "for/during.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -297,6 +325,9 @@
               "id": "catalog-reading-fce-b2-test6-part-2-q10",
               "number": 10,
               "answer": "few",
+              "acceptedAnswers": [
+                "few"
+              ],
               "explanation": "few.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -307,6 +338,9 @@
               "id": "catalog-reading-fce-b2-test6-part-2-q11",
               "number": 11,
               "answer": "from",
+              "acceptedAnswers": [
+                "from"
+              ],
               "explanation": "from.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -316,7 +350,11 @@
             {
               "id": "catalog-reading-fce-b2-test6-part-2-q12",
               "number": 12,
-              "answer": "its/the",
+              "answer": "its",
+              "acceptedAnswers": [
+                "its",
+                "the"
+              ],
               "explanation": "its/the.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -326,7 +364,11 @@
             {
               "id": "catalog-reading-fce-b2-test6-part-2-q13",
               "number": 13,
-              "answer": "during/on",
+              "answer": "during",
+              "acceptedAnswers": [
+                "during",
+                "on"
+              ],
               "explanation": "during/on.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -336,7 +378,11 @@
             {
               "id": "catalog-reading-fce-b2-test6-part-2-q14",
               "number": 14,
-              "answer": "who/that",
+              "answer": "who",
+              "acceptedAnswers": [
+                "who",
+                "that"
+              ],
               "explanation": "who/that.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -347,6 +393,9 @@
               "id": "catalog-reading-fce-b2-test6-part-2-q15",
               "number": 15,
               "answer": "him",
+              "acceptedAnswers": [
+                "him"
+              ],
               "explanation": "him.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -357,6 +406,9 @@
               "id": "catalog-reading-fce-b2-test6-part-2-q16",
               "number": 16,
               "answer": "together",
+              "acceptedAnswers": [
+                "together"
+              ],
               "explanation": "together.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -374,8 +426,16 @@
       "passageTitle": "Part 3",
       "passage": [
         {
-          "text": "In today's (0) competitive world, it is essential to have (17) ..... skills. Your personal (18) ..... can make a real difference. Rising (19) ..... figures are a concern for many. Travel can help (20) ..... your horizons. He was (21) ..... about which path to choose. (22) ..... , the project was delayed. There is great (23) ..... about the future. She was (24) ..... about her new role.",
-          "_provenance": "ai-generated"
+          "text": "Mr Greaves had always been an 0 _____ man who should never have had a (17) ..... position ."
+        },
+        {
+          "text": "His bad temper was only just (18) ..... and there was often a (19) ..... to tell him to sit down and relax. His office was chaotic with papers everywhere and had (20) ..... no order to it ."
+        },
+        {
+          "text": "Once he went to a (21) ..... in Paris and on his (22) ..... at the hotel he completely forgot who he worked for when the (23) ..... asked him ."
+        },
+        {
+          "text": "When he tried to help he was a hindrance although his (24) ..... were always good."
         }
       ],
       "questionGroups": [
@@ -388,108 +448,119 @@
             {
               "id": "catalog-reading-fce-b2-test6-part-3-q17",
               "number": 17,
-              "answer": "managerial/management",
+              "answer": "managerial",
+              "acceptedAnswers": [
+                "managerial",
+                "management"
+              ],
               "explanation": "managerial/management.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (17) — ",
-              "baseWord": "COMPETE",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (17) — MANAGE",
+              "baseWord": "MANAGE",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test6-part-3-q18",
               "number": 18,
               "answer": "bearable",
+              "acceptedAnswers": [
+                "bearable"
+              ],
               "explanation": "bearable.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (18) — ",
-              "baseWord": "STRONG",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (18) — BEAR",
+              "baseWord": "BEAR",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test6-part-3-q19",
               "number": 19,
               "answer": "temptation",
+              "acceptedAnswers": [
+                "temptation"
+              ],
               "explanation": "temptation.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (19) — ",
-              "baseWord": "EMPLOY",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (19) — TEMPT",
+              "baseWord": "TEMPT",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test6-part-3-q20",
               "number": 20,
               "answer": "absolutely",
+              "acceptedAnswers": [
+                "absolutely"
+              ],
               "explanation": "absolutely.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (20) — ",
-              "baseWord": "BROAD",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (20) — ABSOLUTE",
+              "baseWord": "ABSOLUTE",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test6-part-3-q21",
               "number": 21,
               "answer": "conference",
+              "acceptedAnswers": [
+                "conference"
+              ],
               "explanation": "conference.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (21) — ",
-              "baseWord": "DECIDE",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (21) — CONFER",
+              "baseWord": "CONFER",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test6-part-3-q22",
               "number": 22,
               "answer": "arrival",
+              "acceptedAnswers": [
+                "arrival"
+              ],
               "explanation": "arrival.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (22) — ",
-              "baseWord": "FORTUNE",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (22) — ARRIVE",
+              "baseWord": "ARRIVE",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test6-part-3-q23",
               "number": 23,
               "answer": "receptionist",
+              "acceptedAnswers": [
+                "receptionist"
+              ],
               "explanation": "receptionist.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (23) — ",
-              "baseWord": "CERTAIN",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (23) — RECEIVE",
+              "baseWord": "RECEIVE",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test6-part-3-q24",
               "number": 24,
               "answer": "intentions",
+              "acceptedAnswers": [
+                "intentions"
+              ],
               "explanation": "intentions.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (24) — ",
-              "baseWord": "ENTHUSE",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (24) — INTEND",
+              "baseWord": "INTEND",
+              "size": 10
             }
           ]
         }
-      ],
-      "_aiRepairMeta": {
-        "appliedAt": "2026-07-28T07:39:15.384Z",
-        "fields": [
-          "passage"
-        ]
-      }
+      ]
     },
     {
       "id": "catalog-reading-fce-b2-test6-part-4",
@@ -508,6 +579,9 @@
               "id": "catalog-reading-fce-b2-test6-part-4-q25",
               "number": 25,
               "answer": "isn’t used to getting",
+              "acceptedAnswers": [
+                "isn’t used to getting"
+              ],
               "explanation": "isn t used to getting.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -521,65 +595,81 @@
               "id": "catalog-reading-fce-b2-test6-part-4-q26",
               "number": 26,
               "answer": "wish you had come",
+              "acceptedAnswers": [
+                "wish you had come"
+              ],
               "explanation": "wish you had come.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "What a pity you didn t come to the party.I WISH -> . What a pity you didn’t come to the party.  I ..... to the party. </",
+              "prompt": "What a pity you didn t come to the party.I WISH -> . What a pity you didn’t come to the party.  I ..... to the party.",
               "sourceSentence": "What a pity you didn t come to the party.I",
               "keyword": "WISH",
-              "targetSentence": ". What a pity you didn’t come to the party.  I ..... to the party. </",
+              "targetSentence": ". What a pity you didn’t come to the party.  I ..... to the party.",
               "size": 40
             },
             {
               "id": "catalog-reading-fce-b2-test6-part-4-q27",
               "number": 27,
               "answer": "didn’t succeed in entering",
+              "acceptedAnswers": [
+                "didn’t succeed in entering"
+              ],
               "explanation": "didn t succeed in entering.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "The burglar failed to enter the house through the first floor window. SUCCEED -> The burglar .....",
-              "sourceSentence": "The burglar failed to enter the house through the first floor window.",
+              "prompt": "The burglar failed to enter the house through the first floor window.The burglar SUCCEED -> . The burglar failed to enter the house through the first floor window.  The burglar ..... the house through the first floor window.",
+              "sourceSentence": "The burglar failed to enter the house through the first floor window.The burglar",
               "keyword": "SUCCEED",
-              "targetSentence": "The burglar .....",
+              "targetSentence": ". The burglar failed to enter the house through the first floor window.  The burglar ..... the house through the first floor window.",
               "size": 40
             },
             {
               "id": "catalog-reading-fce-b2-test6-part-4-q28",
               "number": 28,
-              "answer": "must have/get my hair cut",
+              "answer": "must have",
+              "acceptedAnswers": [
+                "must have",
+                "get my hair cut"
+              ],
               "explanation": "must have/get my hair cut.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "My hair needs to be cut before the wedding reception. MUST -> I .....",
-              "sourceSentence": "My hair needs to be cut before the wedding reception.",
+              "prompt": "My hair needs to be cut before the wedding reception.I MUST -> . My hair needs to be cut before the wedding reception.  I ..... before the wedding reception.",
+              "sourceSentence": "My hair needs to be cut before the wedding reception.I",
               "keyword": "MUST",
-              "targetSentence": "I .....",
+              "targetSentence": ". My hair needs to be cut before the wedding reception.  I ..... before the wedding reception.",
               "size": 40
             },
             {
               "id": "catalog-reading-fce-b2-test6-part-4-q29",
               "number": 29,
               "answer": "wondered why he hadn’t",
+              "acceptedAnswers": [
+                "wondered why he hadn’t"
+              ],
               "explanation": "wondered why he hadn t.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Why didn t I ask her out last night? John said to himself. WONDERED -> John .....",
-              "sourceSentence": "Why didn t I ask her out last night? John said to himself.",
+              "prompt": "Why didn t I ask her out last night? John said to himself.John WONDERED -> . “ Why didn’t I ask her out last night?” John said to himself.  John ..... asked her out the night before.",
+              "sourceSentence": "Why didn t I ask her out last night? John said to himself.John",
               "keyword": "WONDERED",
-              "targetSentence": "John .....",
+              "targetSentence": ". “ Why didn’t I ask her out last night?” John said to himself.  John ..... asked her out the night before.",
               "size": 40
             },
             {
               "id": "catalog-reading-fce-b2-test6-part-4-q30",
               "number": 30,
               "answer": "is believed to be",
+              "acceptedAnswers": [
+                "is believed to be"
+              ],
               "explanation": "is believed to be.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "They think that their school teacher is a very rich man. BELIEVED -> Their school teacher .....",
-              "sourceSentence": "They think that their school teacher is a very rich man.",
+              "prompt": "They think that their school teacher is a very rich man.Their school teacher BELIEVED -> . They think that their school teacher is a very rich man.  Their school teacher ..... a very rich man.",
+              "sourceSentence": "They think that their school teacher is a very rich man.Their school teacher",
               "keyword": "BELIEVED",
-              "targetSentence": "Their school teacher .....",
+              "targetSentence": ". They think that their school teacher is a very rich man.  Their school teacher ..... a very rich man.",
               "size": 40
             }
           ]
@@ -593,7 +683,34 @@
       "passageTitle": "Part 5",
       "passage": [
         {
-          "text": "A Day in the Life of a Firefighter. This is a subject that has fascinated researchers for many years. In a recent study conducted at the University of Cape Town, scientists examined the various factors that contribute to our understanding of this topic. The study involved over 500 participants and lasted for approximately two years.\n\nThe results were surprising. The research team, led by Dr. Mason, found that there were significant differences between the groups they studied. One participant commented, 'I had no idea that this would be the outcome. It completely changed my perspective on the issue.'\n\nCritics of the study have pointed out some limitations. Professor Oliver from Dublin University argues that the sample size was too small to draw definitive conclusions. 'While the findings are interesting,' he says, 'we need more research before we can apply them broadly.'\n\nDespite these criticisms, the study represents an important step forward. The authors emphasise that further investigation is needed, but they remain optimistic about the potential applications of their work. 'This is just the beginning,' Dr. Liam stated. 'We are already planning follow-up studies that will explore these questions in more depth.'"
+          "text": "‘How is the Dictionary getting on?’ said Winston, raising his voice to overcome the noise."
+        },
+        {
+          "text": "‘Slowly,’ said Syme. ‘I’m on the adjectives. It’s fascinating.’"
+        },
+        {
+          "text": "He had brightened up immediately at the mention of Newspeak. He pushed his bowl aside, took up his hunk of bread in one delicate hand and his cheese in the other, and leaned across the table so as to be able to speak without shouting."
+        },
+        {
+          "text": "‘The Eleventh Edition is the definitive edition,’ he said. ‘We’re getting the language into its final shape – the shape it’s going to have when nobody speaks anything else. When we’ve finished with it, people like you will have to learn it all over again. You think, I dare say, that our chief job is inventing new words. But not a bit of it! We’re destroying words – scores of them, hundreds of them, every day. We’re cutting the language down to the bone. The Eleventh Edition won’t contain a single word that will become obsolete before the year 2050.’"
+        },
+        {
+          "text": "He bit hungrily into his bread and swallowed a couple of mouthfuls, then continued speaking, with a sort of pedant’s passion. His thin dark face had become animated , his eyes had lost their mocking expression and grown almost dreamy."
+        },
+        {
+          "text": "‘It’s a beautiful thing, the destruction of words. Of course the great wastage is in the verbs and adjectives , but there are hundreds of nouns that can be got rid of as well. It isn’t only the synonyms; there are also the antonyms. After all, what justification is there for a word which is simply the opposite of some other word? A word contains its opposite in itself. Take “good”, for instance. If you have a word like “good”, what need is there for a word like “bad”? “Ungood” will do just as well – better, because it’s an exact opposite, which the other is not. Or again, if you want a stronger version of “good”, what sense is there in having a whole string of vague useless words like “excellent” and “splendid” and all the rest of them? “Plusgood” covers the meaning, or “doubleplusgood” if you want something stronger still. Of course we use those forms already. But in the final version of Newspeak there’ll be nothing else. In the end the whole notion of goodness and badness will be covered by only six words – in reality, only one word. Don’t you see the beauty of that, Winston? It was B.B.’s idea originally, of course,’ he added as an afterthought."
+        },
+        {
+          "text": "A sort of vapid eagerness flitted across Winston’s face at the mention of Big Brother. Nevertheless Syme immediately detected a certain lack of enthusiasm."
+        },
+        {
+          "text": "‘You haven’t a real appreciation of Newspeak, Winston,’ he said almost sadly. ‘Even when you write it you’re still thinking in Oldspeak. I’ve read some of those pieces that you write in ‘The Times’ occasionally. They’re good enough, but they’re translations. In your heart you’d prefer to stick to Oldspeak, with all its vagueness and its useless shades of meaning. You don’t grasp the beauty of the destruction of words. Do you know that Newspeak is the only language in the world whose vocabulary gets smaller every year?’"
+        },
+        {
+          "text": "Winston did know that, of course. He smiled, sympathetically he hoped, not trusting himself to speak . Syme bit off another fragment of the dark-coloured bread, chewed it briefly, and went on."
+        },
+        {
+          "text": "‘Don’t you see that the whole aim of Newspeak is to narrow the range of thought? In the end we shall make thought crime literally impossible because there will be no words in which to express it. Every concept that can ever be needed, will be expressed by exactly one word, with its meaning rigidly defined and all its subsidiary meanings rubbed out and forgotten. Already, in the Eleventh Edition, we’re not far from that point. But the process will still be continuing long after you and I are dead. Every year fewer and fewer words, and the range of consciousness always a little smaller. Even now, of course, there’s no reason or excuse for committing thought crime. It’s merely a question of self-discipline, reality control. But in the end there won’t be any need even for that. The Revolution will be complete when the language is perfect. Newspeak is Ingsoc and Ingsoc is Newspeak,’ he added with a sort of mystical satisfaction. ‘Has it ever occurred to you, Winston, that by the year 2050, at the very latest, not a single human being will be alive who could understand such a conversation as we are having now?’"
         }
       ],
       "questionGroups": [
@@ -607,7 +724,10 @@
               "id": "catalog-reading-fce-b2-test6-part-5-q31",
               "number": 31,
               "answer": "a",
-              "explanation": "The correct answer is C.",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "Winston and Syme are",
@@ -634,7 +754,10 @@
               "id": "catalog-reading-fce-b2-test6-part-5-q32",
               "number": 32,
               "answer": "c",
-              "explanation": "The correct answer is A.",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "Syme likes",
@@ -661,7 +784,10 @@
               "id": "catalog-reading-fce-b2-test6-part-5-q33",
               "number": 33,
               "answer": "b",
-              "explanation": "The correct answer is D.",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "What kind of words are being the most greatly reduced?",
@@ -688,7 +814,10 @@
               "id": "catalog-reading-fce-b2-test6-part-5-q34",
               "number": 34,
               "answer": "d",
-              "explanation": "The correct answer is B.",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "What can be gathered about Winston s attitude towards Newspeak?",
@@ -715,7 +844,10 @@
               "id": "catalog-reading-fce-b2-test6-part-5-q35",
               "number": 35,
               "answer": "b",
-              "explanation": "The correct answer is A.",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "Which of the following best describes Newspeak?",
@@ -742,7 +874,10 @@
               "id": "catalog-reading-fce-b2-test6-part-5-q36",
               "number": 36,
               "answer": "c",
-              "explanation": "The correct answer is C.",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "What kind of future does Syme imagine?",
@@ -779,22 +914,19 @@
           "text": "Off-track the ground is menacing. Lava, like angry waves frozen in mid-chop only moments ago, claws at the soles of my boots and threatens to shred my knees if I place a foot wrong. The surface is so uneven that progress is extraordinarily difficult. Occasional smooth stone channels course like petrified streams through the rougher ground, their solid surfaces a welcome pathway amid teetering plates of broken lava and treacherous bouldery rubble. Out of the shade of the dense thickets of bush, it’s as hot as a furnace. All that black rock absorbs and radiates enough heat to melt Antarctica. It’s as hostile a spot as you could find anywhere in New Zealand, yet when I turn around, there is downtown Auckland in plain view just a few kilometres away ."
         },
         {
-          "text": "(37) ..... . Its symmetrical cone is a relaxed cousin of those higher and steeper volcanoes Taranaki and Ngauruhoe but Rangitoto is a truly astonishing wilderness right on the doorstep of the city. Landing on the island, the graceful sweeping curves seen from a distance quickly give way to a magnificent mosaic of the tortuous lava I’ve been scrambling through and scrubby, impenetrable pohutukawa forest."
+          "text": "37 (37) ..... . Its symmetrical cone is a relaxed cousin of those higher and steeper volcanoes Taranaki and Ngauruhoe but Rangitoto is a truly astonishing wilderness right on the doorstep of the city. Landing on the island, the graceful sweeping curves seen from a distance quickly give way to a magnificent mosaic of the tortuous lava I’ve been scrambling through and scrubby, impenetrable pohutukawa forest."
         },
         {
-          "text": "Of course, it was not always like this . (38) ..... . However, the emergence of the youngest and largest of the fifty-odd volcanoes in Auckland’s volcanic field was witnessed by Maori living on adjacent Motutapu Island."
+          "text": "Of course, it was not always like this . 38 (38) ..... . However, the emergence of the youngest and largest of the fifty-odd volcanoes in Auckland’s volcanic field was witnessed by Maori living on adjacent Motutapu Island."
         },
         {
-          "text": "The persistent yelping of dogs might first have awoken them. Soon afterwards there would have been a thundering roar. The vibration of the sandy ground beneath them would surely have jolted them from their homes . (39) ..... . A wind shift and the familiar smells of the camp – wood smoke, the sea, and even the penetrating stench of shark flesh drying on frames – were soon overpowered by the pungent, suffocating odour of sulphur dioxide."
+          "text": "The persistent yelping of dogs might first have awoken them. Soon afterwards there would have been a thundering roar. The vibration of the sandy ground beneath them would surely have jolted them from their homes . 39 (39) ..... . A wind shift and the familiar smells of the camp – wood smoke, the sea, and even the penetrating stench of shark flesh drying on frames – were soon overpowered by the pungent, suffocating odour of sulphur dioxide."
         },
         {
-          "text": "Running across the beach and dragging boats into the sea , shoals of dead fish bumped against their legs as they waded into the cold shallows. (40) ..... . Looking behind them, the cataclysm was becoming clearer in the first light of day. Black clouds were blasting out from the base of a roiling column of steam, flying boulders were arcing white streamers through the sky and splashing into the sea."
+          "text": "Running across the beach and dragging boats into the sea , shoals of dead fish bumped against their legs as they waded into the cold shallows. 40 (40) ..... . Looking behind them, the cataclysm was becoming clearer in the first light of day. Black clouds were blasting out from the base of a roiling column of steam, flying boulders were arcing white streamers through the sky and splashing into the sea."
         },
         {
-          "text": "(41) ..... . The footprints of a small group of adults and children were found sandwiched between layers of Rangitoto ash. Markings show where the ground was prodded with sticks and that one of the dogs with the group paused to drink from a puddle. (42) ..... . Whether these people were foolhardy or brave, lured by curiosity, or a desire to retrieve their treasured possessions, we’ll never know"
-        },
-        {
-          "text": "A. The familiar form of Rangitoto did not exist for generations of Maori who first inhabited the surrounding lands.\n B. The low black cliffs of Rangitoto are just 1500m away , the centre of the eruption only 3 km further.\n C. The impressions were so well preserved that the next blanket of ash must have spewed from Rangitoto soon after they were made.\n D. Paddling hard towards safety , the first wet ash began to fall, sticky and abrasive.\n E. Outside , the familiar stars above and the scatter of bright campfires along the shore to the west was hidden by a pall of steam, strobed by lightning and lit by a ferocious fiery glow from beneath.\n F. No landform is more familiar to Aucklanders than Rangitoto Island and yet how many of them ever go there?\n G. Proof exists that in the weeks or months following the onset of the eruption, people came back to their campsite on Motutapu Island ."
+          "text": "41 (41) ..... . The footprints of a small group of adults and children were found sandwiched between layers of Rangitoto ash. Markings show where the ground was prodded with sticks and that one of the dogs with the group paused to drink from a puddle. 42 (42) ..... . Whether these people were foolhardy or brave, lured by curiosity, or a desire to retrieve their treasured possessions, we’ll never know"
         }
       ],
       "questionGroups": [
@@ -815,38 +947,31 @@
           "features": [
             {
               "id": "a",
-              "name": "It has become a major topic of discussion in Amsterdam.",
-              "_provenance": "ai-generated"
+              "name": "The familiar form of Rangitoto did not exist for generations of Maori who first inhabited the surrounding lands."
             },
             {
               "id": "b",
-              "name": "One key factor is the growing awareness among young Edinburgh residents.",
-              "_provenance": "ai-generated"
+              "name": "The low black cliffs of Rangitoto are just 1500m away , the centre of the eruption only 3 km further."
             },
             {
               "id": "c",
-              "name": "The number of people involved has risen by over 50% in the last decade.",
-              "_provenance": "ai-generated"
+              "name": "The impressions were so well preserved that the next blanket of ash must have spewed from Rangitoto soon after they were made."
             },
             {
               "id": "d",
-              "name": "This change has been particularly noticeable in urban areas across the country.",
-              "_provenance": "ai-generated"
+              "name": "Paddling hard towards safety , the first wet ash began to fall, sticky and abrasive."
             },
             {
               "id": "e",
-              "name": "Finding adequate funding remains a significant obstacle for many organisations.",
-              "_provenance": "ai-generated"
+              "name": "Outside , the familiar stars above and the scatter of bright campfires along the shore to the west was hidden by a pall of steam, strobed by lightning and lit by a ferocious fiery glow from beneath."
             },
             {
               "id": "f",
-              "name": "Education and community engagement are seen as the most promising strategies.",
-              "_provenance": "ai-generated"
+              "name": "No landform is more familiar to Aucklanders than Rangitoto Island and yet how many of them ever go there?"
             },
             {
               "id": "g",
-              "name": "Several pilot projects have already shown encouraging results.",
-              "_provenance": "ai-generated"
+              "name": "Proof exists that in the weeks or months following the onset of the eruption, people came back to their campsite on Motutapu Island ."
             }
           ],
           "questions": [
@@ -854,37 +979,40 @@
               "id": "catalog-reading-fce-b2-test6-part-6-q37",
               "number": 37,
               "answer": "f",
-              "explanation": "Sentence B fits logically in gap 37.",
+              "acceptedAnswers": [
+                "f"
+              ],
+              "explanation": "F",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (37)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -893,37 +1021,40 @@
               "id": "catalog-reading-fce-b2-test6-part-6-q38",
               "number": 38,
               "answer": "a",
-              "explanation": "Sentence A fits logically in gap 38.",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (38)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -932,37 +1063,40 @@
               "id": "catalog-reading-fce-b2-test6-part-6-q39",
               "number": 39,
               "answer": "e",
-              "explanation": "Sentence C fits logically in gap 39.",
+              "acceptedAnswers": [
+                "e"
+              ],
+              "explanation": "E",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (39)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -971,37 +1105,40 @@
               "id": "catalog-reading-fce-b2-test6-part-6-q40",
               "number": 40,
               "answer": "d",
-              "explanation": "Sentence D fits logically in gap 40.",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (40)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -1010,37 +1147,40 @@
               "id": "catalog-reading-fce-b2-test6-part-6-q41",
               "number": 41,
               "answer": "g",
-              "explanation": "Sentence F fits logically in gap 41.",
+              "acceptedAnswers": [
+                "g"
+              ],
+              "explanation": "G",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (41)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -1049,37 +1189,40 @@
               "id": "catalog-reading-fce-b2-test6-part-6-q42",
               "number": 42,
               "answer": "c",
-              "explanation": "Sentence E fits logically in gap 42.",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (42)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -1096,23 +1239,23 @@
       "passage": [
         {
           "label": "A",
-          "text": "Noah recently experienced sports clubs in Tokyo. It was an unforgettable experience that changed her perspective. The highlights included meeting new people from different backgrounds and learning about local customs. She particularly enjoyed the cultural events organised by the hosts. Despite some initial difficulties with the language, she felt that the overall experience was extremely rewarding. Oliver recommends this experience to anyone interested in broadening their horizons.",
-          "_provenance": "ai-generated"
+          "text": "Charlie I’d travel back to the year I was born, and live my life again, but only if I could know then what I know now! I’d love to see my parents and grandparents again. I’d persuade my dad to stop smoking, so that he wouldn’t die so young . On the other hand, in the present, I have two wonderful grown-up children and two precious grandchildren . Perhaps the answer is to make the best of the present and stop hankering after the past . If I could visit other times just for a day, I’d love to meet my parents as children, and go into the future to meet the great-great grandchildren I’ll not live to see!"
         },
         {
           "label": "B",
-          "text": "Emma recently experienced sports clubs in London. It was a fascinating experience that changed his perspective. The challenges included meeting new people from different backgrounds and learning about local customs. He particularly enjoyed the practical workshops organised by the hosts. Despite some initial difficulties with the weather, he felt that the overall experience was extremely rewarding. Charlotte recommends this experience to anyone looking for broadening their horizons.",
-          "_provenance": "ai-generated"
+          "text": "Chloe I would not exchange today for any previous era. I have studied a lot of history and whilst I would be interested in certain eras there would be difficulties. For example, Tudor times – interesting, but as a Catholic I might have had my head chopped off; eighteenth and nineteenth centuries – exciting, but too many petticoats to wear, never mind about corsets . Then there is the lack of education and opportunity for women to consider, and the lack of medical knowledge. No, today is the best time to live. Having said that, I would not mind the opportunity to take tea with Miss Austen – she would have been enormous fun."
         },
         {
           "label": "C",
-          "text": "Mia recently experienced sports clubs in Vienna. It was an eye-opening experience that changed their perspective. The opportunities included meeting new people from different backgrounds and learning about local customs. They particularly enjoyed the guided tours organised by the hosts. Despite some initial difficulties with the schedule, they felt that the overall experience was extremely rewarding. Sarah recommends this experience to anyone keen on broadening their horizons.",
-          "_provenance": "ai-generated"
+          "text": "Emily Go back in time? Who’d want that? I mean, as soon as some people spotted you, you’d be the odd one out. And if you went back in time with all that futuristic equipment on and, for example, the alarm clock on your watch went off, you would be denounced as a devil; tortured, quartered and drawn, and then burnt at the stake! Travel to the future and you’d be a museum artifact! You’d be seen as some sort of primitive beast! I’m fine where I am at the moment, thank you. Also, to those of you intending to prevent the election/birth of various politicians, it won’t work; if you succeeded, then you would have no incentive to do so, and thus wouldn’t have gone. That’s the paradox."
         },
         {
           "label": "D",
-          "text": "Noah recently experienced sports clubs in Edinburgh. It was a memorable experience that changed her perspective. The activities included meeting new people from different backgrounds and learning about local customs. She particularly enjoyed the community projects organised by the hosts. Despite some initial difficulties with the transport, she felt that the overall experience was extremely rewarding. Noah recommends this experience to anyone curious about broadening their horizons.",
-          "_provenance": "ai-generated"
+          "text": "Jack I have always dreamed of being a sailor in the merchant navy between 1920 and 1940. At that time, travelling to foreign ports like Yokohama, Saigon, Rangoon, Surabaya and such would have been the same as space travel is today. Imagine coming home after a long voyage, and telling the people in the pub all about your travels ! You’d have such stories to tell! I have seen the majority of the world’s cities now, and most look exactly the same as each other. If you want to travel somewhere that is still unique today, without the time machine, see Asia but steer clear of package tours . And hurry; do it now before it all becomes McDonaldised."
+        },
+        {
+          "label": "E",
+          "text": "Liam I’d go back maybe about five years and try to do a better job this time. I would never have ended the relationship with the love of my life . I wish I could’ve known better, and understood then what I understand now. I would also stay at college. I’d register 250 of the best internet domains possible, so by now I’d be a billionaire without having done a thing . But I wouldn’t be selfish; I would change the world for the better with the money. Money can save lives and do unbelievable things in the right hands. Plus, I would have the girl! Oh well, back to reality."
         }
       ],
       "questionGroups": [
@@ -1137,6 +1280,10 @@
             {
               "id": "d",
               "name": "D"
+            },
+            {
+              "id": "e",
+              "name": "E"
             }
           ],
           "questions": [
@@ -1144,10 +1291,13 @@
               "id": "catalog-reading-fce-b2-test6-part-7-q43",
               "number": 43,
               "answer": "a",
-              "explanation": "The answer is B because the text mentions this.",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who found the language challenging at first?",
+              "prompt": "thinks its best to appreciate the present?",
               "options": [
                 {
                   "id": "a",
@@ -1169,17 +1319,19 @@
                   "id": "e",
                   "label": "E"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test6-part-7-q44",
               "number": 44,
               "answer": "e",
-              "explanation": "The answer is A because the text mentions this.",
+              "acceptedAnswers": [
+                "e"
+              ],
+              "explanation": "E",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Which person attended cultural events?",
+              "prompt": "would make a different relationship decision?",
               "options": [
                 {
                   "id": "a",
@@ -1201,17 +1353,19 @@
                   "id": "e",
                   "label": "E"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test6-part-7-q45",
               "number": 45,
               "answer": "a",
-              "explanation": "The answer is A because the text mentions this.",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who recommends the experience to others?",
+              "prompt": "would try to help a family member?",
               "options": [
                 {
                   "id": "a",
@@ -1233,17 +1387,19 @@
                   "id": "e",
                   "label": "E"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test6-part-7-q46",
               "number": 46,
               "answer": "d",
-              "explanation": "The answer is C because the text mentions this.",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Whose perspective was changed by the experience?",
+              "prompt": "offers contemporary travel advice?",
               "options": [
                 {
                   "id": "a",
@@ -1265,17 +1421,19 @@
                   "id": "e",
                   "label": "E"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test6-part-7-q47",
               "number": 47,
               "answer": "a",
-              "explanation": "The answer is D because the text mentions this.",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who participated in practical workshops?",
+              "prompt": "is probably at least 50 years old?",
               "options": [
                 {
                   "id": "a",
@@ -1297,17 +1455,19 @@
                   "id": "e",
                   "label": "E"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test6-part-7-q48",
               "number": 48,
               "answer": "b",
-              "explanation": "The answer is B because the text mentions this.",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Which person had difficulties with arrangements?",
+              "prompt": "is interested in history?",
               "options": [
                 {
                   "id": "a",
@@ -1329,17 +1489,19 @@
                   "id": "e",
                   "label": "E"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test6-part-7-q49",
               "number": 49,
               "answer": "b",
-              "explanation": "The answer is A because the text mentions this.",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who met people from diverse backgrounds?",
+              "prompt": "is put-off by old-fashioned clothes?",
               "options": [
                 {
                   "id": "a",
@@ -1361,17 +1523,19 @@
                   "id": "e",
                   "label": "E"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test6-part-7-q50",
               "number": 50,
               "answer": "d",
-              "explanation": "The answer is C because the text mentions this.",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Whose experience involved community projects?",
+              "prompt": "thinks of impressing others?",
               "options": [
                 {
                   "id": "a",
@@ -1393,17 +1557,19 @@
                   "id": "e",
                   "label": "E"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test6-part-7-q51",
               "number": 51,
               "answer": "e",
-              "explanation": "The answer is D because the text mentions this.",
+              "acceptedAnswers": [
+                "e"
+              ],
+              "explanation": "E",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who enjoyed guided tours?",
+              "prompt": "would make an investment?",
               "options": [
                 {
                   "id": "a",
@@ -1425,17 +1591,19 @@
                   "id": "e",
                   "label": "E"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test6-part-7-q52",
               "number": 52,
               "answer": "c",
-              "explanation": "The answer is C because the text mentions this.",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Which person was looking for a new challenge?",
+              "prompt": "would not expect time travellers in general to receive a friendly welcome?",
               "options": [
                 {
                   "id": "a",
@@ -1457,8 +1625,7 @@
                   "id": "e",
                   "label": "E"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             }
           ]
         }

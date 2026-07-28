@@ -8,16 +8,13 @@
       "id": "catalog-reading-fce-b2-test13-part-1",
       "partNumber": 1,
       "rangeLabel": "Questions 1–8",
-      "passageTitle": "Slacklining",
+      "passageTitle": "Mars on Earth",
       "passage": [
         {
-          "text": "Slacklining is an increasingly popular activity in London’s parks. All you need if you want to 0 _____ a go at slacklining is two trees about fifteen metres apart, a five-centimetre-wide strap of around the same length and the equipment to 1 join attach unite stick the strap to the trees."
+          "text": "The centre of Antarctica, where winter temperatures frequently fall to 0 _____ 80 degrees centigrade and for four months each year there is (1) ..... darkness 24 hours a day, is one of the most extreme environments on Earth. It is also by (2) ..... the most similar place to the surface of Mars, which is why a (3) ..... of thirteen scientists from the European Space Agency have spent nine months at a base there."
         },
         {
-          "text": "The slackline is not a rope, but a flat piece of strong webbing material. The 2 aim target plan schedule is to try to walk along the line without 3 dropping missing losing slipping your balance. As the line is usually 4 positioned stood settled arranged about a metre or so above the ground, there is no 5 deep great wide tall risk of injury if you don’t 6 realise achieve manage succeed to stay on the line. Other street sports, such as skateboarding and parkour are much more dangerous."
-        },
-        {
-          "text": "Basically, slacklining 7 asks requests calls requires quite a lot of practice, but it is something you can learn to do. At first, most people like to 8 keep hold touch stay on to a friend’s hand until get used to the feeling of the moving line under their feet."
+          "text": "They have been studying the physical and psychological (4) ..... on humans of living in extreme conditions, in order to obtain a better understanding of the difficulties humans will (5) ..... during the long flight to Mars and their stay there. Of course, space is (6) ..... Antarctica in that astronauts have to adapt to weightlessness, but the base is 3,200 metres above sea (7) ..... making it difficult to breathe there – as it can be on space flights. They have also, like space travellers, experienced strong feelings of being (8) ..... off from civilisation."
         }
       ],
       "questionGroups": [
@@ -30,218 +27,242 @@
             {
               "id": "catalog-reading-fce-b2-test13-part-1-q1",
               "number": 1,
+              "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "constant.",
+              "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "Gap (1)",
               "options": [
                 {
-                  "id": "1",
-                  "label": "join"
+                  "id": "a",
+                  "label": "regular"
                 },
                 {
-                  "id": "2",
-                  "label": "attach"
+                  "id": "b",
+                  "label": "constant"
                 },
                 {
-                  "id": "3",
-                  "label": "unite"
+                  "id": "c",
+                  "label": "repeated"
                 },
                 {
-                  "id": "4",
-                  "label": "stick"
+                  "id": "d",
+                  "label": "maintained"
                 }
-              ],
-              "answer": "b",
-              "explanation": "attach.",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-1-q2",
               "number": 2,
+              "answer": "a",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "far.",
+              "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "Gap (2)",
               "options": [
                 {
-                  "id": "1",
-                  "label": "aim"
+                  "id": "a",
+                  "label": "far"
                 },
                 {
-                  "id": "2",
-                  "label": "target"
+                  "id": "b",
+                  "label": "much"
                 },
                 {
-                  "id": "3",
-                  "label": "plan"
+                  "id": "c",
+                  "label": "large"
                 },
                 {
-                  "id": "4",
-                  "label": "schedule"
+                  "id": "d",
+                  "label": "long"
                 }
-              ],
-              "answer": "a",
-              "explanation": "aim.",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-1-q3",
               "number": 3,
+              "answer": "d",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "team.",
+              "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "Gap (3)",
               "options": [
                 {
-                  "id": "1",
-                  "label": "dropping"
+                  "id": "a",
+                  "label": "crew"
                 },
                 {
-                  "id": "2",
-                  "label": "missing"
+                  "id": "b",
+                  "label": "cast"
                 },
                 {
-                  "id": "3",
-                  "label": "losing"
+                  "id": "c",
+                  "label": "gang"
                 },
                 {
-                  "id": "4",
-                  "label": "slipping"
+                  "id": "d",
+                  "label": "team"
                 }
-              ],
-              "answer": "c",
-              "explanation": "losing.",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-1-q4",
               "number": 4,
+              "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "effects.",
+              "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "Gap (4)",
               "options": [
                 {
-                  "id": "1",
-                  "label": "positioned"
+                  "id": "a",
+                  "label": "results"
                 },
                 {
-                  "id": "2",
-                  "label": "stood"
+                  "id": "b",
+                  "label": "effects"
                 },
                 {
-                  "id": "3",
-                  "label": "settled"
+                  "id": "c",
+                  "label": "issues"
                 },
                 {
-                  "id": "4",
-                  "label": "arranged"
+                  "id": "d",
+                  "label": "risks"
                 }
-              ],
-              "answer": "a",
-              "explanation": "positioned.",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-1-q5",
               "number": 5,
+              "answer": "d",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "face.",
+              "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "Gap (5)",
               "options": [
                 {
-                  "id": "1",
-                  "label": "deep"
+                  "id": "a",
+                  "label": "oppose"
                 },
                 {
-                  "id": "2",
-                  "label": "great"
+                  "id": "b",
+                  "label": "dare"
                 },
                 {
-                  "id": "3",
-                  "label": "wide"
+                  "id": "c",
+                  "label": "challenge"
                 },
                 {
-                  "id": "4",
-                  "label": "tall"
+                  "id": "d",
+                  "label": "face"
                 }
-              ],
-              "answer": "b",
-              "explanation": "great.",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-1-q6",
               "number": 6,
+              "answer": "a",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "unlike.",
+              "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "Gap (6)",
               "options": [
                 {
-                  "id": "1",
-                  "label": "realise"
+                  "id": "a",
+                  "label": "unlike"
                 },
                 {
-                  "id": "2",
-                  "label": "achieve"
+                  "id": "b",
+                  "label": "contrary"
                 },
                 {
-                  "id": "3",
-                  "label": "manage"
+                  "id": "c",
+                  "label": "unfamiliar"
                 },
                 {
-                  "id": "4",
-                  "label": "succeed"
+                  "id": "d",
+                  "label": "different"
                 }
-              ],
-              "answer": "c",
-              "explanation": "manage.",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-1-q7",
               "number": 7,
+              "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "level.",
+              "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "Gap (7)",
               "options": [
                 {
-                  "id": "1",
-                  "label": "asks"
+                  "id": "a",
+                  "label": "height"
                 },
                 {
-                  "id": "2",
-                  "label": "requests"
+                  "id": "b",
+                  "label": "level"
                 },
                 {
-                  "id": "3",
-                  "label": "calls"
+                  "id": "c",
+                  "label": "depth"
                 },
                 {
-                  "id": "4",
-                  "label": "requires"
+                  "id": "d",
+                  "label": "scale"
                 }
-              ],
-              "answer": "d",
-              "explanation": "requires.",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-1-q8",
               "number": 8,
+              "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "cut.",
+              "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "Gap (8)",
               "options": [
                 {
-                  "id": "1",
-                  "label": "keep"
+                  "id": "a",
+                  "label": "broken"
                 },
                 {
-                  "id": "2",
-                  "label": "hold"
+                  "id": "b",
+                  "label": "cut"
                 },
                 {
-                  "id": "3",
-                  "label": "touch"
+                  "id": "c",
+                  "label": "kept"
                 },
                 {
-                  "id": "4",
-                  "label": "stay"
+                  "id": "d",
+                  "label": "taken"
                 }
-              ],
-              "answer": "b",
-              "explanation": "hold.",
-              "answerConfidence": "key"
+              ]
             }
           ]
         }
@@ -251,16 +272,16 @@
       "id": "catalog-reading-fce-b2-test13-part-2",
       "partNumber": 2,
       "rangeLabel": "Questions 9–16",
-      "passageTitle": "Blanca Huertas: butterfly expert",
+      "passageTitle": "Marathon in the mountains",
+      "passageSubtitle": "",
       "passage": [
         {
-          "text": "As a little girl growing 0 _____ in Colombia, Blanca Huertas was fascinated by wildlife, and especially by butterflies. In those days you couldn’t buy butterfly nets locally, so her father made 9 for her using the end of a broom. He also bought her some books and took her to different places at the weekends so 10 she could see different species and learn about different types of habitat. It was at this time that she started her butterfly collection."
+          "text": "The Ultra-Trail of Mont Blanc is an extreme marathon held annually 0 _____ 2003 in the mountains of France, Italy and Switzerland. Widely regarded (9) ..... one of the toughest races in the world, the Ultra-Trail takes place in August, (10) ..... temperatures frequently range from over 30°C at the lowest points of the course, to well (11) ..... freezing at the highest.",
+          "_provenance": "source"
         },
         {
-          "text": "11 she was sixteen, Blanca went to university to study biology. Her professor convinced her that the study of butterflies 12 become a career, not just a hobby. What’s more, he encouraged Blanca to apply 13 a place on a field trip to the Cauca region of the Amazon, 14 was being organised by students from Oxford and Cambridge."
-        },
-        {
-          "text": "The two-month trip was an incredible experience. Blanca rediscovered a butterfly that hadn’t 15 seen for thirty years and collected information about new species. 16 a result of the trip, the region was turned into a national park."
+          "text": "An Olympic marathon is 42.5 kilometres long, but (12) ..... one is over 160 kilometres in length and includes nine mountain peaks. That involves climbing a total of approximately 9,500 metres, (13) ..... is considerably higher than Everest. In (14) ..... of, or perhaps because of this, the annual event has become increasingly popular with runners, to (15) ..... an extent that the numbers have had to be limited to 2300. Only about half of these, (16) ..... average, are likely to finish the course, in times that typically vary from 20 hours to over 45.",
+          "_provenance": "source"
         }
       ],
       "questionGroups": [
@@ -273,82 +294,107 @@
             {
               "id": "catalog-reading-fce-b2-test13-part-2-q9",
               "number": 9,
+              "answer": "as",
+              "acceptedAnswers": [
+                "as"
+              ],
+              "explanation": "as.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (9)",
-              "options": [],
-              "answer": "one",
-              "explanation": "one.",
-              "answerConfidence": "key"
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-2-q10",
               "number": 10,
+              "answer": "when",
+              "acceptedAnswers": [
+                "when"
+              ],
+              "explanation": "when.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (10)",
-              "options": [],
-              "answer": "that",
-              "explanation": "that.",
-              "answerConfidence": "key"
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-2-q11",
               "number": 11,
+              "answer": "below",
+              "acceptedAnswers": [
+                "below",
+                "under"
+              ],
+              "explanation": "below/under.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (11)",
-              "options": [],
-              "answer": "when",
-              "explanation": "when.",
-              "answerConfidence": "key"
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-2-q12",
               "number": 12,
+              "answer": "this",
+              "acceptedAnswers": [
+                "this"
+              ],
+              "explanation": "this.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (12)",
-              "options": [],
-              "answer": "could",
-              "explanation": "could.",
-              "answerConfidence": "key"
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-2-q13",
               "number": 13,
+              "answer": "which",
+              "acceptedAnswers": [
+                "which"
+              ],
+              "explanation": "which.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (13)",
-              "options": [],
-              "answer": "for",
-              "explanation": "for.",
-              "answerConfidence": "key"
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-2-q14",
               "number": 14,
+              "answer": "spite",
+              "acceptedAnswers": [
+                "spite"
+              ],
+              "explanation": "spite.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (14)",
-              "options": [],
-              "answer": "which",
-              "explanation": "which.",
-              "answerConfidence": "key"
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-2-q15",
               "number": 15,
+              "answer": "such",
+              "acceptedAnswers": [
+                "such"
+              ],
+              "explanation": "such.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (15)",
-              "options": [],
-              "answer": "been",
-              "explanation": "been.",
-              "answerConfidence": "key"
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-2-q16",
               "number": 16,
+              "answer": "on",
+              "acceptedAnswers": [
+                "on"
+              ],
+              "explanation": "on.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (16)",
-              "options": [],
-              "answer": "as",
-              "explanation": "as.",
-              "answerConfidence": "key"
+              "size": 10
             }
           ]
         }
@@ -358,16 +404,16 @@
       "id": "catalog-reading-fce-b2-test13-part-3",
       "partNumber": 3,
       "rangeLabel": "Questions 17–24",
-      "passageTitle": "In praise of plastic",
+      "passageTitle": "Jobs in the future",
       "passage": [
         {
-          "text": "Wherever you are, you’re likely to be surrounded by objects made of some kind of plastic material. There are many types of plastic, each one 0 _____ for a particular use. Thin, flexible plastic is good for making objects such as bags, whereas thick, hard plastic is a 17 material for making functional objects, and has been used to make very 18 pieces of furniture."
+          "text": "In twenty years’ time, which jobs will people still be doing, and which is it 0 _____ to assume will have gone forever? Today’s young people should give that question careful (17) ..... before choosing a career. Clearly there will continue to be a need for staff in (18) ..... professions such as medicine that involve caring for others, and also for people able to persuade, like (19) ..... and lawyers."
         },
         {
-          "text": "Although plastic has a 19 for being cheap and disposable, in the hands of a good 20 it can be used to make objects of great beauty. As well as offering 21 high quality at a low price, plastic can take almost any shape, colour or consistency."
+          "text": "There will of course be no (20) ..... of jobs in science and technology, particularly for individuals able to (21) ..... in newer fields such as biotechnology and microbiology."
         },
         {
-          "text": "Plastic can also be seen as an environmentally friendly 22 of material. It can be used in place of wood and other materials that are in short supply in their 23 state, and it is also very hard-wearing. A good plastic chair, for example, could last you a lifetime and when you no longer wanted it, then it would probably be possible to 24 the material"
+          "text": "On the other hand, the already rapid (22) ..... of jobs to robots will speed up even further, as they replace workers not only in manufacturing but also in the (23) ..... industry. And as robots learn how to stack shelves, take over at check-outs or send us our online shopping, it won’t be long before most supermarket jobs have (24) ..... , too."
         }
       ],
       "questionGroups": [
@@ -380,82 +426,115 @@
             {
               "id": "catalog-reading-fce-b2-test13-part-3-q17",
               "number": 17,
+              "answer": "consideration",
+              "acceptedAnswers": [
+                "consideration"
+              ],
+              "explanation": "consideration.",
+              "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (17)",
-              "options": [],
-              "answer": "useful",
-              "explanation": "useful.",
-              "answerConfidence": "key"
+              "prompt": "Gap (17) — CONSIDER",
+              "baseWord": "CONSIDER",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-3-q18",
               "number": 18,
+              "answer": "existing",
+              "acceptedAnswers": [
+                "existing"
+              ],
+              "explanation": "existing.",
+              "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (18)",
-              "options": [],
-              "answer": "attractive",
-              "explanation": "attractive.",
-              "answerConfidence": "key"
+              "prompt": "Gap (18) — EXIST",
+              "baseWord": "EXIST",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-3-q19",
               "number": 19,
+              "answer": "politicians",
+              "acceptedAnswers": [
+                "politicians"
+              ],
+              "explanation": "politicians.",
+              "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (19)",
-              "options": [],
-              "answer": "reputation",
-              "explanation": "reputation.",
-              "answerConfidence": "key"
+              "prompt": "Gap (19) — POLITICS",
+              "baseWord": "POLITICS",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-3-q20",
               "number": 20,
+              "answer": "shortage",
+              "acceptedAnswers": [
+                "shortage"
+              ],
+              "explanation": "shortage.",
+              "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (20)",
-              "options": [],
-              "answer": "designer",
-              "explanation": "designer.",
-              "answerConfidence": "key"
+              "prompt": "Gap (20) — SHORT",
+              "baseWord": "SHORT",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-3-q21",
               "number": 21,
+              "answer": "specialise",
+              "acceptedAnswers": [
+                "specialise",
+                "specialize"
+              ],
+              "explanation": "specialise/specialize.",
+              "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (21)",
-              "options": [],
-              "answer": "extremely",
-              "explanation": "extremely.",
-              "answerConfidence": "key"
+              "prompt": "Gap (21) — SPECIAL",
+              "baseWord": "SPECIAL",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-3-q22",
               "number": 22,
+              "answer": "loss",
+              "acceptedAnswers": [
+                "loss"
+              ],
+              "explanation": "loss.",
+              "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (22)",
-              "options": [],
-              "answer": "choice",
-              "explanation": "choice.",
-              "answerConfidence": "key"
+              "prompt": "Gap (22) — LOSE",
+              "baseWord": "LOSE",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-3-q23",
               "number": 23,
+              "answer": "construction",
+              "acceptedAnswers": [
+                "construction"
+              ],
+              "explanation": "construction.",
+              "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (23)",
-              "options": [],
-              "answer": "natural",
-              "explanation": "natural.",
-              "answerConfidence": "key"
+              "prompt": "Gap (23) — CONSTRUCT",
+              "baseWord": "CONSTRUCT",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-3-q24",
               "number": 24,
+              "answer": "disappeared",
+              "acceptedAnswers": [
+                "disappeared"
+              ],
+              "explanation": "disappeared.",
+              "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (24)",
-              "options": [],
-              "answer": "recycle",
-              "explanation": "recycle.",
-              "answerConfidence": "key"
+              "prompt": "Gap (24) — APPEAR",
+              "baseWord": "APPEAR",
+              "size": 10
             }
           ]
         }
@@ -466,11 +545,7 @@
       "partNumber": 4,
       "rangeLabel": "Questions 25–30",
       "passageTitle": "Part 4",
-      "passage": [
-        {
-          "text": "Part 4"
-        }
-      ],
+      "passage": [],
       "questionGroups": [
         {
           "id": "catalog-reading-fce-b2-test13-part-4-g0",
@@ -481,62 +556,100 @@
             {
               "id": "catalog-reading-fce-b2-test13-part-4-q25",
               "number": 25,
+              "answer": "wouldn’t",
+              "acceptedAnswers": [
+                "wouldn’t",
+                "would not have woken up"
+              ],
+              "explanation": "wouldn t/would not have woken up.",
+              "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "PUT — . Heidi stayed with a friend when she went to London. A friend",
-              "options": [],
-              "answer": "put heidi up",
-              "explanation": "put Heidi up.",
-              "answerConfidence": "key"
+              "prompt": "Amanda woke up late because she d forgotten to set her alarm.If Amanda hadn t forgotten to set her alarm she HAVE -> . Amanda woke up late because she’d forgotten to set her alarm.  If Amanda hadn’t forgotten to set her alarm she ..... late.",
+              "sourceSentence": "Amanda woke up late because she d forgotten to set her alarm.If Amanda hadn t forgotten to set her alarm she",
+              "keyword": "HAVE",
+              "targetSentence": ". Amanda woke up late because she’d forgotten to set her alarm.  If Amanda hadn’t forgotten to set her alarm she ..... late.",
+              "size": 40
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-4-q26",
               "number": 26,
+              "answer": "work nearly as well as",
+              "acceptedAnswers": [
+                "work nearly as well as"
+              ],
+              "explanation": "work nearly as well as.",
+              "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "LIKE — . The singer dislikes people asking for his autograph in the street. The singer",
-              "options": [],
-              "answer": "does not like it when/if",
-              "explanation": "does not like it when/if.",
-              "answerConfidence": "key"
+              "prompt": "This Internet browser works far better than the others.The other Internet browsers don t NEARLY -> . This Internet browser works far better than the others.  The other Internet browsers don’t ..... this one.",
+              "sourceSentence": "This Internet browser works far better than the others.The other Internet browsers don t",
+              "keyword": "NEARLY",
+              "targetSentence": ". This Internet browser works far better than the others.  The other Internet browsers don’t ..... this one.",
+              "size": 40
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-4-q27",
               "number": 27,
+              "answer": "whether she could borrow his",
+              "acceptedAnswers": [
+                "whether she could borrow his"
+              ],
+              "explanation": "whether she could borrow his.",
+              "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "ADVICE — . I advised Kylie to enrol at a gym which she did. Kylie",
-              "options": [],
-              "answer": "took my advice",
-              "explanation": "took my advice.",
-              "answerConfidence": "key"
+              "prompt": "Can I borrow your phone for a minute, Jack? asked Emma.Emma asked Jack WHETHER -> . ‘Can I borrow your phone for a minute, Jack?’ asked Emma.  Emma asked Jack ..... phone.",
+              "sourceSentence": "Can I borrow your phone for a minute, Jack? asked Emma.Emma asked Jack",
+              "keyword": "WHETHER",
+              "targetSentence": ". ‘Can I borrow your phone for a minute, Jack?’ asked Emma.  Emma asked Jack ..... phone.",
+              "size": 40
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-4-q28",
               "number": 28,
+              "answer": "such a skillful",
+              "acceptedAnswers": [
+                "such a skillful",
+                "skilled"
+              ],
+              "explanation": "such a skillful/skilled.",
+              "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "UNAWARE — . I had no idea that a famous film star was born in the town. I",
-              "options": [],
-              "answer": "was (completely) unaware of the",
-              "explanation": "was (completely) unaware of the.",
-              "answerConfidence": "key"
+              "prompt": "Raymond has so much skill as an artist that his drawings look like photographs.Raymond is SUCH -> . Raymond has so much skill as an artist that his drawings look like photographs.  Raymond is ..... artist that his drawings look like photographs.",
+              "sourceSentence": "Raymond has so much skill as an artist that his drawings look like photographs.Raymond is",
+              "keyword": "SUCH",
+              "targetSentence": ". Raymond has so much skill as an artist that his drawings look like photographs.  Raymond is ..... artist that his drawings look like photographs.",
+              "size": 40
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-4-q29",
               "number": 29,
+              "answer": "have gone to bed earlier",
+              "acceptedAnswers": [
+                "have gone to bed earlier"
+              ],
+              "explanation": "have gone to bed earlier.",
+              "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "NONE — . Simon was the only student to apply for a scholarship. Apart",
-              "options": [],
-              "answer": "from simon none of",
-              "explanation": "from Simon none of.",
-              "answerConfidence": "key"
+              "prompt": "I wish I hadn t stayed up late last night.I should BED -> . I wish I hadn’t stayed up late last night.  I should ..... last night.",
+              "sourceSentence": "I wish I hadn t stayed up late last night.I should",
+              "keyword": "BED",
+              "targetSentence": ". I wish I hadn’t stayed up late last night.  I should ..... last night.",
+              "size": 40
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-4-q30",
               "number": 30,
+              "answer": "was caused by the late",
+              "acceptedAnswers": [
+                "was caused by the late"
+              ],
+              "explanation": "was caused by the late.",
+              "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "CASE — . Debbie wore a jumper because she thought it might be cold in the mountains. Debbie wore a jumper",
-              "options": [],
-              "answer": "in case it was/got cold",
-              "explanation": "in case it was/got cold.",
-              "answerConfidence": "key"
+              "prompt": "Our departure was delayed because another flight arrived late.The delay to our departure CAUSED -> . Our departure was delayed because another flight arrived late.  The delay to our departure ..... arrival of another flight.",
+              "sourceSentence": "Our departure was delayed because another flight arrived late.The delay to our departure",
+              "keyword": "CAUSED",
+              "targetSentence": ". Our departure was delayed because another flight arrived late.  The delay to our departure ..... arrival of another flight.",
+              "size": 40
             }
           ]
         }
@@ -549,177 +662,231 @@
       "passageTitle": "Part 5",
       "passage": [
         {
-          "text": "Part 5"
+          "text": "Night Flight"
+        },
+        {
+          "text": "The flight is busy and the last few passengers to board are searching for places to stow their hand luggage. The Asian woman in the seat next to me is in her late twenties, probably travelling on business. I am wondering if I should talk to her when the man in the window seat shows up and we have to let him in. She settles back in the middle seat. When I try to strap myself back in I find she’s picked up the buckle of my belt by accident and we look at each other and laugh."
+        },
+        {
+          "text": "‘What have you been doing in Bangalore?’ I ask."
+        },
+        {
+          "text": "‘My office is there. It’s where I’m based.’ I notice that she has a North American accent. She tells me she works for a multinational company that makes clothing and that she is on her way to Thailand. She has to visit a couple of factories and meet with some other people from the company. She’s also trying to complete her PhD thesis, which is on a laptop she has under the seat in front of her. While she’s talking she puts her passport away in her bag and I see she’s Canadian."
+        },
+        {
+          "text": "She asks me what I do and I tell her. Then I ask her some more about her job and she tells me about that. By this time we are in the air and climbing towards our cruising altitude. The cabin is quiet, lights still dimmed, just the gentle sound of the air conditioning and the murmur of conversations. The flight to Singapore is three and a half hours. I can’t decide whether to attempt sleep. It is nearly midnight and it hardly seems worth it. The man in the window seat has put on eye-shades and has an inflated pillow around his neck. He has slipped down in the seat with his head lolling to one side, his blanket pulled up to his chest. The woman shows no inclination to sleep so I ask her where she grew up."
+        },
+        {
+          "text": "She tells me her father is a medical doctor and that he went to Canada before she was born. They spent a few years in Montreal but most of the time she lived in Saskatchewan. ‘It was OK,’ she says. ‘There are things happening there, it’s not as dull as you might think.’ She tells me sometimes in the winter it would get down to minus sixty."
+        },
+        {
+          "text": "‘Really it was minus thirty,’ she says. ‘But the wind chill factor made it feel like minus sixty. I remember them saying on the weather forecast “human flesh will freeze in 1.4 seconds.” Things like that.’"
+        },
+        {
+          "text": "‘I’ve never been anywhere that cold,’ I say."
+        },
+        {
+          "text": "‘Somehow it didn’t feel that bad,’ she says. ‘It was like a dry cold. When the sun was shining it didn’t seem that cold. It makes your skin kind of tingle. We used to play out in it. You can get seriously cold and not realise it. When you’re back indoors your face and hands ache as the blood comes back. I suppose that is how polar explorers end up losing toes. They don’t realise how cold they are.’"
+        },
+        {
+          "text": "‘I suppose so,’ I say. There’s a pause in the conversation and I wonder what to say next."
+        },
+        {
+          "text": "‘I guess you get the other extreme living in India.’"
+        },
+        {
+          "text": "‘Bangalore is fine,’ she says, ‘though we need rain. The drought is very bad in south India right now.’"
+        },
+        {
+          "text": "The woman asks me how I got into my present job and I tell her a bit about my life. At least I tell her the story which over time has fashioned itself into what I call my life. It’s not that I’m being deliberately secretive or deceitful. I just don’t know how to talk about what really happened."
         }
       ],
       "questionGroups": [
         {
           "id": "catalog-reading-fce-b2-test13-part-5-g0",
           "range": "Questions 31–36",
-          "instruction": "You are going to read an article about a sporting event. For questions 31-36, choose the answer (A, B, C or D) which you think fits best according to the text.",
+          "instruction": "You are going to read an extract from a novel. For questions 31-36, choose the answer (A, B, C or D) which you think fits best according to the text.",
           "type": "multiple-choice",
           "questions": [
             {
               "id": "catalog-reading-fce-b2-test13-part-5-q31",
               "number": 31,
+              "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
+              "answerConfidence": "key",
               "type": "multiple-choice",
-              "prompt": "From the first paragraph we understand that Audrey",
+              "prompt": "What do we find out about the woman in the first paragraph?",
               "options": [
                 {
-                  "id": "A",
-                  "label": "was already feeling very tired."
+                  "id": "a",
+                  "label": "She is annoyed at having to change seats with another passenger."
                 },
                 {
-                  "id": "B",
-                  "label": "needed to beat the other jumpers."
+                  "id": "b",
+                  "label": "She finds a mistake she makes amusing."
                 },
                 {
-                  "id": "C",
-                  "label": "had a specific aim in mind that day."
+                  "id": "c",
+                  "label": "She wants to get on with her work during the flight."
                 },
                 {
-                  "id": "D",
-                  "label": "felt guilty about ignoring her coach."
+                  "id": "d",
+                  "label": "She has difficulty finding room for items she brought on board."
                 }
-              ],
-              "answer": "c",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-5-q32",
               "number": 32,
+              "answer": "c",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
+              "answerConfidence": "key",
               "type": "multiple-choice",
-              "prompt": "The word ‘it’ underlined in Paragraph Two refers to",
+              "prompt": "What does the woman say at the beginning of the conversation?",
               "options": [
                 {
-                  "id": "A",
-                  "label": "background noise at the event."
+                  "id": "a",
+                  "label": "She has Canadian nationality."
                 },
                 {
-                  "id": "B",
-                  "label": "the place where this event is held."
+                  "id": "b",
+                  "label": "She usually works in Thailand."
                 },
                 {
-                  "id": "C",
-                  "label": "the amount of practice needed for the event."
+                  "id": "c",
+                  "label": "She is currently both studying and working."
                 },
                 {
-                  "id": "D",
-                  "label": "a technically good performance in the event."
+                  "id": "d",
+                  "label": "She is going to work for a different employer."
                 }
-              ],
-              "answer": "d",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-5-q33",
               "number": 33,
+              "answer": "d",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
+              "answerConfidence": "key",
               "type": "multiple-choice",
-              "prompt": "In the third paragraph, Audrey reveals that",
+              "prompt": "Why does the writer stay awake throughout the flight?",
               "options": [
                 {
-                  "id": "A",
-                  "label": "she once suffered a leg injury."
+                  "id": "a",
+                  "label": "There is a lot of mechanical noise on the plane."
                 },
                 {
-                  "id": "B",
-                  "label": "she had already won another event that day."
+                  "id": "b",
+                  "label": "Nobody else on board seems to want to sleep."
                 },
                 {
-                  "id": "C",
-                  "label": "she felt confident in her ability to achieve her goal."
+                  "id": "c",
+                  "label": "Some of the passengers are talking loudly."
                 },
                 {
-                  "id": "D",
-                  "label": "she was impressed by the performance of the other jumpers."
+                  "id": "d",
+                  "label": "He would not be able to sleep very long."
                 }
-              ],
-              "answer": "a",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-5-q34",
               "number": 34,
+              "answer": "c",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
+              "answerConfidence": "key",
               "type": "multiple-choice",
-              "prompt": "When she was talking to Paula, she felt",
+              "prompt": "The woman talks about temperatures in Canada to show that",
               "options": [
                 {
-                  "id": "A",
-                  "label": "embarrassed by a question her coach asked her."
+                  "id": "a",
+                  "label": "it could sometimes be extremely cold in Montreal."
                 },
                 {
-                  "id": "B",
-                  "label": "amused by a suggestion her coach made."
+                  "id": "b",
+                  "label": "India is a more pleasant country to live in than Canada."
                 },
                 {
-                  "id": "C",
-                  "label": "sad that she d let her coach down."
+                  "id": "c",
+                  "label": "the place where she grew up could be interesting."
                 },
                 {
-                  "id": "D",
-                  "label": "grateful for her coach s support."
+                  "id": "d",
+                  "label": "in Saskatchewan children had to stay at home all winter."
                 }
-              ],
-              "answer": "d",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-5-q35",
               "number": 35,
+              "answer": "a",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
+              "answerConfidence": "key",
               "type": "multiple-choice",
-              "prompt": "During her second jump, Audrey",
+              "prompt": "What does the underlined ‘that refer to in Paragraph 10?",
               "options": [
                 {
-                  "id": "A",
-                  "label": "was still feeling very tense."
+                  "id": "a",
+                  "label": "failing to notice how cold some parts of the body really are"
                 },
                 {
-                  "id": "B",
-                  "label": "felt unhappy with one aspect of her jump."
+                  "id": "b",
+                  "label": "wearing clothes that do not cover the skin in very cold weather"
                 },
                 {
-                  "id": "C",
-                  "label": "was rather self-critical of her performance."
+                  "id": "c",
+                  "label": "playing games outside in extremely low temperatures"
                 },
                 {
-                  "id": "D",
-                  "label": "felt that everything was going better than last time."
+                  "id": "d",
+                  "label": "going into a warm place straight from somewhere much colder"
                 }
-              ],
-              "answer": "c",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-5-q36",
               "number": 36,
+              "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
+              "answerConfidence": "key",
               "type": "multiple-choice",
-              "prompt": "When she heard the length of her second jump, Audrey",
+              "prompt": "The writer mentions the weather in India because",
               "options": [
                 {
-                  "id": "A",
-                  "label": "realised that she had actually been very lucky."
+                  "id": "a",
+                  "label": "he realises the woman wants to change the subject."
                 },
                 {
-                  "id": "B",
-                  "label": "acknowledged the contribution of her coach."
+                  "id": "b",
+                  "label": "he wants to keep the conversation going."
                 },
                 {
-                  "id": "C",
-                  "label": "was surprised by her team-mates reaction."
+                  "id": "c",
+                  "label": "he finds the weather an interesting topic to discuss."
                 },
                 {
-                  "id": "D",
-                  "label": "was lost for words for a few moments."
+                  "id": "d",
+                  "label": "he had wanted to ask the woman about it while she was talking."
                 }
-              ],
-              "answer": "b",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             }
           ]
         }
@@ -729,17 +896,32 @@
       "id": "catalog-reading-fce-b2-test13-part-6",
       "partNumber": 6,
       "rangeLabel": "Questions 37–42",
-      "passageTitle": "Part 6",
+      "passageTitle": "Just because I ve been on holiday doesn t mean I have to be happy",
       "passage": [
         {
-          "text": "Part 6"
+          "text": "My car. My tortoise. My friends. My bed. The list reads the same every time, but I still write it. I write it on the last day of every holiday, to convince myself that going home isn’t so bad. Then I feel utterly miserable. There are plenty of things I’m not great at – driving, maths, returning library books on time – but the thing I’m worst at is coming back to work after a holiday."
+        },
+        {
+          "text": "It’s an extreme case of being selfishly miserable. To have had a lovely sunshine break and then return to the office, where everyone has been working hard without restaurant lunches or morning swims, with a face like thunder is terribly bad manners. (37) ..... . Given the number of names for it – ‘holiday hangover’, ‘back-to-work blues’, post-travel depression’ – it’s a well-known condition."
+        },
+        {
+          "text": "In a recent survey conducted by a travel website, 82 per cent of the 1,254 people asked experienced post-holiday misery. (38) ..... . Probably just before they logged on to a job vacancy website or started fantasising about retraining for work in the countryside."
+        },
+        {
+          "text": "Even if you manage to avoid end-of-holiday panic, and you feel refreshed, relaxed and ready to face the world of work, you’re guaranteed to walk into stress, conflict and injustice. (39) ..... . Or the surprise departmental reorganisation that took place while you were away. Still, it could be worse. Over three-quarters of people questioned said that their holiday depression lasted for a month. (40) ..... . Perhaps they should have saved their cash and nor bothered going."
+        },
+        {
+          "text": "After years of practice, I’ve come up with a few things that help. A bit. The first is the list mentioned above. (41) ..... . Unlike some people I know, I can’t just roll off an intercontinental flight and roll in to the office. The third is concentrating on getting through the first day back or work without running away, making a grand plan for a new life or spending (too much) time on my own tearfully looking at my holiday photos saying to myself: ‘I can’t believe this is my life.’"
+        },
+        {
+          "text": "I feel sorry for my poor colleagues having to look at my long face today, but at least by having my break now I’m getting my bad mood in early. (42) ..... . Then I can support them in their hour (month?) of need. I might even lend them one of my pets."
         }
       ],
       "questionGroups": [
         {
           "id": "catalog-reading-fce-b2-test13-part-6-g0",
           "range": "Questions 37–42",
-          "instruction": "You are going to read an article about an environmental campaigner. Six sentences have been removed from the article. Choose from the sentences A-G the one which fits each gap (37-42). There is one extra sentence which you do not need to use.",
+          "instruction": "You are going to read an article about returning to work after being away on holiday. Six sentences have been removed from the article. Choose from the sentences A-G the one which fits each gap (37-42). There is one extra sentence which you do not need to use.",
           "type": "matching-features",
           "paragraphLetters": [
             "A",
@@ -750,240 +932,288 @@
             "F",
             "G"
           ],
+          "features": [
+            {
+              "id": "a",
+              "name": "By September, on the other hand, when the schools go back and the main summer-holiday season is over, I’ll be back to normal."
+            },
+            {
+              "id": "b",
+              "name": "The most content, with both their home and working life, appear to be those who stay at home all summer."
+            },
+            {
+              "id": "c",
+              "name": "For instance, that highly important task you left with a colleague that’s been ignored and later caused your email inbox to turn toxic."
+            },
+            {
+              "id": "d",
+              "name": "At least, though, I’m not the only fed-up wage slave to feel like this."
+            },
+            {
+              "id": "e",
+              "name": "The next one is making sure I have a day off everything between getting home and going to work."
+            },
+            {
+              "id": "f",
+              "name": "Also, over two-thirds of them answered the next question, ‘Are you usually glad to be home after a holiday abroad?’ with a – presumably unhappy sounding – ‘No’."
+            },
+            {
+              "id": "g",
+              "name": "Longer by at least a fortnight, I’d guess, than the holiday they’d taken."
+            }
+          ],
           "questions": [
             {
               "id": "catalog-reading-fce-b2-test13-part-6-q37",
               "number": 37,
+              "answer": "d",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
+              "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (37)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
-              ],
-              "answer": "b",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-6-q38",
               "number": 38,
+              "answer": "f",
+              "acceptedAnswers": [
+                "f"
+              ],
+              "explanation": "F",
+              "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (38)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
-              ],
-              "answer": "d",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-6-q39",
               "number": 39,
+              "answer": "c",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
+              "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (39)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
-              ],
-              "answer": "g",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-6-q40",
               "number": 40,
+              "answer": "g",
+              "acceptedAnswers": [
+                "g"
+              ],
+              "explanation": "G",
+              "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (40)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
-              ],
-              "answer": "c",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-6-q41",
               "number": 41,
+              "answer": "e",
+              "acceptedAnswers": [
+                "e"
+              ],
+              "explanation": "E",
+              "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (41)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
-              ],
-              "answer": "a",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-6-q42",
               "number": 42,
+              "answer": "a",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
+              "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (42)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
-              ],
-              "answer": "f",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             }
           ]
         }
@@ -993,346 +1223,349 @@
       "id": "catalog-reading-fce-b2-test13-part-7",
       "partNumber": 7,
       "rangeLabel": "Questions 43–52",
-      "passageTitle": "Part 7",
+      "passageTitle": "Jessica Ennis: heptathlon Olympic champion",
       "passage": [
         {
-          "text": "Part 7"
+          "label": "A",
+          "text": "There have been many great Olympic athletes in recent years, but few have been taken to their country’s heart quite as warmly as gold medal winner Jessica Ennis. Her quiet determination to succeed, her good humour when faced by setbacks and the absolute joy she showed when finally becoming Olympic champion have all contributed to this, as has the difficulty of the sport she has chosen to compete in: the heptathlon. This involves turning in world-class performances in seven track and field events over two days. At first sight, Jessica – at just 1.65 metres and 57 kilos – may seem an unlikely winner of such a physically demanding sport, but once the action begins it soon becomes clear she has the speed, strength and endurance to beat anyone."
+        },
+        {
+          "label": "B",
+          "text": "Jessica recognises that her normally easygoing nature is transformed into something much fiercer when she has to compete. She knows that success only comes from being highly motivated and totally focused on each event. In her autobiography Unbelievable, she talks of the way she was picked on at school by bigger girls because of her background and lack of size, and how that has made her determined to succeed, particularly against taller and stronger athletes. She also points out that she is not from a particularly sporting family and that her sister ‘absolutely hates sport’, but says she was introduced to athletics by her parents, who have continued to give her encouragement and support throughout her career as an athlete. Her mother was born in the UK and her father in Jamaica."
+        },
+        {
+          "label": "C",
+          "text": "She gets on well with her family, as she does with her husband Andy, saying she dislikes conflict and wherever possible avoids arguments with people. The only exception is her trainer Chell, with whom she has a row ‘every day’. And although Jessica is a psychology graduate, she is unable to explain how she acquired the tremendous self-discipline that has enabled her to keep training to Olympic gold medal standard while so many others have given up along the way. Of course, at that level nothing can be taken for granted, as she discovered when a sudden injury put her out of the Beijing Games. She describes that as the lowest point in her career. Typically, though, Jessica bounced back, and once fit again began training just as hard as ever."
+        },
+        {
+          "label": "D",
+          "text": "By the time of the London Games in 2012 she was in the best shape of her life, and on this occasion she was fortunate enough to remain free of injury. Some of the times she recorded in the heptathlon were so fast that she would have achieved good positions in the finals of track events such as the 200 metres. That brought to mind a race won two years earlier against the world champion, who couldn’t believe she had lost to someone who trained for seven different events. Since the London Olympics, Jessica has continued to take part in competitions, receiving numerous awards including World Sportswoman of the Year. She has also featured on a special postage stamp and has had a post box in her home city of Sheffield painted gold in her honour."
         }
       ],
       "questionGroups": [
         {
           "id": "catalog-reading-fce-b2-test13-part-7-g0",
           "range": "Questions 43–52",
-          "instruction": "You are going to read an article about advertising in public places. For questions",
+          "instruction": "You are going to read a newspaper article about an Olympic athlete. For questions",
           "type": "matching-features",
           "features": [
             {
               "id": "a",
-              "name": "Section A"
+              "name": "A"
             },
             {
               "id": "b",
-              "name": "Section B"
+              "name": "B"
             },
             {
               "id": "c",
-              "name": "Section C"
+              "name": "C"
             },
             {
               "id": "d",
-              "name": "Section D"
+              "name": "D"
             }
           ],
           "questions": [
             {
               "id": "catalog-reading-fce-b2-test13-part-7-q43",
               "number": 43,
+              "answer": "d",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
+              "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Gap (43)",
+              "prompt": "gives an example of Jessica having good luck?",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
-                },
-                {
-                  "id": "E",
-                  "label": "E"
                 }
-              ],
-              "answer": "b",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-7-q44",
               "number": 44,
+              "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
+              "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Gap (44)",
+              "prompt": "refers to the role of Jessica’s family in helping her achieve success?",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
-                },
-                {
-                  "id": "E",
-                  "label": "E"
                 }
-              ],
-              "answer": "d",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-7-q45",
               "number": 45,
+              "answer": "c",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
+              "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Gap (45)",
+              "prompt": "suggests it is surprising that Jessica does not understand herself better?",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
-                },
-                {
-                  "id": "E",
-                  "label": "E"
                 }
-              ],
-              "answer": "a",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-7-q46",
               "number": 46,
+              "answer": "c",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
+              "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Gap (46)",
+              "prompt": "mentions a previous sporting disappointment that Jessica had?",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
-                },
-                {
-                  "id": "E",
-                  "label": "E"
                 }
-              ],
-              "answer": "c",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-7-q47",
               "number": 47,
+              "answer": "a",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
+              "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Gap (47)",
+              "prompt": "explains why Jessica is so popular with the local public?",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
-                },
-                {
-                  "id": "E",
-                  "label": "E"
                 }
-              ],
-              "answer": "a",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-7-q48",
               "number": 48,
+              "answer": "d",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
+              "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Gap (48)",
+              "prompt": "explains why another athlete was surprised at Jessica’s performance?",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
-                },
-                {
-                  "id": "E",
-                  "label": "E"
                 }
-              ],
-              "answer": "e",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-7-q49",
               "number": 49,
+              "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
+              "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Gap (49)",
+              "prompt": "mentions a painful childhood memory?",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
-                },
-                {
-                  "id": "E",
-                  "label": "E"
                 }
-              ],
-              "answer": "a",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-7-q50",
               "number": 50,
+              "answer": "a",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
+              "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Gap (50)",
+              "prompt": "suggests that Jessica s appearance can give a misleading impression?",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
-                },
-                {
-                  "id": "E",
-                  "label": "E"
                 }
-              ],
-              "answer": "b",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-7-q51",
               "number": 51,
+              "answer": "c",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
+              "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Gap (51)",
+              "prompt": "says that Jessica s relationship with someone can sometimes be difficult?",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
-                },
-                {
-                  "id": "E",
-                  "label": "E"
                 }
-              ],
-              "answer": "d",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test13-part-7-q52",
               "number": 52,
+              "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
+              "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Gap (52)",
+              "prompt": "contrasts Jessica s personality on and off the track?",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
-                },
-                {
-                  "id": "E",
-                  "label": "E"
                 }
-              ],
-              "answer": "e",
-              "explanation": "",
-              "answerConfidence": "key"
+              ]
             }
           ]
         }

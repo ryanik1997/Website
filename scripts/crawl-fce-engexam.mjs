@@ -7,6 +7,8 @@
  *   node scripts/crawl-fce-engexam.mjs --test 13          # crawl only test 13
  *   node scripts/crawl-fce-engexam.mjs --quick            # crawl only 3 tests (1, 13, 26)
  *   node scripts/crawl-fce-engexam.mjs --delay 300        # custom delay ms
+ *   node scripts/crawl-fce-engexam.mjs --test 4 --part 5   # refresh one source part
+ *   node scripts/crawl-fce-engexam.mjs --materialize-existing # write cached full-page artifacts
  *
  * Output: D:\App-English-Ryan\Tainguyen\fce-reading-test{N}\exam\exam.json
  */
@@ -14,6 +16,7 @@
 import * as https from 'node:https'
 import * as fs from 'node:fs'
 import * as path from 'node:path'
+import { createHash } from 'node:crypto'
 import { resolveTainguyenPath } from './tainguyen-path.mjs'
 
 const BASE = 'https://engexam.info'
@@ -29,14 +32,23 @@ const delayMs = delayIdx !== -1 ? parseInt(args[delayIdx + 1], 10) : 1200
 const singleTestIdx = args.indexOf('--test')
 const singleTest = singleTestIdx !== -1 ? parseInt(args[singleTestIdx + 1], 10) : null
 const singlePageIdx = args.indexOf('--page')
-const singlePage = singlePageIdx !== -1 ? parseInt(args[singlePageIdx + 1], 10) : null
+const singlePartIdx = args.indexOf('--part')
+const pagesIdx = args.indexOf('--pages')
+const requestedPages = singlePageIdx !== -1
+  ? [parseInt(args[singlePageIdx + 1], 10)]
+  : singlePartIdx !== -1
+    ? [parseInt(args[singlePartIdx + 1], 10)]
+    : pagesIdx !== -1
+      ? args[pagesIdx + 1].split(',').map(value => parseInt(value, 10))
+      : null
 const backup = args.includes('--backup')
+const materializeExisting = args.includes('--materialize-existing')
 
-if (singlePage && !singleTest) {
-  throw new Error('--page requires --test')
+if (requestedPages && !singleTest) {
+  throw new Error('--page/--part/--pages requires --test')
 }
-if (singlePage && (singlePage < 1 || singlePage > 8)) {
-  throw new Error(`Invalid --page value: ${singlePage}`)
+if (requestedPages?.some(page => !Number.isInteger(page) || page < 1 || page > 8)) {
+  throw new Error(`Invalid page list: ${requestedPages.join(',')}`)
 }
 
 let tests
@@ -121,11 +133,11 @@ function extractExample(html) {
 
 function passageFromHeadingToScore(html) {
   const heading = String(html ?? '').match(/<h2\b[^>]*>[\s\S]*?<\/h2>/i)
-  if (!heading || heading.index == null) return ''
-  const start = heading.index
-  const afterHeading = start + heading[0].length
-  const scoreRelative = html.slice(afterHeading).search(/class=["']score-container["']/i)
-  const end = scoreRelative === -1 ? html.length : afterHeading + scoreRelative
+  const firstWidget = String(html ?? '').search(/<(?:select|input)\b[^>]*id=["']q\d+/i)
+  const start = heading?.index ?? (firstWidget === -1 ? -1 : String(html).lastIndexOf('<p', firstWidget))
+  if (start == null || start < 0) return ''
+  const scoreRelative = html.slice(start).search(/class=["']score-container["']/i)
+  const end = scoreRelative === -1 ? html.length : start + scoreRelative
   return html.slice(start, end).trim()
 }
 
@@ -280,12 +292,29 @@ function parsePart4(html, result) {
 }
 
 // ── Part 5: Multiple choice (radio) ──
-function parsePart5(html, result) {
-  const heading = html.match(/<h2\b[^>]*>[\s\S]*?<\/h2>/i)
-  const questionStart = html.search(/<p\b[^>]*id=["']d\d+["']/i)
-  if (heading?.index != null && questionStart !== -1) {
-    result.passageTextHtml = html.slice(heading.index, questionStart)
+function extractPart5Passage(html) {
+  const questionStart = html.search(/<p\b[^>]*id=["']d31["']/i)
+  if (questionStart === -1) return ''
+
+  const beforeQuestions = html.slice(0, questionStart)
+  const heading = beforeQuestions.match(/<h2\b[^>]*>[\s\S]*?<\/h2>/i)
+  if (heading?.index != null) {
+    return beforeQuestions.slice(heading.index).trim()
   }
+
+  const partHeading = beforeQuestions.match(/<h1\b[^>]*>\s*Part\s+5\s*<\/h1>/i)
+  if (partHeading?.index == null) return ''
+
+  let passage = beforeQuestions.slice(partHeading.index + partHeading[0].length)
+  passage = passage.replace(
+    /^\s*<p\b[^>]*>\s*<em\b[^>]*>[\s\S]*?<\/em>\s*<\/p>/i,
+    '',
+  )
+  return passage.trim()
+}
+
+function parsePart5(html, result) {
+  result.passageTextHtml = extractPart5Passage(html)
 
   // Find all question ids: d31, d32, etc.
   const idRe = /<p[^>]*id="d(\d+)"[^>]*>/gi
@@ -353,7 +382,15 @@ function parsePart6(html, result) {
 
 // ── Part 7: Multiple matching (<select> with A-D) ──
 function parsePart7(html, result) {
-  // Questions are in blocks with <select name="q1" id="q43"> etc
+  const heading = html.match(/<h2\b[^>]*>[\s\S]*?<\/h2>/i)
+  const scoreStart = heading?.index != null
+    ? html.slice(heading.index).search(/<div[^>]*id=["']scoreFinal["']/i)
+    : -1
+  if (heading?.index != null) {
+    const end = scoreStart === -1 ? html.length : heading.index + scoreStart
+    result.passageTextHtml = html.slice(heading.index, end).trim()
+  }
+
   const selectRe = /<select[^>]*id="q(\d+)"[^>]*>([\s\S]*?)<\/select>/gi
   let m
   while ((m = selectRe.exec(html)) !== null) {
@@ -366,9 +403,19 @@ function parsePart7(html, result) {
       const val = parseInt(om[1], 10)
       if (val > 0) options.push({ value: om[2].trim(), label: om[2].trim() })
     }
-
-    // Get question text (text before the select in the same <p>)
-    result.questions.push({ number: qNum, type: 'multiple-matching', format: 'select', options })
+    const paragraphStart = html.lastIndexOf('<p', m.index)
+    const beforeSelect = paragraphStart === -1 ? html.slice(0, m.index) : html.slice(paragraphStart, m.index)
+    const afterPreviousBreak = beforeSelect.split(/<br\s*\/?>/i).pop() ?? beforeSelect
+    const questionText = stripAllTags(afterPreviousBreak)
+      .replace(new RegExp(`^${qNum}\\.?\\s*`), '')
+      .trim()
+    result.questions.push({
+      number: qNum,
+      type: 'multiple-matching',
+      format: 'select',
+      questionText,
+      options,
+    })
   }
 }
 
@@ -615,17 +662,64 @@ async function writeJsonAtomic(filePath, data) {
   fs.renameSync(tempPath, filePath)
 }
 
+function recrawlArtifact(page, testNumber, crawledAt) {
+  const fullHtml = String(page.fullHtml ?? '')
+  const pagePath = Number(page.pageNumber) === 1 ? '' : `${page.pageNumber}/`
+  return {
+    sourceUrl: page.sourceUrl ?? `${BASE}${ROOT}${testNumber}/${pagePath}`,
+    fetchedAt: page.fetchedAt ?? crawledAt,
+    status: 200,
+    contentHash: createHash('sha256').update(fullHtml).digest('hex'),
+    title: page.passageTitle ?? page.partTitle ?? `Part ${page.partNumber}`,
+    instructionsHtml: page.instructions ?? '',
+    passageHtml: page.passageTextHtml ?? '',
+    questionHtml: page.entryContentHtml ?? '',
+    answerHtml: page.isAnswerPage ? page.entryContentHtml ?? '' : '',
+  }
+}
+
+async function writeRecrawlArtifacts(testRoot, pages, testNumber, crawledAt) {
+  const pagesDir = path.join(testRoot, 'pages')
+  fs.mkdirSync(pagesDir, { recursive: true })
+  let written = 0
+  for (const page of pages) {
+    if (!Number.isInteger(page.partNumber) || !String(page.fullHtml ?? '').trim()) continue
+    const stem = `part-${page.partNumber}.full`
+    fs.writeFileSync(path.join(pagesDir, `${stem}.html`), String(page.fullHtml), 'utf8')
+    await writeJsonAtomic(
+      path.join(pagesDir, `${stem}.json`),
+      recrawlArtifact(page, testNumber, crawledAt),
+    )
+    written += 1
+  }
+  return written
+}
+
 async function crawlTest(testNumber) {
-  const testDir = path.join(OUT_DIR, `fce-reading-test${testNumber}`, 'exam')
+  const testRoot = path.join(OUT_DIR, `fce-reading-test${testNumber}`)
+  const testDir = path.join(testRoot, 'exam')
   const filePath = path.join(testDir, 'exam.json')
   let existing = null
-  if (singlePage && fs.existsSync(filePath)) {
+  if ((requestedPages || materializeExisting) && fs.existsSync(filePath)) {
     existing = JSON.parse(fs.readFileSync(filePath, 'utf8'))
   }
-  const pages = singlePage ? [singlePage] : Array.from({ length: 8 }, (_, i) => i + 1)
+  if (materializeExisting) {
+    const selectedPages = (existing?.pages ?? []).filter(page => (
+      !requestedPages || requestedPages.includes(Number(page.pageNumber))
+    ))
+    const written = await writeRecrawlArtifacts(
+      testRoot,
+      selectedPages,
+      testNumber,
+      existing?.crawledAt,
+    )
+    console.log(`  💾 Materialized ${written} existing full-page artifact(s) for Source Test ${testNumber}`)
+    return existing
+  }
+  const pages = requestedPages ?? Array.from({ length: 8 }, (_, i) => i + 1)
   const crawledPages = []
 
-  console.log(`\n📥 Crawling test ${testNumber}${singlePage ? ` page ${singlePage}` : ''}...`)
+  console.log(`\n📥 Crawling test ${testNumber}${requestedPages ? ` pages ${requestedPages.join(',')}` : ''}...`)
 
   for (const page of pages) {
     // Page 1 is the default page (WordPress: /1/ redirects to /)
@@ -667,8 +761,9 @@ async function crawlTest(testNumber) {
 
   fs.mkdirSync(testDir, { recursive: true })
 
+  const refreshedPages = new Set(pages)
   const mergedPages = existing
-    ? [...(existing.pages ?? []).filter(page => Number(page.pageNumber) !== singlePage), ...crawledPages]
+    ? [...(existing.pages ?? []).filter(page => !refreshedPages.has(Number(page.pageNumber))), ...crawledPages]
         .sort((a, b) => Number(a.pageNumber) - Number(b.pageNumber))
     : crawledPages
   const examData = {
@@ -690,6 +785,7 @@ async function crawlTest(testNumber) {
     console.log(`  🛟 Backup: ${backupPath}`)
   }
   await writeJsonAtomic(filePath, examData)
+  await writeRecrawlArtifacts(testRoot, crawledPages, testNumber, examData.crawledAt)
   console.log(`  💾 Saved: ${filePath} (${(fs.statSync(filePath).size / 1024).toFixed(1)} KB)`)
 
   return examData

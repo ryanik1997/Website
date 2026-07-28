@@ -31,6 +31,9 @@
               "id": "catalog-reading-fce-b2-test20-part-1-q1",
               "number": 1,
               "answer": "d",
+              "acceptedAnswers": [
+                "d"
+              ],
               "explanation": "coming.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -58,6 +61,9 @@
               "id": "catalog-reading-fce-b2-test20-part-1-q2",
               "number": 2,
               "answer": "a",
+              "acceptedAnswers": [
+                "a"
+              ],
               "explanation": "check.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -85,6 +91,9 @@
               "id": "catalog-reading-fce-b2-test20-part-1-q3",
               "number": 3,
               "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
               "explanation": "focus.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -112,6 +121,9 @@
               "id": "catalog-reading-fce-b2-test20-part-1-q4",
               "number": 4,
               "answer": "a",
+              "acceptedAnswers": [
+                "a"
+              ],
               "explanation": "work.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -139,6 +151,9 @@
               "id": "catalog-reading-fce-b2-test20-part-1-q5",
               "number": 5,
               "answer": "d",
+              "acceptedAnswers": [
+                "d"
+              ],
               "explanation": "surrounded.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -166,6 +181,9 @@
               "id": "catalog-reading-fce-b2-test20-part-1-q6",
               "number": 6,
               "answer": "c",
+              "acceptedAnswers": [
+                "c"
+              ],
               "explanation": "background.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -193,6 +211,9 @@
               "id": "catalog-reading-fce-b2-test20-part-1-q7",
               "number": 7,
               "answer": "c",
+              "acceptedAnswers": [
+                "c"
+              ],
               "explanation": "impression.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -220,6 +241,9 @@
               "id": "catalog-reading-fce-b2-test20-part-1-q8",
               "number": 8,
               "answer": "d",
+              "acceptedAnswers": [
+                "d"
+              ],
               "explanation": "succeed.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -251,12 +275,20 @@
       "id": "catalog-reading-fce-b2-test20-part-2",
       "partNumber": 2,
       "rangeLabel": "Questions 9–16",
-      "passageTitle": "Part 2",
-      "passageSubtitle": "",
+      "passageTitle": "A festival of colour",
+      "passageSubtitle": "FOR",
       "passage": [
         {
-          "text": "When it comes to learning a new language, there are several factors to consider. (9) ..... of all, it is important to understand the basic principles. Many people, (10) ..... , fail to recognise the significance of this. The reason (11) ..... this may be due to a lack of exposure. (12) ..... the other hand, those who have experience tend to disagree. It is worth noting that (13) ..... of the challenges we face can be overcome with patience. (14) ..... is also true that practice plays a crucial role. Finally, (15) ..... should be given to those who persist (16) ..... the face of difficulty.",
-          "_provenance": "ai-generated"
+          "text": "It’s early March and people in India are preparing 0 _____ Holi, a spring festival which signals the end of winter. It’s an event which has been (9) ..... place for centuries, and one which (10) ..... attracting more and more tourists from around the world.",
+          "_provenance": "source"
+        },
+        {
+          "text": "On day one of the festival, towns and cities become awash with colour. People light bonfires and play music, sing and dance. They place coloured powder (11) ..... each other’s faces and throw some of that same powder in the air. Coloured water adds (12) ..... the fun too. Very quickly, people are covered in a variety of colours. The point of this is to (13) ..... the impression that they (14) ..... all equal. Day two is a much quieter affair. People (15) ..... a tendency to spend it with family, after they’ve cleaned up of course.",
+          "_provenance": "source"
+        },
+        {
+          "text": "If you have (16) ..... attended Holi, you’ll know that it’s not a place to wear your best clothes. It’s also a good idea to place oil on your skin so that it doesn’t absorb the powder – otherwise it can be impossible to remove.",
+          "_provenance": "source"
         }
       ],
       "questionGroups": [
@@ -269,9 +301,12 @@
             {
               "id": "catalog-reading-fce-b2-test20-part-2-q9",
               "number": 9,
-              "answer": "first",
-              "explanation": "The correct word is \"first\".",
-              "answerConfidence": "ai-generated",
+              "answer": "taking",
+              "acceptedAnswers": [
+                "taking"
+              ],
+              "explanation": "taking.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (9)",
               "size": 10
@@ -279,9 +314,12 @@
             {
               "id": "catalog-reading-fce-b2-test20-part-2-q10",
               "number": 10,
-              "answer": "however",
-              "explanation": "The correct word is \"however\".",
-              "answerConfidence": "ai-generated",
+              "answer": "is",
+              "acceptedAnswers": [
+                "is"
+              ],
+              "explanation": "is.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (10)",
               "size": 10
@@ -289,9 +327,12 @@
             {
               "id": "catalog-reading-fce-b2-test20-part-2-q11",
               "number": 11,
-              "answer": "for",
-              "explanation": "The correct word is \"for\".",
-              "answerConfidence": "ai-generated",
+              "answer": "on",
+              "acceptedAnswers": [
+                "on"
+              ],
+              "explanation": "on.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (11)",
               "size": 10
@@ -299,9 +340,12 @@
             {
               "id": "catalog-reading-fce-b2-test20-part-2-q12",
               "number": 12,
-              "answer": "on",
-              "explanation": "The correct word is \"on\".",
-              "answerConfidence": "ai-generated",
+              "answer": "to",
+              "acceptedAnswers": [
+                "to"
+              ],
+              "explanation": "to.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (12)",
               "size": 10
@@ -309,9 +353,12 @@
             {
               "id": "catalog-reading-fce-b2-test20-part-2-q13",
               "number": 13,
-              "answer": "most",
-              "explanation": "The correct word is \"most\".",
-              "answerConfidence": "ai-generated",
+              "answer": "give",
+              "acceptedAnswers": [
+                "give"
+              ],
+              "explanation": "give.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (13)",
               "size": 10
@@ -319,9 +366,12 @@
             {
               "id": "catalog-reading-fce-b2-test20-part-2-q14",
               "number": 14,
-              "answer": "it",
-              "explanation": "The correct word is \"it\".",
-              "answerConfidence": "ai-generated",
+              "answer": "are",
+              "acceptedAnswers": [
+                "are"
+              ],
+              "explanation": "are.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (14)",
               "size": 10
@@ -329,9 +379,12 @@
             {
               "id": "catalog-reading-fce-b2-test20-part-2-q15",
               "number": 15,
-              "answer": "credit",
-              "explanation": "The correct word is \"credit\".",
-              "answerConfidence": "ai-generated",
+              "answer": "have",
+              "acceptedAnswers": [
+                "have"
+              ],
+              "explanation": "have.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (15)",
               "size": 10
@@ -339,35 +392,37 @@
             {
               "id": "catalog-reading-fce-b2-test20-part-2-q16",
               "number": 16,
-              "answer": "in",
-              "explanation": "The correct word is \"in\".",
-              "answerConfidence": "ai-generated",
+              "answer": "ever",
+              "acceptedAnswers": [
+                "ever"
+              ],
+              "explanation": "ever.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (16)",
               "size": 10
             }
           ]
         }
-      ],
-      "_aiRepairMeta": {
-        "appliedAt": "2026-07-28T07:34:28.053Z",
-        "fields": [
-          "passage",
-          "questions",
-          "answers",
-          "explanations"
-        ]
-      }
+      ]
     },
     {
       "id": "catalog-reading-fce-b2-test20-part-3",
       "partNumber": 3,
       "rangeLabel": "Questions 17–24",
-      "passageTitle": "Part 3",
+      "passageTitle": "An inspirational city",
       "passage": [
         {
-          "text": "In today's (0) competitive world, it is essential to have (17) ..... skills. Your personal (18) ..... can make a real difference. Rising (19) ..... figures are a concern for many. Travel can help (20) ..... your horizons. He was (21) ..... about which path to choose. (22) ..... , the project was delayed. There is great (23) ..... about the future. She was (24) ..... about her new role.",
-          "_provenance": "ai-generated"
+          "text": "The 0 _____ city of Jaipur in India is known by two names; ‘The Paris of India’ and ‘The Pink City’. The first relates to its superb architecture and (17) ..... atmosphere and the second to the fact that the majority of buildings are painted pink!"
+        },
+        {
+          "text": "One of Jaipur’s prominent (18) ..... , the Hawa Mahal, is a good example of both names. The stunning structure, built in the shape of a crown, is (19) ..... , and its intense colour is typical of the city."
+        },
+        {
+          "text": "Just why is Jaipur mainly pink? One (20) ..... is that when Prince Albert visited in 1876, the ruler had the whole city painted in the symbolic Indian colour of (21) ..... . Another theory is that most of the buildings had been built of pink sandstone and the ruler was (22) ..... making the city look more uniform."
+        },
+        {
+          "text": "Whatever the reason, Jaipur’s beauty is known (23) ..... . Tourists and artists are drawn from all over the world by the (24) ..... of its colourful appearance."
         }
       ],
       "questionGroups": [
@@ -381,107 +436,117 @@
               "id": "catalog-reading-fce-b2-test20-part-3-q17",
               "number": 17,
               "answer": "romantic",
+              "acceptedAnswers": [
+                "romantic"
+              ],
               "explanation": "romantic.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (17) — ",
-              "baseWord": "COMPETE",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (17) — ROMANCE",
+              "baseWord": "ROMANCE",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test20-part-3-q18",
               "number": 18,
               "answer": "attractions",
+              "acceptedAnswers": [
+                "attractions"
+              ],
               "explanation": "attractions.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (18) — ",
-              "baseWord": "STRONG",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (18) — ATTRACT",
+              "baseWord": "ATTRACT",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test20-part-3-q19",
               "number": 19,
               "answer": "impressive",
+              "acceptedAnswers": [
+                "impressive"
+              ],
               "explanation": "impressive.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (19) — ",
-              "baseWord": "EMPLOY",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (19) — IMPRESS",
+              "baseWord": "IMPRESS",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test20-part-3-q20",
               "number": 20,
               "answer": "explanation",
+              "acceptedAnswers": [
+                "explanation"
+              ],
               "explanation": "explanation.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (20) — ",
-              "baseWord": "BROAD",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (20) — EXPLAIN",
+              "baseWord": "EXPLAIN",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test20-part-3-q21",
               "number": 21,
               "answer": "hospitality",
+              "acceptedAnswers": [
+                "hospitality"
+              ],
               "explanation": "hospitality.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (21) — ",
-              "baseWord": "DECIDE",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (21) — HOSPITABLE",
+              "baseWord": "HOSPITABLE",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test20-part-3-q22",
               "number": 22,
               "answer": "simply",
+              "acceptedAnswers": [
+                "simply"
+              ],
               "explanation": "simply.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (22) — ",
-              "baseWord": "FORTUNE",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (22) — SIMPLE",
+              "baseWord": "SIMPLE",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test20-part-3-q23",
               "number": 23,
               "answer": "internationally",
+              "acceptedAnswers": [
+                "internationally"
+              ],
               "explanation": "internationally.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (23) — ",
-              "baseWord": "CERTAIN",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (23) — NATIONAL",
+              "baseWord": "NATIONAL",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test20-part-3-q24",
               "number": 24,
               "answer": "originality",
+              "acceptedAnswers": [
+                "originality"
+              ],
               "explanation": "originality.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (24) — ",
-              "baseWord": "ENTHUSE",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (24) — ORIGINAL",
+              "baseWord": "ORIGINAL",
+              "size": 10
             }
           ]
         }
-      ],
-      "_aiRepairMeta": {
-        "appliedAt": "2026-07-28T07:34:28.053Z",
-        "fields": [
-          "passage"
-        ]
-      }
+      ]
     },
     {
       "id": "catalog-reading-fce-b2-test20-part-4",
@@ -500,6 +565,9 @@
               "id": "catalog-reading-fce-b2-test20-part-4-q25",
               "number": 25,
               "answer": "if i knew when",
+              "acceptedAnswers": [
+                "if i knew when"
+              ],
               "explanation": "if I knew when.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -512,7 +580,11 @@
             {
               "id": "catalog-reading-fce-b2-test20-part-4-q26",
               "number": 26,
-              "answer": "had set off/out",
+              "answer": "had set off",
+              "acceptedAnswers": [
+                "had set off",
+                "out"
+              ],
               "explanation": "had set off/out.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -526,52 +598,64 @@
               "id": "catalog-reading-fce-b2-test20-part-4-q27",
               "number": 27,
               "answer": "told me not to bother",
+              "acceptedAnswers": [
+                "told me not to bother"
+              ],
               "explanation": "told me not to bother.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Don t bother looking for the Northern Lights tonight Marta said. TOLD -> Marta .....",
-              "sourceSentence": "Don t bother looking for the Northern Lights tonight Marta said.",
+              "prompt": "Don t bother looking for the Northern Lights tonight Marta said. Marta TOLD -> ‘Don’t bother looking for the Northern Lights tonight’ Marta said.  Marta ..... looking for the Northern Lights tonight.",
+              "sourceSentence": "Don t bother looking for the Northern Lights tonight Marta said. Marta",
               "keyword": "TOLD",
-              "targetSentence": "Marta .....",
+              "targetSentence": "‘Don’t bother looking for the Northern Lights tonight’ Marta said.  Marta ..... looking for the Northern Lights tonight.",
               "size": 40
             },
             {
               "id": "catalog-reading-fce-b2-test20-part-4-q28",
               "number": 28,
               "answer": "not to mess (it) up",
+              "acceptedAnswers": [
+                "not to mess (it) up"
+              ],
               "explanation": "not to mess (it) up.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Please don t make a mistake when you book our flights said Andy. MESS -> Andy asked Ben .....",
-              "sourceSentence": "Please don t make a mistake when you book our flights said Andy.",
+              "prompt": "Please don t make a mistake when you book our flights said Andy. Andy asked Ben MESS -> ‘Please don’t make a mistake when you book our flights’ said Andy.  Andy asked Ben ..... when he booked their flights.",
+              "sourceSentence": "Please don t make a mistake when you book our flights said Andy. Andy asked Ben",
               "keyword": "MESS",
-              "targetSentence": "Andy asked Ben .....",
+              "targetSentence": "‘Please don’t make a mistake when you book our flights’ said Andy.  Andy asked Ben ..... when he booked their flights.",
               "size": 40
             },
             {
               "id": "catalog-reading-fce-b2-test20-part-4-q29",
               "number": 29,
               "answer": "she had been participating in",
+              "acceptedAnswers": [
+                "she had been participating in"
+              ],
               "explanation": "she had been participating in.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "I ve been doing some fascinating activities this year said Natalia. PARTICIPATING -> Natalia told me that .....",
-              "sourceSentence": "I ve been doing some fascinating activities this year said Natalia.",
+              "prompt": "I ve been doing some fascinating activities this year said Natalia. Natalia told me that PARTICIPATING -> ‘I’ve been doing some fascinating activities this year’ said Natalia.  Natalia told me that ..... some fascinating activities that year.",
+              "sourceSentence": "I ve been doing some fascinating activities this year said Natalia. Natalia told me that",
               "keyword": "PARTICIPATING",
-              "targetSentence": "Natalia told me that .....",
+              "targetSentence": "‘I’ve been doing some fascinating activities this year’ said Natalia.  Natalia told me that ..... some fascinating activities that year.",
               "size": 40
             },
             {
               "id": "catalog-reading-fce-b2-test20-part-4-q30",
               "number": 30,
               "answer": "if i had come across",
+              "acceptedAnswers": [
+                "if i had come across"
+              ],
               "explanation": "if I had come across.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Did you see any memorable sunsets on your trip? Philip asked. ACROSS -> Philip asked me .....",
-              "sourceSentence": "Did you see any memorable sunsets on your trip? Philip asked.",
+              "prompt": "Did you see any memorable sunsets on your trip? Philip asked. Philip asked me ACROSS -> ‘Did you see any memorable sunsets on your trip?’ Philip asked.  Philip asked me ..... any memorable sunsets on my trip.",
+              "sourceSentence": "Did you see any memorable sunsets on your trip? Philip asked. Philip asked me",
               "keyword": "ACROSS",
-              "targetSentence": "Philip asked me .....",
+              "targetSentence": "‘Did you see any memorable sunsets on your trip?’ Philip asked.  Philip asked me ..... any memorable sunsets on my trip.",
               "size": 40
             }
           ]
@@ -585,7 +669,22 @@
       "passageTitle": "Part 5",
       "passage": [
         {
-          "text": "An Explorer Journey. This is a subject that has fascinated researchers for many years. In a recent study conducted at the University of Vienna, scientists examined the various factors that contribute to our understanding of this topic. The study involved over 500 participants and lasted for approximately two years.\n\nThe results were surprising. The research team, led by Dr. Noah, found that there were significant differences between the groups they studied. One participant commented, 'I had no idea that this would be the outcome. It completely changed my perspective on the issue.'\n\nCritics of the study have pointed out some limitations. Professor Noah from Dublin University argues that the sample size was too small to draw definitive conclusions. 'While the findings are interesting,' he says, 'we need more research before we can apply them broadly.'\n\nDespite these criticisms, the study represents an important step forward. The authors emphasise that further investigation is needed, but they remain optimistic about the potential applications of their work. 'This is just the beginning,' Dr. Isabella stated. 'We are already planning follow-up studies that will explore these questions in more depth.'"
+          "text": "The pencil feels good in my hand again; an old friend. The recent weeks in hospital disappear as I move it across the blank page. I’m feeling content and in my element; one of those rare moments when you just feel pure joy at being where you are. I can hear the twins squabbling behind the bench, on the grass. ‘I won!’ Melia. Triumphant. ‘No, you didn’t! I did.’ Katie. Cross. ‘You can’t do that!’ ‘I just did!’ Then the inevitable, ‘That’s so not fair! Mummee…’ I can see without looking – the cards thrown down in anger on the grass, and I can feel the air tremble with Katie’s growing bad temper."
+        },
+        {
+          "text": "But my mind is distracted for a moment as a shadow falls over my sketchbook. A tall, slim woman in a white dress seats herself beside me on the bench and I give an apology, quickly sweeping some empty sticky chocolate bar wrappers from the twins’ picnic into my bag. She says nothing, but sits, erect, staring straight in front of her at the tree I’m sketching. It’s difficult to assess her age behind the dark glasses. About 55? I carry on sketching, trying to ignore the battle going on between my children. The lady in white will soon discover that she’s chosen the wrong park bench to sit on this sunny, Sunday afternoon."
+        },
+        {
+          "text": "And it kicks off. A screech from Katie. I don’t need to turn. ‘Melia – give Katie back her cards! Play nicely. Or NO ICE CREAM.’ Silence and I turn to the woman, to offer an apology for my children doing what children do, but she’s still staring at my tree. Then I notice something that gives me a little shock. Her fifty-or-so year-old fingers are curling tightly around a white leather bag on her lap and the ring on her third finger flashes briefly in the sunshine. It’s large, multi-coloured. I remember that ring. It flashed in front of me every time she ripped a page from my sketchbook in Year 10 art class. I used to focus on it as she humiliated my artistic attempts in front of the group, hoping that my burning cheeks would cool before I had to turn to face my classmates again."
+        },
+        {
+          "text": "We all have our trials as a teenager, and mine was that I blushed far more easily than anyone else. Anything could set me off, not understanding a joke, a comment about my hair, everyone looking at me when I was asked a question. I just got hot and went deep pink. And of course, my classmates played on it – they thought I was hilarious. Teachers, for the most part, were sympathetic. The woman in white wasn’t one of them."
+        },
+        {
+          "text": "‘Miss Davenport?’ I say in a small voice. The head turns and I see my reflection in the glasses, still pale from my illness. The ring flashes again as she removes them, and I’m looking directly into the cold, blue eyes I remember so well. They drop very briefly to my sketchbook and then look back at me. ‘Susan Grant,’ she states and her lips twist as though my name tastes nasty. ‘I should have known. No talent then and no talent now. It looks like a pineapple.’ And I can’t help it. I’m back in art class and my cheeks are on fire. I automatically cover my sketchbook so that she can’t rip the page out. But, of course, she doesn’t. She stands and turns to find another bench, one without squabbling toddlers or untalented ex-students. As she turns, I notice, with a naughty pleasure, that I’d missed a chocolate wrapper and her perfectly white skirt has a dark brown mark on the back. My cheeks cool immediately."
+        },
+        {
+          "text": "‘That’s a pretty tree mummy,’ Katie clambers onto the bench. Then she sees Miss Davenport’s retreating back. Then she states in that loud voice that four-year-olds have, ‘That lady’s got a dirty skirt!’ Miss Davenport turns, surprised. So do the people on the opposite bench. I see two pink spots appear on her cheeks and I think, ‘Yes!’"
         }
       ],
       "questionGroups": [
@@ -599,7 +698,10 @@
               "id": "catalog-reading-fce-b2-test20-part-5-q31",
               "number": 31,
               "answer": "c",
-              "explanation": "The correct answer is C.",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "In the first paragraph the writer is",
@@ -626,7 +728,10 @@
               "id": "catalog-reading-fce-b2-test20-part-5-q32",
               "number": 32,
               "answer": "b",
-              "explanation": "The correct answer is A.",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "What does the writer suggest about the woman on the bench?",
@@ -653,7 +758,10 @@
               "id": "catalog-reading-fce-b2-test20-part-5-q33",
               "number": 33,
               "answer": "b",
-              "explanation": "The correct answer is D.",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "What is the significance of the ring on the woman s hand?",
@@ -680,7 +788,10 @@
               "id": "catalog-reading-fce-b2-test20-part-5-q34",
               "number": 34,
               "answer": "d",
-              "explanation": "The correct answer is B.",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "What does underlined it refer to in paragraph 4?",
@@ -707,7 +818,10 @@
               "id": "catalog-reading-fce-b2-test20-part-5-q35",
               "number": 35,
               "answer": "b",
-              "explanation": "The correct answer is A.",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "What do we learn about Miss Davenport in paragraph 5?",
@@ -734,7 +848,10 @@
               "id": "catalog-reading-fce-b2-test20-part-5-q36",
               "number": 36,
               "answer": "a",
-              "explanation": "The correct answer is C.",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "How does the writer feel at the end of the extract?",
@@ -765,11 +882,25 @@
       "id": "catalog-reading-fce-b2-test20-part-6",
       "partNumber": 6,
       "rangeLabel": "Questions 37–42",
-      "passageTitle": "Part 6",
+      "passageTitle": "Back to black",
       "passage": [
         {
-          "text": "Digital Communication is a topic that has attracted considerable attention. (37) ..... The reasons for this growing interest are varied. (38) ..... Many people now recognise the importance of this issue.\n\nAccording to recent surveys, engagement with this topic has increased significantly. (39) ..... This trend is expected to continue in the coming years. (40) ..... However, there are still challenges that need to be addressed.\n\nExperts suggest several approaches to dealing with these challenges. (41) ..... Early evidence suggests that these methods are effective. (42) ..... Only time will tell whether these efforts will succeed.",
-          "_provenance": "ai-generated"
+          "text": "‘Why do you always wear black?’ I’ve remembered this opening line from Chekhov’s The Seagull since I first read it at college. This is because the question could have been directed at me. My obsession with black clothes at that time annoyed my parents enormously. However, I must say that, in spite of being rebellious and often a little melodramatic, I never replied as Masha did in The Seagull: ‘I am in mourning for my life’, although at times I may have thought it!"
+        },
+        {
+          "text": "These days I still often wear black, but for many different reasons. (37) ..... . Black can do all these things. But what intrigues me is how this colour moved from representing grief or rebellion to becoming the must-have fashion colour in today’s world. At a time when trends and colours come and go, black is a constant, it is always ‘in’. But why? I think the answer lies in the unique power of the colour itself and its many associations. Black always tells others something important about who wears it, far more than any other colour."
+        },
+        {
+          "text": "Many people, like Masha in The Seagull, associate black with mourning. Looking back in history we can see quite clearly that since Greek and Roman times black clothing has been a symbol of grief and sorrow. (38) ..... . In Victorian England, widows were forced to dress in black for years. And the Romantic poets in the 19th century, including Byron, Shelley and Keats, adopted the colour as a symbol of isolation, sadness and mystery."
+        },
+        {
+          "text": "But, through the centuries black has also had other associations. One of these is with protest, standing against what people thought was wrong. Johnny Cash, the legendary country singer, famously wore black to remind people of the injustices he saw in society. Linked to this is the association of black with rebellion. Groups who want to show their distance from the rules and opinions of normal society often choose black as their go-to colour. My grandmother remembers the beatniks in the 1950s who wore black jumpers, berets and thick black-rimmed glasses. (39) ..... . And who could imagine a biker riding a Harley Davidson wearing a yellow leather jacket?"
+        },
+        {
+          "text": "But it’s when we look at fashion trends that we can see black’s biggest moment. In Victorian times, black was the uniform for servants and shop assistants, but in 1926 the influential fashion magazine, Vogue, had a dress by designer Coco Chanel on its cover. Referred to as the ‘Little Black Dress’, it immediately changed the face of fashion. It was simple, practical and elegant. (40) ..... . In an instant the LBD (a term which gained a place in the Oxford English Dictionary in 2010) moved black from the shadows to centre stage, where it has remained ever since. And it continues to dominate. (41) ..... . Retailers clearly want to use the flexibility and timelessness of black to reach a wide market. In terms of fashion, black suits all age groups, all skin types and can be worn for nearly any occasion. No surprise that clothing retailers are profiting from this."
+        },
+        {
+          "text": "So, whether black is worn to look attractive or efficient, to show sadness or sophistication, to be rebellious or appear important, it is a uniquely powerful colour. (42) ..... . It is there for those occasions when we either want to fit in or stand out from the crowd. Black will always be ‘the new black’."
         }
       ],
       "questionGroups": [
@@ -790,38 +921,31 @@
           "features": [
             {
               "id": "a",
-              "name": "It has become a major topic of discussion in New York.",
-              "_provenance": "ai-generated"
+              "name": "In addition to this it was both flattering and affordable."
             },
             {
               "id": "b",
-              "name": "One key factor is the growing awareness among young Paris residents.",
-              "_provenance": "ai-generated"
+              "name": "In many countries people wore, and still wear it to funerals."
             },
             {
               "id": "c",
-              "name": "The number of people involved has risen by over 50% in the last decade.",
-              "_provenance": "ai-generated"
+              "name": "This was because a new high-quality black dye became available."
             },
             {
               "id": "d",
-              "name": "This change has been particularly noticeable in urban areas across the country.",
-              "_provenance": "ai-generated"
+              "name": "For instance, at formal parties I might want to look elegant and sophisticated, or when meeting clients and in work meetings to give an efficient, serious and business-like impression."
             },
             {
               "id": "e",
-              "name": "Finding adequate funding remains a significant obstacle for many organisations.",
-              "_provenance": "ai-generated"
+              "name": "We may not all be ‘in mourning for our lives,’ like Masha in The Seagull, but there is a strong probability that there is something black and timeless in all our wardrobes."
             },
             {
               "id": "f",
-              "name": "Education and community engagement are seen as the most promising strategies.",
-              "_provenance": "ai-generated"
+              "name": "Recent reports of online clothes sales show that the purchasing of black items has gone up considerably in the last decade."
             },
             {
               "id": "g",
-              "name": "Several pilot projects have already shown encouraging results.",
-              "_provenance": "ai-generated"
+              "name": "Another example would be, of course, the Goths, whose obsession with black goes beyond clothes to eye make-up, hair and lipstick."
             }
           ],
           "questions": [
@@ -829,37 +953,40 @@
               "id": "catalog-reading-fce-b2-test20-part-6-q37",
               "number": 37,
               "answer": "d",
-              "explanation": "Sentence B fits logically in gap 37.",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (37)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -868,37 +995,40 @@
               "id": "catalog-reading-fce-b2-test20-part-6-q38",
               "number": 38,
               "answer": "b",
-              "explanation": "Sentence A fits logically in gap 38.",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (38)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -907,37 +1037,40 @@
               "id": "catalog-reading-fce-b2-test20-part-6-q39",
               "number": 39,
               "answer": "g",
-              "explanation": "Sentence C fits logically in gap 39.",
+              "acceptedAnswers": [
+                "g"
+              ],
+              "explanation": "G",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (39)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -946,37 +1079,40 @@
               "id": "catalog-reading-fce-b2-test20-part-6-q40",
               "number": 40,
               "answer": "a",
-              "explanation": "Sentence D fits logically in gap 40.",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (40)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -985,37 +1121,40 @@
               "id": "catalog-reading-fce-b2-test20-part-6-q41",
               "number": 41,
               "answer": "f",
-              "explanation": "Sentence F fits logically in gap 41.",
+              "acceptedAnswers": [
+                "f"
+              ],
+              "explanation": "F",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (41)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -1024,37 +1163,40 @@
               "id": "catalog-reading-fce-b2-test20-part-6-q42",
               "number": 42,
               "answer": "e",
-              "explanation": "Sentence E fits logically in gap 42.",
+              "acceptedAnswers": [
+                "e"
+              ],
+              "explanation": "E",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (42)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -1067,27 +1209,23 @@
       "id": "catalog-reading-fce-b2-test20-part-7",
       "partNumber": 7,
       "rangeLabel": "Questions 43–52",
-      "passageTitle": "Part 7",
+      "passageTitle": "Red letter days",
       "passage": [
         {
           "label": "A",
-          "text": "Sophia recently experienced summer courses in Dublin. It was an unforgettable experience that changed her perspective. The highlights included meeting new people from different backgrounds and learning about local customs. She particularly enjoyed the cultural events organised by the hosts. Despite some initial difficulties with the language, she felt that the overall experience was extremely rewarding. Lucas recommends this experience to anyone interested in broadening their horizons.",
-          "_provenance": "ai-generated"
+          "text": "It was a really empowering moment. I’d imagined how it might feel, but the reality was much, much more exciting. When you look forward to something so much that you can hardly sleep, there’s the danger that it’s going to be a bit of an anticlimax. This wasn’t. My best friend drove me to the garage to pick it up and I’ll never forget being given the keys. It wasn’t anything special and it certainly didn’t cost a fortune, but it was mine. I think people sometimes underestimate the importance of having a car and the freedom and independence it gives you. It lets you make choices and do things you’ve always wanted to do. That little sports car was rusty and broke down more often than I like to remember, but the day I sat in it for the first time was one of the best days of my life."
         },
         {
           "label": "B",
-          "text": "Isabella recently experienced summer courses in London. It was a fascinating experience that changed his perspective. The challenges included meeting new people from different backgrounds and learning about local customs. He particularly enjoyed the practical workshops organised by the hosts. Despite some initial difficulties with the weather, he felt that the overall experience was extremely rewarding. Oliver recommends this experience to anyone looking for broadening their horizons.",
-          "_provenance": "ai-generated"
+          "text": "It had been a challenging month. OK, to be totally honest, I’d hated every minute of it. An endless stream of revision, broken sleep, attacks of nerves and those horrible freeze moments. You know, when you turn over an exam paper and for a moment the words blur and your heart sinks because you can’t remember a thing. I’ve got an old-fashioned wall calendar and I took great pleasure in crossing off each exam as it finished. The final day was circled in red, with LAST ONE! in capitals. It was a literal red letter day! And wow, did I prepare for it. I went into that final exam dressed for celebrating and straight afterwards we all went into town to celebrate our freedom. What an evening. It marked the end of an era. We all put the thought of failure or resits to the very back of our minds and enjoyed the moment. I’ve still got the calendar by the way."
         },
         {
           "label": "C",
-          "text": "Sarah recently experienced summer courses in Toronto. It was an eye-opening experience that changed their perspective. The opportunities included meeting new people from different backgrounds and learning about local customs. They particularly enjoyed the guided tours organised by the hosts. Despite some initial difficulties with the schedule, they felt that the overall experience was extremely rewarding. Ethan recommends this experience to anyone keen on broadening their horizons.",
-          "_provenance": "ai-generated"
+          "text": "It started out as a pretty normal day for me, trying to get my head round a new story plot. I’d been passionate about creative writing since I read my first story book at the age of six. And, it wasn’t as though it was unexpected. I’d been through the whole process from getting my proposal accepted (after a stack of rejections) through to final draft with everything that involved; the writer’s block; the irritation with editorial comments (What did they know?); the self-doubt and so on. But, ripping open the package when it landed on my door mat and holding the book in my hands literally brought tears to my eyes. I can still feel the weight of it and smell those fresh pages and see, in bold and shiny letters, my name under the title. The first of many I’m happy to say, but never ever another moment that could beat that one."
         },
         {
           "label": "D",
-          "text": "Amelia recently experienced summer courses in Tokyo. It was a memorable experience that changed her perspective. The activities included meeting new people from different backgrounds and learning about local customs. She particularly enjoyed the community projects organised by the hosts. Despite some initial difficulties with the transport, she felt that the overall experience was extremely rewarding. Noah recommends this experience to anyone curious about broadening their horizons.",
-          "_provenance": "ai-generated"
+          "text": "I guess most people would say that their red letter days include things like getting exam results or maybe something like their wedding or the birth of a child. I have to admit that I don’t remember much about my wedding – I was so nervous that things might go wrong! And what I mostly remember about the day my daughter was born was all the worry, because she arrived early and had to go in an incubator. No, for me the red letter day was when my wife and I were allowed to walk out into the hospital grounds with our tiny new baby in my arms for the very first time! We were exhausted but that couldn’t wipe the big smiles off our faces."
         }
       ],
       "questionGroups": [
@@ -1119,10 +1257,13 @@
               "id": "catalog-reading-fce-b2-test20-part-7-q43",
               "number": 43,
               "answer": "d",
-              "explanation": "The answer is B because the text mentions this.",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who found the language challenging at first?",
+              "prompt": "shared a memorable moment with a family member?",
               "options": [
                 {
                   "id": "a",
@@ -1140,17 +1281,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test20-part-7-q44",
               "number": 44,
               "answer": "a",
-              "explanation": "The answer is A because the text mentions this.",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Which person attended cultural events?",
+              "prompt": "points out the life-changing nature of a red letter day?",
               "options": [
                 {
                   "id": "a",
@@ -1168,17 +1311,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test20-part-7-q45",
               "number": 45,
               "answer": "c",
-              "explanation": "The answer is A because the text mentions this.",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who recommends the experience to others?",
+              "prompt": "had a red letter day that marked a long-awaited achievement?",
               "options": [
                 {
                   "id": "a",
@@ -1196,17 +1341,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test20-part-7-q46",
               "number": 46,
               "answer": "d",
-              "explanation": "The answer is C because the text mentions this.",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Whose perspective was changed by the experience?",
+              "prompt": "gives examples of common memorable days?",
               "options": [
                 {
                   "id": "a",
@@ -1224,17 +1371,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test20-part-7-q47",
               "number": 47,
               "answer": "b",
-              "explanation": "The answer is D because the text mentions this.",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who participated in practical workshops?",
+              "prompt": "clarifies their attitude to a particularly difficult time?",
               "options": [
                 {
                   "id": "a",
@@ -1252,17 +1401,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test20-part-7-q48",
               "number": 48,
               "answer": "c",
-              "explanation": "The answer is B because the text mentions this.",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Which person had difficulties with arrangements?",
+              "prompt": "has sensory memories from a red letter day?",
               "options": [
                 {
                   "id": "a",
@@ -1280,17 +1431,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test20-part-7-q49",
               "number": 49,
               "answer": "d",
-              "explanation": "The answer is A because the text mentions this.",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who met people from diverse backgrounds?",
+              "prompt": "recalls potential red letter days that were spoiled by anxiety?",
               "options": [
                 {
                   "id": "a",
@@ -1308,17 +1461,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test20-part-7-q50",
               "number": 50,
               "answer": "b",
-              "explanation": "The answer is C because the text mentions this.",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Whose experience involved community projects?",
+              "prompt": "refused to think about the future on a red letter day?",
               "options": [
                 {
                   "id": "a",
@@ -1336,17 +1491,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test20-part-7-q51",
               "number": 51,
               "answer": "a",
-              "explanation": "The answer is D because the text mentions this.",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who enjoyed guided tours?",
+              "prompt": "mentions a red letter day that was not overshadowed by the problems that followed?",
               "options": [
                 {
                   "id": "a",
@@ -1364,17 +1521,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test20-part-7-q52",
               "number": 52,
               "answer": "b",
-              "explanation": "The answer is C because the text mentions this.",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Which person was looking for a new challenge?",
+              "prompt": "has kept a souvenir of a red letter day?",
               "options": [
                 {
                   "id": "a",
@@ -1392,8 +1551,7 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             }
           ]
         }

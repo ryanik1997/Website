@@ -28,6 +28,9 @@
               "id": "catalog-reading-fce-b2-test19-part-1-q1",
               "number": 1,
               "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
               "explanation": "least.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -55,6 +58,9 @@
               "id": "catalog-reading-fce-b2-test19-part-1-q2",
               "number": 2,
               "answer": "a",
+              "acceptedAnswers": [
+                "a"
+              ],
               "explanation": "appear.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -82,6 +88,9 @@
               "id": "catalog-reading-fce-b2-test19-part-1-q3",
               "number": 3,
               "answer": "d",
+              "acceptedAnswers": [
+                "d"
+              ],
               "explanation": "rest.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -109,6 +118,9 @@
               "id": "catalog-reading-fce-b2-test19-part-1-q4",
               "number": 4,
               "answer": "d",
+              "acceptedAnswers": [
+                "d"
+              ],
               "explanation": "belongs.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -136,6 +148,9 @@
               "id": "catalog-reading-fce-b2-test19-part-1-q5",
               "number": 5,
               "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
               "explanation": "addition.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -163,6 +178,9 @@
               "id": "catalog-reading-fce-b2-test19-part-1-q6",
               "number": 6,
               "answer": "c",
+              "acceptedAnswers": [
+                "c"
+              ],
               "explanation": "display.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -190,6 +208,9 @@
               "id": "catalog-reading-fce-b2-test19-part-1-q7",
               "number": 7,
               "answer": "a",
+              "acceptedAnswers": [
+                "a"
+              ],
               "explanation": "consist.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -217,6 +238,9 @@
               "id": "catalog-reading-fce-b2-test19-part-1-q8",
               "number": 8,
               "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
               "explanation": "contrast.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -248,12 +272,12 @@
       "id": "catalog-reading-fce-b2-test19-part-2",
       "partNumber": 2,
       "rangeLabel": "Questions 9–16",
-      "passageTitle": "Part 2",
-      "passageSubtitle": "",
+      "passageTitle": "A cure for insomnia?",
+      "passageSubtitle": "THE",
       "passage": [
         {
-          "text": "When it comes to pets and animals, there are several factors to consider. (9) ..... of all, it is important to understand the basic principles. Many people, (10) ..... , fail to recognise the significance of this. The reason (11) ..... this may be due to a lack of exposure. (12) ..... the other hand, those who have experience tend to disagree. It is worth noting that (13) ..... of the challenges we face can be overcome with patience. (14) ..... is also true that practice plays a crucial role. Finally, (15) ..... should be given to those who persist (16) ..... the face of difficulty.",
-          "_provenance": "ai-generated"
+          "text": "I’ve just read an article about blue light and I think I’ve discovered 0 _____ most likely reason for my recent restless nights! You see, blue light, emitted by sunshine, some types (9) ..... lighting and electronic device screens, has both benefits and dangers for us. It helps improve mood, memory and concentration, but if we (10) ..... a lot of time staring at screens, it can actually cause damage to our eyes. Interestingly, the article also points (11) ..... that blue light controls our body clocks and using electronic devices too much immediately (12) ..... going to bed can disrupt our sleep cycles. My nights have (13) ..... getting worse recently and I’m sure it’s because I (14) ..... just started reading on my tablet when I’m in bed. The experts’ advice (15) ..... to avoid using bright screens for about two to three hours before sleep, but I don’t think I can restrict myself quite that much. Maybe, I’ll switch (16) ..... reading a printed book and give social media a miss after nine o’clock!",
+          "_provenance": "source"
         }
       ],
       "questionGroups": [
@@ -266,9 +290,12 @@
             {
               "id": "catalog-reading-fce-b2-test19-part-2-q9",
               "number": 9,
-              "answer": "first",
-              "explanation": "The correct word is \"first\".",
-              "answerConfidence": "ai-generated",
+              "answer": "of",
+              "acceptedAnswers": [
+                "of"
+              ],
+              "explanation": "of.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (9)",
               "size": 10
@@ -276,9 +303,12 @@
             {
               "id": "catalog-reading-fce-b2-test19-part-2-q10",
               "number": 10,
-              "answer": "however",
-              "explanation": "The correct word is \"however\".",
-              "answerConfidence": "ai-generated",
+              "answer": "spend",
+              "acceptedAnswers": [
+                "spend"
+              ],
+              "explanation": "spend.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (10)",
               "size": 10
@@ -286,9 +316,12 @@
             {
               "id": "catalog-reading-fce-b2-test19-part-2-q11",
               "number": 11,
-              "answer": "for",
-              "explanation": "The correct word is \"for\".",
-              "answerConfidence": "ai-generated",
+              "answer": "out",
+              "acceptedAnswers": [
+                "out"
+              ],
+              "explanation": "out.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (11)",
               "size": 10
@@ -296,9 +329,12 @@
             {
               "id": "catalog-reading-fce-b2-test19-part-2-q12",
               "number": 12,
-              "answer": "on",
-              "explanation": "The correct word is \"on\".",
-              "answerConfidence": "ai-generated",
+              "answer": "before",
+              "acceptedAnswers": [
+                "before"
+              ],
+              "explanation": "before.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (12)",
               "size": 10
@@ -306,9 +342,12 @@
             {
               "id": "catalog-reading-fce-b2-test19-part-2-q13",
               "number": 13,
-              "answer": "most",
-              "explanation": "The correct word is \"most\".",
-              "answerConfidence": "ai-generated",
+              "answer": "been",
+              "acceptedAnswers": [
+                "been"
+              ],
+              "explanation": "been.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (13)",
               "size": 10
@@ -316,9 +355,12 @@
             {
               "id": "catalog-reading-fce-b2-test19-part-2-q14",
               "number": 14,
-              "answer": "it",
-              "explanation": "The correct word is \"it\".",
-              "answerConfidence": "ai-generated",
+              "answer": "have",
+              "acceptedAnswers": [
+                "have"
+              ],
+              "explanation": "have.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (14)",
               "size": 10
@@ -326,9 +368,12 @@
             {
               "id": "catalog-reading-fce-b2-test19-part-2-q15",
               "number": 15,
-              "answer": "credit",
-              "explanation": "The correct word is \"credit\".",
-              "answerConfidence": "ai-generated",
+              "answer": "is",
+              "acceptedAnswers": [
+                "is"
+              ],
+              "explanation": "is.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (15)",
               "size": 10
@@ -336,25 +381,19 @@
             {
               "id": "catalog-reading-fce-b2-test19-part-2-q16",
               "number": 16,
-              "answer": "in",
-              "explanation": "The correct word is \"in\".",
-              "answerConfidence": "ai-generated",
+              "answer": "to",
+              "acceptedAnswers": [
+                "to"
+              ],
+              "explanation": "to.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (16)",
               "size": 10
             }
           ]
         }
-      ],
-      "_aiRepairMeta": {
-        "appliedAt": "2026-07-28T07:34:28.048Z",
-        "fields": [
-          "passage",
-          "questions",
-          "answers",
-          "explanations"
-        ]
-      }
+      ]
     },
     {
       "id": "catalog-reading-fce-b2-test19-part-3",
@@ -380,6 +419,9 @@
               "id": "catalog-reading-fce-b2-test19-part-3-q17",
               "number": 17,
               "answer": "unhealthy",
+              "acceptedAnswers": [
+                "unhealthy"
+              ],
               "explanation": "unhealthy.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -391,6 +433,9 @@
               "id": "catalog-reading-fce-b2-test19-part-3-q18",
               "number": 18,
               "answer": "sailing",
+              "acceptedAnswers": [
+                "sailing"
+              ],
               "explanation": "sailing.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -402,6 +447,9 @@
               "id": "catalog-reading-fce-b2-test19-part-3-q19",
               "number": 19,
               "answer": "advice",
+              "acceptedAnswers": [
+                "advice"
+              ],
               "explanation": "advice.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -413,6 +461,9 @@
               "id": "catalog-reading-fce-b2-test19-part-3-q20",
               "number": 20,
               "answer": "unaffordable",
+              "acceptedAnswers": [
+                "unaffordable"
+              ],
               "explanation": "unaffordable.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -424,6 +475,9 @@
               "id": "catalog-reading-fce-b2-test19-part-3-q21",
               "number": 21,
               "answer": "impatient",
+              "acceptedAnswers": [
+                "impatient"
+              ],
               "explanation": "impatient.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -435,6 +489,9 @@
               "id": "catalog-reading-fce-b2-test19-part-3-q22",
               "number": 22,
               "answer": "variety",
+              "acceptedAnswers": [
+                "variety"
+              ],
               "explanation": "variety.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -446,6 +503,9 @@
               "id": "catalog-reading-fce-b2-test19-part-3-q23",
               "number": 23,
               "answer": "scientist",
+              "acceptedAnswers": [
+                "scientist"
+              ],
               "explanation": "scientist.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -457,6 +517,9 @@
               "id": "catalog-reading-fce-b2-test19-part-3-q24",
               "number": 24,
               "answer": "irreversible",
+              "acceptedAnswers": [
+                "irreversible"
+              ],
               "explanation": "irreversible.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -485,6 +548,9 @@
               "id": "catalog-reading-fce-b2-test19-part-4-q25",
               "number": 25,
               "answer": "would (regularly) talk to (the)",
+              "acceptedAnswers": [
+                "would (regularly) talk to (the)"
+              ],
               "explanation": "would (regularly) talk to (the).",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -498,6 +564,9 @@
               "id": "catalog-reading-fce-b2-test19-part-4-q26",
               "number": 26,
               "answer": "a long time since",
+              "acceptedAnswers": [
+                "a long time since"
+              ],
               "explanation": "a long time since.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -510,53 +579,67 @@
             {
               "id": "catalog-reading-fce-b2-test19-part-4-q27",
               "number": 27,
-              "answer": "had/’d never realised",
+              "answer": "had",
+              "acceptedAnswers": [
+                "had",
+                "’d never realised"
+              ],
               "explanation": "had/ d never realised.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "That day was the first time that William realised his mistake. NEVER -> William .....",
-              "sourceSentence": "That day was the first time that William realised his mistake.",
+              "prompt": "That day was the first time that William realised his mistake. William NEVER -> . That day was the first time that William realised his mistake.  William ..... his mistake before that day.",
+              "sourceSentence": "That day was the first time that William realised his mistake. William",
               "keyword": "NEVER",
-              "targetSentence": "William .....",
+              "targetSentence": ". That day was the first time that William realised his mistake.  William ..... his mistake before that day.",
               "size": 40
             },
             {
               "id": "catalog-reading-fce-b2-test19-part-4-q28",
               "number": 28,
-              "answer": "which/that belonged to",
+              "answer": "which",
+              "acceptedAnswers": [
+                "which",
+                "that belonged to"
+              ],
               "explanation": "which/that belonged to.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Lucia thought that her brother s toys came alive at night. BELONGED -> Lucia believed that the toys .....",
-              "sourceSentence": "Lucia thought that her brother s toys came alive at night.",
+              "prompt": "Lucia thought that her brother s toys came alive at night. Lucia believed that the toys BELONGED -> . Lucia thought that her brother’s toys came alive at night.  Lucia believed that the toys ..... her brother came alive at night.",
+              "sourceSentence": "Lucia thought that her brother s toys came alive at night. Lucia believed that the toys",
               "keyword": "BELONGED",
-              "targetSentence": "Lucia believed that the toys .....",
+              "targetSentence": ". Lucia thought that her brother’s toys came alive at night.  Lucia believed that the toys ..... her brother came alive at night.",
               "size": 40
             },
             {
               "id": "catalog-reading-fce-b2-test19-part-4-q29",
               "number": 29,
               "answer": "has been telling stories since",
+              "acceptedAnswers": [
+                "has been telling stories since"
+              ],
               "explanation": "has been telling stories since.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Francesca started telling stories before her brother was born. SINCE -> Francesca .....",
-              "sourceSentence": "Francesca started telling stories before her brother was born.",
+              "prompt": "Francesca started telling stories before her brother was born. Francesca SINCE -> . Francesca started telling stories before her brother was born.  Francesca ..... before her brother was born.",
+              "sourceSentence": "Francesca started telling stories before her brother was born. Francesca",
               "keyword": "SINCE",
-              "targetSentence": "Francesca .....",
+              "targetSentence": ". Francesca started telling stories before her brother was born.  Francesca ..... before her brother was born.",
               "size": 40
             },
             {
               "id": "catalog-reading-fce-b2-test19-part-4-q30",
               "number": 30,
               "answer": "was walking through",
+              "acceptedAnswers": [
+                "was walking through"
+              ],
               "explanation": "was walking through.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Luc was on a walk in the park when he saw something strange. THROUGH -> Luc saw something strange while he .....",
-              "sourceSentence": "Luc was on a walk in the park when he saw something strange.",
+              "prompt": "Luc was on a walk in the park when he saw something strange. Luc saw something strange while he THROUGH -> . Luc was on a walk in the park when he saw something strange.  Luc saw something strange while he ..... the park.",
+              "sourceSentence": "Luc was on a walk in the park when he saw something strange. Luc saw something strange while he",
               "keyword": "THROUGH",
-              "targetSentence": "Luc saw something strange while he .....",
+              "targetSentence": ". Luc was on a walk in the park when he saw something strange.  Luc saw something strange while he ..... the park.",
               "size": 40
             }
           ]
@@ -567,10 +650,31 @@
       "id": "catalog-reading-fce-b2-test19-part-5",
       "partNumber": 5,
       "rangeLabel": "Questions 31–36",
-      "passageTitle": "Part 5",
+      "passageTitle": "Once in a blue moon?",
       "passage": [
         {
-          "text": "The Science of Climate. This is a subject that has fascinated researchers for many years. In a recent study conducted at the University of Edinburgh, scientists examined the various factors that contribute to our understanding of this topic. The study involved over 500 participants and lasted for approximately two years.\n\nThe results were surprising. The research team, led by Dr. Oliver, found that there were significant differences between the groups they studied. One participant commented, 'I had no idea that this would be the outcome. It completely changed my perspective on the issue.'\n\nCritics of the study have pointed out some limitations. Professor Sophia from London University argues that the sample size was too small to draw definitive conclusions. 'While the findings are interesting,' he says, 'we need more research before we can apply them broadly.'\n\nDespite these criticisms, the study represents an important step forward. The authors emphasise that further investigation is needed, but they remain optimistic about the potential applications of their work. 'This is just the beginning,' Dr. Liam stated. 'We are already planning follow-up studies that will explore these questions in more depth.'"
+          "text": "Nature photographer David Smart reflects on his job and the rarity of some of the unusual natural phenomena he photographs."
+        },
+        {
+          "text": "I tread carefully, trying to crush as few of the beautiful flowers as possible. But I need to get in the best position to photograph this stunning display of blue, violet and yellow that fills the view. Where am I? In one of the royal London parks in spring? Maybe the famous Kawachi Fuji flower gardens of Japan? No, I’m in the driest place in the world, the Atacama Desert in Chile. And in front of me is the wonderful sight known as Desert Bloom. I angle my camera, focus and click. Job done, I can now stand back, breathe in the scent of millions of flowers and enjoy the moment."
+        },
+        {
+          "text": "Seeing a rare natural phenomenon like the Desert Bloom is not a one-off for me; I’ve photographed the Niagara Falls when they were partially frozen over; I’ve experienced the weird and wonderful rush of darkness during a total eclipse. I’m lucky that my work as a professional nature photographer takes me to some of the most amazing places in the world and pays reasonably well. However, it’s the really unusual sights which nature occasionally provides for us that really fascinate me. As one of my photographer friends says, ‘It feels a real privilege.’"
+        },
+        {
+          "text": "But in reality, just how rare are events like these? Tabloid headlines need to sell copies and imply that they are once-in-a-bluemoon events. ‘Niagara Falls completely frozen over’, shouts one newspaper,’The only total eclipse you’ll see in your lifetime’, shouts another and ‘Miracle of flowers in the desert’, says a third. In fact, these phenomena, although unusual, are not as unlikely as the hype suggests. Niagara Falls have partially frozen over several times – when winds from the North Pole brought arctic temperatures further south (a symptom of climate change). And although apparently inexplicable, those stunning flowers in the desert will flower again in another five or seven years. The seeds lie in the soil and will grow whenever there is a lot of rainfall."
+        },
+        {
+          "text": "Real, once-in-a-blue-moon events do happen, but it is only by chance that they are ever seen or recorded. For example, there’s one spectacular event that I would desperately love to see. It’s known as a Fire Rainbow, but is actually neither connected to fire, nor a rainbow! Sadly, I’m never likely to see one anywhere apart from in a photograph. These incredible optical phenomena, which appear to be amazing combinations of colours in the sky, only occur when there is a very specific combination of atmospheric conditions. In addition to this, they are only visible from high altitudes."
+        },
+        {
+          "text": "Being in the right place at the right time is what a nature photographer like me longs for, but it doesn’t happen very often. I got my wish once, and like the Desert Bloom it was in Chile. I was there to film a volcanic eruption at Volcan Calbuco, a very dangerous active volcano. While filming, I was treated to a rare display of volcanic lightning. This is a unique type of electrical reaction that happens inside a great cloud of ash, otherwise known as a ‘dirty thunderstorm’. I say ‘treated’, but the experience was so terrifying that my first instincts were to run like mad! The attraction of photographing one of the greatest light shows on earth was, however, very strong and those pictures are among the best I have ever taken."
+        },
+        {
+          "text": "I think my obsession with these rare natural phenomena should be quite clear by now! I’m very fortunate to have a job which allows me to travel to record as many as I can. The scientific reasons behind such events are certainly fascinating, but for me it will always be about their magnificent beauty. The powerful surprises that nature continues to deliver will never cease to amaze me. Whether they are just unusual or truly once in a lifetime experiences, I can’t see myself ever getting tired of chasing them."
+        },
+        {
+          "text": "Now, maybe just one more photo of these incredible flowers…"
         }
       ],
       "questionGroups": [
@@ -584,7 +688,10 @@
               "id": "catalog-reading-fce-b2-test19-part-5-q31",
               "number": 31,
               "answer": "c",
-              "explanation": "The correct answer is C.",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "What point is the writer making in the first paragraph?",
@@ -611,7 +718,10 @@
               "id": "catalog-reading-fce-b2-test19-part-5-q32",
               "number": 32,
               "answer": "c",
-              "explanation": "The correct answer is A.",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "How does the writer feel about his work?",
@@ -638,7 +748,10 @@
               "id": "catalog-reading-fce-b2-test19-part-5-q33",
               "number": 33,
               "answer": "b",
-              "explanation": "The correct answer is D.",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "What is the writer s attitude towards tabloid newspapers?",
@@ -665,7 +778,10 @@
               "id": "catalog-reading-fce-b2-test19-part-5-q34",
               "number": 34,
               "answer": "d",
-              "explanation": "The correct answer is B.",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "When talking about Fire Rainbows, the writer regrets that",
@@ -692,7 +808,10 @@
               "id": "catalog-reading-fce-b2-test19-part-5-q35",
               "number": 35,
               "answer": "a",
-              "explanation": "The correct answer is A.",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "The writer repeats the word treated in paragraph 5",
@@ -719,7 +838,10 @@
               "id": "catalog-reading-fce-b2-test19-part-5-q36",
               "number": 36,
               "answer": "c",
-              "explanation": "The correct answer is C.",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "What does the writer believe about the science behind rare natural events?",
@@ -750,11 +872,28 @@
       "id": "catalog-reading-fce-b2-test19-part-6",
       "partNumber": 6,
       "rangeLabel": "Questions 37–42",
-      "passageTitle": "Part 6",
+      "passageTitle": "Is it time we went Dutch?",
       "passage": [
         {
-          "text": "Public Transport Systems is a topic that has attracted considerable attention. (37) ..... The reasons for this growing interest are varied. (38) ..... Many people now recognise the importance of this issue.\n\nAccording to recent surveys, engagement with this topic has increased significantly. (39) ..... This trend is expected to continue in the coming years. (40) ..... However, there are still challenges that need to be addressed.\n\nExperts suggest several approaches to dealing with these challenges. (41) ..... Early evidence suggests that these methods are effective. (42) ..... Only time will tell whether these efforts will succeed.",
-          "_provenance": "ai-generated"
+          "text": "Two toddlers have just chased each other to the top of a climbing frame and are pushing to get down the slide first. Their mothers are chatting on a nearby park bench. In the distance a little boy wobbles along on his bike, followed by his grandfather who is pushing a buggy. A gang of older children comes racing along the bike path, laughing and joking. They overtake a young mum who is cycling more slowly, balancing a baby in a seat on the front of her bike and a toddler on the back. A group of girls is playing on the grass and not far away, some boys are perfecting their skateboarding moves. And none of the school-age children is accompanied by an adult."
+        },
+        {
+          "text": "This happy scene isn’t from a movie. It’s just a normal Springtime afternoon in the Netherlands. Is it too perfect? Realistic? Idealistic? (37) ..... . Their teenagers are said to be among the happiest in the world and even newborn babies are supposed to be far more contented and smiling than their counterparts in different countries. Of course, the big question is why? And can Dutch parenting skills, the education system and their general priorities in life teach the rest of us anything important?"
+        },
+        {
+          "text": "One significant factor could be the Dutch parents’ attitude towards achievement. For them achievement doesn’t necessarily lead to happiness, but happiness can lead to achievement. Success starts with happiness. They do not push their kids to learn quickly; the children are allowed to develop in their own time. (38) ..... . Primary school children are not given homework, and reading and writing skills are not usually taught until the age of six. Learning to play together is of first importance. Carefree childhood lasts just that bit longer."
+        },
+        {
+          "text": "Security is vital for a happy child, and the Dutch try to forge strong family bonds. For example, it’s traditional for the whole family to eat breakfast together every single day. Dutch dads also play a big part in bringing up the children, taking an equal role in child-rearing and doing household chores. (39) ..... . You’re just as likely to see a dad pushing a pram or wearing a baby-carrier as a mum!"
+        },
+        {
+          "text": "Another interesting point is that independence in Dutch children is encouraged early on. (40) ..... . They are taught to be self-sufficient and accept responsibility at an appropriate age. Playing outside unsupervised (often considered noisy and disruptive in other cultures) is seen as an important stage in the growing up process."
+        },
+        {
+          "text": "One common cause of dissatisfaction in many people today is an obsession with material things. (41) ..... . For the Dutch, practicality usually tops luxury and children often grow up wearing second-hand clothes and playing with used toys. Check out King’s Day celebrations in Amsterdam – a major attraction is the enormous second-hand market where children become traders for the day, buying and selling old toys!"
+        },
+        {
+          "text": "Of course, many countries claim to be ‘the happiest places to live’ or ‘have the most contented people’ for a variety of reasons. (42) ..... . However, in the end, most happy adults start off as happy children. And while there may be some things about Dutch parenting or education that we do not completely agree with, they are undoubtedly doing something right."
         }
       ],
       "questionGroups": [
@@ -775,38 +914,31 @@
           "features": [
             {
               "id": "a",
-              "name": "It has become a major topic of discussion in Vienna.",
-              "_provenance": "ai-generated"
+              "name": "Unusually, Dutch children do not appear to be overly affected by this concern."
             },
             {
               "id": "b",
-              "name": "One key factor is the growing awareness among young Cape Town residents.",
-              "_provenance": "ai-generated"
+              "name": "This is reinforced by the Dutch education system."
             },
             {
               "id": "c",
-              "name": "The number of people involved has risen by over 50% in the last decade.",
-              "_provenance": "ai-generated"
+              "name": "Instead of this, the Dutch believe in inspiring children to explore the world around them."
             },
             {
               "id": "d",
-              "name": "This change has been particularly noticeable in urban areas across the country.",
-              "_provenance": "ai-generated"
+              "name": "Mums don’t do for their children things they are capable of doing themselves."
             },
             {
               "id": "e",
-              "name": "Finding adequate funding remains a significant obstacle for many organisations.",
-              "_provenance": "ai-generated"
+              "name": "Perhaps the climate is good or maybe the standard of living is exceptional."
             },
             {
               "id": "f",
-              "name": "Education and community engagement are seen as the most promising strategies.",
-              "_provenance": "ai-generated"
+              "name": "According to surveys, it reflects the claim that the Netherlands is a very happy nation."
             },
             {
               "id": "g",
-              "name": "Several pilot projects have already shown encouraging results.",
-              "_provenance": "ai-generated"
+              "name": "They look after their kids on their days off and help put the little ones to bed."
             }
           ],
           "questions": [
@@ -814,37 +946,40 @@
               "id": "catalog-reading-fce-b2-test19-part-6-q37",
               "number": 37,
               "answer": "f",
-              "explanation": "Sentence B fits logically in gap 37.",
+              "acceptedAnswers": [
+                "f"
+              ],
+              "explanation": "F",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (37)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -853,37 +988,40 @@
               "id": "catalog-reading-fce-b2-test19-part-6-q38",
               "number": 38,
               "answer": "b",
-              "explanation": "Sentence A fits logically in gap 38.",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (38)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -892,37 +1030,40 @@
               "id": "catalog-reading-fce-b2-test19-part-6-q39",
               "number": 39,
               "answer": "g",
-              "explanation": "Sentence C fits logically in gap 39.",
+              "acceptedAnswers": [
+                "g"
+              ],
+              "explanation": "G",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (39)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -931,37 +1072,40 @@
               "id": "catalog-reading-fce-b2-test19-part-6-q40",
               "number": 40,
               "answer": "d",
-              "explanation": "Sentence D fits logically in gap 40.",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (40)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -970,37 +1114,40 @@
               "id": "catalog-reading-fce-b2-test19-part-6-q41",
               "number": 41,
               "answer": "a",
-              "explanation": "Sentence F fits logically in gap 41.",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (41)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -1009,37 +1156,40 @@
               "id": "catalog-reading-fce-b2-test19-part-6-q42",
               "number": 42,
               "answer": "e",
-              "explanation": "Sentence E fits logically in gap 42.",
+              "acceptedAnswers": [
+                "e"
+              ],
+              "explanation": "E",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (42)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -1052,27 +1202,23 @@
       "id": "catalog-reading-fce-b2-test19-part-7",
       "partNumber": 7,
       "rangeLabel": "Questions 43–52",
-      "passageTitle": "Part 7",
+      "passageTitle": "Twisting the truth",
       "passage": [
         {
           "label": "A",
-          "text": "Isabella recently experienced study abroad programs in London. It was an unforgettable experience that changed her perspective. The highlights included meeting new people from different backgrounds and learning about local customs. She particularly enjoyed the cultural events organised by the hosts. Despite some initial difficulties with the language, she felt that the overall experience was extremely rewarding. Ethan recommends this experience to anyone interested in broadening their horizons.",
-          "_provenance": "ai-generated"
+          "text": "I was just married, and desperately wanted my new mother-in-law to like me. So, when she asked for my opinion of her outfit at a family dinner, I was full of admiration. No way was I going to tell the truth! The dress was purple, flowery and completely outdated. Instead I told her how lovely it was. I’d completely forgotten about the incident until she gave me a birthday present a few months later – an identical purple dress. She said it was because I’d clearly admired hers and she was looking forward to seeing me in it at the party. I wore it and hated every minute of my party that year. I’m much more careful these days about the white lies I tell. And the dress? Well, unfortunately, it somehow shrank in the wash and I haven’t been able to wear it again …"
         },
         {
           "label": "B",
-          "text": "Oliver recently experienced study abroad programs in Cape Town. It was a fascinating experience that changed his perspective. The challenges included meeting new people from different backgrounds and learning about local customs. He particularly enjoyed the practical workshops organised by the hosts. Despite some initial difficulties with the weather, he felt that the overall experience was extremely rewarding. Mason recommends this experience to anyone looking for broadening their horizons.",
-          "_provenance": "ai-generated"
+          "text": "My young son had been looking forward to his first sports day at primary school for weeks, and I’d promised to be there, cheering him on. Then, the weekend beforehand I checked my work diary and realised I’d agreed to attend a meeting that same afternoon. If I didn’t go to sports day, I would be letting down my son, but if I didn’t go to the meeting, I’d be letting down my boss. What I should have done was admit my mistake and ask for the afternoon off. Instead I called in sick and I went to the sports day. I was so proud when Danny won his race, although also a little guilty about the meeting. The problem was, I took Danny and his friends for an ice cream in the park later and I’m pretty sure I saw my boss’s car go past. He wants to see me later and I think I know why."
         },
         {
           "label": "C",
-          "text": "Noah recently experienced study abroad programs in Vienna. It was an eye-opening experience that changed their perspective. The opportunities included meeting new people from different backgrounds and learning about local customs. They particularly enjoyed the guided tours organised by the hosts. Despite some initial difficulties with the schedule, they felt that the overall experience was extremely rewarding. James recommends this experience to anyone keen on broadening their horizons.",
-          "_provenance": "ai-generated"
+          "text": "It was only a very small exaggeration really. Well, OK, it was more of a lie – but not a big, serious one. I was applying for my present job and listed my hobbies as drama, cross-country running, travelling – and then added gardening because I thought it was a bit different. I even mentioned that I’d won an award. Ha! Truth was I’d won third prize for a miniature garden at school when I was eight and in fact my mum had done most of it. So, when my office wanted ideas about designing a new outside space for our building, guess who they came to for advice? I could have lied again and made something up, but I came clean. Luckily everyone was good about it and we had a laugh sharing stories of other white lies that had had consequences later on. It was Shakespeare who said ‘the truth will out’, wasn’t it? He was right."
         },
         {
           "label": "D",
-          "text": "Mia recently experienced study abroad programs in London. It was a memorable experience that changed her perspective. The activities included meeting new people from different backgrounds and learning about local customs. She particularly enjoyed the community projects organised by the hosts. Despite some initial difficulties with the transport, she felt that the overall experience was extremely rewarding. Sarah recommends this experience to anyone curious about broadening their horizons.",
-          "_provenance": "ai-generated"
+          "text": "I had no idea what silver service was – but I said I did when I was being interviewed for a job as a waiter recently. I thought it would be something I could pick up as I went along, after all it wasn’t as if I was an inexperienced waiter – I had served in restaurants before. However, I totally underestimated the difference between waiting tables in a small Italian restaurant, dealing mainly with pizzas and pasta dishes, and the rather more upmarket hotel I was going for. It turns out that silver service involves using a silver serving spoon and fork in the right hand to serve vegetables or meat from a dish held in the left. I definitely shouldn’t have pretended I could do it! Trying to manipulate everything at the same time resulted in my dropping the serving dish and covering a customer with buttered potatoes. I lasted precisely one hour!"
         }
       ],
       "questionGroups": [
@@ -1104,10 +1250,13 @@
               "id": "catalog-reading-fce-b2-test19-part-7-q43",
               "number": 43,
               "answer": "a",
-              "explanation": "The answer is B because the text mentions this.",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who found the language challenging at first?",
+              "prompt": "wanted to impress a relative?",
               "options": [
                 {
                   "id": "a",
@@ -1125,17 +1274,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test19-part-7-q44",
               "number": 44,
               "answer": "d",
-              "explanation": "The answer is A because the text mentions this.",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Which person attended cultural events?",
+              "prompt": "was unable to continue in her work?",
               "options": [
                 {
                   "id": "a",
@@ -1153,17 +1304,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test19-part-7-q45",
               "number": 45,
               "answer": "b",
-              "explanation": "The answer is A because the text mentions this.",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who recommends the experience to others?",
+              "prompt": "lied when faced with a difficult choice?",
               "options": [
                 {
                   "id": "a",
@@ -1181,17 +1334,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test19-part-7-q46",
               "number": 46,
               "answer": "c",
-              "explanation": "The answer is C because the text mentions this.",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Whose perspective was changed by the experience?",
+              "prompt": "corrects herself when describing the seriousness of her lie?",
               "options": [
                 {
                   "id": "a",
@@ -1209,17 +1364,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test19-part-7-q47",
               "number": 47,
               "answer": "a",
-              "explanation": "The answer is D because the text mentions this.",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who participated in practical workshops?",
+              "prompt": "endured a difficult social event to maintain a lie?",
               "options": [
                 {
                   "id": "a",
@@ -1237,17 +1394,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test19-part-7-q48",
               "number": 48,
               "answer": "b",
-              "explanation": "The answer is B because the text mentions this.",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Which person had difficulties with arrangements?",
+              "prompt": "is still unaware of the consequences of her lie?",
               "options": [
                 {
                   "id": "a",
@@ -1265,17 +1424,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test19-part-7-q49",
               "number": 49,
               "answer": "c",
-              "explanation": "The answer is A because the text mentions this.",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who met people from diverse backgrounds?",
+              "prompt": "confessed to having lied before it was discovered?",
               "options": [
                 {
                   "id": "a",
@@ -1293,17 +1454,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test19-part-7-q50",
               "number": 50,
               "answer": "d",
-              "explanation": "The answer is C because the text mentions this.",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Whose experience involved community projects?",
+              "prompt": "assumed something that turned out to be wrong?",
               "options": [
                 {
                   "id": "a",
@@ -1321,17 +1484,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test19-part-7-q51",
               "number": 51,
               "answer": "b",
-              "explanation": "The answer is D because the text mentions this.",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who enjoyed guided tours?",
+              "prompt": "didn t enjoy an event completely as a result of her lie?",
               "options": [
                 {
                   "id": "a",
@@ -1349,17 +1514,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test19-part-7-q52",
               "number": 52,
               "answer": "a",
-              "explanation": "The answer is C because the text mentions this.",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Which person was looking for a new challenge?",
+              "prompt": "changed her attitude to lying as a result of an experience?",
               "options": [
                 {
                   "id": "a",
@@ -1377,8 +1544,7 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             }
           ]
         }

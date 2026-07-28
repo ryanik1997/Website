@@ -31,6 +31,9 @@
               "id": "catalog-reading-fce-b2-test24-part-1-q1",
               "number": 1,
               "answer": "a",
+              "acceptedAnswers": [
+                "a"
+              ],
               "explanation": "bear.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -58,6 +61,9 @@
               "id": "catalog-reading-fce-b2-test24-part-1-q2",
               "number": 2,
               "answer": "c",
+              "acceptedAnswers": [
+                "c"
+              ],
               "explanation": "necessity.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -85,6 +91,9 @@
               "id": "catalog-reading-fce-b2-test24-part-1-q3",
               "number": 3,
               "answer": "d",
+              "acceptedAnswers": [
+                "d"
+              ],
               "explanation": "comes.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -112,6 +121,9 @@
               "id": "catalog-reading-fce-b2-test24-part-1-q4",
               "number": 4,
               "answer": "c",
+              "acceptedAnswers": [
+                "c"
+              ],
               "explanation": "across.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -139,6 +151,9 @@
               "id": "catalog-reading-fce-b2-test24-part-1-q5",
               "number": 5,
               "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
               "explanation": "matter.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -166,6 +181,9 @@
               "id": "catalog-reading-fce-b2-test24-part-1-q6",
               "number": 6,
               "answer": "c",
+              "acceptedAnswers": [
+                "c"
+              ],
               "explanation": "members.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -193,6 +211,9 @@
               "id": "catalog-reading-fce-b2-test24-part-1-q7",
               "number": 7,
               "answer": "d",
+              "acceptedAnswers": [
+                "d"
+              ],
               "explanation": "plenty of.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -220,6 +241,9 @@
               "id": "catalog-reading-fce-b2-test24-part-1-q8",
               "number": 8,
               "answer": "d",
+              "acceptedAnswers": [
+                "d"
+              ],
               "explanation": "do.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -251,12 +275,20 @@
       "id": "catalog-reading-fce-b2-test24-part-2",
       "partNumber": 2,
       "rangeLabel": "Questions 9–16",
-      "passageTitle": "Part 2",
-      "passageSubtitle": "",
+      "passageTitle": "Daniela: Skateboard champion",
+      "passageSubtitle": "BEEN",
       "passage": [
         {
-          "text": "When it comes to the benefits of reading, there are several factors to consider. (9) ..... of all, it is important to understand the basic principles. Many people, (10) ..... , fail to recognise the significance of this. The reason (11) ..... this may be due to a lack of exposure. (12) ..... the other hand, those who have experience tend to disagree. It is worth noting that (13) ..... of the challenges we face can be overcome with patience. (14) ..... is also true that practice plays a crucial role. Finally, (15) ..... should be given to those who persist (16) ..... the face of difficulty.",
-          "_provenance": "ai-generated"
+          "text": "I’ve always 0 _____ an outdoors kind of girl, and (9) ..... a kid, I’d get up to all sorts of stuff with my friends – climbing trees and messing about in the woods. As we got older, my friends started doing other things (10) ..... shopping and listening to music, but I still loved being outside and needed a new challenge.",
+          "_provenance": "source"
+        },
+        {
+          "text": "(11) ..... was my brother who first got me (12) ..... skateboarding. I’d seen him practising on his board hour after hour, and to (13) ..... honest, I used to think it was uncool. But when he showed me some amazing tricks he could do one day, I had to give it a go.",
+          "_provenance": "source"
+        },
+        {
+          "text": "I’ve got a competitive streak, so I watched loads of skateboarding clips online and got out on my board whenever I could – even (14) ..... it was dark – in order to compete (15) ..... my brother. It obviously paid (16) ..... because I beat him in a competition last month!",
+          "_provenance": "source"
         }
       ],
       "questionGroups": [
@@ -269,9 +301,12 @@
             {
               "id": "catalog-reading-fce-b2-test24-part-2-q9",
               "number": 9,
-              "answer": "first",
-              "explanation": "The correct word is \"first\".",
-              "answerConfidence": "ai-generated",
+              "answer": "as",
+              "acceptedAnswers": [
+                "as"
+              ],
+              "explanation": "as.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (9)",
               "size": 10
@@ -279,9 +314,12 @@
             {
               "id": "catalog-reading-fce-b2-test24-part-2-q10",
               "number": 10,
-              "answer": "however",
-              "explanation": "The correct word is \"however\".",
-              "answerConfidence": "ai-generated",
+              "answer": "like",
+              "acceptedAnswers": [
+                "like"
+              ],
+              "explanation": "like.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (10)",
               "size": 10
@@ -289,9 +327,12 @@
             {
               "id": "catalog-reading-fce-b2-test24-part-2-q11",
               "number": 11,
-              "answer": "for",
-              "explanation": "The correct word is \"for\".",
-              "answerConfidence": "ai-generated",
+              "answer": "i",
+              "acceptedAnswers": [
+                "i"
+              ],
+              "explanation": "t.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (11)",
               "size": 10
@@ -299,9 +340,12 @@
             {
               "id": "catalog-reading-fce-b2-test24-part-2-q12",
               "number": 12,
-              "answer": "on",
-              "explanation": "The correct word is \"on\".",
-              "answerConfidence": "ai-generated",
+              "answer": "into",
+              "acceptedAnswers": [
+                "into"
+              ],
+              "explanation": "into.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (12)",
               "size": 10
@@ -309,9 +353,12 @@
             {
               "id": "catalog-reading-fce-b2-test24-part-2-q13",
               "number": 13,
-              "answer": "most",
-              "explanation": "The correct word is \"most\".",
-              "answerConfidence": "ai-generated",
+              "answer": "be",
+              "acceptedAnswers": [
+                "be"
+              ],
+              "explanation": "be.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (13)",
               "size": 10
@@ -319,9 +366,12 @@
             {
               "id": "catalog-reading-fce-b2-test24-part-2-q14",
               "number": 14,
-              "answer": "it",
-              "explanation": "The correct word is \"it\".",
-              "answerConfidence": "ai-generated",
+              "answer": "when",
+              "acceptedAnswers": [
+                "when"
+              ],
+              "explanation": "when.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (14)",
               "size": 10
@@ -329,9 +379,12 @@
             {
               "id": "catalog-reading-fce-b2-test24-part-2-q15",
               "number": 15,
-              "answer": "credit",
-              "explanation": "The correct word is \"credit\".",
-              "answerConfidence": "ai-generated",
+              "answer": "with",
+              "acceptedAnswers": [
+                "with"
+              ],
+              "explanation": "with.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (15)",
               "size": 10
@@ -339,35 +392,34 @@
             {
               "id": "catalog-reading-fce-b2-test24-part-2-q16",
               "number": 16,
-              "answer": "in",
-              "explanation": "The correct word is \"in\".",
-              "answerConfidence": "ai-generated",
+              "answer": "off",
+              "acceptedAnswers": [
+                "off"
+              ],
+              "explanation": "off.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (16)",
               "size": 10
             }
           ]
         }
-      ],
-      "_aiRepairMeta": {
-        "appliedAt": "2026-07-28T07:34:28.070Z",
-        "fields": [
-          "passage",
-          "questions",
-          "answers",
-          "explanations"
-        ]
-      }
+      ]
     },
     {
       "id": "catalog-reading-fce-b2-test24-part-3",
       "partNumber": 3,
       "rangeLabel": "Questions 17–24",
-      "passageTitle": "Part 3",
+      "passageTitle": "The London Eye",
       "passage": [
         {
-          "text": "In today's (0) competitive world, it is essential to have (17) ..... skills. Your personal (18) ..... can make a real difference. Rising (19) ..... figures are a concern for many. Travel can help (20) ..... your horizons. He was (21) ..... about which path to choose. (22) ..... , the project was delayed. There is great (23) ..... about the future. She was (24) ..... about her new role.",
-          "_provenance": "ai-generated"
+          "text": "The London Eye, the giant 0 _____ wheel, is one of the most popular attractions in London. The wheel is one of the tallest of its kind, at a (17) ..... of 135 metres. 1,700 tons of steel were used for its (18) ..... . People make special journeys to see the (19) ..... wheel. Fifteen thousand visitors can ride on the Eye every day."
+        },
+        {
+          "text": "The architects, Julia Barfield and her husband David Marks, won the competition to design a Millennium landmark. Their design was the most (20) ..... of all the projects and the first (21) ..... of the wheel were made on their kitchen table in 1993. Julia found the (22) ..... site by drawing a circle and finding its centre."
+        },
+        {
+          "text": "Not (23) ..... , it took about three years to get the wheel built. In (24) ..... of their work, the couple were awarded the MBE, a special honour that is given in the UK to someone who has achieved something special."
         }
       ],
       "questionGroups": [
@@ -381,107 +433,117 @@
               "id": "catalog-reading-fce-b2-test24-part-3-q17",
               "number": 17,
               "answer": "height",
+              "acceptedAnswers": [
+                "height"
+              ],
               "explanation": "height.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (17) — ",
-              "baseWord": "COMPETE",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (17) — HIGH",
+              "baseWord": "HIGH",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test24-part-3-q18",
               "number": 18,
               "answer": "construction",
+              "acceptedAnswers": [
+                "construction"
+              ],
               "explanation": "construction.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (18) — ",
-              "baseWord": "STRONG",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (18) — CONSTRUCT",
+              "baseWord": "CONSTRUCT",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test24-part-3-q19",
               "number": 19,
               "answer": "exciting",
+              "acceptedAnswers": [
+                "exciting"
+              ],
               "explanation": "exciting.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (19) — ",
-              "baseWord": "EMPLOY",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (19) — EXCITE",
+              "baseWord": "EXCITE",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test24-part-3-q20",
               "number": 20,
               "answer": "imaginative",
+              "acceptedAnswers": [
+                "imaginative"
+              ],
               "explanation": "imaginative.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (20) — ",
-              "baseWord": "BROAD",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (20) — IMAGINE",
+              "baseWord": "IMAGINE",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test24-part-3-q21",
               "number": 21,
               "answer": "drawings",
+              "acceptedAnswers": [
+                "drawings"
+              ],
               "explanation": "drawings.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (21) — ",
-              "baseWord": "DECIDE",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (21) — DRAW",
+              "baseWord": "DRAW",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test24-part-3-q22",
               "number": 22,
               "answer": "ideal",
+              "acceptedAnswers": [
+                "ideal"
+              ],
               "explanation": "ideal.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (22) — ",
-              "baseWord": "FORTUNE",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (22) — IDEA",
+              "baseWord": "IDEA",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test24-part-3-q23",
               "number": 23,
               "answer": "surprisingly",
+              "acceptedAnswers": [
+                "surprisingly"
+              ],
               "explanation": "surprisingly.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (23) — ",
-              "baseWord": "CERTAIN",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (23) — SURPRISE",
+              "baseWord": "SURPRISE",
+              "size": 10
             },
             {
               "id": "catalog-reading-fce-b2-test24-part-3-q24",
               "number": 24,
               "answer": "recognition",
+              "acceptedAnswers": [
+                "recognition"
+              ],
               "explanation": "recognition.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Gap (24) — ",
-              "baseWord": "ENTHUSE",
-              "size": 10,
-              "_baseWord_provenance": "ai-generated"
+              "prompt": "Gap (24) — RECOGNISE",
+              "baseWord": "RECOGNISE",
+              "size": 10
             }
           ]
         }
-      ],
-      "_aiRepairMeta": {
-        "appliedAt": "2026-07-28T07:34:28.070Z",
-        "fields": [
-          "passage"
-        ]
-      }
+      ]
     },
     {
       "id": "catalog-reading-fce-b2-test24-part-4",
@@ -500,6 +562,9 @@
               "id": "catalog-reading-fce-b2-test24-part-4-q25",
               "number": 25,
               "answer": "know the cost of",
+              "acceptedAnswers": [
+                "know the cost of"
+              ],
               "explanation": "know the cost of.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -513,6 +578,9 @@
               "id": "catalog-reading-fce-b2-test24-part-4-q26",
               "number": 26,
               "answer": "should not have deleted",
+              "acceptedAnswers": [
+                "should not have deleted"
+              ],
               "explanation": "should not have deleted.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -526,52 +594,64 @@
               "id": "catalog-reading-fce-b2-test24-part-4-q27",
               "number": 27,
               "answer": "due to (the) bad",
+              "acceptedAnswers": [
+                "due to (the) bad"
+              ],
               "explanation": "due to (the) bad.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "The ferry couldn t sail because the weather was bad. DUE -> The ferry couldn t sail .....",
-              "sourceSentence": "The ferry couldn t sail because the weather was bad.",
+              "prompt": "The ferry couldn t sail because the weather was bad. The ferry couldn t sail DUE -> The ferry couldn’t sail because the weather was bad.  The ferry couldn’t sail ..... weather.",
+              "sourceSentence": "The ferry couldn t sail because the weather was bad. The ferry couldn t sail",
               "keyword": "DUE",
-              "targetSentence": "The ferry couldn t sail .....",
+              "targetSentence": "The ferry couldn’t sail because the weather was bad.  The ferry couldn’t sail ..... weather.",
               "size": 40
             },
             {
               "id": "catalog-reading-fce-b2-test24-part-4-q28",
               "number": 28,
               "answer": "had better not be",
+              "acceptedAnswers": [
+                "had better not be"
+              ],
               "explanation": "had better not be.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "The teacher told us not to be late on Friday. BETTER -> You .....",
-              "sourceSentence": "The teacher told us not to be late on Friday.",
+              "prompt": "The teacher told us not to be late on Friday. You BETTER -> The teacher told us not to be late on Friday.  ‘You ..... late on Friday,’ the teacher said.",
+              "sourceSentence": "The teacher told us not to be late on Friday. You",
               "keyword": "BETTER",
-              "targetSentence": "You .....",
+              "targetSentence": "The teacher told us not to be late on Friday.  ‘You ..... late on Friday,’ the teacher said.",
               "size": 40
             },
             {
               "id": "catalog-reading-fce-b2-test24-part-4-q29",
               "number": 29,
               "answer": "has been translated",
+              "acceptedAnswers": [
+                "has been translated"
+              ],
               "explanation": "has been translated.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "There are Spanish and French translations of the book. BEEN -> The book .....",
-              "sourceSentence": "There are Spanish and French translations of the book.",
+              "prompt": "There are Spanish and French translations of the book. The book BEEN -> There are Spanish and French translations of the book.  The book ..... into Spanish and French.",
+              "sourceSentence": "There are Spanish and French translations of the book. The book",
               "keyword": "BEEN",
-              "targetSentence": "The book .....",
+              "targetSentence": "There are Spanish and French translations of the book.  The book ..... into Spanish and French.",
               "size": 40
             },
             {
               "id": "catalog-reading-fce-b2-test24-part-4-q30",
               "number": 30,
               "answer": "not phone unless she gets",
+              "acceptedAnswers": [
+                "not phone unless she gets"
+              ],
               "explanation": "not phone unless she gets.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "She will only phone if she gets lost. UNLESS -> She will .....",
-              "sourceSentence": "She will only phone if she gets lost.",
+              "prompt": "She will only phone if she gets lost. She will UNLESS -> She will only phone if she gets lost.  She will ..... lost.",
+              "sourceSentence": "She will only phone if she gets lost. She will",
               "keyword": "UNLESS",
-              "targetSentence": "She will .....",
+              "targetSentence": "She will only phone if she gets lost.  She will ..... lost.",
               "size": 40
             }
           ]
@@ -617,7 +697,10 @@
               "id": "catalog-reading-fce-b2-test24-part-5-q31",
               "number": 31,
               "answer": "d",
-              "explanation": "",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "What impression do we get of Pete Watson s skills as a wrestler?",
@@ -644,7 +727,10 @@
               "id": "catalog-reading-fce-b2-test24-part-5-q32",
               "number": 32,
               "answer": "c",
-              "explanation": "",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "It is suggested that Watson s first novel",
@@ -671,7 +757,10 @@
               "id": "catalog-reading-fce-b2-test24-part-5-q33",
               "number": 33,
               "answer": "b",
-              "explanation": "",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "What does traditional wrestling stock in paragraph three refer to?",
@@ -698,7 +787,10 @@
               "id": "catalog-reading-fce-b2-test24-part-5-q34",
               "number": 34,
               "answer": "d",
-              "explanation": "",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "What did Watson s parents feel about his interest in wrestling?",
@@ -725,7 +817,10 @@
               "id": "catalog-reading-fce-b2-test24-part-5-q35",
               "number": 35,
               "answer": "c",
-              "explanation": "",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "How does Watson regard the idea that wrestling is like acting?",
@@ -752,7 +847,10 @@
               "id": "catalog-reading-fce-b2-test24-part-5-q36",
               "number": 36,
               "answer": "a",
-              "explanation": "",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "Watson s present life is not so different from his past profession because",
@@ -783,11 +881,31 @@
       "id": "catalog-reading-fce-b2-test24-part-6",
       "partNumber": 6,
       "rangeLabel": "Questions 37–42",
-      "passageTitle": "Part 6",
+      "passageTitle": "Films and computer games",
       "passage": [
         {
-          "text": "Smart Cities is a topic that has attracted considerable attention. (37) ..... The reasons for this growing interest are varied. (38) ..... Many people now recognise the importance of this issue.\n\nAccording to recent surveys, engagement with this topic has increased significantly. (39) ..... This trend is expected to continue in the coming years. (40) ..... However, there are still challenges that need to be addressed.\n\nExperts suggest several approaches to dealing with these challenges. (41) ..... Early evidence suggests that these methods are effective. (42) ..... Only time will tell whether these efforts will succeed.",
-          "_provenance": "ai-generated"
+          "text": "In just a few decades the gaming industry has become a lot bigger than the film business. In terms of turnover, what is rather grandly called ‘interactive entertainment’ makes twice as much money as Hollywood cinema. Which of course leaves people in the film business wondering if they can harvest any of this new income. Is there any way of making films more appealing to people who regularly like to play computer games?"
+        },
+        {
+          "text": "Making a film out of a best-selling computer game can certainly guarantee a large audience. (37) ..... . New games have stunning action sequences that rely on fantasy effects, and now films are being released with similar scenes. Gravity is discarded as heroes leap across huge gaps, while slow-motion techniques show bullets moving through the rippling air."
+        },
+        {
+          "text": "A major segment of the gaming market comprises science-fiction games, and film-makers have started to realise that they could set films in similar sci-fi future worlds. (38) ..... . Any attempt to borrow more than the setting from a game is probably doomed."
+        },
+        {
+          "text": "There are many examples of successful film-game combinations. Rather than making a film using characters and stories from a computer game, the trick seems to be to make a film that has a fast-moving action sequence and then bring out a game based on that sequence. People who enjoyed the film will probably want to buy the game. This clearly creates a new market opportunity for the gaming industry."
+        },
+        {
+          "text": "Why do gamers feel disappointed by films based on their favourite games? (39) ..... . Computer games can show the action from a number of perspectives easily, because everything is computer-generated. But filming a sequence from 20 different cameras would cost a fortune, so it simply isn’t done in the film version – leaving the gamers feeling that the film didn’t look as real as the computer game."
+        },
+        {
+          "text": "Cameras matter in another sense, too. In a film the director shows you the action from certain perspectives but makes sure he doesn’t show you some things to keep you in suspense. Think of your favourite thriller. (40) ..... . In films you are not supposed to have access to all the information. Suspense and mystery are essential elements of film-making."
+        },
+        {
+          "text": "(41) ..... . When you play a game, you have to do certain tasks to proceed to the next level. Therefore, you must be able to see everything in order to make your choices, to decide what to do next: which door to open, and so on. You must have access to all the information. You, as the player, are always in control. In the cinema you never control the action. You just sit and watch."
+        },
+        {
+          "text": "There can be some interaction between films and computer games on a number of different levels, but in the end they fulfil different needs. (42) ..... . For all the similarities between technologies and special effects, we shouldn’t forget that a story and a game are fundamentally different."
         }
       ],
       "questionGroups": [
@@ -808,38 +926,31 @@
           "features": [
             {
               "id": "a",
-              "name": "It has become a major topic of discussion in Amsterdam.",
-              "_provenance": "ai-generated"
+              "name": "We go to the cinema to let someone else tell us a story, knowing we can’t influence what happens at all."
             },
             {
               "id": "b",
-              "name": "One key factor is the growing awareness among young Barcelona residents.",
-              "_provenance": "ai-generated"
+              "name": "You wouldn’t be interested in watching the film if you knew the identity of the murderer, for instance."
             },
             {
               "id": "c",
-              "name": "The number of people involved has risen by over 50% in the last decade.",
-              "_provenance": "ai-generated"
+              "name": "This is not true for computer games."
             },
             {
               "id": "d",
-              "name": "This change has been particularly noticeable in urban areas across the country.",
-              "_provenance": "ai-generated"
+              "name": "Its success lies in the use of special effects."
             },
             {
               "id": "e",
-              "name": "Finding adequate funding remains a significant obstacle for many organisations.",
-              "_provenance": "ai-generated"
+              "name": "This usually means that the film has a good chance of being as commercially successful as the game on which it is based."
             },
             {
               "id": "f",
-              "name": "Education and community engagement are seen as the most promising strategies.",
-              "_provenance": "ai-generated"
+              "name": "One reason is technical."
             },
             {
               "id": "g",
-              "name": "Several pilot projects have already shown encouraging results.",
-              "_provenance": "ai-generated"
+              "name": "However, the difficulty for the producers of Hollywood appears to be knowing where and when to stop."
             }
           ],
           "questions": [
@@ -847,37 +958,40 @@
               "id": "catalog-reading-fce-b2-test24-part-6-q37",
               "number": 37,
               "answer": "d",
-              "explanation": "Sentence B fits logically in gap 37.",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (37)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -886,37 +1000,40 @@
               "id": "catalog-reading-fce-b2-test24-part-6-q38",
               "number": 38,
               "answer": "g",
-              "explanation": "Sentence A fits logically in gap 38.",
+              "acceptedAnswers": [
+                "g"
+              ],
+              "explanation": "G",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (38)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -925,37 +1042,40 @@
               "id": "catalog-reading-fce-b2-test24-part-6-q39",
               "number": 39,
               "answer": "f",
-              "explanation": "Sentence C fits logically in gap 39.",
+              "acceptedAnswers": [
+                "f"
+              ],
+              "explanation": "F",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (39)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -964,37 +1084,40 @@
               "id": "catalog-reading-fce-b2-test24-part-6-q40",
               "number": 40,
               "answer": "b",
-              "explanation": "Sentence D fits logically in gap 40.",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (40)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -1003,37 +1126,40 @@
               "id": "catalog-reading-fce-b2-test24-part-6-q41",
               "number": 41,
               "answer": "c",
-              "explanation": "Sentence F fits logically in gap 41.",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (41)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -1042,37 +1168,40 @@
               "id": "catalog-reading-fce-b2-test24-part-6-q42",
               "number": 42,
               "answer": "a",
-              "explanation": "Sentence E fits logically in gap 42.",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (42)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -1085,27 +1214,23 @@
       "id": "catalog-reading-fce-b2-test24-part-7",
       "partNumber": 7,
       "rangeLabel": "Questions 43–52",
-      "passageTitle": "Part 7",
+      "passageTitle": "A chip off the old block",
       "passage": [
         {
           "label": "A",
-          "text": "Emma recently experienced favorite books in Vienna. It was an unforgettable experience that changed her perspective. The highlights included meeting new people from different backgrounds and learning about local customs. She particularly enjoyed the cultural events organised by the hosts. Despite some initial difficulties with the language, she felt that the overall experience was extremely rewarding. Noah recommends this experience to anyone interested in broadening their horizons.",
-          "_provenance": "ai-generated"
+          "text": "Graham Button My dad is a self-employed builder, like his father and his grandfather, and that means he was often out working in the evenings or at weekends when I was a child. I think he was proud of doing a ‘real’ job, something with his hands, which is perhaps why he always tried to push me into taking up the same profession. And of course he had his own business, which he wanted me to continue after he retired. When I was in high school, I decided that I really didn’t want to go into the family business, so at the moment I’m studying history. My father probably thinks I’m going to become a partner in his firm after I graduate, so I do worry that we might have a big fight about this some time in the future."
         },
         {
           "label": "B",
-          "text": "Mason recently experienced favorite books in Paris. It was a fascinating experience that changed his perspective. The challenges included meeting new people from different backgrounds and learning about local customs. He particularly enjoyed the practical workshops organised by the hosts. Despite some initial difficulties with the weather, he felt that the overall experience was extremely rewarding. Harper recommends this experience to anyone looking for broadening their horizons.",
-          "_provenance": "ai-generated"
+          "text": "Sue Smith My mother’s a nuclear physicist, which sounds very exciting. The truth is it’s a pretty tough profession. And I just don’t think it’s a very interesting job. Of course it’s important, but as far as I can see, you spend most of the day at a desk doing hundreds of calculations, and then checking and rechecking them. My mother did try to motivate me to take an interest in science subjects when I was about 14 or 15, and I think she’d be secretly pleased if I wanted to be a scientist, but she’s never put any sort of pressure on me. But I know she also thinks – as I do – that there aren’t so many jobs available in pure research, which is what she does."
         },
         {
           "label": "C",
-          "text": "Harper recently experienced favorite books in New York. It was an eye-opening experience that changed their perspective. The opportunities included meeting new people from different backgrounds and learning about local customs. They particularly enjoyed the guided tours organised by the hosts. Despite some initial difficulties with the schedule, they felt that the overall experience was extremely rewarding. James recommends this experience to anyone keen on broadening their horizons.",
-          "_provenance": "ai-generated"
+          "text": "Barry Porter When people find out my mother’s an actress, they always ask what Hollywood films she’s been in, and I have to explain that she’s only ever worked in provincial theatres. She’s hardly ever been on television, which is why not many people know her. That’s one of the problems with the theatre: very few people get to the top of the profession, and you have to be extremely lucky just to make a living from it. Actors often worry about where the next job’s coming from. Even if I had any talent for acting, I’d be put off by that side of it. As you can gather, I really don’t think my future is in the theatre, and in any case my mother has always tried to steer me away from taking up the profession."
         },
         {
           "label": "D",
-          "text": "Ethan recently experienced favorite books in Tokyo. It was a memorable experience that changed her perspective. The activities included meeting new people from different backgrounds and learning about local customs. She particularly enjoyed the community projects organised by the hosts. Despite some initial difficulties with the transport, she felt that the overall experience was extremely rewarding. Sophia recommends this experience to anyone curious about broadening their horizons.",
-          "_provenance": "ai-generated"
+          "text": "Ruth Lawrence My father teaches maths at high school, which definitely used to come in handy when we had a maths test the next day! I think in the back of his mind he expected me to be good at maths because he was always there to explain it. The truth is I’ve always been terrible at the subject. He also used to tell me about the satisfaction you can get from teaching, and I do think he’s right about that. I used to think I wanted to be a teacher, but then I began to think of the disadvantages. The profession’s changed and these days teachers have to work a lot in the holidays and prepare a lot at home, in the end I decided to go into accounting, and I don’t really think my dad’s job affected my decision at all."
         }
       ],
       "questionGroups": [
@@ -1137,10 +1262,13 @@
               "id": "catalog-reading-fce-b2-test24-part-7-q43",
               "number": 43,
               "answer": "b",
-              "explanation": "The answer is B because the text mentions this.",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who found the language challenging at first?",
+              "prompt": "thinks their parent s job is boring?",
               "options": [
                 {
                   "id": "a",
@@ -1158,17 +1286,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test24-part-7-q44",
               "number": 44,
               "answer": "c",
-              "explanation": "The answer is A because the text mentions this.",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Which person attended cultural events?",
+              "prompt": "was discouraged from following the same profession?",
               "options": [
                 {
                   "id": "a",
@@ -1186,17 +1316,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test24-part-7-q45",
               "number": 45,
               "answer": "d",
-              "explanation": "The answer is A because the text mentions this.",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who recommends the experience to others?",
+              "prompt": "changed their mind about a future career?",
               "options": [
                 {
                   "id": "a",
@@ -1214,17 +1346,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test24-part-7-q46",
               "number": 46,
               "answer": "a",
-              "explanation": "The answer is C because the text mentions this.",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Whose perspective was changed by the experience?",
+              "prompt": "experienced pressure to follow the same profession?",
               "options": [
                 {
                   "id": "a",
@@ -1242,17 +1376,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test24-part-7-q47",
               "number": 47,
               "answer": "d",
-              "explanation": "The answer is D because the text mentions this.",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who participated in practical workshops?",
+              "prompt": "feels they have not been influenced in choosing a career?",
               "options": [
                 {
                   "id": "a",
@@ -1270,17 +1406,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test24-part-7-q48",
               "number": 48,
               "answer": "a",
-              "explanation": "The answer is B because the text mentions this.",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Which person had difficulties with arrangements?",
+              "prompt": "comes from a long line of people in this profession?",
               "options": [
                 {
                   "id": "a",
@@ -1298,17 +1436,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test24-part-7-q49",
               "number": 49,
               "answer": "b",
-              "explanation": "The answer is A because the text mentions this.",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who met people from diverse backgrounds?",
+              "prompt": "thinks the profession in question offers few opportunities?",
               "options": [
                 {
                   "id": "a",
@@ -1326,17 +1466,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test24-part-7-q50",
               "number": 50,
               "answer": "a",
-              "explanation": "The answer is C because the text mentions this.",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Whose experience involved community projects?",
+              "prompt": "is concerned their choice will cause an argument?",
               "options": [
                 {
                   "id": "a",
@@ -1354,17 +1496,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test24-part-7-q51",
               "number": 51,
               "answer": "c",
-              "explanation": "The answer is D because the text mentions this.",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who enjoyed guided tours?",
+              "prompt": "thinks that success in their parent s profession is difficult?",
               "options": [
                 {
                   "id": "a",
@@ -1382,17 +1526,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test24-part-7-q52",
               "number": 52,
               "answer": "d",
-              "explanation": "The answer is C because the text mentions this.",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Which person was looking for a new challenge?",
+              "prompt": "thinks their parent s profession is rewarding?",
               "options": [
                 {
                   "id": "a",
@@ -1410,8 +1556,7 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             }
           ]
         }

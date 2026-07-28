@@ -55,8 +55,27 @@ async function collectFailures() {
     })
   }
 
-  const packageFile = path.join(REPO_ROOT, 'packages', 'catalog', 'data', 'reading-fce-b2-test27.json')
-  const exam = JSON.parse(await fs.readFile(packageFile, 'utf8'))
+  const raw2 = await loadRaw(2)
+  const { body: exam3 } = convertFcePagesToReadingExam(raw2, { sourceTestNumber: 2, appTestNumber: 3 })
+  const part5WithoutTitle = exam3.parts.find(item => item.partNumber === 5)
+  const part5Passage = (part5WithoutTitle?.passage ?? [])
+    .map(block => block.text)
+    .join(' ')
+  if (
+    part5Passage.length < 500
+    || /For questions 31-36, choose the answer/i.test(part5Passage)
+  ) {
+    addFailure(failures, {
+      appTestNumber: 3,
+      partNumber: 5,
+      questionNumber: null,
+      category: 'part5_no_h2_passage_missing',
+      actualAnswer: part5Passage.slice(0, 120),
+    })
+  }
+
+  const raw27 = await loadRaw(26)
+  const { body: exam } = convertFcePagesToReadingExam(raw27, { sourceTestNumber: 26, appTestNumber: 27 })
   for (const partNumber of [6, 7]) {
     const part = exam.parts.find(item => Number(item.partNumber) === partNumber)
     for (const question of allQuestions(part)) {
@@ -98,6 +117,46 @@ async function collectFailures() {
       promptOrigins: [...promptOrigins],
       answerOrigins: [...answerOrigins],
     })
+  }
+
+  const raw15 = await loadRaw(15)
+  const { body: exam16 } = convertFcePagesToReadingExam(raw15, { sourceTestNumber: 15, appTestNumber: 16 })
+  const part6Features = exam16.parts.find(item => item.partNumber === 6)?.questionGroups?.[0]?.features ?? []
+  if (part6Features.map(feature => feature.id).join(',') !== 'a,b,c,d,e,f,g') {
+    addFailure(failures, {
+      appTestNumber: 16,
+      partNumber: 6,
+      questionNumber: null,
+      category: 'duplicate_part6_feature_ids',
+      actualAnswer: part6Features.map(feature => feature.id).join(','),
+      expectedAcceptedAnswers: ['a', 'b', 'c', 'd', 'e', 'f', 'g'],
+    })
+  }
+
+  const raw13 = await loadRaw(13)
+  const { body: exam14 } = convertFcePagesToReadingExam(raw13, { sourceTestNumber: 13, appTestNumber: 14 })
+  const part7WithFiveSections = exam14.parts.find(item => item.partNumber === 7)
+  const part7Labels = (part7WithFiveSections?.passage ?? []).map(block => block.label)
+  if (part7Labels.join(',') !== 'A,B,C,D,E') {
+    addFailure(failures, {
+      appTestNumber: 14,
+      partNumber: 7,
+      questionNumber: null,
+      category: 'part7_section_bank_truncated',
+      actualAnswer: part7Labels.join(','),
+      expectedAcceptedAnswers: ['A', 'B', 'C', 'D', 'E'],
+    })
+  }
+  for (const question of allQuestions(part7WithFiveSections)) {
+    if (!question.prompt || /^Question \d+$/i.test(question.prompt)) {
+      addFailure(failures, {
+        appTestNumber: 14,
+        partNumber: 7,
+        questionNumber: question.number,
+        category: 'part7_source_prompt_missing',
+        actualAnswer: question.prompt ?? null,
+      })
+    }
   }
 
   return failures

@@ -31,6 +31,9 @@
               "id": "catalog-reading-fce-b2-test18-part-1-q1",
               "number": 1,
               "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
               "explanation": "conducted.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -58,6 +61,9 @@
               "id": "catalog-reading-fce-b2-test18-part-1-q2",
               "number": 2,
               "answer": "a",
+              "acceptedAnswers": [
+                "a"
+              ],
               "explanation": "exceed.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -85,6 +91,9 @@
               "id": "catalog-reading-fce-b2-test18-part-1-q3",
               "number": 3,
               "answer": "d",
+              "acceptedAnswers": [
+                "d"
+              ],
               "explanation": "prospect.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -112,6 +121,9 @@
               "id": "catalog-reading-fce-b2-test18-part-1-q4",
               "number": 4,
               "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
               "explanation": "contrast.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -139,6 +151,9 @@
               "id": "catalog-reading-fce-b2-test18-part-1-q5",
               "number": 5,
               "answer": "c",
+              "acceptedAnswers": [
+                "c"
+              ],
               "explanation": "narrow.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -166,6 +181,9 @@
               "id": "catalog-reading-fce-b2-test18-part-1-q6",
               "number": 6,
               "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
               "explanation": "trend.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -193,6 +211,9 @@
               "id": "catalog-reading-fce-b2-test18-part-1-q7",
               "number": 7,
               "answer": "a",
+              "acceptedAnswers": [
+                "a"
+              ],
               "explanation": "extent.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -220,6 +241,9 @@
               "id": "catalog-reading-fce-b2-test18-part-1-q8",
               "number": 8,
               "answer": "d",
+              "acceptedAnswers": [
+                "d"
+              ],
               "explanation": "reflect.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -251,12 +275,20 @@
       "id": "catalog-reading-fce-b2-test18-part-2",
       "partNumber": 2,
       "rangeLabel": "Questions 9–16",
-      "passageTitle": "Part 2",
-      "passageSubtitle": "",
+      "passageTitle": "The importance of friendship",
+      "passageSubtitle": "ABOUT",
       "passage": [
         {
-          "text": "When it comes to friendship and relationships, there are several factors to consider. (9) ..... of all, it is important to understand the basic principles. Many people, (10) ..... , fail to recognise the significance of this. The reason (11) ..... this may be due to a lack of exposure. (12) ..... the other hand, those who have experience tend to disagree. It is worth noting that (13) ..... of the challenges we face can be overcome with patience. (14) ..... is also true that practice plays a crucial role. Finally, (15) ..... should be given to those who persist (16) ..... the face of difficulty.",
-          "_provenance": "ai-generated"
+          "text": "It is undeniable that friendship is important for just 0 _____ everyone. Individuals with several close friends are usually happier than those (9) ..... . Good friends often know things that family members may not be aware of, even (10) ..... they have lived together for years.",
+          "_provenance": "source"
+        },
+        {
+          "text": "This is probably (11) ..... when in the company of a good friend we share our secrets and dreams. Friends turn to one (12) ..... for suggestions on how to solve their problems. There is a tendency (13) ..... close friends to be very honest, sometimes saying things the other person may not want to hear!",
+          "_provenance": "source"
+        },
+        {
+          "text": "Good friends stick together, and the best relationships may last a lifetime. It is (14) ..... surprise that most friends have similar personalities, which reduces the risk of conflict. However, people don’t always have an accurate picture of (15) ..... their true friends are. Research shows that in a surprising number of cases a person someone considers a good friend doesn’t feel the (16) ..... about them.",
+          "_provenance": "source"
         }
       ],
       "questionGroups": [
@@ -269,9 +301,12 @@
             {
               "id": "catalog-reading-fce-b2-test18-part-2-q9",
               "number": 9,
-              "answer": "first",
-              "explanation": "The correct word is \"first\".",
-              "answerConfidence": "ai-generated",
+              "answer": "without",
+              "acceptedAnswers": [
+                "without"
+              ],
+              "explanation": "without.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (9)",
               "size": 10
@@ -279,9 +314,15 @@
             {
               "id": "catalog-reading-fce-b2-test18-part-2-q10",
               "number": 10,
-              "answer": "however",
-              "explanation": "The correct word is \"however\".",
-              "answerConfidence": "ai-generated",
+              "answer": "if",
+              "acceptedAnswers": [
+                "if",
+                "after",
+                "when",
+                "though"
+              ],
+              "explanation": "if/after/when/though.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (10)",
               "size": 10
@@ -289,9 +330,12 @@
             {
               "id": "catalog-reading-fce-b2-test18-part-2-q11",
               "number": 11,
-              "answer": "for",
-              "explanation": "The correct word is \"for\".",
-              "answerConfidence": "ai-generated",
+              "answer": "because",
+              "acceptedAnswers": [
+                "because"
+              ],
+              "explanation": "because.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (11)",
               "size": 10
@@ -299,9 +343,12 @@
             {
               "id": "catalog-reading-fce-b2-test18-part-2-q12",
               "number": 12,
-              "answer": "on",
-              "explanation": "The correct word is \"on\".",
-              "answerConfidence": "ai-generated",
+              "answer": "another",
+              "acceptedAnswers": [
+                "another"
+              ],
+              "explanation": "another.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (12)",
               "size": 10
@@ -309,9 +356,12 @@
             {
               "id": "catalog-reading-fce-b2-test18-part-2-q13",
               "number": 13,
-              "answer": "most",
-              "explanation": "The correct word is \"most\".",
-              "answerConfidence": "ai-generated",
+              "answer": "among",
+              "acceptedAnswers": [
+                "among"
+              ],
+              "explanation": "among.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (13)",
               "size": 10
@@ -319,9 +369,13 @@
             {
               "id": "catalog-reading-fce-b2-test18-part-2-q14",
               "number": 14,
-              "answer": "it",
-              "explanation": "The correct word is \"it\".",
-              "answerConfidence": "ai-generated",
+              "answer": "no",
+              "acceptedAnswers": [
+                "no",
+                "little"
+              ],
+              "explanation": "no/little.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (14)",
               "size": 10
@@ -329,9 +383,12 @@
             {
               "id": "catalog-reading-fce-b2-test18-part-2-q15",
               "number": 15,
-              "answer": "credit",
-              "explanation": "The correct word is \"credit\".",
-              "answerConfidence": "ai-generated",
+              "answer": "who",
+              "acceptedAnswers": [
+                "who"
+              ],
+              "explanation": "who.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (15)",
               "size": 10
@@ -339,25 +396,19 @@
             {
               "id": "catalog-reading-fce-b2-test18-part-2-q16",
               "number": 16,
-              "answer": "in",
-              "explanation": "The correct word is \"in\".",
-              "answerConfidence": "ai-generated",
+              "answer": "same",
+              "acceptedAnswers": [
+                "same"
+              ],
+              "explanation": "same.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (16)",
               "size": 10
             }
           ]
         }
-      ],
-      "_aiRepairMeta": {
-        "appliedAt": "2026-07-28T07:34:28.044Z",
-        "fields": [
-          "passage",
-          "questions",
-          "answers",
-          "explanations"
-        ]
-      }
+      ]
     },
     {
       "id": "catalog-reading-fce-b2-test18-part-3",
@@ -386,6 +437,9 @@
               "id": "catalog-reading-fce-b2-test18-part-3-q17",
               "number": 17,
               "answer": "depth",
+              "acceptedAnswers": [
+                "depth"
+              ],
               "explanation": "depth.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -397,6 +451,9 @@
               "id": "catalog-reading-fce-b2-test18-part-3-q18",
               "number": 18,
               "answer": "unusual",
+              "acceptedAnswers": [
+                "unusual"
+              ],
               "explanation": "unusual.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -408,6 +465,9 @@
               "id": "catalog-reading-fce-b2-test18-part-3-q19",
               "number": 19,
               "answer": "endangered",
+              "acceptedAnswers": [
+                "endangered"
+              ],
               "explanation": "endangered.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -419,6 +479,9 @@
               "id": "catalog-reading-fce-b2-test18-part-3-q20",
               "number": 20,
               "answer": "establishment",
+              "acceptedAnswers": [
+                "establishment"
+              ],
               "explanation": "establishment.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -430,6 +493,9 @@
               "id": "catalog-reading-fce-b2-test18-part-3-q21",
               "number": 21,
               "answer": "unforgettable",
+              "acceptedAnswers": [
+                "unforgettable"
+              ],
               "explanation": "unforgettable.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -441,6 +507,9 @@
               "id": "catalog-reading-fce-b2-test18-part-3-q22",
               "number": 22,
               "answer": "accessible",
+              "acceptedAnswers": [
+                "accessible"
+              ],
               "explanation": "accessible.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -452,6 +521,9 @@
               "id": "catalog-reading-fce-b2-test18-part-3-q23",
               "number": 23,
               "answer": "inhabitants",
+              "acceptedAnswers": [
+                "inhabitants"
+              ],
               "explanation": "inhabitants.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -463,6 +535,9 @@
               "id": "catalog-reading-fce-b2-test18-part-3-q24",
               "number": 24,
               "answer": "surprisingly",
+              "acceptedAnswers": [
+                "surprisingly"
+              ],
               "explanation": "surprisingly.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -490,7 +565,11 @@
             {
               "id": "catalog-reading-fce-b2-test18-part-4-q25",
               "number": 25,
-              "answer": "led schools to getting/being closed",
+              "answer": "led schools to getting",
+              "acceptedAnswers": [
+                "led schools to getting",
+                "being closed"
+              ],
               "explanation": "led schools to getting/being closed.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -504,6 +583,9 @@
               "id": "catalog-reading-fce-b2-test18-part-4-q26",
               "number": 26,
               "answer": "doesn’t pay much attention",
+              "acceptedAnswers": [
+                "doesn’t pay much attention"
+              ],
               "explanation": "doesn t pay much attention.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -517,52 +599,64 @@
               "id": "catalog-reading-fce-b2-test18-part-4-q27",
               "number": 27,
               "answer": "regrets not taking",
+              "acceptedAnswers": [
+                "regrets not taking"
+              ],
               "explanation": "regrets not taking.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "John wishes he had taken an umbrella to work this morning. TAKING -> John .....",
-              "sourceSentence": "John wishes he had taken an umbrella to work this morning.",
+              "prompt": "John wishes he had taken an umbrella to work this morning. John TAKING -> . John wishes he had taken an umbrella to work this morning.  John ..... an umbrella to work this morning",
+              "sourceSentence": "John wishes he had taken an umbrella to work this morning. John",
               "keyword": "TAKING",
-              "targetSentence": "John .....",
+              "targetSentence": ". John wishes he had taken an umbrella to work this morning.  John ..... an umbrella to work this morning",
               "size": 40
             },
             {
               "id": "catalog-reading-fce-b2-test18-part-4-q28",
               "number": 28,
               "answer": "with the exception of",
+              "acceptedAnswers": [
+                "with the exception of"
+              ],
               "explanation": "with the exception of.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Donna said that apart from Friday, every day last week had been really hot. EXCEPTION -> Donna said that .....",
-              "sourceSentence": "Donna said that apart from Friday, every day last week had been really hot.",
+              "prompt": "Donna said that apart from Friday, every day last week had been really hot. Donna said that EXCEPTION -> . Donna said that apart from Friday, every day last week had been really hot.  Donna said that ..... Friday, every day last week had been really hot.",
+              "sourceSentence": "Donna said that apart from Friday, every day last week had been really hot. Donna said that",
               "keyword": "EXCEPTION",
-              "targetSentence": "Donna said that .....",
+              "targetSentence": ". Donna said that apart from Friday, every day last week had been really hot.  Donna said that ..... Friday, every day last week had been really hot.",
               "size": 40
             },
             {
               "id": "catalog-reading-fce-b2-test18-part-4-q29",
               "number": 29,
               "answer": "never had weather as bad",
+              "acceptedAnswers": [
+                "never had weather as bad"
+              ],
               "explanation": "never had weather as bad.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "This is the worst weather we’ve ever had in July. AS -> We’ve .....",
-              "sourceSentence": "This is the worst weather we’ve ever had in July.",
+              "prompt": "This is the worst weather we’ve ever had in July. We’ve AS -> . This is the worst weather we’ve ever had in July.  We’ve ..... as this in July",
+              "sourceSentence": "This is the worst weather we’ve ever had in July. We’ve",
               "keyword": "AS",
-              "targetSentence": "We’ve .....",
+              "targetSentence": ". This is the worst weather we’ve ever had in July.  We’ve ..... as this in July",
               "size": 40
             },
             {
               "id": "catalog-reading-fce-b2-test18-part-4-q30",
               "number": 30,
               "answer": "heat must have been",
+              "acceptedAnswers": [
+                "heat must have been"
+              ],
               "explanation": "heat must have been.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "I’m sure it was unbearably hot where you were staying. MUST -> The .....",
-              "sourceSentence": "I’m sure it was unbearably hot where you were staying.",
+              "prompt": "I’m sure it was unbearably hot where you were staying. The MUST -> . I’m sure it was unbearably hot where you were staying.  The ..... unbearable where you were staying.",
+              "sourceSentence": "I’m sure it was unbearably hot where you were staying. The",
               "keyword": "MUST",
-              "targetSentence": "The .....",
+              "targetSentence": ". I’m sure it was unbearably hot where you were staying.  The ..... unbearable where you were staying.",
               "size": 40
             }
           ]
@@ -573,10 +667,25 @@
       "id": "catalog-reading-fce-b2-test18-part-5",
       "partNumber": 5,
       "rangeLabel": "Questions 31–36",
-      "passageTitle": "Part 5",
+      "passageTitle": "Dream Jobs",
       "passage": [
         {
-          "text": "The Architecture of Modern Cities. This is a subject that has fascinated researchers for many years. In a recent study conducted at the University of Manchester, scientists examined the various factors that contribute to our understanding of this topic. The study involved over 500 participants and lasted for approximately two years.\n\nThe results were surprising. The research team, led by Dr. Isabella, found that there were significant differences between the groups they studied. One participant commented, 'I had no idea that this would be the outcome. It completely changed my perspective on the issue.'\n\nCritics of the study have pointed out some limitations. Professor Sophia from Sydney University argues that the sample size was too small to draw definitive conclusions. 'While the findings are interesting,' he says, 'we need more research before we can apply them broadly.'\n\nDespite these criticisms, the study represents an important step forward. The authors emphasise that further investigation is needed, but they remain optimistic about the potential applications of their work. 'This is just the beginning,' Dr. Liam stated. 'We are already planning follow-up studies that will explore these questions in more depth.'"
+          "text": "During our teens, all the pupils at my school had to have a meeting with a ‘careers advisor’ who only seemed to know about jobs at the local ship-building works. That was fine for some, but many of us would have liked to hear about a wider range of opportunities at that time. If only she had known about the jobs I’ve been researching for this article! It seems there are positions out there that are almost too good to be true."
+        },
+        {
+          "text": "Take, for example, the job with the title ‘Ice cream flavour advisor’ for ice cream manufacturer Frederick’s. Imagine making and tasting ice cream for a living! From the Fredrick’s website I learned that the people who do this job are all chefs and food scientists, and often go on what they call ‘taste hunts’ where they travel to other countries, trying new foods to get inspiration for new products. The website’s home page also states that ‘every ingredient deserves consideration’, meaning anything from peanuts to potatoes could make it into the next flavour advisor’s invention. I guess the one downside of this job could be tasting failed creations."
+        },
+        {
+          "text": "For those worried about the health implications of eating so much ice cream, then how about something more active? The perfect job for water sports lovers was advertised in 2015 by holiday company Travel Now. They needed a water slide tester! This involved getting into swimming gear and speeding down slides at various holiday centres around the world to check for any issues. The company was seeking applicants with strong written and verbal skills, experience in social media and a willingness to travel."
+        },
+        {
+          "text": "Another job that seems impossibly wonderful is one for those who dream of living on a remote island. As the caretaker of a private island in the Maldives, Simon Grainger gets to enjoy fabulous weather, fishing and boating as part of his job. However, he says that while it may sound more like an extended holiday than work, the responsibilities of the job can be very demanding. These include maintaining and repairing the island owners’ property and cleaning up after storms. On top of that, being by yourself on an island means that your social life suffers. Seeing friends involves an hour’s boat ride, which is never easy and sometimes impossible. Grainger warns anyone considering a job like his to be realistic about it. He explains you’ve got be very practical with good physical fitness, and happy in your own company. If you are this type of person, you’ll do the job well and never want to go back to life on the mainland."
+        },
+        {
+          "text": "A fortune cookie is a moon-shaped biscuit given away in Chinese restaurants that contains a little piece of paper with a message on it. Millions of these are read every day, but few realise that people actually get paid to write the words of wisdom you find when you crack your cookie open. Daisy Cheng, president of New Asian Food in Los Angeles, used to be one such person. It wasn’t exactly her chosen career path, it was more of a role she fell into. When the company expanded and realised they needed to update their cookie messages, she was asked to do it because her English language skills were stronger than other employees’. She found it difficult to start with, but soon she was finding inspiration everywhere, from subway signs to newspapers."
+        },
+        {
+          "text": "As a writer myself, I would love to create messages for fortune cookies, but I would be delighted to do any one of these amazing jobs. Listen up careers advisors!"
         }
       ],
       "questionGroups": [
@@ -590,7 +699,10 @@
               "id": "catalog-reading-fce-b2-test18-part-5-q31",
               "number": 31,
               "answer": "d",
-              "explanation": "The correct answer is C.",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "How does the writer feel about the careers advisor he met when he was younger?",
@@ -617,7 +729,10 @@
               "id": "catalog-reading-fce-b2-test18-part-5-q32",
               "number": 32,
               "answer": "a",
-              "explanation": "The correct answer is A.",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "What is claimed on the website for Frederick’s ice cream?",
@@ -644,7 +759,10 @@
               "id": "catalog-reading-fce-b2-test18-part-5-q33",
               "number": 33,
               "answer": "a",
-              "explanation": "The correct answer is D.",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "Applicants for the job of water slide tester were required by Travel Now to",
@@ -671,7 +789,10 @@
               "id": "catalog-reading-fce-b2-test18-part-5-q34",
               "number": 34,
               "answer": "c",
-              "explanation": "The correct answer is B.",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "What does Grainger say about his role as caretaker on a private island?",
@@ -698,7 +819,10 @@
               "id": "catalog-reading-fce-b2-test18-part-5-q35",
               "number": 35,
               "answer": "a",
-              "explanation": "The correct answer is A.",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "What does the fifth paragraph say about Daisy Cheng getting her job as fortune cookie writer?",
@@ -725,7 +849,10 @@
               "id": "catalog-reading-fce-b2-test18-part-5-q36",
               "number": 36,
               "answer": "d",
-              "explanation": "The correct answer is C.",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "What does ‘one such person’ refer to in the fifth paragraph?",
@@ -756,11 +883,28 @@
       "id": "catalog-reading-fce-b2-test18-part-6",
       "partNumber": 6,
       "rangeLabel": "Questions 37–42",
-      "passageTitle": "Part 6",
+      "passageTitle": "Field trips for school children",
       "passage": [
         {
-          "text": "Renewable Energy is a topic that has attracted considerable attention. (37) ..... The reasons for this growing interest are varied. (38) ..... Many people now recognise the importance of this issue.\n\nAccording to recent surveys, engagement with this topic has increased significantly. (39) ..... This trend is expected to continue in the coming years. (40) ..... However, there are still challenges that need to be addressed.\n\nExperts suggest several approaches to dealing with these challenges. (41) ..... Early evidence suggests that these methods are effective. (42) ..... Only time will tell whether these efforts will succeed.",
-          "_provenance": "ai-generated"
+          "text": "For many years, school children in the US have been taken on ‘field trips’ to cultural institutions such as museums of art and of science, as well as theatres, zoos and historical sites."
+        },
+        {
+          "text": "Despite these trips involving some expense and disruption to class timetables, educators arrange them in the belief that schools exist not only to teach economically useful skills, but also to produce civilised young people who appreciate the arts and culture. (37) ..... . So you could say that taking school students on field trips is a means of giving everyone equal access to their cultural heritage."
+        },
+        {
+          "text": "However, there have been increasing signs in recent years that the attitude towards field trips is changing, with the number of tours organised for school groups falling significantly in museums all around the country. Take the Field Museum in Chicago, for example. It used to have over 300,000 students each year through its doors. That number has dropped to below 200,000 more recently. (38) ..... . A survey exploring the trend carried out by a group of school administrators found that over half the schools they asked had decided to cancel trips planned for the next academic year."
+        },
+        {
+          "text": "So what are the reasons for this change? The most obvious one is the issue of finance. Because there are increasing demands on their funds (computers and sports facilities aren’t cheap), schools are forced to make a difficult choice about how to spend the limited money they have. (39) ..... . A significant number of school heads also consider days spent away from school a waste of time, believing that the only worthwhile use of students’ time is spent preparing for exams in the classroom."
+        },
+        {
+          "text": "Although school trips do still happen, the nature of these field days is also changing. Schools increasingly use trips as a treat for students who work hard, rather than as an opportunity for cultural learning. They are taken to amusement parks or sporting events instead of to museums and historical sites. (40) ..... . In a recent survey, 500 Arkansas teachers were asked about the purpose of trips they organised. Older teachers were significantly more likely to believe the primary purpose of a field trip was to provide a learning experience than younger teachers, who mostly saw the main point of a trip as fun."
+        },
+        {
+          "text": "But why should anybody worry if school children go on fewer trips? Those that believe this is a negative development in education would say that cultural field trips contribute to the development of students into well-educated adults who have a healthy interest in history and the arts. (41) ..... ."
+        },
+        {
+          "text": "One exception is the research led by Jay P. Greene at Arkansas University. His team found that students who received a tour of an art museum significantly improved their knowledge of and ability to think critically about art. (42) ..... . The researchers warn that if schools cut field trips or switch from ‘reward’ trips to less educational destinations, then valuable opportunities to broaden and enrich children’s learning experiences are lost."
         }
       ],
       "questionGroups": [
@@ -781,38 +925,31 @@
           "features": [
             {
               "id": "a",
-              "name": "It has become a major topic of discussion in Amsterdam.",
-              "_provenance": "ai-generated"
+              "name": "This shift to ‘reward’ field trips could have a basis in generational differences between teachers’ reasons for organising days out of school."
             },
             {
               "id": "b",
-              "name": "One key factor is the growing awareness among young Manchester residents.",
-              "_provenance": "ai-generated"
+              "name": "However, there is little evidence to support this argument, as few studies into the effect of field trips have been done."
             },
             {
               "id": "c",
-              "name": "The number of people involved has risen by over 50% in the last decade.",
-              "_provenance": "ai-generated"
+              "name": "An online tour of the museum, during which they viewed and discussed five paintings, made little impact on students."
             },
             {
               "id": "d",
-              "name": "This change has been particularly noticeable in urban areas across the country.",
-              "_provenance": "ai-generated"
+              "name": "Faced with this dilemma, field trips are an obvious thing to cut since they are seen by many as a luxury."
             },
             {
               "id": "e",
-              "name": "Finding adequate funding remains a significant obstacle for many organisations.",
-              "_provenance": "ai-generated"
+              "name": "While there are parents who will take their children to cultural places and events in their free time, there are plenty of other children who will never have this kind of opportunity unless schools offer it"
             },
             {
               "id": "f",
-              "name": "Education and community engagement are seen as the most promising strategies.",
-              "_provenance": "ai-generated"
+              "name": "They also displayed stronger historical empathy and were more likely to visit cultural institutions in the future."
             },
             {
               "id": "g",
-              "name": "Several pilot projects have already shown encouraging results.",
-              "_provenance": "ai-generated"
+              "name": "A similar pattern is emerging in many other areas of the country, and is set to continue."
             }
           ],
           "questions": [
@@ -820,37 +957,40 @@
               "id": "catalog-reading-fce-b2-test18-part-6-q37",
               "number": 37,
               "answer": "e",
-              "explanation": "Sentence B fits logically in gap 37.",
+              "acceptedAnswers": [
+                "e"
+              ],
+              "explanation": "E",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (37)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -859,37 +999,40 @@
               "id": "catalog-reading-fce-b2-test18-part-6-q38",
               "number": 38,
               "answer": "g",
-              "explanation": "Sentence A fits logically in gap 38.",
+              "acceptedAnswers": [
+                "g"
+              ],
+              "explanation": "G",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (38)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -898,37 +1041,40 @@
               "id": "catalog-reading-fce-b2-test18-part-6-q39",
               "number": 39,
               "answer": "d",
-              "explanation": "Sentence C fits logically in gap 39.",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (39)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -937,37 +1083,40 @@
               "id": "catalog-reading-fce-b2-test18-part-6-q40",
               "number": 40,
               "answer": "a",
-              "explanation": "Sentence D fits logically in gap 40.",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (40)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -976,37 +1125,40 @@
               "id": "catalog-reading-fce-b2-test18-part-6-q41",
               "number": 41,
               "answer": "b",
-              "explanation": "Sentence F fits logically in gap 41.",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (41)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -1015,37 +1167,40 @@
               "id": "catalog-reading-fce-b2-test18-part-6-q42",
               "number": 42,
               "answer": "f",
-              "explanation": "Sentence E fits logically in gap 42.",
+              "acceptedAnswers": [
+                "f"
+              ],
+              "explanation": "F",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (42)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -1058,27 +1213,27 @@
       "id": "catalog-reading-fce-b2-test18-part-7",
       "partNumber": 7,
       "rangeLabel": "Questions 43–52",
-      "passageTitle": "Part 7",
+      "passageTitle": "The Sea Mammal Institute",
       "passage": [
         {
           "label": "A",
-          "text": "Amelia recently experienced cultural festivals in Manchester. It was an unforgettable experience that changed her perspective. The highlights included meeting new people from different backgrounds and learning about local customs. She particularly enjoyed the cultural events organised by the hosts. Despite some initial difficulties with the language, she felt that the overall experience was extremely rewarding. Isabella recommends this experience to anyone interested in broadening their horizons.",
-          "_provenance": "ai-generated"
+          "text": "The Sea Mammal Institute is a wildlife conservation organisation set up to protect whales, dolphins and porpoises. Our team of professional researchers work together with volunteers to identify and monitor the numbers and locations of these creatures in order to gain valuable knowledge of the state of our ocean environment, and the impact of climate change, noise disturbance, chemical pollution and overfishing in our seas. We are also proud of the educational role we perform, increasing public knowledge and understanding of sea mammals, and passing on what our data has taught us through community group talks and school visits."
         },
         {
           "label": "B",
-          "text": "Ethan recently experienced cultural festivals in Berlin. It was a fascinating experience that changed his perspective. The challenges included meeting new people from different backgrounds and learning about local customs. He particularly enjoyed the practical workshops organised by the hosts. Despite some initial difficulties with the weather, he felt that the overall experience was extremely rewarding. Oliver recommends this experience to anyone looking for broadening their horizons.",
-          "_provenance": "ai-generated"
+          "text": "Our organisation relies heavily on volunteers, who help collect data and then input, organise and analyse it. Volunteers interested in photography are always very welcome to help update our photo-identification catalogue – a collection of pictures of all the different species we monitor – and organise our ever-growing image library. If you would like to be a volunteer, the most straightforward way to get involved is to contact the organisation’s co-ordinator in your area, and join him or her for a sea watch. Anyone with enthusiasm and a pair of binoculars can take part – and, as you’ll learn if you join us, patience is pretty essential too!"
         },
         {
           "label": "C",
-          "text": "Lucas recently experienced cultural festivals in Amsterdam. It was an eye-opening experience that changed their perspective. The opportunities included meeting new people from different backgrounds and learning about local customs. They particularly enjoyed the guided tours organised by the hosts. Despite some initial difficulties with the schedule, they felt that the overall experience was extremely rewarding. Mason recommends this experience to anyone keen on broadening their horizons.",
-          "_provenance": "ai-generated"
+          "text": "Although we are pleased to receive any information on public sightings of whales, dolphins and porpoises, it is also important for us to have ‘effort-related’ data collected by trained volunteers. ‘Effort-related’ data is that recorded by observers who time their watch and note down specific environmental data every 15 minutes. It doesn’t matter how long each watch is, provided that its date and location are carefully noted down along with any details about sightings of sea creatures. We emphasise the need to do some basic training in observation before taking part in a watch because it’s not as simple as it sounds. For example, despite the bottlenose dolphin being probably the best-known type of dolphin, it is in fact rather tricky to identify with any confidence, since it has no clear pattern markings. The upper part of its body is plain dark brown and the underside is a paler brown or grey. So volunteers need plenty of guidance regarding how exactly to recognise it."
         },
         {
           "label": "D",
-          "text": "Charlotte recently experienced cultural festivals in Cape Town. It was a memorable experience that changed her perspective. The activities included meeting new people from different backgrounds and learning about local customs. She particularly enjoyed the community projects organised by the hosts. Despite some initial difficulties with the transport, she felt that the overall experience was extremely rewarding. Amelia recommends this experience to anyone curious about broadening their horizons.",
-          "_provenance": "ai-generated"
+          "text": "The Sea Mammal Institute has been running courses for over twenty years, making it the most experienced organisation for training observers and students interested in sea animals in the country. It provides staff training for leading conservation organisations, and guarantees a very high quality of training from expert course leaders. The two-day introductory course recommended for new volunteer observers teaches participants the basics of how to identify different species, estimate group size, distinguish between calves, juveniles and adults and to assess the state of the sea. Plenty of practice conducting both land and boat-based surveys is given. Also included are sessions on basic photographic techniques to enable observers to identify an individual animal through distinctive markings, body size or injury scars."
+        },
+        {
+          "label": "E",
+          "text": "One of the strengths of our organisation is that we do long-term, continuous research. Over the 25 years since Sea Watch was set up, some significant insights have resulted from this research. For example, our monitoring of bottlenose dolphins shows that even in locations that are already controlled conservation areas, large numbers of motorised boats may be causing changes in their behaviour. Although strict codes of conduct stop boats approaching dolphins too closely or too fast, it is believed that the creatures’ social structures are being affected by the presence of so many boats in these areas."
         }
       ],
       "questionGroups": [
@@ -1103,6 +1258,10 @@
             {
               "id": "d",
               "name": "D"
+            },
+            {
+              "id": "e",
+              "name": "E"
             }
           ],
           "questions": [
@@ -1110,10 +1269,13 @@
               "id": "catalog-reading-fce-b2-test18-part-7-q43",
               "number": 43,
               "answer": "c",
-              "explanation": "The answer is B because the text mentions this.",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who found the language challenging at first?",
+              "prompt": "points out that some aspects of the volunteers’ work is surprisingly challenging?",
               "options": [
                 {
                   "id": "a",
@@ -1135,17 +1297,19 @@
                   "id": "e",
                   "label": "E"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test18-part-7-q44",
               "number": 44,
               "answer": "d",
-              "explanation": "The answer is A because the text mentions this.",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Which person attended cultural events?",
+              "prompt": "includes a promise about the excellence of some services it offers?",
               "options": [
                 {
                   "id": "a",
@@ -1167,17 +1331,19 @@
                   "id": "e",
                   "label": "E"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test18-part-7-q45",
               "number": 45,
               "answer": "b",
-              "explanation": "The answer is A because the text mentions this.",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who recommends the experience to others?",
+              "prompt": "says that the organisation is keen to recruit people who have a certain hobby?",
               "options": [
                 {
                   "id": "a",
@@ -1199,17 +1365,19 @@
                   "id": "e",
                   "label": "E"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test18-part-7-q46",
               "number": 46,
               "answer": "e",
-              "explanation": "The answer is C because the text mentions this.",
+              "acceptedAnswers": [
+                "e"
+              ],
+              "explanation": "E",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Whose perspective was changed by the experience?",
+              "prompt": "lists a number of threats to animals that live in the sea?",
               "options": [
                 {
                   "id": "a",
@@ -1231,17 +1399,19 @@
                   "id": "e",
                   "label": "E"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test18-part-7-q47",
               "number": 47,
               "answer": "e",
-              "explanation": "The answer is D because the text mentions this.",
+              "acceptedAnswers": [
+                "e"
+              ],
+              "explanation": "E",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who participated in practical workshops?",
+              "prompt": "mentions the length of time that the organisation has existed?",
               "options": [
                 {
                   "id": "a",
@@ -1263,17 +1433,19 @@
                   "id": "e",
                   "label": "E"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test18-part-7-q48",
               "number": 48,
               "answer": "b",
-              "explanation": "The answer is B because the text mentions this.",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Which person had difficulties with arrangements?",
+              "prompt": "outlines the characteristics that are useful for volunteers to have?",
               "options": [
                 {
                   "id": "a",
@@ -1295,17 +1467,19 @@
                   "id": "e",
                   "label": "E"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test18-part-7-q49",
               "number": 49,
               "answer": "e",
-              "explanation": "The answer is A because the text mentions this.",
+              "acceptedAnswers": [
+                "e"
+              ],
+              "explanation": "E",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who met people from diverse backgrounds?",
+              "prompt": "warns that the measures taken to protect one species are not enough?",
               "options": [
                 {
                   "id": "a",
@@ -1327,17 +1501,19 @@
                   "id": "e",
                   "label": "E"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test18-part-7-q50",
               "number": 50,
               "answer": "c",
-              "explanation": "The answer is C because the text mentions this.",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Whose experience involved community projects?",
+              "prompt": "mentions features which can help distinguish one animal from another of the same species?",
               "options": [
                 {
                   "id": "a",
@@ -1359,17 +1535,19 @@
                   "id": "e",
                   "label": "E"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test18-part-7-q51",
               "number": 51,
               "answer": "a",
-              "explanation": "The answer is D because the text mentions this.",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who enjoyed guided tours?",
+              "prompt": "mentions how the organisation informs the public about its research findings?",
               "options": [
                 {
                   "id": "a",
@@ -1391,17 +1569,19 @@
                   "id": "e",
                   "label": "E"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test18-part-7-q52",
               "number": 52,
               "answer": "c",
-              "explanation": "The answer is C because the text mentions this.",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Which person was looking for a new challenge?",
+              "prompt": "describes the process involved in one kind of information-gathering session?",
               "options": [
                 {
                   "id": "a",
@@ -1423,8 +1603,7 @@
                   "id": "e",
                   "label": "E"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             }
           ]
         }

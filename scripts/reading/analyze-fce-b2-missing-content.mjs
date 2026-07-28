@@ -103,7 +103,7 @@ function markerCount(text, numbers) {
 }
 
 function sourceHtml(page) {
-  return String(page?.passageTextHtml || page?.entryContentHtml || page?.rawHtmlSample || '')
+  return String(page?.passageTextHtml || page?.entryContentHtml || '')
 }
 
 function rawBaseWordCount(html, numbers, questions) {
@@ -119,14 +119,21 @@ function rawBaseWordCount(html, numbers, questions) {
   return found.size
 }
 
-function labelledBlockCount(html, letters) {
+function labelledBlocks(html, letters) {
   const doc = parse5.parseFragment(String(html ?? ''))
-  const found = new Set()
+  const blocks = []
   for (const strong of nodesByTag(doc, 'strong')) {
     const text = elementText(strong).toUpperCase()
-    if (letters.includes(text)) found.add(text)
+    const label = text.match(/^([A-G])(?:[.\s]|$)/)?.[1]
+    if (letters.includes(label)) blocks.push({ label, text })
   }
-  return found.size
+  return blocks
+}
+
+function sourceOptionLetters(questions, letters) {
+  return [...new Set(questions.flatMap(question => question?.options ?? []).map(option => (
+    String(option?.label ?? option?.text ?? option?.value ?? '').trim().toUpperCase()
+  )).filter(value => letters.includes(value)))]
 }
 
 function getAnswerMap(rawExam) {
@@ -156,7 +163,7 @@ function inspectRaw(page, answerMap, partNumber) {
   const rawAnswerCount = numbers.filter(number => answerMap.has(number)).length
   if (rawAnswerCount !== spec.count) failures.push(`raw answer count is not ${spec.count}`)
 
-  if (spec.widget) {
+  if (spec.widget && partNumber !== 7) {
     for (const number of numbers) {
       const widget = widgets.get(number)
       if (!widget) failures.push(`missing raw ${spec.widget} q${number}`)
@@ -169,10 +176,17 @@ function inspectRaw(page, answerMap, partNumber) {
 
   const baseWordCount = spec.baseWords ? rawBaseWordCount(html, numbers, questions) : 0
   if (spec.baseWords && baseWordCount !== spec.count) failures.push(`raw base-word count is not ${spec.count}`)
-  const featureCount = spec.features ? labelledBlockCount(html, ['A', 'B', 'C', 'D', 'E', 'F', 'G']) : 0
+  const featureBlocks = spec.features ? labelledBlocks(html, ['A', 'B', 'C', 'D', 'E', 'F', 'G']) : []
+  const featureCount = featureBlocks.length
   if (spec.features && featureCount !== spec.features) failures.push(`raw feature count is not ${spec.features}`)
-  const sectionCount = spec.sections ? labelledBlockCount(html, ['A', 'B', 'C', 'D']) : 0
-  if (spec.sections && sectionCount !== spec.sections) failures.push(`raw section count is not ${spec.sections}`)
+  const sectionLetters = spec.sections ? sourceOptionLetters(questions, ['A', 'B', 'C', 'D', 'E']) : []
+  const sectionBlocks = spec.sections ? labelledBlocks(html, sectionLetters) : []
+  const sectionCount = sectionBlocks.length
+  if (spec.sections && (sectionLetters.length < 4 || sectionLetters.length > 5)) {
+    failures.push('raw Part 7 option bank is not A-D or A-E')
+  } else if (spec.sections && sectionCount !== sectionLetters.length) {
+    failures.push(`raw section count is not ${sectionLetters.length}`)
+  }
 
   return {
     html,
@@ -213,8 +227,13 @@ function inspectPackage(part, partNumber) {
   }
   if (partNumber === 6 && (part?.questionGroups?.[0]?.features ?? []).length !== 7) failures.push('package feature count is not 7')
   if (partNumber === 7) {
-    const labels = (part?.passage ?? []).map(block => block?.label).filter(Boolean).join(',')
-    if (labels !== 'A,B,C,D') failures.push(`package section labels are ${labels || '<none>'}`)
+    const expectedLabels = [...new Set(questions.flatMap(question => question?.options ?? []).map(option => (
+      String(option?.id ?? '').trim().toUpperCase()
+    )).filter(value => /^[A-E]$/.test(value)))]
+    const labels = (part?.passage ?? []).map(block => block?.label).filter(Boolean)
+    if (expectedLabels.length < 4 || expectedLabels.length > 5 || labels.join(',') !== expectedLabels.join(',')) {
+      failures.push(`package section labels are ${labels.join(',') || '<none>'}`)
+    }
     for (const question of questions) {
       if (!question?.prompt || /^Question \d+|^Gap \(\d+\)$/i.test(question.prompt)) failures.push(`package Q${question.number} prompt is placeholder`)
     }

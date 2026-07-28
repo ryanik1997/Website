@@ -28,6 +28,9 @@
               "id": "catalog-reading-fce-b2-test16-part-1-q1",
               "number": 1,
               "answer": "c",
+              "acceptedAnswers": [
+                "c"
+              ],
               "explanation": "denied.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -55,6 +58,9 @@
               "id": "catalog-reading-fce-b2-test16-part-1-q2",
               "number": 2,
               "answer": "a",
+              "acceptedAnswers": [
+                "a"
+              ],
               "explanation": "trouble.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -82,6 +88,9 @@
               "id": "catalog-reading-fce-b2-test16-part-1-q3",
               "number": 3,
               "answer": "d",
+              "acceptedAnswers": [
+                "d"
+              ],
               "explanation": "aspects.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -109,6 +118,9 @@
               "id": "catalog-reading-fce-b2-test16-part-1-q4",
               "number": 4,
               "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
               "explanation": "capture.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -136,6 +148,9 @@
               "id": "catalog-reading-fce-b2-test16-part-1-q5",
               "number": 5,
               "answer": "c",
+              "acceptedAnswers": [
+                "c"
+              ],
               "explanation": "stimulates.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -163,6 +178,9 @@
               "id": "catalog-reading-fce-b2-test16-part-1-q6",
               "number": 6,
               "answer": "a",
+              "acceptedAnswers": [
+                "a"
+              ],
               "explanation": "manage.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -190,6 +208,9 @@
               "id": "catalog-reading-fce-b2-test16-part-1-q7",
               "number": 7,
               "answer": "c",
+              "acceptedAnswers": [
+                "c"
+              ],
               "explanation": "source.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -217,6 +238,9 @@
               "id": "catalog-reading-fce-b2-test16-part-1-q8",
               "number": 8,
               "answer": "b",
+              "acceptedAnswers": [
+                "b"
+              ],
               "explanation": "completely.",
               "answerConfidence": "key",
               "type": "multiple-choice",
@@ -252,8 +276,12 @@
       "passageSubtitle": "",
       "passage": [
         {
-          "text": "When it comes to holidays and celebrations, there are several factors to consider. (9) ..... of all, it is important to understand the basic principles. Many people, (10) ..... , fail to recognise the significance of this. The reason (11) ..... this may be due to a lack of exposure. (12) ..... the other hand, those who have experience tend to disagree. It is worth noting that (13) ..... of the challenges we face can be overcome with patience. (14) ..... is also true that practice plays a crucial role. Finally, (15) ..... should be given to those who persist (16) ..... the face of difficulty.",
-          "_provenance": "ai-generated"
+          "text": "So you want to run a marathon? There is 0 _____ doubt that running 42 kilometres is a great achievement. Many training plans involve running four times a week for at (9) ..... three months, and sometimes longer. Experts strongly recommend that you should (10) ..... used to running long distances gradually. If you don’t, it can increase the chances (11) ..... picking up an injury. It (12) ..... generally thought that runners should initially go on fairly relaxed training runs. The pace should be gentle enough to allow you (13) ..... have a conversation with someone running alongside you.",
+          "_provenance": "source"
+        },
+        {
+          "text": "Don’t make the mistake of eating too little before the race, or you will rapidly run (14) ..... of energy. But (15) ..... should you eat a large meal. It goes without saying that choosing the right footwear is also essential. (16) ..... you do, avoid clothes made of cotton and go for artificial materials, or even some types of wool such as merino. Choose clothing that will be comfortable.",
+          "_provenance": "source"
         }
       ],
       "questionGroups": [
@@ -266,9 +294,12 @@
             {
               "id": "catalog-reading-fce-b2-test16-part-2-q9",
               "number": 9,
-              "answer": "first",
-              "explanation": "The correct word is \"first\".",
-              "answerConfidence": "ai-generated",
+              "answer": "least",
+              "acceptedAnswers": [
+                "least"
+              ],
+              "explanation": "least.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (9)",
               "size": 10
@@ -276,9 +307,12 @@
             {
               "id": "catalog-reading-fce-b2-test16-part-2-q10",
               "number": 10,
-              "answer": "however",
-              "explanation": "The correct word is \"however\".",
-              "answerConfidence": "ai-generated",
+              "answer": "get",
+              "acceptedAnswers": [
+                "get"
+              ],
+              "explanation": "get.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (10)",
               "size": 10
@@ -286,9 +320,12 @@
             {
               "id": "catalog-reading-fce-b2-test16-part-2-q11",
               "number": 11,
-              "answer": "for",
-              "explanation": "The correct word is \"for\".",
-              "answerConfidence": "ai-generated",
+              "answer": "of",
+              "acceptedAnswers": [
+                "of"
+              ],
+              "explanation": "of.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (11)",
               "size": 10
@@ -296,9 +333,12 @@
             {
               "id": "catalog-reading-fce-b2-test16-part-2-q12",
               "number": 12,
-              "answer": "on",
-              "explanation": "The correct word is \"on\".",
-              "answerConfidence": "ai-generated",
+              "answer": "is",
+              "acceptedAnswers": [
+                "is"
+              ],
+              "explanation": "is.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (12)",
               "size": 10
@@ -306,9 +346,12 @@
             {
               "id": "catalog-reading-fce-b2-test16-part-2-q13",
               "number": 13,
-              "answer": "most",
-              "explanation": "The correct word is \"most\".",
-              "answerConfidence": "ai-generated",
+              "answer": "to",
+              "acceptedAnswers": [
+                "to"
+              ],
+              "explanation": "to.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (13)",
               "size": 10
@@ -316,9 +359,12 @@
             {
               "id": "catalog-reading-fce-b2-test16-part-2-q14",
               "number": 14,
-              "answer": "it",
-              "explanation": "The correct word is \"it\".",
-              "answerConfidence": "ai-generated",
+              "answer": "out",
+              "acceptedAnswers": [
+                "out"
+              ],
+              "explanation": "out.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (14)",
               "size": 10
@@ -326,9 +372,12 @@
             {
               "id": "catalog-reading-fce-b2-test16-part-2-q15",
               "number": 15,
-              "answer": "credit",
-              "explanation": "The correct word is \"credit\".",
-              "answerConfidence": "ai-generated",
+              "answer": "n",
+              "acceptedAnswers": [
+                "n"
+              ],
+              "explanation": "either.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (15)",
               "size": 10
@@ -336,25 +385,19 @@
             {
               "id": "catalog-reading-fce-b2-test16-part-2-q16",
               "number": 16,
-              "answer": "in",
-              "explanation": "The correct word is \"in\".",
-              "answerConfidence": "ai-generated",
+              "answer": "w",
+              "acceptedAnswers": [
+                "w"
+              ],
+              "explanation": "hatever.",
+              "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (16)",
               "size": 10
             }
           ]
         }
-      ],
-      "_aiRepairMeta": {
-        "appliedAt": "2026-07-28T07:34:28.035Z",
-        "fields": [
-          "passage",
-          "questions",
-          "answers",
-          "explanations"
-        ]
-      }
+      ]
     },
     {
       "id": "catalog-reading-fce-b2-test16-part-3",
@@ -383,6 +426,9 @@
               "id": "catalog-reading-fce-b2-test16-part-3-q17",
               "number": 17,
               "answer": "sensitive",
+              "acceptedAnswers": [
+                "sensitive"
+              ],
               "explanation": "sensitive.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -394,6 +440,9 @@
               "id": "catalog-reading-fce-b2-test16-part-3-q18",
               "number": 18,
               "answer": "investigations",
+              "acceptedAnswers": [
+                "investigations"
+              ],
               "explanation": "investigations.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -405,6 +454,9 @@
               "id": "catalog-reading-fce-b2-test16-part-3-q19",
               "number": 19,
               "answer": "significant",
+              "acceptedAnswers": [
+                "significant"
+              ],
               "explanation": "significant.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -416,6 +468,9 @@
               "id": "catalog-reading-fce-b2-test16-part-3-q20",
               "number": 20,
               "answer": "considerably",
+              "acceptedAnswers": [
+                "considerably"
+              ],
               "explanation": "considerably.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -427,6 +482,9 @@
               "id": "catalog-reading-fce-b2-test16-part-3-q21",
               "number": 21,
               "answer": "possibility",
+              "acceptedAnswers": [
+                "possibility"
+              ],
               "explanation": "possibility.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -438,6 +496,9 @@
               "id": "catalog-reading-fce-b2-test16-part-3-q22",
               "number": 22,
               "answer": "comfortable",
+              "acceptedAnswers": [
+                "comfortable"
+              ],
               "explanation": "comfortable.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -449,6 +510,9 @@
               "id": "catalog-reading-fce-b2-test16-part-3-q23",
               "number": 23,
               "answer": "dependent",
+              "acceptedAnswers": [
+                "dependent"
+              ],
               "explanation": "dependent.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -460,6 +524,9 @@
               "id": "catalog-reading-fce-b2-test16-part-3-q24",
               "number": 24,
               "answer": "unreal",
+              "acceptedAnswers": [
+                "unreal"
+              ],
               "explanation": "unreal.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -488,6 +555,9 @@
               "id": "catalog-reading-fce-b2-test16-part-4-q25",
               "number": 25,
               "answer": "makes all the difference",
+              "acceptedAnswers": [
+                "makes all the difference"
+              ],
               "explanation": "makes all the difference.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -501,6 +571,9 @@
               "id": "catalog-reading-fce-b2-test16-part-4-q26",
               "number": 26,
               "answer": "spite of the fact",
+              "acceptedAnswers": [
+                "spite of the fact"
+              ],
               "explanation": "spite of the fact.",
               "answerConfidence": "key",
               "type": "gap-fill",
@@ -514,52 +587,64 @@
               "id": "catalog-reading-fce-b2-test16-part-4-q27",
               "number": 27,
               "answer": "to give up (eating)",
+              "acceptedAnswers": [
+                "to give up (eating)"
+              ],
               "explanation": "to give up (eating).",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Last year I decided I wouldn’t eat fast food for lunch any more. GIVE -> Last year I decided .....",
-              "sourceSentence": "Last year I decided I wouldn’t eat fast food for lunch any more.",
+              "prompt": "Last year I decided I wouldn’t eat fast food for lunch any more.Last year I decided GIVE -> . Last year I decided I wouldn’t eat fast food for lunch any more.  Last year I decided ..... fast food for lunch.",
+              "sourceSentence": "Last year I decided I wouldn’t eat fast food for lunch any more.Last year I decided",
               "keyword": "GIVE",
-              "targetSentence": "Last year I decided .....",
+              "targetSentence": ". Last year I decided I wouldn’t eat fast food for lunch any more.  Last year I decided ..... fast food for lunch.",
               "size": 40
             },
             {
               "id": "catalog-reading-fce-b2-test16-part-4-q28",
               "number": 28,
               "answer": "as well as answers",
+              "acceptedAnswers": [
+                "as well as answers"
+              ],
               "explanation": "as well as answers.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Melanie goes jogging and answers her important emails before breakfast. WELL -> Melanie goes jogging .....",
-              "sourceSentence": "Melanie goes jogging and answers her important emails before breakfast.",
+              "prompt": "Melanie goes jogging and answers her important emails before breakfast.Melanie goes jogging WELL -> . Melanie goes jogging and answers her important emails before breakfast.  Melanie goes jogging ..... her important emails before breakfast.",
+              "sourceSentence": "Melanie goes jogging and answers her important emails before breakfast.Melanie goes jogging",
               "keyword": "WELL",
-              "targetSentence": "Melanie goes jogging .....",
+              "targetSentence": ". Melanie goes jogging and answers her important emails before breakfast.  Melanie goes jogging ..... her important emails before breakfast.",
               "size": 40
             },
             {
               "id": "catalog-reading-fce-b2-test16-part-4-q29",
               "number": 29,
               "answer": "get my television fixed",
+              "acceptedAnswers": [
+                "get my television fixed"
+              ],
               "explanation": "get my television fixed.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "My television needs fixing as soon as possible. GET -> I must .....",
-              "sourceSentence": "My television needs fixing as soon as possible.",
+              "prompt": "My television needs fixing as soon as possible.I must GET -> . My television needs fixing as soon as possible.  I must ..... as soon as possible.",
+              "sourceSentence": "My television needs fixing as soon as possible.I must",
               "keyword": "GET",
-              "targetSentence": "I must .....",
+              "targetSentence": ". My television needs fixing as soon as possible.  I must ..... as soon as possible.",
               "size": 40
             },
             {
               "id": "catalog-reading-fce-b2-test16-part-4-q30",
               "number": 30,
               "answer": "is unusual for her to",
+              "acceptedAnswers": [
+                "is unusual for her to"
+              ],
               "explanation": "is unusual for her to.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Clara says she doesn’t usually go out at the weekend. UNUSUAL -> Clara says it .....",
-              "sourceSentence": "Clara says she doesn’t usually go out at the weekend.",
+              "prompt": "Clara says she doesn’t usually go out at the weekend.Clara says it UNUSUAL -> . Clara says she doesn’t usually go out at the weekend.  Clara says it ..... go out at the weekend.",
+              "sourceSentence": "Clara says she doesn’t usually go out at the weekend.Clara says it",
               "keyword": "UNUSUAL",
-              "targetSentence": "Clara says it .....",
+              "targetSentence": ". Clara says she doesn’t usually go out at the weekend.  Clara says it ..... go out at the weekend.",
               "size": 40
             }
           ]
@@ -599,7 +684,10 @@
               "id": "catalog-reading-fce-b2-test16-part-5-q31",
               "number": 31,
               "answer": "b",
-              "explanation": "",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "What does the writer illustrate by describing the incident in the car?",
@@ -626,7 +714,10 @@
               "id": "catalog-reading-fce-b2-test16-part-5-q32",
               "number": 32,
               "answer": "b",
-              "explanation": "",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "What did the writer think of her grandfather’s comment, mentioned in the second paragraph?",
@@ -653,7 +744,10 @@
               "id": "catalog-reading-fce-b2-test16-part-5-q33",
               "number": 33,
               "answer": "c",
-              "explanation": "",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "What does the writer say about getting study resources from libraries?",
@@ -680,7 +774,10 @@
               "id": "catalog-reading-fce-b2-test16-part-5-q34",
               "number": 34,
               "answer": "c",
-              "explanation": "",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "What disadvantage of new technology does the writer mention in the third paragraph?",
@@ -707,7 +804,10 @@
               "id": "catalog-reading-fce-b2-test16-part-5-q35",
               "number": 35,
               "answer": "a",
-              "explanation": "",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "What is the purpose of the question ‘Why shouldn’t they be?’ in the fourth paragraph?",
@@ -734,7 +834,10 @@
               "id": "catalog-reading-fce-b2-test16-part-5-q36",
               "number": 36,
               "answer": "d",
-              "explanation": "",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "What is the writer’s conclusion about students today in the final paragraph?",
@@ -787,9 +890,6 @@
         },
         {
           "text": "The original Bramley apple tree in Nottinghamshire is younger than many in this competition, but is the famous parent of all modern Bramley apple trees. (42) ..... .. Many years later, Matthew Bramley, the new owner of the tree, was carrying some of his fruit when he met a gardener called Henry Merryweather. Henry asked if he could take some cuttings from Matthew’s trees to grow his own trees. Mr Bramley agreed, provided they were named ‘Bramley’s Seedling’."
-        },
-        {
-          "text": "A. This means that they are touching the ground and have taken root.\n B. These roots have become enormous with age and have now emerged above the ground. Children love to jump over them like horses in a race.\n C. But the most distinctive thing about this tree is that its main trunk is leaning towards the ground at an angle of 45 degrees.\n D. The best example of this on the big old tree is another species of tree called a rowan.\n E. Alternatively, they could be used to hold a community event in honour of the tree.\n G. It was planted from a seed in 1809 by a woman called Ann Brailsford.\n G. Children hang bird feeders from its branches and it is used as the focus of many of the educational activities going on around it."
         }
       ],
       "questionGroups": [
@@ -810,38 +910,31 @@
           "features": [
             {
               "id": "a",
-              "name": "It has become a major topic of discussion in Rome.",
-              "_provenance": "ai-generated"
+              "name": "This means that they are touching the ground and have taken root."
             },
             {
               "id": "b",
-              "name": "One key factor is the growing awareness among young Sydney residents.",
-              "_provenance": "ai-generated"
+              "name": "These roots have become enormous with age and have now emerged above the ground. Children love to jump over them like horses in a race."
             },
             {
               "id": "c",
-              "name": "The number of people involved has risen by over 50% in the last decade.",
-              "_provenance": "ai-generated"
+              "name": "But the most distinctive thing about this tree is that its main trunk is leaning towards the ground at an angle of 45 degrees."
             },
             {
               "id": "d",
-              "name": "This change has been particularly noticeable in urban areas across the country.",
-              "_provenance": "ai-generated"
+              "name": "The best example of this on the big old tree is another species of tree called a rowan."
             },
             {
               "id": "e",
-              "name": "Finding adequate funding remains a significant obstacle for many organisations.",
-              "_provenance": "ai-generated"
+              "name": "Alternatively, they could be used to hold a community event in honour of the tree."
             },
             {
               "id": "f",
-              "name": "Education and community engagement are seen as the most promising strategies.",
-              "_provenance": "ai-generated"
+              "name": "It was planted from a seed in 1809 by a woman called Ann Brailsford."
             },
             {
               "id": "g",
-              "name": "Several pilot projects have already shown encouraging results.",
-              "_provenance": "ai-generated"
+              "name": "Children hang bird feeders from its branches and it is used as the focus of many of the educational activities going on around it."
             }
           ],
           "questions": [
@@ -849,37 +942,40 @@
               "id": "catalog-reading-fce-b2-test16-part-6-q37",
               "number": 37,
               "answer": "e",
-              "explanation": "Sentence B fits logically in gap 37.",
+              "acceptedAnswers": [
+                "e"
+              ],
+              "explanation": "E",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (37)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -888,37 +984,40 @@
               "id": "catalog-reading-fce-b2-test16-part-6-q38",
               "number": 38,
               "answer": "g",
-              "explanation": "Sentence A fits logically in gap 38.",
+              "acceptedAnswers": [
+                "g"
+              ],
+              "explanation": "G",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (38)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -927,37 +1026,40 @@
               "id": "catalog-reading-fce-b2-test16-part-6-q39",
               "number": 39,
               "answer": "a",
-              "explanation": "Sentence C fits logically in gap 39.",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (39)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -966,37 +1068,40 @@
               "id": "catalog-reading-fce-b2-test16-part-6-q40",
               "number": 40,
               "answer": "c",
-              "explanation": "Sentence D fits logically in gap 40.",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (40)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -1005,37 +1110,40 @@
               "id": "catalog-reading-fce-b2-test16-part-6-q41",
               "number": 41,
               "answer": "d",
-              "explanation": "Sentence F fits logically in gap 41.",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (41)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -1044,37 +1152,40 @@
               "id": "catalog-reading-fce-b2-test16-part-6-q42",
               "number": 42,
               "answer": "f",
-              "explanation": "Sentence E fits logically in gap 42.",
+              "acceptedAnswers": [
+                "f"
+              ],
+              "explanation": "F",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (42)",
               "options": [
                 {
-                  "id": "A",
+                  "id": "a",
                   "label": "A"
                 },
                 {
-                  "id": "B",
+                  "id": "b",
                   "label": "B"
                 },
                 {
-                  "id": "C",
+                  "id": "c",
                   "label": "C"
                 },
                 {
-                  "id": "D",
+                  "id": "d",
                   "label": "D"
                 },
                 {
-                  "id": "E",
+                  "id": "e",
                   "label": "E"
                 },
                 {
-                  "id": "F",
+                  "id": "f",
                   "label": "F"
                 },
                 {
-                  "id": "G",
+                  "id": "g",
                   "label": "G"
                 }
               ]
@@ -1091,23 +1202,19 @@
       "passage": [
         {
           "label": "A",
-          "text": "Harper recently experienced career paths in Berlin. It was an unforgettable experience that changed her perspective. The highlights included meeting new people from different backgrounds and learning about local customs. She particularly enjoyed the cultural events organised by the hosts. Despite some initial difficulties with the language, she felt that the overall experience was extremely rewarding. Ethan recommends this experience to anyone interested in broadening their horizons.",
-          "_provenance": "ai-generated"
+          "text": "Sadie Grossman Last year, I was one of 30,000 people who took part in La Tomatina, an annual festival held in Buñol, Spain, during which townspeople and visitors fill the streets and take part in a tomato fight. I’ve neither laughed so hard nor feared for my life as much as I did on that day. Trucks of tomatoes were dumped in the streets, and I soon found myself picking up handfuls of squashed fruit and throwing them at whoever happened to be closest. Most people participating were considerate, but a few were not. I was thankful that I’d left my phone back at the hotel and worn clothes I didn’t mind getting ruined. I did wish I’d invested in a pair of goggles though, as being hit in the eye by a tomato meant I couldn’t see out of it very well for a couple of days. It was definitely an experience I’ll never forget, but one I have no desire to repeat!"
         },
         {
           "label": "B",
-          "text": "James recently experienced career paths in New York. It was a fascinating experience that changed his perspective. The challenges included meeting new people from different backgrounds and learning about local customs. He particularly enjoyed the practical workshops organised by the hosts. Despite some initial difficulties with the weather, he felt that the overall experience was extremely rewarding. Mia recommends this experience to anyone looking for broadening their horizons.",
-          "_provenance": "ai-generated"
+          "text": "Joe Haythorpe I went with friends to the mud festival held in Boryeong, South Korea because several of them had been before, loved it and wanted to go again. The two-week event is centred on an area of Boryeong beach set up with water slides and pools to play in while covered in huge quantities of the mineral-rich mud that’s taken from the shore near the city. It’s great fun for the entire family as well as groups of friends. Apart from playing in the mud, we also attended some great concerts and shopped for mud-based skin creams. Although it’s only been going since 1998, it already attracts millions of Koreans and Western tourists annually. But if you’re considering going, book your accommodation early as room rates triple closer to the event. All in all, this festival was by far the most fun one I’ve ever been to."
         },
         {
           "label": "C",
-          "text": "Oliver recently experienced career paths in Tokyo. It was an eye-opening experience that changed their perspective. The opportunities included meeting new people from different backgrounds and learning about local customs. They particularly enjoyed the guided tours organised by the hosts. Despite some initial difficulties with the schedule, they felt that the overall experience was extremely rewarding. Amelia recommends this experience to anyone keen on broadening their horizons.",
-          "_provenance": "ai-generated"
+          "text": "Charlie Traynor Cheese Rolling on Cooper’s Hill in Gloucestershire, England is the ideal activity for fans of extreme sports whether as spectators or as participants, and is definitely one of the craziest traditions I’ve ever witnessed. I watched in amazement as madly courageous men and women threw themselves down a steep hill, tumbling head over heels, while chasing a large round cheese. The cheese always gets to the bottom of the hill first, but for each race there is a prize (a cheese worth a lot of money) for the first person to do so. Thankfully, that day everyone survived without seriously hurting themselves. The event is free, but because of the large crowds, I struggled to find a place from which I could actually see much of the action or use my camera. There were also four uphill races, but they were a lot less exciting."
         },
         {
           "label": "D",
-          "text": "Liam recently experienced career paths in Berlin. It was a memorable experience that changed her perspective. The activities included meeting new people from different backgrounds and learning about local customs. She particularly enjoyed the community projects organised by the hosts. Despite some initial difficulties with the transport, she felt that the overall experience was extremely rewarding. Isabella recommends this experience to anyone curious about broadening their horizons.",
-          "_provenance": "ai-generated"
+          "text": "Louisa Darke During the Monkey Buffet Festival in Lopburi, Thailand, cakes, fruit and vegetables are piled up on tables in the streets for 3000 local monkeys to enjoy. The festival was established to boost tourism in the area, and it’s worked: huge crowds now travel there from all over the world, many dressed in monkey costumes.There is traditional music, dance and sculpture, all with a monkey theme, and the monkeys themselves roam free. They have no fear of people, and we were warned that they might try to grab our phones, hats or even jewellery and run off with them. I’m glad to say they didn’t, but at one point a young monkey jumped up onto my shoulder, making me very uncomfortable. We were given sticks to protect ourselves from the boldest monkeys, but I didn’t want to use one. I was glad when the monkey climbed down. However, it was very entertaining to watch the animals from a distance, happily playing and eating."
         }
       ],
       "questionGroups": [
@@ -1139,10 +1246,13 @@
               "id": "catalog-reading-fce-b2-test16-part-7-q43",
               "number": 43,
               "answer": "d",
-              "explanation": "The answer is B because the text mentions this.",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who found the language challenging at first?",
+              "prompt": "the possibility of people at the event having their belongings stolen?",
               "options": [
                 {
                   "id": "a",
@@ -1160,17 +1270,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test16-part-7-q44",
               "number": 44,
               "answer": "a",
-              "explanation": "The answer is A because the text mentions this.",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Which person attended cultural events?",
+              "prompt": "regretting being without an item of protective equipment?",
               "options": [
                 {
                   "id": "a",
@@ -1188,17 +1300,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test16-part-7-q45",
               "number": 45,
               "answer": "c",
-              "explanation": "The answer is A because the text mentions this.",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who recommends the experience to others?",
+              "prompt": "the bravery of the people who took part?",
               "options": [
                 {
                   "id": "a",
@@ -1216,17 +1330,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test16-part-7-q46",
               "number": 46,
               "answer": "b",
-              "explanation": "The answer is C because the text mentions this.",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Whose perspective was changed by the experience?",
+              "prompt": "a warning about organising a trip to the event?",
               "options": [
                 {
                   "id": "a",
@@ -1244,17 +1360,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test16-part-7-q47",
               "number": 47,
               "answer": "a",
-              "explanation": "The answer is D because the text mentions this.",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who participated in practical workshops?",
+              "prompt": "an injury caused during the event?",
               "options": [
                 {
                   "id": "a",
@@ -1272,17 +1390,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test16-part-7-q48",
               "number": 48,
               "answer": "c",
-              "explanation": "The answer is B because the text mentions this.",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Which person had difficulties with arrangements?",
+              "prompt": "how hard it was to get a good position to view the event?",
               "options": [
                 {
                   "id": "a",
@@ -1300,17 +1420,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test16-part-7-q49",
               "number": 49,
               "answer": "b",
-              "explanation": "The answer is A because the text mentions this.",
+              "acceptedAnswers": [
+                "b"
+              ],
+              "explanation": "B",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who met people from diverse backgrounds?",
+              "prompt": "products that were available to buy during the event?",
               "options": [
                 {
                   "id": "a",
@@ -1328,17 +1450,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test16-part-7-q50",
               "number": 50,
               "answer": "a",
-              "explanation": "The answer is C because the text mentions this.",
+              "acceptedAnswers": [
+                "a"
+              ],
+              "explanation": "A",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Whose experience involved community projects?",
+              "prompt": "experiencing two strongly contrasting emotions?",
               "options": [
                 {
                   "id": "a",
@@ -1356,17 +1480,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test16-part-7-q51",
               "number": 51,
               "answer": "c",
-              "explanation": "The answer is D because the text mentions this.",
+              "acceptedAnswers": [
+                "c"
+              ],
+              "explanation": "C",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Who enjoyed guided tours?",
+              "prompt": "people with a particular interest who would like the event?",
               "options": [
                 {
                   "id": "a",
@@ -1384,17 +1510,19 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             },
             {
               "id": "catalog-reading-fce-b2-test16-part-7-q52",
               "number": 52,
               "answer": "d",
-              "explanation": "The answer is C because the text mentions this.",
+              "acceptedAnswers": [
+                "d"
+              ],
+              "explanation": "D",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Which person was looking for a new challenge?",
+              "prompt": "the reason why the event originally began?",
               "options": [
                 {
                   "id": "a",
@@ -1412,8 +1540,7 @@
                   "id": "d",
                   "label": "D"
                 }
-              ],
-              "_prompt_provenance": "ai-generated"
+              ]
             }
           ]
         }

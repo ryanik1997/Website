@@ -14,7 +14,8 @@ const PART_SPECS = {
 
 const PART_STARTS = { 1: 1, 2: 9, 3: 17, 4: 25, 5: 31, 6: 37, 7: 43 }
 const LETTERS = ['a', 'b', 'c', 'd']
-const FEATURE_LETTERS = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
+const FEATURE_IDS = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+const FEATURE_LABELS = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
 
 function decodeHtmlEntities(value) {
   const named = {
@@ -108,23 +109,41 @@ function removeNode(node) {
   if (index >= 0) parent.childNodes.splice(index, 1)
 }
 
-function passageBlocksWithInlineMarkers(html, numbers, { strict = false } = {}) {
+function passageBlocksWithInlineMarkers(html, numbers, { strict = false, expectedTag = null } = {}) {
   const expected = new Set(numbers)
+  const found = new Set()
   const doc = parseHtmlDocument(html)
   for (const anchor of nodesByTag(doc, 'a')) removeNode(anchor)
-  for (const span of nodesByTag(doc, 'span')) {
-    const className = attrValue(span, 'class')
-    if (!/\bnowrap\b/.test(className)) continue
-    if (!hasTag(span, 'select') && !hasTag(span, 'input')) continue
-    const n = strongNumber(span)
-    if (!expected.has(n)) continue
-    replaceNodeWithText(span, ` (${n}) ..... `)
+  for (const tagName of expectedTag ? [expectedTag] : ['select', 'input']) {
+    for (const widget of [...nodesByTag(doc, tagName)]) {
+      const raw = `${attrValue(widget, 'id')} ${attrValue(widget, 'name')}`
+      const number = Number(raw.match(/(?:^|\b)q0?(\d+)\b/i)?.[1])
+      if (!expected.has(number)) continue
+      let replacementTarget = widget
+      let parent = widget.parentNode
+      while (parent && parent !== doc) {
+        if (parent.tagName === 'span' && /\bnowrap\b/.test(attrValue(parent, 'class'))) {
+          replacementTarget = parent
+          break
+        }
+        parent = parent.parentNode
+      }
+      replaceNodeWithText(replacementTarget, ` (${number}) ..... `)
+      found.add(number)
+    }
   }
-  const blocks = nodesByTag(doc, 'p')
-    .map(p => ({ text: elementText(p) }))
+  let blockNodes = nodesByTag(doc, 'p')
+  if (!blockNodes.some(node => numbers.some(number => elementText(node).includes(`(${number}) .....`)))) {
+    blockNodes = nodesByTag(doc, 'td')
+  }
+  const blocks = blockNodes
+    .map(node => ({ text: elementText(node) }))
     .filter(block => block.text)
   const joined = blocks.map(b => b.text).join('\n')
   try {
+    for (const number of numbers) {
+      if (!found.has(number)) throw new Error(`Missing raw widget q${number}`)
+    }
     assertMarkers(joined, numbers, `part markers ${numbers[0]}-${numbers[numbers.length - 1]}`)
   } catch (error) {
     if (strict) throw error
@@ -221,6 +240,39 @@ function parseQuestionOptions(q, letters = LETTERS) {
   })
 }
 
+function splitAnswerAlternatives(raw) {
+  return String(raw ?? '')
+    .replace(/[.;]+$/g, '')
+    .split(/\s*(?:\/|\|)\s*/i)
+    .map(value => value.trim().toLowerCase())
+    .filter(Boolean)
+}
+
+function normalizeAnswerRecord(item) {
+  let rawAnswer = normalizeText(item.answer)
+  let explanation = normalizeText(item.explanation ?? '')
+
+  const questionNumber = Number(item.questionNumber ?? item.number ?? item.question)
+  if (questionNumber >= 9 && questionNumber <= 16 && /^[a-z]$/i.test(rawAnswer) && /^[a-z]{3,}(?:\/|$)/i.test(explanation)) {
+    const firstToken = explanation.match(/^([a-z]+)/i)?.[1] ?? ''
+    const joined = `${rawAnswer}${firstToken}`
+    if (/^[a-z]{4,}$/i.test(joined)) {
+      rawAnswer = `${joined}${explanation.slice(firstToken.length)}`
+      explanation = rawAnswer
+    }
+  }
+
+  const acceptedAnswers = splitAnswerAlternatives(rawAnswer)
+  if (!acceptedAnswers.length) {
+    throw new Error(`Missing answer Q${item.questionNumber ?? item.number ?? item.question}`)
+  }
+  return {
+    answer: acceptedAnswers[0],
+    acceptedAnswers,
+    explanation: explanation || rawAnswer,
+  }
+}
+
 function buildAnswerMap(answerPage) {
   const map = new Map()
   const groups = answerPage?.answers && typeof answerPage.answers === 'object'
@@ -235,10 +287,7 @@ function buildAnswerMap(answerPage) {
       if (map.has(questionNumber)) {
         throw new Error(`Duplicate answer for question ${questionNumber}`)
       }
-      map.set(questionNumber, {
-        answer: normalizeText(item.answer),
-        explanation: normalizeText(item.explanation ?? ''),
-      })
+      map.set(questionNumber, normalizeAnswerRecord(item))
     }
   }
   return map
@@ -263,6 +312,7 @@ function buildPartBase(page, appTestNumber, answerMap) {
       id: `${partId}-q${number}`,
       number,
       answer: normalizeText(answerEntry.answer).toLowerCase(),
+      acceptedAnswers: answerEntry.acceptedAnswers,
       explanation: normalizeText(answerEntry.explanation),
       answerConfidence: 'key',
       rawQuestion: q,
@@ -283,7 +333,7 @@ function makeGenericPassageBlocks(html) {
 function convertPart1(page, answerMap, appTestNumber) {
   const base = buildPartBase(page, appTestNumber, answerMap)
   const partHtml = String(page.passageTextHtml ?? '')
-  const passage = passageBlocksWithInlineMarkers(partHtml, markerNumbers(1, 8))
+  const passage = passageBlocksWithInlineMarkers(partHtml, markerNumbers(1, 8), { strict: true, expectedTag: 'select' })
   const questions = base.questions.map(({ rawQuestion: q, ...question }) => {
     const options = parseQuestionOptions(q, LETTERS)
     if (options.length !== 4 || options.some(opt => !opt.label)) {
@@ -325,7 +375,7 @@ function convertPart2(page, answerMap, appTestNumber) {
     prompt: `Gap (${question.number})`,
     size: q.size ?? 10,
   }))
-  const passage = passageBlocksWithInlineMarkers(html, markerNumbers(9, 8), { strict: Boolean(page.origin === 'source' && html) })
+  const passage = passageBlocksWithInlineMarkers(html, markerNumbers(9, 8), { strict: Boolean(page.origin === 'source' && html), expectedTag: 'input' })
   return {
     id: base.partId,
     partNumber: 2,
@@ -360,7 +410,10 @@ function convertPart3(page, answerMap, appTestNumber) {
       size: q.size ?? 10,
     }
   })
-  const passage = passageBlocksWithInlineMarkers(html, markerNumbers(17, 8))
+  const passage = passageBlocksWithInlineMarkers(html, markerNumbers(17, 8), { strict: true, expectedTag: 'input' })
+  for (const question of questions) {
+    if (!question.baseWord) throw new Error(`${question.id}: Part 3 baseWord is empty`)
+  }
   return {
     id: base.partId,
     partNumber: 3,
@@ -419,7 +472,7 @@ function parseTransformationItems(html, sourceQuestions) {
 
 function convertPart4(page, answerMap, appTestNumber) {
   const base = buildPartBase(page, appTestNumber, answerMap)
-  const html = String(page.passageTextHtml || page.rawHtmlSample || '')
+  const html = String(page.passageTextHtml || page.entryContentHtml || page.rawHtmlSample || '')
   const parsedItems = parseTransformationItems(html, page.questions ?? [])
   const byNumber = new Map(parsedItems.map(item => [item.number, item]))
   const questions = base.questions.map(({ rawQuestion: _q, ...question }) => {
@@ -450,9 +503,35 @@ function convertPart4(page, answerMap, appTestNumber) {
     }],
   }
 }
+function part5PassageHtml(page) {
+  const parsed = String(page.passageTextHtml ?? '').trim()
+  if (parsed) return parsed
+
+  const html = String(page.entryContentHtml ?? '')
+  const questionStart = html.search(/<p\b[^>]*id=["']d31["']/i)
+  if (questionStart === -1) return ''
+
+  const beforeQuestions = html.slice(0, questionStart)
+  const heading = beforeQuestions.match(/<h2\b[^>]*>[\s\S]*?<\/h2>/i)
+  if (heading?.index != null) {
+    return beforeQuestions.slice(heading.index).trim()
+  }
+
+  const partHeading = beforeQuestions.match(/<h1\b[^>]*>\s*Part\s+5\s*<\/h1>/i)
+  if (partHeading?.index == null) return ''
+
+  return beforeQuestions
+    .slice(partHeading.index + partHeading[0].length)
+    .replace(
+      /^\s*<p\b[^>]*>\s*<em\b[^>]*>[\s\S]*?<\/em>\s*<\/p>/i,
+      '',
+    )
+    .trim()
+}
+
 function convertPart5(page, answerMap, appTestNumber) {
   const base = buildPartBase(page, appTestNumber, answerMap)
-  const html = String(page.passageTextHtml ?? '')
+  const html = part5PassageHtml(page)
   const questions = base.questions.map(({ rawQuestion: q, ...question }) => {
     const options = parseQuestionOptions(q, LETTERS)
     const answer = question.answer.toUpperCase()
@@ -485,21 +564,24 @@ function convertPart5(page, answerMap, appTestNumber) {
 
 function convertPart6(page, answerMap, appTestNumber) {
   const base = buildPartBase(page, appTestNumber, answerMap)
-  const html = String(page.passageTextHtml ?? '')
-  const featureMatches = [...html.matchAll(/<strong>\s*([A-G])\s*<\/strong>\s*([\s\S]*?)(?=<br\s*\/?>\s*<strong>|<\/p>\s*<div|$)/gi)]
-  const features = featureMatches.slice(0, 7).map(match => ({
-    id: match[1],
+  const html = String(page.passageTextHtml || page.entryContentHtml || '')
+  const featureMatches = [...html.matchAll(/<strong>\s*([A-G])\.?\s*<\/strong>\s*([\s\S]*?)(?=<br\s*\/?>\s*<strong>|<\/p>\s*<div|$)/gi)]
+  const features = featureMatches.slice(0, 7).map((match, index) => ({
+    id: FEATURE_IDS[index],
     name: normalizeText(stripHtml(match[2])),
   }))
   const passageHtml = featureMatches.length
     ? html.slice(0, featureMatches[0].index).trim()
     : html
-  const passage = htmlParagraphInnerHtml(passageHtml).map(block => ({ text: htmlToPlainWithGaps(block).replace(/\b(\d+)\s+_____/g, '($1) .....') }))
+  const passage = passageBlocksWithInlineMarkers(passageHtml, markerNumbers(37, 6), { strict: true, expectedTag: 'select' })
+  if (features.length !== 7 || features.some(feature => !feature.name)) {
+    throw new Error(`${base.partId}: Part 6 requires seven nonempty features`)
+  }
   const questions = base.questions.map(({ rawQuestion: q, ...question }) => ({
     ...question,
     type: 'matching-features',
     prompt: normalizeText(q.questionText ?? `Gap (${question.number})`),
-    options: parseQuestionOptions(q, FEATURE_LETTERS),
+    options: parseQuestionOptions(q, FEATURE_IDS),
   }))
   return {
     id: base.partId,
@@ -512,7 +594,7 @@ function convertPart6(page, answerMap, appTestNumber) {
       range: questionRange(6),
       instruction: normalizeText(page.instructions ?? ''),
       type: 'matching-features',
-      paragraphLetters: FEATURE_LETTERS,
+      paragraphLetters: FEATURE_LABELS,
       features,
       questions,
     }],
@@ -521,16 +603,33 @@ function convertPart6(page, answerMap, appTestNumber) {
 
 function convertPart7(page, answerMap, appTestNumber) {
   const base = buildPartBase(page, appTestNumber, answerMap)
-  const html = String(page.passageTextHtml ?? '')
-  const featureSections = [...html.matchAll(/<strong>\s*([A-D])\s*<\/strong>\s*([\s\S]*?)(?=<br\s*\/?>\s*<strong>\s*[A-D]\s*<\/strong>|<\/p>\s*<div|$)/gi)]
-  const passage = featureSections.length
-    ? featureSections.map(match => ({ label: match[1], text: normalizeText(stripHtml(match[2])) }))
-    : htmlParagraphInnerHtml(html).map(block => ({ text: htmlToPlainWithGaps(block) }))
+  const html = String(page.passageTextHtml || page.entryContentHtml || '')
+  const sourceOptions = (page.questions ?? []).flatMap(question => question?.options ?? [])
+  const sectionLetters = [...new Set(sourceOptions.map(option => (
+    normalizeText(option?.label ?? option?.text ?? option?.value).toUpperCase()
+  )).filter(value => /^[A-E]$/.test(value)))]
+  if (sectionLetters.length < 4 || sectionLetters.length > 5) {
+    throw new Error(`${base.partId}: Part 7 requires four or five section labels`)
+  }
+  const doc = parseHtmlDocument(html)
+  const passage = []
+  for (const paragraph of nodesByTag(doc, 'p')) {
+    const strong = childElements(paragraph, 'strong')[0]
+    const heading = elementText(strong)
+    const label = heading.match(/^([A-E])(?:[.\s]|$)/i)?.[1]?.toUpperCase()
+    if (!sectionLetters.includes(label)) continue
+    const text = elementText(paragraph).replace(new RegExp(`^${heading.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*`), '').trim()
+    if (text) passage.push({ label, text })
+  }
+  if (passage.length !== sectionLetters.length || passage.some((block, index) => block.label !== sectionLetters[index])) {
+    throw new Error(`${base.partId}: Part 7 section labels must be ${sectionLetters.join(',')}`)
+  }
+  const optionLetters = sectionLetters.map(letter => letter.toLowerCase())
   const questions = base.questions.map(({ rawQuestion: q, ...question }) => ({
     ...question,
     type: 'matching-features',
     prompt: normalizeText(q.questionText ?? `Question ${question.number}`),
-    options: parseQuestionOptions(q, LETTERS),
+    options: parseQuestionOptions(q, optionLetters),
   }))
   return {
     id: base.partId,
@@ -543,12 +642,7 @@ function convertPart7(page, answerMap, appTestNumber) {
       range: questionRange(7),
       instruction: normalizeText(page.instructions ?? ''),
       type: 'matching-features',
-      features: [
-        { id: 'a', name: 'A' },
-        { id: 'b', name: 'B' },
-        { id: 'c', name: 'C' },
-        { id: 'd', name: 'D' },
-      ],
+      features: sectionLetters.map(letter => ({ id: letter.toLowerCase(), name: letter })),
       questions,
     }],
   }

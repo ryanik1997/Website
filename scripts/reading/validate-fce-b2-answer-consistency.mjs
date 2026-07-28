@@ -15,6 +15,11 @@ function numberArg(name) {
 
 const testNumber = numberArg('--test')
 const partNumber = numberArg('--part')
+const scopeIndex = args.indexOf('--scope')
+const scope = scopeIndex >= 0 ? args[scopeIndex + 1] : 'all'
+if (!['all', 'package', 'runtime'].includes(scope)) {
+  throw new Error('--scope must be all, package, or runtime')
+}
 const tests = testNumber ? [testNumber] : Array.from({ length: 26 }, (_, index) => index + 2)
 const roots = [
   {
@@ -32,16 +37,16 @@ const roots = [
       `catalog-reading-fce-b2-test${number}.answers.json`,
     ),
   },
-]
+].filter(root => scope === 'all' || root.label === scope)
 const expectedPart2Answers = new Map([
-  [9, 'has'],
-  [10, 'up'],
-  [11, 'speak/think'],
-  [12, 'although/while'],
-  [13, 'for'],
-  [14, 'put'],
-  [15, 'difference'],
-  [16, 'majority'],
+  [9, ['has']],
+  [10, ['up']],
+  [11, ['speak', 'think']],
+  [12, ['although', 'while']],
+  [13, ['for']],
+  [14, ['put']],
+  [15, ['difference']],
+  [16, ['majority']],
 ])
 
 function allQuestions(part) {
@@ -76,9 +81,23 @@ function answerAlternatives(answer) {
     .filter(Boolean)
 }
 
-function assertOneWordAlternatives(answer, label) {
-  const alternatives = answerAlternatives(answer)
+function questionAlternatives(question) {
+  const accepted = Array.isArray(question?.acceptedAnswers)
+    ? question.acceptedAnswers
+    : answerAlternatives(question?.answer)
+  return accepted
+    .map(value => String(value).trim().toLowerCase())
+    .filter(Boolean)
+}
+
+function assertOneWordAlternatives(question, label) {
+  const alternatives = questionAlternatives(question)
   assert.ok(alternatives.length > 0, `${label}: missing answer`)
+  assert.equal(
+    question.answer,
+    alternatives[0],
+    `${label}: primary answer must equal the first accepted answer`,
+  )
   for (const alternative of alternatives) {
     assert.match(alternative, /^\p{L}+(?:['’-]\p{L}+)*$/u, `${label}: answer alternative must be one word`)
   }
@@ -94,7 +113,7 @@ function validatePart2(part, label, currentTest) {
     assert.equal(markerCount, 1, `${label}: expected exactly one marker for Q${number}`)
     const question = questions.find(item => Number(item.number) === number)
     assert.ok(question, `${label}: missing Q${number}`)
-    assertOneWordAlternatives(question.answer, `${label} Q${number}`)
+    assertOneWordAlternatives(question, `${label} Q${number}`)
   }
 
   const passageOrigins = new Set((part.passage ?? []).map(block => block._provenance).filter(Boolean))
@@ -115,8 +134,12 @@ function validatePart2(part, label, currentTest) {
     assert.equal(part.passageSubtitle, 'ALSO', `${label}: missing example ALSO`)
     assert.match(text, /William Shakespeare/i, `${label}: wrong passage`)
     for (const [number, expected] of expectedPart2Answers) {
-      const actual = questions.find(question => Number(question.number) === number)?.answer
-      assert.equal(actual, expected, `${label}: Q${number} answer mismatch`)
+      const question = questions.find(item => Number(item.number) === number)
+      assert.deepEqual(
+        questionAlternatives(question),
+        expected,
+        `${label}: Q${number} accepted answers mismatch`,
+      )
     }
   }
 }

@@ -7,6 +7,11 @@ const requestedTest = testArgIndex >= 0 ? Number(args[testArgIndex + 1]) : null
 if (testArgIndex >= 0 && !Number.isInteger(requestedTest)) {
   throw new Error('--test requires an integer')
 }
+const scopeArgIndex = args.indexOf('--scope')
+const scope = scopeArgIndex >= 0 ? args[scopeArgIndex + 1] : 'all'
+if (!['all', 'package', 'runtime'].includes(scope)) {
+  throw new Error('--scope must be all, package, or runtime')
+}
 const ids = requestedTest
   ? [`catalog-reading-fce-b2-test${requestedTest}`]
   : Array.from({ length: 26 }, (_, i) => `catalog-reading-fce-b2-test${i + 2}`)
@@ -20,7 +25,7 @@ const roots = [
     body: id => path.resolve('apps/web/public/catalog/exams/reading', `${id}.json`),
     vault: id => path.resolve('apps/web/public/catalog/exams/reading', `${id}.answers.json`),
   },
-]
+].filter(root => scope === 'all' || root.label === scope)
 
 const failures = []
 const genericPart2Signatures = [
@@ -133,8 +138,13 @@ function validateExam(label, exam) {
   for (const feature of p6Features) if (!feature.name || /^[A-G]$/i.test(feature.name)) fail(label, id, `Part 6 feature ${feature.id} is empty/letter-only`)
 
   const p7 = exam.parts[6]
-  const labels = p7.passage.map(block => block.label).filter(Boolean).join(',')
-  if (labels !== 'A,B,C,D') fail(label, id, `Part 7 labels ${labels || '<none>'}`)
+  const expectedLabels = [...new Set(allQuestions(p7).flatMap(q => q.options ?? []).map(option => (
+    String(option?.id ?? '').trim().toUpperCase()
+  )).filter(value => /^[A-E]$/.test(value)))]
+  const labels = p7.passage.map(block => block.label).filter(Boolean)
+  if (expectedLabels.length < 4 || expectedLabels.length > 5 || labels.join(',') !== expectedLabels.join(',')) {
+    fail(label, id, `Part 7 labels ${labels.join(',') || '<none>'}`)
+  }
   for (const block of p7.passage) if (!block.text?.trim()) fail(label, id, `Part 7 section ${block.label ?? '?'} empty`)
   for (const q of allQuestions(p7)) if (!q.prompt || /^Question \d+|^Gap \(\d+\)$/i.test(q.prompt)) fail(label, id, `Part 7 Q${q.number} missing real prompt`)
 }
