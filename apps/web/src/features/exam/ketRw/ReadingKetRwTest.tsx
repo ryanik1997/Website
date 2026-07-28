@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
-import { ArrowLeft, ArrowRight, Bell, Loader2, Menu, Wifi } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Bell, ChevronLeft, ChevronRight, Loader2, Menu, Wifi } from 'lucide-react'
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import ExamTimerControls from '../ExamTimerControls'
 import ExamFontControls from '../ExamFontControls'
@@ -37,6 +37,12 @@ import { useReadingExamCloudImages } from '../useReadingExamCloudImages'
 import KetRwFooter from './KetRwFooter'
 import KetRwPartContent from './KetRwPartContent'
 import './readingKetRw.css'
+
+declare global {
+  interface Window {
+    __KET_ANNOTATION_DEBUG__?: unknown
+  }
+}
 
 const STORAGE_PREFIX = 'exam-reading-draft:'
 
@@ -96,7 +102,6 @@ export default function ReadingKetRwTest({ fullPaper: _fullPaper }: Props) {
   const currentPart = displayExam?.parts[partIndex] ?? exam?.parts[partIndex] ?? null
   const storageKey = exam ? `${STORAGE_PREFIX}${exam.id}` : ''
   const { isHydrated, markHydrated } = useExamDraftGate(storageKey)
-
   const handlePassagePortraitPick = useCallback(async (blockIndex: number, file: File) => {
     if (!examId || isAdmin !== true || !currentPart) return
     setImageError(null)
@@ -132,6 +137,7 @@ export default function ReadingKetRwTest({ fullPaper: _fullPaper }: Props) {
       setImageError(err instanceof Error ? err.message : 'Không xóa được ảnh.')
     }
   }, [cloudImages, currentPart, examId, isAdmin, refreshCloudImages])
+
   const {
     highlights,
     notes,
@@ -328,6 +334,26 @@ export default function ReadingKetRwTest({ fullPaper: _fullPaper }: Props) {
     highlights,
   )
 
+  /* DEV debug state */
+  useEffect(() => {
+    if (!import.meta.env.DEV) return
+
+    window.__KET_ANNOTATION_DEBUG__ = {
+      partId: currentPart?.id,
+      partNumber: currentPart?.partNumber,
+      selection,
+      highlights,
+      notes,
+      highlightsByPart,
+      notesByPart,
+      dom: {
+        marks: document.querySelectorAll('mark.reading-test-highlight').length,
+        yellowMarks: document.querySelectorAll('mark.reading-test-highlight--yellow').length,
+        noteMarks: document.querySelectorAll('.reading-test-note').length,
+      },
+    }
+  }, [currentPart?.id, currentPart?.partNumber, highlights, highlightsByPart, notes, notesByPart, selection])
+
   if (exam === undefined) {
     return (
       <div className="flex h-full items-center justify-center">
@@ -364,11 +390,16 @@ export default function ReadingKetRwTest({ fullPaper: _fullPaper }: Props) {
     <div
       className={[
         'ket-rw-shell',
-        'ket-a2-crawl',
         reviewMode ? 'is-review' : '',
         currentPart ? `is-part-${currentPart.partNumber}` : '',
       ].filter(Boolean).join(' ')}
       style={fontStyle}
+      data-active-part-index={partIndex}
+      data-active-part-number={currentPart?.partNumber ?? ''}
+      data-active-part-id={currentPart?.id ?? ''}
+      data-active-question-id={activeQuestionId ?? ''}
+      data-highlight-count={highlights.length}
+      data-note-count={notes.length}
     >
       {reviewMode && (
         <div
@@ -490,22 +521,28 @@ export default function ReadingKetRwTest({ fullPaper: _fullPaper }: Props) {
         onClose={clearSelection}
       />
 
-      <div className="ket-rw-adjacent-nav" aria-label="Question navigation">
+      <div className="ket-rw-floating-nav" aria-label="Question navigation">
         <button
           type="button"
-          disabled={activeQuestionIndex <= 0}
+          className="ket-rw-floating-nav__btn"
+          disabled={!activeQuestionId || allQuestions.findIndex(q => q.id === activeQuestionId) <= 0}
           onClick={() => goAdjacentQuestion(-1)}
           aria-label="Previous question"
         >
-          <ArrowLeft size={20} />
+          <ChevronLeft size={34} strokeWidth={3.2} />
         </button>
+
         <button
           type="button"
-          disabled={activeQuestionIndex < 0 || activeQuestionIndex >= allQuestions.length - 1}
+          className="ket-rw-floating-nav__btn is-next"
+          disabled={
+            !activeQuestionId
+            || allQuestions.findIndex(q => q.id === activeQuestionId) >= allQuestions.length - 1
+          }
           onClick={() => goAdjacentQuestion(1)}
           aria-label="Next question"
         >
-          <ArrowRight size={20} />
+          <ChevronRight size={34} strokeWidth={3.2} />
         </button>
       </div>
 
@@ -515,7 +552,7 @@ export default function ReadingKetRwTest({ fullPaper: _fullPaper }: Props) {
         activeQuestionId={activeQuestionId}
         answers={answers}
         onGoToPart={goToPart}
-        onSelectQuestion={handleSelectQuestion}
+        onSelectQuestion={handleSelectQuestion}
         onSubmit={() => setConfirmSubmit(true)}
         reviewMode={reviewMode}
         getQuestionReviewStatus={getQuestionReviewStatus}
