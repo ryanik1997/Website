@@ -89,4 +89,26 @@ describe('catalog runtime validation', () => {
       expect(restoredPart7?.passage.every(block => Boolean(block.text.trim()))).toBe(true)
     }
   })
+
+  it('keeps PET B1 Test 13 Part 3 at exam-level depth', () => {
+    const body = readJson(
+      path.join(ROOT, 'apps/web/public/catalog/exams/reading/catalog-reading-pet-b1-test13.json'),
+    ) as ReadingExam
+    const vault = readJson(
+      path.join(ROOT, 'apps/web/public/catalog/exams/reading/catalog-reading-pet-b1-test13.answers.json'),
+    ) as { answers: Record<string, { answer: string }> }
+    const part3 = body.parts.find(part => part.partNumber === 3)
+    const questions = part3?.questionGroups.flatMap(group => group.questions) ?? []
+    const wordCount = part3?.passage
+      .flatMap(block => block.text.trim().split(/\s+/))
+      .filter(Boolean).length ?? 0
+
+    expect(wordCount).toBeGreaterThanOrEqual(350)
+    expect(questions).toHaveLength(5)
+    expect(questions.map(question => question.number)).toEqual([11, 12, 13, 14, 15])
+    expect(questions.every(question => question.options.length === 4)).toBe(true)
+    expect(questions.map(question => vault.answers[question.id]?.answer)).toEqual(
+      ['b', 'c', 'b', 'c', 'b'],
+    )
+  })
 })

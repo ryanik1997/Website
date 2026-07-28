@@ -1,5 +1,6 @@
 # Consolidated Session Summary — Ryan English Website
 
+- Re-authored PET B1 Reading Test 13 Part 3 as a 422-word Cambridge-style article, “Learning to Cook Under Pressure”, with five inference/detail/attitude questions and plausible distractors. Runtime body and answer vault remain aligned at `B, C, B, C, B`; added a depth regression test.
 - Fixed the FCE B2 bottom navigation layout: selectors now target the actual `ket-rw-footer__part` classes, inactive parts flex evenly, the active part receives enough width, and question pills are distributed with `space-evenly` instead of bunching into a horizontal scrollbar.
 - Fixed global IELTS/Cambridge Listening playback in local development: `/catalog/listening/*.mp3` now resolves to the shared R2 CDN in every environment instead of falling through to missing Vite files that return `index.html`. Added resolver coverage for FCE and IELTS paths.
 - Listening CDN audit: all 560 unique audio URLs referenced by 179 catalog exams return HTTP success with an `audio/*` content type from R2. Targeted resolver/catalog tests and TypeScript pass.
