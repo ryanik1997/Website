@@ -246,6 +246,7 @@
       "partNumber": 2,
       "rangeLabel": "Questions 9–16",
       "passageTitle": "Part 2",
+      "passageSubtitle": "",
       "passage": [
         {
           "text": "When it comes to weather and climate, there are several factors to consider. (9) ..... of all, it is important to understand the basic principles. Many people, (10) ..... , fail to recognise the significance of this. The reason (11) ..... this may be due to a lack of exposure. (12) ..... the other hand, those who have experience tend to disagree. It is worth noting that (13) ..... of the challenges we face can be overcome with patience. (14) ..... is also true that practice plays a crucial role. Finally, (15) ..... should be given to those who persist (16) ..... the face of difficulty.",
@@ -262,9 +263,9 @@
             {
               "id": "catalog-reading-fce-b2-test23-part-2-q9",
               "number": 9,
-              "answer": "only",
-              "explanation": "only.",
-              "answerConfidence": "key",
+              "answer": "first",
+              "explanation": "The correct word is \"first\".",
+              "answerConfidence": "ai-generated",
               "type": "gap-fill",
               "prompt": "Gap (9)",
               "size": 10
@@ -272,9 +273,9 @@
             {
               "id": "catalog-reading-fce-b2-test23-part-2-q10",
               "number": 10,
-              "answer": "as",
-              "explanation": "as.",
-              "answerConfidence": "key",
+              "answer": "however",
+              "explanation": "The correct word is \"however\".",
+              "answerConfidence": "ai-generated",
               "type": "gap-fill",
               "prompt": "Gap (10)",
               "size": 10
@@ -282,9 +283,9 @@
             {
               "id": "catalog-reading-fce-b2-test23-part-2-q11",
               "number": 11,
-              "answer": "have",
-              "explanation": "have.",
-              "answerConfidence": "key",
+              "answer": "for",
+              "explanation": "The correct word is \"for\".",
+              "answerConfidence": "ai-generated",
               "type": "gap-fill",
               "prompt": "Gap (11)",
               "size": 10
@@ -292,9 +293,9 @@
             {
               "id": "catalog-reading-fce-b2-test23-part-2-q12",
               "number": 12,
-              "answer": "be",
-              "explanation": "be.",
-              "answerConfidence": "key",
+              "answer": "on",
+              "explanation": "The correct word is \"on\".",
+              "answerConfidence": "ai-generated",
               "type": "gap-fill",
               "prompt": "Gap (12)",
               "size": 10
@@ -302,9 +303,9 @@
             {
               "id": "catalog-reading-fce-b2-test23-part-2-q13",
               "number": 13,
-              "answer": "of",
-              "explanation": "of.",
-              "answerConfidence": "key",
+              "answer": "most",
+              "explanation": "The correct word is \"most\".",
+              "answerConfidence": "ai-generated",
               "type": "gap-fill",
               "prompt": "Gap (13)",
               "size": 10
@@ -312,9 +313,9 @@
             {
               "id": "catalog-reading-fce-b2-test23-part-2-q14",
               "number": 14,
-              "answer": "no",
-              "explanation": "no.",
-              "answerConfidence": "key",
+              "answer": "it",
+              "explanation": "The correct word is \"it\".",
+              "answerConfidence": "ai-generated",
               "type": "gap-fill",
               "prompt": "Gap (14)",
               "size": 10
@@ -322,9 +323,9 @@
             {
               "id": "catalog-reading-fce-b2-test23-part-2-q15",
               "number": 15,
-              "answer": "more",
-              "explanation": "more.",
-              "answerConfidence": "key",
+              "answer": "credit",
+              "explanation": "The correct word is \"credit\".",
+              "answerConfidence": "ai-generated",
               "type": "gap-fill",
               "prompt": "Gap (15)",
               "size": 10
@@ -332,9 +333,9 @@
             {
               "id": "catalog-reading-fce-b2-test23-part-2-q16",
               "number": 16,
-              "answer": "the",
-              "explanation": "the.",
-              "answerConfidence": "key",
+              "answer": "in",
+              "explanation": "The correct word is \"in\".",
+              "answerConfidence": "ai-generated",
               "type": "gap-fill",
               "prompt": "Gap (16)",
               "size": 10
@@ -343,9 +344,12 @@
         }
       ],
       "_aiRepairMeta": {
-        "appliedAt": "2026-07-27T15:17:39.647Z",
+        "appliedAt": "2026-07-28T07:34:28.065Z",
         "fields": [
-          "passage"
+          "passage",
+          "questions",
+          "answers",
+          "explanations"
         ]
       }
     },
@@ -467,7 +471,7 @@
         }
       ],
       "_aiRepairMeta": {
-        "appliedAt": "2026-07-27T15:17:39.647Z",
+        "appliedAt": "2026-07-28T07:34:28.066Z",
         "fields": [
           "passage"
         ]

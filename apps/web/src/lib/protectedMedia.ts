@@ -193,6 +193,13 @@ export async function resolvePlayableMediaUrl(
   if (!url?.trim()) return undefined
   const trimmed = url.trim()
 
+  if (import.meta.env.DEV && import.meta.env.VITE_DEV_AUTH_BYPASS === '1') {
+    const bypassPath = toStorageObjectPath(trimmed)
+    if (bypassPath?.startsWith('catalog/exams/') && bypassPath.endsWith('.answers.json')) {
+      return resolveExamMediaUrl(`/${bypassPath}`)
+    }
+  }
+
   if (trimmed.startsWith('blob:')) return trimmed
 
   // Already signed / external CDN (not our static catalog)

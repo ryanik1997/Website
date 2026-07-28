@@ -251,11 +251,20 @@
       "id": "catalog-reading-fce-b2-test27-part-2",
       "partNumber": 2,
       "rangeLabel": "Questions 9–16",
-      "passageTitle": "Part 2",
+      "passageTitle": "Shakespeare: the mysteries and the facts",
+      "passageSubtitle": "ALSO",
       "passage": [
         {
-          "text": "When it comes to homes and housing, there are several factors to consider. (9) ..... of all, it is important to understand the basic principles. Many people, (10) ..... , fail to recognise the significance of this. The reason (11) ..... this may be due to a lack of exposure. (12) ..... the other hand, those who have experience tend to disagree. It is worth noting that (13) ..... of the challenges we face can be overcome with patience. (14) ..... is also true that practice plays a crucial role. Finally, (15) ..... should be given to those who persist (16) ..... the face of difficulty.",
-          "_provenance": "ai-generated"
+          "text": "William Shakespeare must surely be the greatest writer in the English language, and he may 0 _____ be the writer who (9) ..... influenced our language the most. For example, he came (10) ..... with many phrases we commonly use today, like ‘all of a sudden’, ‘love is blind’ and ‘too much of a good thing’. He might not be everyone’s favourite author, but people (11) ..... highly of his work, and Hamlet, Macbeth and Romeo and Juliet are some of the best-known plays in the world.",
+          "_provenance": "source"
+        },
+        {
+          "text": "(12) ..... Shakespeare is famous, we don’t know much about his life – not even his date of birth! He was baptised in Stratford-upon-Avon on 26th April 1564, so he must have been born around that time. His birthday is celebrated on 23rd April, but no one can say (13) ..... sure whether that is the right date. Similarly, little is known about his education. He may have attended school in Stratford, where he could have studied Latin and Greek. It can’t have been easy – school started at 6 a.m. and finished at 5 p.m., so he would have had to (14) ..... up with very long hours.",
+          "_provenance": "source"
+        },
+        {
+          "text": "In recent years, this lack of knowledge about Shakespeare’s life has led to speculation that other people might have written some of his works. However, while it is sometimes difficult to tell the (15) ..... between Shakespeare’s work and other contemporary writers’, the vast (16) ..... of scholars agree that it simply can’t be true – the works must be Shakespeare’s own.",
+          "_provenance": "source"
         }
       ],
       "questionGroups": [
@@ -298,8 +307,8 @@
             {
               "id": "catalog-reading-fce-b2-test27-part-2-q12",
               "number": 12,
-              "answer": "a",
-              "explanation": "lthough/While.",
+              "answer": "although/while",
+              "explanation": "Although/While.",
               "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (12)",
@@ -347,13 +356,7 @@
             }
           ]
         }
-      ],
-      "_aiRepairMeta": {
-        "appliedAt": "2026-07-27T15:17:39.660Z",
-        "fields": [
-          "passage"
-        ]
-      }
+      ]
     },
     {
       "id": "catalog-reading-fce-b2-test27-part-3",
@@ -473,7 +476,7 @@
         }
       ],
       "_aiRepairMeta": {
-        "appliedAt": "2026-07-27T15:17:39.660Z",
+        "appliedAt": "2026-07-28T08:11:24.720Z",
         "fields": [
           "passage"
         ]

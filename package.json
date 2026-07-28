@@ -10,6 +10,7 @@
     "dev:web:open": "pnpm --filter web dev:open",
     "build:catalog": "node scripts/build-catalog.mjs && node scripts/mode-c-pack-catalog.mjs && node scripts/validate-catalog-runtime.mjs",
     "build:catalog:if-present": "node scripts/build-catalog.mjs --if-present && node scripts/mode-c-pack-catalog.mjs && node scripts/validate-catalog-runtime.mjs",
+    "build:catalog:fce-test27": "node scripts/build-catalog.mjs --only-exam catalog-reading-fce-b2-test27 && node scripts/mode-c-pack-catalog.mjs --only-exam catalog-reading-fce-b2-test27 && node scripts/validate-catalog-runtime.mjs",
     "mode-c:pack": "node scripts/mode-c-pack-catalog.mjs && node scripts/validate-catalog-runtime.mjs",
     "test:listening-media": "npx vite-node apps/web/scripts/test-listening-media-policy.mts",
     "test:listening-gap": "npx vite-node apps/web/scripts/test-listening-gap-answers.mts",
@@ -62,6 +63,8 @@
     "fce:b2:analyze": "node scripts/reading/analyze-fce-b2-missing-content.mjs",
     "fce:b2:repair-ai": "node scripts/reading/generate-fce-b2-ai-repairs.mjs",
     "fce:b2:validate-repairs": "node scripts/reading/validate-fce-b2-ai-repairs.mjs",
+    "fce:b2:validate-semantics": "node scripts/reading/validate-fce-b2-semantics.mjs",
+    "fce:b2:validate-answers": "node scripts/reading/validate-fce-b2-answer-consistency.mjs",
     "fce:b2:repair": "pnpm fce:b2:analyze && pnpm fce:b2:repair-ai -- --only-missing && pnpm fce:b2:validate-repairs",
     "test": "pnpm --filter @ryan/db test && pnpm --filter web test"
   },

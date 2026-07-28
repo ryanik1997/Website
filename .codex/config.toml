@@ -18,3 +18,12 @@ args = [
     "./mcps/local-tool-bundles-mcp/server.mjs",
     "codebase-memory-mcp",
 ]
+
+[mcp_servers.playwright]
+command = "npx"
+args = [
+    "-y",
+    "@playwright/mcp@latest",
+    "--cdp-endpoint",
+    "http://localhost:9222",
+]

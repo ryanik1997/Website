@@ -15,6 +15,16 @@ const ROOT = path.resolve(__dirname, '..')
 const DATA = path.join(ROOT, 'packages/catalog/data')
 const PUB_EXAMS = path.join(ROOT, 'apps/web/public/catalog/exams')
 
+function readCliArg(name) {
+  const args = process.argv.slice(2)
+  const inline = args.find(arg => arg.startsWith(`--${name}=`))
+  if (inline) return inline.slice(name.length + 3)
+  const index = args.indexOf(`--${name}`)
+  return index >= 0 ? args[index + 1] ?? null : null
+}
+
+const ONLY_EXAM_ID = readCliArg('only-exam')
+
 /** Fields stripped from runtime body (Mode D answer vault). */
 const ANSWER_FIELDS = [
   'answer',
@@ -114,6 +124,7 @@ function toStub(exam, skill) {
 function packSkill(prefix, skill) {
   const files = fs.readdirSync(DATA)
     .filter(f => f.startsWith(prefix) && f.endsWith('.json') && !f.includes('meta') && !f.includes('answers'))
+    .filter(file => !ONLY_EXAM_ID || file === `${prefix}${ONLY_EXAM_ID.replace(`catalog-${skill}-`, '')}.json`)
     .sort()
 
   const stubs = []
@@ -148,15 +159,28 @@ function packSkill(prefix, skill) {
   }
 
   const metaFile = path.join(DATA, `catalog-${skill}-meta.json`)
-  fs.writeFileSync(metaFile, JSON.stringify(stubs, null, 2) + '\n')
-  console.log(`[mode-d] ${skill}: ${stubs.length} stubs, ${withAnswers} answer vaults → ${outDir}`)
+  const existingStubs = ONLY_EXAM_ID && fs.existsSync(metaFile)
+    ? JSON.parse(fs.readFileSync(metaFile, 'utf8'))
+    : []
+  const outputStubs = ONLY_EXAM_ID
+    ? [
+        ...existingStubs.filter(stub => stub.id !== ONLY_EXAM_ID),
+        ...stubs,
+      ].sort((a, b) => String(a.id).localeCompare(String(b.id), undefined, { numeric: true }))
+    : stubs
+  fs.writeFileSync(metaFile, JSON.stringify(outputStubs, null, 2) + '\n')
+  console.log(`[mode-d] ${skill}: ${stubs.length} packed, ${withAnswers} answer vaults → ${outDir}`)
   return stubs.length
 }
 
 function main() {
   ensureDir(PUB_EXAMS)
-  const nL = packSkill('listening-', 'listening')
-  const nR = packSkill('reading-', 'reading')
+  const nL = ONLY_EXAM_ID?.startsWith('catalog-reading-')
+    ? 0
+    : packSkill('listening-', 'listening')
+  const nR = ONLY_EXAM_ID?.startsWith('catalog-listening-')
+    ? 0
+    : packSkill('reading-', 'reading')
   console.log(JSON.stringify({ listening: nL, reading: nR, mode: 'C+D', ok: true }, null, 2))
 }
 

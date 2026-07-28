@@ -181,7 +181,6 @@ export async function mergeAiRepairs(part, sourceTestNumber, appTestNumber, sour
 
   switch (part.partNumber) {
     case 1:
-    case 2:
     case 3: {
       // Merge passage (only if invalid)
       if (!isValidPassage(part.passage) && ai.passage?.length) {
@@ -202,6 +201,63 @@ export async function mergeAiRepairs(part, sourceTestNumber, appTestNumber, sour
           return merged
         }),
       }))
+      break
+    }
+
+    case 2: {
+      const sourceHasDistinctTitle = sourcePage?.origin === 'source'
+        ? Boolean(part.passageTitle && part.passageTitle !== 'Part 2')
+        : Boolean(part.passageTitle)
+      const sourceHasExample = sourcePage?.origin === 'source'
+        ? Boolean(part.passageSubtitle)
+        : true
+      const sourceIsComplete = isValidPassage(part.passage)
+        && sourceHasDistinctTitle
+        && sourceHasExample
+        && Array.from({ length: 8 }, (_, i) => i + 9).every(number => (
+          part.passage.some(block => block.text?.includes(`(${number}) .....`))
+        ))
+      if (sourceIsComplete) break
+
+      const generatedFields = new Set(repair.provenance?.generatedFields ?? [])
+      const hasCompleteAiUnit = repair.provenance?.origin === 'ai-generated'
+        && generatedFields.has('passageTitle')
+        && generatedFields.has('example')
+        && generatedFields.has('passage')
+        && generatedFields.has('questions')
+        && ai.passageTitle
+        && ai.example
+        && ai.passage?.length
+        && ai.questions?.length === 8
+        && ai.questions.every(question => question.answer && question.explanation)
+      if (!hasCompleteAiUnit) {
+        throw new Error(
+          `Source Test ${sourceTestNumber} Part 2: refusing partial AI passage/source-answer merge`,
+        )
+      }
+
+      mergedPart.passage = ai.passage.map(block => ({
+        text: block.text ?? '',
+        _provenance: 'ai-generated',
+      }))
+      mergedPart.passageTitle = ai.passageTitle ?? part.passageTitle
+      mergedPart.passageSubtitle = ai.example ?? part.passageSubtitle
+      mergedPart.questionGroups = part.questionGroups.map(group => ({
+        ...group,
+        questions: group.questions.map(question => {
+          const aiQuestion = ai.questions.find(item => item.number === question.number)
+          if (!aiQuestion) {
+            throw new Error(`Source Test ${sourceTestNumber} Part 2: missing AI Q${question.number}`)
+          }
+          return {
+            ...question,
+            answer: aiQuestion.answer,
+            explanation: aiQuestion.explanation,
+            answerConfidence: 'ai-generated',
+          }
+        }),
+      }))
+      provenanceFields.push('passage', 'questions', 'answers', 'explanations')
       break
     }
 

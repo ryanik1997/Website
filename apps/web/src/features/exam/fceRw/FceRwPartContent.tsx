@@ -411,6 +411,11 @@ export default function FceRwPartContent({
             <h2 className="ket-rw-passage-title">
               <RwHighlightText blockId={`${partId}-title`} text={part.passageTitle ?? ''} />
             </h2>
+            {part.passageSubtitle && (
+              <p className="ket-rw-paragraph" data-testid="fce-part2-example">
+                <RwHighlightText blockId={`${partId}-example`} text={`Example: ${part.passageSubtitle}`} />
+              </p>
+            )}
             {bodyBlocks.map((block, idx) => (
               <div key={`p2-${idx}`} className="ket-rw-paragraph">
                 {renderOpenGapPassage(`p2-${idx}`, block.text ?? '', questions)}

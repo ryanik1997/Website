@@ -14,10 +14,11 @@
 import * as https from 'node:https'
 import * as fs from 'node:fs'
 import * as path from 'node:path'
+import { resolveTainguyenPath } from './tainguyen-path.mjs'
 
 const BASE = 'https://engexam.info'
 const ROOT = '/fce-reading-and-use-of-english-practice-tests/fce-reading-and-use-of-english-practice-test-'
-const OUT_DIR = 'D:\\App-English-Ryan\\Tainguyen'
+const OUT_DIR = path.join(resolveTainguyenPath(), 'Import Cambridge', 'FCE_B2', 'Reading')
 
 // ── Parse CLI args ──
 const args = process.argv.slice(2)
@@ -27,6 +28,16 @@ const delayIdx = args.indexOf('--delay')
 const delayMs = delayIdx !== -1 ? parseInt(args[delayIdx + 1], 10) : 1200
 const singleTestIdx = args.indexOf('--test')
 const singleTest = singleTestIdx !== -1 ? parseInt(args[singleTestIdx + 1], 10) : null
+const singlePageIdx = args.indexOf('--page')
+const singlePage = singlePageIdx !== -1 ? parseInt(args[singlePageIdx + 1], 10) : null
+const backup = args.includes('--backup')
+
+if (singlePage && !singleTest) {
+  throw new Error('--page requires --test')
+}
+if (singlePage && (singlePage < 1 || singlePage > 8)) {
+  throw new Error(`Invalid --page value: ${singlePage}`)
+}
 
 let tests
 if (singleTest) tests = [singleTest]
@@ -41,11 +52,28 @@ function fetch(url) {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
         'Accept': 'text/html,application/xhtml+xml',
       },
-      timeout: 15000,
+      timeout: 30000,
     }, (res) => {
+      if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+        const redirected = new URL(res.headers.location, url).toString()
+        res.resume()
+        resolve(fetch(redirected))
+        return
+      }
+      if (res.statusCode !== 200) {
+        res.resume()
+        reject(new Error(`HTTP ${res.statusCode} for ${url}`))
+        return
+      }
       let data = ''
       res.on('data', chunk => data += chunk)
-      res.on('end', () => resolve(data))
+      res.on('end', () => {
+        if (data.length < 1000) {
+          reject(new Error(`Response too short (${data.length} bytes) for ${url}`))
+          return
+        }
+        resolve(data)
+      })
     })
       .on('error', reject)
       .on('timeout', function () { this.destroy(); reject(new Error('timeout')) })
@@ -61,26 +89,71 @@ function extractBetween(html, startTag, endTag) {
   return e === -1 ? html.slice(from) : html.slice(from, e)
 }
 
+function extractEntryContent(html) {
+  const marker = html.search(/class=["'][^"']*\bentry-content\b[^"']*["']/i)
+  if (marker === -1) return ''
+  const openEnd = html.indexOf('>', marker)
+  if (openEnd === -1) return ''
+  const from = openEnd + 1
+  const boundaryPatterns = [
+    /<div[^>]*class=["'][^"']*\bpage-links\b/i,
+    /<footer\b/i,
+    /<div[^>]*class=["'][^"']*\bentry-footer\b/i,
+  ]
+  let end = html.length
+  for (const pattern of boundaryPatterns) {
+    const match = pattern.exec(html.slice(from))
+    if (match && from + match.index < end) end = from + match.index
+  }
+  return html.slice(from, end)
+}
+
+function extractHeading(html, level = 2) {
+  const match = String(html ?? '').match(new RegExp(`<h${level}\\b[^>]*>([\\s\\S]*?)<\\/h${level}>`, 'i'))
+  return match ? stripAllTags(match[1]) : ''
+}
+
+function extractExample(html) {
+  const paragraphs = String(html ?? '').match(/<p\b[^>]*>[\s\S]*?<\/p>/gi) ?? []
+  const paragraph = paragraphs.find(value => /<strong\b[^>]*>\s*Example\s*:/i.test(value))
+  return paragraph ? stripAllTags(paragraph).replace(/^Example\s*:?\s*/i, '').trim() : ''
+}
+
+function passageFromHeadingToScore(html) {
+  const heading = String(html ?? '').match(/<h2\b[^>]*>[\s\S]*?<\/h2>/i)
+  if (!heading || heading.index == null) return ''
+  const start = heading.index
+  const afterHeading = start + heading[0].length
+  const scoreRelative = html.slice(afterHeading).search(/class=["']score-container["']/i)
+  const end = scoreRelative === -1 ? html.length : afterHeading + scoreRelative
+  return html.slice(start, end).trim()
+}
+
 function stripAllTags(html) {
   return html.replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').replace(/&#?[a-z0-9]+;/gi, ' ').replace(/\s+/g, ' ').trim()
 }
 
 // ── Parse page ──
-function parsePage(html, testNumber, pageNumber) {
-  // Extract entry-content
-  const entryContent = extractBetween(html, 'class="entry-content"', '<div class="page-links"')
+function parsePage(html, testNumber, pageNumber, sourceUrl) {
+  const entryContent = extractEntryContent(html)
   if (!entryContent || entryContent.length < 100) return null
 
   const result = {
     testNumber,
     pageNumber,
+    sourceUrl,
+    fetchedAt: new Date().toISOString(),
+    origin: 'source',
     isAnswerPage: entryContent.includes('Answer Keys'),
     partNumber: null,
     partTitle: null,
     instructions: null,
+    example: null,
     passageTitle: null,
     passageTextHtml: '',
     questions: [],
+    entryContentHtml: entryContent,
+    fullHtml: html,
     rawHtmlSample: entryContent.slice(0, 2000),
   }
 
@@ -94,17 +167,13 @@ function parsePage(html, testNumber, pageNumber) {
   const h1Match = entryContent.match(/<h1>\s*Part\s+(\d+)\s*<\/h1>/i)
   if (h1Match) result.partNumber = parseInt(h1Match[1], 10)
 
-  // ── Instructions — text in <em> after <h1>Part──
-  const instMatch = entryContent.match(/<em>([\s\S]*?)<\/em>/)
+  // ── Instructions and source example ──
+  const instMatch = entryContent.match(/<em\b[^>]*>([\s\S]*?)<\/em>/i)
   if (instMatch) result.instructions = stripAllTags(instMatch[1])
+  result.example = extractExample(entryContent) || null
 
-  // ── Part title / subtitle — first <h2> after <h1>Part──
-  const h1Pos = entryContent.indexOf(`<h1>Part ${result.partNumber}</h1>`)
-  if (h1Pos !== -1) {
-    const afterH1 = entryContent.slice(h1Pos + 30)
-    const h2Match = afterH1.match(/<h2>([\s\S]*?)<\/h2>/)
-    if (h2Match) result.passageTitle = stripAllTags(h2Match[1])
-  }
+  // ── Passage title — first h2, including h2 elements with attributes ──
+  result.passageTitle = extractHeading(entryContent, 2) || null
 
   // ── Extract questions based on part type ──
   switch (result.partNumber) {
@@ -135,12 +204,7 @@ function parsePage(html, testNumber, pageNumber) {
 
 // ── Part 1: Multiple-choice cloze (<select>) ──
 function parsePart1(html, result) {
-  // Get passage text (between <h2> and first <div class="score">)
-  const h2Pos = html.indexOf('<h2>')
-  const scorePos = html.indexOf('class="score-container"')
-  if (h2Pos !== -1 && scorePos !== -1) {
-    result.passageTextHtml = html.slice(h2Pos, scorePos)
-  }
+  result.passageTextHtml = passageFromHeadingToScore(html)
 
   // Extract <select> questions
   const selectRe = /<select[^>]*id="q(\d+)"[^>]*>([\s\S]*?)<\/select>/gi
@@ -162,11 +226,7 @@ function parsePart1(html, result) {
 
 // ── Part 2 (Open cloze) & Part 3 (Word formation): <input> ──
 function parsePart2or3(html, result) {
-  const h2Pos = html.indexOf('<h2>')
-  const scorePos = html.indexOf('class="score-container"')
-  if (h2Pos !== -1 && scorePos !== -1) {
-    result.passageTextHtml = html.slice(h2Pos, scorePos)
-  }
+  result.passageTextHtml = passageFromHeadingToScore(html)
 
   const inputRe = /<input[^>]*id="q(\d+)"[^>]*>/gi
   let m
@@ -221,10 +281,10 @@ function parsePart4(html, result) {
 
 // ── Part 5: Multiple choice (radio) ──
 function parsePart5(html, result) {
-  const h2Pos = html.indexOf('<h2>')
-  const questionStart = html.indexOf('<p id="d')
-  if (h2Pos !== -1 && questionStart !== -1) {
-    result.passageTextHtml = html.slice(h2Pos, questionStart)
+  const heading = html.match(/<h2\b[^>]*>[\s\S]*?<\/h2>/i)
+  const questionStart = html.search(/<p\b[^>]*id=["']d\d+["']/i)
+  if (heading?.index != null && questionStart !== -1) {
+    result.passageTextHtml = html.slice(heading.index, questionStart)
   }
 
   // Find all question ids: d31, d32, etc.
@@ -271,11 +331,7 @@ function parsePart5(html, result) {
 
 // ── Part 6: Gapped text (<select> with A-G) ──
 function parsePart6(html, result) {
-  const h2Pos = html.indexOf('<h2>')
-  const scorePos = html.indexOf('class="score-container"')
-  if (h2Pos !== -1 && scorePos !== -1) {
-    result.passageTextHtml = html.slice(h2Pos, scorePos)
-  }
+  result.passageTextHtml = passageFromHeadingToScore(html)
 
   const selectRe = /<select[^>]*id="q(\d+)"[^>]*>([\s\S]*?)<\/select>/gi
   let m
@@ -328,9 +384,9 @@ function findPart(qNum, starts, counts) {
 function extractInlineItem(qNum, rawContent, answers) {
   if (isNaN(qNum)) return
   const remainder = rawContent.trim()
-  const letterMatch = remainder.match(/^([A-Z]+)\s*[.\u2013]?\s*/)
+  const letterMatch = remainder.match(/^([A-Z])(?:\s*[.\u2013]\s*|\s+)/)
   let answer, explanation
-  if (letterMatch && letterMatch[1].length <= 2) {
+  if (letterMatch) {
     answer = letterMatch[1]
     explanation = stripAllTags(remainder.slice(letterMatch[0].length))
   } else {
@@ -552,13 +608,26 @@ function parseAnswerKeys(html) {
 }
 
 // ── Crawl one test ──
+async function writeJsonAtomic(filePath, data) {
+  const tempPath = `${filePath}.tmp-${process.pid}`
+  fs.writeFileSync(tempPath, `${JSON.stringify(data, null, 2)}\n`, 'utf8')
+  JSON.parse(fs.readFileSync(tempPath, 'utf8'))
+  fs.renameSync(tempPath, filePath)
+}
+
 async function crawlTest(testNumber) {
   const testDir = path.join(OUT_DIR, `fce-reading-test${testNumber}`, 'exam')
-  const pages = []
+  const filePath = path.join(testDir, 'exam.json')
+  let existing = null
+  if (singlePage && fs.existsSync(filePath)) {
+    existing = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+  }
+  const pages = singlePage ? [singlePage] : Array.from({ length: 8 }, (_, i) => i + 1)
+  const crawledPages = []
 
-  console.log(`\n📥 Crawling test ${testNumber}...`)
+  console.log(`\n📥 Crawling test ${testNumber}${singlePage ? ` page ${singlePage}` : ''}...`)
 
-  for (let page = 1; page <= 8; page++) {
+  for (const page of pages) {
     // Page 1 is the default page (WordPress: /1/ redirects to /)
     const pagePath = page === 1 ? '' : `${page}/`
     const url = `${BASE}${ROOT}${testNumber}/${pagePath}`
@@ -570,10 +639,10 @@ async function crawlTest(testNumber) {
 
     try {
       const html = await fetch(url)
-      const parsed = parsePage(html, testNumber, page)
+      const parsed = parsePage(html, testNumber, page, url)
 
       if (parsed) {
-        pages.push(parsed)
+        crawledPages.push(parsed)
         if (parsed.isAnswerPage) {
           const totalAnswers = parsed.answers ? Object.values(parsed.answers).reduce((s, a) => s + a.length, 0) : 0
           console.log(`  ✅ Page ${page}: Answer Keys (${totalAnswers} answers)`)
@@ -598,19 +667,29 @@ async function crawlTest(testNumber) {
 
   fs.mkdirSync(testDir, { recursive: true })
 
+  const mergedPages = existing
+    ? [...(existing.pages ?? []).filter(page => Number(page.pageNumber) !== singlePage), ...crawledPages]
+        .sort((a, b) => Number(a.pageNumber) - Number(b.pageNumber))
+    : crawledPages
   const examData = {
+    ...(existing ?? {}),
     source: 'engexam.info',
+    origin: 'source',
     testNumber,
     title: `FCE Reading and Use of English Practice Test ${testNumber}`,
     level: 'B2',
     examType: 'FCE',
-    totalPages: pages.length,
+    totalPages: mergedPages.length,
     crawledAt: new Date().toISOString(),
-    pages,
+    pages: mergedPages,
   }
 
-  const filePath = path.join(testDir, 'exam.json')
-  fs.writeFileSync(filePath, JSON.stringify(examData, null, 2), 'utf-8')
+  if (backup && fs.existsSync(filePath)) {
+    const backupPath = `${filePath}.backup-${new Date().toISOString().replace(/[:.]/g, '-')}`
+    fs.copyFileSync(filePath, backupPath)
+    console.log(`  🛟 Backup: ${backupPath}`)
+  }
+  await writeJsonAtomic(filePath, examData)
   console.log(`  💾 Saved: ${filePath} (${(fs.statSync(filePath).size / 1024).toFixed(1)} KB)`)
 
   return examData

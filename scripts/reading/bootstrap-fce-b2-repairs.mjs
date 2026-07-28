@@ -243,28 +243,6 @@ function generatePart1Content(sourceCtx, testNumber) {
   return { passage: [{ text: passage }], questions }
 }
 
-function generatePart2Content(sourceCtx, testNumber) {
-  const topic = pick(TOPICS.part2)
-  const passage = `When it comes to ${topic.toLowerCase()}, there are several factors to consider. (9) ..... of all, it is important to understand the basic principles. Many people, (10) ..... , fail to recognise the significance of this. The reason (11) ..... this may be due to a lack of exposure. (12) ..... the other hand, those who have experience tend to disagree. It is worth noting that (13) ..... of the challenges we face can be overcome with patience. (14) ..... is also true that practice plays a crucial role. Finally, (15) ..... should be given to those who persist (16) ..... the face of difficulty.`
-
-  const questions = []
-  const answers = ['first', 'however', 'for', 'on', 'most', 'it', 'credit', 'in']
-  for (let i = 0; i < 8; i++) {
-    const n = 9 + i
-    questions.push({
-      number: n,
-      type: 'gap-fill',
-      prompt: `Gap (${n})`,
-      answer: answers[i],
-      acceptedAnswers: answers[i],
-      explanation: `The correct word is "${answers[i]}".`,
-      size: 10,
-    })
-  }
-
-  return { passage: [{ text: passage }], questions }
-}
-
 function generatePart3Content(sourceCtx, testNumber) {
   const stems = [
     { baseWord: 'COMPETE', answer: 'competitive' },
@@ -456,7 +434,10 @@ function generatePart7Content(sourceCtx, testNumber) {
 function generatePartContent(partNumber, sourceCtx, testNumber) {
   switch (partNumber) {
     case 1: return generatePart1Content(sourceCtx, testNumber)
-    case 2: return generatePart2Content(sourceCtx, testNumber)
+    case 2:
+      throw new Error(
+        `Source Test ${testNumber} Part 2: bootstrap filler is disabled; recover the EngExam source or use a reviewed complete AI unit`,
+      )
     case 3: return generatePart3Content(sourceCtx, testNumber)
     case 4: return generatePart4Content(sourceCtx, testNumber)
     case 5: return generatePart5Content(sourceCtx, testNumber)

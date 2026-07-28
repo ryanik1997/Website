@@ -28,6 +28,16 @@ const IF_PRESENT =
   || process.env.SKIP_CATALOG_BUILD === '1'
   || process.env.VERCEL === '1'
 
+function readCliArg(name) {
+  const args = process.argv.slice(2)
+  const inline = args.find(arg => arg.startsWith(`--${name}=`))
+  if (inline) return inline.slice(name.length + 3)
+  const index = args.indexOf(`--${name}`)
+  return index >= 0 ? args[index + 1] ?? null : null
+}
+
+const ONLY_EXAM_ID = readCliArg('only-exam')
+
 const STATIC_BUNDLES = [
   {
     kind: 'reading',
@@ -928,7 +938,7 @@ async function main() {
     ...discoveredReadingBundles.filter(bundle => !payloadSlugs.has(bundle.slug)),
     ...payloadReadingBundles,
   ]
-  const BUNDLES = [
+  const discoveredBundles = [
     ...STATIC_BUNDLES,
     ...ketPracticeReadingBundles,
     ...petPracticeListeningBundles,
@@ -937,17 +947,36 @@ async function main() {
     ...ieltsReadingBundles.filter(bundle => !bundle.payloadPath),
     ...ieltsListeningBundles,
   ]
-  await writeGeneratedIeltsImports(ieltsListeningBundles, ieltsReadingBundles)
-  await writeGeneratedKetReadingImports(ketPracticeReadingBundles)
-  await writeGeneratedPetListeningImports(petPracticeListeningBundles)
-  await writeGeneratedFceListeningImports(fcePracticeListeningBundles)
-
-  const manifest = {
-    version: 2,
-    builtAt: new Date().toISOString(),
-    reading: [],
-    listening: [],
+  const BUNDLES = ONLY_EXAM_ID
+    ? discoveredBundles.filter(bundle => bundle.examId === ONLY_EXAM_ID)
+    : discoveredBundles
+  if (ONLY_EXAM_ID && BUNDLES.length !== 1) {
+    throw new Error(`--only-exam did not match exactly one discovered bundle: ${ONLY_EXAM_ID}`)
   }
+  if (!ONLY_EXAM_ID) {
+    await writeGeneratedIeltsImports(ieltsListeningBundles, ieltsReadingBundles)
+    await writeGeneratedKetReadingImports(ketPracticeReadingBundles)
+    await writeGeneratedPetListeningImports(petPracticeListeningBundles)
+    await writeGeneratedFceListeningImports(fcePracticeListeningBundles)
+  }
+
+  const existingManifestPath = path.join(DATA_OUT, 'manifest.json')
+  const existingManifest = ONLY_EXAM_ID && existsSync(existingManifestPath)
+    ? JSON.parse(await fs.readFile(existingManifestPath, 'utf8'))
+    : null
+  const manifest = existingManifest
+    ? {
+        ...existingManifest,
+        builtAt: new Date().toISOString(),
+        reading: (existingManifest.reading ?? []).filter(item => item.id !== ONLY_EXAM_ID),
+        listening: (existingManifest.listening ?? []).filter(item => item.id !== ONLY_EXAM_ID),
+      }
+    : {
+        version: 2,
+        builtAt: new Date().toISOString(),
+        reading: [],
+        listening: [],
+      }
 
   for (const bundle of BUNDLES) {
     const sourceDir = path.join(TAINGUYEN, bundle.sourceDir)
@@ -983,7 +1012,7 @@ async function main() {
     console.log(`✓ ${bundle.kind}/${bundle.slug} — ${mediaCount} media, → ${outName}`)
   }
 
-  for (const bundle of payloadReadingBundles) {
+  for (const bundle of ONLY_EXAM_ID ? [] : payloadReadingBundles) {
     const raw = JSON.parse(await fs.readFile(bundle.payloadPath, 'utf8'))
     const sourcePath = path.join(ROOT, 'reading_filtered.json')
     const sourceRows = existsSync(sourcePath)
@@ -1000,6 +1029,8 @@ async function main() {
     console.log(`✓ reading/${bundle.slug} — payload, → ${outName}`)
   }
 
+  manifest.reading.sort((a, b) => String(a.id).localeCompare(String(b.id), undefined, { numeric: true }))
+  manifest.listening.sort((a, b) => String(a.id).localeCompare(String(b.id), undefined, { numeric: true }))
   await fs.writeFile(
     path.join(DATA_OUT, 'manifest.json'),
     JSON.stringify(manifest, null, 2),

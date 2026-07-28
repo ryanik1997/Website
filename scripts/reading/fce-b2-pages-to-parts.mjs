@@ -108,7 +108,7 @@ function removeNode(node) {
   if (index >= 0) parent.childNodes.splice(index, 1)
 }
 
-function passageBlocksWithInlineMarkers(html, numbers) {
+function passageBlocksWithInlineMarkers(html, numbers, { strict = false } = {}) {
   const expected = new Set(numbers)
   const doc = parseHtmlDocument(html)
   for (const anchor of nodesByTag(doc, 'a')) removeNode(anchor)
@@ -123,13 +123,11 @@ function passageBlocksWithInlineMarkers(html, numbers) {
   const blocks = nodesByTag(doc, 'p')
     .map(p => ({ text: elementText(p) }))
     .filter(block => block.text)
-  // Source HTML may be missing markers (truncated crawl).
-  // Don't throw — let the caller (or AI repair merge) handle it.
   const joined = blocks.map(b => b.text).join('\n')
   try {
     assertMarkers(joined, numbers, `part markers ${numbers[0]}-${numbers[numbers.length - 1]}`)
-  } catch {
-    // Markers missing — return blocks as-is; AI repair merge will fill content
+  } catch (error) {
+    if (strict) throw error
   }
   return blocks
 }
@@ -320,20 +318,21 @@ function convertPart1(page, answerMap, appTestNumber) {
 
 function convertPart2(page, answerMap, appTestNumber) {
   const base = buildPartBase(page, appTestNumber, answerMap)
-  const html = String(page.passageTextHtml ?? '')
+  const html = String(page.passageTextHtml || page.entryContentHtml || '')
   const questions = base.questions.map(({ rawQuestion: q, ...question }) => ({
     ...question,
     type: 'gap-fill',
     prompt: `Gap (${question.number})`,
     size: q.size ?? 10,
   }))
-  const passage = passageBlocksWithInlineMarkers(html, markerNumbers(9, 8))
+  const passage = passageBlocksWithInlineMarkers(html, markerNumbers(9, 8), { strict: Boolean(page.origin === 'source' && html) })
   return {
     id: base.partId,
     partNumber: 2,
     rangeLabel: questionRange(2),
     passageTitle: base.passageTitle,
-    passage,
+    passageSubtitle: normalizeText(page.example ?? ''),
+    passage: passage.map(block => ({ ...block, _provenance: 'source' })),
     questionGroups: [{
       id: `${base.partId}-g0`,
       range: questionRange(2),

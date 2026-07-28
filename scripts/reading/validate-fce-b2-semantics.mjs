@@ -1,7 +1,15 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 
-const ids = Array.from({ length: 26 }, (_, i) => `catalog-reading-fce-b2-test${i + 2}`)
+const args = process.argv.slice(2)
+const testArgIndex = args.indexOf('--test')
+const requestedTest = testArgIndex >= 0 ? Number(args[testArgIndex + 1]) : null
+if (testArgIndex >= 0 && !Number.isInteger(requestedTest)) {
+  throw new Error('--test requires an integer')
+}
+const ids = requestedTest
+  ? [`catalog-reading-fce-b2-test${requestedTest}`]
+  : Array.from({ length: 26 }, (_, i) => `catalog-reading-fce-b2-test${i + 2}`)
 const roots = [
   {
     label: 'package',
@@ -10,10 +18,16 @@ const roots = [
   {
     label: 'runtime',
     body: id => path.resolve('apps/web/public/catalog/exams/reading', `${id}.json`),
+    vault: id => path.resolve('apps/web/public/catalog/exams/reading', `${id}.answers.json`),
   },
 ]
 
 const failures = []
+const genericPart2Signatures = [
+  'When it comes to homes and housing',
+  'basic principles',
+  'face of difficulty',
+]
 
 function fail(label, id, message) {
   failures.push(`${label} ${id}: ${message}`)
@@ -25,6 +39,23 @@ function allQuestions(part) {
 
 function textOf(part) {
   return part.passage.map(block => `${block.label ? `${block.label} ` : ''}${block.text ?? ''}`).join('\n')
+}
+
+function hydrateRuntimeAnswers(exam, vault) {
+  const answers = vault?.answers ?? {}
+  return {
+    ...exam,
+    parts: (exam.parts ?? []).map(part => ({
+      ...part,
+      questionGroups: (part.questionGroups ?? []).map(group => ({
+        ...group,
+        questions: (group.questions ?? []).map(question => ({
+          ...question,
+          ...(answers[question.id] ?? {}),
+        })),
+      })),
+    })),
+  }
 }
 
 function markerCount(text, n) {
@@ -48,8 +79,31 @@ function validateExam(label, exam) {
     if (optionRun && p1Text.includes(optionRun)) fail(label, id, `Part 1 Q${q.number} options leaked into passage`)
   }
 
-  const p2Text = textOf(exam.parts[1])
+  const p2 = exam.parts[1]
+  const p2Text = textOf(p2)
+  const p2Questions = allQuestions(p2)
   for (let n = 9; n <= 16; n += 1) if (markerCount(p2Text, n) !== 1) fail(label, id, `Part 2 marker ${n} missing/duplicated`)
+  if (p2Questions.length !== 8) fail(label, id, `Part 2 question count ${p2Questions.length}`)
+  for (const q of p2Questions) {
+    const alternatives = String(q.answer ?? '').split(/[/|]/).map(answer => answer.trim()).filter(Boolean)
+    if (!alternatives.length || alternatives.some(answer => !/^\p{L}+(?:['’-]\p{L}+)*$/u.test(answer))) {
+      fail(label, id, `Part 2 Q${q.number} answer must contain one-word alternatives`)
+    }
+  }
+  for (const signature of genericPart2Signatures) {
+    if (p2Text.includes(signature)) fail(label, id, `Part 2 contains generic filler: ${signature}`)
+  }
+  const passageOrigins = new Set(p2.passage.map(block => block._provenance).filter(Boolean))
+  const hasAiAnswers = p2Questions.some(question => question.answerConfidence === 'ai-generated')
+  const hasSourceAnswers = p2Questions.some(question => question.answerConfidence === 'key')
+  if (passageOrigins.has('ai-generated') && hasSourceAnswers) fail(label, id, 'Part 2 mixes AI passage with source answer key')
+  if (passageOrigins.has('source') && hasAiAnswers) fail(label, id, 'Part 2 mixes source passage with AI answers')
+
+  if (id === 'catalog-reading-fce-b2-test27') {
+    if (p2.passageTitle !== 'Shakespeare: the mysteries and the facts') fail(label, id, 'Part 2 missing Shakespeare source title')
+    if (p2.passageSubtitle !== 'ALSO') fail(label, id, 'Part 2 missing source example ALSO')
+    if (!/William Shakespeare/i.test(p2Text)) fail(label, id, 'Part 2 missing Shakespeare source passage')
+  }
 
   const p3 = exam.parts[2]
   const p3Text = textOf(p3)
@@ -88,7 +142,11 @@ function validateExam(label, exam) {
 for (const root of roots) {
   for (const id of ids) {
     try {
-      const exam = JSON.parse(await fs.readFile(root.body(id), 'utf8'))
+      const body = JSON.parse(await fs.readFile(root.body(id), 'utf8'))
+      const vault = root.vault
+        ? JSON.parse(await fs.readFile(root.vault(id), 'utf8'))
+        : null
+      const exam = vault ? hydrateRuntimeAnswers(body, vault) : body
       validateExam(root.label, exam)
     } catch (error) {
       fail(root.label, id, error.message)
