@@ -1,4 +1,4 @@
-import { ExternalLink, Eye, EyeOff, Info, Loader2, CheckCircle2, XCircle } from 'lucide-react'
+import { ExternalLink, Eye, EyeOff, Info, Loader2, CheckCircle2, XCircle, Cable } from 'lucide-react'
 import { AI_PROVIDERS } from '@ryan/core'
 import { useAiSettings } from './useAiSettings'
 import AiUsageDashboard from './AiUsageDashboard'
@@ -21,6 +21,7 @@ export default function AiSettingsPanel({ showUsage = true, onSave }: Props) {
     showKey, setShowKey,
     loading, saving, save,
     testing, testResult, testConnection,
+    connectingPipeline, pipelineResult, connectWritingPipeline,
   } = useAiSettings()
 
   const cfg = AI_PROVIDERS.find(p => p.id === provider)!
@@ -144,6 +145,36 @@ export default function AiSettingsPanel({ showUsage = true, onSave }: Props) {
           >
             {testResult.ok ? <CheckCircle2 size={14} className="shrink-0 mt-0.5" /> : <XCircle size={14} className="shrink-0 mt-0.5" />}
             <span>{testResult.msg}</span>
+          </div>
+        )}
+
+        <button
+          onClick={connectWritingPipeline}
+          disabled={connectingPipeline || !keys.deepseek?.trim() || !keys.groq?.trim()}
+          className="w-full px-4 py-2.5 text-sm rounded-lg border font-medium disabled:opacity-50 transition-colors"
+          style={{ borderColor: 'var(--border-color)', color: 'var(--text-primary)', background: 'var(--bg-secondary)' }}
+          title="DeepSeek generates; Groq verifies independently"
+        >
+          <span className="flex items-center justify-center gap-2">
+            {connectingPipeline
+              ? <Loader2 size={14} className="animate-spin" />
+              : <Cable size={14} />}
+            {connectingPipeline ? 'Dang ket noi pipeline...' : 'Ket noi pipeline Cambridge Writing'}
+          </span>
+        </button>
+
+        {pipelineResult && (
+          <div
+            className="flex items-start gap-2 px-3 py-2.5 rounded-lg text-xs"
+            style={{
+              background: pipelineResult.ok
+                ? 'color-mix(in srgb, var(--color-success) 12%, transparent)'
+                : 'color-mix(in srgb, var(--color-error) 12%, transparent)',
+              color: pipelineResult.ok ? 'var(--color-success)' : 'var(--color-error)',
+            }}
+          >
+            {pipelineResult.ok ? <CheckCircle2 size={14} className="shrink-0 mt-0.5" /> : <XCircle size={14} className="shrink-0 mt-0.5" />}
+            <span>{pipelineResult.msg}</span>
           </div>
         )}
       </section>

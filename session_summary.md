@@ -1,5 +1,13 @@
 # Consolidated Session Summary — Ryan English Website
 
+## 2026-07-28 — Cambridge Writing local credential bridge
+
+- Added a localhost-only Vite credential bridge at `/__local/cambridge-writing-credentials`.
+- AI Settings now has `Ket noi pipeline Cambridge Writing`; it reads the existing browser-local DeepSeek/Groq keys and writes the Git-ignored root file `.env.cambridge-writing.local`.
+- Cambridge Writing Node provider automatically loads that local file, using DeepSeek `deepseek-chat` for generation and Groq `llama-3.3-70b-versatile` for independent verification. Secrets are not returned or logged.
+- Verification PASS: web TypeScript, Cambridge Writing pipeline tests 5/5, `git diff --check`, and live localhost endpoint smoke (expected HTTP 400 for an empty payload).
+- Current status: bridge is ready, but `.env.cambridge-writing.local` is not created until the user clicks the new Settings button. After that, generate and verify checkpoint Test 02-06 for B1/B2/C1/C2.
+
 ## 2026-07-28 — Task 5 Cambridge Writing AI corpus pipeline (CHƯA HOÀN THÀNH)
 
 - Added optional `CambridgeWritingGenerationProvenanceSchema` to the canonical catalog schema; existing manual/A2 seeds remain valid.

@@ -9,6 +9,8 @@ export function useAiSettings() {
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [testing, setTesting] = useState(false)
+  const [connectingPipeline, setConnectingPipeline] = useState(false)
+  const [pipelineResult, setPipelineResult] = useState<{ ok: boolean; msg: string } | null>(null)
   const [testResult, setTestResult] = useState<{ ok: boolean; msg: string } | null>(null)
   const [todayUsage, setTodayUsage] = useState(0)
 
@@ -65,12 +67,43 @@ export function useAiSettings() {
     }
   }, [provider, keys])
 
+  const connectWritingPipeline = useCallback(async () => {
+    const deepseekKey = keys.deepseek?.trim()
+    const groqKey = keys.groq?.trim()
+    if (!deepseekKey || !groqKey) {
+      setPipelineResult({ ok: false, msg: 'Can co du key DeepSeek va Groq' })
+      return
+    }
+
+    setConnectingPipeline(true)
+    setPipelineResult(null)
+    try {
+      await save()
+      const response = await fetch('/__local/cambridge-writing-credentials', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ deepseekKey, groqKey }),
+      })
+      const result = await response.json() as { ok?: boolean; error?: string }
+      if (!response.ok || !result.ok) throw new Error(result.error || 'Khong the ket noi pipeline')
+      setPipelineResult({ ok: true, msg: 'Pipeline da dung DeepSeek de sinh va Groq de kiem dinh' })
+    } catch (error) {
+      setPipelineResult({
+        ok: false,
+        msg: error instanceof Error ? error.message : 'Khong the ket noi pipeline',
+      })
+    } finally {
+      setConnectingPipeline(false)
+    }
+  }, [keys, save])
+
   return {
     provider, setProvider,
     keys, updateKey,
     showKey, setShowKey,
     loading, saving, save,
     testing, testResult, testConnection,
+    connectingPipeline, pipelineResult, connectWritingPipeline,
     todayUsage,
   }
 }

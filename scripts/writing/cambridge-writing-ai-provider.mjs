@@ -1,4 +1,32 @@
 import crypto from 'node:crypto'
+import { readFileSync } from 'node:fs'
+import { dirname, resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+const LOCAL_ENV_PATH = resolve(dirname(fileURLToPath(import.meta.url)), '../../.env.cambridge-writing.local')
+
+function loadLocalEnv() {
+  let content
+  try {
+    content = readFileSync(LOCAL_ENV_PATH, 'utf8')
+  } catch (error) {
+    if (error?.code === 'ENOENT') return
+    throw error
+  }
+
+  for (const line of content.split(/\r?\n/)) {
+    const match = line.match(/^([A-Z0-9_]+)=(.*)$/)
+    if (!match || process.env[match[1]]) continue
+    const raw = match[2].trim()
+    try {
+      process.env[match[1]] = raw.startsWith('"') ? JSON.parse(raw) : raw
+    } catch {
+      throw new Error(`Invalid value for ${match[1]} in ${LOCAL_ENV_PATH}`)
+    }
+  }
+}
+
+loadLocalEnv()
 
 const DEFAULTS = {
   generation: { provider: 'openai', model: 'gpt-4o-mini' },
