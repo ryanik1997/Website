@@ -46,10 +46,16 @@ function makePart7(): ReadingPart {
     passageTitle: 'Multiple matching',
     partNumber: 7,
     passage: [
-      { label: 'A', text: 'Graham Button talks about his father.' },
-      { label: 'B', text: 'Sue Smith talks about her mother.' },
-      { label: 'C', text: 'Barry Porter talks about acting.' },
-      { label: 'D', text: 'Ruth Lawrence talks about teaching.' },
+      {
+        label: 'A',
+        heading: 'Kevin Teller and Justin O’Brien',
+        text: 'Anyone who saw Together...',
+      },
+      {
+        label: 'B',
+        heading: 'The Collins brothers',
+        text: 'Tim and Mark Collins first fell in love...',
+      },
     ],
     questionGroups: [{ id: 'group-7', range: 'Questions 43–52', type: 'matching-features', instruction: '', questions: [] }],
   } as unknown as ReadingPart
@@ -111,8 +117,8 @@ describe('FCE Part 6 — kéo thả gapped text', () => {
   })
 })
 
-describe('FCE Part 7 — section labels', () => {
-  it('renders every A–D label as its own punctuated heading', () => {
+describe('FCE Part 7 — section headings', () => {
+  it('renders each label and heading together without leaking the heading into the body', () => {
     render(
       <FceRwPartContent
         examId="exam-1"
@@ -124,8 +130,14 @@ describe('FCE Part 7 — section labels', () => {
       />,
     )
 
-    for (const label of ['A.', 'B.', 'C.', 'D.']) {
-      expect(screen.getByText(label, { selector: '.fce-rw-paragraph-heading' })).toBeVisible()
-    }
+    expect(screen.getByText('A. Kevin Teller and Justin O’Brien', {
+      selector: '.fce-rw-paragraph-heading',
+    })).toBeVisible()
+    expect(screen.getByText('B. The Collins brothers', {
+      selector: '.fce-rw-paragraph-heading',
+    })).toBeVisible()
+    expect(screen.getByText(/Anyone who saw Together/)).not.toHaveTextContent(
+      /^Kevin Teller and Justin O’Brien/,
+    )
   })
 })

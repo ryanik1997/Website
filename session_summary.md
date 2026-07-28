@@ -1,3 +1,19 @@
+### FCE B2 Reading Task 4 ¡ª Part 7 heading pipeline and browser smoke verified
+
+- Baseline: `d9c0bea64b3854ba06c938b4a98e7059b567e03e` on branch `fce-b2-corpus-repair-28626`.
+- Audited Source Tests 1¨C26: 26 Part 7 tests, 110 sections, 93 real source headings; 17 sections contain only an A¨CE label and body in raw HTML, so no heading was invented.
+- `scripts/reading/fce-b2-pages-to-parts.mjs` parses label/optional heading/body for combined and separated strong/b/em/text/span shapes and prevents heading duplication in body.
+- `heading?: string` is preserved through web/core types, media repair, package catalog, runtime catalog, and the React renderer. The renderer emits `A. <heading>` in one `.fce-rw-paragraph-heading` element.
+- Reports: `tmp/fce-b2-part7-heading-audit.{json,md}` and `tmp/fce-b2-part7-heading-validation.{json,md}`.
+- Browser smoke PASS 5/5 for App Tests 2, 5, 14, 20, and 27. Screenshots are in `tmp/fce-b2-part7-heading-screenshots/`.
+- Verification PASS: full catalog build; semantic validation for 26 exams x package/runtime; answer consistency for 364 part records; FCE regressions; web typecheck; targeted renderer tests 5/5.
+- Full `src/features/exam` suite remains 165/166: the unrelated IELTS catalog test expects 47 seeded exams while the generated catalog contains 48.
+- Acceptance discrepancy remains explicit: `headingLeakedIntoBody=0` and `runtimeHeadingMissing=0`, but the report records `headingMissing=17` because those 17 raw-source sections have no separate heading. Task 4 must not be described as meeting the literal `headingMissing=0` gate unless source content is supplied or the requirement changes.
+
+### Next session start prompt
+
+Task 4 implementation and browser verification are finished. Preserve the source-truth decision: do not fabricate headings for the 17 label-only raw sections. If strict `headingMissing=0` is still required, obtain authoritative headings for App Tests 11, 13, 18, and 21 before changing catalog data.
+
 ### FCE B2 Reading corpus repair 28626 ¡ª Commit 2 deterministic parser/recrawl ready; overall task NOT COMPLETE
 
 - Branch: `fce-b2-corpus-repair-28626`; Commit 1: `ffec9f5 test(fce): audit corpus and lock regressions`.

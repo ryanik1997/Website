@@ -3,7 +3,7 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { resolveTainguyenPath } from '../tainguyen-path.mjs'
-import { convertFcePagesToReadingExam } from './fce-b2-pages-to-parts.mjs'
+import { auditFcePart7Page, convertFcePagesToReadingExam } from './fce-b2-pages-to-parts.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const REPO_ROOT = path.resolve(__dirname, '..', '..')
@@ -37,6 +37,26 @@ function addFailure(failures, failure) {
 
 async function collectFailures() {
   const failures = []
+  const syntheticShapes = [
+    ['<p><strong>A. Kevin Teller</strong><br>Anyone who saw Together...</p>', 'Kevin Teller'],
+    ['<p><strong>A.</strong><strong>Kevin Teller</strong><br>Anyone who saw Together...</p>', 'Kevin Teller'],
+    ['<p><strong>A.</strong>Kevin Teller<br>Anyone who saw Together...</p>', 'Kevin Teller'],
+    ['<p><strong>A</strong><span>Kevin Teller</span><br>Anyone who saw Together...</p>', 'Kevin Teller'],
+  ]
+  for (const [passageTextHtml, expectedHeading] of syntheticShapes) {
+    const [section] = auditFcePart7Page({ passageTextHtml }, ['A'])
+    if (section?.label !== 'A' || section?.heading !== expectedHeading || section?.text !== 'Anyone who saw Together...') {
+      addFailure(failures, {
+        appTestNumber: 2,
+        partNumber: 7,
+        questionNumber: null,
+        category: 'part7_heading_shape_parse_error',
+        actualAnswer: JSON.stringify(section),
+        expectedAcceptedAnswers: ['A', expectedHeading, 'Anyone who saw Together...'],
+      })
+    }
+  }
+
   const raw = await loadRaw(1)
   const { body } = convertFcePagesToReadingExam(raw, { sourceTestNumber: 1, appTestNumber: 2 })
   const question14 = allQuestions(body.parts.find(part => part.partNumber === 2)).find(item => item.number === 14)

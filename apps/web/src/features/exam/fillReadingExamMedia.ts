@@ -68,11 +68,13 @@ function mergePassageBlock(
   const imageKey = imageUrl ? undefined : (block.imageKey || source.imageKey)
   const text = hasText(block) ? block.text : (source.text ?? block.text)
   const label = block.label?.trim() ? block.label : (source.label ?? block.label)
+  const heading = block.heading?.trim() ? block.heading : (source.heading ?? block.heading)
 
   return {
     ...block,
     text: text ?? '',
     label,
+    heading,
     imageUrl,
     imageKey,
   }
@@ -175,6 +177,7 @@ export function repairKetPart7Passage(
       const imageKey = imageUrl ? undefined : (block.imageKey || src?.imageKey)
       return {
         label: block.label ?? src?.label,
+        heading: block.heading ?? src?.heading,
         text: block.text ?? src?.text ?? '',
         imageUrl,
         imageKey,
@@ -193,6 +196,7 @@ export function repairKetPart7Passage(
       ...part,
       passage: sourceImages.map(b => ({
         label: b.label,
+        heading: b.heading,
         text: b.text ?? '',
         imageUrl: normalizeImageUrl(b.imageUrl, undefined, catalogBase) ?? b.imageUrl,
         imageKey: undefined,

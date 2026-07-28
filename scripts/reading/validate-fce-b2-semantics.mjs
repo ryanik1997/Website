@@ -28,6 +28,7 @@ const roots = [
 ].filter(root => scope === 'all' || root.label === scope)
 
 const failures = []
+const part7Rows = new Map()
 const genericPart2Signatures = [
   'When it comes to homes and housing',
   'basic principles',
@@ -145,7 +146,30 @@ function validateExam(label, exam) {
   if (expectedLabels.length < 4 || expectedLabels.length > 5 || labels.join(',') !== expectedLabels.join(',')) {
     fail(label, id, `Part 7 labels ${labels.join(',') || '<none>'}`)
   }
-  for (const block of p7.passage) if (!block.text?.trim()) fail(label, id, `Part 7 section ${block.label ?? '?'} empty`)
+  const sections = p7.passage.map(block => {
+    const heading = block.heading?.trim() ?? ''
+    const text = block.text?.trim() ?? ''
+    const headingLeakedIntoBody = Boolean(heading && text.toLowerCase().startsWith(heading.toLowerCase()))
+    if (!text) fail(label, id, `Part 7 section ${block.label ?? '?'} empty`)
+    if (headingLeakedIntoBody) fail(label, id, `Part 7 section ${block.label ?? '?'} heading leaked into body`)
+    return {
+      label: block.label ?? '',
+      heading,
+      bodyLength: text.length,
+      headingLeakedIntoBody,
+    }
+  })
+  const appTestNumber = Number(id.match(/test(\d+)$/)?.[1])
+  const existingRow = part7Rows.get(appTestNumber) ?? {
+    appTestNumber,
+    partNumber: 7,
+  }
+  part7Rows.set(appTestNumber, {
+    ...existingRow,
+    sectionCount: sections.length,
+    sections: existingRow.sections ?? sections,
+    [`${label}Sections`]: sections,
+  })
   for (const q of allQuestions(p7)) if (!q.prompt || /^Question \d+|^Gap \(\d+\)$/i.test(q.prompt)) fail(label, id, `Part 7 Q${q.number} missing real prompt`)
 }
 
@@ -163,6 +187,52 @@ for (const root of roots) {
     }
   }
 }
+
+const reportRows = [...part7Rows.values()].sort((a, b) => a.appTestNumber - b.appTestNumber).map(row => {
+  const packageSections = row.packageSections ?? []
+  const runtimeSections = row.runtimeSections ?? []
+  const runtimeHeadingMissing = runtimeSections.reduce((sum, section, index) => (
+    sum + (packageSections[index]?.heading && !section.heading ? 1 : 0)
+  ), 0)
+  return {
+    ...row,
+    runtimeHeadingMissing,
+    status: row.sectionCount >= 4 && row.sectionCount <= 5 && row.sections.every(section => (
+      section.bodyLength > 0 && !section.headingLeakedIntoBody
+    )) && runtimeHeadingMissing === 0 ? 'PASS' : 'FAIL',
+  }
+})
+const report = {
+  scope,
+  testsValidated: ids.length,
+  locationsValidated: roots.length,
+  headingMissing: reportRows.reduce((sum, row) => sum + row.sections.filter(section => !section.heading).length, 0),
+  headingLeakedIntoBody: reportRows.reduce((sum, row) => sum + row.sections.filter(section => section.headingLeakedIntoBody).length, 0),
+  runtimeHeadingMissing: reportRows.reduce((sum, row) => sum + row.runtimeHeadingMissing, 0),
+  rows: reportRows,
+}
+const outputJson = path.resolve('tmp/fce-b2-part7-heading-validation.json')
+const outputMarkdown = path.resolve('tmp/fce-b2-part7-heading-validation.md')
+const markdown = [
+  '# FCE B2 Part 7 Heading Validation',
+  '',
+  `- Scope: ${scope}`,
+  `- Tests validated: ${report.testsValidated}`,
+  `- Locations validated: ${report.locationsValidated}`,
+  `- Heading fields missing (source has no heading): ${report.headingMissing}`,
+  `- Headings leaked into body: ${report.headingLeakedIntoBody}`,
+  `- Runtime headings missing vs package: ${report.runtimeHeadingMissing}`,
+  '',
+  '| App Test | Sections | Headings | Leaked | Runtime missing | Status |',
+  '| ---: | ---: | ---: | ---: | ---: | --- |',
+  ...reportRows.map(row => `| ${row.appTestNumber} | ${row.sectionCount} | ${row.sections.filter(section => section.heading).length} | ${row.sections.filter(section => section.headingLeakedIntoBody).length} | ${row.runtimeHeadingMissing} | ${row.status} |`),
+  '',
+]
+await fs.mkdir(path.dirname(outputJson), { recursive: true })
+await Promise.all([
+  fs.writeFile(outputJson, `${JSON.stringify(report, null, 2)}\n`, 'utf8'),
+  fs.writeFile(outputMarkdown, markdown.join('\n'), 'utf8'),
+])
 
 if (failures.length) {
   console.error(failures.join('\n'))

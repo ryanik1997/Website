@@ -60,6 +60,7 @@
     "security:check": "node scripts/security-release-check.mjs",
     "deploy:web": "vercel deploy --prod --yes",
     "deploy:prod": "node scripts/db-push.mjs && vercel deploy --prod --yes",
+    "fce:b2:audit-part7-headings": "node scripts/reading/audit-fce-b2-part7-headings.mjs",
     "fce:b2:analyze": "node scripts/reading/analyze-fce-b2-missing-content.mjs",
     "fce:b2:recrawl": "node scripts/reading/recrawl-fce-b2-missing-pages.mjs",
     "fce:b2:repair-ai": "node scripts/reading/generate-fce-b2-ai-repairs.mjs",

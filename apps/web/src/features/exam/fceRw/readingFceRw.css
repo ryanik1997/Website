@@ -562,12 +562,18 @@
 }
 
 .fce-rw-paragraph-block {
-  margin-bottom: 1rem;
+  margin-bottom: 1.75rem;
 }
 
 .fce-rw-paragraph-heading {
-  margin: 0 0 0.35rem;
+  display: block;
+  margin: 0 0 0.45rem;
   font-size: 0.95rem;
   font-weight: 700;
+  line-height: 1.35;
   color: var(--ket-text);
+}
+
+.fce-rw-paragraph-block .ket-rw-paragraph {
+  margin-top: 0;
 }

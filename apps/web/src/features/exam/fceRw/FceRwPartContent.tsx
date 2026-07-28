@@ -36,33 +36,35 @@ function formatFceParagraphLabel(label: string): string {
   return trimmed
 }
 
-function formatFcePart7SectionLabel(label: string): string {
-  const trimmed = label.trim()
-  return /^[A-E]$/i.test(trimmed) ? `${trimmed.toUpperCase()}.` : trimmed
-}
-
 function FcePart7ParagraphBlock({
   partId,
   blockKey,
   label,
+  heading,
   text,
 }: {
   partId: string
   blockKey: string
   label?: string
+  heading?: string
   text: string
 }) {
+  const sectionLabel = /^[A-E]$/i.test(label?.trim() ?? '')
+    ? `${label!.trim().toUpperCase()}.`
+    : label?.trim()
+  const fullHeading = [sectionLabel, heading?.trim()].filter(Boolean).join(' ')
+
   return (
-    <div className="fce-rw-paragraph-block">
-      {label && (
+    <section className="fce-rw-paragraph-block" data-fce-section={label?.toUpperCase()}>
+      {fullHeading && (
         <p className="fce-rw-paragraph-heading" data-highlight-skip>
-          {formatFcePart7SectionLabel(label)}
+          {fullHeading}
         </p>
       )}
       <p className="ket-rw-paragraph">
         <RwHighlightText blockId={`${partId}-${blockKey}-text`} text={text} />
       </p>
-    </div>
+    </section>
   )
 }
 
@@ -641,6 +643,7 @@ export default function FceRwPartContent({
                   partId={partId}
                   blockKey={`p7-${idx}`}
                   label={block.label}
+                  heading={block.heading}
                   text={block.text ?? ''}
                 />
               ))}

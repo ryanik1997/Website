@@ -83,6 +83,14 @@ function validateDeterministicBody(body) {
       if (features.length < 4 || features.length > 5 || features.length !== (part.passage ?? []).length) {
         throw new Error(`${body.id} Part 7: section bank and passage are inconsistent`)
       }
+      for (const section of part.passage ?? []) {
+        if (!section.text?.trim()) {
+          throw new Error(`${body.id} Part 7 section ${section.label ?? '?'}: body is missing`)
+        }
+        if (section.heading && section.text.toLowerCase().startsWith(section.heading.toLowerCase())) {
+          throw new Error(`${body.id} Part 7 section ${section.label ?? '?'}: heading leaked into body`)
+        }
+      }
       for (const question of questions) {
         if (!question.prompt || /^Question \d+$/i.test(question.prompt)) {
           throw new Error(`${body.id} Part 7 Q${question.number}: source prompt is missing`)

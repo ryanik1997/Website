@@ -74,6 +74,72 @@ function childElements(node, tagName) {
   ))
 }
 
+function nodeText(node) {
+  return node?.nodeName === '#text' ? normalizeText(node.value) : elementText(node)
+}
+
+function splitCombinedPart7Heading(value) {
+  const match = normalizeText(value).match(/^([A-E])[.]?(?:\s+(.+))?$/i)
+  if (!match) return null
+  return {
+    label: match[1].toUpperCase(),
+    heading: normalizeText(match[2]),
+  }
+}
+
+export function parsePart7Section(paragraph, validLabels) {
+  const children = Array.from(paragraph?.childNodes ?? [])
+  const labelIndex = children.findIndex(child => (
+    ['strong', 'b', 'em'].includes(child.tagName?.toLowerCase())
+    && splitCombinedPart7Heading(elementText(child))
+  ))
+  if (labelIndex < 0) return null
+
+  const labelNode = children[labelIndex]
+  const combined = splitCombinedPart7Heading(elementText(labelNode))
+  if (!combined || !validLabels.includes(combined.label)) return null
+
+  const tail = children.slice(labelIndex + 1)
+  const breakIndex = tail.findIndex(child => child.tagName?.toLowerCase() === 'br')
+  const beforeBreak = breakIndex >= 0 ? tail.slice(0, breakIndex) : []
+  const afterBreak = breakIndex >= 0 ? tail.slice(breakIndex + 1) : tail
+  const beforeBreakText = normalizeText(beforeBreak.map(nodeText).filter(Boolean).join(' '))
+  const heading = combined.heading || beforeBreakText || undefined
+  let text = normalizeText(afterBreak.map(nodeText).filter(Boolean).join(' '))
+  if (combined.heading && text.toLowerCase().startsWith(combined.heading.toLowerCase())) {
+    text = normalizeText(text.slice(combined.heading.length).replace(/^\s*[,.:;–—-]\s*/, ''))
+  }
+  const firstHeadingNode = beforeBreak.find(child => nodeText(child))
+  const shape = combined.heading
+    ? 'label-heading-same-strong'
+    : breakIndex < 0
+      ? 'label-only-no-br'
+      : !beforeBreakText
+        ? 'label-only-before-br'
+        : ['strong', 'b', 'em'].includes(firstHeadingNode?.tagName?.toLowerCase())
+          ? 'label-strong-heading-element-before-br'
+          : firstHeadingNode?.tagName
+            ? 'label-element-heading-before-br'
+            : 'label-strong-heading-text-before-br'
+
+  return {
+    label: combined.label,
+    heading,
+    text,
+    rawStrongTexts: nodesByTag(paragraph, 'strong').map(elementText).filter(Boolean),
+    bodyStart: text.slice(0, 120),
+    shape,
+  }
+}
+
+export function auditFcePart7Page(page, validLabels) {
+  const html = String(page?.passageTextHtml || page?.entryContentHtml || '')
+  const doc = parseHtmlDocument(html)
+  return nodesByTag(doc, 'p')
+    .map(paragraph => parsePart7Section(paragraph, validLabels))
+    .filter(Boolean)
+}
+
 function hasTag(node, tagName) {
   return nodesByTag(node, tagName).length > 0
 }
@@ -601,9 +667,20 @@ function convertPart6(page, answerMap, appTestNumber) {
   }
 }
 
+function assertPart7Section(section, partId) {
+  if (!/^[A-E]$/.test(section.label)) {
+    throw new Error(`${partId}: invalid Part 7 label ${section.label}`)
+  }
+  if (!section.text?.trim()) {
+    throw new Error(`${partId}: section ${section.label} missing body`)
+  }
+  if (section.heading && section.text.toLowerCase().startsWith(section.heading.toLowerCase())) {
+    throw new Error(`${partId}: section ${section.label} heading leaked into body`)
+  }
+}
+
 function convertPart7(page, answerMap, appTestNumber) {
   const base = buildPartBase(page, appTestNumber, answerMap)
-  const html = String(page.passageTextHtml || page.entryContentHtml || '')
   const sourceOptions = (page.questions ?? []).flatMap(question => question?.options ?? [])
   const sectionLetters = [...new Set(sourceOptions.map(option => (
     normalizeText(option?.label ?? option?.text ?? option?.value).toUpperCase()
@@ -611,19 +688,15 @@ function convertPart7(page, answerMap, appTestNumber) {
   if (sectionLetters.length < 4 || sectionLetters.length > 5) {
     throw new Error(`${base.partId}: Part 7 requires four or five section labels`)
   }
-  const doc = parseHtmlDocument(html)
-  const passage = []
-  for (const paragraph of nodesByTag(doc, 'p')) {
-    const strong = childElements(paragraph, 'strong')[0]
-    const heading = elementText(strong)
-    const label = heading.match(/^([A-E])(?:[.\s]|$)/i)?.[1]?.toUpperCase()
-    if (!sectionLetters.includes(label)) continue
-    const text = elementText(paragraph).replace(new RegExp(`^${heading.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*`), '').trim()
-    if (text) passage.push({ label, text })
-  }
+  const passage = auditFcePart7Page(page, sectionLetters).map(({ label, heading, text }) => ({
+    label,
+    heading,
+    text,
+  }))
   if (passage.length !== sectionLetters.length || passage.some((block, index) => block.label !== sectionLetters[index])) {
     throw new Error(`${base.partId}: Part 7 section labels must be ${sectionLetters.join(',')}`)
   }
+  for (const section of passage) assertPart7Section(section, base.partId)
   const optionLetters = sectionLetters.map(letter => letter.toLowerCase())
   const questions = base.questions.map(({ rawQuestion: q, ...question }) => ({
     ...question,
