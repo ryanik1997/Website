@@ -1,5 +1,11 @@
 # Consolidated Session Summary — Ryan English Website
 
+## 2026-07-28 — Git branch consolidation (partial, manual review required)
+
+- Backup bundle verified at `D:\App-English-Ryan\Backups\Website\20260728-190243\Website-all-20260728-190243.bundle`; every original branch tip has an archive tag pushed and dereferenced against `origin`.
+- Integration branch `integration/consolidate-20260728-190243` merged `fce-b2-corpus-repair-28626` (which already contains `project_14726`) and `ket-a2-layout-from-crawl`; TypeScript passes after the two merges.
+- `feat/fix-reading-layout` remains unmerged: its 16 cross-domain conflicts were saved in the backup and the merge was aborted. Do not delete any local/remote branch or update `main` until this branch is manually resolved and full validation passes.
+
 > Conflict resolution on 2026-07-28: FCE B2 repair branch notes are placed first because they are newer; the prior main-line summary follows in full to preserve all context. Original stage files are retained in the consolidation backup.
 
 ### FCE B2 Reading Task 4 �� Part 7 heading pipeline and browser smoke verified
