@@ -1,5 +1,8 @@
 # Consolidated Session Summary — Ryan English Website
 
+- Fixed the FCE B2 Part 7 runtime fallback regression that returned from inside the passage loop and reduced Test 2-27 to the first section. The repair now preserves every section plus its label/heading, with a regression test covering all 26 catalog exams.
+- Next session start prompt: smoke one FCE B2 Part 7 URL after deployment and confirm all A-D/A-E sections plus questions 43-52 render from a browser with existing IndexedDB data.
+
 ## 2026-07-28 — Git branch consolidation (partial, manual review required)
 
 - Backup bundle verified at `D:\App-English-Ryan\Backups\Website\20260728-190243\Website-all-20260728-190243.bundle`; every original branch tip has an archive tag pushed and dereferenced against `origin`.

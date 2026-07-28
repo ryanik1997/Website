@@ -2,6 +2,8 @@ import { describe, expect, it } from 'vitest'
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import type { ReadingExam } from '../examData'
+import { fillMissingReadingMediaFromFallback } from '../fillReadingExamMedia'
 // @ts-ignore Node ESM helper is intentionally imported from scripts.
 import { validateReadingRuntime } from '../../../../../../scripts/validate-catalog-runtime.mjs'
 
@@ -61,5 +63,30 @@ describe('catalog runtime validation', () => {
     expect(result.metaCount).toBe(27)
     expect(result.bodyCount).toBe(27)
     expect(result.answerVaultCount).toBe(27)
+  })
+
+  it('restores every Part 7 section in all 26 FCE catalog exams', () => {
+    for (let testNumber = 2; testNumber <= 27; testNumber += 1) {
+      const catalog = readJson(
+        path.join(ROOT, `apps/web/public/catalog/exams/reading/catalog-reading-fce-b2-test${testNumber}.json`),
+      ) as ReadingExam
+      const catalogPart7 = catalog.parts.find(part => part.partNumber === 7)
+      expect(catalogPart7, `Test ${testNumber} catalog Part 7`).toBeDefined()
+
+      const local = structuredClone(catalog)
+      const localPart7 = local.parts.find(part => part.partNumber === 7)
+      localPart7!.passage = localPart7!.passage.slice(0, 1)
+
+      const restored = fillMissingReadingMediaFromFallback(local, catalog)
+      const restoredPart7 = restored.parts.find(part => part.partNumber === 7)
+
+      expect(restoredPart7?.passage, `Test ${testNumber} restored sections`).toHaveLength(
+        catalogPart7!.passage.length,
+      )
+      expect(restoredPart7?.passage.map(block => block.label)).toEqual(
+        catalogPart7!.passage.map(block => block.label),
+      )
+      expect(restoredPart7?.passage.every(block => Boolean(block.text.trim()))).toBe(true)
+    }
   })
 })

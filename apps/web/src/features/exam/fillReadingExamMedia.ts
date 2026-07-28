@@ -168,18 +168,22 @@ export function repairKetPart7Passage(
 
     passage.push({
       text: block?.text ?? src?.text ?? '',
+      label: block?.label ?? src?.label,
+      heading: block?.heading ?? src?.heading,
       imageUrl,
       imageKey: block?.imageKey,
     })
     // Bỏ block rỗng do pad 3-slot cũ (không ảnh, không text)
-    const cleaned = passage.filter(
-      b => hasPublicImage(b) || Boolean(b.imageKey?.trim()) || hasText(b),
-    )
-    return { ...part, passage: cleaned.length ? cleaned : passage }
   }
 
-  // Chỉ giữ tối đa số ảnh story (thường 3)
-  return { ...part, passage }
+  const cleaned = passage.filter(
+    b => hasPublicImage(b)
+      || Boolean(b.imageKey?.trim())
+      || hasText(b)
+      || Boolean(b.label?.trim())
+      || Boolean(b.heading?.trim()),
+  )
+  return { ...part, passage: cleaned.length ? cleaned : passage }
 }
 
 function mergePart(part: ReadingPart, source: ReadingPart | undefined): ReadingPart {
