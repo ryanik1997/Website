@@ -1,0 +1,13 @@
+
+> ryan-english@ fce:b2:analyze D:\App-English-Ryan\Website
+> node scripts/reading/analyze-fce-b2-missing-content.mjs
+
+FCE B2 corpus audit PASS: 182 rows
+{
+  "SOURCE_OK": 84,
+  "PARSER_BROKEN": 0,
+  "RECRAWL_REQUIRED": 98,
+  "AI_REPAIR_VERIFIED": 0
+}
+D:\App-English-Ryan\Website\tmp\fce-b2-corpus-audit.json
+D:\App-English-Ryan\Website\tmp\fce-b2-corpus-audit.md

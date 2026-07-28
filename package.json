@@ -65,6 +65,7 @@
     "fce:b2:validate-repairs": "node scripts/reading/validate-fce-b2-ai-repairs.mjs",
     "fce:b2:validate-semantics": "node scripts/reading/validate-fce-b2-semantics.mjs",
     "fce:b2:validate-answers": "node scripts/reading/validate-fce-b2-answer-consistency.mjs",
+    "fce:b2:test-regressions": "node scripts/reading/test-fce-b2-regressions.mjs",
     "fce:b2:repair": "pnpm fce:b2:analyze && pnpm fce:b2:repair-ai -- --only-missing && pnpm fce:b2:validate-repairs",
     "test": "pnpm --filter @ryan/db test && pnpm --filter web test"
   },

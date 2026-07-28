@@ -1,412 +1,404 @@
 #!/usr/bin/env node
-/**
- * Phase 1 — Missing-content analysis for FCE B2 Reading tests 1–26.
- *
- * Scans all 26 source tests (tests 1–26) and identifies which fields are
- * missing or truncated per Part 1–7. Outputs a repair plan JSON.
- *
- * Run: node scripts/reading/analyze-fce-b2-missing-content.mjs
- *
- * Decision: No need to restore EngExam 1:1. Missing content can be AI-repaired.
- */
-
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import * as parse5 from 'parse5'
+import { resolveTainguyenPath } from '../tainguyen-path.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const REPO_ROOT = path.resolve(__dirname, '..', '..')
-const TAINGUYEN = process.env.TAINGUYEN_PATH || path.join(REPO_ROOT, 'Tainguyen')
-const FCE_ROOT = path.join(TAINGUYEN, 'Import Cambridge', 'FCE_B2', 'Reading')
-const OUT_PATH = path.resolve('tmp/fce-b2-ai-repair-plan.json')
+const FCE_ROOT = path.join(resolveTainguyenPath(), 'Import Cambridge', 'FCE_B2', 'Reading')
+const PACKAGE_ROOT = path.join(REPO_ROOT, 'packages', 'catalog', 'data')
+const RUNTIME_ROOT = path.join(REPO_ROOT, 'apps', 'web', 'public', 'catalog', 'exams', 'reading')
+const REPAIR_ROOT = path.join(__dirname, 'generated', 'fce-b2')
+const JSON_OUT = path.join(REPO_ROOT, 'tmp', 'fce-b2-corpus-audit.json')
+const MARKDOWN_OUT = path.join(REPO_ROOT, 'tmp', 'fce-b2-corpus-audit.md')
 
 const PART_SPECS = {
-  1: { count: 8, start: 1, type: 'multiple-choice', requiresMarkers: true, labels: 'inline-options' },
-  2: { count: 8, start: 9, type: 'gap-fill', requiresMarkers: true, labels: 'inline-input' },
-  3: { count: 8, start: 17, type: 'gap-fill', requiresMarkers: true, labels: 'word-formation', requiresBaseWord: true },
-  4: { count: 6, start: 25, type: 'gap-fill', requiresMarkers: false, requiresSourceSentence: true, requiresKeyword: true, requiresTargetSentence: true },
-  5: { count: 6, start: 31, type: 'multiple-choice', requiresMarkers: false, requiresPassage: true },
-  6: { count: 6, start: 37, type: 'matching-features', requiresMarkers: true, requiresFeatures: true },
-  7: { count: 10, start: 43, type: 'matching-features', requiresMarkers: false, requiresSections: true },
+  1: { start: 1, count: 8, widget: 'select', options: 4, markers: true },
+  2: { start: 9, count: 8, widget: 'input', markers: true },
+  3: { start: 17, count: 8, widget: 'input', markers: true, baseWords: true },
+  4: { start: 25, count: 6, widget: 'input', transformations: true },
+  5: { start: 31, count: 6, options: 4, passage: true },
+  6: { start: 37, count: 6, widget: 'select', options: 7, markers: true, features: 7 },
+  7: { start: 43, count: 10, widget: 'select', options: 4, sections: 4 },
 }
 
-const MARKER_RE = /\(\s*(\d+)\s*\)\s*\.\.\.\.\./g
-const LETTERS = ['a', 'b', 'c', 'd']
-const FEATURE_LETTERS = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
-
-function hasRawEntity(text) {
-  return /&(?:#\d+|#x[0-9a-f]+|[a-z]+);/i.test(text)
+function expectedNumbers(partNumber) {
+  const spec = PART_SPECS[partNumber]
+  return Array.from({ length: spec.count }, (_, index) => spec.start + index)
 }
 
-function countMarkers(text) {
-  const counts = new Map()
-  let m
-  while ((m = MARKER_RE.exec(text)) !== null) {
-    const n = Number(m[1])
-    counts.set(n, (counts.get(n) || 0) + 1)
+function visitNodes(node, visitor) {
+  for (const child of node?.childNodes ?? []) {
+    visitor(child)
+    visitNodes(child, visitor)
   }
-  return counts
 }
 
-function sampleText(value, max = 500) {
-  const text = String(value ?? '')
-  return text.length > max ? text.slice(0, max) + '...' : text
+function attrValue(node, name) {
+  return node?.attrs?.find(attribute => attribute.name === name)?.value ?? ''
 }
 
-function analyzePart1(page) {
-  const missing = []
-  const usable = {}
-  const html = String(page.passageTextHtml ?? '')
+function nodesByTag(node, tagName) {
+  const nodes = []
+  visitNodes(node, child => {
+    if (child.tagName?.toLowerCase() === tagName.toLowerCase()) nodes.push(child)
+  })
+  return nodes
+}
 
-  if (!html || html.length < 50) {
-    missing.push('passageTextHtml')
-  } else {
-    usable.passageTextHtmlLength = html.length
-    usable.passageTextHtmlSample = sampleText(html)
+function elementText(node) {
+  let value = ''
+  visitNodes(node, child => {
+    if (child.nodeName === '#text') value += ` ${child.value ?? ''}`
+  })
+  return value.replace(/\s+/g, ' ').trim()
+}
 
-    const markerCounts = countMarkers(html)
-    for (let n = 1; n <= 8; n++) {
-      const count = markerCounts.get(n) ?? 0
-      if (count !== 1) missing.push(`marker_${n}`)
-    }
-
-    // Check if options are embedded as select elements
-    if (!html.includes('<select') && !html.includes('<input')) {
-      missing.push('inline_options_widget')
-    }
+function widgetNumber(node) {
+  for (const raw of [attrValue(node, 'id'), attrValue(node, 'name')]) {
+    const match = raw.match(/(?:^|\b)q0?(\d+)\b/i)
+    if (match) return Number(match[1])
   }
-
-  const questions = page.questions ?? []
-  for (const q of questions) {
-    const opts = q.options ?? []
-    if (opts.length < 4 || opts.some(o => !(o.text ?? o.label ?? '').trim())) {
-      missing.push(`Q${q.number}_options`)
-    }
-  }
-
-  // Check for answers
-  return { missing: [...new Set(missing)], usable }
+  return null
 }
 
-function analyzePart2(page) {
-  const missing = []
-  const usable = {}
-  const html = String(page.passageTextHtml ?? '')
+export function inspectSourceWidgets(html, numbers) {
+  const expected = new Set(numbers)
+  const doc = parse5.parseFragment(String(html ?? ''))
+  const widgets = new Map()
 
-  if (!html || html.length < 50) {
-    missing.push('passageTextHtml')
-  } else {
-    usable.passageTextHtmlLength = html.length
-    usable.passageTextHtmlSample = sampleText(html)
+  visitNodes(doc, node => {
+    if (!node.tagName) return
+    const tag = node.tagName.toLowerCase()
+    if (tag !== 'input' && tag !== 'select') return
+    const number = widgetNumber(node)
+    if (!expected.has(number)) return
+    widgets.set(number, {
+      tag,
+      id: attrValue(node, 'id'),
+      name: attrValue(node, 'name'),
+      optionCount: tag === 'select'
+        ? nodesByTag(node, 'option').filter(option => elementText(option)).length
+        : 0,
+    })
+  })
 
-    const markerCounts = countMarkers(html)
-    for (let n = 9; n <= 16; n++) {
-      const count = markerCounts.get(n) ?? 0
-      if (count !== 1) missing.push(`marker_${n}`)
-    }
-
-    if (!html.includes('<input') && !html.includes('<select')) {
-      missing.push('inline_input_widget')
-    }
-  }
-
-  return { missing: [...new Set(missing)], usable }
+  return widgets
 }
 
-function analyzePart3(page) {
-  const missing = []
-  const usable = {}
-  const html = String(page.passageTextHtml ?? '')
+function allQuestions(part) {
+  return (part?.questionGroups ?? []).flatMap(group => group?.questions ?? [])
+}
 
-  if (!html || html.length < 50) {
-    missing.push('passageTextHtml')
-  } else {
-    usable.passageTextHtmlLength = html.length
-    usable.passageTextHtmlSample = sampleText(html)
+function passageText(part) {
+  return (part?.passage ?? []).map(block => `${block?.label ? `${block.label} ` : ''}${block?.text ?? ''}`).join('\n')
+}
 
-    const markerCounts = countMarkers(html)
-    for (let n = 17; n <= 24; n++) {
-      const count = markerCounts.get(n) ?? 0
-      if (count !== 1) missing.push(`marker_${n}`)
+function markerCount(text, numbers) {
+  return numbers.reduce((total, number) => total + (
+    (String(text).match(new RegExp(`\\(${number}\\)\\s*\\.\\.\\.\\.\\.`, 'g')) ?? []).length
+  ), 0)
+}
+
+function sourceHtml(page) {
+  return String(page?.passageTextHtml || page?.entryContentHtml || page?.rawHtmlSample || '')
+}
+
+function rawBaseWordCount(html, numbers, questions) {
+  const found = new Set()
+  for (const match of String(html).matchAll(/\b(\d{1,2})\.\s*([A-Z]{2,})\b/g)) {
+    if (numbers.includes(Number(match[1]))) found.add(Number(match[1]))
+  }
+  for (const question of questions) {
+    if (numbers.includes(Number(question?.number)) && String(question?.baseWord ?? question?.prompt ?? '').trim()) {
+      found.add(Number(question.number))
     }
   }
+  return found.size
+}
 
-  const questions = page.questions ?? []
-  // Check for base word stems (e.g. "17. ENTERTAINMENT")
-  const wordStemsFound = html.match(/(\d+)\.\s*([A-Z]+)/g) ?? []
-  if (wordStemsFound.length < 8) {
-    // Fall back to question-level baseWord
-    for (const q of questions) {
-      if (!q.baseWord && !q.prompt) {
-        missing.push(`Q${q.number}_baseWord`)
+function labelledBlockCount(html, letters) {
+  const doc = parse5.parseFragment(String(html ?? ''))
+  const found = new Set()
+  for (const strong of nodesByTag(doc, 'strong')) {
+    const text = elementText(strong).toUpperCase()
+    if (letters.includes(text)) found.add(text)
+  }
+  return found.size
+}
+
+function getAnswerMap(rawExam) {
+  const answerPage = (rawExam?.pages ?? []).find(page => page?.isAnswerPage || page?.answers)
+  const map = new Map()
+  for (const group of Object.values(answerPage?.answers ?? {})) {
+    for (const answer of Array.isArray(group) ? group : []) {
+      const number = Number(answer?.questionNumber ?? answer?.number)
+      if (Number.isInteger(number)) map.set(number, answer)
+    }
+  }
+  return map
+}
+
+function inspectRaw(page, answerMap, partNumber) {
+  const spec = PART_SPECS[partNumber]
+  const numbers = expectedNumbers(partNumber)
+  const html = sourceHtml(page)
+  const questions = Array.isArray(page?.questions) ? page.questions : []
+  const widgets = inspectSourceWidgets(html, numbers)
+  const failures = []
+
+  if (html.trim().length < 50) failures.push('raw passage is empty or too short')
+  if (questions.filter(question => numbers.includes(Number(question?.number))).length !== spec.count) {
+    failures.push(`raw question count is not ${spec.count}`)
+  }
+  const rawAnswerCount = numbers.filter(number => answerMap.has(number)).length
+  if (rawAnswerCount !== spec.count) failures.push(`raw answer count is not ${spec.count}`)
+
+  if (spec.widget) {
+    for (const number of numbers) {
+      const widget = widgets.get(number)
+      if (!widget) failures.push(`missing raw ${spec.widget} q${number}`)
+      else if (widget.tag !== spec.widget) failures.push(`q${number} uses ${widget.tag}, expected ${spec.widget}`)
+      else if (spec.options && widget.optionCount !== spec.options) {
+        failures.push(`q${number} has ${widget.optionCount} nonempty options, expected ${spec.options}`)
       }
     }
   }
 
-  return { missing, usable }
-}
+  const baseWordCount = spec.baseWords ? rawBaseWordCount(html, numbers, questions) : 0
+  if (spec.baseWords && baseWordCount !== spec.count) failures.push(`raw base-word count is not ${spec.count}`)
+  const featureCount = spec.features ? labelledBlockCount(html, ['A', 'B', 'C', 'D', 'E', 'F', 'G']) : 0
+  if (spec.features && featureCount !== spec.features) failures.push(`raw feature count is not ${spec.features}`)
+  const sectionCount = spec.sections ? labelledBlockCount(html, ['A', 'B', 'C', 'D']) : 0
+  if (spec.sections && sectionCount !== spec.sections) failures.push(`raw section count is not ${spec.sections}`)
 
-function analyzePart4(page) {
-  const missing = []
-  const usable = {}
-
-  const questions = page.questions ?? []
-  for (const q of questions) {
-    const n = q.number
-    if (!q.keyword) missing.push(`Q${n}_keyword`)
-    if (!q.prompt || q.prompt.trim().length < 5) {
-      missing.push(`Q${n}_prompt`)
-    } else {
-      usable[`Q${n}_prompt`] = sampleText(q.prompt)
-    }
-  }
-
-  const html = String(page.passageTextHtml ?? page.rawHtmlSample ?? '')
-  if (!html || html.length < 50) {
-    missing.push('passageTextHtml(rawHtmlSample)')
-  } else {
-    usable.rawHtmlLength = html.length
-    // Check for target sentences (input fields for the transformation)
-    const inputCount = (html.match(/<input/g) ?? []).length
-    if (inputCount < 6) missing.push('target_input_widgets')
-  }
-
-  return { missing, usable }
-}
-
-function analyzePart5(page) {
-  const missing = []
-  const usable = {}
-
-  const html = String(page.passageTextHtml ?? '')
-  if (!html || html.length < 50) {
-    missing.push('passageTextHtml')
-  } else {
-    usable.passageTextHtmlLength = html.length
-    usable.passageTextHtmlSample = sampleText(html)
-  }
-
-  const questions = page.questions ?? []
-  for (const q of questions) {
-    if (!q.questionText || q.questionText.trim().length < 5) {
-      missing.push(`Q${q.number}_prompt`)
-    }
-    const opts = q.options ?? []
-    if (opts.length < 4 || opts.some(o => !(o.text ?? o.label ?? '').trim())) {
-      missing.push(`Q${q.number}_options`)
-    }
-  }
-
-  return { missing: [...new Set(missing)], usable }
-}
-
-function analyzePart6(page) {
-  const missing = []
-  const usable = {}
-
-  const html = String(page.passageTextHtml ?? '')
-  if (!html || html.length < 50) {
-    missing.push('passageTextHtml')
-  } else {
-    usable.passageTextHtmlLength = html.length
-    usable.passageTextHtmlSample = sampleText(html)
-
-    const markerCounts = countMarkers(html)
-    for (let n = 37; n <= 42; n++) {
-      const count = markerCounts.get(n) ?? 0
-      if (count !== 1) missing.push(`marker_${n}`)
-    }
-
-    // Check for feature sentences (A-G)
-    const featureMatches = [...html.matchAll(/<strong>\s*([A-G])\s*<\/strong>/gi)]
-    if (featureMatches.length < 7) {
-      missing.push('feature_sentences_A_G')
-    }
-  }
-
-  const questions = page.questions ?? []
-  for (const q of questions) {
-    if (!q.questionText || q.questionText.trim().length < 5) {
-      missing.push(`Q${q.number}_prompt`)
-    }
-  }
-
-  return { missing: [...new Set(missing)], usable }
-}
-
-function analyzePart7(page) {
-  const missing = []
-  const usable = {}
-
-  const html = String(page.passageTextHtml ?? '')
-  if (!html || html.length < 50) {
-    missing.push('passageTextHtml')
-    usable.passageTextHtmlSample = sampleText(html)
-  } else {
-    usable.passageTextHtmlLength = html.length
-    usable.passageTextHtmlSample = sampleText(html)
-
-    // Check for section labels A-D
-    const sectionMatches = [...html.matchAll(/<strong>\s*([A-D])\s*<\/strong>/gi)]
-    if (sectionMatches.length < 4) {
-      missing.push('section_labels_A_D')
-    }
-  }
-
-  const questions = page.questions ?? []
-  for (const q of questions) {
-    if (!q.questionText || q.questionText.trim().length < 5) {
-      missing.push(`Q${q.number}_prompt`)
-    }
-  }
-
-  return { missing: [...new Set(missing)], usable }
-}
-
-function analyzePart(page) {
-  const partNumber = Number(page.partNumber)
-  switch (partNumber) {
-    case 1: return analyzePart1(page)
-    case 2: return analyzePart2(page)
-    case 3: return analyzePart3(page)
-    case 4: return analyzePart4(page)
-    case 5: return analyzePart5(page)
-    case 6: return analyzePart6(page)
-    case 7: return analyzePart7(page)
-    default: return { missing: [`unsupported_part_${partNumber}`], usable: {} }
+  return {
+    html,
+    widgets,
+    questionCount: questions.filter(question => numbers.includes(Number(question?.number))).length,
+    answerCount: rawAnswerCount,
+    baseWordCount,
+    featureCount,
+    sectionCount,
+    failures,
+    valid: failures.length === 0,
   }
 }
 
-function determineRepairMode(missing) {
-  if (!missing.length) return 'deterministic'
-  // If only markers missing but passage exists → ai-partial
-  const onlyMarkers = missing.every(m => /^marker_\d+$/.test(m))
-  if (onlyMarkers) return 'ai-partial'
-  // Core content missing (passage, options, features, sections) → ai-full-part
-  return 'ai-full-part'
+function inspectPackage(part, partNumber) {
+  const spec = PART_SPECS[partNumber]
+  const numbers = expectedNumbers(partNumber)
+  const questions = allQuestions(part)
+  const text = passageText(part)
+  const failures = []
+  if (questions.length !== spec.count) failures.push(`package question count is not ${spec.count}`)
+  if (spec.markers && markerCount(text, numbers) !== spec.count) failures.push(`package marker count is not ${spec.count}`)
+  if (spec.passage && text.trim().length < 50) failures.push('package passage is empty or too short')
+  if (partNumber === 1 || partNumber === 5) {
+    for (const question of questions) {
+      if ((question?.options ?? []).length !== 4) failures.push(`package Q${question.number} option count is not 4`)
+    }
+  }
+  if (partNumber === 3 && questions.filter(question => String(question?.baseWord ?? '').trim()).length !== 8) {
+    failures.push('package base-word count is not 8')
+  }
+  if (partNumber === 4) {
+    for (const question of questions) {
+      if (!question?.sourceSentence || !question?.keyword || !question?.targetSentence?.includes('.....')) {
+        failures.push(`package Q${question.number} transformation fields incomplete`)
+      }
+    }
+  }
+  if (partNumber === 6 && (part?.questionGroups?.[0]?.features ?? []).length !== 7) failures.push('package feature count is not 7')
+  if (partNumber === 7) {
+    const labels = (part?.passage ?? []).map(block => block?.label).filter(Boolean).join(',')
+    if (labels !== 'A,B,C,D') failures.push(`package section labels are ${labels || '<none>'}`)
+    for (const question of questions) {
+      if (!question?.prompt || /^Question \d+|^Gap \(\d+\)$/i.test(question.prompt)) failures.push(`package Q${question.number} prompt is placeholder`)
+    }
+  }
+  return {
+    passageLength: text.length,
+    markerCount: markerCount(text, numbers),
+    questionCount: questions.length,
+    failures,
+    valid: failures.length === 0,
+  }
+}
+
+function inspectRuntime(part, vault, partNumber) {
+  const spec = PART_SPECS[partNumber]
+  const numbers = expectedNumbers(partNumber)
+  const questions = allQuestions(part)
+  const questionIds = new Set(questions.map(question => question.id))
+  const text = passageText(part)
+  const vaultAnswers = Object.entries(vault?.answers ?? {}).filter(([id]) => questionIds.has(id))
+  const failures = []
+  if (questions.length !== spec.count) failures.push(`runtime control count is not ${spec.count}`)
+  if (spec.markers && markerCount(text, numbers) !== spec.count) failures.push(`runtime marker count is not ${spec.count}`)
+  if (vaultAnswers.length !== spec.count) failures.push(`vault answer count is not ${spec.count}`)
+  if (questions.some(question => Object.hasOwn(question, 'answer') || Object.hasOwn(question, 'acceptedAnswers'))) {
+    failures.push('runtime body exposes answer data')
+  }
+  return {
+    markerCount: markerCount(text, numbers),
+    controlCount: questions.length,
+    vaultAnswerCount: vaultAnswers.length,
+    failures,
+    valid: failures.length === 0,
+  }
+}
+
+async function readJson(file, fallback = null) {
+  try {
+    return JSON.parse(await fs.readFile(file, 'utf8'))
+  } catch {
+    return fallback
+  }
+}
+
+async function hasVerifiedRepair(sourceTestNumber, partNumber) {
+  const repairPath = path.join(
+    REPAIR_ROOT,
+    `source-test${String(sourceTestNumber).padStart(2, '0')}`,
+    `part-${String(partNumber).padStart(2, '0')}.repair.json`,
+  )
+  const cache = await readJson(repairPath)
+  return Boolean(
+    cache
+    && cache.status === 'verified'
+    && cache.repair
+    && cache.model !== 'bootstrap-v1'
+    && cache.verification?.valid === true,
+  )
+}
+
+function classify({ raw, packageResult, runtime, verifiedRepair }) {
+  if (raw.valid && packageResult.valid && runtime.valid) return 'SOURCE_OK'
+  if (raw.valid) return 'PARSER_BROKEN'
+  if (verifiedRepair && packageResult.valid && runtime.valid) return 'AI_REPAIR_VERIFIED'
+  return 'RECRAWL_REQUIRED'
+}
+
+function repairStrategy(status) {
+  return {
+    SOURCE_OK: 'source',
+    PARSER_BROKEN: 'deterministic-parser',
+    RECRAWL_REQUIRED: 'recrawl-source',
+    AI_REPAIR_VERIFIED: 'verified-ai-unit',
+  }[status]
+}
+
+function provenanceFor(part) {
+  const values = new Set()
+  for (const block of part?.passage ?? []) if (block?._provenance) values.add(block._provenance)
+  for (const question of allQuestions(part)) {
+    if (question?._prompt_provenance) values.add(question._prompt_provenance)
+    if (question?.answerConfidence) values.add(question.answerConfidence === 'key' ? 'source' : question.answerConfidence)
+  }
+  if (values.has('ai-generated')) return values.has('source') ? 'mixed' : 'ai-generated'
+  return 'source'
+}
+
+function sourceUrl(sourceTestNumber, partNumber) {
+  return `https://engexam.info/fce-reading-and-use-of-english-practice-tests/fce-reading-and-use-of-english-practice-test-${sourceTestNumber}/${partNumber}/`
 }
 
 async function main() {
-  console.log('[analyze] FCE B2 Reading missing-content analysis')
-  console.log(`[analyze] Source: ${FCE_ROOT}`)
+  const rows = []
 
-  const sourceTests = []
-  for (let i = 1; i <= 26; i++) {
-    sourceTests.push(i)
-  }
+  for (let sourceTestNumber = 1; sourceTestNumber <= 26; sourceTestNumber += 1) {
+    const appTestNumber = sourceTestNumber + 1
+    const sourcePath = path.join(FCE_ROOT, `fce-reading-test${sourceTestNumber}`, 'exam', 'exam.json')
+    const packagePath = path.join(PACKAGE_ROOT, `reading-fce-b2-test${appTestNumber}.json`)
+    const runtimePath = path.join(RUNTIME_ROOT, `catalog-reading-fce-b2-test${appTestNumber}.json`)
+    const vaultPath = path.join(RUNTIME_ROOT, `catalog-reading-fce-b2-test${appTestNumber}.answers.json`)
+    const [rawExam, packageExam, runtimeExam, vault] = await Promise.all([
+      readJson(sourcePath, { pages: [] }),
+      readJson(packagePath, { parts: [] }),
+      readJson(runtimePath, { parts: [] }),
+      readJson(vaultPath, { answers: {} }),
+    ])
+    const answerMap = getAnswerMap(rawExam)
 
-  const parts = []
+    for (let partNumber = 1; partNumber <= 7; partNumber += 1) {
+      const page = (rawExam.pages ?? []).find(item => Number(item?.partNumber) === partNumber)
+      const packagePart = (packageExam.parts ?? []).find(item => Number(item?.partNumber) === partNumber)
+      const runtimePart = (runtimeExam.parts ?? []).find(item => Number(item?.partNumber) === partNumber)
+      const raw = inspectRaw(page, answerMap, partNumber)
+      const packageResult = inspectPackage(packagePart, partNumber)
+      const runtime = inspectRuntime(runtimePart, vault, partNumber)
+      const verifiedRepair = await hasVerifiedRepair(sourceTestNumber, partNumber)
+      const status = classify({ raw, packageResult, runtime, verifiedRepair })
 
-  for (const sourceTestNumber of sourceTests) {
-    const filePath = path.join(FCE_ROOT, `fce-reading-test${sourceTestNumber}`, 'exam', 'exam.json')
-    let raw
-    try {
-      raw = JSON.parse(await fs.readFile(filePath, 'utf8'))
-    } catch {
-      console.warn(`[analyze] WARN: Could not read test ${sourceTestNumber} at ${filePath}`)
-      parts.push({
+      rows.push({
         sourceTestNumber,
-        appTestNumber: sourceTestNumber + 1,
-        partNumber: null,
-        status: 'source_missing',
-        missing: ['exam.json'],
-        usable: {},
-        repairMode: 'ai-full-part',
-      })
-      continue
-    }
-
-    const pages = Array.isArray(raw.pages) ? raw.pages : []
-    const partPages = pages.filter(p => {
-      const pn = Number(p.partNumber)
-      return Number.isInteger(pn) && pn >= 1 && pn <= 7
-    })
-
-    console.log(`[analyze] Test ${sourceTestNumber} → App ${sourceTestNumber + 1}: ${partPages.length} part pages`)
-
-    for (const page of partPages) {
-      const partNumber = Number(page.partNumber)
-      const analysis = analyzePart(page)
-      const repairMode = determineRepairMode(analysis.missing)
-
-      // Check if this is a known-low-quality source
-      const htmlLength = String(page.passageTextHtml ?? '').length
-      const rawHtmlLength = String(page.rawHtmlSample ?? '').length
-      const isTruncated = rawHtmlLength >= 2000 && rawHtmlLength < 3000 // truncated at ~2000 chars
-
-      parts.push({
-        sourceTestNumber,
-        appTestNumber: sourceTestNumber + 1,
+        appTestNumber,
         partNumber,
-        status: analysis.missing.length === 0 ? 'complete' : 'missing_content',
-        missing: analysis.missing,
-        usableFragments: analysis.usable,
-        repairMode,
-        sourceHtmlLength: htmlLength,
-        rawHtmlSampleLength: rawHtmlLength,
-        isTruncated,
+        sourcePath,
+        sourceUrl: sourceUrl(sourceTestNumber, partNumber),
+        rawPassageLength: raw.html.length,
+        rawWidgetCount: raw.widgets.size,
+        rawQuestionCount: raw.questionCount,
+        rawAnswerCount: raw.answerCount,
+        rawBaseWordCount: raw.baseWordCount,
+        rawFeatureCount: raw.featureCount,
+        rawSectionCount: raw.sectionCount,
+        packagePassageLength: packageResult.passageLength,
+        packageMarkerCount: packageResult.markerCount,
+        packageQuestionCount: packageResult.questionCount,
+        runtimeMarkerCount: runtime.markerCount,
+        runtimeControlCount: runtime.controlCount,
+        vaultAnswerCount: runtime.vaultAnswerCount,
+        status,
+        repairStrategy: repairStrategy(status),
+        provenance: provenanceFor(packagePart),
+        failures: [...raw.failures, ...packageResult.failures, ...runtime.failures],
       })
     }
-
-    // Check for missing parts
-    const foundParts = new Set(partPages.map(p => Number(p.partNumber)))
-    for (let pn = 1; pn <= 7; pn++) {
-      if (!foundParts.has(pn)) {
-        parts.push({
-          sourceTestNumber,
-          appTestNumber: sourceTestNumber + 1,
-          partNumber: pn,
-          status: 'part_page_missing',
-          missing: ['entire_part_page'],
-          usable: {},
-          repairMode: 'ai-full-part',
-        })
-      }
-    }
   }
 
-  // Summary
-  const byRepairMode = {}
-  for (const p of parts) {
-    byRepairMode[p.repairMode] = (byRepairMode[p.repairMode] || 0) + 1
-  }
-
+  if (rows.length !== 182) throw new Error(`Expected 182 audit rows, got ${rows.length}`)
+  const byStatus = Object.fromEntries(
+    Object.keys({ SOURCE_OK: 0, PARSER_BROKEN: 0, RECRAWL_REQUIRED: 0, AI_REPAIR_VERIFIED: 0 })
+      .map(status => [status, rows.filter(row => row.status === status).length]),
+  )
   const report = {
     generatedAt: new Date().toISOString(),
-    totalSourceTests: sourceTests.length,
-    totalParts: parts.length,
-    summary: {
-      byRepairMode,
-      totalDeterministic: byRepairMode.deterministic ?? 0,
-      totalAiPartial: byRepairMode['ai-partial'] ?? 0,
-      totalAiFullPart: byRepairMode['ai-full-part'] ?? 0,
-    },
-    parts,
+    sourceTests: 26,
+    appTests: 26,
+    parts: rows.length,
+    summary: { byStatus },
+    rows,
   }
+  const markdown = [
+    '# FCE B2 Corpus Audit',
+    '',
+    '- Source tests: 26',
+    '- App tests: 26',
+    `- Rows: ${rows.length}`,
+    ...Object.entries(byStatus).map(([status, count]) => `- ${status}: ${count}`),
+    '',
+    '| Source | App | Part | Raw widgets | Raw questions | Raw answers | Package questions | Runtime controls | Vault answers | Status | Provenance | Failures |',
+    '| ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | --- |',
+    ...rows.map(row => `| ${row.sourceTestNumber} | ${row.appTestNumber} | ${row.partNumber} | ${row.rawWidgetCount} | ${row.rawQuestionCount} | ${row.rawAnswerCount} | ${row.packageQuestionCount} | ${row.runtimeControlCount} | ${row.vaultAnswerCount} | ${row.status} | ${row.provenance} | ${row.failures.join('; ').replaceAll('|', '\\|')} |`),
+    '',
+  ]
 
-  await fs.mkdir(path.dirname(OUT_PATH), { recursive: true })
-  await fs.writeFile(OUT_PATH, JSON.stringify(report, null, 2), 'utf8')
-  console.log(`\n[analyze] Report written to ${OUT_PATH}`)
-  console.log(`[analyze] Total parts: ${parts.length}`)
-  console.log(`[analyze]   deterministic: ${byRepairMode.deterministic ?? 0}`)
-  console.log(`[analyze]   ai-partial:    ${byRepairMode['ai-partial'] ?? 0}`)
-  console.log(`[analyze]   ai-full-part:  ${byRepairMode['ai-full-part'] ?? 0}`)
-
-  // Summarize missing fields
-  const fieldCounts = {}
-  for (const p of parts) {
-    for (const m of p.missing) {
-      fieldCounts[m] = (fieldCounts[m] || 0) + 1
-    }
-  }
-  console.log('\n[analyze] Top missing fields:')
-  const sorted = Object.entries(fieldCounts).sort((a, b) => b[1] - a[1])
-  for (const [field, count] of sorted.slice(0, 20)) {
-    console.log(`  ${field}: ${count}`)
-  }
+  await fs.mkdir(path.dirname(JSON_OUT), { recursive: true })
+  await Promise.all([
+    fs.writeFile(JSON_OUT, `${JSON.stringify(report, null, 2)}\n`, 'utf8'),
+    fs.writeFile(MARKDOWN_OUT, markdown.join('\n'), 'utf8'),
+  ])
+  console.log(`FCE B2 corpus audit PASS: ${rows.length} rows`)
+  console.log(JSON.stringify(byStatus, null, 2))
+  console.log(JSON_OUT)
+  console.log(MARKDOWN_OUT)
 }
 
-main().catch(err => {
-  console.error(err)
+main().catch(error => {
+  console.error(error)
   process.exit(1)
 })
