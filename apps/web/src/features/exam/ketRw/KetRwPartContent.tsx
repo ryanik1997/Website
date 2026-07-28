@@ -697,6 +697,16 @@ export default function KetRwPartContent({
           left={(
             <div className="ket-rw-writing-prompt">
               <h3>Question {wq?.number ?? 31}</h3>
+              {canEditPassagePortraits && onPassagePortraitPick && (
+                <label className="ket-rw-import-image">
+                  Import
+                  <input type="file" accept="image/*" onChange={e => {
+                    const file = e.target.files?.[0]
+                    if (file) onPassagePortraitPick(0, file)
+                    e.currentTarget.value = ''
+                  }} />
+                </label>
+              )}
               <p>Write <strong>{wq?.minWords ?? 25} words or more</strong>.</p>
               <div className="ket-rw-writing-prompt__body">
                 {renderPassageBlocks()}
@@ -742,10 +752,18 @@ export default function KetRwPartContent({
         <div className="ket-rw-body is-single">
           <div className="ket-rw-pane-full">
             <h3 className="ket-rw-passage-title">Question {wq?.number ?? 32}</h3>
+            {canEditPassagePortraits && onPassagePortraitPick && (
+              <label className="ket-rw-import-image">
+                Import
+                <input type="file" accept="image/*" onChange={e => {
+                  const file = e.target.files?.[0]
+                  if (file) onPassagePortraitPick(0, file)
+                  e.currentTarget.value = ''
+                }} />
+              </label>
+            )}
             {wq && (
-              <p className="ket-rw-q-prompt">
-                <RwHighlightText blockId={`${partId}-wq-prompt`} text={wq.prompt} />
-              </p>
+              wq.prompt?.trim() ? <p className="ket-rw-q-prompt"><RwHighlightText blockId={`${partId}-wq-prompt`} text={wq.prompt} /></p> : null
             )}
             <div className={`ket-rw-pictures${singleStrip ? ' is-single-strip' : ''}`}>
               {blocks.map((block, idx) => (

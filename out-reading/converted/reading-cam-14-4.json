@@ -345,111 +345,41 @@
               "number": 18,
               "type": "true-false-not-given",
               "prompt": "Question 18",
-              "answer": "true",
-              "explanation": "Bước 1: Keyword:\n“live longer / zoo vs wild / life expectancy”\nBước 2: Tìm đoạn:\nParagraph A: “The average captive animal will have a greater life expectancy compared with its wild counterpart”\nBước 3: Phân tích:\n“greater life expectancy” = sống lâu hơn → khẳng định trực tiếp so sánh zoo > wild\n=> Đáp án: TRUE",
-              "options": [
-                {
-                  "id": "true",
-                  "label": "TRUE"
-                },
-                {
-                  "id": "false",
-                  "label": "FALSE"
-                },
-                {
-                  "id": "not-given",
-                  "label": "NOT GIVEN"
-                }
-              ]
+              "answer": "TRUE",
+              "explanation": "Bước 1: Keyword:\n“live longer / zoo vs wild / life expectancy”\nBước 2: Tìm đoạn:\nParagraph A: “The average captive animal will have a greater life expectancy compared with its wild counterpart”\nBước 3: Phân tích:\n“greater life expectancy” = sống lâu hơn → khẳng định trực tiếp so sánh zoo > wild\n=> Đáp án: TRUE"
             },
             {
               "number": 19,
               "type": "true-false-not-given",
               "prompt": "Question 19",
-              "answer": "true",
-              "explanation": "Bước 1: Keyword:\n“only in zoos / not in wild / extinct in wild”\nBước 2: Tìm đoạn:\nParagraph B: “A good number of species only exist in captivity”\nBước 3: Phân tích:\n“only exist in captivity” = chỉ còn trong sở thú → không còn ngoài tự nhiên\n=> Đáp án: TRUE",
-              "options": [
-                {
-                  "id": "true",
-                  "label": "TRUE"
-                },
-                {
-                  "id": "false",
-                  "label": "FALSE"
-                },
-                {
-                  "id": "not-given",
-                  "label": "NOT GIVEN"
-                }
-              ]
+              "answer": "TRUE",
+              "explanation": "Bước 1: Keyword:\n“only in zoos / not in wild / extinct in wild”\nBước 2: Tìm đoạn:\nParagraph B: “A good number of species only exist in captivity”\nBước 3: Phân tích:\n“only exist in captivity” = chỉ còn trong sở thú → không còn ngoài tự nhiên\n=> Đáp án: TRUE"
             },
             {
               "number": 20,
               "type": "true-false-not-given",
               "prompt": "Question 20",
-              "answer": "not-given",
-              "explanation": "Bước 1: Keyword:\n“TV documentaries / increase zoo visitors”\nBước 2: Tìm đoạn:\nParagraph C: “television documentaries are becoming ever more detailed and impressive…”\nBước 3: Phân tích:\nBài chỉ nói:\nTV tài liệu tốt hơn\ngiúp hiểu động vật hơn\n❌ không nói tăng lượng khách đến zoo\n=> Đáp án: NOT GIVEN",
-              "options": [
-                {
-                  "id": "true",
-                  "label": "TRUE"
-                },
-                {
-                  "id": "false",
-                  "label": "FALSE"
-                },
-                {
-                  "id": "not-given",
-                  "label": "NOT GIVEN"
-                }
-              ]
+              "answer": "NOT GIVEN",
+              "explanation": "Bước 1: Keyword:\n“TV documentaries / increase zoo visitors”\nBước 2: Tìm đoạn:\nParagraph C: “television documentaries are becoming ever more detailed and impressive…”\nBước 3: Phân tích:\nBài chỉ nói:\nTV tài liệu tốt hơn\ngiúp hiểu động vật hơn\n❌ không nói tăng lượng khách đến zoo\n=> Đáp án: NOT GIVEN"
             },
             {
               "number": 21,
               "type": "true-false-not-given",
               "prompt": "Question 21",
-              "answer": "false",
-              "explanation": "Bước 1: Keyword:\n“always excelled / zoo education / communication”\nBước 2: Tìm đoạn:\nParagraph D: “This was an area where zoos used to be lacking”\nBước 3: Phân tích:\n“used to be lacking” = trước đây làm không tốt\n→ trái với “always excelled”\n=> Đáp án: FALSE",
-              "options": [
-                {
-                  "id": "true",
-                  "label": "TRUE"
-                },
-                {
-                  "id": "false",
-                  "label": "FALSE"
-                },
-                {
-                  "id": "not-given",
-                  "label": "NOT GIVEN"
-                }
-              ]
+              "answer": "FALSE",
+              "explanation": "Bước 1: Keyword:\n“always excelled / zoo education / communication”\nBước 2: Tìm đoạn:\nParagraph D: “This was an area where zoos used to be lacking”\nBước 3: Phân tích:\n“used to be lacking” = trước đây làm không tốt\n→ trái với “always excelled”\n=> Đáp án: FALSE"
             },
             {
               "number": 22,
               "type": "true-false-not-given",
               "prompt": "Question 22",
-              "answer": "not-given",
-              "explanation": "“less stressful / zoo vs wild / animals stress”\nBước 2: Tìm đoạn:\nParagraph E: “less risk and fewer variables…”\nBước 3: Phân tích:\nBài nói:\nít rủi ro cho nghiên cứu\nít biến số\nkhông nói ít stress cho động vật\n=> Đáp án: NOT GIVEN",
-              "options": [
-                {
-                  "id": "true",
-                  "label": "TRUE"
-                },
-                {
-                  "id": "false",
-                  "label": "FALSE"
-                },
-                {
-                  "id": "not-given",
-                  "label": "NOT GIVEN"
-                }
-              ]
+              "answer": "NOT GIVEN",
+              "explanation": "“less stressful / zoo vs wild / animals stress”\nBước 2: Tìm đoạn:\nParagraph E: “less risk and fewer variables…”\nBước 3: Phân tích:\nBài nói:\nít rủi ro cho nghiên cứu\nít biến số\nkhông nói ít stress cho động vật\n=> Đáp án: NOT GIVEN"
             }
           ]
         },
         {
-          "range": "Questions 23–24",
+          "range": "Questions 23–26",
           "instruction": "Choose TWO correct answers, A–E.",
           "type": "multiple-choice",
           "questions": [
@@ -489,14 +419,7 @@
               "answer": "D",
               "explanation": "Bước 1: Keyword:\n“zoo staff / teach / conservation workers”\nBước 2: Tìm đoạn:\nParagraph D:\n“educate conservation workers in other countries”\nBước 3: Phân tích:\n“educate conservation workers” = đào tạo người làm bảo tồn → đúng ý “teach conservation staff”\n=> Đáp án: D",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 25–26",
-          "instruction": "Choose TWO correct answers, A–E.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 25,
               "type": "multiple-choice",

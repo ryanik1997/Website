@@ -54,7 +54,7 @@
       ],
       "questionGroups": [
         {
-          "range": "Questions 1–1",
+          "range": "Questions 1–6",
           "instruction": "Choose the correct answer.",
           "type": "tfng",
           "questions": [
@@ -62,77 +62,126 @@
               "number": 1,
               "type": "true-false-not-given",
               "prompt": "Marie Curie's husband was a joint winner of both Marie's Nobel Prizes.",
-              "answer": "FALSE"
-            }
-          ]
-        },
-        {
-          "range": "Questions 2–2",
-          "instruction": "Choose the correct answer.",
-          "type": "tfng",
-          "questions": [
+              "answer": "false",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ]
+            },
             {
               "number": 2,
               "type": "true-false-not-given",
               "prompt": "Marie became interested in science when she was a child.",
-              "answer": "NOT GIVEN"
-            }
-          ]
-        },
-        {
-          "range": "Questions 3–3",
-          "instruction": "Choose the correct answer.",
-          "type": "tfng",
-          "questions": [
+              "answer": "not-given",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ]
+            },
             {
               "number": 3,
               "type": "true-false-not-given",
               "prompt": "Marie was able to attend the Sorbonne because of her sister's financial contribution.",
-              "answer": "TRUE"
-            }
-          ]
-        },
-        {
-          "range": "Questions 4–4",
-          "instruction": "Choose the correct answer.",
-          "type": "tfng",
-          "questions": [
+              "answer": "true",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ]
+            },
             {
               "number": 4,
               "type": "true-false-not-given",
               "prompt": "Marie stopped doing research for several years when her children were born.",
-              "answer": "FALSE"
-            }
-          ]
-        },
-        {
-          "range": "Questions 5–5",
-          "instruction": "Choose the correct answer.",
-          "type": "tfng",
-          "questions": [
+              "answer": "false",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ]
+            },
             {
               "number": 5,
               "type": "true-false-not-given",
               "prompt": "Marie took over the teaching position her husband had held.",
-              "answer": "TRUE"
-            }
-          ]
-        },
-        {
-          "range": "Questions 6–6",
-          "instruction": "Choose the correct answer.",
-          "type": "tfng",
-          "questions": [
+              "answer": "true",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ]
+            },
             {
               "number": 6,
               "type": "true-false-not-given",
               "prompt": "Marie's sister Bronia studied the medical uses of radioactivity.",
-              "answer": "NOT GIVEN"
+              "answer": "not-given",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ]
             }
           ]
         },
         {
-          "range": "Questions 7–7",
+          "range": "Questions 7–13",
           "instruction": "Choose the correct answer.",
           "type": "multiple-choice",
           "questions": [
@@ -142,84 +191,42 @@
               "prompt": "When uranium was discovered to be radioactive, Marie Curie found that what element had the same property?",
               "answer": "thorium",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 8–8",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 8,
               "type": "multiple-choice",
               "prompt": "Research into the radioactivity of which mineral led to the discovery of two new elements?",
               "answer": "pitchblende",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 9–9",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 9,
               "type": "multiple-choice",
               "prompt": "In 1911, Marie Curie received recognition for her work on which element?",
               "answer": "radium",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 10–10",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 10,
               "type": "multiple-choice",
               "prompt": "X-radiography was used as a medical technique for whom?",
               "answer": "soldiers",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 11–11",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 11,
               "type": "multiple-choice",
               "prompt": "Marie Curie saw the importance of collecting radioactive material both for research and for cases of what?",
               "answer": "illness",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 12–12",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 12,
               "type": "multiple-choice",
               "prompt": "The stock of radioactive material in Paris contributed to the discovery of the what?",
               "answer": "neutron",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 13–13",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 13,
               "type": "multiple-choice",
@@ -1877,7 +1884,7 @@
       ],
       "questionGroups": [
         {
-          "range": "Questions 14–14",
+          "range": "Questions 14–26",
           "instruction": "Choose the correct answer.",
           "type": "multiple-choice",
           "questions": [
@@ -1887,84 +1894,42 @@
               "prompt": "an account of the method used by researchers in a particular study",
               "answer": "G",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 15–15",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 15,
               "type": "multiple-choice",
               "prompt": "the role of imitation in developing a sense of identity",
               "answer": "C",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 16–16",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 16,
               "type": "multiple-choice",
               "prompt": "the age at which children can usually identify a static image of themselves",
               "answer": "G",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 17–17",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 17,
               "type": "multiple-choice",
               "prompt": "a reason for the limitations of scientific research into 'self-as-subject'",
               "answer": "D",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 18–18",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 18,
               "type": "multiple-choice",
               "prompt": "reference to a possible link between culture and a particular form of behaviour",
               "answer": "H",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 19–19",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 19,
               "type": "multiple-choice",
               "prompt": "examples of the wide range of features that contribute to the sense of 'self-as-object'",
               "answer": "E",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 20–20",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 20,
               "type": "multiple-choice",
@@ -1992,14 +1957,7 @@
                   "label": "Bronson"
                 }
               ]
-            }
-          ]
-        },
-        {
-          "range": "Questions 21–21",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 21,
               "type": "multiple-choice",
@@ -2027,14 +1985,7 @@
                   "label": "Bronson"
                 }
               ]
-            }
-          ]
-        },
-        {
-          "range": "Questions 22–22",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 22,
               "type": "multiple-choice",
@@ -2062,14 +2013,7 @@
                   "label": "Bronson"
                 }
               ]
-            }
-          ]
-        },
-        {
-          "range": "Questions 23–23",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 23,
               "type": "multiple-choice",
@@ -2097,42 +2041,21 @@
                   "label": "Bronson"
                 }
               ]
-            }
-          ]
-        },
-        {
-          "range": "Questions 24–24",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 24,
               "type": "multiple-choice",
               "prompt": "Children can cause the image to move when they face a what?",
               "answer": "mirror",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 25–25",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 25,
               "type": "multiple-choice",
               "prompt": "This aspect of self-awareness is difficult to research directly because of what problems?",
               "answer": "communication",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 26–26",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 26,
               "type": "multiple-choice",
@@ -2605,7 +2528,7 @@
       ],
       "questionGroups": [
         {
-          "range": "Questions 27–27",
+          "range": "Questions 27–36",
           "instruction": "Choose the correct answer.",
           "type": "multiple-choice",
           "questions": [
@@ -2615,56 +2538,28 @@
               "prompt": "Paragraph B",
               "answer": "ii",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 28–28",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 28,
               "type": "multiple-choice",
               "prompt": "Paragraph C",
               "answer": "vi",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 29–29",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 29,
               "type": "multiple-choice",
               "prompt": "Paragraph D",
               "answer": "i",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 30–30",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 30,
               "type": "multiple-choice",
               "prompt": "Paragraph E",
               "answer": "iii",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 31–31",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 31,
               "type": "multiple-choice",
@@ -2688,14 +2583,7 @@
                   "label": "preserved items with greater care."
                 }
               ]
-            }
-          ]
-        },
-        {
-          "range": "Questions 32–32",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 32,
               "type": "multiple-choice",
@@ -2719,14 +2607,7 @@
                   "label": "reflect minority tastes."
                 }
               ]
-            }
-          ]
-        },
-        {
-          "range": "Questions 33–33",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 33,
               "type": "multiple-choice",
@@ -2750,14 +2631,7 @@
                   "label": "are less easy to distinguish than before."
                 }
               ]
-            }
-          ]
-        },
-        {
-          "range": "Questions 34–34",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 34,
               "type": "multiple-choice",
@@ -2781,14 +2655,7 @@
                   "label": "have to balance conflicting priorities."
                 }
               ]
-            }
-          ]
-        },
-        {
-          "range": "Questions 35–35",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 35,
               "type": "multiple-choice",
@@ -2812,14 +2679,7 @@
                   "label": "allow visitors to make more use of their imagination."
                 }
               ]
-            }
-          ]
-        },
-        {
-          "range": "Questions 36–36",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 36,
               "type": "multiple-choice",
@@ -2847,7 +2707,7 @@
           ]
         },
         {
-          "range": "Questions 37–37",
+          "range": "Questions 37–40",
           "instruction": "Choose the correct answer.",
           "type": "tfng",
           "questions": [
@@ -2856,40 +2716,19 @@
               "type": "true-false-not-given",
               "prompt": "Consumers prefer theme parks which avoid serious issues.",
               "answer": "FALSE"
-            }
-          ]
-        },
-        {
-          "range": "Questions 38–38",
-          "instruction": "Choose the correct answer.",
-          "type": "tfng",
-          "questions": [
+            },
             {
               "number": 38,
               "type": "true-false-not-given",
               "prompt": "More people visit museums than theme parks.",
               "answer": "NOT GIVEN"
-            }
-          ]
-        },
-        {
-          "range": "Questions 39–39",
-          "instruction": "Choose the correct answer.",
-          "type": "tfng",
-          "questions": [
+            },
             {
               "number": 39,
               "type": "true-false-not-given",
               "prompt": "The boundaries of Leyden have changed little since the seventeenth century.",
               "answer": "FALSE"
-            }
-          ]
-        },
-        {
-          "range": "Questions 40–40",
-          "instruction": "Choose the correct answer.",
-          "type": "tfng",
-          "questions": [
+            },
             {
               "number": 40,
               "type": "true-false-not-given",

@@ -110,7 +110,9 @@ export async function resolveReadingExam(examId: string): Promise<ReadingExam | 
   return fillReadingExamFromSources(winner, [donor, builtin, published, local])
 }
 
-export async function listAllReadingExams(): Promise<ReadingExam[]> {
+export async function listAllReadingExams(
+  options?: { includeLocalImports?: boolean },
+): Promise<ReadingExam[]> {
   const importedRecords = await examRepo.list()
   const imported = importedRecords.map(recordToExam)
   const builtinIds = new Set(READING_EXAMS.map(e => e.id))
@@ -121,6 +123,10 @@ export async function listAllReadingExams(): Promise<ReadingExam[]> {
   } catch (err) {
     console.warn('Không tải danh sách đề Reading published:', err)
   }
+  // Cloud rows có id `catalog-*` là rác từ lần publish nhầm trước khi
+  // isCatalogReadingExamId nhận diện đủ prefix (catalog-ket-/pet-/fce-/cae-/cpe-).
+  // Bỏ qua ở client — bản builtin đã có id trùng, không cần cloud phủ đè.
+  published = published.filter(e => !e.id.startsWith('catalog-'))
 
   // Cùng id: ưu tiên bản nhiều part hơn (vd. publish 7-part ghi đè catalog 5-part cũ trên list)
   const byId = new Map<string, ReadingExam>()
@@ -138,7 +144,9 @@ export async function listAllReadingExams(): Promise<ReadingExam[]> {
     byId.set(record.id, recordToExam(record))
   }
   const publishedIds = new Set(published.map(e => e.id))
-  const localOnly = imported.filter(e => !builtinIds.has(e.id) && !publishedIds.has(e.id))
+  const localOnly = options?.includeLocalImports === false
+    ? []
+    : imported.filter(e => !builtinIds.has(e.id) && !publishedIds.has(e.id))
   // Dedupe sample/catalog/local cùng Test (vd. double "Test 1 · A2 Key Reading — 5 parts")
   const hidden = new Set(await listHiddenReadingCatalogIds())
   const all = dedupeExamsForLibraryDisplay([...byId.values(), ...localOnly])

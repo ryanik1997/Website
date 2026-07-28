@@ -1,7 +1,6 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
-import { AlertCircle, Check, CloudUpload, Loader2 } from 'lucide-react'
-import AdminWritingPromptImagePanel from './AdminWritingPromptImagePanel'
+import { AlertCircle, Check, CloudUpload, Loader2, Upload } from 'lucide-react'
 import {
   countAdminPublishableContent,
   publishAllAdminContent,
@@ -9,6 +8,8 @@ import {
   type AdminPublishProgress,
   type AdminPublishResult,
 } from './adminContentPublish'
+import { parseDictionaryCsv, parseDictionaryJson, saveCustomDictionary } from '../dictionary/customDictionary'
+import AdminWritingPromptImagePanel from './AdminWritingPromptImagePanel'
 import { publishAllLocalExamsToCloud } from './publishLocalExamsBatch'
 
 const MODULE_LABELS: Record<keyof AdminModuleCounts, string> = {
@@ -18,6 +19,7 @@ const MODULE_LABELS: Record<keyof AdminModuleCounts, string> = {
   sentence_structures: 'Cấu trúc câu',
   writing_prompts: 'Viết — đề bài (chưa có bài làm)',
   mindmaps: 'MindMap',
+  dictionary: 'Từ điển import',
   reading_exams: 'Luyện thi — Reading',
   listening_exams: 'Luyện thi — Listening',
 }
@@ -38,6 +40,7 @@ function totalItems(counts: AdminModuleCounts): number {
     + counts.sentence_structures
     + counts.writing_prompts
     + counts.mindmaps
+    + counts.dictionary
     + counts.reading_exams
     + counts.listening_exams
   )
@@ -52,14 +55,62 @@ export default function AdminPublishExamsPanel() {
       sentence_structures: 0,
       writing_prompts: 0,
       mindmaps: 0,
+      dictionary: 0,
       reading_exams: 0,
       listening_exams: 0,
     }
   const [publishing, setPublishing] = useState(false)
+  const [publishingMode, setPublishingMode] = useState<'changed' | 'all' | null>(null)
   const [progress, setProgress] = useState<AdminPublishProgress | null>(null)
   const [result, setResult] = useState<AdminPublishResult | null>(null)
+  const [dictionaryNotice, setDictionaryNotice] = useState<string | null>(null)
+  const dictionaryInputRef = useRef<HTMLInputElement>(null)
 
   const total = totalItems(counts)
+
+  async function handleDictionaryImport(file: File) {
+    setDictionaryNotice(null)
+    try {
+      const text = await file.text()
+      const entries = file.name.toLowerCase().endsWith('.csv')
+        ? parseDictionaryCsv(text)
+        : parseDictionaryJson(text)
+      if (!entries.length) throw new Error('Không tìm thấy entry hợp lệ trong file.')
+      await saveCustomDictionary(entries)
+      setDictionaryNotice(`Đã import ${entries.length} từ. Nhấn Publish để User nhận dữ liệu.`)
+    } catch (error) {
+      setDictionaryNotice(error instanceof Error ? error.message : 'Không thể import từ điển.')
+    } finally {
+      if (dictionaryInputRef.current) dictionaryInputRef.current.value = ''
+    }
+  }
+
+  async function handlePublishChanged() {
+    if (publishing) return
+    setPublishing(true)
+    setPublishingMode('changed')
+    setResult(null)
+    setProgress(null)
+    try {
+      setResult(await publishAllAdminContent(setProgress))
+    } catch (err) {
+      setResult({
+        version: 0,
+        modules: [],
+        moduleCounts: counts,
+        exams: {
+          reading: { published: 0, skipped: 0, failed: 0 },
+          listening: { published: 0, skipped: 0, failed: 0 },
+          errors: [],
+        },
+        errors: [err instanceof Error ? err.message : 'Publish failed'],
+      })
+    } finally {
+      setPublishing(false)
+      setPublishingMode(null)
+      setProgress(null)
+    }
+  }
 
   async function handlePublishAll() {
     if (total === 0 || publishing) return
@@ -71,10 +122,11 @@ export default function AdminPublishExamsPanel() {
     if (!ok) return
 
     setPublishing(true)
+    setPublishingMode('all')
     setResult(null)
     setProgress(null)
     try {
-      const batch = await publishAllAdminContent(setProgress)
+      const batch = await publishAllAdminContent(setProgress, { forceAll: true })
       setResult(batch)
     } catch (err) {
       setResult({
@@ -90,6 +142,7 @@ export default function AdminPublishExamsPanel() {
       })
     } finally {
       setPublishing(false)
+      setPublishingMode(null)
       setProgress(null)
     }
   }
@@ -165,25 +218,77 @@ export default function AdminPublishExamsPanel() {
           <li>• Không publish: SRS, deck cá nhân, bài viết đã làm, bài nghe user</li>
         </ul>
 
-        <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div className="mt-4 rounded-lg p-3" style={{ background: 'var(--bg-secondary)' }}>
+          <div className="flex items-center justify-between gap-3">
+            <div>
+              <p className="text-xs font-semibold" style={{ color: 'var(--text-primary)' }}>Import từ điển JSON / CSV</p>
+              <p className="text-[11px] mt-0.5" style={{ color: 'var(--text-muted)' }}>
+                Từ trùng sẽ dùng bản Admin import. Hiện có {counts.dictionary} từ tùy chỉnh.
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => dictionaryInputRef.current?.click()}
+              className="shrink-0 flex items-center gap-1.5 rounded-lg px-3 py-2 text-xs font-medium"
+              style={{ color: 'var(--color-primary)', border: '1px solid var(--color-primary)' }}
+            >
+              <Upload size={14} /> Import
+            </button>
+            <input
+              ref={dictionaryInputRef}
+              type="file"
+              accept=".json,.csv,application/json,text/csv"
+              className="hidden"
+              onChange={event => {
+                const file = event.target.files?.[0]
+                if (file) void handleDictionaryImport(file)
+              }}
+            />
+          </div>
+          {dictionaryNotice ? (
+            <p className="text-[11px] mt-2" style={{ color: 'var(--text-muted)' }}>{dictionaryNotice}</p>
+          ) : null}
+          <p className="text-[10px] mt-2" style={{ color: 'var(--text-muted)' }}>
+            CSV: word,pos,level,ipaUS,ipaUK,meaning,example,exampleVi,collocations,synonyms
+          </p>
+          <div className="flex gap-3 mt-2 text-[11px]">
+            <a
+              href="/templates/dictionary-import-template.json"
+              download
+              style={{ color: 'var(--color-primary)' }}
+            >
+              Tải JSON mẫu
+            </a>
+            <a
+              href="/templates/dictionary-import-template.csv"
+              download
+              style={{ color: 'var(--color-primary)' }}
+            >
+              Tải CSV mẫu
+            </a>
+          </div>
+        </div>
+
+        <div className="mt-5 grid grid-cols-2 gap-2">
         <button
           type="button"
-          onClick={() => void handlePublishNewItems()}
+          onClick={() => void handlePublishChanged()}
           disabled={publishing}
-          className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium disabled:opacity-50"
-          style={{ background: 'var(--bg-secondary)', color: 'var(--text-primary)', border: '1px solid var(--border-color)' }}
+          className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium disabled:opacity-50"
+          style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
+          title="Chỉ publish dữ liệu mới hoặc đã chỉnh sửa"
         >
-          <CloudUpload size={16} />
-          Publish mục mới
+          {publishingMode === 'changed' ? <Loader2 size={16} className="animate-spin" /> : <CloudUpload size={16} />}
+          Publish
         </button>
         <button
           type="button"
           onClick={() => void handlePublishAll()}
           disabled={publishing || total === 0}
-          className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium disabled:opacity-50"
-          style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
+          className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium disabled:opacity-50"
+          style={{ background: 'var(--bg-secondary)', color: 'var(--text-primary)', border: '1px solid var(--border-color)' }}
         >
-          {publishing ? (
+          {publishingMode === 'all' ? (
             <>
               <Loader2 size={16} className="animate-spin" />
               Đang publish…

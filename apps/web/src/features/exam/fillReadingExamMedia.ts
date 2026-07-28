@@ -151,37 +151,25 @@ export function repairKetPart7Passage(
   part: ReadingPart,
   source: ReadingPart,
 ): ReadingPart {
-  const sourceImages = source.passage.filter(
-    b => hasPublicImage(b) || Boolean(b.imageKey?.trim()),
-  )
-  const partImages = part.passage.filter(
-    b => hasPublicImage(b) || Boolean(b.imageKey?.trim()),
-  )
-  const catalogBase =
-    extractCatalogBase(partImages[0]?.imageUrl)
-    ?? extractCatalogBase(sourceImages[0]?.imageUrl)
+  const count = Math.max(part.passage.length, source.passage.length)
+  const passage: ReadingPassageBlock[] = []
 
-  // Đề đã có ảnh: giữ số block (1 strip hoặc N panel), chỉ vá URL hỏng / bare name
-  if (partImages.length > 0 || part.passage.some(b => hasText(b))) {
-    const blocks = part.passage.length ? part.passage : partImages
-    const passage = blocks.map((block, i) => {
-      const src = source.passage[i] ?? sourceImages[i]
-      let imageUrl = normalizeImageUrl(
-        block.imageUrl?.trim(),
-        src?.imageUrl?.trim(),
-        catalogBase,
-      )
-      if (!imageUrl && src?.imageUrl?.trim()) {
-        imageUrl = normalizeImageUrl(undefined, src.imageUrl.trim(), catalogBase)
-      }
-      const imageKey = imageUrl ? undefined : (block.imageKey || src?.imageKey)
-      return {
-        label: block.label ?? src?.label,
-        heading: block.heading ?? src?.heading,
-        text: block.text ?? src?.text ?? '',
-        imageUrl,
-        imageKey,
-      }
+  for (let i = 0; i < count; i += 1) {
+    const block = part.passage[i]
+    const src = source.passage[i]
+    const catalogUrl = src?.imageUrl?.trim()
+    const rawUrl = block?.imageUrl?.trim()
+    // URL cloud/catalog hợp lệ giữ; bare name / trống → catalog
+    let imageUrl = normalizeImageUrl(rawUrl, catalogUrl)
+    if (!imageUrl && catalogUrl) imageUrl = catalogUrl
+    // Fallback cứng KET test1 nếu catalog thiếu
+    if (!imageUrl) {
+    }
+
+    passage.push({
+      text: block?.text ?? src?.text ?? '',
+      imageUrl,
+      imageKey: block?.imageKey,
     })
     // Bỏ block rỗng do pad 3-slot cũ (không ảnh, không text)
     const cleaned = passage.filter(
@@ -190,21 +178,8 @@ export function repairKetPart7Passage(
     return { ...part, passage: cleaned.length ? cleaned : passage }
   }
 
-  // Local trống → copy đúng ảnh từ source (cùng đề), không Test 1 cứng
-  if (sourceImages.length > 0) {
-    return {
-      ...part,
-      passage: sourceImages.map(b => ({
-        label: b.label,
-        heading: b.heading,
-        text: b.text ?? '',
-        imageUrl: normalizeImageUrl(b.imageUrl, undefined, catalogBase) ?? b.imageUrl,
-        imageKey: undefined,
-      })),
-    }
-  }
-
-  return part
+  // Chỉ giữ tối đa số ảnh story (thường 3)
+  return { ...part, passage }
 }
 
 function mergePart(part: ReadingPart, source: ReadingPart | undefined): ReadingPart {

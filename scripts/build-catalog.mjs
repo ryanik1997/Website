@@ -23,6 +23,7 @@ const TAINGUYEN = resolveTainguyenPath()
 const PUBLIC_CATALOG = path.join(ROOT, 'apps/web/public/catalog')
 const DATA_OUT = path.join(ROOT, 'packages/catalog/data')
 const OUT_READING = path.join(ROOT, 'out-reading')
+const READING_CRAWL = path.join(TAINGUYEN, 'Crawl', 'Reading_ITELTS')
 const IF_PRESENT =
   process.argv.includes('--if-present')
   || process.env.SKIP_CATALOG_BUILD === '1'
@@ -207,26 +208,54 @@ async function discoverIeltsReadingBundles() {
 }
 
 async function discoverPayloadReadingBundles() {
-  if (!existsSync(OUT_READING)) return []
-  const entries = await fs.readdir(OUT_READING)
-  return entries
-    .map(name => {
+  // Prefer out-reading/converted/ (post-consolidate + normalize + template pipeline).
+  // Fall back to out-reading/ (raw) for slugs missing a converted counterpart.
+  const CONVERTED_DIR = path.join(OUT_READING, 'converted')
+  const hasConverted = existsSync(CONVERTED_DIR)
+  const hasRaw = existsSync(OUT_READING)
+  if (!hasConverted && !hasRaw) return []
+
+  const bySlug = new Map()
+
+  // Crawl is the source of truth. Filename matching deliberately tolerates
+  // case, separators, whitespace and zero-padded Cambridge numbers.
+  if (existsSync(READING_CRAWL)) {
+    for (const name of await fs.readdir(READING_CRAWL)) {
+      const compact = name.replace(/\.json$/i, '').replace(/[^a-z0-9]/gi, '').toLowerCase()
+      const match = compact.match(/^cam0*(9|1[0-9]|20)test0*([1-4])$/)
+      if (!match || (match[1] === '11' && match[2] === '2')) continue
+      const cam = Number(match[1]); const test = Number(match[2]); const slug = `ielts-cam${cam}-test${test}`
+      bySlug.set(slug, { kind: 'reading', slug, examId: `catalog-cam-${cam}-${test}-reading`, examTrack: 'ielts', cam, test, crawlPath: path.join(READING_CRAWL, name) })
+    }
+  }
+
+  const collect = async (dir) => {
+    if (!existsSync(dir)) return
+    const entries = await fs.readdir(dir)
+    for (const name of entries) {
       const match = name.match(/^reading-cam-(9|1[0-9]|20)-([1-4])\.json$/)
-      if (!match || (match[1] === '11' && match[2] === '2')) return null
+      if (!match) continue
+      if (match[1] === '11' && match[2] === '2') continue
       const cam = Number(match[1])
       const test = Number(match[2])
-      return {
+      const slug = `ielts-cam${cam}-test${test}`
+      if (bySlug.has(slug)) continue // crawl wins; converted/raw remain fallback
+      bySlug.set(slug, {
         kind: 'reading',
-        slug: `ielts-cam${cam}-test${test}`,
+        slug,
         examId: `catalog-cam-${cam}-${test}-reading`,
         examTrack: 'ielts',
         cam,
         test,
-        payloadPath: path.join(OUT_READING, name),
-      }
-    })
-    .filter(Boolean)
-    .sort((a, b) => a.cam - b.cam || a.test - b.test)
+        payloadPath: path.join(dir, name),
+      })
+    }
+  }
+
+  await collect(CONVERTED_DIR)
+  await collect(OUT_READING)
+
+  return [...bySlug.values()].sort((a, b) => a.cam - b.cam || a.test - b.test)
 }
 
 /**
@@ -557,7 +586,7 @@ function mediaUrl(kind, slug, filename) {
   return `${catalogBase(kind, slug)}/${filename}`
 }
 
-function transformReading(payload, bundle) {
+export function transformReading(payload, bundle) {
   const { examId, slug, cambridgeLevel, examTrack } = bundle
   const base = catalogBase('reading', slug)
   const book = typeof bundle.book === 'number' ? bundle.book : null
@@ -1018,7 +1047,7 @@ async function main() {
     const sourceRows = existsSync(sourcePath)
       ? JSON.parse(await fs.readFile(sourcePath, 'utf8'))
       : []
-    const enriched = enrichPayloadLayout(raw, sourceRows, bundle.cam, bundle.test)
+    const enriched = bundle.crawlPath ? raw : enrichPayloadLayout(raw, sourceRows, bundle.cam, bundle.test)
     const processed = transformReading(enriched, {
       ...bundle,
       cambridgeLevel: undefined,
@@ -1047,7 +1076,9 @@ async function main() {
   console.log(`  Data:   ${DATA_OUT}`)
 }
 
-main().catch(err => {
-  console.error(err)
-  process.exit(1)
-})
+if (path.resolve(process.argv[1] ?? '') === fileURLToPath(import.meta.url)) {
+  main().catch(err => {
+    console.error(err)
+    process.exit(1)
+  })
+}

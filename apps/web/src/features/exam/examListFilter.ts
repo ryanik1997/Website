@@ -41,9 +41,11 @@ export function isCambridgeSampleExamId(id: string): boolean {
 }
 
 export function examSourceRank(id: string): number {
+  // Admin import (reading-pdf-/reading-manual-/listening-import-) là bản đã sửa
+  // ảnh/mapping → khi cùng slot Cam N · Test M với catalog builtin phải thắng.
+  if (isImportedReadingExamId(id) || isUserImportedListeningExamId(id)) return 110
   if (id.startsWith('catalog-')) return 100
   if (isCambridgeSampleExamId(id)) return 10
-  if (isImportedReadingExamId(id) || isUserImportedListeningExamId(id)) return 40
   return 50
 }
 
@@ -100,6 +102,9 @@ function librarySlotKey(e: {
     e.cambridgeLevel
     ?? e.examType
     ?? (e.bandHint?.match(/\b(A2|B1|B2|C1|C2)\b/i)?.[1]?.toLowerCase() ?? 'x')
+  // Collapse imported + catalog cùng Cam N · Test M vào 1 slot — tránh user
+  // nhìn thấy trùng 2 bản (18 vs 10 KET A2). preferLibraryExam sẽ chọn bản tốt
+  // hơn: nhiều part hơn / có Writing / rank cao hơn.
   return `${level}|b${book}|t${test}`
 }
 

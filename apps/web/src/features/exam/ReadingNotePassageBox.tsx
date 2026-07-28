@@ -21,6 +21,7 @@ interface Props {
   activeQuestionId: string | null
   placeholder: string
   notesTitle?: string
+  variant?: 'default' | 'summary'
   onAnswer: (questionId: string, value: string) => void
   onSelectQuestion: (questionId: string) => void
 }
@@ -81,6 +82,7 @@ export default function ReadingNotePassageBox({
   activeQuestionId,
   placeholder,
   notesTitle,
+  variant = 'default',
   onAnswer,
   onSelectQuestion,
 }: Props) {
@@ -92,7 +94,7 @@ export default function ReadingNotePassageBox({
   const lines = groupNotePassageIntoLines(preparedBlocks, 'form')
 
   return (
-    <div className="reading-test-notes-box">
+    <div className={`reading-test-notes-box${variant === 'summary' ? ' reading-test-notes-box--summary' : ''}`}>
       {notesTitle && (
         <ReadingHighlightableText
           blockId={`${groupId}-notes-title`}

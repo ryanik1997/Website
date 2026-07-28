@@ -22,6 +22,7 @@ import {
 import { enrichDictResult } from './enrichDictResult'
 import { copyToClipboard } from '../../lib/copyToClipboard'
 import { speakPhrase, type SpeakVariant } from '../vocab/study/speakPhrase'
+import { lookupCustomDictionary } from './customDictionary'
 import './dictionaryModal.css'
 
 function formatDictResult(result: DictResult): string {
@@ -45,7 +46,8 @@ async function speakDictWord(word: string, variant: SpeakVariant = 'us') {
   await speakPhrase(text, 0.9, undefined, variant)
 }
 
-function sourceLabel(hint: 'cache' | 'offline' | 'ai' | null): string {
+function sourceLabel(hint: 'cache' | 'custom' | 'offline' | 'ai' | null): string {
+  if (hint === 'custom') return 'Tu dien do Admin cap nhat'
   if (hint === 'offline' || hint === 'cache') return 'Đã lưu trên máy'
   if (hint === 'ai') return 'AI (Pro)'
   return ''
@@ -57,7 +59,7 @@ export default function DictionaryModal() {
   const [result, setResult] = useState<DictResult | null>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
-  const [sourceHint, setSourceHint] = useState<'cache' | 'offline' | 'ai' | null>(null)
+  const [sourceHint, setSourceHint] = useState<'cache' | 'custom' | 'offline' | 'ai' | null>(null)
   const [recent, setRecent] = useState<string[]>([])
   const [showSave, setShowSave] = useState(false)
   const [notebookBusy, setNotebookBusy] = useState(false)
@@ -88,7 +90,7 @@ export default function DictionaryModal() {
     setRecent(entries.map(e => (e.data as DictResult | null)?.word ?? e.word))
   }
 
-  function applyResult(data: DictResult, hint: 'cache' | 'offline' | 'ai') {
+  function applyResult(data: DictResult, hint: 'cache' | 'custom' | 'offline' | 'ai') {
     const full = enrichDictResult(data)
     setResult(full)
     setSourceHint(hint)
@@ -104,6 +106,14 @@ export default function DictionaryModal() {
     setSourceHint(null)
 
     try {
+      const custom = await lookupCustomDictionary(w)
+      if (custom) {
+        const full = applyResult(custom, 'custom')
+        try { await dictRepo.save(w, full) } catch { /* ignore */ }
+        void loadRecent()
+        return
+      }
+
       // 1. Offline pack (ưu tiên — luôn enrich full true.jpg)
       const offline = lookupOfflineDict(w)
       if (offline) {

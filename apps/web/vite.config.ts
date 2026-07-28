@@ -21,7 +21,7 @@ const SPA_ROUTES = [
 function vercelSpaRoutes() {
   return {
     name: 'vercel-spa-routes',
-    closeBundle() {
+    writeBundle() {
       const dist = resolve(__dirname, 'dist')
       const indexHtml = resolve(dist, 'index.html')
 
@@ -41,7 +41,7 @@ function vercelSpaRoutes() {
 function injectSwCatalogCacheVersion() {
   return {
     name: 'inject-sw-catalog-cache-version',
-    closeBundle() {
+    writeBundle() {
       const swPath = resolve(__dirname, 'dist/sw.js')
       const pkg = JSON.parse(
         readFileSync(resolve(__dirname, 'package.json'), 'utf8'),

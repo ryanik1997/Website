@@ -40,6 +40,15 @@ type PartCard = {
   synonyms?: string[]
 }
 
+type CefrCard = {
+  word: string
+  pos?: string
+  level: string
+  ipaUS?: string
+  definitions: Array<{ meaning: string; example?: string; exampleVi?: string }>
+  collocations?: string[]
+}
+
 function stripIpaSlashes(ipa?: string): string | undefined {
   if (!ipa) return undefined
   // Clean messy multi-forms: /ði:, ði, ðə/ → /ðiː/
