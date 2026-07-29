@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { Navigate, useNavigate, useParams, Link } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { ArrowLeft, ArrowRight, Bookmark, Bell, Menu, PenLine, Wifi } from 'lucide-react'
@@ -10,6 +10,7 @@ import { useWritingStore } from '../features/writing/writingStore'
 import KetRwSplitPane from '../features/exam/ketRw/KetRwSplitPane'
 import CambridgeAdvancedWritingTaskView from '../features/writing/exam/CambridgeAdvancedWritingTaskView'
 import CambridgeWritingFeedbackDrawer from '../features/writing/exam/CambridgeWritingFeedbackDrawer'
+import CambridgeWritingPromptRenderer from '../features/writing/exam/CambridgeWritingPromptRenderer'
 import { isAdvancedWritingLevel } from '../features/writing/exam/cambridgeWritingExamUiConfig'
 import { getCambridgeRouteLevel } from '../features/writing/cambridgeWritingRouteCatalog'
 import { useCambridgeWritingTask } from '../features/writing/useCambridgeWritingTests'
@@ -26,70 +27,123 @@ function countWords(text: string) {
   return trimmed ? trimmed.split(/\s+/).length : 0
 }
 
-function renderB1Prompt(taskId: string) {
-  if (taskId.endsWith('task-01')) {
-    return (
-      <div className="b1-prompt-email">
-        <p className="b1-prompt-lead">Read this email from your English-speaking friend Sandy and the notes you have made.</p>
-        <div className="b1-email-card">
-          <div className="b1-email-card__header">EMAIL</div>
-          <div className="b1-email-card__meta">
-            <div className="b1-email-card__row">
-              <strong>From:</strong>
-              <span>Sandy</span>
-            </div>
-            <div className="b1-email-card__row">
-              <strong>Subject:</strong>
-              <span>Your visit!</span>
-            </div>
-          </div>
-          <div className="b1-email-card__body">
-            <p>Hi,</p>
-            <p>I'm so excited that you're coming to stay with me for a week!</p>
-            <p>
-              On your first evening here, there's a rock concert in our town. Would you like to go
-              to the concert or would you prefer us to relax at home?
-            </p>
-            <p>Also, shall we go climbing in the mountains while you're here?</p>
-            <p>let me know if you have any questions.</p>
-            <p>See you soon</p>
-            <p>Sandy</p>
+type EmailNoteLine = { x1: number; y1: number; x2: number; y2: number }
 
-            <em className="b1-email-note b1-email-note--left-top">Me too!</em>
-            <em className="b1-email-note b1-email-note--right-mid">Say which I prefer</em>
-            <em className="b1-email-note b1-email-note--left-bottom">No, because ...</em>
-            <em className="b1-email-note b1-email-note--right-bottom">Ask Sandy ...</em>
-          </div>
-        </div>
-        <p className="b1-prompt-end">Write your <strong>email</strong> to Sandy using <strong>all the notes</strong>.</p>
-      </div>
-    )
-  }
-
-  if (taskId.endsWith('task-02')) {
-    return (
-      <div className="b1-prompt-article">
-        <p className="b1-prompt-lead">You see this notice on an English-language website.</p>
-        <div className="b1-article-card">
-          <p><em>Articles wanted</em></p>
-          <p><strong>FILMS</strong></p>
-          <p>What kind of films do you enjoy?</p>
-          <p>Do you prefer watching them at the cinema or at home? Why?</p>
-          <p><strong>Write an article answering these questions and we will put it on our website!</strong></p>
-        </div>
-        <p className="b1-prompt-end">Write your <strong>article</strong>.</p>
-      </div>
-    )
-  }
-
+function B1EmailPrompt({ task, leadText, emailBlock, notes, finalText }: {
+  task: CambridgeWritingTask
+  leadText?: string
+  emailBlock: Extract<NonNullable<CambridgeWritingTask['promptBlocks']>[number], { type: 'email' }>
+  notes: string[]
+  finalText?: string
+}) {
+  const stageRef = useRef<HTMLDivElement>(null)
+  const paragraphRefs = useRef<Array<HTMLParagraphElement | null>>([])
+  const noteRefs = useRef<Array<HTMLElement | null>>([])
+  const [lines, setLines] = useState<EmailNoteLine[]>([])
+  const explicitAnchors = (task.metadata as { noteParagraphIndexes?: number[] } | undefined)?.noteParagraphIndexes
+  const anchorIndexes = notes.map((_, index) => {
+    const configured = explicitAnchors?.[index]
+    return typeof configured === 'number' && configured >= 0 && configured < emailBlock.paragraphs.length
+      ? configured
+      : Math.max(0, Math.min(index, emailBlock.paragraphs.length - 1))
+  })
+  const updateGeometry = useCallback(() => {
+    const stage = stageRef.current
+    if (!stage) return
+    const stageRect = stage.getBoundingClientRect()
+    const nextLines: EmailNoteLine[] = []
+    notes.forEach((_, index) => {
+      const note = noteRefs.current[index]
+      const paragraph = paragraphRefs.current[anchorIndexes[index]]
+      if (!note || !paragraph) return
+      const paragraphRect = paragraph.getBoundingClientRect()
+      const centerY = paragraphRect.top - stageRect.top + paragraphRect.height / 2
+      const noteHeight = note.offsetHeight
+      const top = Math.max(8, Math.min(centerY - noteHeight / 2, Math.max(8, stageRect.height - noteHeight - 8)))
+      note.style.top = `${top}px`
+      const noteRect = note.getBoundingClientRect()
+      const left = index % 2 === 0
+      nextLines.push({
+        x1: left ? noteRect.right - stageRect.left : noteRect.left - stageRect.left,
+        y1: noteRect.top - stageRect.top + noteRect.height / 2,
+        x2: left ? paragraphRect.left - stageRect.left + 6 : paragraphRect.right - stageRect.left - 6,
+        y2: centerY,
+      })
+    })
+    setLines(nextLines)
+  }, [anchorIndexes, notes])
+  useLayoutEffect(() => {
+    updateGeometry()
+    const stage = stageRef.current
+    if (!stage) return
+    const observer = new ResizeObserver(updateGeometry)
+    observer.observe(stage)
+    paragraphRefs.current.forEach(element => element && observer.observe(element))
+    noteRefs.current.forEach(element => element && observer.observe(element))
+    window.addEventListener('resize', updateGeometry)
+    return () => { observer.disconnect(); window.removeEventListener('resize', updateGeometry) }
+  }, [updateGeometry])
   return (
-    <div className="b1-prompt-story">
-      <p className="b1-prompt-story__line">Your English teacher has asked you to write a story.</p>
-      <p className="b1-prompt-story__line">Your story must begin with this sentence.</p>
-      <p className="b1-prompt-story__sentence"><strong><em>As the plane flew lower, Lou saw the golden beaches of the island below.</em></strong></p>
-      <p className="b1-prompt-end">Write your <strong>story</strong>.</p>
+    <div className="b1-prompt-email">
+      {leadText ? <p className="b1-prompt-lead">{leadText}</p> : null}
+      <div className="b1-email-card">
+        <div className="b1-email-card__header">EMAIL</div>
+        <div className="b1-email-card__meta">
+          {emailBlock.from ? <div className="b1-email-card__row"><strong>From:</strong><span>{emailBlock.from}</span></div> : null}
+          {emailBlock.subject ? <div className="b1-email-card__row"><strong>Subject:</strong><span>{emailBlock.subject}</span></div> : null}
+        </div>
+        <div ref={stageRef} className="b1-email-card__body">
+          {emailBlock.greeting ? <p>{emailBlock.greeting}</p> : null}
+          {emailBlock.paragraphs.map((paragraph, index) => <p key={`${emailBlock.id}-paragraph-${index}`} ref={element => { paragraphRefs.current[index] = element }}>{paragraph}</p>)}
+          {emailBlock.closing ? <p>{emailBlock.closing}</p> : null}
+          {emailBlock.sender ? <p>{emailBlock.sender}</p> : null}
+          <svg className="b1-email-note-lines" aria-hidden="true">{lines.map((line, index) => <line key={index} {...line} />)}</svg>
+          {notes.map((note, index) => <em key={index} ref={element => { noteRefs.current[index] = element }} className={`b1-email-note ${index % 2 === 0 ? 'b1-email-note--left' : 'b1-email-note--right'}`} data-anchor-paragraph={anchorIndexes[index]}>{note}</em>)}
+        </div>
+      </div>
+      {finalText ? <p className="b1-prompt-end">{finalText}</p> : null}
     </div>
   )
+}
+
+function renderB1Prompt(task: CambridgeWritingTask) {
+  const blocks = task.promptBlocks ?? []
+  const leadBlock = blocks.find(block => block.type === 'paragraph')
+  const emailBlock = blocks.find(block => block.type === 'email')
+  const notesBlock = blocks.find(block => block.type === 'panel' && block.variant === 'notes')
+  const announcementBlock = blocks.find(block => block.type === 'panel' && block.variant === 'announcement')
+  const sourceTextBlock = blocks.find(block => block.type === 'source-text')
+  const finalInstruction = blocks.find(block => block.type === 'final-instruction')
+
+  if (emailBlock?.type === 'email') {
+    return <B1EmailPrompt task={task} leadText={leadBlock?.type === 'paragraph' ? leadBlock.text : undefined} emailBlock={emailBlock} notes={notesBlock?.type === 'panel' ? notesBlock.listItems ?? [] : []} finalText={finalInstruction?.type === 'final-instruction' ? finalInstruction.text : undefined} />
+  }
+
+  if (task.presentation?.template === 'announcement' || announcementBlock?.type === 'panel') {
+    return (
+      <div className="b1-prompt-article">
+        {leadBlock?.type === 'paragraph' ? <p className="b1-prompt-lead">{leadBlock.text}</p> : null}
+        <div className="b1-article-card">
+          {announcementBlock?.type === 'panel' ? <>
+            {announcementBlock.heading ? <p><strong>{announcementBlock.heading}</strong></p> : null}
+            {announcementBlock.paragraphs?.map((paragraph, index) => <p key={`${announcementBlock.id}-${index}`}>{paragraph}</p>)}
+          </> : <CambridgeWritingPromptRenderer task={task} />}
+        </div>
+        {finalInstruction?.type === 'final-instruction' ? <p className="b1-prompt-end">{finalInstruction.text}</p> : null}
+      </div>
+    )
+  }
+
+  if (sourceTextBlock?.type === 'source-text') return (
+    <div className="b1-prompt-story">
+      {blocks.filter(block => block.type === 'paragraph').map(block => <p key={block.id} className="b1-prompt-story__line">{block.text}</p>)}
+      {sourceTextBlock.label ? <p className="b1-prompt-story__line">{sourceTextBlock.label}</p> : null}
+      <p className="b1-prompt-story__sentence"><strong><em>{sourceTextBlock.text}</em></strong></p>
+      {finalInstruction?.type === 'final-instruction' ? <p className="b1-prompt-end">{finalInstruction.text}</p> : null}
+    </div>
+  )
+
+  return <CambridgeWritingPromptRenderer task={task} />
 }
 
 function renderB1PromptImage(imageUrl: string) {
@@ -156,7 +210,7 @@ function B1PromptShell({
       <div className="b1-writing-instruction">
         <strong>{questionLabel}</strong>
         <p>
-          {instructionLabel} Write your answer in about <strong>100 words</strong>.
+          {task.instruction ?? `${instructionLabel} Write your answer in about ${task.wordLimit?.displayText ?? '100 words'}.`}
         </p>
       </div>
 
@@ -168,7 +222,7 @@ function B1PromptShell({
           left={(
             <section className="b1-writing-prompt-pane">
               <div className="b1-writing-prompt-rich">
-                {promptDoc?.promptImage ? renderB1PromptImage(promptDoc.promptImage) : renderB1Prompt(task.id)}
+                {promptDoc?.promptImage ? renderB1PromptImage(promptDoc.promptImage) : renderB1Prompt(task)}
               </div>
             </section>
           )}

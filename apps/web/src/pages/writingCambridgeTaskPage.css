@@ -220,6 +220,7 @@
 
 .b1-email-card__body {
   position: relative;
+  overflow: visible;
   margin: 8px 18px 12px;
   min-height: 456px;
   border: 2px solid #222;
@@ -236,67 +237,25 @@
 
 .b1-email-note {
   position: absolute;
-  font-style: italic;
+  z-index: 4;
+  width: 132px;
+  margin: 0;
   font-size: 16px;
+  font-style: italic;
   line-height: 1.15;
   color: #111;
-  width: 116px;
 }
 
-.b1-email-note::before {
-  content: '';
-  position: absolute;
-  height: 2px;
-  background: #111;
-  top: 50%;
-}
+.b1-email-note--left { left: -168px; text-align: left; }
+.b1-email-note--right { right: -168px; text-align: left; }
+.b1-email-note-lines { position: absolute; inset: 0; z-index: 3; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.b1-email-note-lines line { stroke: #111; stroke-width: 2; vector-effect: non-scaling-stroke; }
+.b1-email-card__body > p { position: relative; z-index: 2; }
 
-.b1-email-note--left-top {
-  left: -136px;
-  top: 140px;
-}
-
-.b1-email-note--left-top::before {
-  width: 172px;
-  left: 52px;
-  transform: rotate(-13deg);
-  transform-origin: left center;
-}
-
-.b1-email-note--right-mid {
-  right: -152px;
-  top: 248px;
-}
-
-.b1-email-note--right-mid::before {
-  width: 194px;
-  right: 112px;
-  transform: rotate(18deg);
-  transform-origin: right center;
-}
-
-.b1-email-note--left-bottom {
-  left: -136px;
-  top: 352px;
-}
-
-.b1-email-note--left-bottom::before {
-  width: 252px;
-  left: 52px;
-  transform: rotate(-14deg);
-  transform-origin: left center;
-}
-
-.b1-email-note--right-bottom {
-  right: -152px;
-  bottom: 56px;
-}
-
-.b1-email-note--right-bottom::before {
-  width: 286px;
-  right: 118px;
-  transform: rotate(19deg);
-  transform-origin: right center;
+@media (max-width: 900px) {
+  .b1-email-card { max-width: calc(100% - 32px); }
+  .b1-email-note--left { left: -8px; transform: translateX(-100%); }
+  .b1-email-note--right { right: -8px; transform: translateX(100%); }
 }
 
 .b1-article-card {
