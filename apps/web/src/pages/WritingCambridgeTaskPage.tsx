@@ -28,12 +28,25 @@ function countWords(text: string) {
 }
 
 type EmailNoteLine = { x1: number; y1: number; x2: number; y2: number }
+const EMPTY_EMAIL_NOTES: readonly string[] = []
+
+function areEmailNoteLinesEqual(previous: readonly EmailNoteLine[], next: readonly EmailNoteLine[]) {
+  if (previous.length !== next.length) return false
+  return previous.every((line, index) => {
+    const nextLine = next[index]
+    return Boolean(nextLine)
+      && Math.abs(line.x1 - nextLine.x1) < 0.5
+      && Math.abs(line.y1 - nextLine.y1) < 0.5
+      && Math.abs(line.x2 - nextLine.x2) < 0.5
+      && Math.abs(line.y2 - nextLine.y2) < 0.5
+  })
+}
 
 function B1EmailPrompt({ task, leadText, emailBlock, notes, finalText }: {
   task: CambridgeWritingTask
   leadText?: string
   emailBlock: Extract<NonNullable<CambridgeWritingTask['promptBlocks']>[number], { type: 'email' }>
-  notes: string[]
+  notes: readonly string[]
   finalText?: string
 }) {
   const stageRef = useRef<HTMLDivElement>(null)
@@ -41,20 +54,23 @@ function B1EmailPrompt({ task, leadText, emailBlock, notes, finalText }: {
   const noteRefs = useRef<Array<HTMLElement | null>>([])
   const [lines, setLines] = useState<EmailNoteLine[]>([])
   const explicitAnchors = (task.metadata as { noteParagraphIndexes?: number[] } | undefined)?.noteParagraphIndexes
-  const anchorIndexes = notes.map((_, index) => {
+  const paragraphs = emailBlock.paragraphs ?? []
+  const paragraphCount = paragraphs.length
+  const anchorIndexes = useMemo(() => notes.map((_, index) => {
     const configured = explicitAnchors?.[index]
-    return typeof configured === 'number' && configured >= 0 && configured < emailBlock.paragraphs.length
-      ? configured
-      : Math.max(0, Math.min(index, emailBlock.paragraphs.length - 1))
-  })
+    if (typeof configured === 'number' && configured >= 0 && configured < paragraphCount) return configured
+    if (paragraphCount === 0) return -1
+    return Math.min(index, paragraphCount - 1)
+  }), [notes, explicitAnchors, paragraphCount])
   const updateGeometry = useCallback(() => {
     const stage = stageRef.current
     if (!stage) return
     const stageRect = stage.getBoundingClientRect()
     const nextLines: EmailNoteLine[] = []
-    notes.forEach((_, index) => {
+    anchorIndexes.forEach((paragraphIndex, index) => {
+      if (paragraphIndex < 0) return
       const note = noteRefs.current[index]
-      const paragraph = paragraphRefs.current[anchorIndexes[index]]
+      const paragraph = paragraphRefs.current[paragraphIndex]
       if (!note || !paragraph) return
       const paragraphRect = paragraph.getBoundingClientRect()
       const centerY = paragraphRect.top - stageRect.top + paragraphRect.height / 2
@@ -66,40 +82,45 @@ function B1EmailPrompt({ task, leadText, emailBlock, notes, finalText }: {
       nextLines.push({
         x1: left ? noteRect.right - stageRect.left : noteRect.left - stageRect.left,
         y1: noteRect.top - stageRect.top + noteRect.height / 2,
-        x2: left ? paragraphRect.left - stageRect.left + 6 : paragraphRect.right - stageRect.left - 6,
-        y2: centerY,
+        x2: left ? paragraphRect.left - stageRect.left + 12 : paragraphRect.right - stageRect.left - 12,
+        y2: paragraphRect.top - stageRect.top + paragraphRect.height / 2,
       })
     })
-    setLines(nextLines)
-  }, [anchorIndexes, notes])
+    setLines(previous => areEmailNoteLinesEqual(previous, nextLines) ? previous : nextLines)
+  }, [anchorIndexes])
   useLayoutEffect(() => {
-    updateGeometry()
+    let frameId = window.requestAnimationFrame(updateGeometry)
     const stage = stageRef.current
-    if (!stage) return
-    const observer = new ResizeObserver(updateGeometry)
-    observer.observe(stage)
-    paragraphRefs.current.forEach(element => element && observer.observe(element))
-    noteRefs.current.forEach(element => element && observer.observe(element))
-    window.addEventListener('resize', updateGeometry)
-    return () => { observer.disconnect(); window.removeEventListener('resize', updateGeometry) }
+    if (!stage) return () => window.cancelAnimationFrame(frameId)
+    const handleGeometryChange = () => {
+      window.cancelAnimationFrame(frameId)
+      frameId = window.requestAnimationFrame(updateGeometry)
+    }
+    const observer = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(handleGeometryChange) : null
+    observer?.observe(stage)
+    paragraphRefs.current.forEach(element => element && observer?.observe(element))
+    window.addEventListener('resize', handleGeometryChange)
+    return () => { window.cancelAnimationFrame(frameId); observer?.disconnect(); window.removeEventListener('resize', handleGeometryChange) }
   }, [updateGeometry])
   return (
     <div className="b1-prompt-email">
       {leadText ? <p className="b1-prompt-lead">{leadText}</p> : null}
-      <div className="b1-email-card">
-        <div className="b1-email-card__header">EMAIL</div>
-        <div className="b1-email-card__meta">
-          {emailBlock.from ? <div className="b1-email-card__row"><strong>From:</strong><span>{emailBlock.from}</span></div> : null}
-          {emailBlock.subject ? <div className="b1-email-card__row"><strong>Subject:</strong><span>{emailBlock.subject}</span></div> : null}
+      <div ref={stageRef} className="b1-email-stage">
+        <div className="b1-email-card">
+          <div className="b1-email-card__header">EMAIL</div>
+          <div className="b1-email-card__meta">
+            {emailBlock.from ? <div className="b1-email-card__row"><strong>From:</strong><span>{emailBlock.from}</span></div> : null}
+            {emailBlock.subject ? <div className="b1-email-card__row"><strong>Subject:</strong><span>{emailBlock.subject}</span></div> : null}
+          </div>
+          <div className="b1-email-card__body">
+            {emailBlock.greeting ? <p>{emailBlock.greeting}</p> : null}
+            {paragraphs.map((paragraph, index) => <p key={`${emailBlock.id}-paragraph-${index}`} ref={element => { paragraphRefs.current[index] = element }}>{paragraph}</p>)}
+            {emailBlock.closing ? <p>{emailBlock.closing}</p> : null}
+            {emailBlock.sender ? <p>{emailBlock.sender}</p> : null}
+          </div>
         </div>
-        <div ref={stageRef} className="b1-email-card__body">
-          {emailBlock.greeting ? <p>{emailBlock.greeting}</p> : null}
-          {emailBlock.paragraphs.map((paragraph, index) => <p key={`${emailBlock.id}-paragraph-${index}`} ref={element => { paragraphRefs.current[index] = element }}>{paragraph}</p>)}
-          {emailBlock.closing ? <p>{emailBlock.closing}</p> : null}
-          {emailBlock.sender ? <p>{emailBlock.sender}</p> : null}
-          <svg className="b1-email-note-lines" aria-hidden="true">{lines.map((line, index) => <line key={index} {...line} />)}</svg>
-          {notes.map((note, index) => <em key={index} ref={element => { noteRefs.current[index] = element }} className={`b1-email-note ${index % 2 === 0 ? 'b1-email-note--left' : 'b1-email-note--right'}`} data-anchor-paragraph={anchorIndexes[index]}>{note}</em>)}
-        </div>
+        <svg className="b1-email-note-lines" aria-hidden="true">{lines.map((line, index) => <line key={index} {...line} />)}</svg>
+        {notes.map((note, index) => <em key={`${emailBlock.id}-note-${index}`} ref={element => { noteRefs.current[index] = element }} className={`b1-email-note ${index % 2 === 0 ? 'b1-email-note--left' : 'b1-email-note--right'}`}>{note}</em>)}
       </div>
       {finalText ? <p className="b1-prompt-end">{finalText}</p> : null}
     </div>
@@ -116,7 +137,7 @@ function renderB1Prompt(task: CambridgeWritingTask) {
   const finalInstruction = blocks.find(block => block.type === 'final-instruction')
 
   if (emailBlock?.type === 'email') {
-    return <B1EmailPrompt task={task} leadText={leadBlock?.type === 'paragraph' ? leadBlock.text : undefined} emailBlock={emailBlock} notes={notesBlock?.type === 'panel' ? notesBlock.listItems ?? [] : []} finalText={finalInstruction?.type === 'final-instruction' ? finalInstruction.text : undefined} />
+    return <B1EmailPrompt task={task} leadText={leadBlock?.type === 'paragraph' ? leadBlock.text : undefined} emailBlock={emailBlock} notes={notesBlock?.type === 'panel' ? notesBlock.listItems ?? EMPTY_EMAIL_NOTES : EMPTY_EMAIL_NOTES} finalText={finalInstruction?.type === 'final-instruction' ? finalInstruction.text : undefined} />
   }
 
   if (task.presentation?.template === 'announcement' || announcementBlock?.type === 'panel') {
@@ -488,6 +509,13 @@ export default function WritingCambridgeTaskPage() {
   const creatingRef = useRef<string | null>(null)
   const [feedbackOpen, setFeedbackOpen] = useState(false)
   const [currentText, setCurrentText] = useState('')
+
+  const taskOwnerId = taskId?.match(/^(.*)-task-\d+$/)?.[1]
+
+  useEffect(() => {
+    if (!level || !testId || !taskId || merged === undefined || merged.task || !taskOwnerId || taskOwnerId === testId) return
+    navigate(`/app/writing/cambridge/${level.level}/${taskOwnerId}/${taskId}`, { replace: true })
+  }, [level, merged, navigate, taskId, taskOwnerId, testId])
 
   const docs = useLiveQuery(async () => {
     if (!level || !task) return []
