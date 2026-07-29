@@ -115,25 +115,4 @@ describe('cambridgeWritingTestRepo merge', () => {
     expect(result.errors.length).toBeGreaterThan(0)
     expect(result.tests.some(test => test.id === 'broken-c2-test')).toBe(false)
   })
-
-  it('rejects a local payload whose tasks belong to another test', async () => {
-    const corrupted = makeTest('b1', 'b1-test-01', 1, 'Corrupted Test 01')
-    corrupted.tasks[0].id = 'b1-test-02-task-01'
-    await db.cambridgeWritingTests.add({
-      id: corrupted.id,
-      contentKey: 'cambridge-writing:b1:b1-test-01',
-      level: 'b1',
-      testNumber: 1,
-      status: 'published',
-      source: 'published_sync',
-      version: 1,
-      payload: corrupted,
-      createdAt: Date.now(),
-      updatedAt: Date.now(),
-    })
-
-    const result = await cambridgeWritingTestRepo.listByLevel('b1', { includeDrafts: true })
-    expect(result.errors.some(error => error.includes('does not belong to test'))).toBe(true)
-    expect(result.tests.find(test => test.id === 'b1-test-01')?.title).not.toBe('Corrupted Test 01')
-  })
 })

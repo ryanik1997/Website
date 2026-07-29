@@ -64,8 +64,6 @@ export function validateRecord(record: CambridgeWritingTestRecord): ValidationRe
   if (test.id !== record.id) errors.push(`${record.id}: payload.id mismatch`)
   if (test.level !== record.level) errors.push(`${record.id}: payload.level mismatch`)
   if (test.testNumber !== record.testNumber) errors.push(`${record.id}: payload.testNumber mismatch`)
-  const foreignTask = test.tasks.find(task => !task.id.startsWith(`${test.id}-`))
-  if (foreignTask) errors.push(`${record.id}: task ${foreignTask.id} does not belong to test ${test.id}`)
 
   if (errors.length > 0) return { ok: false, errors }
   return { ok: true, test }
