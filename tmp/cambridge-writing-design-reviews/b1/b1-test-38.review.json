@@ -1,0 +1,65 @@
+{
+  "testId": "b1-test-38",
+  "topicFamily": "digital study tools",
+  "specificSetting": "a tablet study group at school planning brief 32",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "a tablet study group at school planning brief 32: email brief 1-1",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "the main digital study tools issue",
+        "one practical consequence",
+        "a justified recommendation 1"
+      ],
+      "lexicalAnchors": [
+        "digital study tools",
+        "a tablet study group at school planning brief 32",
+        "b1 writing brief"
+      ],
+      "originalitySelfCheck": "Email about tablet study group focus and app choice; notes include preference, reason, suggestion, and question. No overlap with existing tests.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "a tablet study group at school planning brief 32: article brief 2-5",
+      "audience": "specialist magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "the main digital study tools issue",
+        "one practical consequence",
+        "a justified recommendation 2"
+      ],
+      "lexicalAnchors": [
+        "digital study tools",
+        "a tablet study group at school planning brief 32",
+        "b1 writing brief"
+      ],
+      "originalitySelfCheck": "Article about tablet study group experience; asks what learned, how helped, and recommendation. No overlap with existing tests.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "a tablet study group at school planning brief 32: story brief 3-9",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "the main digital study tools issue",
+        "one practical consequence",
+        "a justified recommendation 3"
+      ],
+      "lexicalAnchors": [
+        "digital study tools",
+        "a tablet study group at school planning brief 32",
+        "b1 writing brief"
+      ],
+      "originalitySelfCheck": "Story opening about a tablet making a strange noise when handed out. Unique scenario not used before.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "e2aec1c136d03063d5bc1f3cd877f669d61bb32ece3f117beb20ac28b8febf72"
+  }
+}

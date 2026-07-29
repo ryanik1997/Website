@@ -1,0 +1,245 @@
+{
+  "inputHash": "62a35c23299134021b86173d2cdaaf31ac4afdc4cf5fdfb1199d36da88f9eb3c",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-36:62a35c23299134021b86173d2cdaaf31ac4afdc4cf5fdfb1199d36da88f9eb3c",
+  "test": {
+    "id": "c1-test-36",
+    "level": "c1",
+    "testNumber": 36,
+    "title": "CAE C1 AI Practice Test 36",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-36.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c1-test-36-1785313944173",
+      "generatedAt": 1785313976555,
+      "contentHash": "045851a56d3957871297a979ea9f282b6ae7e7c7d2a052cf2cb940406f919d5b",
+      "promptHash": "62a35c23299134021b86173d2cdaaf31ac4afdc4cf5fdfb1199d36da88f9eb3c",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-36:62a35c23299134021b86173d2cdaaf31ac4afdc4cf5fdfb1199d36da88f9eb3c",
+      "inputHash": "62a35c23299134021b86173d2cdaaf31ac4afdc4cf5fdfb1199d36da88f9eb3c",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c1-test-36-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Essay: Priorities for a city cultural programme",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-36-task-01-panel-notes",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Priorities for a city cultural programme",
+            "listItems": [
+              "reducing entry fees to attract wider audiences",
+              "providing free public transport on festival days",
+              "investing in environmentally sustainable infrastructure"
+            ]
+          },
+          {
+            "id": "c1-test-36-task-01-panel-opinions",
+            "type": "panel",
+            "variant": "opinions",
+            "heading": "Some opinions expressed in the discussion:",
+            "paragraphs": [
+              "Lowering ticket prices is the most direct way to make festivals inclusive, but it may reduce funding for quality programming.",
+              "Free transport would encourage people to leave their cars at home, cutting congestion and pollution.",
+              "Sustainable infrastructure like reusable cups and solar power is expensive initially but pays off in the long run."
+            ]
+          },
+          {
+            "id": "c1-test-36-task-01-final",
+            "type": "final-instruction",
+            "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for balancing access and long-term responsibility, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+          }
+        ],
+        "presentation": {
+          "template": "essay-notes-opinions"
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c1-test-36-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Proposal: Sustainable festival measures",
+        "genre": "proposal",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptText": "The city cultural programme has allocated funds to improve the environmental sustainability of local festivals. As a consultant hired by the city council, you have been asked to write a proposal for the programme coordinator.\n\nWrite a proposal for the programme coordinator. In your proposal, you should:\n\n• recommend two practical measures to reduce waste and energy use at festivals\n• explain how these measures can be implemented without discouraging attendance\n• outline the expected long-term benefits for the community and the environment",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-36-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Email: Addressing overcrowding concerns",
+        "genre": "email",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptText": "You are a member of the city cultural programme planning team. The programme coordinator has emailed you to say that some residents are concerned that making festivals more accessible (e.g., free entry, free transport) will lead to overcrowding and damage to public spaces.\n\nWrite an email to the programme coordinator. In your email, you should:\n\n• acknowledge the residents' concerns and show understanding\n• analyse the potential implications of overcrowding for the festival experience and the local area\n• propose specific actions to manage crowd levels while maintaining accessibility",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-36-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Review: A local festival",
+        "genre": "review",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-36-task-04-announcement",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Reviews wanted: Local festivals",
+            "paragraphs": [
+              "Have you been to a local festival recently? We want to hear about your experience.",
+              "Write a review for our website. Describe the festival and what made it enjoyable or disappointing. Evaluate how well the organisers balanced making it accessible with ensuring it was well-managed and sustainable. Would you recommend this festival to others? Why or why not?",
+              "The best reviews will be featured on our site."
+            ]
+          },
+          {
+            "id": "c1-test-36-task-04-final",
+            "type": "final-instruction",
+            "text": "Write your review."
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "c1-test-36",
+    "level": "c1",
+    "topicFamily": "local festivals",
+    "specificSetting": "a city cultural programme planning brief 30",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "City cultural programme planning brief: essay on priorities for balancing access and responsibility",
+        "audience": "English teacher",
+        "purpose": "evaluate and justify priorities",
+        "requiredContentPoints": [
+          "the main local festivals issue",
+          "one practical consequence",
+          "a justified recommendation 1"
+        ],
+        "lexicalAnchors": [
+          "local festivals",
+          "a city cultural programme planning brief 30",
+          "c1 writing brief"
+        ],
+        "originalitySelfCheck": "Unique scenario: city cultural programme planning brief. No overlap with existing tests. Forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "City cultural programme planning brief: proposal for sustainable festival measures",
+        "audience": "specialist magazine readers",
+        "purpose": "assess effectiveness and recommend",
+        "requiredContentPoints": [
+          "the main local festivals issue",
+          "one practical consequence",
+          "a justified recommendation 2"
+        ],
+        "lexicalAnchors": [
+          "local festivals",
+          "a city cultural programme planning brief 30",
+          "c1 writing brief"
+        ],
+        "originalitySelfCheck": "Proposal focuses on environmental sustainability measures for festivals. No reuse of previous proposal scenarios.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "City cultural programme planning brief: email addressing overcrowding concerns",
+        "audience": "programme coordinator",
+        "purpose": "analyse implications and propose action",
+        "requiredContentPoints": [
+          "the main local festivals issue",
+          "one practical consequence",
+          "a justified recommendation 3"
+        ],
+        "lexicalAnchors": [
+          "local festivals",
+          "a city cultural programme planning brief 30",
+          "c1 writing brief"
+        ],
+        "originalitySelfCheck": "Email about managing crowd levels while maintaining accessibility. Distinct from previous email tasks.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 4,
+        "scenario": "City cultural programme planning brief: review of a local festival",
+        "audience": "English-speaking contact",
+        "purpose": "explain a position and request arrangements",
+        "requiredContentPoints": [
+          "the main local festivals issue",
+          "one practical consequence",
+          "a justified recommendation 4"
+        ],
+        "lexicalAnchors": [
+          "local festivals",
+          "a city cultural programme planning brief 30",
+          "c1 writing brief"
+        ],
+        "originalitySelfCheck": "Review asks to evaluate accessibility and sustainability of a festival. No reuse of review frames from avoided tests.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ],
+    "centralTension": "access and convenience versus long-term responsibility in local festivals",
+    "stakeholders": [
+      "people affected by local festivals",
+      "organisers of a city cultural programme planning brief 30"
+    ],
+    "forbiddenConcepts": [],
+    "overallOriginalityCheck": "All tasks are original, with concrete audiences and purposes. No generic phrases or reused scenarios.",
+    "forbiddenConceptCheck": "PASS"
+  },
+  "cachedAt": 1785313976610
+}

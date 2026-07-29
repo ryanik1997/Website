@@ -1,0 +1,54 @@
+{
+  "task1": {
+    "scenario": "a student room search planning brief 21: email brief 1-1",
+    "audience": "English teacher",
+    "purpose": "evaluate and justify priorities",
+    "requiredContentPoints": [
+      "the main student accommodation issue",
+      "one practical consequence",
+      "a justified recommendation 1"
+    ],
+    "lexicalAnchors": [
+      "student accommodation",
+      "a student room search planning brief 21",
+      "b1 writing brief"
+    ],
+    "originalitySelfCheck": "Scenario is unique: student room search planning. Email task uses notes with four distinct points: choose priority (close vs cheap), choose feature (internet vs kitchen), suggest reliability check, ask about budget. No overlap with any avoided fingerprint. ForbiddenConceptCheck: PASS"
+  },
+  "task2": {
+    "scenario": "a student room search planning brief 21: article brief 2-5",
+    "audience": "specialist magazine readers",
+    "purpose": "assess effectiveness and recommend",
+    "requiredContentPoints": [
+      "the main student accommodation issue",
+      "one practical consequence",
+      "a justified recommendation 2"
+    ],
+    "lexicalAnchors": [
+      "student accommodation",
+      "a student room search planning brief 21",
+      "b1 writing brief"
+    ],
+    "originalitySelfCheck": "Article task focuses on room search tips for college website. Questions are about most important thing and how to find a good place without spending too much. No reused frames from avoided tests. ForbiddenConceptCheck: PASS"
+  },
+  "task3": {
+    "scenario": "a student room search planning brief 21: story brief 3-9",
+    "audience": "programme coordinator",
+    "purpose": "analyse implications and propose action",
+    "requiredContentPoints": [
+      "the main student accommodation issue",
+      "one practical consequence",
+      "a justified recommendation 3"
+    ],
+    "lexicalAnchors": [
+      "student accommodation",
+      "a student room search planning brief 21",
+      "b1 writing brief"
+    ],
+    "originalitySelfCheck": "Story opening is unique: 'When the programme coordinator showed me the room, I knew immediately that something was wrong.' No similar opening in any avoided test. ForbiddenConceptCheck: PASS"
+  },
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "bea51d9c28e0acd82964f8a83ff55e065b882abd76602e08bf8d3ae23bfdf979"
+  }
+}

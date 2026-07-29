@@ -1,0 +1,206 @@
+{
+  "inputHash": "481c4a5907351ad5a00a1b52106026ff19c662ee26a37e597e20b3516d8f7c3c",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-19:481c4a5907351ad5a00a1b52106026ff19c662ee26a37e597e20b3516d8f7c3c",
+  "test": {
+    "id": "c2-test-19",
+    "level": "c2",
+    "testNumber": 19,
+    "title": "CPE C2 AI Practice Test 19",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-19.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c2-test-19-1785311919120",
+      "generatedAt": 1785311935309,
+      "contentHash": "4233ce0e55c97ae04885634b1fe78546f9cc295da638f6a85b8e1e35b7e13550",
+      "promptHash": "481c4a5907351ad5a00a1b52106026ff19c662ee26a37e597e20b3516d8f7c3c",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-19:481c4a5907351ad5a00a1b52106026ff19c662ee26a37e597e20b3516d8f7c3c",
+      "inputHash": "481c4a5907351ad5a00a1b52106026ff19c662ee26a37e597e20b3516d8f7c3c",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c2-test-19-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Volunteering and Civic Obligation",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write an essay summarising and evaluating the key points from both texts in 240–280 words. Use your own words throughout as far as possible, and include your own ideas in your answers.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-19-task-01-source-01",
+            "type": "source-text",
+            "label": "Text 1",
+            "text": "Volunteering is often presented as a noble act of civic duty, but the reality is that many people volunteer primarily for personal benefit: to gain experience, build networks, or enhance a CV. This instrumental approach does not diminish the value of the work done; communities still benefit from the labour. However, framing volunteering as an obligation risks turning a freely chosen act into a chore, which could reduce the very spirit of generosity that makes volunteering effective. If we mandate service, we may lose the authenticity that gives volunteering its moral weight."
+          },
+          {
+            "id": "c2-test-19-task-01-source-02",
+            "type": "source-text",
+            "label": "Text 2",
+            "text": "Civic obligation is not a burden but a foundation of democratic society. Expecting citizens to contribute time to their communities through volunteering should be no more controversial than expecting them to pay taxes or serve on juries. When volunteering is left entirely to individual choice, those who already have resources and time are more likely to participate, while the disadvantaged are excluded. A structured expectation of service, perhaps through a national programme, could ensure that everyone shares the responsibility and that the benefits of volunteering are distributed more equitably."
+          }
+        ],
+        "presentation": {
+          "template": "source-texts"
+        },
+        "wordLimit": {
+          "min": 240,
+          "max": 280,
+          "displayText": "240–280 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c2-test-19-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Review of a Volunteer Programme",
+        "genre": "review",
+        "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+        "promptText": "A specialist magazine for volunteer coordinators is running a series of reviews of volunteer programmes that aim to build long-term civic responsibility. You decide to write a review of a volunteer programme you have participated in or observed. In your review, describe the programme and its intended purpose, assess how effectively it balanced the convenience of volunteers with the genuine needs of the community, and recommend whether other organisations should adopt a similar model.",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c2-test-19-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Report on Volunteer Impact",
+        "genre": "report",
+        "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+        "promptText": "You are a consultant hired by a local council to evaluate the impact of a new volunteer programme that places young people in community projects. The programme coordinator has asked you to write a report analysing how the programme affects both the volunteers and the host organisations. In your report, identify the main benefits and drawbacks for each group, assess the implications for long-term community engagement, and propose two specific actions the council could take to improve the programme's effectiveness and sustainability.",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c2-test-19-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Article on Volunteering and Civic Duty",
+        "genre": "article",
+        "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+        "promptText": "An English-language online magazine for international readers is publishing a series on 'The Future of Volunteering'. The editors have invited readers to submit articles addressing the question: Should volunteering be considered a civic duty rather than a personal choice? In your article, explain your position on this question, discuss one practical consequence of treating volunteering as an obligation, and request that the magazine arrange a follow-up online discussion with readers and volunteer organisers to explore the idea further.",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "c2-test-19",
+    "level": "c2",
+    "topicFamily": "volunteer services",
+    "specificSetting": "volunteering and civic obligation planning brief 13",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "genre": "essay",
+        "scenario": "Two source texts debating whether volunteering should be seen as a civic duty or a personal choice, with one arguing that obligation undermines authenticity and the other arguing that structured expectation ensures equity.",
+        "audience": "English teacher",
+        "purpose": "evaluate and justify priorities",
+        "requiredContentPoints": [
+          "the main volunteer services issue",
+          "one practical consequence",
+          "a justified recommendation 1"
+        ],
+        "lexicalAnchors": [
+          "volunteer services",
+          "volunteering and civic obligation planning brief 13",
+          "c2 writing brief"
+        ],
+        "originalitySelfCheck": "Source texts present opposing views on volunteering as duty vs. choice, with no reuse of previous source text structures. Forbidden concepts avoided."
+      },
+      {
+        "taskNumber": 2,
+        "genre": "review",
+        "scenario": "Review of a volunteer programme for a specialist magazine, evaluating balance between volunteer convenience and community needs.",
+        "audience": "specialist magazine readers",
+        "purpose": "assess effectiveness and recommend",
+        "requiredContentPoints": [
+          "the main volunteer services issue",
+          "one practical consequence",
+          "a justified recommendation 2"
+        ],
+        "lexicalAnchors": [
+          "volunteer services",
+          "volunteering and civic obligation planning brief 13",
+          "c2 writing brief"
+        ],
+        "originalitySelfCheck": "Review task focuses on programme evaluation, not a book or film review. Forbidden concepts avoided."
+      },
+      {
+        "taskNumber": 3,
+        "genre": "report",
+        "scenario": "Report for a local council on a volunteer programme's impact on volunteers and host organisations, with recommendations for improvement.",
+        "audience": "programme coordinator",
+        "purpose": "analyse implications and propose action",
+        "requiredContentPoints": [
+          "the main volunteer services issue",
+          "one practical consequence",
+          "a justified recommendation 3"
+        ],
+        "lexicalAnchors": [
+          "volunteer services",
+          "volunteering and civic obligation planning brief 13",
+          "c2 writing brief"
+        ],
+        "originalitySelfCheck": "Report analyses dual impact on volunteers and organisations, not a simple event description. Forbidden concepts avoided."
+      },
+      {
+        "taskNumber": 4,
+        "genre": "article",
+        "scenario": "Article for an international magazine arguing whether volunteering should be a civic duty, with a request for follow-up discussion.",
+        "audience": "English-speaking contact",
+        "purpose": "explain a position and request arrangements",
+        "requiredContentPoints": [
+          "the main volunteer services issue",
+          "one practical consequence",
+          "a justified recommendation 4"
+        ],
+        "lexicalAnchors": [
+          "volunteer services",
+          "volunteering and civic obligation planning brief 13",
+          "c2 writing brief"
+        ],
+        "originalitySelfCheck": "Article takes a clear position and requests follow-up, not a generic opinion piece. Forbidden concepts avoided."
+      }
+    ],
+    "forbiddenConceptCheck": "PASS"
+  },
+  "cachedAt": 1785311935318
+}

@@ -1,0 +1,269 @@
+{
+  "inputHash": "2530beb8263babab41c7f380710fc5dcb1c33bcd6e662174245d6af1d9c6b8b9",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-23:2530beb8263babab41c7f380710fc5dcb1c33bcd6e662174245d6af1d9c6b8b9",
+  "test": {
+    "id": "b2-test-23",
+    "level": "b2",
+    "testNumber": 23,
+    "title": "FCE B2 AI Practice Test 23",
+    "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-23.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "b2-test-23-1785312312098",
+      "generatedAt": 1785312331067,
+      "contentHash": "ac43b5640344ddf3ca05f8e7dbd98e8ab5dd57988c4b39684aa2bbda895e4ec9",
+      "promptHash": "2530beb8263babab41c7f380710fc5dcb1c33bcd6e662174245d6af1d9c6b8b9",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-23:2530beb8263babab41c7f380710fc5dcb1c33bcd6e662174245d6af1d9c6b8b9",
+      "inputHash": "2530beb8263babab41c7f380710fc5dcb1c33bcd6e662174245d6af1d9c6b8b9",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "b2-test-23-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Responsible tourism priorities",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write 140–190 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-23-task-01-block-01",
+            "type": "paragraph",
+            "text": "In your English class you have been discussing how to plan a responsible tourism project. Now your English teacher has asked you to write an essay."
+          },
+          {
+            "id": "b2-test-23-task-01-block-02",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Notes",
+            "paragraphs": [
+              "Write about:",
+              "1. reducing plastic waste on trips",
+              "2. supporting local businesses",
+              "3. ......................... (your own idea)"
+            ]
+          },
+          {
+            "id": "b2-test-23-task-01-block-03",
+            "type": "final-instruction",
+            "text": "Write an essay using all the notes and giving reasons for your point of view."
+          }
+        ],
+        "presentation": {
+          "template": "essay-notes"
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "b2-test-23-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Tourism app review",
+        "genre": "review",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-23-task-02-block-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Reviews wanted!",
+            "paragraphs": [
+              "Have you used a mobile app that helps tourists travel responsibly – for example, an app that suggests eco-friendly accommodation, local guides, or low-impact activities?",
+              "Write a review of the app for a specialist travel magazine.",
+              "Describe what the app does and how easy it is to use. Say whether it helped you make more responsible choices. Would you recommend it to other travellers? Why?",
+              "The best reviews will be published in next month's issue."
+            ]
+          },
+          {
+            "id": "b2-test-23-task-02-block-02",
+            "type": "final-instruction",
+            "text": "Write your review."
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b2-test-23-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Volunteer tourism article",
+        "genre": "article",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-23-task-03-block-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Articles wanted!",
+            "paragraphs": [
+              "Our programme coordinator wants to hear from young people about volunteer tourism projects.",
+              "Write an article for the coordinator's website suggesting one practical way that volunteer tourism could benefit both visitors and the local community. Explain why your idea would work and describe one possible challenge.",
+              "We will share the best articles with the planning team."
+            ]
+          },
+          {
+            "id": "b2-test-23-task-03-block-02",
+            "type": "final-instruction",
+            "text": "Write your article."
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b2-test-23-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Sustainable travel advice",
+        "genre": "email",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-23-task-04-block-01",
+            "type": "email",
+            "from": "Sam Carter <sam.c@email.com>",
+            "subject": "Planning a responsible trip",
+            "paragraphs": [
+              "Hi,",
+              "I'm planning a short holiday to your region and I want to make it as responsible as possible. I've heard about a project that promotes eco-friendly tourism there.",
+              "Can you tell me what the project does? Do you think it's effective? Also, what's one thing I should avoid doing to minimise my impact?",
+              "Thanks a lot!",
+              "Sam"
+            ]
+          },
+          {
+            "id": "b2-test-23-task-04-block-02",
+            "type": "final-instruction",
+            "text": "Write your email to Sam. You should describe the project, give your opinion on its effectiveness, and advise him on one thing to avoid."
+          }
+        ],
+        "presentation": {
+          "template": "email",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "b2-test-23",
+    "topicFamily": "holiday planning",
+    "specificSetting": "a responsible tourism project planning brief 17",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "Essay: evaluating priorities for a responsible tourism project (reducing plastic waste, supporting local businesses, own idea)",
+        "audience": "English teacher",
+        "purpose": "evaluate and justify priorities",
+        "requiredContentPoints": [
+          "reducing plastic waste on trips",
+          "supporting local businesses",
+          "own idea"
+        ],
+        "lexicalAnchors": [
+          "responsible tourism",
+          "plastic waste",
+          "local businesses"
+        ],
+        "originalitySelfCheck": "Scenario is original; notes are distinct from previous tests; no forbidden concepts used.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "Review: a mobile app that helps tourists travel responsibly",
+        "audience": "specialist magazine readers",
+        "purpose": "assess effectiveness and recommend",
+        "requiredContentPoints": [
+          "what the app does and ease of use",
+          "whether it helped make responsible choices",
+          "recommendation with reason"
+        ],
+        "lexicalAnchors": [
+          "responsible tourism app",
+          "eco-friendly",
+          "travel choices"
+        ],
+        "originalitySelfCheck": "Review genre uses an app rather than a place or event; no overlap with previous review tasks.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "Article: suggesting a way volunteer tourism could benefit visitors and local community, with a challenge",
+        "audience": "programme coordinator",
+        "purpose": "analyse implications and propose action",
+        "requiredContentPoints": [
+          "one practical way volunteer tourism benefits both sides",
+          "why it would work",
+          "one possible challenge"
+        ],
+        "lexicalAnchors": [
+          "volunteer tourism",
+          "local community",
+          "challenge"
+        ],
+        "originalitySelfCheck": "Article focuses on volunteer tourism benefits and challenges; not a generic 'how to' article.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 4,
+        "scenario": "Email: explaining a responsible tourism project and advising a friend on what to avoid",
+        "audience": "English-speaking contact (Sam)",
+        "purpose": "explain a position and request arrangements",
+        "requiredContentPoints": [
+          "describe the project",
+          "opinion on its effectiveness",
+          "one thing to avoid"
+        ],
+        "lexicalAnchors": [
+          "responsible tourism project",
+          "eco-friendly",
+          "minimise impact"
+        ],
+        "originalitySelfCheck": "Email is a reply to a friend's request for advice; not a standard 'invitation' or 'arrangement' email.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ],
+    "overallOriginalityCheck": "All tasks are built around the specific setting 'a responsible tourism project planning brief 17'. No task reuses scenarios, audiences, content points, or lexical anchors from previous tests. Forbidden concepts (e.g., 'peer learning project', 'pollution essay', 'touring holiday') are avoided. The essay notes are original; the review uses an app; the article focuses on volunteer tourism; the email is a response to a specific query. All prompts are concrete and answerable."
+  },
+  "cachedAt": 1785312331079
+}

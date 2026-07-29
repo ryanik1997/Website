@@ -1,0 +1,90 @@
+{
+  "testId": "c1-test-40",
+  "topicFamily": "healthy cooking",
+  "specificSetting": "an organisational wellbeing framework planning brief 34",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Essay discussing priorities for promoting healthy cooking at work, based on a radio discussion with notes and opinions.",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "the main healthy cooking issue",
+        "one practical consequence",
+        "a justified recommendation 1"
+      ],
+      "lexicalAnchors": [
+        "healthy cooking",
+        "workplace wellbeing",
+        "subsidising ingredients",
+        "cooking workshops",
+        "supportive kitchen culture"
+      ],
+      "originalitySelfCheck": "Scenario is unique: workplace healthy cooking initiative, not used in any previous test. Notes and opinions are original. No overlap with forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Proposal to a wellbeing committee for a healthy cooking initiative for employees, recommending measures and evaluation.",
+      "audience": "specialist magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "the main healthy cooking issue",
+        "one practical consequence",
+        "a justified recommendation 2"
+      ],
+      "lexicalAnchors": [
+        "healthy cooking",
+        "workplace wellbeing",
+        "employee initiative",
+        "evaluation criteria"
+      ],
+      "originalitySelfCheck": "Proposal genre with institutional audience (wellbeing committee) is distinct from previous proposals. Content points are original.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Email to programme coordinator addressing staff concerns about a healthy cooking programme, proposing actions and requesting a meeting.",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "the main healthy cooking issue",
+        "one practical consequence",
+        "a justified recommendation 3"
+      ],
+      "lexicalAnchors": [
+        "healthy cooking",
+        "workplace programme",
+        "staff concerns",
+        "commute",
+        "kitchen facilities"
+      ],
+      "originalitySelfCheck": "Email scenario is original: addressing concerns about convenience for employees with different home situations. Not similar to any previous email task.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Review of a healthy cooking workshop for a lifestyle website, evaluating balance of convenience and lasting skills.",
+      "audience": "English-speaking contact",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "the main healthy cooking issue",
+        "one practical consequence",
+        "a justified recommendation 4"
+      ],
+      "lexicalAnchors": [
+        "healthy cooking",
+        "workshop review",
+        "convenience",
+        "lasting skills"
+      ],
+      "originalitySelfCheck": "Review genre with announcement template is original. Workshop review not used in previous tests. Content points are distinct.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are original, with unique scenarios, audiences, and content points. No overlap with existing test fingerprints or forbidden concepts. The test is internally coherent and level-appropriate.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "4ed94e6104cf6ccc6efdca8b9ba53eb05ed0243775eac3ebb3abe823c3ffb01d"
+  }
+}

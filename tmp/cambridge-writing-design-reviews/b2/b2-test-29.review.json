@@ -1,0 +1,74 @@
+{
+  "task1": {
+    "scenario": "Essay about arts funding priorities for a town",
+    "audience": "English teacher",
+    "purpose": "Evaluate and justify priorities for arts funding",
+    "requiredContentPoints": [
+      "supporting local music festivals",
+      "funding public art installations",
+      "own idea"
+    ],
+    "lexicalAnchors": [
+      "arts funding",
+      "local music festivals",
+      "public art installations"
+    ],
+    "originalitySelfCheck": "Unique scenario; not similar to any avoided test. Forbidden concepts check passed.",
+    "forbiddenConceptCheck": "PASS"
+  },
+  "task2": {
+    "scenario": "Review of a free arts workshop funded by local council",
+    "audience": "Specialist magazine readers",
+    "purpose": "Assess effectiveness and recommend whether it was a good use of public money",
+    "requiredContentPoints": [
+      "what the workshop involved",
+      "how well it was organised",
+      "whether it was a good use of public money"
+    ],
+    "lexicalAnchors": [
+      "arts workshop",
+      "public money",
+      "local council"
+    ],
+    "originalitySelfCheck": "Unique scenario; not similar to any avoided test. Forbidden concepts check passed.",
+    "forbiddenConceptCheck": "PASS"
+  },
+  "task3": {
+    "scenario": "Article suggesting how to attract young people to arts events",
+    "audience": "Programme coordinator",
+    "purpose": "Analyse implications and propose action to increase youth engagement",
+    "requiredContentPoints": [
+      "one practical idea for attracting young audiences",
+      "why it would work",
+      "how the town could pay for it"
+    ],
+    "lexicalAnchors": [
+      "young people",
+      "arts events",
+      "funding"
+    ],
+    "originalitySelfCheck": "Unique scenario; not similar to any avoided test. Forbidden concepts check passed.",
+    "forbiddenConceptCheck": "PASS"
+  },
+  "task4": {
+    "scenario": "Email to an English-speaking contact explaining position on arts funding",
+    "audience": "English-speaking contact",
+    "purpose": "Explain a position and request arrangements (discussion)",
+    "requiredContentPoints": [
+      "opinion on current funding level",
+      "most important thing to fund",
+      "possible risk of spending more"
+    ],
+    "lexicalAnchors": [
+      "arts funding",
+      "town review",
+      "spending"
+    ],
+    "originalitySelfCheck": "Unique scenario; not similar to any avoided test. Forbidden concepts check passed.",
+    "forbiddenConceptCheck": "PASS"
+  },
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "b54c7b37acd022b083c58d80160178fb48f636fb977b027dfa53cca7c0061def"
+  }
+}

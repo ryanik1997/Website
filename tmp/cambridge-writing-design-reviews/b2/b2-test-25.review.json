@@ -1,0 +1,89 @@
+{
+  "testId": "b2-test-25",
+  "level": "b2",
+  "topicFamily": "online privacy",
+  "specificSetting": "a school data policy planning brief 19",
+  "tasks": [
+    {
+      "taskId": "b2-test-25-task-01",
+      "scenario": "Class discussion on school data policy priorities; essay for English teacher",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "protecting students' personal information",
+        "teaching students about online privacy",
+        "own idea"
+      ],
+      "lexicalAnchors": [
+        "online privacy",
+        "school data policy",
+        "personal information",
+        "data protection"
+      ],
+      "originalitySelfCheck": "Essay uses standard FCE essay format with notes panel. Scenario is unique: school data policy planning. No overlap with previous tests.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "b2-test-25-task-02",
+      "scenario": "Review of a school workshop on online privacy for school magazine",
+      "audience": "specialist magazine readers (school magazine)",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "what the workshop covered",
+        "usefulness for understanding data protection",
+        "recommendation to other students"
+      ],
+      "lexicalAnchors": [
+        "online privacy",
+        "workshop",
+        "data protection",
+        "school magazine"
+      ],
+      "originalitySelfCheck": "Review genre with announcement panel. Focus on workshop about data privacy, not generic book/film review. Unique scenario.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "b2-test-25-task-03",
+      "scenario": "Article for youth website suggesting a practical data-protection habit for students",
+      "audience": "programme coordinator (youth website readers)",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "one practical habit",
+        "why it is effective",
+        "benefit for long-term privacy"
+      ],
+      "lexicalAnchors": [
+        "online data",
+        "privacy habit",
+        "long-term privacy",
+        "school"
+      ],
+      "originalitySelfCheck": "Article genre with announcement panel. Asks for a practical habit, not a general opinion. No overlap with previous article tasks.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "b2-test-25-task-04",
+      "scenario": "Email to English-speaking friend explaining school's new data policy",
+      "audience": "English-speaking contact (friend)",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "what the policy says",
+        "whether it is fair",
+        "one improvement"
+      ],
+      "lexicalAnchors": [
+        "data policy",
+        "online information",
+        "fairness",
+        "improvement"
+      ],
+      "originalitySelfCheck": "Email genre with email block. Friend asks about school data policy. Unique scenario not used before.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are based on the specific setting 'a school data policy planning brief 19'. No task reuses scenarios, content points, or sentence skeletons from any avoided test. The topic family 'online privacy' is new for b2 tests. Each task has a concrete audience and clear communicative purpose. Forbidden concepts (peer learning, pollution essay, touring holiday, etc.) are avoided.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "ca64748dd14ccb67979478be88f533948963fdc70bbec16647a99afcb56f39f4"
+  }
+}

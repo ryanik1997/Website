@@ -1,0 +1,66 @@
+{
+  "testId": "b1-test-22",
+  "overallOriginalityCheck": "PASS - scenario (recycling collection change) is new; no overlap with existing tests.",
+  "tasks": [
+    {
+      "taskId": "b1-test-22-task-01",
+      "scenario": "Town changing recycling collection to every two weeks; student responds to teacher's email.",
+      "audience": "English teacher (Mrs. Hill)",
+      "purpose": "Evaluate and justify priorities: agree/disagree with change, choose solution for extra recycling, suggest reduction method, ask about start date.",
+      "requiredContentPoints": [
+        "Opinion on change with reason",
+        "Choice between recycling centre or larger bins with reason",
+        "Suggestion to reduce recycling",
+        "Question about start date"
+      ],
+      "lexicalAnchors": [
+        "recycling collection",
+        "every two weeks",
+        "extra recycling",
+        "recycling centre",
+        "larger bins"
+      ],
+      "originalitySelfCheck": "PASS - email format with notes; no reuse of previous email subjects or content points.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "b1-test-22-task-02",
+      "scenario": "Town website asking for opinions on recycling change.",
+      "audience": "Town website readers (general public)",
+      "purpose": "Assess effectiveness and recommend: give opinion on change, suggest how to manage recycling better.",
+      "requiredContentPoints": [
+        "Opinion on whether change is good idea",
+        "Suggestion for managing recycling better"
+      ],
+      "lexicalAnchors": [
+        "recycling collection",
+        "every two weeks",
+        "manage recycling"
+      ],
+      "originalitySelfCheck": "PASS - article genre with two direct questions; no reuse of previous article prompts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "b1-test-22-task-03",
+      "scenario": "Story beginning with recycling truck not arriving.",
+      "audience": "English teacher",
+      "purpose": "Analyse implications and propose action: continue story from given opening.",
+      "requiredContentPoints": [
+        "Recycling truck not arriving",
+        "Something wrong",
+        "Resolution or consequence"
+      ],
+      "lexicalAnchors": [
+        "recycling truck",
+        "Friday",
+        "something wrong"
+      ],
+      "originalitySelfCheck": "PASS - story opening unique; no similarity to previous story openings.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "229af0e37b571a407bca4917bb1e1b85ba1cb514eb6ec549c9088ae8c9a2b80b"
+  }
+}

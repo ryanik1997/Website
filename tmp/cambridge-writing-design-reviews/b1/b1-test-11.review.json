@@ -1,0 +1,66 @@
+{
+  "overallOriginalityCheck": "PASS",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Student responds to teacher's email about planning a spring food festival, evaluating priorities (stalls vs. prices), identifying a practical problem, suggesting a favourite stall, and asking a question.",
+      "audience": "English teacher (Mr. Davis)",
+      "purpose": "Evaluate and justify priorities",
+      "requiredContentPoints": [
+        "Choose between lots of stalls OR low prices and justify",
+        "Describe one practical problem and suggest a solution",
+        "Name favourite food stall and give reason",
+        "Ask one question about date or location"
+      ],
+      "lexicalAnchors": [
+        "Spring Food Festival",
+        "food stalls",
+        "affordable",
+        "practical problem",
+        "favourite stall"
+      ],
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Student writes an article for the town website about the Spring Food Festival, suggesting food types, ways to appeal to all ages, and whether they would help organise.",
+      "audience": "Specialist magazine readers (town website audience)",
+      "purpose": "Assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "What kind of food should be there",
+        "How to make it fun for children and adults",
+        "Whether they would help organise and why"
+      ],
+      "lexicalAnchors": [
+        "Spring Food Festival",
+        "food",
+        "fun",
+        "children and adults",
+        "help organise"
+      ],
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Student writes a story beginning with 'When the chef dropped the cake just before the festival started, everyone gasped.'",
+      "audience": "Programme coordinator (via English teacher)",
+      "purpose": "Analyse implications and propose action (narrative)",
+      "requiredContentPoints": [
+        "The dropped cake incident",
+        "Consequence for the festival",
+        "Resolution or outcome"
+      ],
+      "lexicalAnchors": [
+        "chef",
+        "cake",
+        "festival",
+        "gasped"
+      ],
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "d3d60f37504dd1646a3339abf02ad1fc3456d3e6beafea0553d7756f1b1b8b53"
+  }
+}

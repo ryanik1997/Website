@@ -1,0 +1,63 @@
+{
+  "testId": "b1-test-29",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "a community arts grant planning brief 23: email brief 1-1",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "the main arts funding issue",
+        "one practical consequence",
+        "a justified recommendation 1"
+      ],
+      "lexicalAnchors": [
+        "arts funding",
+        "a community arts grant planning brief 23",
+        "b1 writing brief"
+      ],
+      "originalitySelfCheck": "Email about choosing between mural and music workshops. Notes: choose project, choose organisation task, suggest community benefit, ask deadline. No overlap with existing tests.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "a community arts grant planning brief 23: article brief 2-5",
+      "audience": "specialist magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "the main arts funding issue",
+        "one practical consequence",
+        "a justified recommendation 2"
+      ],
+      "lexicalAnchors": [
+        "arts funding",
+        "a community arts grant planning brief 23",
+        "b1 writing brief"
+      ],
+      "originalitySelfCheck": "Article about whether arts projects improve town and what to consider when choosing. No overlap with existing tests.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "a community arts grant planning brief 23: story brief 3-9",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "the main arts funding issue",
+        "one practical consequence",
+        "a justified recommendation 3"
+      ],
+      "lexicalAnchors": [
+        "arts funding",
+        "a community arts grant planning brief 23",
+        "b1 writing brief"
+      ],
+      "originalitySelfCheck": "Story opening: 'When the programme coordinator announced that the arts grant had been approved, everyone in the room started talking at once.' Unique, not used before.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "33af767d0a0ca899b226f72efa1bb5d98f84b3b265f1abe6bf1c70f8084d22c3"
+  }
+}

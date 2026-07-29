@@ -1,0 +1,154 @@
+{
+  "id": "b1-test-35",
+  "level": "b1",
+  "testNumber": 35,
+  "title": "PET B1 AI Practice Test 35",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b1/b1-test-35.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b1-test-35-1785313677163",
+    "generatedAt": 1785313690283,
+    "contentHash": "f297ef91011e9187bcb7a453532cf66d457219dfd4ac98b2bedc9fd4041f3a24",
+    "promptHash": "94cbdcd366da0f128dc93529507a00ca7713c54b64a0d3a4cd479e9f5bf787bf",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-35:94cbdcd366da0f128dc93529507a00ca7713c54b64a0d3a4cd479e9f5bf787bf",
+    "inputHash": "94cbdcd366da0f128dc93529507a00ca7713c54b64a0d3a4cd479e9f5bf787bf",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b1-test-35-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Community garden email",
+      "genre": "email",
+      "instruction": "You must answer this question. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-35-task-01-email",
+          "type": "email",
+          "from": "Ms. Rivera",
+          "subject": "Community garden project",
+          "paragraphs": [
+            "Hi,",
+            "Our class is helping to plan a community garden beside the railway. We need to decide on the main goal. Should we focus on growing food for local families or on creating a green space for everyone to enjoy? Which do you think is more important and why?",
+            "Also, we need to choose one practical feature for the garden. Would you prefer a seating area with benches or a small tool shed?",
+            "Finally, can you suggest one way to encourage people to help look after the garden long-term?",
+            "Thanks, Ms. Rivera"
+          ]
+        },
+        {
+          "id": "b1-test-35-task-01-notes",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes for your reply",
+          "listItems": [
+            "Say which main goal you prefer and explain why.",
+            "Choose a feature (seating area or tool shed) and give a reason.",
+            "Suggest one way to get long-term help.",
+            "Ask Ms. Rivera about the garden location."
+          ]
+        },
+        {
+          "id": "b1-test-35-task-01-final",
+          "type": "final-instruction",
+          "text": "Write your email to Ms. Rivera using all the notes."
+        }
+      ],
+      "presentation": {
+        "template": "email"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b1-test-35-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Community garden article",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-35-task-02-announcement",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted!",
+          "paragraphs": [
+            "A new community garden is being planned beside the railway in our neighbourhood.",
+            "What do you think is the most important thing about a community garden?",
+            "How can it help people who live nearby?",
+            "Write an article answering these questions and we will put it on our local website!"
+          ]
+        },
+        {
+          "id": "b1-test-35-task-02-final",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b1-test-35-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Community garden story",
+      "genre": "story",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-35-task-03-opening",
+          "type": "paragraph",
+          "text": "Your English teacher has asked you to write a story."
+        },
+        {
+          "id": "b1-test-35-task-03-sentence",
+          "type": "paragraph",
+          "text": "Your story must begin with this sentence:"
+        },
+        {
+          "id": "b1-test-35-task-03-opening-sentence",
+          "type": "paragraph",
+          "text": "\"When I arrived at the community garden, I saw that someone had planted flowers in the shape of a star.\""
+        },
+        {
+          "id": "b1-test-35-task-03-final",
+          "type": "final-instruction",
+          "text": "Write your story."
+        }
+      ],
+      "presentation": {
+        "template": "plain"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

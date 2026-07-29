@@ -1,0 +1,91 @@
+{
+  "testId": "b2-test-34",
+  "level": "b2",
+  "topicFamily": "public libraries",
+  "specificSetting": "a library makerspace launch planning brief 28",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Essay on whether libraries should invest in makerspaces, considering attracting new visitors and cost of equipment.",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "attracting new visitors",
+        "cost of equipment",
+        "own idea"
+      ],
+      "lexicalAnchors": [
+        "public libraries",
+        "makerspace",
+        "3D printers",
+        "attracting new visitors",
+        "cost of equipment"
+      ],
+      "originalitySelfCheck": "Topic differs from previous library essays (b2-test-09 used same topic but with different notes; this is a new test with same topic family but different specific setting). Forbidden concepts checked: no overlap with forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Review of a library makerspace visited by the writer.",
+      "audience": "college magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "equipment and activities",
+        "staff helpfulness",
+        "recommendation"
+      ],
+      "lexicalAnchors": [
+        "makerspace",
+        "equipment",
+        "activities",
+        "staff",
+        "recommendation"
+      ],
+      "originalitySelfCheck": "Review genre with announcement panel; different from previous review tasks (b2-test-01 review was about a book, b2-test-09 review about makerspace but with different wording). Forbidden concepts checked.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Article suggesting how a library makerspace can benefit the community.",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "positive change for residents",
+        "encourage library use",
+        "involve local businesses"
+      ],
+      "lexicalAnchors": [
+        "makerspace",
+        "community benefit",
+        "library use",
+        "local businesses"
+      ],
+      "originalitySelfCheck": "Article genre with announcement panel; different from previous article tasks (b2-test-01 article about useful thing learned, b2-test-09 article about makerspace but with different focus). Forbidden concepts checked.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Email replying to a friend asking about a library makerspace project.",
+      "audience": "English-speaking contact",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "essential equipment",
+        "activities for teenagers",
+        "convincing the committee"
+      ],
+      "lexicalAnchors": [
+        "makerspace",
+        "equipment",
+        "teenagers",
+        "library committee"
+      ],
+      "originalitySelfCheck": "Email genre with email block; different from previous email tasks (b2-test-01 email about touring holiday, b2-test-09 email about makerspace but with different questions). Forbidden concepts checked.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are based on the same specific setting (library makerspace launch) but each has a distinct audience, purpose, and required content points. No reuse of scenario skeletons from previous tests. Forbidden concepts avoided.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "0dace343a742527f13246a3b58ce252653b86b54a216b5c76b5bcc38be17c48c"
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "id": "c1-test-11",
+  "level": "c1",
+  "testNumber": 11,
+  "title": "CAE C1 AI Practice Test 11",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-11.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "c1-test-11-1785307104597",
+    "generatedAt": 1785307193480,
+    "contentHash": "6180c42648bc867fdb8c6b31689ece219166a86e3bb859c9e72fb9bd0695fc20",
+    "promptHash": "8f51aaa8feffd7c47c571b0b2f533f266c1a2511b4ef3926d741c1366f1deaba",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-11:8f51aaa8feffd7c47c571b0b2f533f266c1a2511b4ef3926d741c1366f1deaba",
+    "inputHash": "8f51aaa8feffd7c47c571b0b2f533f266c1a2511b4ef3926d741c1366f1deaba",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "c1-test-11-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay: Local Festivals",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+      "promptText": "Your class has listened to a radio discussion about a city cultural programme planning brief that aims to make local festivals more accessible while ensuring long-term responsibility. You have made the notes below.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-11-task-01-block-01",
+          "type": "paragraph",
+          "text": "Your class has listened to a radio discussion about a city cultural programme planning brief that aims to make local festivals more accessible while ensuring long-term responsibility. You have made the notes below."
+        },
+        {
+          "id": "c1-test-11-task-01-block-02",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Priorities for local festivals",
+          "listItems": [
+            "reducing entry fees to attract wider audiences",
+            "providing free public transport on festival days",
+            "investing in environmentally sustainable infrastructure"
+          ]
+        },
+        {
+          "id": "c1-test-11-task-01-block-03",
+          "type": "panel",
+          "variant": "opinions",
+          "heading": "Some opinions expressed in the discussion:",
+          "paragraphs": [
+            "Lowering ticket prices is the most direct way to make festivals inclusive, but it may reduce funding for quality programming.",
+            "Free transport would encourage people to leave their cars at home, cutting congestion and pollution.",
+            "Sustainable infrastructure, like reusable cups and solar power, is expensive initially but pays off in the long run."
+          ]
+        },
+        {
+          "id": "c1-test-11-task-01-block-04",
+          "type": "final-instruction",
+          "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for balancing access and long-term responsibility, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes-opinions"
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c1-test-11-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Proposal: Festival Sustainability",
+      "genre": "proposal",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptText": "The city cultural programme planning brief has allocated funds to improve the environmental sustainability of local festivals. As a consultant hired by the city council, you have been asked to write a proposal for the programme coordinator. In your proposal, you should:\n\n• recommend two practical measures to reduce waste and energy use at festivals\n• explain how these measures can be implemented without discouraging attendance\n• outline the expected long-term benefits for the community and the environment",
+      "promptBlocks": [
+        {
+          "id": "c1-test-11-task-02-block-01",
+          "type": "paragraph",
+          "text": "The city cultural programme planning brief has allocated funds to improve the environmental sustainability of local festivals. As a consultant hired by the city council, you have been asked to write a proposal for the programme coordinator. In your proposal, you should:"
+        },
+        {
+          "id": "c1-test-11-task-02-block-02",
+          "type": "paragraph",
+          "text": "• recommend two practical measures to reduce waste and energy use at festivals\n• explain how these measures can be implemented without discouraging attendance\n• outline the expected long-term benefits for the community and the environment"
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-11-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Email: Festival Accessibility",
+      "genre": "email",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptText": "You are a member of the city cultural programme planning team. The programme coordinator has emailed you to say that some residents are concerned that making festivals more accessible (e.g., free entry, free transport) will lead to overcrowding and damage to public spaces. Write an email to the programme coordinator. In your email, you should:\n\n• acknowledge the residents' concerns and show understanding\n• analyse the potential implications of overcrowding for the festival experience and the local area\n• propose specific actions to manage crowd levels while maintaining accessibility",
+      "promptBlocks": [
+        {
+          "id": "c1-test-11-task-03-block-01",
+          "type": "paragraph",
+          "text": "You are a member of the city cultural programme planning team. The programme coordinator has emailed you to say that some residents are concerned that making festivals more accessible (e.g., free entry, free transport) will lead to overcrowding and damage to public spaces. Write an email to the programme coordinator. In your email, you should:"
+        },
+        {
+          "id": "c1-test-11-task-03-block-02",
+          "type": "paragraph",
+          "text": "• acknowledge the residents' concerns and show understanding\n• analyse the potential implications of overcrowding for the festival experience and the local area\n• propose specific actions to manage crowd levels while maintaining accessibility"
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-11-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Review: A Local Festival",
+      "genre": "review",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptText": "You see this announcement on a local lifestyle website.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-11-task-04-block-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted: Local festivals",
+          "paragraphs": [
+            "Have you been to a local festival recently? We want to hear about your experience.",
+            "Write a review for our website. Describe the festival and what made it enjoyable or disappointing. Evaluate how well the organisers balanced making it accessible with ensuring it was well-managed and sustainable. Would you recommend this festival to others? Why or why not?",
+            "The best reviews will be featured on our site."
+          ]
+        },
+        {
+          "id": "c1-test-11-task-04-block-02",
+          "type": "final-instruction",
+          "text": "Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

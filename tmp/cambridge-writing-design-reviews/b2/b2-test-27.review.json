@@ -1,0 +1,82 @@
+{
+  "testId": "b2-test-27",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Essay on improving student accommodation, focusing on rent costs and maintenance.",
+      "audience": "English teacher",
+      "purpose": "Evaluate and justify priorities for improvement.",
+      "requiredContentPoints": [
+        "reducing rent costs",
+        "improving maintenance services",
+        "own idea"
+      ],
+      "lexicalAnchors": [
+        "student accommodation",
+        "rent costs",
+        "maintenance services"
+      ],
+      "originalitySelfCheck": "Scenario is specific to student housing, not generic. Notes are concrete. No overlap with existing test fingerprints.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Review of a college accommodation advice service.",
+      "audience": "College magazine readers",
+      "purpose": "Assess effectiveness and recommend.",
+      "requiredContentPoints": [
+        "description of support offered",
+        "helpfulness to the writer",
+        "recommendation to others"
+      ],
+      "lexicalAnchors": [
+        "student accommodation advice service",
+        "support",
+        "recommendation"
+      ],
+      "originalitySelfCheck": "Review focuses on a service, not a book or film. Unique scenario. No overlap with existing reviews.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Article giving advice on living with housemates.",
+      "audience": "Student website readers",
+      "purpose": "Analyse implications and propose action.",
+      "requiredContentPoints": [
+        "common challenge",
+        "practical way to avoid problems",
+        "role of communication"
+      ],
+      "lexicalAnchors": [
+        "shared accommodation",
+        "housemates",
+        "communication"
+      ],
+      "originalitySelfCheck": "Article topic is specific to shared student living, not generic. No overlap with existing articles.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Email responding to a friend's accommodation problem (heating issue).",
+      "audience": "English-speaking friend",
+      "purpose": "Explain a position and request arrangements.",
+      "requiredContentPoints": [
+        "advice on what to say to landlord",
+        "whether to involve college office",
+        "suggestion for staying warm"
+      ],
+      "lexicalAnchors": [
+        "accommodation problem",
+        "heating",
+        "landlord",
+        "college office"
+      ],
+      "originalitySelfCheck": "Email scenario is a specific problem, not a generic request. Unique. No overlap with existing emails.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "11ac375748b43bd23daa9da0875159dc8554c7e37f2d85dab168f3ab140ad6af"
+  }
+}

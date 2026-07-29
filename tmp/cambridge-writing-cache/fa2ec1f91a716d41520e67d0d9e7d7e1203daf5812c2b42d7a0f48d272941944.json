@@ -1,0 +1,213 @@
+{
+  "inputHash": "a2eb7cb39c2f1d615b9857356f59f0f2530987e2e653c662f755d3d58595aed1",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-07:a2eb7cb39c2f1d615b9857356f59f0f2530987e2e653c662f755d3d58595aed1",
+  "test": {
+    "id": "c2-test-07",
+    "level": "c2",
+    "testNumber": 7,
+    "title": "CPE C2 AI Practice Test 07",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-07.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c2-test-07-1785307198809",
+      "generatedAt": 1785307222248,
+      "contentHash": "2e791f1a91af5452c4778ff371fe88847c8891312701c088af03ffe7d7e20a7f",
+      "promptHash": "a2eb7cb39c2f1d615b9857356f59f0f2530987e2e653c662f755d3d58595aed1",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-07:a2eb7cb39c2f1d615b9857356f59f0f2530987e2e653c662f755d3d58595aed1",
+      "inputHash": "a2eb7cb39c2f1d615b9857356f59f0f2530987e2e653c662f755d3d58595aed1",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c2-test-07-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Essay: The Ethics of Educational Exchange Planning",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write an essay summarising and evaluating the key points from both texts in 240–280 words. Use your own words throughout as far as possible, and include your own ideas in your answers.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-07-task-01-source-1",
+            "type": "source-text",
+            "label": "Text 1",
+            "title": "Access and Convenience",
+            "text": "School exchange visits are often justified by the opportunities they provide for cultural immersion and language development. Yet in practice, many programmes prioritise convenience over genuine engagement. Students are housed in comfortable hotels rather than with host families, itineraries are packed with tourist attractions rather than meaningful local interactions, and the visiting group rarely has to adapt to local norms. The result is an experience that may be enjoyable but fails to challenge participants or foster real intercultural understanding. If exchange visits are to be ethically defensible, they must be designed to disrupt the visitor's comfort zone, not merely to provide a pleasant holiday abroad."
+          },
+          {
+            "id": "c2-test-07-task-01-source-2",
+            "type": "source-text",
+            "label": "Text 2",
+            "title": "Long-Term Responsibility",
+            "text": "The most serious ethical problem with school exchange visits is not what happens during the trip but what happens afterwards. Host communities often invest considerable resources—time, hospitality, emotional labour—without any lasting benefit to themselves. The visiting students return home with enriched perspectives, while the hosts are left with little more than a memory. If exchanges are to be truly reciprocal, organisers must consider the long-term impact on the host community. This might involve follow-up projects, financial contributions to local schools, or sustained partnerships that outlast any single visit. Without such commitments, exchange programmes risk being a form of educational tourism that exploits the goodwill of others."
+          }
+        ],
+        "presentation": {
+          "template": "source-texts"
+        },
+        "wordLimit": {
+          "min": 240,
+          "max": 280,
+          "displayText": "240–280 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c2-test-07-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Review: Exchange Programme Documentary",
+        "genre": "review",
+        "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+        "promptText": "A specialist magazine for educators is running a series of reviews of documentaries that examine international exchange programmes. You decide to submit a review of a recent documentary called 'The Exchange Effect', which follows a group of students from a European school during a two-week visit to a rural community in West Africa. In your review, evaluate how effectively the documentary captures the ethical complexities of such exchanges, discuss whether it gives adequate voice to the host community, and assess the overall value of the film for educators planning future exchange trips.",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c2-test-07-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Report: Exchange Visit Impact Assessment",
+        "genre": "report",
+        "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+        "promptText": "You are a consultant hired by the International School Partnership to evaluate the ethical implications of their exchange visit programme. The programme coordinator has asked you to write a report analysing how current practices affect host communities and recommending changes to ensure reciprocity and long-term benefit. In your report, identify two specific ways in which host communities may be disadvantaged, assess the potential consequences for future partnerships, and propose concrete actions that the programme could take to address these issues.",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c2-test-07-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Article: Rethinking Exchange Visits",
+        "genre": "article",
+        "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+        "promptText": "An international education magazine is inviting readers to submit articles on the theme of 'Rethinking School Exchanges'. You decide to write an article in which you explain your position on whether exchange visits should be redesigned to prioritise ethical responsibility over convenience. In your article, discuss what you see as the main ethical issue with current exchange programmes, describe one practical consequence of failing to address this issue, and recommend a specific change that would make exchanges more equitable for all involved.",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "c2-test-07",
+    "level": "c2",
+    "topicFamily": "school exchange visits",
+    "specificSetting": "the ethics of educational exchange planning brief 1",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "genre": "essay",
+        "scenario": "Two source texts debating the ethics of school exchange visits: one argues that convenience undermines genuine cultural engagement, the other argues that lack of long-term reciprocity exploits host communities.",
+        "audience": "English teacher (educated general reader)",
+        "purpose": "Synthesise competing claims, evaluate assumptions, and develop an independent position on how exchange visits should be ethically designed.",
+        "requiredContentPoints": [
+          "the main school exchange visits issue",
+          "one practical consequence",
+          "a justified recommendation"
+        ],
+        "lexicalAnchors": [
+          "school exchange visits",
+          "the ethics of educational exchange planning brief 1",
+          "c2 writing brief"
+        ],
+        "originalitySelfCheck": "Scenario is unique: focuses on ethical tension between convenience and reciprocity, not on generic benefits of exchanges. Source texts present opposing angles (short-term vs long-term). No overlap with previous tests.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "genre": "review",
+        "scenario": "Review of a documentary 'The Exchange Effect' about a European school visit to West Africa, evaluating its portrayal of ethical complexities and voice given to host community.",
+        "audience": "Specialist magazine readers (educators)",
+        "purpose": "Assess effectiveness of the documentary in capturing ethical complexities, adequacy of host community voice, and value for educators.",
+        "requiredContentPoints": [
+          "the main school exchange visits issue",
+          "one practical consequence",
+          "a justified recommendation"
+        ],
+        "lexicalAnchors": [
+          "school exchange visits",
+          "the ethics of educational exchange planning brief 1",
+          "c2 writing brief"
+        ],
+        "originalitySelfCheck": "Review of a documentary, not a book or event. Specific title and setting. No overlap with previous review tasks (which were about books, workshops, etc.).",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "genre": "report",
+        "scenario": "Consultant report for International School Partnership evaluating ethical implications of exchange programme on host communities, with recommendations.",
+        "audience": "Programme coordinator",
+        "purpose": "Analyse how current practices disadvantage host communities, assess consequences, and propose concrete actions.",
+        "requiredContentPoints": [
+          "the main school exchange visits issue",
+          "one practical consequence",
+          "a justified recommendation"
+        ],
+        "lexicalAnchors": [
+          "school exchange visits",
+          "the ethics of educational exchange planning brief 1",
+          "c2 writing brief"
+        ],
+        "originalitySelfCheck": "Report is about ethical impact on host communities, not about participation trends or event evaluation. Unique angle. No overlap with previous report tasks.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 4,
+        "genre": "article",
+        "scenario": "Article for international education magazine arguing for redesign of exchange visits to prioritise ethical responsibility over convenience.",
+        "audience": "English-speaking contact (magazine readers)",
+        "purpose": "Explain position on ethical redesign, discuss main issue, describe consequence of inaction, recommend specific change.",
+        "requiredContentPoints": [
+          "the main school exchange visits issue",
+          "one practical consequence",
+          "a justified recommendation"
+        ],
+        "lexicalAnchors": [
+          "school exchange visits",
+          "the ethics of educational exchange planning brief 1",
+          "c2 writing brief"
+        ],
+        "originalitySelfCheck": "Article is argumentative, not descriptive. Focuses on ethical redesign, not on personal experience or general advice. No overlap with previous article tasks.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ],
+    "overallOriginalityCheck": "All tasks are built around the specific setting 'the ethics of educational exchange planning brief 1' with distinct audiences, purposes, and required content points. No reuse of scenarios, characters, or sentence frames from previous tests. Forbidden concepts (e.g., peer learning, digital communication, low-waste events) are avoided.",
+    "forbiddenConceptCheck": "PASS"
+  },
+  "cachedAt": 1785307222258
+}

@@ -1,0 +1,266 @@
+{
+  "inputHash": "b958d74774f8cfdca0cb34c8172b1e65859c0bde54fe9d0737fa94c68a1d3a71",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-09:b958d74774f8cfdca0cb34c8172b1e65859c0bde54fe9d0737fa94c68a1d3a71",
+  "test": {
+    "id": "c1-test-09",
+    "level": "c1",
+    "testNumber": 9,
+    "title": "CAE C1 AI Practice Test 09",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-09.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c1-test-09-1785307058577",
+      "generatedAt": 1785307077261,
+      "contentHash": "93db180a4869e62f5d29c0afb74555d1294f77e295395dd0f048f7d36d0dc477",
+      "promptHash": "b958d74774f8cfdca0cb34c8172b1e65859c0bde54fe9d0737fa94c68a1d3a71",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-09:b958d74774f8cfdca0cb34c8172b1e65859c0bde54fe9d0737fa94c68a1d3a71",
+      "inputHash": "b958d74774f8cfdca0cb34c8172b1e65859c0bde54fe9d0737fa94c68a1d3a71",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c1-test-09-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Public Libraries: Access and Responsibility",
+        "genre": "essay",
+        "instruction": "Write an essay discussing two of the points in your notes. You should explain which point you think is more important for the future of public libraries, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-09-task-01-pb01",
+            "type": "paragraph",
+            "text": "Your class has listened to a radio discussion about how public libraries should balance free access with long-term financial responsibility. You have made the notes below."
+          },
+          {
+            "id": "c1-test-09-task-01-pb02",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Priorities for public libraries",
+            "listItems": [
+              "maintaining free access for all residents",
+              "investing in digital resources and online services",
+              "partnering with local businesses to generate income"
+            ]
+          },
+          {
+            "id": "c1-test-09-task-01-pb03",
+            "type": "panel",
+            "variant": "opinions",
+            "heading": "Opinions expressed in the discussion",
+            "paragraphs": [
+              "Free access is the whole point of a public library. If we start charging, we lose the trust of the community.",
+              "Digital resources are the future. Libraries that don't invest in e-books and online databases will become irrelevant.",
+              "Business partnerships can bring in money, but they might push libraries to prioritise profit over public need."
+            ]
+          },
+          {
+            "id": "c1-test-09-task-01-pb04",
+            "type": "final-instruction",
+            "text": "Write your essay."
+          }
+        ],
+        "presentation": {
+          "template": "essay-notes-opinions"
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c1-test-09-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Proposal for a Library Outreach Programme",
+        "genre": "proposal",
+        "instruction": "Write a proposal for the regional library network director. In your proposal, you should:\n\n• assess the effectiveness of current outreach efforts\n• recommend two new initiatives to reach underserved communities\n• explain how these initiatives would benefit both the library and the community",
+        "promptBlocks": [
+          {
+            "id": "c1-test-09-task-02-pb01",
+            "type": "paragraph",
+            "text": "The regional library network is reviewing its outreach programme, which aims to bring library services to communities that currently have limited access. The network director has invited proposals for improving the programme's effectiveness. You decide to write a proposal."
+          },
+          {
+            "id": "c1-test-09-task-02-pb02",
+            "type": "final-instruction",
+            "text": "Write your proposal."
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-09-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Email to Programme Coordinator",
+        "genre": "email",
+        "instruction": "Write an email to the programme coordinator. In your email, you should:\n\n• explain why you think the proposed changes are necessary\n• analyse one potential negative consequence of the changes\n• propose a way to address that consequence while still moving forward",
+        "promptBlocks": [
+          {
+            "id": "c1-test-09-task-03-pb01",
+            "type": "paragraph",
+            "text": "You are a library user representative on a regional library network planning committee. The committee is considering a proposal to reduce opening hours at several branches to save money. The programme coordinator has asked for your views on the proposal."
+          },
+          {
+            "id": "c1-test-09-task-03-pb02",
+            "type": "final-instruction",
+            "text": "Write your email."
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-09-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Review of a Library Event Series",
+        "genre": "review",
+        "instruction": "Write a review for the regional library network's website. In your review, you should:\n\n• describe the event series and its aims\n• evaluate how well it achieved those aims\n• recommend whether the series should be continued or modified",
+        "promptBlocks": [
+          {
+            "id": "c1-test-09-task-04-pb01",
+            "type": "paragraph",
+            "text": "You see this announcement on a regional library network website."
+          },
+          {
+            "id": "c1-test-09-task-04-pb02",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Reviews wanted: Library event series",
+            "paragraphs": [
+              "Have you attended any of our 'Libraries Connect' events this year? These events aimed to bring together library users and local organisations to discuss community needs. We would like to hear your views on how successful the series has been and whether it should continue.",
+              "Send us your review and we will publish the best ones on our website."
+            ]
+          },
+          {
+            "id": "c1-test-09-task-04-pb03",
+            "type": "final-instruction",
+            "text": "Write your review."
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "c1-test-09",
+    "overallOriginalityCheck": "PASS",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "a regional library network planning brief 3: essay brief 1-1",
+        "audience": "English teacher",
+        "purpose": "evaluate and justify priorities",
+        "requiredContentPoints": [
+          "the main public libraries issue",
+          "one practical consequence",
+          "a justified recommendation 1"
+        ],
+        "lexicalAnchors": [
+          "public libraries",
+          "free access",
+          "financial responsibility"
+        ],
+        "originalitySelfCheck": "PASS - unique scenario, no overlap with existing tests",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "a regional library network planning brief 3: proposal brief 2-5",
+        "audience": "specialist magazine readers",
+        "purpose": "assess effectiveness and recommend",
+        "requiredContentPoints": [
+          "the main public libraries issue",
+          "one practical consequence",
+          "a justified recommendation 2"
+        ],
+        "lexicalAnchors": [
+          "public libraries",
+          "outreach programme",
+          "underserved communities"
+        ],
+        "originalitySelfCheck": "PASS - unique scenario, no overlap with existing tests",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "a regional library network planning brief 3: email brief 3-9",
+        "audience": "programme coordinator",
+        "purpose": "analyse implications and propose action",
+        "requiredContentPoints": [
+          "the main public libraries issue",
+          "one practical consequence",
+          "a justified recommendation 3"
+        ],
+        "lexicalAnchors": [
+          "public libraries",
+          "opening hours",
+          "cost saving"
+        ],
+        "originalitySelfCheck": "PASS - unique scenario, no overlap with existing tests",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 4,
+        "scenario": "a regional library network planning brief 3: review brief 4-13",
+        "audience": "English-speaking contact",
+        "purpose": "explain a position and request arrangements",
+        "requiredContentPoints": [
+          "the main public libraries issue",
+          "one practical consequence",
+          "a justified recommendation 4"
+        ],
+        "lexicalAnchors": [
+          "public libraries",
+          "event series",
+          "community needs"
+        ],
+        "originalitySelfCheck": "PASS - unique scenario, no overlap with existing tests",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ]
+  },
+  "cachedAt": 1785307077269
+}

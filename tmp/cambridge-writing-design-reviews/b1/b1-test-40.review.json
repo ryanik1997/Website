@@ -1,0 +1,75 @@
+{
+  "testId": "b1-test-40",
+  "level": "b1",
+  "topicFamily": "healthy cooking",
+  "specificSetting": "a family cooking challenge planning brief 34",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Student helps plan a family cooking challenge by emailing the teacher about focus, a practical problem, and post-challenge support.",
+      "audience": "English teacher (Mrs Hill)",
+      "purpose": "Evaluate and justify priorities for the challenge (fresh vegetables vs less sugar), describe a problem and solution, suggest a way to sustain healthy cooking, and ask about the date.",
+      "requiredContentPoints": [
+        "the main healthy cooking issue (focus on fresh vegetables or less sugar)",
+        "one practical consequence (a problem families might face)",
+        "a justified recommendation (way to encourage healthy cooking after challenge)"
+      ],
+      "lexicalAnchors": [
+        "healthy cooking",
+        "family cooking challenge",
+        "fresh vegetables",
+        "less sugar",
+        "practical problem",
+        "encourage healthy cooking"
+      ],
+      "originalitySelfCheck": "Scenario is a family cooking challenge planning brief, not used in any previous test. Email structure with four notes is original. No overlap with forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Student writes an article for a specialist magazine about the family cooking challenge, explaining key learning, long-term benefits, and recommendation.",
+      "audience": "Specialist magazine readers",
+      "purpose": "Assess effectiveness of the challenge and recommend it to others.",
+      "requiredContentPoints": [
+        "the main healthy cooking issue (most important thing families should learn)",
+        "one practical consequence (how challenge helps long-term eating)",
+        "a justified recommendation (whether to recommend to other families)"
+      ],
+      "lexicalAnchors": [
+        "healthy cooking",
+        "family cooking challenge",
+        "most important thing",
+        "long term",
+        "recommend"
+      ],
+      "originalitySelfCheck": "Article genre with three direct questions about the challenge. Not a reused frame from previous tests. No forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Student writes a story beginning with a sentence about the family's nervous reaction to the cooking challenge announcement.",
+      "audience": "Programme coordinator (via teacher)",
+      "purpose": "Analyse implications and propose action through narrative.",
+      "requiredContentPoints": [
+        "the main healthy cooking issue (family's nervousness about challenge)",
+        "one practical consequence (how they respond)",
+        "a justified recommendation (implied through story resolution)"
+      ],
+      "lexicalAnchors": [
+        "healthy cooking",
+        "family cooking challenge",
+        "nervously",
+        "programme coordinator",
+        "next week"
+      ],
+      "originalitySelfCheck": "Story opening is unique and matches the specific setting. Not similar to any previous story opening. No forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are built around the specific setting 'a family cooking challenge planning brief 34'. No overlap with existing test fingerprints. Forbidden concepts avoided.",
+  "status": "PASS",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "493061481b0b71ef614d6a0c83ac56e63026bd4a6015046c1deb7c180eeecf80"
+  }
+}

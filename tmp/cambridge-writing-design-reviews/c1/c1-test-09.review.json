@@ -1,0 +1,82 @@
+{
+  "testId": "c1-test-09",
+  "overallOriginalityCheck": "PASS",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "a regional library network planning brief 3: essay brief 1-1",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "the main public libraries issue",
+        "one practical consequence",
+        "a justified recommendation 1"
+      ],
+      "lexicalAnchors": [
+        "public libraries",
+        "free access",
+        "financial responsibility"
+      ],
+      "originalitySelfCheck": "PASS - unique scenario, no overlap with existing tests",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "a regional library network planning brief 3: proposal brief 2-5",
+      "audience": "specialist magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "the main public libraries issue",
+        "one practical consequence",
+        "a justified recommendation 2"
+      ],
+      "lexicalAnchors": [
+        "public libraries",
+        "outreach programme",
+        "underserved communities"
+      ],
+      "originalitySelfCheck": "PASS - unique scenario, no overlap with existing tests",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "a regional library network planning brief 3: email brief 3-9",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "the main public libraries issue",
+        "one practical consequence",
+        "a justified recommendation 3"
+      ],
+      "lexicalAnchors": [
+        "public libraries",
+        "opening hours",
+        "cost saving"
+      ],
+      "originalitySelfCheck": "PASS - unique scenario, no overlap with existing tests",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "a regional library network planning brief 3: review brief 4-13",
+      "audience": "English-speaking contact",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "the main public libraries issue",
+        "one practical consequence",
+        "a justified recommendation 4"
+      ],
+      "lexicalAnchors": [
+        "public libraries",
+        "event series",
+        "community needs"
+      ],
+      "originalitySelfCheck": "PASS - unique scenario, no overlap with existing tests",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "69a6e45e7a37ff775563c31491824bbd0b65bc46af30a4c6b7aca3a362cbad27"
+  }
+}

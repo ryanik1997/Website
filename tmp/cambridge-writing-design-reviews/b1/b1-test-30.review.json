@@ -1,0 +1,60 @@
+{
+  "task1": {
+    "scenario": "a school health week planning brief 24: email brief 1-1",
+    "audience": "English teacher (Mrs. Hill)",
+    "purpose": "evaluate and justify priorities: choose two activities and a timing preference, suggest a sign-up method, ask about budget",
+    "requiredContentPoints": [
+      "choose two activities and give reasons",
+      "prefer during lessons or after school with reason",
+      "suggest one way to encourage sign-ups",
+      "ask about budget"
+    ],
+    "lexicalAnchors": [
+      "health week",
+      "healthy cooking workshop",
+      "yoga session",
+      "talk by local doctor",
+      "sign up"
+    ],
+    "originalitySelfCheck": "Email scenario is specific to health week planning, not reused from previous tests. Notes panel has four distinct points. No generic phrases."
+  },
+  "task2": {
+    "scenario": "a school health week planning brief 24: article brief 2-5",
+    "audience": "specialist magazine readers",
+    "purpose": "assess effectiveness and recommend: discuss whether Health Week helps students and which activity is most effective",
+    "requiredContentPoints": [
+      "opinion on whether Health Week makes students more interested in healthy living",
+      "most effective type of activity"
+    ],
+    "lexicalAnchors": [
+      "health week",
+      "healthy living",
+      "activity",
+      "effective"
+    ],
+    "originalitySelfCheck": "Article prompt is about health week effectiveness, not a generic 'articles wanted' topic. Two direct questions. No reused skeleton."
+  },
+  "task3": {
+    "scenario": "a school health week planning brief 24: story brief 3-9",
+    "audience": "programme coordinator (as character in story)",
+    "purpose": "analyse implications and propose action: continue a story about noticing something strange on a health week activity list",
+    "requiredContentPoints": [
+      "something strange at the bottom of the page",
+      "consequence or discovery",
+      "resolution or action"
+    ],
+    "lexicalAnchors": [
+      "health week activities",
+      "list",
+      "strange",
+      "page"
+    ],
+    "originalitySelfCheck": "Story opening is unique to health week scenario, not similar to any previous test. No reused sentence skeleton."
+  },
+  "forbiddenConceptCheck": "PASS",
+  "overallOriginality": "All tasks are designed around the specific setting of a school health week planning brief, with concrete audiences and purposes. No forbidden concepts detected. No generic phrases used.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "042693d19527b06f477a49b8b3ce8f41949e87b10aba976739ef8b4198ff9c3f"
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "id": "ket-a2-writing-test-49",
+  "level": "a2",
+  "testNumber": 49,
+  "title": "KET A2 Writing · Test 49",
+  "status": "draft",
+  "version": 1,
+  "tasks": [
+    {
+      "id": "ket-a2-writing-test-49-task-31",
+      "partNumber": 6,
+      "taskNumber": 31,
+      "title": "Question 31",
+      "genre": "email",
+      "instruction": "Write 25 words or more.",
+      "promptText": "Isabel wants to talk about dog walk. which path to use. what toy to bring. when to come.",
+      "promptBlocks": [
+        {
+          "id": "ket-a2-writing-test-49-task-31-lead",
+          "type": "paragraph",
+          "text": "Read this email from your English friend Isabel."
+        },
+        {
+          "id": "ket-a2-writing-test-49-task-31-email",
+          "type": "email",
+          "from": "Isabel",
+          "subject": "Dog walking",
+          "greeting": "Hi,",
+          "paragraphs": [
+            "I am writing about dog walk. which path to use? what toy to bring?",
+            "when to come? Please write soon."
+          ],
+          "closing": "See you soon,",
+          "sender": "Isabel"
+        },
+        {
+          "id": "ket-a2-writing-test-49-task-31-final",
+          "type": "final-instruction",
+          "text": "Write an email to Isabel and answer the questions."
+        }
+      ],
+      "presentation": {
+        "template": "email"
+      },
+      "wordLimit": {
+        "min": 25,
+        "displayText": "25 words or more"
+      },
+      "metadata": {
+        "compulsory": true,
+        "sourceQuestionNumber": "31"
+      }
+    },
+    {
+      "id": "ket-a2-writing-test-49-task-32",
+      "partNumber": 7,
+      "taskNumber": 32,
+      "title": "Question 32",
+      "genre": "story",
+      "instruction": "Write 35 words or more.",
+      "promptText": "Look at the three pictures. Write the story shown in the pictures.",
+      "presentation": {
+        "template": "plain"
+      },
+      "wordLimit": {
+        "min": 35,
+        "displayText": "35 words or more"
+      },
+      "metadata": {
+        "compulsory": true,
+        "sourceQuestionNumber": "32",
+        "ketImageRequired": true,
+        "ketImageBrief": {
+          "title": "dog walk",
+          "panel1": "Isabel starts dog walk with a clear plan.",
+          "panel2": "A small problem changes the plan.",
+          "panel3": "Isabel solves it and finishes happily.",
+          "continuityNotes": [
+            "Keep the same child and objects in all three panels."
+          ]
+        }
+      }
+    }
+  ]
+}

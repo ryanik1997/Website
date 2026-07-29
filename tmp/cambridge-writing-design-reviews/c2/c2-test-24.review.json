@@ -1,0 +1,82 @@
+{
+  "overallOriginalityCheck": "PASS",
+  "forbiddenConceptsCheck": "PASS",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Two source texts debating whether creative workshops should be judged by measurable public value or protected for intangible benefits.",
+      "audience": "English teacher (educated general reader)",
+      "purpose": "Synthesise competing claims, evaluate assumptions, develop independent position on accountability vs. creative freedom.",
+      "requiredContentPoints": [
+        "intangible vs. measurable value",
+        "accountability to public funders",
+        "own conceptual distinction"
+      ],
+      "lexicalAnchors": [
+        "creative workshops",
+        "public value",
+        "measurable outcomes",
+        "intangible benefits"
+      ],
+      "originalitySelfCheck": "PASS: Source texts are original, no overlap with previous C2 tests. Topic is distinct from education, work, environment, etc."
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Review of a creative workshop programme that balances creative freedom with community benefit.",
+      "audience": "Specialist magazine readers (arts organisers)",
+      "purpose": "Assess effectiveness of programme in balancing creative autonomy with public value, recommend model.",
+      "requiredContentPoints": [
+        "programme description and intended public value",
+        "balance between creative autonomy and community outcomes",
+        "recommendation for other organisers"
+      ],
+      "lexicalAnchors": [
+        "creative workshop programme",
+        "public value",
+        "creative autonomy",
+        "community benefit"
+      ],
+      "originalitySelfCheck": "PASS: Review genre, no similar review in avoided fingerprints. Unique scenario."
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Report for a trust funding creative workshops, analysing implications of requiring tangible outcomes.",
+      "audience": "Programme coordinator (Dr. Helena Novak, Creative Trust)",
+      "purpose": "Analyse implications of current programme design, propose action to balance freedom and accountability.",
+      "requiredContentPoints": [
+        "impact of tangible outcome requirement on creative process",
+        "consequences for long-term public value",
+        "concrete action to balance freedom and accountability"
+      ],
+      "lexicalAnchors": [
+        "creative workshop programme",
+        "tangible outcomes",
+        "creative freedom",
+        "accountability"
+      ],
+      "originalitySelfCheck": "PASS: Report genre, unique email from fictional trust. No overlap with previous report tasks."
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Article for an online magazine about whether publicly funded creative workshops should serve measurable social value or be free to explore.",
+      "audience": "English-speaking contact (friend/editor) and magazine readers",
+      "purpose": "Explain position on creative freedom vs. public accountability, describe consequence, suggest funding approach, request follow-up discussion.",
+      "requiredContentPoints": [
+        "main tension between creative freedom and public accountability",
+        "practical consequence of preferred approach",
+        "how funding bodies can support both integrity and community benefit"
+      ],
+      "lexicalAnchors": [
+        "creative workshops",
+        "public accountability",
+        "creative freedom",
+        "funding"
+      ],
+      "originalitySelfCheck": "PASS: Article genre, personal perspective via friend request. No overlap with previous article tasks."
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "ce384b2ac9f20e077215bcc7c4255bb1b477963621957912f400d09d8f9ce2b2"
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "testId": "c1-test-34",
+  "topicFamily": "public libraries",
+  "specificSetting": "a regional library network planning brief 28",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Essay: Discuss two of three priorities for a regional library network (Sunday opening, digital learning spaces, mobile library) and decide which is more important.",
+      "audience": "English teacher (tutor)",
+      "purpose": "Evaluate and justify priorities",
+      "requiredContentPoints": [
+        "extending opening hours to include Sunday",
+        "creating dedicated digital learning spaces",
+        "introducing a mobile library service for rural areas"
+      ],
+      "lexicalAnchors": [
+        "regional library network",
+        "Sunday opening",
+        "digital learning spaces",
+        "mobile library",
+        "rural areas"
+      ],
+      "originalitySelfCheck": "Unique scenario: library network priorities. Not reused from any previous test. Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Proposal: Assess current outreach and recommend two new initiatives to reach underserved communities.",
+      "audience": "Regional library network director",
+      "purpose": "Assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "assess current outreach effectiveness",
+        "recommend two new initiatives",
+        "explain benefits for library and community"
+      ],
+      "lexicalAnchors": [
+        "outreach programme",
+        "underserved communities",
+        "library services",
+        "initiatives"
+      ],
+      "originalitySelfCheck": "Unique proposal scenario: outreach programme for library network. Not a copy of previous proposal tasks.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Email: Respond to proposal to reduce opening hours; explain necessity, analyse negative consequence, propose solution.",
+      "audience": "Programme coordinator",
+      "purpose": "Analyse implications and propose action",
+      "requiredContentPoints": [
+        "explain why changes are necessary",
+        "analyse one potential negative consequence",
+        "propose a way to address that consequence"
+      ],
+      "lexicalAnchors": [
+        "opening hours",
+        "budget cuts",
+        "library branches",
+        "negative consequence"
+      ],
+      "originalitySelfCheck": "Unique email scenario: library opening hours reduction. Not reused from previous tests.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Review: Evaluate a library event series 'Libraries Connect' and recommend continuation or modification.",
+      "audience": "Regional library network website readers (English-speaking contact)",
+      "purpose": "Explain a position and request arrangements (implicitly through recommendation)",
+      "requiredContentPoints": [
+        "describe event series and aims",
+        "evaluate how well it achieved aims",
+        "recommend continuation or modification"
+      ],
+      "lexicalAnchors": [
+        "Libraries Connect",
+        "event series",
+        "library users",
+        "local organisations",
+        "community needs"
+      ],
+      "originalitySelfCheck": "Unique review scenario: library event series. Not a copy of previous review tasks.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "centralTension": "access and convenience versus long-term responsibility in public libraries",
+  "stakeholders": [
+    "people affected by public libraries",
+    "organisers of a regional library network planning brief 28"
+  ],
+  "forbiddenConceptsCheck": "PASS",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "c34f4313e423bdb606bdb818c4b61f9e180a53fbc56f9cc8f07ad074d8ae16fb"
+  }
+}

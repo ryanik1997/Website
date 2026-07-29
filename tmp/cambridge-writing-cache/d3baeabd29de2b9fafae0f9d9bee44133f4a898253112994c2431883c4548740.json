@@ -1,0 +1,252 @@
+{
+  "inputHash": "c307d2a80ba14714e278bb9d4e93bb4733e95c757f28e3137dba4ed1c886885d",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-38:c307d2a80ba14714e278bb9d4e93bb4733e95c757f28e3137dba4ed1c886885d",
+  "test": {
+    "id": "b2-test-38",
+    "level": "b2",
+    "testNumber": 38,
+    "title": "FCE B2 AI Practice Test 38",
+    "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-38.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "b2-test-38-1785317038633",
+      "generatedAt": 1785317054544,
+      "contentHash": "34741d7a24ce8f8d38df7208da9a1497cd20f4c96d7e084d34d4633365511741",
+      "promptHash": "c307d2a80ba14714e278bb9d4e93bb4733e95c757f28e3137dba4ed1c886885d",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-38:c307d2a80ba14714e278bb9d4e93bb4733e95c757f28e3137dba4ed1c886885d",
+      "inputHash": "c307d2a80ba14714e278bb9d4e93bb4733e95c757f28e3137dba4ed1c886885d",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "b2-test-38-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Essay: Digital study tools in schools",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write 140–190 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-38-task-01-panel-01",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Notes",
+            "paragraphs": [
+              "Write about:",
+              "1. equal access for all students",
+              "2. effect on concentration and study habits",
+              "3. ......................... (your own idea)"
+            ]
+          },
+          {
+            "id": "b2-test-38-task-01-final-01",
+            "type": "final-instruction",
+            "text": "Write an essay using all the notes and giving reasons for your point of view."
+          }
+        ],
+        "presentation": {
+          "template": "essay-notes"
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "b2-test-38-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Review: Digital study tool",
+        "genre": "review",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-38-task-02-panel-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Reviews wanted!",
+            "paragraphs": [
+              "Have you used a digital study tool recently – for example, a flashcard app, a note-taking platform or an online quiz site? Write a review of the tool for our college website.",
+              "Describe what it does, say how effective it was for your learning, and explain whether you would recommend it to other students.",
+              "The best reviews will be published on the website."
+            ]
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b2-test-38-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Article: Responsible use of digital tools",
+        "genre": "article",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-38-task-03-panel-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Articles wanted!",
+            "paragraphs": [
+              "How can students use digital study tools responsibly?",
+              "Write an article for our programme coordinator's website. Suggest one way students can avoid over-reliance on digital tools, explain how this could improve their learning, and describe the benefits for their long-term study skills.",
+              "We will publish the best articles on our website."
+            ]
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b2-test-38-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Email: Digital study tools at your school",
+        "genre": "email",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-38-task-04-email-01",
+            "type": "email",
+            "from": "Alex",
+            "subject": "Digital study tools at your school",
+            "paragraphs": [
+              "Hi,",
+              "I heard your school has started using digital study tools in some subjects. I'm thinking of suggesting a similar approach at my school.",
+              "Can you tell me which tool you find most useful and why? Also, what problems have you experienced with digital tools? And how could we convince teachers who prefer traditional methods?",
+              "Thanks,",
+              "Alex"
+            ]
+          }
+        ],
+        "presentation": {
+          "template": "email",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "b2-test-38",
+    "topicFamily": "digital study tools",
+    "specificSetting": "a blended-learning platform planning brief 32",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "Essay discussing the most important issue when introducing digital study tools in schools, with notes on equal access, effect on concentration, and own idea.",
+        "audience": "English teacher",
+        "purpose": "evaluate and justify priorities",
+        "requiredContentPoints": [
+          "the main digital study tools issue",
+          "one practical consequence",
+          "a justified recommendation 1"
+        ],
+        "lexicalAnchors": [
+          "digital study tools",
+          "equal access",
+          "concentration",
+          "study habits"
+        ],
+        "originalitySelfCheck": "Scenario is unique: essay on digital study tools with notes on access and concentration. No overlap with existing tests.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "Review of a digital study tool (e.g., flashcard app, note-taking platform, online quiz site) for a college website.",
+        "audience": "specialist magazine readers",
+        "purpose": "assess effectiveness and recommend",
+        "requiredContentPoints": [
+          "the main digital study tools issue",
+          "one practical consequence",
+          "a justified recommendation 2"
+        ],
+        "lexicalAnchors": [
+          "digital study tool",
+          "flashcard app",
+          "note-taking platform",
+          "online quiz site"
+        ],
+        "originalitySelfCheck": "Review of a digital tool; not a book review or event review. Unique among existing tests.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "Article for a programme coordinator's website on how students can use digital study tools responsibly, suggesting one way to avoid over-reliance.",
+        "audience": "programme coordinator",
+        "purpose": "analyse implications and propose action",
+        "requiredContentPoints": [
+          "the main digital study tools issue",
+          "one practical consequence",
+          "a justified recommendation 3"
+        ],
+        "lexicalAnchors": [
+          "digital study tools",
+          "responsible use",
+          "over-reliance",
+          "long-term study skills"
+        ],
+        "originalitySelfCheck": "Article on responsible use of digital tools; not a generic 'learning beyond lessons' article. Unique.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 4,
+        "scenario": "Email to a friend explaining which digital tool is most useful, problems experienced, and how to convince traditional teachers.",
+        "audience": "English-speaking contact",
+        "purpose": "explain a position and request arrangements",
+        "requiredContentPoints": [
+          "the main digital study tools issue",
+          "one practical consequence",
+          "a justified recommendation 4"
+        ],
+        "lexicalAnchors": [
+          "digital study tools",
+          "useful tool",
+          "problems",
+          "convince teachers"
+        ],
+        "originalitySelfCheck": "Email about digital tools; not a holiday or event email. Unique scenario.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ],
+    "overallOriginalityStatement": "All tasks are original, based on the digital study tools topic family, with concrete audiences and purposes. No forbidden concepts or overlaps with existing tests."
+  },
+  "cachedAt": 1785317054554
+}

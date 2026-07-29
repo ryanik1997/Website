@@ -1,0 +1,153 @@
+{
+  "id": "c2-test-09",
+  "level": "c2",
+  "testNumber": 9,
+  "title": "CPE C2 AI Practice Test 09",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-09.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "c2-test-09-1785307268161",
+    "generatedAt": 1785307294557,
+    "contentHash": "294ff68f180655f8c99903b1d9b59643d34b09a88fbc7a51ab14aef8f5b892c7",
+    "promptHash": "5d7ea7ebea09295b118bb1659c308addbb92872de0bfaa6603efcbd636ae6020",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-09:5d7ea7ebea09295b118bb1659c308addbb92872de0bfaa6603efcbd636ae6020",
+    "inputHash": "5d7ea7ebea09295b118bb1659c308addbb92872de0bfaa6603efcbd636ae6020",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "c2-test-09-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Public libraries: access or responsibility?",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write an essay summarising and evaluating the key points from both texts in 240–280 words. Use your own words throughout as far as possible, and include your own ideas in your answers.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-09-task-01-source-1",
+          "type": "source-text",
+          "label": "Text 1",
+          "title": "Libraries as community hubs",
+          "text": "Public libraries have evolved far beyond their traditional role as repositories of books. In many communities, they now function as vital civic hubs, offering free internet access, workspaces, and a range of social programmes. For people who cannot afford private study spaces or reliable broadband, the library is often the only place where they can participate fully in digital society. This expanded role, however, brings new responsibilities. Libraries must balance the demand for quiet study with the need for community events, and they must serve diverse populations with sometimes conflicting needs. The challenge is to remain a welcoming space for everyone while adapting to rapidly changing social expectations. Those who defend the traditional library model argue that this broadening of purpose risks diluting the core mission of promoting literacy and learning. Yet the evidence suggests that libraries that embrace a civic role are more valued and better funded than those that cling to a narrow identity."
+        },
+        {
+          "id": "c2-test-09-task-01-source-2",
+          "type": "source-text",
+          "label": "Text 2",
+          "title": "The limits of the library as a social service",
+          "text": "The idea that public libraries should become all-purpose community centres is a well-intentioned but dangerous distraction. Libraries were founded on the principle of universal access to knowledge, and that mission is already under threat from budget cuts and digital disruption. Adding social services, such as housing advice or mental health support, stretches already limited resources and blurs the institution's purpose. Staff are trained as librarians, not social workers, and expecting them to handle complex social problems is unrealistic and unfair. Moreover, the push to turn libraries into civic hubs often leads to a reduction in book stock and quiet reading space, alienating the very users who value libraries for their original purpose. If libraries try to be everything to everyone, they risk becoming mediocre at everything. A more responsible approach would be to focus on what libraries do best: providing free access to information and fostering a culture of reading and independent learning."
+        }
+      ],
+      "presentation": {
+        "template": "source-texts"
+      },
+      "wordLimit": {
+        "min": 240,
+        "max": 280,
+        "displayText": "240–280 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c2-test-09-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Review of a library initiative",
+      "genre": "review",
+      "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-09-task-02-panel",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted: Library initiatives",
+          "paragraphs": [
+            "A specialist magazine for library professionals is running a series of reviews of innovative public library programmes. Have you visited or used a library that has introduced a new initiative to strengthen its civic role? Write a review for the magazine.",
+            "In your review, describe the initiative and its aims, evaluate how effectively it serves the local community, and recommend whether other libraries should adopt a similar approach."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-09-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Report on library usage patterns",
+      "genre": "report",
+      "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-09-task-03-panel",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Report: Library usage and civic engagement",
+          "paragraphs": [
+            "You are a consultant hired by the Civic Libraries Foundation. The programme coordinator has asked you to write a report on how current library usage patterns affect civic engagement in the communities served. Your report should analyse the implications of declining traditional borrowing and increasing demand for non-traditional services, and propose actions that libraries could take to strengthen their civic role without compromising their core mission."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-09-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "The future of public libraries",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-09-task-04-panel",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted: The future of public libraries",
+          "paragraphs": [
+            "An international online magazine is inviting readers to submit articles on the theme 'The Future of Public Libraries'. You decide to write an article in which you explain your position on whether libraries should prioritise their traditional role as knowledge centres or embrace a broader civic mission. In your article, discuss what you see as the main challenge facing public libraries today, describe one practical consequence of getting the balance wrong, and recommend a specific approach that would allow libraries to serve their communities effectively in the coming decades."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

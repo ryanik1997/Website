@@ -1,0 +1,64 @@
+{
+  "testId": "b1-test-18",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "a conversation club for newcomers planning brief 12: email brief 1-1",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "the main language learning issue",
+        "one practical consequence",
+        "a justified recommendation 1"
+      ],
+      "lexicalAnchors": [
+        "language learning",
+        "a conversation club for newcomers planning brief 12",
+        "b1 writing brief"
+      ],
+      "originalitySelfCheck": "Email uses a new scenario (conversation club for newcomers) with specific choices (day, activity, welcome idea). Notes include four distinct points. No overlap with previous tests.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "a conversation club for newcomers planning brief 12: article brief 2-5",
+      "audience": "specialist magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "the main language learning issue",
+        "one practical consequence",
+        "a justified recommendation 2"
+      ],
+      "lexicalAnchors": [
+        "language learning",
+        "a conversation club for newcomers planning brief 12",
+        "b1 writing brief"
+      ],
+      "originalitySelfCheck": "Article asks about conversation clubs helping speaking skills and what is most important. Uses 'specialist magazine website for language teachers' as audience. Two direct questions. No overlap.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "a conversation club for newcomers planning brief 12: story brief 3-9",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "the main language learning issue",
+        "one practical consequence",
+        "a justified recommendation 3"
+      ],
+      "lexicalAnchors": [
+        "language learning",
+        "a conversation club for newcomers planning brief 12",
+        "b1 writing brief"
+      ],
+      "originalitySelfCheck": "Story opening is unique: 'When the programme coordinator asked me to lead the conversation club, I felt both excited and nervous.' No similar opening in any previous test. Scenario matches plan.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityNote": "All tasks use the specific setting 'a conversation club for newcomers planning brief 12' as required. No reuse of scenarios, audiences, or content points from previous tests. Forbidden concepts avoided.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "a034fe4c1f72f1d5fff2014dcdd0c94bad2b715bcc349297dcddc1bbd6c09b60"
+  }
+}

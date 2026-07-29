@@ -1,0 +1,13 @@
+{
+  "batchId": "c1-test-09-1785306967817",
+  "generatedAt": 1785307053163,
+  "requested": 1,
+  "results": [
+    {
+      "testId": "c1-test-09",
+      "status": "failed",
+      "error": "[\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"null\",\n    \"path\": [\n      \"tasks\",\n      0,\n      \"promptText\"\n    ],\n    \"message\": \"Expected string, received null\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"null\",\n    \"path\": [\n      \"tasks\",\n      1,\n      \"promptText\"\n    ],\n    \"message\": \"Expected string, received null\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"null\",\n    \"path\": [\n      \"tasks\",\n      2,\n      \"promptText\"\n    ],\n    \"message\": \"Expected string, received null\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"null\",\n    \"path\": [\n      \"tasks\",\n      3,\n      \"promptText\"\n    ],\n    \"message\": \"Expected string, received null\"\n  }\n]"
+    }
+  ],
+  "failed": 1
+}

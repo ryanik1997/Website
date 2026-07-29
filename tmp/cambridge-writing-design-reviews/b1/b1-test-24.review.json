@@ -1,0 +1,68 @@
+{
+  "testId": "b1-test-24",
+  "tasks": [
+    {
+      "taskId": "b1-test-24-task-01",
+      "scenario": "Planning a photography workshop for teenagers – email to teacher about priorities, practical organisation, affordability, and date.",
+      "audience": "English teacher (Mrs. Hill)",
+      "purpose": "Evaluate and justify priorities (technical skills vs. expressing ideas), choose a practical activity, suggest affordability, ask about date.",
+      "requiredContentPoints": [
+        "preferred goal (technical skills or expressing ideas) with reason",
+        "preferred practical thing (exhibition visit or photographer talk) with reason",
+        "one way to make workshop affordable",
+        "question about date"
+      ],
+      "lexicalAnchors": [
+        "photography workshop",
+        "technical skills",
+        "expressing ideas",
+        "exhibition visit",
+        "photographer talk",
+        "affordable"
+      ],
+      "originalitySelfCheck": "Scenario unique: photography workshop planning, not used in any previous test. Email structure with notes panel, four distinct content points, no overlap with forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "b1-test-24-task-02",
+      "scenario": "Article for town website about a planned photography workshop for teenagers.",
+      "audience": "Specialist magazine readers (town website visitors)",
+      "purpose": "Assess effectiveness and recommend – give opinion on the workshop idea and suggest what to learn.",
+      "requiredContentPoints": [
+        "opinion on whether the workshop is a good idea",
+        "what you would like to learn"
+      ],
+      "lexicalAnchors": [
+        "photography workshop",
+        "good idea",
+        "learn"
+      ],
+      "originalitySelfCheck": "Announcement format, two direct questions, no reused frame from previous tests. Topic distinct from any earlier article.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "b1-test-24-task-03",
+      "scenario": "Story beginning with a specific sentence about a memory card and note found in a camera bag during a photography workshop.",
+      "audience": "Programme coordinator (English teacher)",
+      "purpose": "Analyse implications and propose action – continue the story from the given opening.",
+      "requiredContentPoints": [
+        "the main photography workshop issue (implied by the opening)",
+        "one practical consequence",
+        "a justified recommendation (implied by story resolution)"
+      ],
+      "lexicalAnchors": [
+        "programme coordinator",
+        "camera bag",
+        "memory card",
+        "note"
+      ],
+      "originalitySelfCheck": "Opening sentence unique: involves a memory card and note, not used in any existing test. No resemblance to previous story openings.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are original, no reused scenarios, no forbidden concepts, no generic phrases. Design matches designFingerprint exactly.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "6fdad5660215719384005c3778e4e7b4fc4a5851410ed05a753ad6a6d0995d6a"
+  }
+}

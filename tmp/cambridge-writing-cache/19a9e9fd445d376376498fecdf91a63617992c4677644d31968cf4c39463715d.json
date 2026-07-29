@@ -1,0 +1,270 @@
+{
+  "inputHash": "f5333c31da7e515c576486b9b520b3773e7c34178e919e21c3a64bcafb8f6add",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-30:f5333c31da7e515c576486b9b520b3773e7c34178e919e21c3a64bcafb8f6add",
+  "test": {
+    "id": "c1-test-30",
+    "level": "c1",
+    "testNumber": 30,
+    "title": "CAE C1 AI Practice Test 30",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-30.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c1-test-30-1785313227404",
+      "generatedAt": 1785313247109,
+      "contentHash": "cb8423c43f6cb99c7498d64e4c9a8da88ee3b0c4965c856acff81cf0b13916ec",
+      "promptHash": "f5333c31da7e515c576486b9b520b3773e7c34178e919e21c3a64bcafb8f6add",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-30:f5333c31da7e515c576486b9b520b3773e7c34178e919e21c3a64bcafb8f6add",
+      "inputHash": "f5333c31da7e515c576486b9b520b3773e7c34178e919e21c3a64bcafb8f6add",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c1-test-30-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Essay: Prioritising public health campaigns",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-30-task-01-block-01",
+            "type": "paragraph",
+            "text": "Your class has listened to a radio discussion about how a public health equity plan should allocate funding to local health campaigns. You have made the notes below."
+          },
+          {
+            "id": "c1-test-30-task-01-block-02",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Priorities for public health campaigns",
+            "listItems": [
+              "targeted screening programmes for high-risk groups",
+              "community-based exercise initiatives",
+              "public awareness campaigns about nutrition"
+            ]
+          },
+          {
+            "id": "c1-test-30-task-01-block-03",
+            "type": "panel",
+            "variant": "opinions",
+            "paragraphs": [
+              "Screening programmes catch diseases early and save lives, but they only reach people who already engage with healthcare.",
+              "Exercise initiatives build long-term health and social connections, yet they require sustained funding and participation.",
+              "Awareness campaigns are cheap and wide-reaching, but they rarely change behaviour on their own."
+            ]
+          },
+          {
+            "id": "c1-test-30-task-01-block-04",
+            "type": "final-instruction",
+            "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for the public health equity plan to invest in, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+          }
+        ],
+        "presentation": {
+          "template": "essay-notes-opinions"
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c1-test-30-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Proposal: Community exercise programme",
+        "genre": "proposal",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-30-task-02-block-01",
+            "type": "paragraph",
+            "text": "Your local health authority is planning to launch a community-based exercise initiative aimed at adults who are currently inactive. The authority has invited proposals from community groups for how this initiative should be designed."
+          },
+          {
+            "id": "c1-test-30-task-02-block-02",
+            "type": "final-instruction",
+            "text": "Write a proposal for the health authority. In your proposal, you should:\n\n• recommend two specific types of exercise activities the initiative should offer\n• explain how these activities would benefit participants and the wider community\n• suggest how the authority could ensure the initiative reaches those who are least active"
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-30-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Email: Nutrition campaign concerns",
+        "genre": "email",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-30-task-03-block-01",
+            "type": "paragraph",
+            "text": "You are a community health worker for a public health equity plan. The programme coordinator has emailed you about a proposal to launch a nutrition awareness campaign that would use social media influencers to promote healthy eating. Some colleagues are concerned that this approach may oversimplify nutritional advice and could be misleading."
+          },
+          {
+            "id": "c1-test-30-task-03-block-02",
+            "type": "final-instruction",
+            "text": "Write an email to the programme coordinator. In your email, you should:\n\n• explain your position on using social media influencers for the campaign\n• analyse one potential implication for public understanding of nutrition\n• propose an action the plan could take to address concerns while still reaching a wide audience"
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-30-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Review: Health screening event",
+        "genre": "review",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-30-task-04-block-01",
+            "type": "paragraph",
+            "text": "You see this announcement on a local community website."
+          },
+          {
+            "id": "c1-test-30-task-04-block-02",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Reviews wanted: Health screening events",
+            "paragraphs": [
+              "Have you attended a free health screening event organised by the public health equity plan? We want to hear about your experience.",
+              "Write a review for our website. Describe the event and what it offered. Evaluate how well it balanced reaching people with convenience and providing thorough health information. Would you recommend this type of event to other communities? Why or why not?",
+              "The best reviews will be published on our website."
+            ]
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "c1-test-30",
+    "level": "c1",
+    "topicFamily": "public health campaigns",
+    "specificSetting": "a public health equity plan planning brief 24",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "Essay: Class discussion on funding priorities for public health campaigns within a public health equity plan.",
+        "audience": "English teacher (tutor)",
+        "purpose": "Evaluate and justify which of two priorities (screening, exercise, awareness) is more important for the plan to invest in.",
+        "requiredContentPoints": [
+          "targeted screening programmes for high-risk groups",
+          "community-based exercise initiatives",
+          "public awareness campaigns about nutrition"
+        ],
+        "lexicalAnchors": [
+          "public health campaigns",
+          "public health equity plan",
+          "screening programmes",
+          "exercise initiatives",
+          "awareness campaigns"
+        ],
+        "originalitySelfCheck": "Unique scenario: public health equity plan funding. Notes and opinions are original, not reused from previous tests. No forbidden concepts used.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "Proposal: Design a community exercise initiative for inactive adults, submitted to local health authority.",
+        "audience": "Health authority (programme coordinator)",
+        "purpose": "Recommend two exercise activities, explain benefits, and suggest how to reach the least active.",
+        "requiredContentPoints": [
+          "two specific types of exercise activities",
+          "benefits for participants and wider community",
+          "ensuring reach to least active"
+        ],
+        "lexicalAnchors": [
+          "community-based exercise initiative",
+          "inactive adults",
+          "health authority",
+          "reach"
+        ],
+        "originalitySelfCheck": "New scenario: community exercise initiative for inactive adults. No overlap with previous proposals. No forbidden concepts.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "Email: Respond to programme coordinator about using social media influencers for a nutrition campaign.",
+        "audience": "Programme coordinator of the public health equity plan",
+        "purpose": "Explain position on influencers, analyse implication for public understanding, propose action to address concerns.",
+        "requiredContentPoints": [
+          "position on using social media influencers",
+          "potential implication for public understanding of nutrition",
+          "proposed action to address concerns"
+        ],
+        "lexicalAnchors": [
+          "nutrition awareness campaign",
+          "social media influencers",
+          "public understanding",
+          "public health equity plan"
+        ],
+        "originalitySelfCheck": "New scenario: nutrition campaign using influencers. No similar email in previous tests. No forbidden concepts.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 4,
+        "scenario": "Review: Attend a free health screening event organised by the public health equity plan.",
+        "audience": "Local community website readers",
+        "purpose": "Describe the event, evaluate balance between convenience and thoroughness, recommend to other communities.",
+        "requiredContentPoints": [
+          "description of event and what it offered",
+          "evaluation of balance between convenience and thorough health information",
+          "recommendation for other communities"
+        ],
+        "lexicalAnchors": [
+          "health screening event",
+          "public health equity plan",
+          "convenience",
+          "health information"
+        ],
+        "originalitySelfCheck": "New scenario: health screening event review. No similar review in previous tests. No forbidden concepts.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ],
+    "overallOriginalityCheck": "All tasks are based on the unique topic family 'public health campaigns' and specific setting 'a public health equity plan planning brief 24'. No task reuses scenarios, audiences, content points, or lexical anchors from any previously generated test. All forbidden concepts are avoided.",
+    "status": "PASS"
+  },
+  "cachedAt": 1785313247153
+}

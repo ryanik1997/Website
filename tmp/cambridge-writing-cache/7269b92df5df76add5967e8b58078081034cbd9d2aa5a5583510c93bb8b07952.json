@@ -1,0 +1,260 @@
+{
+  "inputHash": "406966c4238c73926077791cdb4fb65592084f1912e72961a4abdebe682664a9",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-37:406966c4238c73926077791cdb4fb65592084f1912e72961a4abdebe682664a9",
+  "test": {
+    "id": "c1-test-37",
+    "level": "c1",
+    "testNumber": 37,
+    "title": "CAE C1 AI Practice Test 37",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-37.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c1-test-37-1785317109585",
+      "generatedAt": 1785317126937,
+      "contentHash": "fe818f65f2a33196b38eda6c7637a6241637f35277e33ee1950c3f71c66663b7",
+      "promptHash": "406966c4238c73926077791cdb4fb65592084f1912e72961a4abdebe682664a9",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-37:406966c4238c73926077791cdb4fb65592084f1912e72961a4abdebe682664a9",
+      "inputHash": "406966c4238c73926077791cdb4fb65592084f1912e72961a4abdebe682664a9",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c1-test-37-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Youth sports clubs: access vs. responsibility",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-37-task-01-block-01",
+            "type": "paragraph",
+            "text": "Your class has listened to a radio discussion about a national youth sport strategy that aims to balance making clubs accessible with ensuring long-term responsibility. You have made the notes below."
+          },
+          {
+            "id": "c1-test-37-task-01-block-02",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Priorities for youth sports clubs",
+            "listItems": [
+              "subsidising membership fees for low-income families",
+              "providing free transport to and from training sessions",
+              "investing in coach training and qualifications"
+            ]
+          },
+          {
+            "id": "c1-test-37-task-01-block-03",
+            "type": "panel",
+            "variant": "opinions",
+            "paragraphs": [
+              "Reducing fees is the most direct way to make clubs accessible to everyone, regardless of their background.",
+              "Transport is a hidden barrier – if kids can't get to practice, nothing else matters.",
+              "Well-trained coaches improve the quality of sessions and help keep young people engaged long-term."
+            ]
+          },
+          {
+            "id": "c1-test-37-task-01-block-04",
+            "type": "final-instruction",
+            "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for the success of youth sports clubs, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+          }
+        ],
+        "presentation": {
+          "template": "essay-notes-opinions"
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c1-test-37-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Proposal for a youth sports club partnership scheme",
+        "genre": "proposal",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-37-task-02-block-01",
+            "type": "paragraph",
+            "text": "The National Youth Sport Agency is considering a partnership scheme between local businesses and youth sports clubs to improve long-term financial sustainability. The agency has invited proposals from club representatives for how the scheme should work."
+          },
+          {
+            "id": "c1-test-37-task-02-block-02",
+            "type": "final-instruction",
+            "text": "Write a proposal for the agency. In your proposal, you should:\n• recommend two specific ways businesses could support clubs (e.g., funding, equipment, volunteering)\n• explain how these contributions would benefit both the clubs and the businesses\n• suggest how the agency could ensure the scheme is fair to clubs in different areas"
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-37-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Email to programme coordinator about training schedule change",
+        "genre": "email",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-37-task-03-block-01",
+            "type": "paragraph",
+            "text": "You are a volunteer coordinator for a local youth sports club. The club's programme coordinator has emailed you about a proposal to move all training sessions to weekday evenings instead of Saturday mornings. Some parents say this will make it easier for children to attend, but others worry it will interfere with homework and family time."
+          },
+          {
+            "id": "c1-test-37-task-03-block-02",
+            "type": "final-instruction",
+            "text": "Write an email to the programme coordinator. In your email, you should:\n• explain the potential implications of the schedule change for both attendance and family life\n• propose an action the club could take to address the concerns of parents while still improving access\n• request a meeting to discuss the proposal further"
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-37-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Review of a youth sports club open day",
+        "genre": "review",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-37-task-04-block-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Reviews wanted: Youth sports club open days",
+            "paragraphs": [
+              "Have you attended an open day at a local youth sports club recently? We want to hear about your experience.",
+              "Write a review for our community website. Describe the event and what it offered. Evaluate how well it balanced attracting new members with providing a genuine experience of the club. Would you recommend other clubs to organise similar open days? Why or why not?",
+              "The best reviews will be published on the website."
+            ]
+          },
+          {
+            "id": "c1-test-37-task-04-block-02",
+            "type": "final-instruction",
+            "text": "Write your review."
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "c1-test-37",
+    "level": "c1",
+    "topicFamily": "youth sports clubs",
+    "specificSetting": "a national youth sport strategy planning brief 31",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "Essay discussing priorities for youth sports clubs: subsidising fees, free transport, coach training",
+        "audience": "English teacher",
+        "purpose": "evaluate and justify priorities",
+        "requiredContentPoints": [
+          "subsidising membership fees for low-income families",
+          "providing free transport to and from training sessions",
+          "investing in coach training and qualifications"
+        ],
+        "lexicalAnchors": [
+          "youth sports clubs",
+          "a national youth sport strategy planning brief 31",
+          "c1 writing brief"
+        ],
+        "originalitySelfCheck": "Scenario is unique: national strategy, not local club. Notes and opinions are original. Forbidden concepts avoided."
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "Proposal for a partnership scheme between businesses and youth sports clubs",
+        "audience": "National Youth Sport Agency (specialist magazine readers)",
+        "purpose": "assess effectiveness and recommend",
+        "requiredContentPoints": [
+          "two ways businesses could support clubs",
+          "benefits for clubs and businesses",
+          "fairness across areas"
+        ],
+        "lexicalAnchors": [
+          "youth sports clubs",
+          "a national youth sport strategy planning brief 31",
+          "c1 writing brief"
+        ],
+        "originalitySelfCheck": "Proposal genre with institutional audience. Partnership scheme is new. Forbidden concepts avoided."
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "Email about moving training to weekday evenings, addressing parent concerns",
+        "audience": "programme coordinator",
+        "purpose": "analyse implications and propose action",
+        "requiredContentPoints": [
+          "implications for attendance and family life",
+          "action to address concerns",
+          "request meeting"
+        ],
+        "lexicalAnchors": [
+          "youth sports clubs",
+          "a national youth sport strategy planning brief 31",
+          "c1 writing brief"
+        ],
+        "originalitySelfCheck": "Email with three functions. Schedule change scenario is original. Forbidden concepts avoided."
+      },
+      {
+        "taskNumber": 4,
+        "scenario": "Review of a youth sports club open day",
+        "audience": "English-speaking contact (community website readers)",
+        "purpose": "explain a position and request arrangements",
+        "requiredContentPoints": [
+          "description of event",
+          "evaluation of balance between attracting members and genuine experience",
+          "recommendation"
+        ],
+        "lexicalAnchors": [
+          "youth sports clubs",
+          "a national youth sport strategy planning brief 31",
+          "c1 writing brief"
+        ],
+        "originalitySelfCheck": "Review genre with announcement template. Open day scenario is new. Forbidden concepts avoided."
+      }
+    ],
+    "forbiddenConceptCheck": "PASS"
+  },
+  "cachedAt": 1785317126946
+}

@@ -1,0 +1,185 @@
+{
+  "id": "b2-test-24",
+  "level": "b2",
+  "testNumber": 24,
+  "title": "FCE B2 AI Practice Test 24",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-24.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b2-test-24-1785312331081",
+    "generatedAt": 1785312350203,
+    "contentHash": "94af9b5fe251befc3230b19ccaf341cc19f66eb07d26ee9f8c35d8ace85799cf",
+    "promptHash": "2b47cec04645b47d8f96d668a13682f8f5c7c15851dfd4f374373a7561c4a310",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-24:2b47cec04645b47d8f96d668a13682f8f5c7c15851dfd4f374373a7561c4a310",
+    "inputHash": "2b47cec04645b47d8f96d668a13682f8f5c7c15851dfd4f374373a7561c4a310",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b2-test-24-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay: Creative workshops",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-24-task-01-block-01",
+          "type": "paragraph",
+          "text": "In your English class you have been discussing how to plan a creative industry workshop that is both accessible and responsible. Now your English teacher has asked you to write an essay."
+        },
+        {
+          "id": "b2-test-24-task-01-block-02",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "listItems": [
+            "1. choosing a convenient venue",
+            "2. providing quality materials",
+            "3. (your own idea)"
+          ]
+        },
+        {
+          "id": "b2-test-24-task-01-block-03",
+          "type": "final-instruction",
+          "text": "Write an essay using all the notes and giving reasons for your point of view."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes"
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b2-test-24-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Review: Creative workshop",
+      "genre": "review",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-24-task-02-block-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted!",
+          "paragraphs": [
+            "Have you attended a creative industry workshop recently? We want to hear about your experience.",
+            "Write a review of the workshop for our specialist magazine. Describe what the workshop involved, say how well it balanced convenience with quality, and explain whether you would recommend it to other creative professionals.",
+            "The best reviews will be published in the next issue."
+          ]
+        },
+        {
+          "id": "b2-test-24-task-02-block-02",
+          "type": "final-instruction",
+          "text": "Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-24-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Article: Involving young people",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-24-task-03-block-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted!",
+          "paragraphs": [
+            "Our creative industry programme wants to involve more young people in workshop planning. What would make them want to participate?",
+            "Write an article for the programme coordinator's website suggesting one practical way to attract young volunteers, explaining why it would work, and describing what the benefit would be for the workshops.",
+            "We will publish the best articles on our website."
+          ]
+        },
+        {
+          "id": "b2-test-24-task-03-block-02",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-24-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Email: Workshop arrangements",
+      "genre": "email",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-24-task-04-block-01",
+          "type": "email",
+          "from": "Marta Kowalski <m.kowalski@creativehub.org>",
+          "subject": "Creative workshop – your ideas",
+          "paragraphs": [
+            "Hi,",
+            "As you know, we are planning a creative industry workshop for local artists. I need your help to decide on a few things.",
+            "First, should we focus on hands-on making or on discussing creative business skills? Which do you think is more important and why?",
+            "Also, we need to choose a venue. Would you prefer a community centre or a shared studio space?",
+            "Finally, can you suggest one way to keep costs low without reducing quality?",
+            "Let me know your ideas!",
+            "Best wishes,",
+            "Marta"
+          ]
+        },
+        {
+          "id": "b2-test-24-task-04-block-02",
+          "type": "final-instruction",
+          "text": "Write your email to Marta. You should explain your preference for the focus, suggest a venue and give a reason, and propose a way to keep costs low."
+        }
+      ],
+      "presentation": {
+        "template": "email",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

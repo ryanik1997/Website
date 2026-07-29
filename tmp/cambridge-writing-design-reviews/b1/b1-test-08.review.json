@@ -1,0 +1,66 @@
+{
+  "testId": "b1-test-08",
+  "overallOriginalityCheck": "PASS - All tasks are original, no skeleton overlap with existing tests, and forbidden concepts avoided.",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "A bus route serving three villages - email to English teacher evaluating priorities",
+      "audience": "English teacher (Mrs Hill)",
+      "purpose": "Evaluate and justify priorities: choose between supermarket or train station, suggest bus time, give opinion on student fares, ask a question",
+      "requiredContentPoints": [
+        "Choose supermarket or train station – say why",
+        "Suggest a time for the first bus",
+        "Give your opinion on student fares",
+        "Ask Mrs Hill one question about the changes"
+      ],
+      "lexicalAnchors": [
+        "bus route",
+        "three villages",
+        "supermarket",
+        "train station",
+        "first bus",
+        "student fares"
+      ],
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "A bus route serving three villages - article for village magazine assessing effectiveness",
+      "audience": "Specialist magazine readers (village magazine readers)",
+      "purpose": "Assess effectiveness and recommend: give opinion on whether new route helps, suggest most important improvement",
+      "requiredContentPoints": [
+        "Opinion on whether new bus route will help the three villages",
+        "Most important thing the bus company should improve"
+      ],
+      "lexicalAnchors": [
+        "bus route",
+        "three villages",
+        "help",
+        "improve"
+      ],
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "A bus route serving three villages - story about a bus journey with a full bus",
+      "audience": "English teacher (programme coordinator)",
+      "purpose": "Analyse implications and propose action: continue a story from a given opening about a full bus",
+      "requiredContentPoints": [
+        "The bus is full",
+        "Consequence of the full bus",
+        "Resolution or action taken"
+      ],
+      "lexicalAnchors": [
+        "bus",
+        "full",
+        "villages",
+        "people"
+      ],
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "1f8a4a62613f564a00c78b8f48b7581d10a35b3afba762327d51c0378ff0f06d"
+  }
+}

@@ -10976,3 +10976,19 @@ Kiểm tra trực quan Light/Mid/Dark tại `/app/vocab`, `/app/listening`, `/ap
 - Regression tests bao phủ shared-unbounded, per-Part và shared-ranged. Verify: Listening tests 11/11 PASS; TypeScript PASS; `git diff --check` PASS.
 - Bump web lên v0.2.11; security check 9/9 và production build PASS. Deployment `dpl_8CBUerMTo2Ak559uiHLfiGFFgVB5` READY, alias `https://ryanenglishv2.vercel.app` đã cập nhật.
 - Next session start prompt: smoke production Cam 1 Test 3 xuyên ranh giới Part 1→2 và một KET practice per-Part audio.
+
+## 2026-07-29 - Task 18.1 KET A2 Part 7 image import
+
+- Imported 50 images for A2 Tests 02-51; source test52 ignored as out of range; Test01 unchanged.
+- SHA256 and JSON audit passed for all 50 assets. No AI/verifier/promote/publish run.
+- TypeScript, Writing page tests 9/9, index generation, and diff check passed.
+## 2026-07-29 - KET A2 Writing Test 52
+
+- Added deterministic blueprint and generated Test 52 (Part 6 + Part 7), imported `test52/part7-page.jpg`, and preserved the existing Test 01-51 corpus.
+- The Writing hub count now derives from the runtime collection and reports A2 as 52 tests.
+- TypeScript PASS; Cambridge Writing page tests 9/9 PASS; `git diff --check` PASS.
+## 2026-07-29 - Fix KET Writing card count
+
+- Root cause: `ExamTrackPage` hardcoded Cambridge A2 Writing count to `1`, bypassing the runtime catalog manifest.
+- Fix: card now reads `CAMBRIDGE_WRITING_MANIFEST.a2.testCount`, so it shows 52 after Test 52 is generated.
+- Verification: web TypeScript PASS; ExamSkillPicker test 1/1 PASS; `git diff --check` PASS.

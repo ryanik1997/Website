@@ -1,0 +1,91 @@
+{
+  "testId": "b2-test-20",
+  "level": "b2",
+  "topicFamily": "public parks",
+  "specificSetting": "a public park redesign planning brief 14",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Essay: Public park redesign priorities",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities (keeping park open 24h vs solar lighting vs own idea)",
+      "requiredContentPoints": [
+        "keeping the park open 24 hours a day",
+        "installing solar-powered lighting",
+        "own idea"
+      ],
+      "lexicalAnchors": [
+        "public park",
+        "redesign",
+        "access",
+        "maintenance"
+      ],
+      "originalitySelfCheck": "Unique scenario: park opening hours vs sustainable lighting. Not similar to any previous essay on environment, community centres, or transport. Uses concrete park-specific notes.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Review: A public park redesign feature",
+      "audience": "specialist magazine readers",
+      "purpose": "assess effectiveness and recommend (review a specific park feature)",
+      "requiredContentPoints": [
+        "describe the feature",
+        "how well it serves users",
+        "recommendation for other parks"
+      ],
+      "lexicalAnchors": [
+        "public park",
+        "redesign",
+        "feature",
+        "playground",
+        "community garden",
+        "fitness trail"
+      ],
+      "originalitySelfCheck": "Review of a park feature, not a book, film, workshop, or study clinic. Unique among previous reviews. Announcement frame is original.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Article: Encouraging responsible park use",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action (suggest a way to encourage responsible behaviour)",
+      "requiredContentPoints": [
+        "suggest one practical way",
+        "explain why it would work",
+        "describe benefits for community"
+      ],
+      "lexicalAnchors": [
+        "public park",
+        "responsible behaviour",
+        "community"
+      ],
+      "originalitySelfCheck": "Article about park responsibility, not about learning, skills, or generic community involvement. Unique among previous articles. Announcement frame is original.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Email: Explaining a position on park changes",
+      "audience": "English-speaking contact (Alex)",
+      "purpose": "explain a position and request arrangements (explain position on redesign, describe challenge, suggest resident help)",
+      "requiredContentPoints": [
+        "explain your position on the redesign",
+        "describe one challenge",
+        "suggest how residents can help maintain the park"
+      ],
+      "lexicalAnchors": [
+        "public park",
+        "redesign",
+        "challenge",
+        "maintain"
+      ],
+      "originalitySelfCheck": "Email about park redesign, not about a festival, exchange, or course. Unique among previous emails. Email subject and content are original.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "originalitySummary": "All tasks are based on the specific scenario of a public park redesign planning brief 14. No task reuses scenarios, audiences, or content points from previous tests. The essay notes are unique (24-hour access vs solar lighting). The review focuses on a park feature, not a book, film, or workshop. The article is about encouraging responsible park use, not about learning or skills. The email is about park redesign, not about festivals, exchanges, or courses. All forbidden concepts avoided.",
+  "forbiddenConceptCheck": "PASS",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "6230143219150332cbe28e976d8add7a0cbcefcdc4b85a2c28782b980f26d919"
+  }
+}

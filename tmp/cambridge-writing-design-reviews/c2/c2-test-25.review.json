@@ -1,0 +1,94 @@
+{
+  "testId": "c2-test-25",
+  "overallOriginalityCheck": "PASS",
+  "tasks": [
+    {
+      "taskId": "c2-test-25-task-01",
+      "scenario": "Two source texts debating whether the erosion of online privacy undermines social trust, or whether privacy concerns are overblown and transparency is the real issue.",
+      "audience": "Educated general reader (English teacher as assessor)",
+      "purpose": "Synthesise competing claims about privacy and trust, evaluate underlying assumptions, and develop an independent position.",
+      "requiredContentPoints": [
+        "The main online privacy issue (surveillance vs. predictability)",
+        "One practical consequence (e.g., impact on public discourse or on accountability)",
+        "A justified recommendation (e.g., governance reform or individual action)"
+      ],
+      "lexicalAnchors": [
+        "online privacy",
+        "social trust",
+        "surveillance",
+        "transparency",
+        "convenience",
+        "data governance"
+      ],
+      "originalitySelfCheck": "Source texts present two distinct, non-generic angles: one warns of erosion of democratic discourse, the other argues privacy panic is misplaced and visibility enables trust. No overlap with previous C2 essay topics (behavioural change, institutional guidance, experience requirements, consultation, green behaviour, communication delay, exchange ethics, transport inequality, library civic role, food justice, festival sustainability, sports exclusion, learning data, professional access, workplace wellbeing, urban nature, contested memory, language migration, volunteering obligation, public space democracy, small business innovation).",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "c2-test-25-task-02",
+      "scenario": "A specialist technology magazine invites reviews of digital services that claim to prioritise user privacy (e.g., search engine, messaging app, social media platform).",
+      "audience": "Specialist magazine readers (tech users)",
+      "purpose": "Assess how effectively a privacy-focused service balances convenience with genuine data protection, and recommend whether others should switch.",
+      "requiredContentPoints": [
+        "Description of the service and its privacy features",
+        "Assessment of balance between convenience and data protection",
+        "Recommendation for other users"
+      ],
+      "lexicalAnchors": [
+        "privacy features",
+        "data protection",
+        "user convenience",
+        "switch",
+        "recommendation"
+      ],
+      "originalitySelfCheck": "Review task focuses on a privacy-focused digital service, not on books, documentaries, workshops, or events. No overlap with previous review tasks (books, documentaries, workshops, library initiatives, festivals, sports clubs, etc.).",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "c2-test-25-task-03",
+      "scenario": "A community centre's programme coordinator requests a report on a digital privacy awareness workshop series for local residents.",
+      "audience": "Programme coordinator",
+      "purpose": "Analyse how the workshops affected participants' awareness and behaviour, assess implications for long-term digital responsibility, and propose a follow-up action.",
+      "requiredContentPoints": [
+        "Analysis of impact on awareness and behaviour",
+        "Implications for long-term digital responsibility",
+        "One proposed action to build on the workshops"
+      ],
+      "lexicalAnchors": [
+        "privacy awareness",
+        "digital responsibility",
+        "workshop series",
+        "behaviour change",
+        "community",
+        "follow-up"
+      ],
+      "originalitySelfCheck": "Report is about a community privacy workshop, not about jobs fairs, exchange programmes, transport, libraries, gardens, festivals, sports clubs, study tools, internships, wellbeing programmes, wildlife corridors, museum governance, language access, volunteer partnerships, park redesign, or small business innovation. No overlap with previous report tasks.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "c2-test-25-task-04",
+      "scenario": "An English-speaking contact (editor) asks for an article on whether people should sacrifice online privacy for convenience, for an international magazine series 'Privacy in the Digital Age'.",
+      "audience": "English-speaking contact (editor) and international magazine readers",
+      "purpose": "Explain a position on the privacy-convenience trade-off, describe a practical consequence, suggest how companies can help users choose, and request a follow-up discussion.",
+      "requiredContentPoints": [
+        "Position on sacrificing privacy for convenience",
+        "One practical consequence for individuals' digital lives",
+        "Suggestion for technology companies to inform users",
+        "Request for follow-up discussion"
+      ],
+      "lexicalAnchors": [
+        "online privacy",
+        "convenience",
+        "trade-off",
+        "informed choice",
+        "technology companies",
+        "follow-up discussion"
+      ],
+      "originalitySelfCheck": "Article is a personal position piece on privacy vs convenience, not about travel, education, volunteering, festivals, or other generic topics. The scenario involves a personal contact (editor) and a request for a follow-up discussion, which is unique among C2 article tasks. No overlap with previous article tasks (productive uncertainty, competence vs credentials, participation without power, environmental consistency, slower communication, exchange ethics, transport inequality, library future, food justice, festival convenience, sports inclusion, learning data, part-time work, workplace wellbeing, urban wildlife, museum stance, language belonging, volunteering duty, park protests, small business innovation).",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "f903a5c37d7a1bf1ef2f78b81ea98d443c87ff86519c84f2aec2385902f23e1c"
+  }
+}

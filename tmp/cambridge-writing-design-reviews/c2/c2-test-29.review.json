@@ -1,0 +1,100 @@
+{
+  "testId": "c2-test-29",
+  "level": "c2",
+  "topicFamily": "arts funding",
+  "specificSetting": "who should fund culture planning brief 23",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Two source texts debating public vs. private funding of the arts; candidates summarise, evaluate and add own ideas.",
+      "audience": "Educated general reader (English teacher as assessor)",
+      "purpose": "Synthesise competing claims, evaluate assumptions and develop an independent position on arts funding.",
+      "requiredContentPoints": [
+        "the main arts funding issue",
+        "one practical consequence",
+        "a justified recommendation"
+      ],
+      "lexicalAnchors": [
+        "arts funding",
+        "public subsidy",
+        "market failure",
+        "state patronage",
+        "cultural policy"
+      ],
+      "originalitySelfCheck": "Source texts use original arguments not found in previous tests. No reused phrases from banned list. Scenario is specific to arts funding, not generic 'education' or 'environment'.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Review of a community arts funding initiative; candidates describe, evaluate balance of sustainability and artistic freedom, and recommend.",
+      "audience": "Specialist magazine readers (arts administrators)",
+      "purpose": "Assess effectiveness and recommend a funding model.",
+      "requiredContentPoints": [
+        "the main arts funding issue",
+        "one practical consequence",
+        "a justified recommendation"
+      ],
+      "lexicalAnchors": [
+        "arts funding",
+        "community arts funding",
+        "financial sustainability",
+        "artistic freedom",
+        "funding model"
+      ],
+      "originalitySelfCheck": "Genre review with specific focus on funding model, not generic 'event' or 'workshop'. No overlap with previous reviews.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Report on how arts funding changes affect cultural organisations; analyse programming, audience, stability; propose actions.",
+      "audience": "Programme coordinator (regional cultural consortium)",
+      "purpose": "Analyse implications and propose action for resilient cultural sector.",
+      "requiredContentPoints": [
+        "the main arts funding issue",
+        "one practical consequence",
+        "a justified recommendation"
+      ],
+      "lexicalAnchors": [
+        "arts funding",
+        "funding shifts",
+        "programming",
+        "audience reach",
+        "organisational stability",
+        "cultural vitality"
+      ],
+      "originalitySelfCheck": "Report genre with specific analytical task on funding impact. No reused sentence frames from previous reports.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Article arguing position on arts as public good vs. market commodity; explain position, consequence, policy suggestion; request follow-up.",
+      "audience": "English-speaking contact (editor) and magazine readers",
+      "purpose": "Explain a position and request arrangements for further discussion.",
+      "requiredContentPoints": [
+        "the main arts funding issue",
+        "one practical consequence",
+        "a justified recommendation"
+      ],
+      "lexicalAnchors": [
+        "arts funding",
+        "public good",
+        "state funding",
+        "private enterprise",
+        "cultural institutions",
+        "public accountability"
+      ],
+      "originalitySelfCheck": "Article with specific request for follow-up discussion, not generic 'write an article'. No overlap with previous article tasks in skeleton or content.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "centralTension": "access and convenience versus long-term responsibility in arts funding",
+  "stakeholders": [
+    "people affected by arts funding",
+    "organisers of who should fund culture planning brief 23"
+  ],
+  "overallOriginalityNote": "All tasks are built around the specific topic family 'arts funding' with concrete scenarios, audiences and purposes. No generic phrases or reused skeletons from previous tests. Forbidden concepts checked and passed.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "6fb115b9455dcbde4ca9340fc33ec28b03e1ebc5a61642b2f332669c7d87e83e"
+  }
+}

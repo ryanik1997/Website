@@ -1,0 +1,182 @@
+{
+  "id": "b2-test-17",
+  "level": "b2",
+  "testNumber": 17,
+  "title": "FCE B2 AI Practice Test 17",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-17.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b2-test-17-1785311241719",
+    "generatedAt": 1785311265853,
+    "contentHash": "c2add7c81f4f154ab2f5efe13c9de6356e6aac03055a86eb0f3931945cffe09e",
+    "promptHash": "314bbe83dc2ddff19f033c65c19ac12e49142542a3ff17dac705420d2ea001b8",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-17:314bbe83dc2ddff19f033c65c19ac12e49142542a3ff17dac705420d2ea001b8",
+    "inputHash": "314bbe83dc2ddff19f033c65c19ac12e49142542a3ff17dac705420d2ea001b8",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b2-test-17-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay: Museum access priorities",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-17-task-01-block-01",
+          "type": "paragraph",
+          "text": "In your English class you have been talking about how to make museums more inclusive. Now your English teacher has asked you to write an essay."
+        },
+        {
+          "id": "b2-test-17-task-01-block-02",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "listItems": [
+            "1. free admission days",
+            "2. guided tours for visitors with disabilities",
+            "3. (your own idea)"
+          ]
+        },
+        {
+          "id": "b2-test-17-task-01-block-03",
+          "type": "final-instruction",
+          "text": "Write an essay using all the notes and giving reasons for your point of view."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes"
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b2-test-17-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Review: Museum inclusion programme",
+      "genre": "review",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-17-task-02-block-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted!",
+          "paragraphs": [
+            "Have you visited a museum that has introduced an inclusion programme – for example, sensory-friendly hours, multilingual guides, or free entry for certain groups?",
+            "Write a review for a specialist magazine about museums.",
+            "Describe what the programme involved, say how effective it was for visitors, and recommend one improvement the museum could make.",
+            "The best reviews will be published in the next issue."
+          ]
+        },
+        {
+          "id": "b2-test-17-task-02-block-02",
+          "type": "final-instruction",
+          "text": "Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-17-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Article: Involving the community",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-17-task-03-block-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted!",
+          "paragraphs": [
+            "Our town museum wants to attract more local residents. What could it do to become a more welcoming place for everyone?",
+            "Write an article for the museum's website suggesting one practical change the museum could make, explaining why it would work and what the benefits would be for the community.",
+            "We will publish the best articles on our website."
+          ]
+        },
+        {
+          "id": "b2-test-17-task-03-block-02",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-17-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Email: Museum visit arrangements",
+      "genre": "email",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-17-task-04-block-01",
+          "type": "email",
+          "from": "Alex",
+          "subject": "Museum visit next month",
+          "paragraphs": [
+            "Hi,",
+            "I'm planning to visit your town next month and I'd love to go to the local museum. I've heard it has a new inclusion programme. Can you tell me what the programme involves? Also, do you think it's worth visiting? And could you recommend one exhibit I shouldn't miss?",
+            "Thanks,",
+            "Alex"
+          ]
+        },
+        {
+          "id": "b2-test-17-task-04-block-02",
+          "type": "final-instruction",
+          "text": "Write your email."
+        }
+      ],
+      "presentation": {
+        "template": "email",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

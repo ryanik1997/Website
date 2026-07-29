@@ -1,0 +1,247 @@
+{
+  "inputHash": "6775a845012fce7b316449997d93ff85d73738206700acfe94b3619c0560dff9",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-34:6775a845012fce7b316449997d93ff85d73738206700acfe94b3619c0560dff9",
+  "test": {
+    "id": "c1-test-34",
+    "level": "c1",
+    "testNumber": 34,
+    "title": "CAE C1 AI Practice Test 34",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-34.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c1-test-34-1785313895425",
+      "generatedAt": 1785313912833,
+      "contentHash": "c51c50173dcd814ede5fc819048a7b5b68169077a620307c3aae8850e147f75e",
+      "promptHash": "6775a845012fce7b316449997d93ff85d73738206700acfe94b3619c0560dff9",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-34:6775a845012fce7b316449997d93ff85d73738206700acfe94b3619c0560dff9",
+      "inputHash": "6775a845012fce7b316449997d93ff85d73738206700acfe94b3619c0560dff9",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c1-test-34-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Essay: Library priorities",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-34-task-01-notes",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Priorities for a regional library network",
+            "listItems": [
+              "extending opening hours to include Sunday",
+              "creating dedicated digital learning spaces",
+              "introducing a mobile library service for rural areas"
+            ]
+          },
+          {
+            "id": "c1-test-34-task-01-opinions",
+            "type": "panel",
+            "variant": "opinions",
+            "paragraphs": [
+              "Sunday opening would make libraries accessible to people who work or study during the week. It's the most inclusive change we could make.",
+              "Digital learning spaces are essential for people who lack computers or internet at home. Without them, the digital divide will only widen.",
+              "A mobile library is the only way to reach remote villages. Fixed buildings are no use if you can't get to them."
+            ]
+          },
+          {
+            "id": "c1-test-34-task-01-final",
+            "type": "final-instruction",
+            "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for the regional library network to invest in, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+          }
+        ],
+        "presentation": {
+          "template": "essay-notes-opinions"
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c1-test-34-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Proposal: Outreach programme",
+        "genre": "proposal",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptText": "The regional library network is reviewing its outreach programme, which aims to bring library services to communities that currently have limited access. The network director has invited proposals for improving the programme's effectiveness. You decide to write a proposal.\n\nWrite a proposal for the regional library network director. In your proposal, you should:\n\n• assess the effectiveness of current outreach efforts\n• recommend two new initiatives to reach underserved communities\n• explain how these initiatives would benefit both the library and the community",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-34-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Email: Opening hours reduction",
+        "genre": "email",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptText": "You are a library user representative on a regional library network planning committee. The committee is considering a proposal to reduce opening hours at several branches to save money. The programme coordinator has asked for your views on the proposal.\n\nWrite an email to the programme coordinator. In your email, you should:\n\n• explain why you think the proposed changes are necessary\n• analyse one potential negative consequence of the changes\n• propose a way to address that consequence while still moving forward",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-34-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Review: Library event series",
+        "genre": "review",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-34-task-04-announcement",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Reviews wanted: Library event series",
+            "paragraphs": [
+              "Have you attended any of our 'Libraries Connect' events this year? These events aimed to bring together library users and local organisations to discuss community needs.",
+              "We would like to hear your views on how successful the series has been and whether it should continue.",
+              "Send us your review and we will publish the best ones on our website."
+            ]
+          },
+          {
+            "id": "c1-test-34-task-04-final",
+            "type": "final-instruction",
+            "text": "Write a review for the regional library network's website. In your review, you should:\n\n• describe the event series and its aims\n• evaluate how well it achieved those aims\n• recommend whether the series should be continued or modified"
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "c1-test-34",
+    "topicFamily": "public libraries",
+    "specificSetting": "a regional library network planning brief 28",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "Essay: Discuss two of three priorities for a regional library network (Sunday opening, digital learning spaces, mobile library) and decide which is more important.",
+        "audience": "English teacher (tutor)",
+        "purpose": "Evaluate and justify priorities",
+        "requiredContentPoints": [
+          "extending opening hours to include Sunday",
+          "creating dedicated digital learning spaces",
+          "introducing a mobile library service for rural areas"
+        ],
+        "lexicalAnchors": [
+          "regional library network",
+          "Sunday opening",
+          "digital learning spaces",
+          "mobile library",
+          "rural areas"
+        ],
+        "originalitySelfCheck": "Unique scenario: library network priorities. Not reused from any previous test. Forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "Proposal: Assess current outreach and recommend two new initiatives to reach underserved communities.",
+        "audience": "Regional library network director",
+        "purpose": "Assess effectiveness and recommend",
+        "requiredContentPoints": [
+          "assess current outreach effectiveness",
+          "recommend two new initiatives",
+          "explain benefits for library and community"
+        ],
+        "lexicalAnchors": [
+          "outreach programme",
+          "underserved communities",
+          "library services",
+          "initiatives"
+        ],
+        "originalitySelfCheck": "Unique proposal scenario: outreach programme for library network. Not a copy of previous proposal tasks.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "Email: Respond to proposal to reduce opening hours; explain necessity, analyse negative consequence, propose solution.",
+        "audience": "Programme coordinator",
+        "purpose": "Analyse implications and propose action",
+        "requiredContentPoints": [
+          "explain why changes are necessary",
+          "analyse one potential negative consequence",
+          "propose a way to address that consequence"
+        ],
+        "lexicalAnchors": [
+          "opening hours",
+          "budget cuts",
+          "library branches",
+          "negative consequence"
+        ],
+        "originalitySelfCheck": "Unique email scenario: library opening hours reduction. Not reused from previous tests.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 4,
+        "scenario": "Review: Evaluate a library event series 'Libraries Connect' and recommend continuation or modification.",
+        "audience": "Regional library network website readers (English-speaking contact)",
+        "purpose": "Explain a position and request arrangements (implicitly through recommendation)",
+        "requiredContentPoints": [
+          "describe event series and aims",
+          "evaluate how well it achieved aims",
+          "recommend continuation or modification"
+        ],
+        "lexicalAnchors": [
+          "Libraries Connect",
+          "event series",
+          "library users",
+          "local organisations",
+          "community needs"
+        ],
+        "originalitySelfCheck": "Unique review scenario: library event series. Not a copy of previous review tasks.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ],
+    "centralTension": "access and convenience versus long-term responsibility in public libraries",
+    "stakeholders": [
+      "people affected by public libraries",
+      "organisers of a regional library network planning brief 28"
+    ],
+    "forbiddenConceptsCheck": "PASS"
+  },
+  "cachedAt": 1785313912858
+}

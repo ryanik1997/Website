@@ -1,0 +1,171 @@
+{
+  "id": "c1-test-31",
+  "level": "c1",
+  "testNumber": 31,
+  "title": "CAE C1 AI Practice Test 31",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-31.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "c1-test-31-1785313247155",
+    "generatedAt": 1785313282867,
+    "contentHash": "9812f66f3fdeb3fb20e711103ed709c87b6ac08184438dda9bda9e5bbde1a0af",
+    "promptHash": "d196d8a74392950e1e35358fdc0b1152c44437c3f222ecd4a23b49a33d05bb0d",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-31:d196d8a74392950e1e35358fdc0b1152c44437c3f222ecd4a23b49a33d05bb0d",
+    "inputHash": "d196d8a74392950e1e35358fdc0b1152c44437c3f222ecd4a23b49a33d05bb0d",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "c1-test-31-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Climate adaptation priorities",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-31-task-01-notes",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Priorities for an urban climate adaptation strategy",
+          "listItems": [
+            "installing green roofs and walls on public buildings",
+            "creating emergency cooling centres for heatwaves",
+            "upgrading drainage systems to prevent flash flooding"
+          ]
+        },
+        {
+          "id": "c1-test-31-task-01-opinions",
+          "type": "panel",
+          "variant": "opinions",
+          "paragraphs": [
+            "Green roofs reduce the urban heat island effect and manage rainwater naturally. They're a long-term investment that pays for itself.",
+            "Cooling centres are a quick way to protect vulnerable people during extreme heat. They're cheap to set up and can save lives immediately.",
+            "Better drainage is the most urgent priority. Without it, even moderate rainfall can paralyse the city and cause millions in damage."
+          ]
+        },
+        {
+          "id": "c1-test-31-task-01-final",
+          "type": "final-instruction",
+          "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for the city to invest in, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes-opinions"
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c1-test-31-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Community resilience hubs",
+      "genre": "proposal",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-31-task-02-p1",
+          "type": "paragraph",
+          "text": "Your city council is planning to establish a network of community resilience hubs that would serve as neighbourhood bases for climate adaptation – offering information, emergency supplies and a cool space during heatwaves. The council's climate adaptation officer has invited proposals from local residents for how these hubs should be designed and run."
+        },
+        {
+          "id": "c1-test-31-task-02-final",
+          "type": "final-instruction",
+          "text": "Write a proposal for the climate adaptation officer. In your proposal, you should:\n\n• recommend two specific services or resources the hubs should provide\n• explain how these would benefit local residents during extreme weather events\n• suggest how the council could ensure the hubs are used and maintained effectively over the long term"
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-31-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Heatwave response plan",
+      "genre": "email",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-31-task-03-email",
+          "type": "email",
+          "from": "Dr. Ana Torres <a.torres@climateadapt.org>",
+          "subject": "Heatwave response plan – your assessment",
+          "paragraphs": [
+            "Dear Programme Coordinator,",
+            "As you know, the Climate Adaptation Office is developing a heatwave response plan that includes opening public buildings as cooling centres and distributing free water in parks. Some community groups have pointed out that these measures may not reach the most vulnerable residents – those who are housebound or live in poorly insulated flats. I would like to hear your assessment of this plan.",
+            "Please write back explaining your position on the proposed measures, analysing one potential limitation for vulnerable groups, and proposing an action the office could take to address this gap while still implementing the plan.",
+            "Best regards,",
+            "Dr. Ana Torres"
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-31-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Green roof pilot",
+      "genre": "review",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-31-task-04-announcement",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted: Green roof pilot scheme",
+          "paragraphs": [
+            "Have you visited or seen a green roof installed as part of our city's climate adaptation pilot? We want to hear about your experience.",
+            "Write a review for our local sustainability website. Describe the green roof and its features. Evaluate how well it balances the goal of climate resilience with practical considerations like cost and maintenance. Would you recommend that the city expand this scheme to other public buildings? Why or why not?",
+            "The best reviews will be published on our website."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

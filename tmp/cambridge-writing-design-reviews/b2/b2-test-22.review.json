@@ -1,0 +1,79 @@
+{
+  "testId": "b2-test-22",
+  "overallOriginalityCheck": "PASS",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "a circular-economy campaign planning brief 16: essay brief 1-1",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "making recycling bins more convenient",
+        "providing clearer information about what can be recycled",
+        "your own idea"
+      ],
+      "lexicalAnchors": [
+        "recycling services",
+        "circular economy",
+        "campaign planning"
+      ],
+      "originalitySelfCheck": "Unique scenario: recycling bins convenience vs. clearer information. Not similar to any avoided fingerprint. ForbiddenConceptCheck: PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "a circular-economy campaign planning brief 16: review brief 2-5",
+      "audience": "specialist magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "facilities available",
+        "ease of use",
+        "recommendation"
+      ],
+      "lexicalAnchors": [
+        "recycling centre",
+        "facilities",
+        "service quality"
+      ],
+      "originalitySelfCheck": "Review of a recycling centre, not a library or workshop. Not similar to any avoided fingerprint. ForbiddenConceptCheck: PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "a circular-economy campaign planning brief 16: article brief 3-9",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "practical way to make recycling easier",
+        "why it would work",
+        "result for the community"
+      ],
+      "lexicalAnchors": [
+        "recycling at home",
+        "campaign",
+        "community result"
+      ],
+      "originalitySelfCheck": "Article suggesting a practical way for families to recycle, not a generic 'learning beyond lessons' or 'small businesses' article. ForbiddenConceptCheck: PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "a circular-economy campaign planning brief 16: email brief 4-13",
+      "audience": "English-speaking contact",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "preference for focus (e-waste or composting)",
+        "suggest a date and reason",
+        "propose a way to attract participants"
+      ],
+      "lexicalAnchors": [
+        "recycling event",
+        "electronic waste",
+        "composting",
+        "attract participants"
+      ],
+      "originalitySelfCheck": "Email about organising a recycling event, not a weekend job or exchange visit. ForbiddenConceptCheck: PASS"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "54674146f8296c8a1d0edcc2e15865ddafe1a8c95aff67fcc23b00a3e27e3f3a"
+  }
+}

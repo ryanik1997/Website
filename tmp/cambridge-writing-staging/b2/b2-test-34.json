@@ -1,0 +1,172 @@
+{
+  "id": "b2-test-34",
+  "level": "b2",
+  "testNumber": 34,
+  "title": "FCE B2 AI Practice Test 34",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-34.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b2-test-34-1785313753831",
+    "generatedAt": 1785313795842,
+    "contentHash": "9fc1706ceec2b22157f18418371f63235c68d29cffbe09b519556c9396bff61f",
+    "promptHash": "b7abe3c1d0d69eca02e90df6a9f314d6fba4c3b4e03a2d19f68a5cc6600b777b",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-34:b7abe3c1d0d69eca02e90df6a9f314d6fba4c3b4e03a2d19f68a5cc6600b777b",
+    "inputHash": "b7abe3c1d0d69eca02e90df6a9f314d6fba4c3b4e03a2d19f68a5cc6600b777b",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b2-test-34-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay: Should libraries invest in makerspaces?",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-34-task-01-block-01",
+          "type": "paragraph",
+          "text": "In your English class you have been discussing how public libraries can stay relevant. Now your teacher has asked you to write an essay."
+        },
+        {
+          "id": "b2-test-34-task-01-block-02",
+          "type": "paragraph",
+          "text": "Write an essay using all the notes and giving reasons for your point of view."
+        },
+        {
+          "id": "b2-test-34-task-01-block-03",
+          "type": "paragraph",
+          "text": "Should public libraries invest in makerspaces (creative workshops with 3D printers, etc.)?"
+        },
+        {
+          "id": "b2-test-34-task-01-block-04",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "listItems": [
+            "1. attracting new visitors",
+            "2. cost of equipment",
+            "3. (your own idea)"
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes"
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b2-test-34-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Review: Library makerspace",
+      "genre": "review",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-34-task-02-block-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted!",
+          "paragraphs": [
+            "Have you used a makerspace at a public library? We want to hear about your experience. Write a review of the library makerspace you visited.",
+            "Describe what equipment and activities were available. How helpful was the staff? Would you recommend this makerspace to other students? Why?",
+            "The best reviews will be published in the next issue."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-34-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Article: How can a library makerspace benefit our community?",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-34-task-03-block-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted!",
+          "paragraphs": [
+            "How can a library makerspace benefit our community?",
+            "We are planning to launch a makerspace in our town library and want to hear your ideas. Write an article for our website.",
+            "Describe one positive change a makerspace could bring to local residents. Explain how it could encourage people to use the library more. Suggest one way to get local businesses involved.",
+            "We will publish the best articles on our website."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-34-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Email: Library makerspace idea",
+      "genre": "email",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-34-task-04-block-01",
+          "type": "email",
+          "from": "Chris",
+          "subject": "Library makerspace idea",
+          "paragraphs": [
+            "Hi,",
+            "I heard your town library is planning to start a makerspace. I'm thinking of suggesting a similar project to my local library here. Could you tell me what equipment you think is essential? Also, what kind of activities would attract teenagers? And how should we convince the library committee to support the idea?",
+            "Thanks a lot!",
+            "Chris"
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "email",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

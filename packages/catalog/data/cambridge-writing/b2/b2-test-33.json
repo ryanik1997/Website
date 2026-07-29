@@ -1,0 +1,182 @@
+{
+  "id": "b2-test-33",
+  "level": "b2",
+  "testNumber": 33,
+  "title": "FCE B2 AI Practice Test 33",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-33.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b2-test-33-1785313737799",
+    "generatedAt": 1785313753818,
+    "contentHash": "1da20f4c28e655930ac91490580c632d9d44792db7860a9f01c4486f83603e71",
+    "promptHash": "ba3328a0d6e8209af63c99c27c84f51814ca3e29e70867fc267e953f315febb1",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-33:ba3328a0d6e8209af63c99c27c84f51814ca3e29e70867fc267e953f315febb1",
+    "inputHash": "ba3328a0d6e8209af63c99c27c84f51814ca3e29e70867fc267e953f315febb1",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b2-test-33-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay: Evaluating Priorities for Bus Service Improvements",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-33-task-01-block-01",
+          "type": "paragraph",
+          "text": "In your English class you have been discussing how to improve bus services in your region. Now your English teacher has asked you to write an essay."
+        },
+        {
+          "id": "b2-test-33-task-01-block-02",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "listItems": [
+            "1. frequency of buses",
+            "2. cost of tickets",
+            "3. (your own idea)"
+          ]
+        },
+        {
+          "id": "b2-test-33-task-01-block-03",
+          "type": "final-instruction",
+          "text": "Write an essay using all the notes and giving reasons for your point of view."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes"
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b2-test-33-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Review: A Regional Bus Improvement Plan",
+      "genre": "review",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-33-task-02-block-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted",
+          "paragraphs": [
+            "A regional bus improvement plan has been proposed for our area. Have you seen the plan or heard about it? Write a review of the plan for our magazine.",
+            "Explain what the plan aims to do, say whether you think it will be effective, and recommend one change you would make to improve it.",
+            "The best reviews will be published in the next issue."
+          ]
+        },
+        {
+          "id": "b2-test-33-task-02-block-02",
+          "type": "final-instruction",
+          "text": "Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-33-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Article: Bus Plan – What Does It Mean for Us?",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-33-task-03-block-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted",
+          "paragraphs": [
+            "Bus plan: what does it mean for us?",
+            "Our region is planning to improve bus services. Write an article for our website explaining how the plan could affect young people in the area.",
+            "Describe one possible benefit and one possible drawback, and suggest what young people should do to make their voices heard.",
+            "We will publish the best articles on our website."
+          ]
+        },
+        {
+          "id": "b2-test-33-task-03-block-02",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-33-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Email: Bus Plan in Your Area",
+      "genre": "email",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-33-task-04-block-01",
+          "type": "email",
+          "from": "Chris",
+          "subject": "Bus plan in your area",
+          "paragraphs": [
+            "Hi,",
+            "I heard that your region is planning to improve bus services. What do you think about the plan? Do you support it or not? Also, how will it affect your daily life? I'm curious about what changes you'd like to see.",
+            "Let me know!",
+            "Chris"
+          ]
+        },
+        {
+          "id": "b2-test-33-task-04-block-02",
+          "type": "final-instruction",
+          "text": "Write your email."
+        }
+      ],
+      "presentation": {
+        "template": "email",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

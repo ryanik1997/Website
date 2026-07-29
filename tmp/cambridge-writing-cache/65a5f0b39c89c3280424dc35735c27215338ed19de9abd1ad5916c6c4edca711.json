@@ -1,0 +1,234 @@
+{
+  "inputHash": "6fd2544b8bb69e6eb36bd9ca1e6d57f35e138e6ac8ed5f34687ba32be1c21a28",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-40:6fd2544b8bb69e6eb36bd9ca1e6d57f35e138e6ac8ed5f34687ba32be1c21a28",
+  "test": {
+    "id": "b1-test-40",
+    "level": "b1",
+    "testNumber": 40,
+    "title": "PET B1 AI Practice Test 40",
+    "sourceFile": "packages/catalog/data/cambridge-writing/b1/b1-test-40.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "b1-test-40-1785316986068",
+      "generatedAt": 1785317001046,
+      "contentHash": "1a05e47dacfc1e17a5aeaa318a0c3a4f3205d218a323df1da99734f309b5ac7d",
+      "promptHash": "6fd2544b8bb69e6eb36bd9ca1e6d57f35e138e6ac8ed5f34687ba32be1c21a28",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-40:6fd2544b8bb69e6eb36bd9ca1e6d57f35e138e6ac8ed5f34687ba32be1c21a28",
+      "inputHash": "6fd2544b8bb69e6eb36bd9ca1e6d57f35e138e6ac8ed5f34687ba32be1c21a28",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "b1-test-40-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Family cooking challenge",
+        "genre": "email",
+        "instruction": "You must answer this question. Write your answer in about 100 words.",
+        "promptBlocks": [
+          {
+            "id": "b1-test-40-task-01-email",
+            "type": "email",
+            "from": "Mrs Hill",
+            "subject": "Family cooking challenge – your ideas",
+            "paragraphs": [
+              "Hi,",
+              "As you know, our class is helping to plan a family cooking challenge. We want to encourage families to cook healthy meals together. I need your help to decide on a few things.",
+              "First, should the challenge focus on cooking with fresh vegetables or on using less sugar? Which do you think is more important for healthy cooking?",
+              "Also, we need to choose one practical consequence to consider. For example, some families may find it hard to get fresh vegetables in winter. What do you think is a possible problem?",
+              "Finally, can you suggest one way to help families keep cooking healthily after the challenge ends?",
+              "Let me know your ideas!",
+              "Best wishes,",
+              "Mrs Hill"
+            ]
+          },
+          {
+            "id": "b1-test-40-task-01-notes",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Notes for your reply",
+            "listItems": [
+              "Say which focus you prefer (fresh vegetables or less sugar) and explain why.",
+              "Describe one practical problem families might face and suggest a solution.",
+              "Suggest one way to encourage healthy cooking after the challenge.",
+              "Ask Mrs Hill about the date of the challenge."
+            ]
+          },
+          {
+            "id": "b1-test-40-task-01-final",
+            "type": "final-instruction",
+            "text": "Write your email to Mrs Hill using all the notes."
+          }
+        ],
+        "presentation": {
+          "template": "email"
+        },
+        "wordLimit": {
+          "min": 100,
+          "max": 100,
+          "displayText": "about 100 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "b1-test-40-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Healthy cooking article",
+        "genre": "article",
+        "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+        "promptBlocks": [
+          {
+            "id": "b1-test-40-task-02-announcement",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Articles wanted!",
+            "paragraphs": [
+              "Our specialist magazine wants to hear about your experience with the family cooking challenge.",
+              "What is the most important thing families should learn about healthy cooking?",
+              "How can the challenge help families eat better in the long term?",
+              "Would you recommend the challenge to other families? Why?",
+              "Write an article answering these questions and we will put it on our website!"
+            ]
+          },
+          {
+            "id": "b1-test-40-task-02-final",
+            "type": "final-instruction",
+            "text": "Write your article."
+          }
+        ],
+        "presentation": {
+          "template": "announcement"
+        },
+        "wordLimit": {
+          "min": 100,
+          "max": 100,
+          "displayText": "about 100 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b1-test-40-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Cooking challenge story",
+        "genre": "story",
+        "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+        "promptBlocks": [
+          {
+            "id": "b1-test-40-task-03-opening",
+            "type": "paragraph",
+            "text": "Your English teacher has asked you to write a story."
+          },
+          {
+            "id": "b1-test-40-task-03-sentence",
+            "type": "paragraph",
+            "text": "Your story must begin with this sentence:"
+          },
+          {
+            "id": "b1-test-40-task-03-quote",
+            "type": "paragraph",
+            "text": "\"When the programme coordinator announced that the cooking challenge would start next week, my family looked at each other nervously.\""
+          },
+          {
+            "id": "b1-test-40-task-03-final",
+            "type": "final-instruction",
+            "text": "Write your story."
+          }
+        ],
+        "presentation": {
+          "template": "plain"
+        },
+        "wordLimit": {
+          "min": 100,
+          "max": 100,
+          "displayText": "about 100 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "b1-test-40",
+    "level": "b1",
+    "topicFamily": "healthy cooking",
+    "specificSetting": "a family cooking challenge planning brief 34",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "Student helps plan a family cooking challenge by emailing the teacher about focus, a practical problem, and post-challenge support.",
+        "audience": "English teacher (Mrs Hill)",
+        "purpose": "Evaluate and justify priorities for the challenge (fresh vegetables vs less sugar), describe a problem and solution, suggest a way to sustain healthy cooking, and ask about the date.",
+        "requiredContentPoints": [
+          "the main healthy cooking issue (focus on fresh vegetables or less sugar)",
+          "one practical consequence (a problem families might face)",
+          "a justified recommendation (way to encourage healthy cooking after challenge)"
+        ],
+        "lexicalAnchors": [
+          "healthy cooking",
+          "family cooking challenge",
+          "fresh vegetables",
+          "less sugar",
+          "practical problem",
+          "encourage healthy cooking"
+        ],
+        "originalitySelfCheck": "Scenario is a family cooking challenge planning brief, not used in any previous test. Email structure with four notes is original. No overlap with forbidden concepts.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "Student writes an article for a specialist magazine about the family cooking challenge, explaining key learning, long-term benefits, and recommendation.",
+        "audience": "Specialist magazine readers",
+        "purpose": "Assess effectiveness of the challenge and recommend it to others.",
+        "requiredContentPoints": [
+          "the main healthy cooking issue (most important thing families should learn)",
+          "one practical consequence (how challenge helps long-term eating)",
+          "a justified recommendation (whether to recommend to other families)"
+        ],
+        "lexicalAnchors": [
+          "healthy cooking",
+          "family cooking challenge",
+          "most important thing",
+          "long term",
+          "recommend"
+        ],
+        "originalitySelfCheck": "Article genre with three direct questions about the challenge. Not a reused frame from previous tests. No forbidden concepts.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "Student writes a story beginning with a sentence about the family's nervous reaction to the cooking challenge announcement.",
+        "audience": "Programme coordinator (via teacher)",
+        "purpose": "Analyse implications and propose action through narrative.",
+        "requiredContentPoints": [
+          "the main healthy cooking issue (family's nervousness about challenge)",
+          "one practical consequence (how they respond)",
+          "a justified recommendation (implied through story resolution)"
+        ],
+        "lexicalAnchors": [
+          "healthy cooking",
+          "family cooking challenge",
+          "nervously",
+          "programme coordinator",
+          "next week"
+        ],
+        "originalitySelfCheck": "Story opening is unique and matches the specific setting. Not similar to any previous story opening. No forbidden concepts.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ],
+    "overallOriginalityCheck": "All tasks are built around the specific setting 'a family cooking challenge planning brief 34'. No overlap with existing test fingerprints. Forbidden concepts avoided.",
+    "status": "PASS"
+  },
+  "cachedAt": 1785317001065
+}

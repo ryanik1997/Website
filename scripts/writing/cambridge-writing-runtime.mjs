@@ -76,6 +76,22 @@ export async function listGeneratedFiles(level = 'all') {
   return files.sort()
 }
 
+export async function listCambridgeWritingFiles({ source = 'catalog', level = 'all', from = 2, to = Number.MAX_SAFE_INTEGER } = {}) {
+  const levels = selectedLevels(level)
+  const stagingRoot = path.join(TMP_ROOT, 'cambridge-writing-staging')
+  const roots = source === 'catalog' ? [DATA_ROOT] : source === 'staging' ? [stagingRoot] : source === 'combined' ? [DATA_ROOT, stagingRoot] : (() => { throw new Error(`Invalid --source=${source}`) })()
+  const files = []
+  for (const root of roots) for (const current of levels) {
+    try {
+      for (const name of await fs.readdir(path.join(root, current))) {
+        const match = name.match(/^([a-z][0-9])-test-(\d+)\.json$/)
+        if (match && Number(match[2]) >= from && Number(match[2]) <= to) files.push(path.join(root, current, name))
+      }
+    } catch (error) { if (error.code !== 'ENOENT') throw error }
+  }
+  return files.sort()
+}
+
 export function passVerification(review) {
   return review.valid === true
     && review.overallScore >= 88

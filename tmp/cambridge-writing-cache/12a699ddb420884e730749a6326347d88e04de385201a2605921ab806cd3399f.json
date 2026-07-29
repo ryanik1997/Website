@@ -1,0 +1,277 @@
+{
+  "inputHash": "8cb564e06f7ed731cc2e6d6cc6f652faa5168a6731fe2208ec4d02ce7b3caae6",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-41:8cb564e06f7ed731cc2e6d6cc6f652faa5168a6731fe2208ec4d02ce7b3caae6",
+  "test": {
+    "id": "b2-test-41",
+    "level": "b2",
+    "testNumber": 41,
+    "title": "FCE B2 AI Practice Test 41",
+    "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-41.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "b2-test-41-1785317084227",
+      "generatedAt": 1785317102509,
+      "contentHash": "c19e4ea4a110d16ba0003329b91af276241865586c3b31591b54b3a0ca8d55b4",
+      "promptHash": "8cb564e06f7ed731cc2e6d6cc6f652faa5168a6731fe2208ec4d02ce7b3caae6",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-41:8cb564e06f7ed731cc2e6d6cc6f652faa5168a6731fe2208ec4d02ce7b3caae6",
+      "inputHash": "8cb564e06f7ed731cc2e6d6cc6f652faa5168a6731fe2208ec4d02ce7b3caae6",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "b2-test-41-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Urban wildlife in our city",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write 140–190 words in an appropriate style.",
+        "promptText": "In your English class you have been discussing how to manage urban wildlife in towns and cities. Now your English teacher has asked you to write an essay.\n\nWrite an essay using all the notes and giving reasons for your point of view.\n\nWhat is the most important issue to address when managing urban wildlife?\n\nNotes\n\nWrite about:\n\n1. preventing damage to property\n2. protecting animal welfare\n3. ......................... (your own idea)",
+        "promptBlocks": [
+          {
+            "id": "b2-test-41-task-01-block-01",
+            "type": "paragraph",
+            "text": "In your English class you have been discussing how to manage urban wildlife in towns and cities. Now your English teacher has asked you to write an essay."
+          },
+          {
+            "id": "b2-test-41-task-01-block-02",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Notes",
+            "listItems": [
+              "preventing damage to property",
+              "protecting animal welfare",
+              "......................... (your own idea)"
+            ]
+          },
+          {
+            "id": "b2-test-41-task-01-block-03",
+            "type": "final-instruction",
+            "text": "Write an essay using all the notes and giving reasons for your point of view."
+          }
+        ],
+        "presentation": {
+          "template": "essay-notes"
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "b2-test-41-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Urban wildlife workshop review",
+        "genre": "review",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptText": "You see this announcement in your college English-language magazine.\n\nReviews wanted!\n\nHave you attended a workshop about urban wildlife in your area? We want to hear about your experience. Write a review of the workshop for our magazine.\n\nDescribe what the workshop covered and how it was organised. Explain whether it changed how you think about urban wildlife. Would you recommend it to other residents?\n\nThe best reviews will be published in the next issue.\n\nWrite your review.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-41-task-02-block-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Reviews wanted!",
+            "paragraphs": [
+              "Have you attended a workshop about urban wildlife in your area? We want to hear about your experience. Write a review of the workshop for our magazine.",
+              "Describe what the workshop covered and how it was organised. Explain whether it changed how you think about urban wildlife. Would you recommend it to other residents?",
+              "The best reviews will be published in the next issue."
+            ]
+          },
+          {
+            "id": "b2-test-41-task-02-block-02",
+            "type": "final-instruction",
+            "text": "Write your review."
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b2-test-41-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Living with urban wildlife",
+        "genre": "article",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptText": "You see this announcement on a community website.\n\nArticles wanted!\n\nLiving with urban wildlife\n\nOur programme coordinator wants to hear from young people about urban wildlife in our town. Write an article for the community website.\n\nDescribe one problem that urban wildlife causes in your neighbourhood. Suggest a practical way that residents could help solve it. Explain why your idea would benefit both people and animals.\n\nWe will publish the best articles on our website.\n\nWrite your article.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-41-task-03-block-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Articles wanted!",
+            "paragraphs": [
+              "Living with urban wildlife",
+              "Our programme coordinator wants to hear from young people about urban wildlife in our town. Write an article for the community website.",
+              "Describe one problem that urban wildlife causes in your neighbourhood. Suggest a practical way that residents could help solve it. Explain why your idea would benefit both people and animals.",
+              "We will publish the best articles on our website."
+            ]
+          },
+          {
+            "id": "b2-test-41-task-03-block-02",
+            "type": "final-instruction",
+            "text": "Write your article."
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b2-test-41-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Urban wildlife project",
+        "genre": "email",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptText": "You have received this email from your English-speaking friend, Chris.\n\nFrom: Chris\nSubject: Urban wildlife project\n\nHi,\nI heard that your neighbourhood is starting a project to manage urban wildlife. I'm thinking of starting something similar here. Could you tell me what the main issue is in your area? What practical steps have you taken? And how can I get my neighbours interested?\n\nThanks a lot!\nChris\n\nWrite your email.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-41-task-04-block-01",
+            "type": "email",
+            "from": "Chris",
+            "subject": "Urban wildlife project",
+            "paragraphs": [
+              "Hi,",
+              "I heard that your neighbourhood is starting a project to manage urban wildlife. I'm thinking of starting something similar here. Could you tell me what the main issue is in your area? What practical steps have you taken? And how can I get my neighbours interested?",
+              "Thanks a lot!",
+              "Chris"
+            ]
+          },
+          {
+            "id": "b2-test-41-task-04-block-02",
+            "type": "final-instruction",
+            "text": "Write your email."
+          }
+        ],
+        "presentation": {
+          "template": "email",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "b2-test-41",
+    "level": "b2",
+    "topicFamily": "urban wildlife",
+    "specificSetting": "an urban biodiversity project planning brief 35",
+    "tasks": [
+      {
+        "taskId": "b2-test-41-task-01",
+        "scenario": "Essay: class discussion on managing urban wildlife, teacher asks for essay on most important issue",
+        "audience": "English teacher",
+        "purpose": "evaluate and justify priorities",
+        "requiredContentPoints": [
+          "preventing damage to property",
+          "protecting animal welfare",
+          "own idea"
+        ],
+        "lexicalAnchors": [
+          "urban wildlife",
+          "managing urban wildlife",
+          "damage to property",
+          "animal welfare"
+        ],
+        "originalitySelfCheck": "Unique scenario: essay on urban wildlife management priorities. Not used in any previous test. Forbidden concepts checked: none match.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskId": "b2-test-41-task-02",
+        "scenario": "Review: college magazine asks for review of an urban wildlife workshop attended",
+        "audience": "specialist magazine readers (college magazine)",
+        "purpose": "assess effectiveness and recommend",
+        "requiredContentPoints": [
+          "workshop content and organisation",
+          "change in perspective",
+          "recommendation"
+        ],
+        "lexicalAnchors": [
+          "urban wildlife workshop",
+          "workshop content",
+          "organisation",
+          "recommendation"
+        ],
+        "originalitySelfCheck": "Unique scenario: review of an urban wildlife workshop. Not used in any previous test. Forbidden concepts checked: none match.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskId": "b2-test-41-task-03",
+        "scenario": "Article: community website article about urban wildlife problems and solutions",
+        "audience": "programme coordinator (community website readers)",
+        "purpose": "analyse implications and propose action",
+        "requiredContentPoints": [
+          "one problem caused by urban wildlife",
+          "practical solution for residents",
+          "benefit for people and animals"
+        ],
+        "lexicalAnchors": [
+          "urban wildlife problem",
+          "neighbourhood",
+          "practical solution",
+          "benefit"
+        ],
+        "originalitySelfCheck": "Unique scenario: article on urban wildlife problems and solutions. Not used in any previous test. Forbidden concepts checked: none match.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskId": "b2-test-41-task-04",
+        "scenario": "Email: friend asks about starting an urban wildlife project, needs advice on main issue, steps, and getting neighbours interested",
+        "audience": "English-speaking contact (friend Chris)",
+        "purpose": "explain a position and request arrangements",
+        "requiredContentPoints": [
+          "main issue in area",
+          "practical steps taken",
+          "how to get neighbours interested"
+        ],
+        "lexicalAnchors": [
+          "urban wildlife project",
+          "neighbourhood",
+          "practical steps",
+          "neighbours interested"
+        ],
+        "originalitySelfCheck": "Unique scenario: email about starting an urban wildlife project. Not used in any previous test. Forbidden concepts checked: none match.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ],
+    "overallOriginalityCheck": "All tasks are original, based on the urban wildlife topic family. No reuse of scenarios, audiences, content points, or lexical anchors from previous tests. Forbidden concepts verified.",
+    "forbiddenConceptCheck": "PASS"
+  },
+  "cachedAt": 1785317102552
+}

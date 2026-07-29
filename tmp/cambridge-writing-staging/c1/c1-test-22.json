@@ -1,0 +1,194 @@
+{
+  "id": "c1-test-22",
+  "level": "c1",
+  "testNumber": 22,
+  "title": "CAE C1 AI Practice Test 22",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-22.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "c1-test-22-1785312471310",
+    "generatedAt": 1785312494130,
+    "contentHash": "b28de3a3fabfd2c5ac5e5da385e18e18155bfe9939596270dff50c07ee887b9a",
+    "promptHash": "5e645325abafd7e0d1d5bc73b9bcb270084b0ad7fb8c78e357d90ed7a50732fa",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-22:5e645325abafd7e0d1d5bc73b9bcb270084b0ad7fb8c78e357d90ed7a50732fa",
+    "inputHash": "5e645325abafd7e0d1d5bc73b9bcb270084b0ad7fb8c78e357d90ed7a50732fa",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "c1-test-22-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Recycling services priorities",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-22-task-01-block-01",
+          "type": "paragraph",
+          "text": "Your class has listened to a radio discussion about how a municipal authority should prioritise spending on recycling services. You have made the notes below."
+        },
+        {
+          "id": "c1-test-22-task-01-block-02",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Priorities for recycling services",
+          "listItems": [
+            "increasing the frequency of kerbside collections",
+            "providing free home composting bins",
+            "introducing a deposit-return scheme for bottles and cans"
+          ]
+        },
+        {
+          "id": "c1-test-22-task-01-block-03",
+          "type": "panel",
+          "variant": "opinions",
+          "heading": "Some opinions expressed in the discussion:",
+          "paragraphs": [
+            "More frequent collections make it easier for people to recycle, especially in flats where storage space is limited. Without this, many will simply give up.",
+            "Home composting reduces the amount of waste sent to landfill and creates useful soil. It's a long-term solution that also saves the council money.",
+            "A deposit-return scheme would dramatically reduce litter and encourage people to return bottles. It's proven to work in other countries."
+          ]
+        },
+        {
+          "id": "c1-test-22-task-01-block-04",
+          "type": "final-instruction",
+          "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for the municipal authority to invest in, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes-opinions"
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c1-test-22-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Proposal for a recycling incentive scheme",
+      "genre": "proposal",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-22-task-02-block-01",
+          "type": "paragraph",
+          "text": "The municipal authority is considering introducing a recycling incentive scheme to encourage households to recycle more. The authority has invited proposals from local residents for how such a scheme should be designed."
+        },
+        {
+          "id": "c1-test-22-task-02-block-02",
+          "type": "final-instruction",
+          "text": "Write a proposal for the municipal authority. In your proposal, you should:\n• recommend two specific incentives that would motivate households to recycle more\n• explain how these incentives would benefit both the environment and the local community\n• suggest how the authority could ensure the scheme is fair to all residents, including those in flats or with limited storage space."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-22-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Email to programme coordinator about recycling service changes",
+      "genre": "email",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-22-task-03-block-01",
+          "type": "email",
+          "from": "Programme Coordinator <p.coordinator@municipal.gov>",
+          "subject": "Proposed changes to recycling services – your views",
+          "greeting": "Dear Resident,",
+          "paragraphs": [
+            "As you may know, the municipal authority is proposing to reduce the frequency of general waste collections to once every three weeks, while maintaining weekly recycling collections. This change is intended to encourage more recycling and reduce landfill costs.",
+            "Some residents have expressed concern that less frequent waste collections will lead to odour problems and attract pests, particularly in summer. Others argue that it will push people to recycle more effectively.",
+            "I would like to hear your views on this proposal. Please write back explaining your position on the proposed change, analysing one potential implication for households in your area, and proposing an action the authority could take to address concerns while still achieving its recycling goals."
+          ],
+          "closing": "Best regards,",
+          "sender": "Programme Coordinator"
+        },
+        {
+          "id": "c1-test-22-task-03-block-02",
+          "type": "final-instruction",
+          "text": "Write your email to the programme coordinator."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-22-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Review of a recycling app",
+      "genre": "review",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-22-task-04-block-01",
+          "type": "paragraph",
+          "text": "You see this announcement on a municipal website."
+        },
+        {
+          "id": "c1-test-22-task-04-block-02",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted: Recycling apps",
+          "paragraphs": [
+            "Our municipal authority has launched a new app that helps residents sort their waste, find recycling centres and track their recycling habits.",
+            "Have you used the app? We want to hear about your experience. Write a review of the app for our website.",
+            "Describe what the app does and how easy it is to use. Evaluate how effectively it helps you recycle more and whether it has changed your behaviour. Would you recommend this app to other residents? Why or why not?",
+            "The best reviews will be published on our website."
+          ]
+        },
+        {
+          "id": "c1-test-22-task-04-block-03",
+          "type": "final-instruction",
+          "text": "Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

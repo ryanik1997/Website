@@ -1,0 +1,91 @@
+{
+  "testId": "b2-test-26",
+  "topicFamily": "future skills",
+  "specificSetting": "a future-skills forum planning brief 20",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Essay: class discussion on future skills, teacher asks for essay on most important skill",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "digital literacy",
+        "teamwork and collaboration",
+        "own idea"
+      ],
+      "lexicalAnchors": [
+        "future skills",
+        "digital literacy",
+        "teamwork"
+      ],
+      "originalitySelfCheck": "Unique scenario: essay on future skills with notes digital literacy, teamwork, own idea. Not used in any avoided fingerprint.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Review: online course teaching future skills, for educators magazine",
+      "audience": "specialist magazine readers (educators)",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "course content and delivery",
+        "usefulness for skill development",
+        "recommendation to other educators"
+      ],
+      "lexicalAnchors": [
+        "online course",
+        "future skills",
+        "critical thinking",
+        "problem-solving",
+        "digital literacy"
+      ],
+      "originalitySelfCheck": "Review of online course for future skills, not a book or documentary. Different from any previous review task.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Article: future skill importance and development, for youth website",
+      "audience": "programme coordinator (youth website readers)",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "one essential future skill",
+        "practical way to learn/practise",
+        "benefit for career or personal life"
+      ],
+      "lexicalAnchors": [
+        "future skill",
+        "learn",
+        "practise",
+        "career",
+        "personal life"
+      ],
+      "originalitySelfCheck": "Article on future skills for youth website, not generic 'learning beyond lessons' or 'most useful thing'. Unique.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Email: friend asking for course recommendation on future skills",
+      "audience": "English-speaking contact (friend Alex)",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "recommend a course",
+        "most useful aspect",
+        "online vs classroom preference",
+        "time commitment"
+      ],
+      "lexicalAnchors": [
+        "future skills course",
+        "creative thinking",
+        "data analysis",
+        "online",
+        "classroom"
+      ],
+      "originalitySelfCheck": "Email about future skills course recommendation, not about holiday, job, or exchange. Unique scenario.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are original, not overlapping with any avoided fingerprints. No forbidden concepts used. Scenarios are concrete and specific to 'future skills' topic family.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "6eb2a89f70e74ee2437587dd7d1759e184c596c9801054d012430563c4af9826"
+  }
+}

@@ -1,0 +1,227 @@
+{
+  "inputHash": "1d0669ec9d39e21309516361846710b460f9f561d9fb9321f55fd3ee6b5f4ab4",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-22:1d0669ec9d39e21309516361846710b460f9f561d9fb9321f55fd3ee6b5f4ab4",
+  "test": {
+    "id": "c2-test-22",
+    "level": "c2",
+    "testNumber": 22,
+    "title": "CPE C2 AI Practice Test 22",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-22.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c2-test-22-1785312606226",
+      "generatedAt": 1785312632971,
+      "contentHash": "4420f3d377f6b910b627a00385e489b656f5a35e4ed0da334b61ac8fe7f01c83",
+      "promptHash": "1d0669ec9d39e21309516361846710b460f9f561d9fb9321f55fd3ee6b5f4ab4",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-22:1d0669ec9d39e21309516361846710b460f9f561d9fb9321f55fd3ee6b5f4ab4",
+      "inputHash": "1d0669ec9d39e21309516361846710b460f9f561d9fb9321f55fd3ee6b5f4ab4",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c2-test-22-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Recycling services: convenience or responsibility?",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write an essay summarising and evaluating the key points from both texts in 240–280 words. Use your own words throughout as far as possible, and include your own ideas in your answers.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-22-task-01-source-1",
+            "type": "source-text",
+            "label": "Text 1",
+            "text": "Recycling services are often judged by how convenient they are for households. When bins are collected from the doorstep and a wide range of materials is accepted, participation rates rise sharply. This convenience is not a luxury but a necessity if recycling is to become a normal, everyday practice. Critics who argue that convenience encourages thoughtless consumption miss the point: the environmental benefit of high participation outweighs the ideal of mindful behaviour. A system that makes it easy to do the right thing is more effective than one that demands constant moral effort."
+          },
+          {
+            "id": "c2-test-22-task-01-source-2",
+            "type": "source-text",
+            "label": "Text 2",
+            "text": "The current emphasis on convenient recycling services masks a deeper problem: it allows people to feel virtuous about small acts while ignoring the larger issue of overconsumption. When recycling is made effortless, the psychological cost of waste is reduced, and the incentive to reduce or reuse weakens. True environmental responsibility requires not just better recycling but a fundamental shift in how we consume. Convenience, in this sense, becomes an obstacle to genuine change. It pacifies rather than challenges, and it lets both individuals and institutions off the hook."
+          }
+        ],
+        "presentation": {
+          "template": "source-texts"
+        },
+        "wordLimit": {
+          "min": 240,
+          "max": 280,
+          "displayText": "240–280 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c2-test-22-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Review of a recycling service",
+        "genre": "review",
+        "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-22-task-02-p1",
+            "type": "paragraph",
+            "text": "A specialist magazine for environmental officers is running a series of reviews of local recycling services. You decide to write a review of the recycling service in your area. In your review, assess how effectively the service balances convenience for residents with the goal of reducing waste. Describe one practical consequence of the current design—either positive or negative—and recommend a specific change that would make the service more responsible in the long term."
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c2-test-22-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Report on recycling service implications",
+        "genre": "report",
+        "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-22-task-03-p1",
+            "type": "paragraph",
+            "text": "You are a consultant hired by a municipal waste authority. The programme coordinator has asked you to write a report analysing the implications of the current recycling service design. In your report, analyse how the emphasis on convenience affects residents' long-term environmental behaviour. Assess the potential consequences for waste reduction targets if convenience remains the primary design principle. Propose one concrete action the authority could take to encourage greater personal responsibility without significantly reducing participation."
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c2-test-22-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Article: Is convenient recycling enough?",
+        "genre": "article",
+        "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-22-task-04-p1",
+            "type": "paragraph",
+            "text": "An English-language online magazine for international readers is publishing a series on 'Rethinking Recycling'. You have been contacted by the editor, who asks you to write an article explaining your position on whether recycling services should prioritise convenience or long-term responsibility. In your article, discuss what you see as the main tension in current recycling systems. Describe one practical consequence of your preferred approach. Suggest how local authorities could implement your recommendation while maintaining public support. End your article by requesting that the magazine arrange a follow-up online discussion with readers and waste management experts to explore the issue further."
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "c2-test-22",
+    "level": "c2",
+    "topicFamily": "recycling services",
+    "specificSetting": "consumption and environmental responsibility planning brief 16",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "Two source texts debate whether convenient recycling services encourage genuine responsibility or merely pacify consumers.",
+        "audience": "Educated general reader (English teacher)",
+        "purpose": "Synthesise competing claims, evaluate assumptions, and develop an independent position on the tension between convenience and responsibility.",
+        "requiredContentPoints": [
+          "the main recycling services issue",
+          "one practical consequence",
+          "a justified recommendation"
+        ],
+        "lexicalAnchors": [
+          "recycling services",
+          "convenience",
+          "responsibility",
+          "consumption"
+        ],
+        "originalitySelfCheck": "Source texts use original framing (convenience vs. moral effort; psychological cost of waste). No reuse of Test 01 structures or phrases.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "Review of a local recycling service for a specialist magazine, evaluating balance between convenience and waste reduction.",
+        "audience": "Environmental officers (specialist magazine readers)",
+        "purpose": "Assess effectiveness of the service and recommend a change to increase long-term responsibility.",
+        "requiredContentPoints": [
+          "the main recycling services issue",
+          "one practical consequence",
+          "a justified recommendation"
+        ],
+        "lexicalAnchors": [
+          "recycling service",
+          "convenience",
+          "waste reduction",
+          "long-term responsibility"
+        ],
+        "originalitySelfCheck": "Review genre with concrete audience (environmental officers). No overlap with Test 01 review (book review for literary magazine).",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "Report for a municipal waste authority analysing how convenience affects long-term environmental behaviour.",
+        "audience": "Programme coordinator (municipal waste authority)",
+        "purpose": "Analyse implications of current design and propose an action to encourage personal responsibility.",
+        "requiredContentPoints": [
+          "the main recycling services issue",
+          "one practical consequence",
+          "a justified recommendation"
+        ],
+        "lexicalAnchors": [
+          "recycling service design",
+          "convenience",
+          "environmental behaviour",
+          "responsibility"
+        ],
+        "originalitySelfCheck": "Report genre with specific institutional audience. No similarity to Test 01 report (jobs fair).",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 4,
+        "scenario": "Article for an online magazine arguing whether convenience or responsibility should be prioritised in recycling services.",
+        "audience": "English-speaking contact (international readers)",
+        "purpose": "Explain a position, describe a consequence, suggest implementation, and request a follow-up discussion.",
+        "requiredContentPoints": [
+          "the main recycling services issue",
+          "one practical consequence",
+          "a justified recommendation"
+        ],
+        "lexicalAnchors": [
+          "recycling systems",
+          "convenience",
+          "responsibility",
+          "public support"
+        ],
+        "originalitySelfCheck": "Article with direct request to magazine for follow-up. No reuse of Test 01 article structure (travel alternatives).",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ]
+  },
+  "cachedAt": 1785312632979
+}

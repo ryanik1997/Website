@@ -1,0 +1,48 @@
+{
+  "failedAt": 1785311902662,
+  "testId": "c2-test-19",
+  "level": "c2",
+  "error": "c2-test-19: deterministic originality gate failed: skeleton_similarity, skeleton_similarity, skeleton_similarity, skeleton_similarity",
+  "originality": [
+    {
+      "type": "checkpoint",
+      "leftTaskId": "c2-test-17-task-03",
+      "rightTaskId": "c2-test-19-task-03",
+      "genre": "report",
+      "exact": false,
+      "score": 0.3088,
+      "skeletonScore": 0.6613,
+      "reason": "skeleton_similarity"
+    },
+    {
+      "type": "checkpoint",
+      "leftTaskId": "c2-test-18-task-02",
+      "rightTaskId": "c2-test-19-task-02",
+      "genre": "review",
+      "exact": false,
+      "score": 0.3578,
+      "skeletonScore": 0.7368,
+      "reason": "skeleton_similarity"
+    },
+    {
+      "type": "checkpoint",
+      "leftTaskId": "c2-test-18-task-03",
+      "rightTaskId": "c2-test-19-task-03",
+      "genre": "report",
+      "exact": false,
+      "score": 0.3258,
+      "skeletonScore": 0.6721,
+      "reason": "skeleton_similarity"
+    },
+    {
+      "type": "checkpoint",
+      "leftTaskId": "c2-test-18-task-04",
+      "rightTaskId": "c2-test-19-task-04",
+      "genre": "article",
+      "exact": false,
+      "score": 0.3735,
+      "skeletonScore": 0.6044,
+      "reason": "skeleton_similarity"
+    }
+  ]
+}

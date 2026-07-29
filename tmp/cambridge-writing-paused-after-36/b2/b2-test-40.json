@@ -1,0 +1,160 @@
+{
+  "id": "b2-test-40",
+  "level": "b2",
+  "testNumber": 40,
+  "title": "FCE B2 AI Practice Test 40",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-40.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b2-test-40-1785317071106",
+    "generatedAt": 1785317084201,
+    "contentHash": "07e44c1af0033bad9720ec193134d85a65a3af086f4f0ad1307002ede4bb214a",
+    "promptHash": "124f69e0a2060d566097530dfe34488f84bd6dea46ab8f02e08b8e6ebb2a04de",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-40:124f69e0a2060d566097530dfe34488f84bd6dea46ab8f02e08b8e6ebb2a04de",
+    "inputHash": "124f69e0a2060d566097530dfe34488f84bd6dea46ab8f02e08b8e6ebb2a04de",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b2-test-40-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Healthy cooking at work",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-40-task-01-panel-01",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "In your English class you have been talking about how to encourage healthy cooking at work. Now your English teacher has asked you to write an essay.",
+          "paragraphs": [
+            "Write an essay using all the notes and giving reasons for your point of view."
+          ],
+          "listItems": [
+            "providing kitchen facilities",
+            "organising cooking workshops",
+            "......................... (your own idea)"
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes"
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b2-test-40-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Healthy cooking workshop review",
+      "genre": "review",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-40-task-02-panel-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted!",
+          "paragraphs": [
+            "Have you attended a healthy cooking workshop at your workplace or in your community? Write a review of the workshop for our specialist magazine.",
+            "Describe what you learned, say how useful the session was, and explain whether you would recommend it to other workplaces.",
+            "The best reviews will be published in next month's issue."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-40-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Healthy cooking at the workplace",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-40-task-03-panel-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted!",
+          "paragraphs": [
+            "Our programme coordinator wants to hear from employees about healthy cooking at work.",
+            "Write an article for the company newsletter suggesting one practical way to make healthy cooking easier at the workplace. Explain why this idea would work and what the benefits would be for staff.",
+            "We will share the best ideas with the planning team."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-40-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Healthy cooking initiative",
+      "genre": "email",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-40-task-04-email-01",
+          "type": "email",
+          "from": "Elena",
+          "subject": "Healthy cooking at work",
+          "paragraphs": [
+            "Hi,",
+            "I heard your office is starting a healthy cooking initiative. I'm thinking of suggesting something similar at my company.",
+            "Could you tell me what has worked well so far? What challenges have you faced? And how did you get people interested?",
+            "Thanks a lot!",
+            "Elena"
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "email",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

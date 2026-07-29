@@ -1,0 +1,79 @@
+{
+  "testId": "c1-test-08",
+  "overallOriginalityCheck": "PASS",
+  "forbiddenConceptCheck": "PASS",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Metropolitan transport authority planning brief: essay on spending priorities",
+      "audience": "English teacher (tutor)",
+      "purpose": "Evaluate and justify priorities",
+      "requiredContentPoints": [
+        "improving pedestrian crossings and pavements",
+        "subsidising electric bike-sharing schemes",
+        "creating low-traffic neighbourhood zones"
+      ],
+      "lexicalAnchors": [
+        "neighbourhood transport",
+        "metropolitan transport authority",
+        "spending priorities"
+      ],
+      "originalitySelfCheck": "Scenario uses transport authority planning brief, not generic education topic. Notes and opinions are specific to neighbourhood transport. No overlap with previous tests."
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Metropolitan transport authority planning brief: proposal for reducing car dependency",
+      "audience": "Specialist magazine readers (transport authority)",
+      "purpose": "Assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "recommend one specific measure",
+        "benefits for residents and environment",
+        "community participation and effectiveness"
+      ],
+      "lexicalAnchors": [
+        "neighbourhood transport",
+        "car dependency",
+        "community participation"
+      ],
+      "originalitySelfCheck": "Proposal asks for a specific measure, not a general framework. No reuse of previous proposal scenarios (e.g., study hub, employer partnership)."
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Metropolitan transport authority planning brief: email about congestion charge",
+      "audience": "Programme coordinator",
+      "purpose": "Analyse implications and propose action",
+      "requiredContentPoints": [
+        "position on congestion charge",
+        "implication for residents and businesses",
+        "proposed action to address concerns"
+      ],
+      "lexicalAnchors": [
+        "neighbourhood transport",
+        "congestion charge",
+        "advisory panel"
+      ],
+      "originalitySelfCheck": "Email is about a specific policy (congestion charge), not a generic request. No overlap with previous email tasks (e.g., course complaint, supplier negotiation)."
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Metropolitan transport authority planning brief: review of a neighbourhood transport scheme",
+      "audience": "English-speaking contact (community website readers)",
+      "purpose": "Explain a position and request arrangements",
+      "requiredContentPoints": [
+        "how the scheme works",
+        "how well it meets needs",
+        "recommendation to other neighbourhoods"
+      ],
+      "lexicalAnchors": [
+        "neighbourhood transport",
+        "car-sharing club",
+        "community bus service"
+      ],
+      "originalitySelfCheck": "Review focuses on a transport scheme, not a generic event or product. Announcement format used. No overlap with previous review tasks (e.g., academic initiative, public participation project)."
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "825c9e7bcb8634474cd7f43c88be523044eb7b47c62d6d29037eebed8427c65a"
+  }
+}

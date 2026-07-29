@@ -1,0 +1,79 @@
+{
+  "testId": "c2-test-28",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Two texts debating fairness in consumer markets: one argues convenience masks inequality, the other argues markets are equitable if rules are uniform.",
+      "audience": "Educated general reader (essay for tutor)",
+      "purpose": "Synthesise competing claims, evaluate assumptions, develop independent position",
+      "requiredContentPoints": [
+        "the main consumer choices issue",
+        "one practical consequence",
+        "a justified recommendation"
+      ],
+      "lexicalAnchors": [
+        "consumer choices",
+        "fairness in consumer markets planning brief 22",
+        "c2 writing brief"
+      ],
+      "originalitySelfCheck": "Source texts are original, no reused theses from previous tests. Topic is specific to consumer fairness, not generic 'education' or 'technology'. No forbidden concepts."
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Review of a fair-trade certification scheme, assessing balance between consumer convenience and producer benefit.",
+      "audience": "Specialist magazine readers (ethical consumers)",
+      "purpose": "Assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "the main consumer choices issue",
+        "one practical consequence",
+        "a justified recommendation"
+      ],
+      "lexicalAnchors": [
+        "consumer choices",
+        "fairness in consumer markets planning brief 22",
+        "c2 writing brief"
+      ],
+      "originalitySelfCheck": "Review task is about fair-trade certification, not a generic 'book review' or 'workshop review'. No reused frame from previous tests. Forbidden concepts checked: PASS."
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Report on dynamic pricing implications for fairness, analysing effects on consumer groups and proposing regulatory actions.",
+      "audience": "Programme coordinator (consumer advocacy group)",
+      "purpose": "Analyse implications and propose action",
+      "requiredContentPoints": [
+        "the main consumer choices issue",
+        "one practical consequence",
+        "a justified recommendation"
+      ],
+      "lexicalAnchors": [
+        "consumer choices",
+        "fairness in consumer markets planning brief 22",
+        "c2 writing brief"
+      ],
+      "originalitySelfCheck": "Report focuses on dynamic pricing, a specific and concrete issue. No similarity to previous report tasks. Forbidden concepts: PASS."
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Article on personalised pricing, arguing whether it is inherently unfair, with practical consequences and regulatory suggestions.",
+      "audience": "English-speaking contact (editor of international magazine)",
+      "purpose": "Explain a position and request arrangements",
+      "requiredContentPoints": [
+        "the main consumer choices issue",
+        "one practical consequence",
+        "a justified recommendation"
+      ],
+      "lexicalAnchors": [
+        "consumer choices",
+        "fairness in consumer markets planning brief 22",
+        "c2 writing brief"
+      ],
+      "originalitySelfCheck": "Article is about personalised pricing, a distinct angle. No reused skeleton from c2-test-27-task-04 (which was about housing). Forbidden concepts: PASS."
+    }
+  ],
+  "forbiddenConceptCheck": "PASS",
+  "notes": "All tasks are original, avoid generic phrases, and match the design fingerprint exactly. No reused scenarios or sentence frames from previous tests.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "2e50d4232528ce7f07c3709e0dd5013d53f974eb976e9b72fec4769f096e4cb8"
+  }
+}

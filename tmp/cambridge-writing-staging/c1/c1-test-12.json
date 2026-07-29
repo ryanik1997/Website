@@ -1,0 +1,179 @@
+{
+  "id": "c1-test-12",
+  "level": "c1",
+  "testNumber": 12,
+  "title": "CAE C1 AI Practice Test 12",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-12.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "c1-test-12-1785310461176",
+    "generatedAt": 1785310485326,
+    "contentHash": "06e58730bf1c3ced6ae702cd6a6963eba10ecfebab578f62fcf6b7780f27f260",
+    "promptHash": "279a32961b5355cbe92b5362272be1ed03a9068e900d9c06387de1c3a4021f20",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-12:279a32961b5355cbe92b5362272be1ed03a9068e900d9c06387de1c3a4021f20",
+    "inputHash": "279a32961b5355cbe92b5362272be1ed03a9068e900d9c06387de1c3a4021f20",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "c1-test-12-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay: Priorities for Youth Sports Clubs",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-12-task-01-block-01",
+          "type": "paragraph",
+          "text": "Your class has listened to a radio discussion about how a national youth sport strategy should allocate funding to local youth sports clubs. You have made the notes below."
+        },
+        {
+          "id": "c1-test-12-task-01-block-02",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Priorities for youth sports clubs",
+          "listItems": [
+            "subsidising membership fees for low-income families",
+            "providing free transport to and from training sessions",
+            "investing in coach training and qualifications"
+          ]
+        },
+        {
+          "id": "c1-test-12-task-01-block-03",
+          "type": "panel",
+          "variant": "opinions",
+          "heading": "Some opinions expressed in the discussion:",
+          "paragraphs": [
+            "Reducing fees is the most direct way to make clubs accessible to everyone, regardless of their background.",
+            "Transport is a hidden barrier – if kids can't get to practice, nothing else matters.",
+            "Well-trained coaches improve the quality of sessions and help keep young people engaged long-term."
+          ]
+        },
+        {
+          "id": "c1-test-12-task-01-block-04",
+          "type": "final-instruction",
+          "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for the success of youth sports clubs, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes-opinions"
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c1-test-12-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Proposal: Improving Youth Sports Club Retention",
+      "genre": "proposal",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-12-task-02-block-01",
+          "type": "paragraph",
+          "text": "The National Youth Sport Agency has noticed that many young people drop out of sports clubs after the first year. The agency has invited proposals for how clubs can improve long-term participation."
+        },
+        {
+          "id": "c1-test-12-task-02-block-02",
+          "type": "final-instruction",
+          "text": "Write a proposal for the agency. In your proposal, you should:\n\n• recommend two practical measures to keep young people engaged beyond the first year\n• explain how these measures would benefit both the participants and the clubs\n• suggest how the agency could support clubs in implementing these measures"
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-12-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Email: Analysing a New Club Schedule",
+      "genre": "email",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-12-task-03-block-01",
+          "type": "paragraph",
+          "text": "You are a volunteer coordinator for a local youth sports club. The club's programme coordinator has emailed you about a proposal to move all training sessions to weekday evenings instead of Saturday mornings. Some parents say this will make it easier for children to attend, but others worry it will interfere with homework and family time."
+        },
+        {
+          "id": "c1-test-12-task-03-block-02",
+          "type": "final-instruction",
+          "text": "Write an email to the programme coordinator. In your email, you should:\n\n• explain the potential implications of the schedule change for both attendance and family life\n• propose an action the club could take to address the concerns of parents while still improving access\n• request a meeting to discuss the proposal further"
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-12-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Review: A Youth Sports Club Open Day",
+      "genre": "review",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-12-task-04-block-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted: Youth sports club open days",
+          "paragraphs": [
+            "Have you attended an open day at a local youth sports club recently? We want to hear about your experience.",
+            "Write a review for our community website. Describe the event and what it offered. Evaluate how well it balanced attracting new members with providing a genuine experience of the club. Would you recommend other clubs to organise similar open days? Why or why not?",
+            "The best reviews will be published on the website."
+          ]
+        },
+        {
+          "id": "c1-test-12-task-04-block-02",
+          "type": "final-instruction",
+          "text": "Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

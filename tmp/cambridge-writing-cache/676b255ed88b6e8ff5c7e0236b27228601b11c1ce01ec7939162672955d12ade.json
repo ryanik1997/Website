@@ -1,0 +1,236 @@
+{
+  "inputHash": "54290adff9ff70f2998b923a32c402e876168572fb4d9d665c6f249798f8b45f",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-15:54290adff9ff70f2998b923a32c402e876168572fb4d9d665c6f249798f8b45f",
+  "test": {
+    "id": "c2-test-15",
+    "level": "c2",
+    "testNumber": 15,
+    "title": "CPE C2 AI Practice Test 15",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-15.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c2-test-15-1785310710760",
+      "generatedAt": 1785310750649,
+      "contentHash": "bf21302efdbf2514bd38eeb23dad93ae5b68af2d6b4f99bed5afe6e1df5d9253",
+      "promptHash": "54290adff9ff70f2998b923a32c402e876168572fb4d9d665c6f249798f8b45f",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-15:54290adff9ff70f2998b923a32c402e876168572fb4d9d665c6f249798f8b45f",
+      "inputHash": "54290adff9ff70f2998b923a32c402e876168572fb4d9d665c6f249798f8b45f",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c2-test-15-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Healthy cooking and workplace wellbeing",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write an essay summarising and evaluating the key points from both texts in 240–280 words. Use your own words throughout as far as possible, and include your own ideas in your answers.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-15-task-01-source-1",
+            "type": "source-text",
+            "label": "Text 1",
+            "text": "The surge in workplace wellbeing programmes that include healthy cooking classes reflects a genuine desire to improve employee health, but convenience often undermines the goal. Pre-packaged meal kits and quick recipes are promoted as time-savers, yet they shift responsibility onto individuals while ignoring the structural factors that make healthy eating difficult: long hours, limited break times and the dominance of processed food in workplace canteens. If organisations are serious about wellbeing, they must address the environment in which food choices are made, not simply offer another optional class."
+          },
+          {
+            "id": "c2-test-15-task-01-source-2",
+            "type": "source-text",
+            "label": "Text 2",
+            "text": "Critics who dismiss workplace healthy cooking initiatives as superficial miss the point. For many employees, these programmes provide the first practical exposure to cooking skills that their education never offered. A one-hour session on batch cooking or reading nutrition labels can have a lasting impact on daily habits. The convenience of learning at work removes barriers of cost and time that would otherwise prevent participation. Rather than demanding systemic overhaul, we should recognise that small, accessible steps can create meaningful change in people's lives."
+          }
+        ],
+        "presentation": {
+          "template": "source-texts"
+        },
+        "wordLimit": {
+          "min": 240,
+          "max": 280,
+          "displayText": "240–280 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c2-test-15-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Review of a workplace cooking programme",
+        "genre": "review",
+        "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-15-task-02-p1",
+            "type": "paragraph",
+            "text": "A specialist magazine for human resources professionals is running a series of reviews of workplace wellbeing initiatives. You decide to write a review of a healthy cooking programme that was introduced at your workplace or an organisation you know well."
+          },
+          {
+            "id": "c2-test-15-task-02-p2",
+            "type": "paragraph",
+            "text": "In your review, describe the programme and its aims, assess how effectively it balanced convenience for employees with genuine long-term health benefits, and recommend whether other employers should adopt a similar initiative."
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c2-test-15-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Report on healthy cooking at work",
+        "genre": "report",
+        "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-15-task-03-p1",
+            "type": "paragraph",
+            "text": "You are a consultant hired by a regional health authority. The programme coordinator has asked you to write a report on how workplace healthy cooking initiatives affect employees' eating habits and overall wellbeing."
+          },
+          {
+            "id": "c2-test-15-task-03-p2",
+            "type": "paragraph",
+            "text": "In your report, analyse the main ways in which such programmes influence dietary behaviour, assess the potential consequences for employee health and productivity if participation is low or superficial, and propose two concrete actions that employers could take to make these initiatives more effective and sustainable."
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c2-test-15-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Should healthy cooking be a workplace right?",
+        "genre": "article",
+        "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-15-task-04-p1",
+            "type": "paragraph",
+            "text": "An English-language online magazine for international readers is publishing a series on 'Food and Work'. The editors have invited readers to submit articles addressing the question: Should employers be responsible for providing healthy cooking opportunities for their staff?"
+          },
+          {
+            "id": "c2-test-15-task-04-p2",
+            "type": "paragraph",
+            "text": "In your article, explain your position on this question, discuss one practical consequence of making such programmes a standard workplace benefit, and suggest how organisations could implement them without creating resentment among employees who prefer not to participate."
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "overallOriginalityCheck": "PASS",
+    "forbiddenConceptsCheck": "PASS",
+    "tasks": [
+      {
+        "taskId": "c2-test-15-task-01",
+        "scenario": "Two source texts debate whether workplace healthy cooking programmes are superficial convenience or meaningful access to skills",
+        "audience": "educated general reader",
+        "purpose": "synthesise competing claims, evaluate assumptions and develop an independent position",
+        "requiredContentPoints": [
+          "guidance and equality",
+          "autonomy and intellectual risk",
+          "own conceptual distinction"
+        ],
+        "lexicalAnchors": [
+          "workplace wellbeing",
+          "healthy cooking",
+          "convenience",
+          "long-term responsibility"
+        ],
+        "originalitySelfCheck": "PASS - scenario is specific to workplace cooking programmes, not used in any previous test"
+      },
+      {
+        "taskId": "c2-test-15-task-02",
+        "scenario": "Review of a workplace healthy cooking programme for HR professionals",
+        "audience": "specialist magazine readers (HR professionals)",
+        "purpose": "assess effectiveness and recommend",
+        "requiredContentPoints": [
+          "the main healthy cooking issue",
+          "one practical consequence",
+          "a justified recommendation 2"
+        ],
+        "lexicalAnchors": [
+          "workplace wellbeing",
+          "healthy cooking",
+          "convenience",
+          "long-term responsibility"
+        ],
+        "originalitySelfCheck": "PASS - review genre with HR magazine audience, not used in previous tests"
+      },
+      {
+        "taskId": "c2-test-15-task-03",
+        "scenario": "Report for health authority on workplace cooking initiatives",
+        "audience": "programme coordinator",
+        "purpose": "analyse implications and propose action",
+        "requiredContentPoints": [
+          "the main healthy cooking issue",
+          "one practical consequence",
+          "a justified recommendation 3"
+        ],
+        "lexicalAnchors": [
+          "workplace wellbeing",
+          "healthy cooking",
+          "convenience",
+          "long-term responsibility"
+        ],
+        "originalitySelfCheck": "PASS - report genre with health authority audience, not used in previous tests"
+      },
+      {
+        "taskId": "c2-test-15-task-04",
+        "scenario": "Article for international magazine on employer responsibility for healthy cooking",
+        "audience": "English-speaking contact (international readers)",
+        "purpose": "explain a position and request arrangements",
+        "requiredContentPoints": [
+          "the main healthy cooking issue",
+          "one practical consequence",
+          "a justified recommendation 4"
+        ],
+        "lexicalAnchors": [
+          "workplace wellbeing",
+          "healthy cooking",
+          "convenience",
+          "long-term responsibility"
+        ],
+        "originalitySelfCheck": "PASS - article genre with international magazine audience, not used in previous tests"
+      }
+    ]
+  },
+  "cachedAt": 1785310750691
+}

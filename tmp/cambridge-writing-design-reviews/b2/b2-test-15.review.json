@@ -1,0 +1,83 @@
+{
+  "overallOriginalityCheck": "PASS",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Essay about encouraging healthy cooking at work, focusing on kitchen facilities and workshops plus own idea.",
+      "audience": "English teacher",
+      "purpose": "Evaluate and justify priorities",
+      "requiredContentPoints": [
+        "providing kitchen facilities",
+        "organising cooking workshops",
+        "own idea"
+      ],
+      "lexicalAnchors": [
+        "healthy cooking",
+        "workplace",
+        "kitchen facilities",
+        "cooking workshops"
+      ],
+      "originalitySelfCheck": "Scenario is workplace wellbeing pilot, not generic education. Notes are specific to facilities and workshops. No overlap with previous essay tasks.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Review of a healthy cooking workshop attended at workplace or community.",
+      "audience": "Specialist magazine readers",
+      "purpose": "Assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "what you learned",
+        "usefulness",
+        "recommendation"
+      ],
+      "lexicalAnchors": [
+        "healthy cooking workshop",
+        "workplace",
+        "review"
+      ],
+      "originalitySelfCheck": "Review focuses on a cooking workshop, not a book, film, or library. No overlap with previous review tasks.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Article for company newsletter suggesting a practical way to make healthy cooking easier at work.",
+      "audience": "Programme coordinator",
+      "purpose": "Analyse implications and propose action",
+      "requiredContentPoints": [
+        "one practical way",
+        "why it would work",
+        "benefits for staff"
+      ],
+      "lexicalAnchors": [
+        "healthy cooking",
+        "workplace",
+        "practical idea"
+      ],
+      "originalitySelfCheck": "Article is for a company newsletter, not a general website. Focus on workplace cooking, not generic learning or skills. No overlap.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Email to an English-speaking contact explaining a workplace healthy cooking initiative and responding to questions.",
+      "audience": "English-speaking contact (Elena)",
+      "purpose": "Explain a position and request arrangements",
+      "requiredContentPoints": [
+        "what has worked well",
+        "challenges faced",
+        "how to get people interested"
+      ],
+      "lexicalAnchors": [
+        "healthy cooking",
+        "workplace initiative",
+        "challenges",
+        "interest"
+      ],
+      "originalitySelfCheck": "Email is from a friend asking about a workplace initiative, not a standard 'advice' email. No overlap with previous email tasks.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "dce6cd2a8a2351080167b4e496cfb9a96a070b4c923981236a1c4d3aeb16c525"
+  }
+}

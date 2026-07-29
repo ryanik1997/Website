@@ -1,0 +1,95 @@
+{
+  "testId": "c1-test-15",
+  "level": "c1",
+  "topicFamily": "healthy cooking",
+  "specificSetting": "an organisational wellbeing framework planning brief 9",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "genre": "essay",
+      "scenario": "Class discussion on workplace healthy cooking priorities; essay for tutor evaluating two of three notes (subsidising ingredients, workshops, kitchen culture) and justifying which is more important.",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "subsidising healthy ingredients or meal kits",
+        "providing on-site cooking workshops",
+        "creating a supportive kitchen culture"
+      ],
+      "lexicalAnchors": [
+        "healthy cooking",
+        "workplace wellbeing",
+        "subsidies",
+        "workshops",
+        "kitchen culture"
+      ],
+      "originalitySelfCheck": "Unique scenario: workplace healthy cooking, not used in any previous test. Notes and opinions are original. No forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "genre": "proposal",
+      "scenario": "Proposal to wellbeing committee for a healthy cooking initiative, recommending two measures, benefits, and evaluation.",
+      "audience": "specialist magazine readers (wellbeing committee)",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "two practical measures",
+        "benefits for employees and organisation",
+        "evaluation of success"
+      ],
+      "lexicalAnchors": [
+        "healthy cooking initiative",
+        "wellbeing committee",
+        "measures",
+        "evaluation"
+      ],
+      "originalitySelfCheck": "Original proposal scenario: workplace healthy cooking initiative. Not similar to any previous proposal (e.g., student events, transport, library).",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "genre": "email",
+      "scenario": "Email to programme coordinator addressing staff concerns about healthy cooking programme convenience for those with long commutes or limited kitchen facilities.",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "potential implications for different home situations",
+        "action to address concerns",
+        "request meeting"
+      ],
+      "lexicalAnchors": [
+        "healthy cooking programme",
+        "commute",
+        "kitchen facilities",
+        "concerns"
+      ],
+      "originalitySelfCheck": "Original email scenario: workplace healthy cooking programme concerns. Not similar to previous emails (e.g., course complaints, exchange visits, transport plans).",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "genre": "review",
+      "scenario": "Review of a healthy cooking workshop for a lifestyle website, describing the workshop, evaluating balance of convenience and lasting skills, recommending to other organisations.",
+      "audience": "English-speaking contact (lifestyle website readers)",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "description of workshop",
+        "evaluation of convenience vs lasting skills",
+        "recommendation"
+      ],
+      "lexicalAnchors": [
+        "healthy cooking workshop",
+        "convenience",
+        "lasting skills",
+        "recommendation"
+      ],
+      "originalitySelfCheck": "Original review scenario: healthy cooking workshop. Not similar to previous reviews (e.g., digital detox, study clinics, documentaries).",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are based on the unique topic family 'healthy cooking' within an organisational wellbeing framework. No forbidden concepts (e.g., peer learning, pollution, touring holiday) appear. Each task has a distinct audience, purpose, and content points. No reused scenarios or skeletons from previous tests.",
+  "forbiddenConceptCheck": "PASS",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "d0dbc57c0972d0631662b2e5a741e0a4830b5e9cbf458e940555c03a61a780e2"
+  }
+}

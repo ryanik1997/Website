@@ -1,0 +1,166 @@
+{
+  "id": "b1-test-31",
+  "level": "b1",
+  "testNumber": 31,
+  "title": "PET B1 AI Practice Test 31",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b1/b1-test-31.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b1-test-31-1785312924923",
+    "generatedAt": 1785312947875,
+    "contentHash": "9b6eb5bf2d26a637ce8d12353f8f81258735aa4e16c86338fc53c1a411f18b25",
+    "promptHash": "ca3e91ff358ac5ed64fe61a797c6a4cf0e1563ccb3c9b39022343d40b0394d22",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-31:ca3e91ff358ac5ed64fe61a797c6a4cf0e1563ccb3c9b39022343d40b0394d22",
+    "inputHash": "ca3e91ff358ac5ed64fe61a797c6a4cf0e1563ccb3c9b39022343d40b0394d22",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b1-test-31-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Hot-weather neighbourhood plan",
+      "genre": "email",
+      "instruction": "You must answer this question. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-31-task-01-p1",
+          "type": "paragraph",
+          "text": "Read this email from your English teacher, Mrs. Hill, and the notes you have made."
+        },
+        {
+          "id": "b1-test-31-task-01-email",
+          "type": "email",
+          "from": "Mrs. Hill",
+          "subject": "Hot-weather neighbourhood plan",
+          "paragraphs": [
+            "Hello,",
+            "As you know, our class is helping to plan a hot-weather neighbourhood plan. We want to make sure everyone stays safe and comfortable during very hot days.",
+            "First, should we focus on creating shaded areas in the park or on providing free water stations around the town? Which do you think is more important and why?",
+            "Also, we need to choose one practical thing to organise. Would you prefer to arrange for a community room to be open as a cooling centre, or set up a phone tree to check on elderly neighbours?",
+            "Finally, can you suggest one way to let people know about the plan?",
+            "Best wishes,",
+            "Mrs. Hill"
+          ]
+        },
+        {
+          "id": "b1-test-31-task-01-notes",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes for your reply",
+          "listItems": [
+            "Say which focus you prefer (shaded areas or water stations) and explain why.",
+            "Choose one thing to organise (cooling centre or phone tree) and give a reason.",
+            "Suggest one way to inform people about the plan.",
+            "Ask Mrs. Hill about the date of the next meeting."
+          ]
+        },
+        {
+          "id": "b1-test-31-task-01-final",
+          "type": "final-instruction",
+          "text": "Write your email to Mrs. Hill using all the notes."
+        }
+      ],
+      "presentation": {
+        "template": "email"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b1-test-31-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Hot-weather neighbourhood plan",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-31-task-02-p1",
+          "type": "paragraph",
+          "text": "You see this notice on a specialist magazine website."
+        },
+        {
+          "id": "b1-test-31-task-02-announcement",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted!",
+          "paragraphs": [
+            "Hot-weather neighbourhood plans – do they work?",
+            "Do you think a neighbourhood plan can really help people during very hot weather?",
+            "What is the most important thing such a plan should include?",
+            "Write an article answering these questions and we will put it on our website!"
+          ]
+        },
+        {
+          "id": "b1-test-31-task-02-final",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b1-test-31-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Hot-weather neighbourhood plan",
+      "genre": "story",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-31-task-03-p1",
+          "type": "paragraph",
+          "text": "Your English teacher has asked you to write a story."
+        },
+        {
+          "id": "b1-test-31-task-03-opening",
+          "type": "paragraph",
+          "text": "Your story must begin with this sentence:"
+        },
+        {
+          "id": "b1-test-31-task-03-sentence",
+          "type": "paragraph",
+          "text": "\"When the programme coordinator handed out the bottles of water, I realised how serious the heatwave really was.\""
+        },
+        {
+          "id": "b1-test-31-task-03-final",
+          "type": "final-instruction",
+          "text": "Write your story."
+        }
+      ],
+      "presentation": {
+        "template": "plain"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

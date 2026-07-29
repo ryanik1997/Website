@@ -1,0 +1,164 @@
+{
+  "id": "b1-test-07",
+  "level": "b1",
+  "testNumber": 7,
+  "title": "PET B1 AI Practice Test 07",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b1/b1-test-07.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b1-test-07-1785306293631",
+    "generatedAt": 1785306310302,
+    "contentHash": "302f64564c93729a98f967ecd1761fa6b31202e17603df641ba07d7b57231271",
+    "promptHash": "4ce45f4dc4f2b8ca6ade4402bd535bbf632eb4add3622e6e7994e1d52da516de",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-07:4ce45f4dc4f2b8ca6ade4402bd535bbf632eb4add3622e6e7994e1d52da516de",
+    "inputHash": "4ce45f4dc4f2b8ca6ade4402bd535bbf632eb4add3622e6e7994e1d52da516de",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b1-test-07-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Email about York exchange visit activities",
+      "genre": "email",
+      "instruction": "You must answer this question. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-07-task-01-p1",
+          "type": "paragraph",
+          "text": "Read this email from your English teacher, Mrs. Clark, and the notes you have made."
+        },
+        {
+          "id": "b1-test-07-task-01-email",
+          "type": "email",
+          "from": "Mrs. Clark",
+          "subject": "York exchange visit – activities",
+          "paragraphs": [
+            "Dear Student,",
+            "Thank you for agreeing to help plan the school exchange visit to York. We need to choose two main activities for the group. The options are: a guided tour of York Minster, a visit to the Jorvik Viking Centre, or a walk along the city walls.",
+            "Which two activities do you think we should choose? Please give a reason for each choice. Also, would you prefer to have the activities on the same day or on different days? Why?",
+            "Let me know your ideas by Friday.",
+            "Best wishes,",
+            "Mrs. Clark"
+          ]
+        },
+        {
+          "id": "b1-test-07-task-01-notes",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes for your reply",
+          "listItems": [
+            "Choose two activities and say why you chose each one.",
+            "Say if you prefer same day or different days – explain why.",
+            "Suggest one thing the group should do in the evening.",
+            "Ask Mrs. Clark about the budget for activities."
+          ]
+        },
+        {
+          "id": "b1-test-07-task-01-final",
+          "type": "final-instruction",
+          "text": "Write your email to Mrs. Clark using all the notes."
+        }
+      ],
+      "presentation": {
+        "template": "email"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b1-test-07-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Article about York exchange visit",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-07-task-02-p1",
+          "type": "paragraph",
+          "text": "You see this notice on a specialist magazine website for exchange programme coordinators."
+        },
+        {
+          "id": "b1-test-07-task-02-announcement",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted!",
+          "paragraphs": [
+            "How can a school exchange visit help students learn about history and culture?",
+            "Which activity from an exchange visit was especially effective, what did students learn from it, and why would you recommend it to other coordinators?",
+            "The best articles will be published on our website."
+          ]
+        },
+        {
+          "id": "b1-test-07-task-02-final",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b1-test-07-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Story about an exchange visit problem",
+      "genre": "story",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-07-task-03-p1",
+          "type": "paragraph",
+          "text": "Your English teacher has asked you to write a story."
+        },
+        {
+          "id": "b1-test-07-task-03-opening",
+          "type": "paragraph",
+          "text": "Your story must begin with this sentence:"
+        },
+        {
+          "id": "b1-test-07-task-03-sentence",
+          "type": "paragraph",
+          "text": "\"When the programme coordinator announced that the museum was closed, everyone looked worried.\""
+        },
+        {
+          "id": "b1-test-07-task-03-final",
+          "type": "final-instruction",
+          "text": "Write your story."
+        }
+      ],
+      "presentation": {
+        "template": "plain"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

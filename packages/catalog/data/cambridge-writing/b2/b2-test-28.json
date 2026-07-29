@@ -1,0 +1,172 @@
+{
+  "id": "b2-test-28",
+  "level": "b2",
+  "testNumber": 28,
+  "title": "FCE B2 AI Practice Test 28",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-28.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b2-test-28-1785312966780",
+    "generatedAt": 1785312999019,
+    "contentHash": "1927b9a59fc25e5a4f49c55687184f3a897d7e4fef56a83389b82e4a07a78474",
+    "promptHash": "9b4b6290469d5d0a56dea0a0359d4b529108d3e0cd87006c6d55c8c72bcdb542",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-28:9b4b6290469d5d0a56dea0a0359d4b529108d3e0cd87006c6d55c8c72bcdb542",
+    "inputHash": "9b4b6290469d5d0a56dea0a0359d4b529108d3e0cd87006c6d55c8c72bcdb542",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b2-test-28-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay: Ethical consumer campaign priorities",
+      "genre": "essay",
+      "instruction": "Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-28-task-01-p1",
+          "type": "paragraph",
+          "text": "In your English class you have been discussing how to design an ethical consumer campaign. Now your English teacher has asked you to write an essay."
+        },
+        {
+          "id": "b2-test-28-task-01-p2",
+          "type": "paragraph",
+          "text": "Write an essay using all the notes and giving reasons for your point of view."
+        },
+        {
+          "id": "b2-test-28-task-01-p3",
+          "type": "paragraph",
+          "text": "What is the most important priority for an ethical consumer campaign to succeed?"
+        },
+        {
+          "id": "b2-test-28-task-01-notes",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "listItems": [
+            "1. reducing the use of single-use plastics",
+            "2. encouraging local shopping",
+            "3. ......................... (your own idea)"
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes"
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b2-test-28-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Review: Ethical consumer campaign",
+      "genre": "review",
+      "instruction": "Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-28-task-02-announcement",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted!",
+          "paragraphs": [
+            "Have you taken part in an ethical consumer campaign in your town or college?",
+            "Write a review of the campaign for a specialist magazine. Describe what the campaign aimed to do, say how effective it was at changing people's shopping habits, and recommend one improvement for future campaigns.",
+            "The best reviews will be published in the next issue."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-28-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Article: Ethical shopping habits",
+      "genre": "article",
+      "instruction": "Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-28-task-03-announcement",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted!",
+          "paragraphs": [
+            "Our programme coordinator wants to hear from young people about ethical shopping.",
+            "Write an article for the coordinator's website. Suggest one practical way that students can make more ethical consumer choices. Explain why this would work and describe one benefit for the local community.",
+            "We will publish the best articles on our website."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-28-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Email: Campaign planning",
+      "genre": "email",
+      "instruction": "Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-28-task-04-email",
+          "type": "email",
+          "from": "Sam Carter",
+          "subject": "Ethical consumer campaign – your ideas",
+          "paragraphs": [
+            "Hi,",
+            "I'm helping to organise an ethical consumer campaign at our college. We want to encourage students to think more carefully about what they buy. I know you're interested in this topic.",
+            "Could you tell me what you think the main issue is that we should focus on? Also, what practical consequence do you see if young people don't change their shopping habits? And what one thing would you recommend we do in the campaign?",
+            "Thanks a lot!",
+            "Sam"
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "email",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

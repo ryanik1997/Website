@@ -1,0 +1,269 @@
+{
+  "inputHash": "69c95e01f3428322c25ffd74ea7410d5ae3c32cad7bfa456694ad5a5f5c5f682",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-29:69c95e01f3428322c25ffd74ea7410d5ae3c32cad7bfa456694ad5a5f5c5f682",
+  "test": {
+    "id": "c1-test-29",
+    "level": "c1",
+    "testNumber": 29,
+    "title": "CAE C1 AI Practice Test 29",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-29.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c1-test-29-1785313206531",
+      "generatedAt": 1785313227377,
+      "contentHash": "225210c1d453630b927a52b635a5b3c8104c1b9035052198ec67390fc5ad97cc",
+      "promptHash": "69c95e01f3428322c25ffd74ea7410d5ae3c32cad7bfa456694ad5a5f5c5f682",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-29:69c95e01f3428322c25ffd74ea7410d5ae3c32cad7bfa456694ad5a5f5c5f682",
+      "inputHash": "69c95e01f3428322c25ffd74ea7410d5ae3c32cad7bfa456694ad5a5f5c5f682",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c1-test-29-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Cultural Investment Review Planning Brief 23: Essay",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-29-task-01-block-01",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Priorities for arts funding",
+            "listItems": [
+              "subsidising ticket prices for low-income groups",
+              "funding educational outreach programmes in schools",
+              "supporting experimental or emerging art forms"
+            ]
+          },
+          {
+            "id": "c1-test-29-task-01-block-02",
+            "type": "panel",
+            "variant": "opinions",
+            "heading": "Some opinions expressed in the discussion:",
+            "paragraphs": [
+              "Subsidised tickets are the most direct way to ensure that the arts are accessible to everyone, not just the wealthy.",
+              "Outreach programmes in schools build future audiences and help young people develop creativity and critical thinking.",
+              "Experimental art is risky but essential; without it, the arts stagnate and lose their cultural relevance."
+            ]
+          },
+          {
+            "id": "c1-test-29-task-01-block-03",
+            "type": "paragraph",
+            "text": "Your class has listened to a radio discussion about how a cultural investment review should prioritise arts funding. You have made the notes below."
+          },
+          {
+            "id": "c1-test-29-task-01-block-04",
+            "type": "final-instruction",
+            "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for arts funding, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+          }
+        ],
+        "presentation": {
+          "template": "essay-notes-opinions"
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c1-test-29-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Cultural Investment Review Planning Brief 23: Proposal",
+        "genre": "proposal",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-29-task-02-block-01",
+            "type": "paragraph",
+            "text": "A specialist magazine for arts administrators is running a series of proposals for improving the long-term sustainability of publicly funded arts organisations. You decide to write a proposal for the magazine."
+          },
+          {
+            "id": "c1-test-29-task-02-block-02",
+            "type": "final-instruction",
+            "text": "In your proposal, you should:\n\n• recommend two practical measures that arts organisations could take to reduce their reliance on public subsidies\n• explain how these measures would benefit both the organisations and their audiences\n• suggest how the effectiveness of these measures could be evaluated\n\nWrite your proposal."
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-29-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Cultural Investment Review Planning Brief 23: Email",
+        "genre": "email",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-29-task-03-block-01",
+            "type": "email",
+            "from": "Marta Johansson <m.johansson@culturaltrust.org>",
+            "subject": "Arts funding pilot – your analysis",
+            "paragraphs": [
+              "Dear Programme Coordinator,",
+              "As you know, the Cultural Trust is planning a pilot programme that would allocate a portion of arts funding to community-led projects, rather than to established institutions. Some board members are concerned that this may reduce the quality of artistic output, while others argue it will increase community engagement and long-term sustainability.",
+              "I would like to hear your analysis of this proposal. Please write back explaining your position on the proposed shift in funding priorities, analysing one potential implication for established arts organisations, and proposing an action the Trust could take to address concerns while still supporting community-led initiatives.",
+              "Best regards,",
+              "Marta Johansson"
+            ]
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-29-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Cultural Investment Review Planning Brief 23: Review",
+        "genre": "review",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-29-task-04-block-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Reviews wanted: Arts funding initiatives",
+            "paragraphs": [
+              "Have you attended or participated in an arts project that was funded by a public grant or a cultural investment scheme? We want to hear about your experience.",
+              "Write a review for our local arts website. Describe the project and how it was funded. Evaluate how well the funding balanced the need for artistic freedom with the responsibility to deliver public value. Would you recommend this funding model for other projects? Why or why not?",
+              "The best reviews will be published on our website."
+            ]
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "c1-test-29",
+    "level": "c1",
+    "topicFamily": "arts funding",
+    "specificSetting": "a cultural investment review planning brief 23",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "Class discussion on arts funding priorities; essay for tutor",
+        "audience": "English teacher",
+        "purpose": "evaluate and justify priorities",
+        "requiredContentPoints": [
+          "the main arts funding issue",
+          "one practical consequence",
+          "a justified recommendation 1"
+        ],
+        "lexicalAnchors": [
+          "arts funding",
+          "a cultural investment review planning brief 23",
+          "c1 writing brief"
+        ],
+        "originalitySelfCheck": "Unique scenario: cultural investment review planning brief 23. No overlap with existing tests. Forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "Proposal for arts organisations to reduce subsidy reliance",
+        "audience": "specialist magazine readers",
+        "purpose": "assess effectiveness and recommend",
+        "requiredContentPoints": [
+          "the main arts funding issue",
+          "one practical consequence",
+          "a justified recommendation 2"
+        ],
+        "lexicalAnchors": [
+          "arts funding",
+          "a cultural investment review planning brief 23",
+          "c1 writing brief"
+        ],
+        "originalitySelfCheck": "Proposal genre with institutional audience; no reuse of previous proposal frames. Forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "Email responding to a funding pilot proposal",
+        "audience": "programme coordinator",
+        "purpose": "analyse implications and propose action",
+        "requiredContentPoints": [
+          "the main arts funding issue",
+          "one practical consequence",
+          "a justified recommendation 3"
+        ],
+        "lexicalAnchors": [
+          "arts funding",
+          "a cultural investment review planning brief 23",
+          "c1 writing brief"
+        ],
+        "originalitySelfCheck": "Email with three communicative functions; unique scenario of community-led vs institutional funding. Forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 4,
+        "scenario": "Review of an arts funding project",
+        "audience": "English-speaking contact",
+        "purpose": "explain a position and request arrangements",
+        "requiredContentPoints": [
+          "the main arts funding issue",
+          "one practical consequence",
+          "a justified recommendation 4"
+        ],
+        "lexicalAnchors": [
+          "arts funding",
+          "a cultural investment review planning brief 23",
+          "c1 writing brief"
+        ],
+        "originalitySelfCheck": "Review genre with announcement panel; unique focus on funding model evaluation. Forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ],
+    "centralTension": "access and convenience versus long-term responsibility in arts funding",
+    "stakeholders": [
+      "people affected by arts funding",
+      "organisers of a cultural investment review planning brief 23"
+    ],
+    "forbiddenConcepts": [],
+    "overallOriginalityCheck": "All tasks are original, with no substantial similarity to any existing test in the avoided fingerprints. The scenario, audience, purpose, content points, and lexical anchors are unique to this test."
+  },
+  "cachedAt": 1785313227403
+}

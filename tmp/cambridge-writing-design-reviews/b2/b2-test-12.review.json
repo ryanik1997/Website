@@ -1,0 +1,94 @@
+{
+  "testId": "b2-test-12",
+  "level": "b2",
+  "topicFamily": "youth sports clubs",
+  "specificSetting": "a youth sports participation review planning brief 6",
+  "tasks": [
+    {
+      "taskId": "b2-test-12-task-01",
+      "scenario": "Essay on the most important issue facing youth sports clubs, with notes on cost of membership, availability of trained coaches, and own idea.",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "cost of membership",
+        "availability of trained coaches",
+        "own idea"
+      ],
+      "lexicalAnchors": [
+        "youth sports clubs",
+        "cost of membership",
+        "trained coaches"
+      ],
+      "originalitySelfCheck": "Scenario is original: focuses on youth sports clubs, not previously used. Notes are distinct from earlier essays. No forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "b2-test-12-task-02",
+      "scenario": "Review of a youth sports club for a specialist magazine, describing facilities and coaching, value for money, and recommending an improvement for accessibility.",
+      "audience": "specialist magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "facilities and coaching",
+        "value for money",
+        "recommendation for accessibility"
+      ],
+      "lexicalAnchors": [
+        "youth sports club",
+        "facilities",
+        "coaching",
+        "value for money",
+        "accessibility"
+      ],
+      "originalitySelfCheck": "Review genre with specific focus on youth sports club, not used before. Announcement template but with unique content. No forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "b2-test-12-task-03",
+      "scenario": "Article for a youth sports programme coordinator's website on how clubs can encourage long-term responsibility in young members.",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "practical way to promote responsibility",
+        "why it would work",
+        "benefits for club and community"
+      ],
+      "lexicalAnchors": [
+        "youth sports clubs",
+        "long-term responsibility",
+        "young members",
+        "community"
+      ],
+      "originalitySelfCheck": "Article task on responsibility in sports clubs, distinct from earlier articles. No forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "b2-test-12-task-04",
+      "scenario": "Email to an English-speaking contact recommending a youth sports club to visit, discussing challenges, and arranging a visit.",
+      "audience": "English-speaking contact",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "recommend a club",
+        "biggest challenge",
+        "help arrange visit"
+      ],
+      "lexicalAnchors": [
+        "youth sports club",
+        "visit",
+        "challenge",
+        "arrange"
+      ],
+      "originalitySelfCheck": "Email task about visiting a youth sports club, not used before. No forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "centralTension": "access and convenience versus long-term responsibility in youth sports clubs",
+  "stakeholders": [
+    "people affected by youth sports clubs",
+    "organisers of a youth sports participation review planning brief 6"
+  ],
+  "forbiddenConceptsCheck": "All tasks pass forbidden concept check. No overlap with existing fingerprints.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "64e7af394864c8afdad9cccc35d744232e997a7a2e3b96724a5ddd2ce7144d02"
+  }
+}

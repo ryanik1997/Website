@@ -1,0 +1,113 @@
+{
+  "testId": "b2-test-39",
+  "level": "b2",
+  "topicFamily": "part-time work",
+  "specificSetting": "a graduate internship scheme planning brief 33",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Essay discussing priorities for a graduate internship scheme: fair selection process, quality of mentoring, and own idea.",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "fair selection process",
+        "quality of mentoring",
+        "own idea"
+      ],
+      "lexicalAnchors": [
+        "graduate internship scheme",
+        "fair selection",
+        "mentoring"
+      ],
+      "originalitySelfCheck": "Unique scenario: internship scheme planning. Not similar to any avoided test. Forbidden concepts checked: no overlap with peer learning, touring holiday, etc.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Review of the launch event of the graduate internship scheme for a specialist magazine.",
+      "audience": "specialist magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "what the event aimed to do",
+        "how well it presented benefits",
+        "recommendation to other graduates"
+      ],
+      "lexicalAnchors": [
+        "launch event",
+        "graduate internship scheme",
+        "benefits"
+      ],
+      "originalitySelfCheck": "Review of a launch event, not a book, film, or service. Not similar to any avoided review task.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Article suggesting how to make the graduate internship scheme more inclusive, for the programme coordinator.",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "one practical way to attract diverse applicants",
+        "why it would work",
+        "benefits"
+      ],
+      "lexicalAnchors": [
+        "inclusive",
+        "diverse backgrounds",
+        "attract applicants"
+      ],
+      "originalitySelfCheck": "Article about inclusivity in an internship scheme. Not about learning outside class, future skills, or community activities. Unique.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Email replying to an exchange coordinator about the internship scheme, explaining application steps, describing a project, and asking about accommodation.",
+      "audience": "English-speaking contact (exchange coordinator)",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "explain application steps",
+        "describe one typical project",
+        "ask about accommodation options"
+      ],
+      "lexicalAnchors": [
+        "application process",
+        "typical project",
+        "accommodation"
+      ],
+      "originalitySelfCheck": "Email about internship placement, not a friend or personal trip. Not similar to any avoided email task.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "centralTension": "access and convenience versus long-term responsibility in part-time work",
+  "stakeholders": [
+    "people affected by part-time work",
+    "organisers of a graduate internship scheme planning brief 33"
+  ],
+  "registerByTask": {
+    "task1": "neutral",
+    "task2": "semi-formal",
+    "task3": "formal",
+    "task4": "engaging neutral"
+  },
+  "forbiddenConcepts": [
+    "peer learning project",
+    "touring holiday",
+    "most useful thing learned",
+    "book review",
+    "workplace observation day",
+    "life skills timetable",
+    "digital communication workshop",
+    "message to wrong person",
+    "low-waste school event",
+    "environmental club",
+    "pollution essay",
+    "community centre programme",
+    "school open day",
+    "surprising book character",
+    "college magazine film review"
+  ],
+  "overallOriginalityCheck": "All tasks are original, use concrete audiences and purposes, and avoid forbidden concepts. No generic phrases used. Scenarios are specific to the graduate internship scheme planning brief 33.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "136131aa8c31f8b4659e36bf01870fb7f6f26f6d06b242287fe9e0885d558990"
+  }
+}

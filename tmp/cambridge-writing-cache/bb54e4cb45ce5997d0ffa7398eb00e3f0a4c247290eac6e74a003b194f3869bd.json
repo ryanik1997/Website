@@ -1,0 +1,275 @@
+{
+  "inputHash": "d0b210e4b33aaac5455114354df6dcb6add47d04e87ed1852437455474b3469f",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-07:d0b210e4b33aaac5455114354df6dcb6add47d04e87ed1852437455474b3469f",
+  "test": {
+    "id": "b2-test-07",
+    "level": "b2",
+    "testNumber": 7,
+    "title": "FCE B2 AI Practice Test 07",
+    "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-07.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "b2-test-07-1785306698161",
+      "generatedAt": 1785306718178,
+      "contentHash": "87926dd4832fd6c71473f2fc3758d7aae04847a148d222081ecaf88c148e9e55",
+      "promptHash": "d0b210e4b33aaac5455114354df6dcb6add47d04e87ed1852437455474b3469f",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-07:d0b210e4b33aaac5455114354df6dcb6add47d04e87ed1852437455474b3469f",
+      "inputHash": "d0b210e4b33aaac5455114354df6dcb6add47d04e87ed1852437455474b3469f",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "b2-test-07-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Essay: Exchange visit priorities",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write 140–190 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-07-task-01-pb-01",
+            "type": "paragraph",
+            "text": "In your English class you have been discussing how to plan a successful college exchange visit. Now your English teacher has asked you to write an essay."
+          },
+          {
+            "id": "b2-test-07-task-01-pb-02",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Notes",
+            "paragraphs": [
+              "Write about:",
+              "1. choosing suitable host families",
+              "2. organising cultural activities",
+              "3. ......................... (your own idea)"
+            ]
+          },
+          {
+            "id": "b2-test-07-task-01-pb-03",
+            "type": "final-instruction",
+            "text": "Write an essay using all the notes and giving reasons for your point of view."
+          }
+        ],
+        "presentation": {
+          "template": "essay-notes"
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "b2-test-07-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Review: Exchange welcome pack",
+        "genre": "review",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-07-task-02-pb-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Reviews wanted",
+            "paragraphs": [
+              "Have you used the welcome pack our college gives to exchange visitors?",
+              "Write a review of the welcome pack for the college website. Describe what it contains, say how helpful it was for you, and recommend one improvement.",
+              "The best reviews will be published on our website."
+            ]
+          },
+          {
+            "id": "b2-test-07-task-02-pb-02",
+            "type": "final-instruction",
+            "text": "Write your review."
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b2-test-07-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Article: Making exchange students feel welcome",
+        "genre": "article",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-07-task-03-pb-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Articles wanted",
+            "paragraphs": [
+              "Our college is planning a new exchange programme and wants ideas to make visiting students feel welcome.",
+              "Write an article for the programme coordinator suggesting one practical way to help exchange students settle in, explaining why it would work and what the benefits would be.",
+              "We will share the best ideas with the planning team."
+            ]
+          },
+          {
+            "id": "b2-test-07-task-03-pb-02",
+            "type": "final-instruction",
+            "text": "Write your article."
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b2-test-07-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Email: Exchange visit arrangements",
+        "genre": "email",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-07-task-04-pb-01",
+            "type": "email",
+            "from": "contact@partnerschool.edu",
+            "subject": "Exchange visit next month",
+            "paragraphs": [
+              "Dear student,",
+              "I am writing to confirm the exchange visit from your college next month. We are very excited to welcome your group!",
+              "Could you please let me know if you prefer to stay with a host family or in a student residence? Also, what type of activities would you like us to arrange for your free time?",
+              "Finally, do you have any dietary requirements or special needs we should know about?",
+              "I look forward to hearing from you.",
+              "Best regards,",
+              "Ms. Elena Rossi",
+              "Exchange Coordinator"
+            ]
+          },
+          {
+            "id": "b2-test-07-task-04-pb-02",
+            "type": "final-instruction",
+            "text": "Write your email to Ms. Rossi. You should explain your preferences, suggest one activity, and ask a question about the schedule."
+          }
+        ],
+        "presentation": {
+          "template": "email",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "b2-test-07",
+    "level": "b2",
+    "topicFamily": "school exchange visits",
+    "specificSetting": "a college exchange partnership planning brief 1",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "Essay about priorities for planning a successful college exchange visit",
+        "audience": "English teacher",
+        "purpose": "evaluate and justify priorities",
+        "requiredContentPoints": [
+          "choosing suitable host families",
+          "organising cultural activities",
+          "own idea"
+        ],
+        "lexicalAnchors": [
+          "exchange visit",
+          "host families",
+          "cultural activities"
+        ],
+        "originalitySelfCheck": "Scenario is original; focuses on exchange planning, not generic life skills or environment. Notes are specific to exchange context. No overlap with existing test fingerprints.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "Review of a welcome pack for exchange visitors",
+        "audience": "specialist magazine readers (college website audience)",
+        "purpose": "assess effectiveness and recommend",
+        "requiredContentPoints": [
+          "content of welcome pack",
+          "helpfulness",
+          "one improvement"
+        ],
+        "lexicalAnchors": [
+          "welcome pack",
+          "exchange visitors",
+          "improvement"
+        ],
+        "originalitySelfCheck": "Review of a welcome pack is a novel scenario; not a book, film, or facility review. No overlap with existing reviews.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "Article suggesting a practical way to help exchange students settle in",
+        "audience": "programme coordinator",
+        "purpose": "analyse implications and propose action",
+        "requiredContentPoints": [
+          "one practical way",
+          "why it would work",
+          "benefits"
+        ],
+        "lexicalAnchors": [
+          "exchange students",
+          "settle in",
+          "practical way"
+        ],
+        "originalitySelfCheck": "Article focuses on welcoming exchange students; not a generic 'learning beyond lessons' or 'skills' article. Specific to exchange context.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 4,
+        "scenario": "Email replying to exchange coordinator about accommodation, activities, and dietary needs",
+        "audience": "English-speaking contact (Ms. Rossi)",
+        "purpose": "explain a position and request arrangements",
+        "requiredContentPoints": [
+          "preference for accommodation",
+          "suggest one activity",
+          "question about schedule"
+        ],
+        "lexicalAnchors": [
+          "exchange visit",
+          "host family",
+          "student residence",
+          "activities",
+          "dietary requirements"
+        ],
+        "originalitySelfCheck": "Email is a reply to an exchange coordinator about visit details; not a friend email about weekend plans or course advice. Unique scenario.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ],
+    "centralTension": "access and convenience versus long-term responsibility in school exchange visits",
+    "overallOriginalityCheck": "All tasks are built around the specific setting of a college exchange partnership planning brief. No reused scenarios, audiences, or content points from previous tests. Forbidden concepts (e.g., peer learning, environment, digital communication) are avoided. Each task has a concrete audience and clear communicative purpose. The design is original and level-appropriate."
+  },
+  "cachedAt": 1785306718187
+}

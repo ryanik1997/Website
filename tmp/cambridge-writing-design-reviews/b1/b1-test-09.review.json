@@ -1,0 +1,71 @@
+{
+  "testId": "b1-test-09",
+  "overallAssessment": "PASS",
+  "taskReviews": [
+    {
+      "taskNumber": 1,
+      "scenario": "Planning a library reading club for teenagers with an English teacher",
+      "audience": "English teacher (Mrs. Hill)",
+      "purpose": "Evaluate and justify priorities for the club (time, book type, activity)",
+      "requiredContentPoints": [
+        "preferred meeting time with reason",
+        "preferred book type with reason",
+        "suggest one activity",
+        "ask about something needed"
+      ],
+      "lexicalAnchors": [
+        "reading club",
+        "teenagers",
+        "library",
+        "meeting time",
+        "book type",
+        "activity"
+      ],
+      "originalitySelfCheck": "Unique scenario: library reading club planning. Not a reused skeleton. Notes require justification. No forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Writing an article for a teenage website about the new library reading club",
+      "audience": "Specialist magazine readers (teenagers on website)",
+      "purpose": "Assess effectiveness and recommend: share opinion on joining and book preferences",
+      "requiredContentPoints": [
+        "opinion on joining the club",
+        "reason why or why not",
+        "preferred book type"
+      ],
+      "lexicalAnchors": [
+        "reading club",
+        "join",
+        "books",
+        "teenagers",
+        "library"
+      ],
+      "originalitySelfCheck": "Unique: article about a local reading club. Not a generic 'articles wanted' template. Questions are specific to the scenario. No forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Story beginning with finding a key in an old book",
+      "audience": "Programme coordinator (English teacher)",
+      "purpose": "Analyse implications and propose action: continue the story from the given opening",
+      "requiredContentPoints": [
+        "the key falling out",
+        "what happens next",
+        "resolution or consequence"
+      ],
+      "lexicalAnchors": [
+        "old book",
+        "key",
+        "floor",
+        "discovery"
+      ],
+      "originalitySelfCheck": "Unique opening sentence: 'When I opened the old book, a small key fell out and landed on the floor.' Not similar to any previous story opening. No forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "2f6c6ff779ae10768aa9a25cf1836684ea8d4b28b545f5428ba02f2d0b3482e6"
+  }
+}

@@ -1,13 +1,13 @@
 {
-  "generatedAt": 1785300014572,
-  "scope": "generation-only",
+  "generatedAt": 1785305437170,
+  "scope": "generation-and-verification",
   "maskedConfig": {
     "generatorProvider": "deepseek",
     "generatorModel": "deepseek-chat",
     "generatorKeyLoaded": true,
-    "verifierProvider": null,
-    "verifierModel": null,
-    "verifierKeyLoaded": false
+    "verifierProvider": "groq",
+    "verifierModel": "llama-3.3-70b-versatile",
+    "verifierKeyLoaded": true
   },
   "health": {
     "generator": {
@@ -16,12 +16,15 @@
       "model": "deepseek-chat",
       "keyLoaded": true,
       "status": "PASS",
-      "latencyMs": 717
+      "latencyMs": 883
     },
     "verifier": {
       "role": "verification",
-      "status": "SKIPPED_BY_USER",
-      "reason": "DeepSeek-only scope"
+      "provider": "groq",
+      "model": "llama-3.3-70b-versatile",
+      "keyLoaded": true,
+      "status": "PASS",
+      "latencyMs": 300
     }
   },
   "valid": true

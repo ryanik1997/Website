@@ -1,0 +1,93 @@
+{
+  "testId": "b2-test-16",
+  "level": "b2",
+  "topicFamily": "urban wildlife",
+  "specificSetting": "an urban biodiversity project planning brief 10",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Essay about managing urban wildlife, focusing on preventing property damage and protecting animal welfare, plus own idea.",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "preventing damage to property",
+        "protecting animal welfare",
+        "own idea"
+      ],
+      "lexicalAnchors": [
+        "urban wildlife",
+        "property damage",
+        "animal welfare"
+      ],
+      "originalitySelfCheck": "Unique scenario; no overlap with previous essay topics.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Review of a workshop about urban wildlife, describing content and organisation, evaluating impact on views, and recommending to others.",
+      "audience": "specialist magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "workshop content and organisation",
+        "change in perspective",
+        "recommendation"
+      ],
+      "lexicalAnchors": [
+        "urban wildlife workshop",
+        "resident perspective"
+      ],
+      "originalitySelfCheck": "Unique workshop review; no similar review in previous tests.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Article for community website describing a problem caused by urban wildlife and suggesting a practical solution benefiting people and animals.",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "one problem caused by urban wildlife",
+        "practical solution",
+        "benefit to people and animals"
+      ],
+      "lexicalAnchors": [
+        "urban wildlife problem",
+        "neighbourhood solution"
+      ],
+      "originalitySelfCheck": "Unique article; no similar content in previous tests.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Email to a friend explaining the main urban wildlife issue in the area, practical steps taken, and advice on getting neighbours interested.",
+      "audience": "English-speaking contact",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "main issue",
+        "practical steps",
+        "how to engage neighbours"
+      ],
+      "lexicalAnchors": [
+        "urban wildlife project",
+        "neighbour engagement"
+      ],
+      "originalitySelfCheck": "Unique email; no similar email scenario in previous tests.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "centralTension": "access and convenience versus long-term responsibility in urban wildlife",
+  "stakeholders": [
+    "people affected by urban wildlife",
+    "organisers of an urban biodiversity project planning brief 10"
+  ],
+  "registerByTask": {
+    "task1": "neutral",
+    "task2": "semi-formal",
+    "task3": "formal",
+    "task4": "engaging neutral"
+  },
+  "overallOriginalityCheck": "All tasks are original, with no reuse of scenarios, audiences, or content points from previous tests. Forbidden concepts avoided.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "080dda3b7e866bf44861ac1092015cbf8c41468ac39bb6024d922941bcfc34fe"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "testId": "b1-test-35",
+  "level": "b1",
+  "topicFamily": "community gardens",
+  "specificSetting": "a neighbourhood garden beside a railway planning brief 29",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Email to English teacher Ms. Rivera about planning a community garden beside a railway, choosing main goal (growing food vs. green space), a feature (seating area vs. tool shed), and suggesting long-term care.",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "the main community gardens issue",
+        "one practical consequence",
+        "a justified recommendation 1"
+      ],
+      "lexicalAnchors": [
+        "community gardens",
+        "a neighbourhood garden beside a railway planning brief 29",
+        "b1 writing brief"
+      ],
+      "originalitySelfCheck": "Unique scenario: community garden beside railway, not used in any previous test. Email from Ms. Rivera, notes include goal, feature, long-term help, and question about location. No overlap with forbidden concepts."
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Article for local website about the planned community garden, asking what is most important about a community garden and how it can help nearby people.",
+      "audience": "specialist magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "the main community gardens issue",
+        "one practical consequence",
+        "a justified recommendation 2"
+      ],
+      "lexicalAnchors": [
+        "community gardens",
+        "a neighbourhood garden beside a railway planning brief 29",
+        "b1 writing brief"
+      ],
+      "originalitySelfCheck": "Announcement article about community garden, questions about importance and help for neighbours. Not similar to any previous article task. No forbidden concepts."
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Story beginning with 'When I arrived at the community garden, I saw that someone had planted flowers in the shape of a star.'",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "the main community gardens issue",
+        "one practical consequence",
+        "a justified recommendation 3"
+      ],
+      "lexicalAnchors": [
+        "community gardens",
+        "a neighbourhood garden beside a railway planning brief 29",
+        "b1 writing brief"
+      ],
+      "originalitySelfCheck": "Story opening is unique and matches the specific setting. Not used in any previous test. No forbidden concepts."
+    }
+  ],
+  "forbiddenConceptCheck": "PASS",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "f67807d9c5a058d6030f8fc7b2bd86beb84b8ee53887975b9ee1417d47ec22a1"
+  }
+}

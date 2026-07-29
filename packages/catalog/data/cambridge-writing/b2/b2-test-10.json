@@ -1,0 +1,178 @@
+{
+  "id": "b2-test-10",
+  "level": "b2",
+  "testNumber": 10,
+  "title": "FCE B2 AI Practice Test 10",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-10.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b2-test-10-1785306850470",
+    "generatedAt": 1785306901163,
+    "contentHash": "cb289b86d47f34e1a48cc426cbae62d69780f29a65d58dc56f15f9415233f529",
+    "promptHash": "799feaa331b83e47ad904029063038d4813a1af285b4c5eb211470578388fcc2",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-10:799feaa331b83e47ad904029063038d4813a1af285b4c5eb211470578388fcc2",
+    "inputHash": "799feaa331b83e47ad904029063038d4813a1af285b4c5eb211470578388fcc2",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b2-test-10-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay: Funding priorities for community gardens",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-10-task-01-block-01",
+          "type": "paragraph",
+          "text": "In your English class you have been discussing how to fund community gardens. Now your teacher has asked you to write an essay."
+        },
+        {
+          "id": "b2-test-10-task-01-block-02",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "listItems": [
+            "1. buying tools and seeds",
+            "2. training volunteers",
+            "3. ......................... (your own idea)"
+          ]
+        },
+        {
+          "id": "b2-test-10-task-01-block-03",
+          "type": "final-instruction",
+          "text": "Write an essay using all the notes and giving reasons for your point of view."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes"
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b2-test-10-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Review: Community garden workshop",
+      "genre": "review",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-10-task-02-block-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted!",
+          "paragraphs": [
+            "Have you attended a workshop or event at a community garden? Write a review for our specialist magazine.",
+            "Describe what the workshop involved, how well it was organised, and whether it helped you learn something new. Would you recommend it to other readers?"
+          ],
+          "footer": "The best reviews will be published in next month's issue."
+        },
+        {
+          "id": "b2-test-10-task-02-block-02",
+          "type": "final-instruction",
+          "text": "Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-10-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Article: Encouraging community involvement",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-10-task-03-block-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted!",
+          "paragraphs": [
+            "Our town is planning a new community garden. How can we encourage more local people to get involved?",
+            "Write an article for the programme coordinator's website. Suggest one way to attract volunteers, explain why it would work, and describe what the garden could achieve for the community."
+          ],
+          "footer": "The best articles will be featured on the website."
+        },
+        {
+          "id": "b2-test-10-task-03-block-02",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-10-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Email: Explaining your position on garden funding",
+      "genre": "email",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-10-task-04-block-01",
+          "type": "email",
+          "from": "Alex",
+          "subject": "Community garden funding",
+          "greeting": "Hi,",
+          "paragraphs": [
+            "I heard your local council is debating whether to fund a new community garden. What's your opinion on this? Do you think it's a good use of money?",
+            "Also, what practical benefits could a community garden bring to your neighbourhood? And how would you convince people who are against it?",
+            "Let me know what you think!",
+            "Thanks, Alex"
+          ],
+          "closing": "Write your email."
+        }
+      ],
+      "presentation": {
+        "template": "email",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

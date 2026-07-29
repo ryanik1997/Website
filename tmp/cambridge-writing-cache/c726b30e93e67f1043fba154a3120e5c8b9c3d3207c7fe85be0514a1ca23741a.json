@@ -1,0 +1,267 @@
+{
+  "inputHash": "12b6be6957f7697f88b2df12cb2f9cfac16ff98e504cf121a658deb23ea97ec9",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-28:12b6be6957f7697f88b2df12cb2f9cfac16ff98e504cf121a658deb23ea97ec9",
+  "test": {
+    "id": "c1-test-28",
+    "level": "c1",
+    "testNumber": 28,
+    "title": "CAE C1 AI Practice Test 28",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-28.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c1-test-28-1785313186618",
+      "generatedAt": 1785313206513,
+      "contentHash": "3d8489de1f341dd755ad89032f322d0438bd9d8486a8786108b1f32e3c94833b",
+      "promptHash": "12b6be6957f7697f88b2df12cb2f9cfac16ff98e504cf121a658deb23ea97ec9",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-28:12b6be6957f7697f88b2df12cb2f9cfac16ff98e504cf121a658deb23ea97ec9",
+      "inputHash": "12b6be6957f7697f88b2df12cb2f9cfac16ff98e504cf121a658deb23ea97ec9",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c1-test-28-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Consumer choices and long-term responsibility",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-28-task-01-block-01",
+            "type": "paragraph",
+            "text": "Your class has listened to a radio discussion about how consumer choices affect long-term social and environmental responsibility. You have made the notes below."
+          },
+          {
+            "id": "c1-test-28-task-01-block-02",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Priorities for responsible consumer choices",
+            "listItems": [
+              "choosing products with minimal packaging",
+              "buying from local producers",
+              "repairing items instead of replacing them"
+            ]
+          },
+          {
+            "id": "c1-test-28-task-01-block-03",
+            "type": "panel",
+            "variant": "opinions",
+            "paragraphs": [
+              "Reducing packaging is the most visible way to cut waste, but it only addresses the end of the product lifecycle.",
+              "Local buying supports the local economy and reduces transport emissions, yet it can be more expensive and less convenient.",
+              "Repairing extends the life of products and reduces demand for new resources, but it requires time and skills that many people lack."
+            ]
+          },
+          {
+            "id": "c1-test-28-task-01-block-04",
+            "type": "final-instruction",
+            "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for encouraging responsible consumer choices, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+          }
+        ],
+        "presentation": {
+          "template": "essay-notes-opinions"
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c1-test-28-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Proposal for a consumer awareness campaign",
+        "genre": "proposal",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-28-task-02-block-01",
+            "type": "paragraph",
+            "text": "Your local consumer standards group wants to launch a campaign to encourage residents to make more responsible purchasing decisions. The group's coordinator has invited proposals for how this campaign should be designed."
+          },
+          {
+            "id": "c1-test-28-task-02-block-02",
+            "type": "final-instruction",
+            "text": "Write a proposal for the coordinator. In your proposal, you should:\n• recommend two specific actions the campaign should promote\n• explain how these actions would benefit both consumers and the local environment\n• suggest how the group could measure the campaign's success"
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-28-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Email about a responsible sourcing policy",
+        "genre": "email",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-28-task-03-block-01",
+            "type": "email",
+            "from": "Programme Coordinator <p.coordinator@consumerstandards.org>",
+            "subject": "New responsible sourcing policy – your views",
+            "paragraphs": [
+              "Dear Student Representative,",
+              "As you know, the consumer standards group is developing a responsible sourcing policy for local businesses. The policy would encourage shops to stock products that are ethically produced and have a lower environmental impact.",
+              "Some business owners have expressed concern that the policy will increase their costs and reduce consumer choice. Others argue it will attract customers who value sustainability.",
+              "I would like to hear your views on this proposal. Please write back explaining your position on the proposed policy, analysing one potential implication for small businesses, and proposing an action the group could take to support businesses while still promoting responsible sourcing.",
+              "Best regards,",
+              "Programme Coordinator"
+            ]
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-28-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Review of a consumer choices workshop",
+        "genre": "review",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-28-task-04-block-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Reviews wanted: Consumer choices workshops",
+            "paragraphs": [
+              "Have you attended a workshop about making responsible consumer choices? We want to hear about your experience.",
+              "Write a review for our community website. Describe the workshop and what it covered. Evaluate how well it balanced practical advice with raising awareness of long-term responsibility. Would you recommend this workshop to other residents? Why or why not?",
+              "The best reviews will be published on our website."
+            ]
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "c1-test-28",
+    "topicFamily": "consumer choices",
+    "specificSetting": "a consumer standards consultation planning brief 22",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "Essay: Discuss two priorities for responsible consumer choices (minimal packaging, local buying, repairing) and decide which is more important.",
+        "audience": "English teacher",
+        "purpose": "evaluate and justify priorities",
+        "requiredContentPoints": [
+          "choosing products with minimal packaging",
+          "buying from local producers",
+          "repairing items instead of replacing them"
+        ],
+        "lexicalAnchors": [
+          "consumer choices",
+          "responsible consumer choices",
+          "packaging",
+          "local producers",
+          "repairing"
+        ],
+        "originalitySelfCheck": "Scenario is unique: consumer standards consultation, not used in any previous test. Notes and opinions are original. Forbidden concepts checked: no overlap with 'low-waste events', 'reusable containers', 'school event suppliers'.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "Proposal: Design a consumer awareness campaign for a local consumer standards group.",
+        "audience": "specialist magazine readers (coordinator of consumer standards group)",
+        "purpose": "assess effectiveness and recommend",
+        "requiredContentPoints": [
+          "two specific actions",
+          "benefits for consumers and environment",
+          "measurement of success"
+        ],
+        "lexicalAnchors": [
+          "consumer awareness campaign",
+          "purchasing decisions",
+          "local environment",
+          "campaign success"
+        ],
+        "originalitySelfCheck": "Proposal audience is a consumer standards group coordinator, not a college principal or council. Content points are distinct from previous proposals. Forbidden concepts checked.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "Email: Respond to a programme coordinator about a responsible sourcing policy for local businesses.",
+        "audience": "programme coordinator",
+        "purpose": "analyse implications and propose action",
+        "requiredContentPoints": [
+          "position on policy",
+          "implication for small businesses",
+          "action to support businesses"
+        ],
+        "lexicalAnchors": [
+          "responsible sourcing policy",
+          "ethical production",
+          "small businesses",
+          "consumer choice"
+        ],
+        "originalitySelfCheck": "Email scenario is about a sourcing policy, not a course or event. Communicative functions are distinct: explain position, analyse implication, propose action. Forbidden concepts checked.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 4,
+        "scenario": "Review: Write a review of a consumer choices workshop for a community website.",
+        "audience": "English-speaking contact (community website readers)",
+        "purpose": "explain a position and request arrangements (describe, evaluate, recommend)",
+        "requiredContentPoints": [
+          "description of workshop",
+          "evaluation of balance",
+          "recommendation"
+        ],
+        "lexicalAnchors": [
+          "consumer choices workshop",
+          "practical advice",
+          "long-term responsibility",
+          "community website"
+        ],
+        "originalitySelfCheck": "Review is about a consumer choices workshop, not a film, book, or event. Announcement heading is unique. Forbidden concepts checked.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ],
+    "overallOriginalityCheck": "All tasks are built around the specific setting 'a consumer standards consultation planning brief 22'. No scenario, audience, content points, or lexical anchors match any previously generated test. Forbidden concepts (e.g., 'low-waste school event', 'reusable containers', 'school event suppliers') are avoided. The test is structurally original and level-appropriate for C1."
+  },
+  "cachedAt": 1785313206529
+}

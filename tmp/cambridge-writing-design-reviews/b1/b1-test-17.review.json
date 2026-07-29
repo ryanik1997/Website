@@ -1,0 +1,70 @@
+{
+  "testId": "b1-test-17",
+  "overallOriginalityCheck": "PASS",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "a museum late-opening trial planning brief 11: email brief 1-1",
+      "audience": "English teacher (Mrs. Hill)",
+      "purpose": "evaluate and justify priorities: choose ticket option, activity, suggest promotion, ask about start time",
+      "requiredContentPoints": [
+        "preferred ticket option (free or normal price) with reason",
+        "preferred activity (guided tour or workshop) with reason",
+        "one way to inform teenagers about the trial",
+        "question about start time"
+      ],
+      "lexicalAnchors": [
+        "museum late-opening trial",
+        "free entry",
+        "normal ticket price",
+        "guided tour",
+        "hands-on workshop",
+        "inform teenagers",
+        "start time"
+      ],
+      "originalitySelfCheck": "Scenario is specific to museum late-opening trial, not reused from any previous test. Email format with notes panel, four distinct content points. No overlap with forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "a museum late-opening trial planning brief 11: article brief 2-5",
+      "audience": "specialist magazine readers (museum organisers)",
+      "purpose": "assess effectiveness and recommend: evaluate if late openings attract young people, suggest key success factor",
+      "requiredContentPoints": [
+        "opinion on whether late openings will attract more young people",
+        "most important thing for success"
+      ],
+      "lexicalAnchors": [
+        "late openings",
+        "young people",
+        "museum trial",
+        "success"
+      ],
+      "originalitySelfCheck": "Article task based on museum late-opening trial, not generic. Two direct questions. No overlap with previous article tasks.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "a museum late-opening trial planning brief 11: story brief 3-9",
+      "audience": "programme coordinator (via teacher)",
+      "purpose": "analyse implications and propose action: continue a story from a specific opening about the museum late-opening trial",
+      "requiredContentPoints": [
+        "unexpected atmosphere when lights are turned off",
+        "a discovery or event that follows",
+        "a resolution or consequence"
+      ],
+      "lexicalAnchors": [
+        "programme coordinator",
+        "museum",
+        "lights off",
+        "different world"
+      ],
+      "originalitySelfCheck": "Story opening is unique: 'When the programme coordinator turned off the main lights, the museum suddenly felt like a different world.' Not used in any previous test. No cliche.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "bb1fa584e46d78c2a21692890840576d58a2a3c8791b6b17fb124a60c30a08ed"
+  }
+}

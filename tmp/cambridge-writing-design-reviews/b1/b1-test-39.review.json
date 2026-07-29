@@ -1,0 +1,65 @@
+{
+  "testId": "b1-test-39",
+  "level": "b1",
+  "overallOriginalityCheck": "PASS",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "a first weekend job at a bakery planning brief 33: email brief 1-1",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "the main part-time work issue",
+        "one practical consequence",
+        "a justified recommendation 1"
+      ],
+      "lexicalAnchors": [
+        "part-time work",
+        "a first weekend job at a bakery planning brief 33",
+        "b1 writing brief"
+      ],
+      "originalitySelfCheck": "Unique scenario: first weekend job at a bakery, not used in any previous test. Email includes notes about focus (equipment vs customer service), skill to learn, avoiding tiredness, and uniform question. No overlap with existing fingerprints.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "a first weekend job at a bakery planning brief 33: article brief 2-5",
+      "audience": "specialist magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "the main part-time work issue",
+        "one practical consequence",
+        "a justified recommendation 2"
+      ],
+      "lexicalAnchors": [
+        "part-time work",
+        "a first weekend job at a bakery planning brief 33",
+        "b1 writing brief"
+      ],
+      "originalitySelfCheck": "Article asks for advice on first weekend job at a bakery – specific, not generic. Questions about what to learn first and how to enjoy the job. No reuse of previous article frames.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "a first weekend job at a bakery planning brief 33: story brief 3-9",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "the main part-time work issue",
+        "one practical consequence",
+        "a justified recommendation 3"
+      ],
+      "lexicalAnchors": [
+        "part-time work",
+        "a first weekend job at a bakery planning brief 33",
+        "b1 writing brief"
+      ],
+      "originalitySelfCheck": "Story opening: 'When the programme coordinator handed me the bakery apron, I noticed a small note pinned to it.' This is unique and matches the bakery scenario. Not used in any existing test.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "5df1338c00cd1d5536e6d51cfd1044c94e42d50d798b939c83088c9f486d1d8d"
+  }
+}

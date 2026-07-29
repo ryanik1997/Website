@@ -1,0 +1,222 @@
+{
+  "inputHash": "bd5740388711c284a309c09a8ce57bfa0dd9abdca5e948da476e3c0def120072",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-27:bd5740388711c284a309c09a8ce57bfa0dd9abdca5e948da476e3c0def120072",
+  "test": {
+    "id": "c2-test-27",
+    "level": "c2",
+    "testNumber": 27,
+    "title": "CPE C2 AI Practice Test 27",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-27.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c2-test-27-1785313283903",
+      "generatedAt": 1785313304270,
+      "contentHash": "23354b5e06d846beabeb474ad94e74139741b5e9e5429d54a5ac4075c9156464",
+      "promptHash": "bd5740388711c284a309c09a8ce57bfa0dd9abdca5e948da476e3c0def120072",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-27:bd5740388711c284a309c09a8ce57bfa0dd9abdca5e948da476e3c0def120072",
+      "inputHash": "bd5740388711c284a309c09a8ce57bfa0dd9abdca5e948da476e3c0def120072",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c2-test-27-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Essay: Housing and Educational Opportunity",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write an essay summarising and evaluating the key points from both texts in 240–280 words. Use your own words throughout as far as possible, and include your own ideas in your answers.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-27-task-01-source-1",
+            "type": "source-text",
+            "label": "Text 1",
+            "title": "The case for convenience",
+            "text": "Student accommodation that is close to campus and affordable is often dismissed as a mere convenience, but it is in fact a precondition for educational equality. When students spend hours commuting or work multiple jobs to pay rent, their capacity to engage with academic life is severely diminished. The priority, therefore, should be to build enough housing near institutions so that no student is forced to choose between a roof and their studies. Critics who argue that this approach encourages dependency miss the point: without a stable base, the very idea of educational opportunity is hollow."
+          },
+          {
+            "id": "c2-test-27-task-01-source-2",
+            "type": "source-text",
+            "label": "Text 2",
+            "title": "The case for responsibility",
+            "text": "Providing convenient accommodation may solve an immediate problem, but it risks creating a culture of entitlement that undermines the resilience students need for adult life. Learning to navigate housing markets, manage budgets and make trade-offs between location and cost is itself an education. When institutions shield students from these challenges, they produce graduates who are academically qualified but practically helpless. The responsible approach is not to eliminate housing difficulties but to equip students with the skills to overcome them. Convenience today should not come at the cost of competence tomorrow."
+          },
+          {
+            "id": "c2-test-27-task-01-final",
+            "type": "final-instruction",
+            "text": "Write your essay."
+          }
+        ],
+        "presentation": {
+          "template": "source-texts"
+        },
+        "wordLimit": {
+          "min": 240,
+          "max": 280,
+          "displayText": "240–280 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c2-test-27-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Review: Student Accommodation Initiative",
+        "genre": "review",
+        "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+        "promptText": "A specialist magazine for housing officers is running a series of reviews of student accommodation initiatives that aim to balance convenience with long-term responsibility. You decide to write a review of an accommodation scheme you have observed or lived in. In your review, describe the scheme and its intended balance between access and responsibility. Assess how effectively it achieved that balance, noting any unintended consequences. Recommend whether other institutions should adopt a similar model.",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c2-test-27-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Report: Accommodation and Academic Engagement",
+        "genre": "report",
+        "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+        "promptText": "You are a consultant hired by a university's student services department. The programme coordinator has asked you to write a report on how the current accommodation allocation system affects students' academic engagement and well-being. In your report, analyse the main ways in which housing location and cost influence students' ability to participate fully in academic life. Assess the potential consequences for student retention and success if these issues are not addressed. Propose two concrete actions the university could take to improve the balance between convenient access and long-term student development.",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c2-test-27-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Article: The Right Kind of Housing Support",
+        "genre": "article",
+        "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+        "promptText": "An English-language online magazine for international students is publishing a series on 'Housing and Study'. You have been contacted by an English-speaking contact who is an editor at the magazine. The editor asks you to write an article explaining your position on whether universities should prioritise providing convenient, affordable housing or focus on teaching students to manage their own accommodation. In your article, explain your position on this question. Describe one practical consequence of your preferred approach for how institutions allocate resources. Suggest how universities could implement your recommendation while still supporting students who struggle. End your article by requesting that the magazine arrange a follow-up online discussion with readers and student housing officers to explore the issue further.",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "c2-test-27",
+    "level": "c2",
+    "topicFamily": "student accommodation",
+    "tasks": [
+      {
+        "taskId": "c2-test-27-task-01",
+        "scenario": "Essay summarising and evaluating two source texts on whether convenient student accommodation is a precondition for equality or a risk to resilience.",
+        "audience": "Educated general reader (English teacher as assessor)",
+        "purpose": "Synthesise competing claims, evaluate assumptions, and develop an independent position on the central tension.",
+        "requiredContentPoints": [
+          "convenience as precondition for equality",
+          "risk of dependency and lost resilience",
+          "own conceptual distinction"
+        ],
+        "lexicalAnchors": [
+          "student accommodation",
+          "educational equality",
+          "resilience",
+          "dependency"
+        ],
+        "originalitySelfCheck": "Source texts present opposing views on the same concrete issue (housing) without using generic education language. No overlap with existing test fingerprints.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskId": "c2-test-27-task-02",
+        "scenario": "Review of a student accommodation scheme for a housing officers' magazine.",
+        "audience": "Specialist magazine readers (housing officers)",
+        "purpose": "Assess effectiveness and recommend",
+        "requiredContentPoints": [
+          "scheme description and intended balance",
+          "effectiveness and unintended consequences",
+          "recommendation for other institutions"
+        ],
+        "lexicalAnchors": [
+          "student accommodation scheme",
+          "access",
+          "responsibility",
+          "unintended consequences"
+        ],
+        "originalitySelfCheck": "Review genre with concrete institutional focus; no overlap with existing review tasks (which cover books, events, apps, etc.).",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskId": "c2-test-27-task-03",
+        "scenario": "Report on accommodation allocation system for university student services.",
+        "audience": "Programme coordinator (university official)",
+        "purpose": "Analyse implications and propose action",
+        "requiredContentPoints": [
+          "how housing location and cost affect academic engagement",
+          "consequences for retention and success",
+          "two concrete actions"
+        ],
+        "lexicalAnchors": [
+          "accommodation allocation",
+          "academic engagement",
+          "retention",
+          "student development"
+        ],
+        "originalitySelfCheck": "Report genre with specific institutional context; no overlap with existing report tasks (which cover jobs fairs, exchange programmes, etc.).",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskId": "c2-test-27-task-04",
+        "scenario": "Article for international student magazine on whether universities should provide housing or teach self-management.",
+        "audience": "English-speaking contact (editor) and magazine readers",
+        "purpose": "Explain a position and request arrangements",
+        "requiredContentPoints": [
+          "position on convenience vs. self-management",
+          "practical consequence for resource allocation",
+          "suggestion for implementation and request for follow-up"
+        ],
+        "lexicalAnchors": [
+          "convenient housing",
+          "self-management",
+          "resource allocation",
+          "student support"
+        ],
+        "originalitySelfCheck": "Article genre with personal stance and call for discussion; no overlap with existing article tasks (which cover travel, volunteering, etc.).",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ],
+    "centralTension": "access and convenience versus long-term responsibility in student accommodation",
+    "stakeholders": [
+      "people affected by student accommodation",
+      "organisers of housing and educational opportunity planning brief 21"
+    ],
+    "overallOriginalityCheck": "All tasks are built around the specific setting of student accommodation, with distinct audiences, purposes, and required content points. No reused scenarios, sentence skeletons, or generic phrases. Forbidden concepts avoided.",
+    "forbiddenConceptCheck": "PASS"
+  },
+  "cachedAt": 1785313304279
+}

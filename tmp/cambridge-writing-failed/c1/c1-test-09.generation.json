@@ -1,0 +1,18 @@
+{
+  "failedAt": 1785307053163,
+  "testId": "c1-test-09",
+  "level": "c1",
+  "error": "[\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"null\",\n    \"path\": [\n      \"tasks\",\n      0,\n      \"promptText\"\n    ],\n    \"message\": \"Expected string, received null\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"null\",\n    \"path\": [\n      \"tasks\",\n      1,\n      \"promptText\"\n    ],\n    \"message\": \"Expected string, received null\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"null\",\n    \"path\": [\n      \"tasks\",\n      2,\n      \"promptText\"\n    ],\n    \"message\": \"Expected string, received null\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"null\",\n    \"path\": [\n      \"tasks\",\n      3,\n      \"promptText\"\n    ],\n    \"message\": \"Expected string, received null\"\n  }\n]",
+  "originality": [
+    {
+      "type": "checkpoint",
+      "leftTaskId": "c1-test-08-task-04",
+      "rightTaskId": "c1-test-09-task-04",
+      "genre": "review",
+      "exact": false,
+      "score": 0.3182,
+      "skeletonScore": 0.7429,
+      "reason": "skeleton_similarity"
+    }
+  ]
+}

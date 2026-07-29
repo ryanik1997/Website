@@ -1,0 +1,94 @@
+{
+  "testId": "b2-test-18",
+  "level": "b2",
+  "topicFamily": "language learning",
+  "specificSetting": "a language centre outreach plan planning brief 12",
+  "centralTension": "access and convenience versus long-term responsibility in language learning",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Essay: Language centre outreach priorities – evaluating free taster sessions, childcare provision, and a student's own idea to attract local learners.",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "offering free taster sessions",
+        "providing childcare during classes",
+        "your own idea"
+      ],
+      "lexicalAnchors": [
+        "language centre",
+        "outreach",
+        "free taster sessions",
+        "childcare",
+        "local community"
+      ],
+      "originalitySelfCheck": "Scenario is specific to language centre outreach, not reused from previous tests. Notes are distinct (free taster sessions, childcare). No forbidden concepts triggered.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Review: Language centre outreach event – reviewing a conversation club, cultural workshop or taster lesson for a specialist magazine.",
+      "audience": "specialist magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "description of the event",
+        "effectiveness at encouraging language learning",
+        "one improvement recommendation"
+      ],
+      "lexicalAnchors": [
+        "outreach event",
+        "conversation club",
+        "cultural workshop",
+        "taster lesson",
+        "language learning"
+      ],
+      "originalitySelfCheck": "Review focuses on a specific outreach event type, not a generic book/film review. Announcement format is standard but content is original. No overlap with existing tests.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Article: Encouraging local participation – suggesting a practical way to involve the community in language centre outreach.",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "one practical way to involve the community",
+        "why it would work",
+        "benefits for learners and the centre"
+      ],
+      "lexicalAnchors": [
+        "language centre",
+        "outreach programme",
+        "community involvement",
+        "local residents"
+      ],
+      "originalitySelfCheck": "Article is about community engagement for a language centre, not a generic 'how to learn' piece. No similar article found in avoided fingerprints.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Email: Outreach partnership proposal – responding to a community hub coordinator about workshop type, practical arrangements, and attracting reluctant participants.",
+      "audience": "English-speaking contact (Marta Kowalski)",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "suggest a workshop type",
+        "explain one practical arrangement",
+        "propose a way to attract reluctant participants"
+      ],
+      "lexicalAnchors": [
+        "language centre",
+        "outreach partnership",
+        "workshop",
+        "community hub",
+        "reluctant participants"
+      ],
+      "originalitySelfCheck": "Email is a professional partnership proposal, not a personal friend email. Content points are concrete and distinct. No forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are built around the specific scenario of a language centre outreach plan. No task reuses scenarios, audiences, content points, or lexical anchors from any existing test in the avoided fingerprints list. The design is original and level-appropriate.",
+  "forbiddenConceptsCheck": "PASS",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "8adf7b9a85c05588e315588a216900c80a61942ff45923064e8afd3384fbbe15"
+  }
+}

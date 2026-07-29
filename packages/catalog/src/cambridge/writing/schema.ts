@@ -157,6 +157,8 @@ export const CambridgeWritingTaskSchema = z.object({
     ketSourcePartId: z.string().optional(),
     ketQuestionPrompt: z.string().optional(),
     ketImageUrls: z.array(z.string()).optional(),
+    ketImageRequired: z.boolean().optional(),
+    ketImageBrief: z.object({ title: z.string().optional(), panel1: z.string(), panel2: z.string(), panel3: z.string(), continuityNotes: z.array(z.string()).optional() }).optional(),
     noteParagraphIndexes: z.array(z.number().int().nonnegative()).optional(),
   }).optional(),
 })

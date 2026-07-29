@@ -1,0 +1,275 @@
+{
+  "inputHash": "2896d41044ffca954c93ca656edf104ff17017d587093e7f63f4136592ceaa94",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-13:2896d41044ffca954c93ca656edf104ff17017d587093e7f63f4136592ceaa94",
+  "test": {
+    "id": "c1-test-13",
+    "level": "c1",
+    "testNumber": 13,
+    "title": "CAE C1 AI Practice Test 13",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-13.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c1-test-13-1785310485337",
+      "generatedAt": 1785310508878,
+      "contentHash": "c796d9c697a124b47accdde2a26f3ad619f1bfe389275bf3cc6c8defe8cbd263",
+      "promptHash": "2896d41044ffca954c93ca656edf104ff17017d587093e7f63f4136592ceaa94",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-13:2896d41044ffca954c93ca656edf104ff17017d587093e7f63f4136592ceaa94",
+      "inputHash": "2896d41044ffca954c93ca656edf104ff17017d587093e7f63f4136592ceaa94",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c1-test-13-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Digital study tools: access and responsibility",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-13-task-01-block-01",
+            "type": "paragraph",
+            "text": "Your class has listened to a radio discussion about how universities should manage the use of digital study tools (such as AI tutors, online practice platforms and automated feedback systems). You have made the notes below."
+          },
+          {
+            "id": "c1-test-13-task-01-block-02",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Priorities for managing digital study tools",
+            "listItems": [
+              "ensuring equal access for students with limited internet or devices",
+              "protecting student data and privacy",
+              "maintaining academic integrity when using AI tools"
+            ]
+          },
+          {
+            "id": "c1-test-13-task-01-block-03",
+            "type": "panel",
+            "variant": "opinions",
+            "heading": "Some opinions expressed in the discussion:",
+            "paragraphs": [
+              "If some students can't afford reliable internet, digital tools will widen the gap instead of closing it.",
+              "We can't just hand over student data to tech companies without clear safeguards.",
+              "AI tools make it too easy to cheat – we need clear rules about what's allowed."
+            ]
+          },
+          {
+            "id": "c1-test-13-task-01-block-04",
+            "type": "final-instruction",
+            "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for universities to address, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+          }
+        ],
+        "presentation": {
+          "template": "essay-notes-opinions"
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c1-test-13-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Proposal for a digital study tools policy",
+        "genre": "proposal",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-13-task-02-block-01",
+            "type": "paragraph",
+            "text": "Your university is developing a policy on digital study tools and has invited proposals from students. The policy should balance the convenience of these tools with the responsibility of using them ethically and sustainably."
+          },
+          {
+            "id": "c1-test-13-task-02-block-02",
+            "type": "final-instruction",
+            "text": "Write a proposal for the university's academic policy committee. In your proposal, you should:\n\n• recommend two specific guidelines for the ethical use of AI-powered study tools\n• explain how these guidelines would benefit both students and the institution\n• suggest how the university could monitor compliance and address violations"
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-13-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Email to programme coordinator",
+        "genre": "email",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-13-task-03-block-01",
+            "type": "email",
+            "from": "Programme Coordinator",
+            "subject": "Digital study tools pilot – your views",
+            "paragraphs": [
+              "Dear Student Representative,",
+              "As you know, the university is planning a pilot programme that would give all first-year students free access to a suite of digital study tools, including an AI writing assistant and a personalised practice platform. Some staff have raised concerns that this might encourage over-reliance on technology and reduce students' independent learning skills.",
+              "I would like to hear your views on this initiative. Please write back explaining your position, analysing one potential drawback of the pilot, and proposing a way to address that drawback while still moving forward.",
+              "Best regards,",
+              "Dr. Elena Rossi"
+            ]
+          },
+          {
+            "id": "c1-test-13-task-03-block-02",
+            "type": "final-instruction",
+            "text": "Write your email."
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-13-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Review of a digital study tool",
+        "genre": "review",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-13-task-04-block-01",
+            "type": "paragraph",
+            "text": "You see this announcement on an English-language student advice website."
+          },
+          {
+            "id": "c1-test-13-task-04-block-02",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Reviews wanted: Digital study tools",
+            "paragraphs": [
+              "Have you used a digital study tool (e.g., an AI tutor, a flashcard app, or an online practice platform) to help with your coursework? We want to hear about your experience.",
+              "Write a review of the tool you used. Describe what it does and how easy it was to use. Evaluate how well it balanced convenience with helping you learn independently. Would you recommend it to other students? Why or why not?",
+              "The best reviews will be published on our website."
+            ]
+          },
+          {
+            "id": "c1-test-13-task-04-block-03",
+            "type": "final-instruction",
+            "text": "Write your review."
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "c1-test-13",
+    "overallOriginalityCheck": "PASS",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "University learning analytics policy planning brief 7: essay brief 1-1 – evaluating priorities for managing digital study tools (equal access, data privacy, academic integrity)",
+        "audience": "English teacher (tutor)",
+        "purpose": "Evaluate and justify which priority is more important for universities to address",
+        "requiredContentPoints": [
+          "ensuring equal access for students with limited internet or devices",
+          "protecting student data and privacy",
+          "maintaining academic integrity when using AI tools"
+        ],
+        "lexicalAnchors": [
+          "digital study tools",
+          "equal access",
+          "data privacy",
+          "academic integrity"
+        ],
+        "originalitySelfCheck": "Scenario is specific to digital study tools policy, not generic education. Notes and opinions are distinct from previous tests. No reuse of essay frame from Test 01 or other avoided tests. ForbiddenConceptCheck: PASS"
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "University learning analytics policy planning brief 7: proposal brief 2-5 – proposing guidelines for ethical use of AI study tools",
+        "audience": "University academic policy committee",
+        "purpose": "Assess effectiveness and recommend guidelines for ethical use, benefits, and compliance monitoring",
+        "requiredContentPoints": [
+          "two specific guidelines for ethical use of AI-powered study tools",
+          "benefits to students and institution",
+          "monitoring compliance and addressing violations"
+        ],
+        "lexicalAnchors": [
+          "digital study tools",
+          "ethical guidelines",
+          "AI-powered",
+          "compliance"
+        ],
+        "originalitySelfCheck": "Proposal targets institutional policy, not event organisation or community project. Distinct from previous proposal tasks. ForbiddenConceptCheck: PASS"
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "University learning analytics policy planning brief 7: email brief 3-9 – responding to programme coordinator about pilot programme concerns",
+        "audience": "Programme coordinator (Dr. Elena Rossi)",
+        "purpose": "Analyse implications of a digital study tools pilot and propose action to address drawbacks",
+        "requiredContentPoints": [
+          "explain position on the pilot",
+          "analyse one potential drawback",
+          "propose a way to address that drawback"
+        ],
+        "lexicalAnchors": [
+          "digital study tools",
+          "pilot programme",
+          "over-reliance",
+          "independent learning"
+        ],
+        "originalitySelfCheck": "Email is a response to a specific coordinator query about a pilot, not a general complaint or advice. Distinct from previous email tasks. ForbiddenConceptCheck: PASS"
+      },
+      {
+        "taskNumber": 4,
+        "scenario": "University learning analytics policy planning brief 7: review brief 4-13 – reviewing a digital study tool for a student advice website",
+        "audience": "English-speaking contact (student advice website readers)",
+        "purpose": "Explain a position on a digital study tool and request arrangements (implicitly, the review serves to inform and recommend)",
+        "requiredContentPoints": [
+          "description of the tool and ease of use",
+          "evaluation of balance between convenience and independent learning",
+          "recommendation with reasons"
+        ],
+        "lexicalAnchors": [
+          "digital study tool",
+          "convenience",
+          "independent learning",
+          "recommendation"
+        ],
+        "originalitySelfCheck": "Review is about a digital study tool, not a book, film, event, or workshop. Announcement format is used but with unique content. Distinct from previous review tasks. ForbiddenConceptCheck: PASS"
+      }
+    ]
+  },
+  "cachedAt": 1785310508895
+}

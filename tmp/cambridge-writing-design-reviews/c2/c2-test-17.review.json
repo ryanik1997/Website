@@ -1,0 +1,78 @@
+{
+  "overallOriginalityCheck": "PASS - All tasks are original, no reused scenarios, audiences, or content points from previous tests.",
+  "forbiddenConceptCheck": "PASS - No forbidden concepts used.",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Museums and contested memory planning brief 11: essay brief 1-1",
+      "audience": "English teacher (via tutor role in essay)",
+      "purpose": "Evaluate and justify priorities",
+      "requiredContentPoints": [
+        "the main museum access issue",
+        "one practical consequence",
+        "a justified recommendation 1"
+      ],
+      "lexicalAnchors": [
+        "museum access",
+        "contested memory",
+        "curatorial responsibility"
+      ],
+      "originalitySelfCheck": "PASS - Source texts present opposing views on museum neutrality vs. ethical stance; no overlap with previous essay tasks."
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Museums and contested memory planning brief 11: review brief 2-5",
+      "audience": "Specialist magazine readers (museum professionals)",
+      "purpose": "Assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "the main museum access issue",
+        "one practical consequence",
+        "a justified recommendation 2"
+      ],
+      "lexicalAnchors": [
+        "exhibition review",
+        "contested history",
+        "curatorial strategy"
+      ],
+      "originalitySelfCheck": "PASS - Review of an exhibition addressing contested memory; no similar review task in previous tests."
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Museums and contested memory planning brief 11: report brief 3-9",
+      "audience": "Programme coordinator (regional museum service)",
+      "purpose": "Analyse implications and propose action",
+      "requiredContentPoints": [
+        "the main museum access issue",
+        "one practical consequence",
+        "a justified recommendation 3"
+      ],
+      "lexicalAnchors": [
+        "admission policy",
+        "community engagement",
+        "inclusive programming"
+      ],
+      "originalitySelfCheck": "PASS - Report on access barriers for diverse groups; no similar report task in previous tests."
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Museums and contested memory planning brief 11: article brief 4-13",
+      "audience": "English-speaking contact (international magazine readers)",
+      "purpose": "Explain a position and request arrangements",
+      "requiredContentPoints": [
+        "the main museum access issue",
+        "one practical consequence",
+        "a justified recommendation 4"
+      ],
+      "lexicalAnchors": [
+        "ethical stance",
+        "exhibition design",
+        "multiple perspectives"
+      ],
+      "originalitySelfCheck": "PASS - Article on whether museums should take sides; no similar article task in previous tests."
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "589ff5413dbcbb26b4e13fdbbfa339be03cec705d6c5445281da9c4a6c6654dd"
+  }
+}

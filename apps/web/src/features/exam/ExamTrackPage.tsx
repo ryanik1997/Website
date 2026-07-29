@@ -300,9 +300,7 @@ function ExamTrackPageInner() {
       ? filterListeningByTypes(listeningExams, cambridgeLevel.listeningExamTypes)
       : []
   const writingCount = cambridgeLevel && ['a2', 'b1', 'b2', 'c1', 'c2'].includes(cambridgeLevel.slug)
-    ? (cambridgeLevel.slug === 'a2'
-      ? 1
-      : CAMBRIDGE_WRITING_MANIFEST[cambridgeLevel.slug as 'b1' | 'b2' | 'c1' | 'c2'].testCount)
+    ? CAMBRIDGE_WRITING_MANIFEST[cambridgeLevel.slug].testCount
     : 0
 
   // User thường luôn xem full catalog (không ẩn đề mẫu / filter import)

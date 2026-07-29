@@ -1,0 +1,182 @@
+{
+  "id": "b2-test-29",
+  "level": "b2",
+  "testNumber": 29,
+  "title": "FCE B2 AI Practice Test 29",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-29.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b2-test-29-1785312999035",
+    "generatedAt": 1785313060810,
+    "contentHash": "c9ded1e135eecc06e050ae02a417c0d9759336759cab3cf86530f4a2c3d6c0fa",
+    "promptHash": "8644ac3c2ad046593290c5eccf415eedac0659d3741d702659d9dc310038f461",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-29:8644ac3c2ad046593290c5eccf415eedac0659d3741d702659d9dc310038f461",
+    "inputHash": "8644ac3c2ad046593290c5eccf415eedac0659d3741d702659d9dc310038f461",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b2-test-29-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay: Arts funding priorities",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-29-task-01-block-01",
+          "type": "paragraph",
+          "text": "In your English class you have been discussing how to allocate arts funding in your town. Now your English teacher has asked you to write an essay."
+        },
+        {
+          "id": "b2-test-29-task-01-block-02",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "listItems": [
+            "1. supporting local music festivals",
+            "2. funding public art installations",
+            "3. (your own idea)"
+          ]
+        },
+        {
+          "id": "b2-test-29-task-01-block-03",
+          "type": "final-instruction",
+          "text": "Write an essay using all the notes and giving reasons for your point of view."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes"
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b2-test-29-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Review: Arts workshop",
+      "genre": "review",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-29-task-02-block-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted!",
+          "paragraphs": [
+            "Have you attended a free arts workshop funded by your local council? We want to hear about your experience.",
+            "Write a review of the workshop for our specialist magazine. Describe what the workshop involved, say how well it was organised, and explain whether you think it was a good use of public money.",
+            "The best reviews will be published in the next issue."
+          ]
+        },
+        {
+          "id": "b2-test-29-task-02-block-02",
+          "type": "final-instruction",
+          "text": "Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-29-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Article: Getting young people involved",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-29-task-03-block-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted!",
+          "paragraphs": [
+            "Our town wants to get more young people involved in the arts. What could be done to make arts events more appealing to teenagers and young adults?",
+            "Write an article for the programme coordinator's website. Describe one practical idea for attracting young audiences, explain why it would work, and suggest how the town could pay for it.",
+            "We will publish the best articles on our website."
+          ]
+        },
+        {
+          "id": "b2-test-29-task-03-block-02",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-29-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Email: Explaining arts funding position",
+      "genre": "email",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-29-task-04-block-01",
+          "type": "email",
+          "from": "Alex",
+          "subject": "Arts funding in your town",
+          "paragraphs": [
+            "Hi,",
+            "I heard that your town is reviewing how it spends money on the arts. I'm curious about your opinion. Do you think the current level of funding is about right, or should more be spent? What do you think is the most important thing the money should go towards? Also, is there any risk you can see in spending more on arts projects?",
+            "Let me know what you think!",
+            "Thanks,",
+            "Alex"
+          ]
+        },
+        {
+          "id": "b2-test-29-task-04-block-02",
+          "type": "final-instruction",
+          "text": "Write your email."
+        }
+      ],
+      "presentation": {
+        "template": "email",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

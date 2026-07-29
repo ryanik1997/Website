@@ -1,0 +1,90 @@
+{
+  "testId": "c2-test-08",
+  "overallOriginalityCheck": "PASS",
+  "tasks": [
+    {
+      "taskId": "c2-test-08-task-01",
+      "scenario": "Two source texts debating whether transport investment reduces or reinforces regional inequality",
+      "audience": "English teacher (educated general reader)",
+      "purpose": "Synthesise competing claims, evaluate assumptions and develop an independent position",
+      "requiredContentPoints": [
+        "mobility gap as a driver of inequality",
+        "counterargument that transport cannot solve structural problems",
+        "own conceptual distinction (e.g., efficiency vs. equity)"
+      ],
+      "lexicalAnchors": [
+        "neighbourhood transport",
+        "mobility gap",
+        "structural inequality",
+        "transport investment",
+        "efficiency vs. equity"
+      ],
+      "originalitySelfCheck": "Source texts present opposing views on transport and inequality, not used in any previous test. No reused sentence frames.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "c2-test-08-task-02",
+      "scenario": "Review of a demand-responsive bus service in a low-income neighbourhood",
+      "audience": "Specialist magazine readers (transport planners)",
+      "purpose": "Assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "how effectively the service addresses mobility needs",
+        "unintended consequences",
+        "recommendation for other areas"
+      ],
+      "lexicalAnchors": [
+        "demand-responsive bus",
+        "community transport",
+        "mobility needs",
+        "unintended consequences",
+        "underserved areas"
+      ],
+      "originalitySelfCheck": "Review focuses on a specific transport initiative, not a book, film or event. No overlap with previous review tasks.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "c2-test-08-task-03",
+      "scenario": "Report for a regional development agency on transport access and job accessibility",
+      "audience": "Programme coordinator (formal)",
+      "purpose": "Analyse implications and propose action",
+      "requiredContentPoints": [
+        "how current transport affects job accessibility",
+        "consequences for productivity and social cohesion",
+        "two concrete actions"
+      ],
+      "lexicalAnchors": [
+        "transport access",
+        "job accessibility",
+        "peripheral neighbourhoods",
+        "regional productivity",
+        "social cohesion"
+      ],
+      "originalitySelfCheck": "Report is for a development agency, not a school or college. No reused report scenario.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "c2-test-08-task-04",
+      "scenario": "Article for an online magazine arguing whether transport should prioritise equity over efficiency",
+      "audience": "English-speaking contact (engaging neutral)",
+      "purpose": "Explain a position and request arrangements",
+      "requiredContentPoints": [
+        "main ethical issue in transport planning",
+        "practical consequence of ignoring inequality",
+        "specific policy change"
+      ],
+      "lexicalAnchors": [
+        "transport investment",
+        "equity vs. efficiency",
+        "ethical issue",
+        "policy change",
+        "equitable transport"
+      ],
+      "originalitySelfCheck": "Article is a persuasive piece on transport ethics, not a descriptive or travel article. No reused article frame.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "ca328c1245586f6183e4658f8ad016b6a66033484c3659f3ba859405113b677b"
+  }
+}

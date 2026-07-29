@@ -1,0 +1,82 @@
+{
+  "testId": "c1-test-13",
+  "overallOriginalityCheck": "PASS",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "University learning analytics policy planning brief 7: essay brief 1-1 – evaluating priorities for managing digital study tools (equal access, data privacy, academic integrity)",
+      "audience": "English teacher (tutor)",
+      "purpose": "Evaluate and justify which priority is more important for universities to address",
+      "requiredContentPoints": [
+        "ensuring equal access for students with limited internet or devices",
+        "protecting student data and privacy",
+        "maintaining academic integrity when using AI tools"
+      ],
+      "lexicalAnchors": [
+        "digital study tools",
+        "equal access",
+        "data privacy",
+        "academic integrity"
+      ],
+      "originalitySelfCheck": "Scenario is specific to digital study tools policy, not generic education. Notes and opinions are distinct from previous tests. No reuse of essay frame from Test 01 or other avoided tests. ForbiddenConceptCheck: PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "University learning analytics policy planning brief 7: proposal brief 2-5 – proposing guidelines for ethical use of AI study tools",
+      "audience": "University academic policy committee",
+      "purpose": "Assess effectiveness and recommend guidelines for ethical use, benefits, and compliance monitoring",
+      "requiredContentPoints": [
+        "two specific guidelines for ethical use of AI-powered study tools",
+        "benefits to students and institution",
+        "monitoring compliance and addressing violations"
+      ],
+      "lexicalAnchors": [
+        "digital study tools",
+        "ethical guidelines",
+        "AI-powered",
+        "compliance"
+      ],
+      "originalitySelfCheck": "Proposal targets institutional policy, not event organisation or community project. Distinct from previous proposal tasks. ForbiddenConceptCheck: PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "University learning analytics policy planning brief 7: email brief 3-9 – responding to programme coordinator about pilot programme concerns",
+      "audience": "Programme coordinator (Dr. Elena Rossi)",
+      "purpose": "Analyse implications of a digital study tools pilot and propose action to address drawbacks",
+      "requiredContentPoints": [
+        "explain position on the pilot",
+        "analyse one potential drawback",
+        "propose a way to address that drawback"
+      ],
+      "lexicalAnchors": [
+        "digital study tools",
+        "pilot programme",
+        "over-reliance",
+        "independent learning"
+      ],
+      "originalitySelfCheck": "Email is a response to a specific coordinator query about a pilot, not a general complaint or advice. Distinct from previous email tasks. ForbiddenConceptCheck: PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "University learning analytics policy planning brief 7: review brief 4-13 – reviewing a digital study tool for a student advice website",
+      "audience": "English-speaking contact (student advice website readers)",
+      "purpose": "Explain a position on a digital study tool and request arrangements (implicitly, the review serves to inform and recommend)",
+      "requiredContentPoints": [
+        "description of the tool and ease of use",
+        "evaluation of balance between convenience and independent learning",
+        "recommendation with reasons"
+      ],
+      "lexicalAnchors": [
+        "digital study tool",
+        "convenience",
+        "independent learning",
+        "recommendation"
+      ],
+      "originalitySelfCheck": "Review is about a digital study tool, not a book, film, event, or workshop. Announcement format is used but with unique content. Distinct from previous review tasks. ForbiddenConceptCheck: PASS"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "11619afafc14adbeb95ddf9d09884b8937f4a39620d7d79846ef306afeaa1e45"
+  }
+}

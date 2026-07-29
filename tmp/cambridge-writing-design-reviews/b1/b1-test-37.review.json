@@ -1,0 +1,69 @@
+{
+  "testId": "b1-test-37",
+  "level": "b1",
+  "topicFamily": "youth sports clubs",
+  "specificSetting": "a youth football club preparing for finals planning brief 31",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Email to English teacher Mrs. Hill about planning extra training sessions, team-building activity, and player support before finals.",
+      "audience": "English teacher (Mrs. Hill)",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "preferred training time and reason",
+        "choice of team activity (dinner or sports day) with reason",
+        "one way to support players before match",
+        "question about match day schedule"
+      ],
+      "lexicalAnchors": [
+        "youth sports clubs",
+        "a youth football club preparing for finals planning brief 31",
+        "b1 writing brief"
+      ],
+      "originalitySelfCheck": "Email scenario is specific to football finals planning; not a reused frame from previous tests. Notes require a reason and a preference. No generic phrases used.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Article for specialist magazine about building team spirit in a youth football club before important matches.",
+      "audience": "specialist magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "how to build team spirit",
+        "effective activity from own club",
+        "recommendation to other clubs"
+      ],
+      "lexicalAnchors": [
+        "youth sports clubs",
+        "a youth football club preparing for finals planning brief 31",
+        "b1 writing brief"
+      ],
+      "originalitySelfCheck": "Article prompt asks about team spirit activities; not a reused announcement structure from previous tests. Questions are concrete and specific.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Story beginning with the programme coordinator announcing the final match is cancelled.",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "reaction to cancellation",
+        "consequence of cancellation",
+        "resolution or action taken"
+      ],
+      "lexicalAnchors": [
+        "youth sports clubs",
+        "a youth football club preparing for finals planning brief 31",
+        "b1 writing brief"
+      ],
+      "originalitySelfCheck": "Opening sentence is unique and matches the specific setting; not similar to any previous story opening. No cliché phrases.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are built around the specific scenario of a youth football club preparing for finals. No reused scenarios, audiences, content points, or sentence frames from previous tests. Forbidden concepts avoided.",
+  "status": "draft",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "512f310d77bbf2a8987a99268d3ab2e4dbe62b480776023b153d8bc6cf2ca8ee"
+  }
+}

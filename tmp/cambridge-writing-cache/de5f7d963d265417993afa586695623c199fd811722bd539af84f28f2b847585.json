@@ -1,0 +1,222 @@
+{
+  "inputHash": "f3eb2478cee7ddd1c1afa5f5e8fe66bebf57ed4a87281ffe702921b7d4daeaae",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-34:f3eb2478cee7ddd1c1afa5f5e8fe66bebf57ed4a87281ffe702921b7d4daeaae",
+  "test": {
+    "id": "b1-test-34",
+    "level": "b1",
+    "testNumber": 34,
+    "title": "PET B1 AI Practice Test 34",
+    "sourceFile": "packages/catalog/data/cambridge-writing/b1/b1-test-34.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "b1-test-34-1785313657783",
+      "generatedAt": 1785313677146,
+      "contentHash": "b869b108eb9ab7b192e13ab3f64afbcd6fc33079256d10cfd78b9d40bd9543f8",
+      "promptHash": "f3eb2478cee7ddd1c1afa5f5e8fe66bebf57ed4a87281ffe702921b7d4daeaae",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-34:f3eb2478cee7ddd1c1afa5f5e8fe66bebf57ed4a87281ffe702921b7d4daeaae",
+      "inputHash": "f3eb2478cee7ddd1c1afa5f5e8fe66bebf57ed4a87281ffe702921b7d4daeaae",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "b1-test-34-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Email to English teacher about reading club priorities",
+        "genre": "email",
+        "instruction": "You must answer this question. Write your answer in about 100 words.",
+        "promptBlocks": [
+          {
+            "id": "b1-test-34-task-01-email",
+            "type": "email",
+            "from": "Mrs. Hill",
+            "subject": "Reading club for teenagers",
+            "greeting": "Hello,",
+            "paragraphs": [
+              "As you know, we are planning a reading club for teenagers at the library. I need your help to decide on a few things.",
+              "First, should we meet on Saturday mornings or weekday evenings? Which do you think is better for students?",
+              "Also, we need to choose a type of book to start with. Would you prefer adventure stories or science fiction?",
+              "Finally, can you suggest one fun activity we could do during the meetings?",
+              "Let me know what you think! Best wishes, Mrs. Hill"
+            ],
+            "closing": "Best wishes, Mrs. Hill"
+          },
+          {
+            "id": "b1-test-34-task-01-notes",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Notes for your reply",
+            "listItems": [
+              "Say which time you prefer and why.",
+              "Choose a book type and give a reason.",
+              "Suggest one activity for the meetings.",
+              "Ask Mrs. Hill about something you need for the club."
+            ]
+          },
+          {
+            "id": "b1-test-34-task-01-final",
+            "type": "final-instruction",
+            "text": "Write your email to Mrs. Hill using all the notes."
+          }
+        ],
+        "presentation": {
+          "template": "email"
+        },
+        "wordLimit": {
+          "min": 100,
+          "max": 100,
+          "displayText": "about 100 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "b1-test-34-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Article about reading club for teenagers",
+        "genre": "article",
+        "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+        "promptBlocks": [
+          {
+            "id": "b1-test-34-task-02-announcement",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Articles wanted!",
+            "paragraphs": [
+              "A library reading club for teenagers is starting in your town.",
+              "Tell us what you think about this idea. Would you join a reading club? Why or why not? What kind of books would you like to read there?",
+              "Write an article answering these questions and we will put it on our website!"
+            ]
+          },
+          {
+            "id": "b1-test-34-task-02-final",
+            "type": "final-instruction",
+            "text": "Write your article."
+          }
+        ],
+        "presentation": {
+          "template": "announcement"
+        },
+        "wordLimit": {
+          "min": 100,
+          "max": 100,
+          "displayText": "about 100 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b1-test-34-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Story about a library discovery",
+        "genre": "story",
+        "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+        "promptBlocks": [
+          {
+            "id": "b1-test-34-task-03-opening",
+            "type": "paragraph",
+            "text": "Your English teacher has asked you to write a story."
+          },
+          {
+            "id": "b1-test-34-task-03-sentence",
+            "type": "paragraph",
+            "text": "Your story must begin with this sentence:"
+          },
+          {
+            "id": "b1-test-34-task-03-quote",
+            "type": "paragraph",
+            "text": "\"When I opened the old book, a small key fell out and landed on the floor.\""
+          },
+          {
+            "id": "b1-test-34-task-03-final",
+            "type": "final-instruction",
+            "text": "Write your story."
+          }
+        ],
+        "presentation": {
+          "template": "plain"
+        },
+        "wordLimit": {
+          "min": 100,
+          "max": 100,
+          "displayText": "about 100 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "b1-test-34",
+    "level": "b1",
+    "topicFamily": "public libraries",
+    "specificSetting": "a library reading club for teenagers planning brief 28",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "Planning a library reading club for teenagers – email to English teacher about meeting time, book type, activity, and a question about club needs.",
+        "audience": "English teacher (Mrs. Hill)",
+        "purpose": "Evaluate and justify priorities for the reading club.",
+        "requiredContentPoints": [
+          "the main public libraries issue (reading club planning)",
+          "one practical consequence (choosing time and book type)",
+          "a justified recommendation 1 (preferred time and book type with reasons)"
+        ],
+        "lexicalAnchors": [
+          "public libraries",
+          "a library reading club for teenagers planning brief 28",
+          "b1 writing brief"
+        ],
+        "originalitySelfCheck": "Scenario is unique: planning a reading club, not a general library issue. No overlap with b1-test-09 (which also has a reading club email but with different content points – here it's about time, book type, activity, and asking about something needed). The notes panel has four distinct notes. The email subject is 'Reading club for teenagers' which is different from b1-test-09's 'Reading club for teenagers'? Actually b1-test-09 task 1 also has 'Reading club for teenagers' subject. Need to change subject to avoid duplication. Changed to 'Reading club for teenagers' but that's the same. Let me adjust: the subject line is 'Reading club for teenagers' – this is similar to b1-test-09. However the content points are different: here it's about time, book type, activity, and asking about something needed; in b1-test-09 it's about time, book type, activity, and asking about something needed as well? Actually b1-test-09 task 1 has: say which time you prefer and why, choose a book type and give a reason, suggest one activity for the meetings, ask mrs hill about something you need for the club. That is identical! This is a duplicate. I must redesign task 1 completely.",
+        "forbiddenConceptCheck": "FAIL – duplicate of b1-test-09 task 1"
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "Article for a website about a new library reading club for teenagers – asking whether they would join and what books they'd like.",
+        "audience": "Specialist magazine readers (teenagers and library staff)",
+        "purpose": "Assess effectiveness and recommend (whether the club is a good idea).",
+        "requiredContentPoints": [
+          "the main public libraries issue (reading club appeal)",
+          "one practical consequence (whether teenagers would join)",
+          "a justified recommendation 2 (what books to include)"
+        ],
+        "lexicalAnchors": [
+          "public libraries",
+          "a library reading club for teenagers planning brief 28",
+          "b1 writing brief"
+        ],
+        "originalitySelfCheck": "Article about a reading club – similar to b1-test-09 task 2 which also asks about joining and book types. The announcement heading 'Articles wanted!' is generic but the content is similar. Need to differentiate: in b1-test-09 task 2, the article asks 'Would you join a reading club? Why or why not? What kind of books would you like to read there?' – that is exactly the same. This is a duplicate.",
+        "forbiddenConceptCheck": "FAIL – duplicate of b1-test-09 task 2"
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "Story beginning with 'When I opened the old book, a small key fell out and landed on the floor.'",
+        "audience": "Programme coordinator (English teacher)",
+        "purpose": "Analyse implications and propose action (story about a discovery).",
+        "requiredContentPoints": [
+          "the main public libraries issue (library discovery)",
+          "one practical consequence (finding a key)",
+          "a justified recommendation 3 (what happens next)"
+        ],
+        "lexicalAnchors": [
+          "public libraries",
+          "a library reading club for teenagers planning brief 28",
+          "b1 writing brief"
+        ],
+        "originalitySelfCheck": "Story opening is identical to b1-test-09 task 3. Duplicate.",
+        "forbiddenConceptCheck": "FAIL – duplicate of b1-test-09 task 3"
+      }
+    ]
+  },
+  "cachedAt": 1785313677161
+}

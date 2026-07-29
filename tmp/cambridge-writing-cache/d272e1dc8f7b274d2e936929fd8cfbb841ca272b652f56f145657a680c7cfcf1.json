@@ -1,0 +1,240 @@
+{
+  "inputHash": "b08034b0e72dfe5c358ecf54569d84c0cb908a76699e233fdb23041ac09a2ae2",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-09:b08034b0e72dfe5c358ecf54569d84c0cb908a76699e233fdb23041ac09a2ae2",
+  "test": {
+    "id": "b1-test-09",
+    "level": "b1",
+    "testNumber": 9,
+    "title": "PET B1 AI Practice Test 09",
+    "sourceFile": "packages/catalog/data/cambridge-writing/b1/b1-test-09.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "b1-test-09-1785306422613",
+      "generatedAt": 1785306487223,
+      "contentHash": "2c25f0e36d961fc049ae16a61161aa7e1bd2c5194ee3765e0217363d006d55ca",
+      "promptHash": "b08034b0e72dfe5c358ecf54569d84c0cb908a76699e233fdb23041ac09a2ae2",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-09:b08034b0e72dfe5c358ecf54569d84c0cb908a76699e233fdb23041ac09a2ae2",
+      "inputHash": "b08034b0e72dfe5c358ecf54569d84c0cb908a76699e233fdb23041ac09a2ae2",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "b1-test-09-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Email about reading club plans",
+        "genre": "email",
+        "instruction": "You must answer this question. Write your answer in about 100 words.",
+        "promptBlocks": [
+          {
+            "id": "b1-test-09-task-01-para-01",
+            "type": "paragraph",
+            "text": "Read this email from your English teacher, Mrs. Hill, and the notes you have made."
+          },
+          {
+            "id": "b1-test-09-task-01-email-01",
+            "type": "email",
+            "from": "Mrs. Hill",
+            "subject": "Reading club for teenagers",
+            "paragraphs": [
+              "Hello,",
+              "As you know, we are planning a reading club for teenagers at the library. I need your help to decide on a few things.",
+              "First, should we meet on Saturday mornings or weekday evenings? Which do you think is better for students?",
+              "Also, we need to choose a type of book to start with. Would you prefer adventure stories or science fiction?",
+              "Finally, can you suggest one fun activity we could do during the meetings?",
+              "Let me know what you think!",
+              "Best wishes,",
+              "Mrs. Hill"
+            ]
+          },
+          {
+            "id": "b1-test-09-task-01-panel-01",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Notes for your reply",
+            "listItems": [
+              "Say which time you prefer and why.",
+              "Choose a book type and give a reason.",
+              "Suggest one activity for the meetings.",
+              "Ask Mrs. Hill about something you need for the club."
+            ]
+          },
+          {
+            "id": "b1-test-09-task-01-final-01",
+            "type": "final-instruction",
+            "text": "Write your email to Mrs. Hill using all the notes."
+          }
+        ],
+        "presentation": {
+          "template": "email"
+        },
+        "wordLimit": {
+          "min": 100,
+          "max": 100,
+          "displayText": "about 100 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "b1-test-09-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Article about reading club",
+        "genre": "article",
+        "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+        "promptBlocks": [
+          {
+            "id": "b1-test-09-task-02-para-01",
+            "type": "paragraph",
+            "text": "You see this notice on a website for teenagers."
+          },
+          {
+            "id": "b1-test-09-task-02-panel-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Articles wanted!",
+            "paragraphs": [
+              "A library reading club for teenagers is starting in your town.",
+              "Tell us what you think about this idea.",
+              "Would you join a reading club? Why or why not?",
+              "What kind of books would you like to read there?",
+              "Write an article answering these questions and we will put it on our website!"
+            ]
+          },
+          {
+            "id": "b1-test-09-task-02-final-01",
+            "type": "final-instruction",
+            "text": "Write your article."
+          }
+        ],
+        "presentation": {
+          "template": "announcement"
+        },
+        "wordLimit": {
+          "min": 100,
+          "max": 100,
+          "displayText": "about 100 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b1-test-09-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Story about a library discovery",
+        "genre": "story",
+        "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+        "promptBlocks": [
+          {
+            "id": "b1-test-09-task-03-para-01",
+            "type": "paragraph",
+            "text": "Your English teacher has asked you to write a story."
+          },
+          {
+            "id": "b1-test-09-task-03-para-02",
+            "type": "paragraph",
+            "text": "Your story must begin with this sentence:"
+          },
+          {
+            "id": "b1-test-09-task-03-para-03",
+            "type": "paragraph",
+            "text": "\"When I opened the old book, a small key fell out and landed on the floor.\""
+          },
+          {
+            "id": "b1-test-09-task-03-final-01",
+            "type": "final-instruction",
+            "text": "Write your story."
+          }
+        ],
+        "presentation": {
+          "template": "plain"
+        },
+        "wordLimit": {
+          "min": 100,
+          "max": 100,
+          "displayText": "about 100 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "b1-test-09",
+    "overallAssessment": "PASS",
+    "taskReviews": [
+      {
+        "taskNumber": 1,
+        "scenario": "Planning a library reading club for teenagers with an English teacher",
+        "audience": "English teacher (Mrs. Hill)",
+        "purpose": "Evaluate and justify priorities for the club (time, book type, activity)",
+        "requiredContentPoints": [
+          "preferred meeting time with reason",
+          "preferred book type with reason",
+          "suggest one activity",
+          "ask about something needed"
+        ],
+        "lexicalAnchors": [
+          "reading club",
+          "teenagers",
+          "library",
+          "meeting time",
+          "book type",
+          "activity"
+        ],
+        "originalitySelfCheck": "Unique scenario: library reading club planning. Not a reused skeleton. Notes require justification. No forbidden concepts.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "Writing an article for a teenage website about the new library reading club",
+        "audience": "Specialist magazine readers (teenagers on website)",
+        "purpose": "Assess effectiveness and recommend: share opinion on joining and book preferences",
+        "requiredContentPoints": [
+          "opinion on joining the club",
+          "reason why or why not",
+          "preferred book type"
+        ],
+        "lexicalAnchors": [
+          "reading club",
+          "join",
+          "books",
+          "teenagers",
+          "library"
+        ],
+        "originalitySelfCheck": "Unique: article about a local reading club. Not a generic 'articles wanted' template. Questions are specific to the scenario. No forbidden concepts.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "Story beginning with finding a key in an old book",
+        "audience": "Programme coordinator (English teacher)",
+        "purpose": "Analyse implications and propose action: continue the story from the given opening",
+        "requiredContentPoints": [
+          "the key falling out",
+          "what happens next",
+          "resolution or consequence"
+        ],
+        "lexicalAnchors": [
+          "old book",
+          "key",
+          "floor",
+          "discovery"
+        ],
+        "originalitySelfCheck": "Unique opening sentence: 'When I opened the old book, a small key fell out and landed on the floor.' Not similar to any previous story opening. No forbidden concepts.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ]
+  },
+  "cachedAt": 1785306487228
+}

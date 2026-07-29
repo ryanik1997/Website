@@ -1,0 +1,236 @@
+{
+  "inputHash": "25261db6615f3144576712b48d3e3f0ecc54272bb0e8275ee7cd67ff14cf0495",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-13:25261db6615f3144576712b48d3e3f0ecc54272bb0e8275ee7cd67ff14cf0495",
+  "test": {
+    "id": "b1-test-13",
+    "level": "b1",
+    "testNumber": 13,
+    "title": "PET B1 AI Practice Test 13",
+    "sourceFile": "packages/catalog/data/cambridge-writing/b1/b1-test-13.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "b1-test-13-1785310062479",
+      "generatedAt": 1785310081395,
+      "contentHash": "8e5fa27efce3964d3eb3fb945cdaa0a91baa643bdbecaefa80ff142aedba64ff",
+      "promptHash": "25261db6615f3144576712b48d3e3f0ecc54272bb0e8275ee7cd67ff14cf0495",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-13:25261db6615f3144576712b48d3e3f0ecc54272bb0e8275ee7cd67ff14cf0495",
+      "inputHash": "25261db6615f3144576712b48d3e3f0ecc54272bb0e8275ee7cd67ff14cf0495",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "b1-test-13-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Tablet study group email",
+        "genre": "email",
+        "instruction": "You must answer this question. Write your answer in about 100 words.",
+        "promptBlocks": [
+          {
+            "id": "b1-test-13-task-01-pb-01",
+            "type": "paragraph",
+            "text": "Read this email from your English teacher, Mrs. Hill, and the notes you have made."
+          },
+          {
+            "id": "b1-test-13-task-01-pb-02",
+            "type": "email",
+            "from": "Mrs. Hill",
+            "subject": "Tablet study group – next steps",
+            "paragraphs": [
+              "Hi,",
+              "As you know, our tablet study group is planning the next session. We need to decide on the main focus. Should we use the tablets for research projects or for creating digital presentations? Which do you think is more useful for the group?",
+              "Also, we need to choose one app to try together. Would you prefer a note-taking app or a quiz app?",
+              "Finally, can you suggest one way to make sure everyone uses the tablets responsibly?",
+              "Let me know your ideas!",
+              "Best wishes,",
+              "Mrs. Hill"
+            ]
+          },
+          {
+            "id": "b1-test-13-task-01-pb-03",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Notes for your reply",
+            "listItems": [
+              "Say which focus you prefer (research or presentations) and explain why.",
+              "Choose an app (note-taking or quiz) and give a reason.",
+              "Suggest one way to encourage responsible use of the tablets.",
+              "Ask Mrs. Hill about the date of the next session."
+            ]
+          },
+          {
+            "id": "b1-test-13-task-01-pb-04",
+            "type": "final-instruction",
+            "text": "Write your email to Mrs. Hill using all the notes."
+          }
+        ],
+        "presentation": {
+          "template": "email"
+        },
+        "wordLimit": {
+          "min": 100,
+          "max": 100,
+          "displayText": "about 100 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "b1-test-13-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Tablet study group article",
+        "genre": "article",
+        "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+        "promptBlocks": [
+          {
+            "id": "b1-test-13-task-02-pb-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Articles wanted!",
+            "paragraphs": [
+              "Our school magazine wants to hear about your experience with the tablet study group.",
+              "What is the most useful thing you have learned by using tablets for study?",
+              "How has the tablet study group helped you with your schoolwork?",
+              "Would you recommend the group to other students? Why?",
+              "Write an article answering these questions and we will put it in the next magazine!"
+            ]
+          },
+          {
+            "id": "b1-test-13-task-02-pb-02",
+            "type": "final-instruction",
+            "text": "Write your article."
+          }
+        ],
+        "presentation": {
+          "template": "announcement"
+        },
+        "wordLimit": {
+          "min": 100,
+          "max": 100,
+          "displayText": "about 100 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b1-test-13-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Tablet study group story",
+        "genre": "story",
+        "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+        "promptBlocks": [
+          {
+            "id": "b1-test-13-task-03-pb-01",
+            "type": "paragraph",
+            "text": "Your English teacher has asked you to write a story."
+          },
+          {
+            "id": "b1-test-13-task-03-pb-02",
+            "type": "paragraph",
+            "text": "Your story must begin with this sentence:"
+          },
+          {
+            "id": "b1-test-13-task-03-pb-03",
+            "type": "source-text",
+            "label": "Story opening",
+            "text": "When the programme coordinator handed out the tablets, one of them started making a strange noise."
+          },
+          {
+            "id": "b1-test-13-task-03-pb-04",
+            "type": "final-instruction",
+            "text": "Write your story."
+          }
+        ],
+        "presentation": {
+          "template": "plain"
+        },
+        "wordLimit": {
+          "min": 100,
+          "max": 100,
+          "displayText": "about 100 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "b1-test-13",
+    "level": "b1",
+    "topicFamily": "digital study tools",
+    "specificSetting": "a tablet study group at school planning brief 7",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "a tablet study group at school planning brief 7: email brief 1-1",
+        "audience": "English teacher",
+        "purpose": "evaluate and justify priorities",
+        "requiredContentPoints": [
+          "the main digital study tools issue",
+          "one practical consequence",
+          "a justified recommendation 1"
+        ],
+        "lexicalAnchors": [
+          "digital study tools",
+          "a tablet study group at school planning brief 7",
+          "b1 writing brief"
+        ],
+        "originalitySelfCheck": "Email task about choosing focus (research vs presentations) and app (note-taking vs quiz) for a tablet study group. Not similar to any avoided fingerprint. Forbidden concepts check: no peer learning, no language exchange, no generic education.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "a tablet study group at school planning brief 7: article brief 2-5",
+        "audience": "specialist magazine readers",
+        "purpose": "assess effectiveness and recommend",
+        "requiredContentPoints": [
+          "the main digital study tools issue",
+          "one practical consequence",
+          "a justified recommendation 2"
+        ],
+        "lexicalAnchors": [
+          "digital study tools",
+          "a tablet study group at school planning brief 7",
+          "b1 writing brief"
+        ],
+        "originalitySelfCheck": "Article for school magazine asking about usefulness of tablet study group. Questions: most useful thing learned, how it helped schoolwork, recommendation. Not similar to any avoided fingerprint. Forbidden concepts check: no generic 'learning' or 'education' filler.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "a tablet study group at school planning brief 7: story brief 3-9",
+        "audience": "programme coordinator",
+        "purpose": "analyse implications and propose action",
+        "requiredContentPoints": [
+          "the main digital study tools issue",
+          "one practical consequence",
+          "a justified recommendation 3"
+        ],
+        "lexicalAnchors": [
+          "digital study tools",
+          "a tablet study group at school planning brief 7",
+          "b1 writing brief"
+        ],
+        "originalitySelfCheck": "Story opening: 'When the programme coordinator handed out the tablets, one of them started making a strange noise.' Unique, not similar to any existing story opening. Forbidden concepts check: no generic 'technology' or 'communication'.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ],
+    "centralTension": "access and convenience versus long-term responsibility in digital study tools",
+    "stakeholders": [
+      "people affected by digital study tools",
+      "organisers of a tablet study group at school planning brief 7"
+    ],
+    "forbiddenConceptsCheck": "PASS"
+  },
+  "cachedAt": 1785310081404
+}

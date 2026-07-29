@@ -1,0 +1,213 @@
+{
+  "inputHash": "3366d915addf066cadceda9041e1e80b47939208233b31e09fb2310a094d94f3",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-33:3366d915addf066cadceda9041e1e80b47939208233b31e09fb2310a094d94f3",
+  "test": {
+    "id": "b1-test-33",
+    "level": "b1",
+    "testNumber": 33,
+    "title": "PET B1 AI Practice Test 33",
+    "sourceFile": "packages/catalog/data/cambridge-writing/b1/b1-test-33.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "b1-test-33-1785313637801",
+      "generatedAt": 1785313654375,
+      "contentHash": "9e89f86b2db123ef2019257fa549c2589bf33273ec60c0cc13025113af37b046",
+      "promptHash": "3366d915addf066cadceda9041e1e80b47939208233b31e09fb2310a094d94f3",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-33:3366d915addf066cadceda9041e1e80b47939208233b31e09fb2310a094d94f3",
+      "inputHash": "3366d915addf066cadceda9041e1e80b47939208233b31e09fb2310a094d94f3",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "b1-test-33-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Email about bus route changes",
+        "genre": "email",
+        "instruction": "You must answer this question. Write your answer in about 100 words.\n\nRead this email from your English teacher, Mrs. Hill, and the notes you have made.\n\nWrite your email to Mrs. Hill using all the notes.",
+        "promptBlocks": [
+          {
+            "id": "b1-test-33-task-01-email",
+            "type": "email",
+            "from": "Mrs. Hill",
+            "subject": "Bus route changes in our area",
+            "paragraphs": [
+              "Hi,",
+              "As you know, the bus company wants to change the route that serves our three villages. Some people want the bus to stop at the new supermarket, but others want it to go directly to the train station. Which option do you think is better? Why?",
+              "Also, what time should the first bus leave in the morning?",
+              "Finally, do you think the fare should be lower for students?",
+              "Let me know your ideas!",
+              "Mrs. Hill"
+            ]
+          },
+          {
+            "id": "b1-test-33-task-01-notes",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Notes for your reply",
+            "listItems": [
+              "Choose supermarket or train station – say why.",
+              "Suggest a time for the first bus.",
+              "Give your opinion on student fares.",
+              "Ask Mrs. Hill one question about the changes."
+            ]
+          },
+          {
+            "id": "b1-test-33-task-01-final",
+            "type": "final-instruction",
+            "text": "Write your email to Mrs. Hill using all the notes."
+          }
+        ],
+        "presentation": {
+          "template": "email"
+        },
+        "wordLimit": {
+          "min": 100,
+          "max": 100,
+          "displayText": "about 100 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "b1-test-33-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Article about bus route changes",
+        "genre": "article",
+        "instruction": "Answer one of these questions. Write your answer in about 100 words.\n\nYou see this notice on a local community website.\n\nWrite your article.",
+        "promptBlocks": [
+          {
+            "id": "b1-test-33-task-02-announcement",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Articles wanted!",
+            "paragraphs": [
+              "Our village magazine wants to hear your opinion about the bus route changes.",
+              "Do you think the new bus route will help people in our three villages?",
+              "What is the most important thing the bus company should improve?",
+              "Write an article answering these questions and we will publish it in the next issue!"
+            ]
+          },
+          {
+            "id": "b1-test-33-task-02-final",
+            "type": "final-instruction",
+            "text": "Write your article."
+          }
+        ],
+        "presentation": {
+          "template": "announcement"
+        },
+        "wordLimit": {
+          "min": 100,
+          "max": 100,
+          "displayText": "about 100 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b1-test-33-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Story about a bus journey",
+        "genre": "story",
+        "instruction": "Answer one of these questions. Write your answer in about 100 words.\n\nYour English teacher has asked you to write a story.\n\nYour story must begin with this sentence:\n\n\"When the bus finally arrived, it was already full of people from the other villages.\"\n\nWrite your story.",
+        "promptBlocks": [
+          {
+            "id": "b1-test-33-task-03-opening",
+            "type": "paragraph",
+            "text": "Your English teacher has asked you to write a story.\n\nYour story must begin with this sentence:\n\n\"When the bus finally arrived, it was already full of people from the other villages.\""
+          },
+          {
+            "id": "b1-test-33-task-03-final",
+            "type": "final-instruction",
+            "text": "Write your story."
+          }
+        ],
+        "presentation": {
+          "template": "plain"
+        },
+        "wordLimit": {
+          "min": 100,
+          "max": 100,
+          "displayText": "about 100 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "overallOriginalityCheck": "PASS",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "Email to English teacher about bus route change in three villages",
+        "audience": "English teacher (Mrs. Hill)",
+        "purpose": "Evaluate and justify priorities: choose between supermarket or train station, suggest first bus time, give opinion on student fares, ask a question",
+        "requiredContentPoints": [
+          "choose supermarket or train station – say why",
+          "suggest a time for the first bus",
+          "give your opinion on student fares",
+          "ask Mrs. Hill one question about the changes"
+        ],
+        "lexicalAnchors": [
+          "bus route",
+          "three villages",
+          "supermarket",
+          "train station",
+          "first bus",
+          "student fares"
+        ],
+        "originalitySelfCheck": "Scenario is about bus route changes in three villages, not used in any previous test. Notes panel has four distinct notes. Email subject and content are original.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "Article for village magazine about bus route changes",
+        "audience": "Specialist magazine readers (village magazine readers)",
+        "purpose": "Assess effectiveness and recommend: give opinion on whether new route will help, suggest most important improvement",
+        "requiredContentPoints": [
+          "give opinion on whether new bus route will help people in three villages",
+          "suggest the most important thing the bus company should improve"
+        ],
+        "lexicalAnchors": [
+          "bus route changes",
+          "three villages",
+          "help people",
+          "improve"
+        ],
+        "originalitySelfCheck": "Article prompt is about village magazine, not used before. Questions are direct and relevant to the scenario. No generic phrases.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "Story beginning with bus arriving full of people from other villages",
+        "audience": "Programme coordinator (English teacher)",
+        "purpose": "Analyse implications and propose action: continue a story from a fixed opening about a bus journey",
+        "requiredContentPoints": [
+          "bus arrives full",
+          "consequence for the protagonist",
+          "resolution"
+        ],
+        "lexicalAnchors": [
+          "bus",
+          "full",
+          "other villages"
+        ],
+        "originalitySelfCheck": "Story opening is unique: 'When the bus finally arrived, it was already full of people from the other villages.' Not used in any previous test. No cliches.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ]
+  },
+  "cachedAt": 1785313654386
+}

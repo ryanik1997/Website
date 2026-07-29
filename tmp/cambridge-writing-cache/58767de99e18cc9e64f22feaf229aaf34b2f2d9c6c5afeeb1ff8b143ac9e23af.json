@@ -1,0 +1,221 @@
+{
+  "inputHash": "065961acf01e65f4aeaa36a80e3f597925c2152b744b91b4b1ebd41bdc4f24c3",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-16:065961acf01e65f4aeaa36a80e3f597925c2152b744b91b4b1ebd41bdc4f24c3",
+  "test": {
+    "id": "c2-test-16",
+    "level": "c2",
+    "testNumber": 16,
+    "title": "CPE C2 AI Practice Test 16",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-16.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c2-test-16-1785310867716",
+      "generatedAt": 1785310888624,
+      "contentHash": "71ce23962b09bdeba3dfe32e6a91ded5c147bbca18ac37994df590a0978eeb53",
+      "promptHash": "065961acf01e65f4aeaa36a80e3f597925c2152b744b91b4b1ebd41bdc4f24c3",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-16:065961acf01e65f4aeaa36a80e3f597925c2152b744b91b4b1ebd41bdc4f24c3",
+      "inputHash": "065961acf01e65f4aeaa36a80e3f597925c2152b744b91b4b1ebd41bdc4f24c3",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c2-test-16-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Urban Nature and Moral Attention",
+        "genre": "essay",
+        "instruction": "Read the two texts below. Write an essay summarising and evaluating the key points from both texts. Use your own words throughout as far as possible, and include your own ideas in your answers.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-16-task-01-source-1",
+            "type": "source-text",
+            "label": "Text 1",
+            "text": "Urban wildlife is often seen as a problem to be managed, but this view blinds us to the moral significance of the creatures that share our cities. Pigeons, foxes, and even rats are not merely pests; they are fellow inhabitants whose lives have value independent of human convenience. A city that acknowledges this will design green corridors, limit rodenticides, and tolerate some messiness in public spaces. The real issue is not whether urban wildlife is inconvenient, but whether we are willing to extend moral consideration to beings that do not serve us. A responsible urban ecology must begin with attention—not just to what is useful, but to what is present."
+          },
+          {
+            "id": "c2-test-16-task-01-source-2",
+            "type": "source-text",
+            "label": "Text 2",
+            "text": "The call to extend moral attention to urban wildlife sounds noble, but it ignores practical realities. Cities are built for people, and wildlife that damages property, spreads disease, or threatens public safety cannot be treated as morally equivalent to human residents. Moreover, the resources required to accommodate urban wildlife—green roofs, wildlife corridors, reduced pest control—are substantial and often benefit wealthier neighbourhoods first. The real moral priority should be human welfare, especially for disadvantaged communities who already bear the brunt of environmental hazards. Attention to urban nature is a luxury that not everyone can afford."
+          }
+        ],
+        "presentation": {
+          "template": "source-texts"
+        },
+        "wordLimit": {
+          "min": 240,
+          "max": 280,
+          "displayText": "240–280 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c2-test-16-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Urban Wildlife Documentary Review",
+        "genre": "review",
+        "instruction": "Answer one of the following questions (2–4). Write 280–320 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-16-task-02-prompt",
+            "type": "paragraph",
+            "text": "A specialist magazine for documentary enthusiasts is running a series of reviews of films that explore human-animal relationships in cities. You decide to submit a review of a recent documentary called 'Concrete Nests', which follows the lives of peregrine falcons nesting on a skyscraper in a European capital. In your review, evaluate how effectively the film balances scientific observation with ethical reflection, discuss whether it gives adequate attention to the perspectives of local residents who may be affected by the falcons' presence, and assess the overall value of the documentary for changing urban attitudes towards wildlife."
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c2-test-16-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Urban Wildlife Management Report",
+        "genre": "report",
+        "instruction": "Answer one of the following questions (2–4). Write 280–320 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-16-task-03-prompt",
+            "type": "paragraph",
+            "text": "You are a consultant hired by the Green City Initiative, a non-profit organisation that advises municipalities on urban ecology. The programme coordinator has asked you to write a report analysing the implications of a recent policy that encourages residents to feed urban birds in public parks. In your report, analyse how this policy affects both bird populations and human-wildlife interactions, assess the potential consequences for public health and park maintenance, and propose two specific actions the city could take to manage feeding responsibly while maintaining public engagement with urban nature."
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c2-test-16-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Urban Wildlife and Moral Attention",
+        "genre": "article",
+        "instruction": "Answer one of the following questions (2–4). Write 280–320 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-16-task-04-prompt",
+            "type": "paragraph",
+            "text": "An English-language online magazine for international readers is planning a series on 'Ethics in the Urban Jungle'. The editors have invited readers to submit articles explaining their position on the following question: Should city governments allocate significant public funds to protect and support urban wildlife, even when this conflicts with convenience for residents? In your article, explain your position on this question, describe one practical consequence of your preferred approach, and request that the magazine arrange a follow-up online discussion with readers and urban planners to explore the issue further."
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "overallOriginalityCheck": "PASS",
+    "forbiddenConceptCheck": "PASS",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "Two source texts debating whether urban wildlife deserves moral attention or whether human welfare should take priority.",
+        "audience": "Educated general reader (English teacher)",
+        "purpose": "Summarise and evaluate competing claims, develop own position on moral attention to urban nature.",
+        "requiredContentPoints": [
+          "Moral significance of urban wildlife",
+          "Practical constraints and human welfare",
+          "Own conceptual distinction (e.g., between attention and action)"
+        ],
+        "lexicalAnchors": [
+          "urban wildlife",
+          "moral attention",
+          "human welfare",
+          "practical constraints"
+        ],
+        "originalitySelfCheck": "No overlap with any existing test. Source texts are original, not derived from any previous essay. No reused skeleton."
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "Review of a documentary about peregrine falcons nesting on a skyscraper.",
+        "audience": "Specialist magazine readers (documentary enthusiasts)",
+        "purpose": "Evaluate the film's balance of science and ethics, consider resident perspectives, assess value for changing attitudes.",
+        "requiredContentPoints": [
+          "Balance of scientific observation and ethical reflection",
+          "Adequacy of resident perspectives",
+          "Overall value for changing urban attitudes"
+        ],
+        "lexicalAnchors": [
+          "urban wildlife documentary",
+          "peregrine falcon",
+          "ethical reflection",
+          "resident perspective"
+        ],
+        "originalitySelfCheck": "No previous review uses a documentary about urban birds. Different from any existing review scenario."
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "Report on a policy encouraging feeding urban birds in parks.",
+        "audience": "Programme coordinator of Green City Initiative",
+        "purpose": "Analyse implications for bird populations and human-wildlife interactions, assess consequences, propose actions.",
+        "requiredContentPoints": [
+          "Effect on bird populations and human-wildlife interactions",
+          "Consequences for public health and park maintenance",
+          "Two specific management actions"
+        ],
+        "lexicalAnchors": [
+          "urban bird feeding",
+          "public health",
+          "park maintenance",
+          "responsible management"
+        ],
+        "originalitySelfCheck": "No previous report uses bird-feeding policy. Distinct from any existing report scenario."
+      },
+      {
+        "taskNumber": 4,
+        "scenario": "Article arguing whether public funds should support urban wildlife despite inconvenience.",
+        "audience": "English-speaking contact (international magazine readers)",
+        "purpose": "Explain position, describe consequence, request follow-up discussion.",
+        "requiredContentPoints": [
+          "Position on funding urban wildlife",
+          "One practical consequence",
+          "Request for follow-up discussion"
+        ],
+        "lexicalAnchors": [
+          "public funds",
+          "urban wildlife",
+          "convenience",
+          "follow-up discussion"
+        ],
+        "originalitySelfCheck": "No previous article uses this question or request structure. Different from any existing article."
+      }
+    ]
+  },
+  "cachedAt": 1785310888634
+}

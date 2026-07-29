@@ -1,0 +1,172 @@
+{
+  "id": "b2-test-13",
+  "level": "b2",
+  "testNumber": 13,
+  "title": "FCE B2 AI Practice Test 13",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-13.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b2-test-13-1785310266776",
+    "generatedAt": 1785310285582,
+    "contentHash": "8077f089e7febb9c6f3a22b4cef16e9e26c7c9e76b55d7b0e5825d2f51f57a7a",
+    "promptHash": "30ebeccbe39b628fb667ccff340489938e66156f48bd58c18aaa2044c7876cb6",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-13:30ebeccbe39b628fb667ccff340489938e66156f48bd58c18aaa2044c7876cb6",
+    "inputHash": "30ebeccbe39b628fb667ccff340489938e66156f48bd58c18aaa2044c7876cb6",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b2-test-13-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay: Digital study tools in schools",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-13-task-01-block-01",
+          "type": "paragraph",
+          "text": "In your English class you have been discussing digital study tools. Now your English teacher has asked you to write an essay."
+        },
+        {
+          "id": "b2-test-13-task-01-block-02",
+          "type": "paragraph",
+          "text": "Write an essay using all the notes and giving reasons for your point of view."
+        },
+        {
+          "id": "b2-test-13-task-01-block-03",
+          "type": "paragraph",
+          "text": "Some schools now provide digital study tools such as online textbooks and learning apps. What is the most important issue to consider when introducing these tools?"
+        },
+        {
+          "id": "b2-test-13-task-01-block-04",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "listItems": [
+            "1. equal access for all students",
+            "2. effect on concentration and study habits",
+            "3. (your own idea)"
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes"
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b2-test-13-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Review: A digital study tool",
+      "genre": "review",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-13-task-02-block-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted!",
+          "paragraphs": [
+            "Have you used a digital study tool recently – for example, a flashcard app, a note-taking platform or an online quiz site?",
+            "Write a review of the tool for our college website. Describe what it does, say how effective it was for your learning, and explain whether you would recommend it to other students.",
+            "The best reviews will be published on the website."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-13-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Article: Digital study tools and responsibility",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-13-task-03-block-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted!",
+          "paragraphs": [
+            "How can students use digital study tools responsibly?",
+            "Write an article for our programme coordinator's website. Suggest one way students can avoid over-reliance on digital tools, explain how this could improve their learning, and describe the benefits for their long-term study skills.",
+            "We will publish the best articles on our website."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-13-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Email: Digital study tools query",
+      "genre": "email",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-13-task-04-block-01",
+          "type": "email",
+          "from": "Alex",
+          "subject": "Digital study tools at your school",
+          "paragraphs": [
+            "Hi,",
+            "I heard your school has started using digital study tools in some subjects. I'm thinking of suggesting a similar approach at my school.",
+            "Can you tell me which tool you find most useful and why? Also, what problems have you experienced with digital tools? And how could we convince teachers who prefer traditional methods?",
+            "Thanks,",
+            "Alex"
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "email",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

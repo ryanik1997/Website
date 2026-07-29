@@ -1,0 +1,77 @@
+{
+  "overallOriginalityCheck": "PASS - All tasks are original, based on the specific setting 'a university exchange consortium planning brief 26', with distinct audiences, purposes, and content points. No overlap with existing test fingerprints or forbidden concepts.",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "University exchange consortium planning brief 26: essay brief 1-1",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "pre-departure cultural orientation sessions",
+        "in-country language support tutors",
+        "re-entry guidance"
+      ],
+      "lexicalAnchors": [
+        "school exchange visits",
+        "a university exchange consortium planning brief 26",
+        "c1 writing brief"
+      ],
+      "originalitySelfCheck": "Essay uses notes and opinions panels with three distinct priorities. No reuse of previous essay frames or content points. Forbidden concept check: PASS."
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "University exchange consortium planning brief 26: proposal brief 2-5",
+      "audience": "specialist magazine readers (consortium director)",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "two aspects of exchange experience to evaluate",
+        "collection and use of student feedback",
+        "reporting to partner institutions"
+      ],
+      "lexicalAnchors": [
+        "school exchange visits",
+        "a university exchange consortium planning brief 26",
+        "c1 writing brief"
+      ],
+      "originalitySelfCheck": "Proposal focuses on evaluation framework, not previously used. No similarity to earlier proposal scenarios. Forbidden concept check: PASS."
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "University exchange consortium planning brief 26: email brief 3-9",
+      "audience": "programme coordinator (partner university international office)",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "acknowledge request and explain capacity constraints",
+        "propose realistic increase and management",
+        "suggest follow-up meeting"
+      ],
+      "lexicalAnchors": [
+        "school exchange visits",
+        "a university exchange consortium planning brief 26",
+        "c1 writing brief"
+      ],
+      "originalitySelfCheck": "Email addresses capacity constraints and negotiation, a new scenario. No reuse of previous email subjects or content. Forbidden concept check: PASS."
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "University exchange consortium planning brief 26: review brief 4-13",
+      "audience": "English-speaking contact (consortium newsletter readers)",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "academic and cultural aspects",
+        "preparation for the experience",
+        "recommendation to other students"
+      ],
+      "lexicalAnchors": [
+        "school exchange visits",
+        "a university exchange consortium planning brief 26",
+        "c1 writing brief"
+      ],
+      "originalitySelfCheck": "Review of exchange programme, distinct from previous review tasks. Announcement format used appropriately. Forbidden concept check: PASS."
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "e0ba2c289d58e4377685731c9b592fe37f39c8e90443e24fa6c7832a158aad0c"
+  }
+}

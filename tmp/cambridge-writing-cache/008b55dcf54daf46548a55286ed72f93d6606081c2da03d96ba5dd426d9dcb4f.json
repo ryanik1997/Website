@@ -1,0 +1,265 @@
+{
+  "inputHash": "6b5dad317e307003d0effe5691c0b4f0da48f0b0884d4e90dfb34d3099facd1a",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-36:6b5dad317e307003d0effe5691c0b4f0da48f0b0884d4e90dfb34d3099facd1a",
+  "test": {
+    "id": "b2-test-36",
+    "level": "b2",
+    "testNumber": 36,
+    "title": "FCE B2 AI Practice Test 36",
+    "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-36.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "b2-test-36-1785313825786",
+      "generatedAt": 1785313842591,
+      "contentHash": "5028ac857b9789179f43d917dbcb5c3cff7e564559103c7fbf215ee980f928f4",
+      "promptHash": "6b5dad317e307003d0effe5691c0b4f0da48f0b0884d4e90dfb34d3099facd1a",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-36:6b5dad317e307003d0effe5691c0b4f0da48f0b0884d4e90dfb34d3099facd1a",
+      "inputHash": "6b5dad317e307003d0effe5691c0b4f0da48f0b0884d4e90dfb34d3099facd1a",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "b2-test-36-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Essay: Festival priorities",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write 140–190 words in an appropriate style.",
+        "promptText": "In your English class you have been discussing how to make local festivals more accessible and responsible. Now your teacher has asked you to write an essay.\n\nWrite an essay using all the notes and giving reasons for your point of view.\n\nSome towns are changing their festivals to reduce environmental impact. What is the most important change to make?\n\nNotes\n\nWrite about:\n\n1. reducing waste from food stalls\n2. providing free public transport to the event\n3. ......................... (your own idea)",
+        "promptBlocks": [
+          {
+            "id": "b2-test-36-task-01-block-01",
+            "type": "paragraph",
+            "text": "In your English class you have been discussing how to make local festivals more accessible and responsible. Now your teacher has asked you to write an essay."
+          },
+          {
+            "id": "b2-test-36-task-01-block-02",
+            "type": "paragraph",
+            "text": "Write an essay using all the notes and giving reasons for your point of view."
+          },
+          {
+            "id": "b2-test-36-task-01-block-03",
+            "type": "paragraph",
+            "text": "Some towns are changing their festivals to reduce environmental impact. What is the most important change to make?"
+          },
+          {
+            "id": "b2-test-36-task-01-block-04",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Notes",
+            "listItems": [
+              "reducing waste from food stalls",
+              "providing free public transport to the event",
+              "......................... (your own idea)"
+            ]
+          }
+        ],
+        "presentation": {
+          "template": "essay-notes"
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "b2-test-36-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Review: Festival workshop",
+        "genre": "review",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptText": "You see this announcement in your college English-language magazine.\n\nReviews wanted!\n\nHave you attended a workshop at a local festival? We want to hear about your experience. Write a review of a festival workshop you went to.\n\nDescribe what the workshop involved and how well it was organised. Did it change your view on the festival's impact? Would you recommend it to other students?\n\nThe best reviews will be published in the next issue.\n\nWrite your review.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-36-task-02-block-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Reviews wanted!",
+            "paragraphs": [
+              "Have you attended a workshop at a local festival? We want to hear about your experience. Write a review of a festival workshop you went to.",
+              "Describe what the workshop involved and how well it was organised. Did it change your view on the festival's impact? Would you recommend it to other students?",
+              "The best reviews will be published in the next issue."
+            ]
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b2-test-36-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Article: Volunteer appeal",
+        "genre": "article",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptText": "You see this announcement on a local community website.\n\nArticles wanted!\n\nHow can we encourage more young people to volunteer at our town's cultural festival?\n\nWe are looking for ideas to attract volunteers. Write an article for our website.\n\nSuggest one way to make volunteering more appealing. Explain how it could benefit the volunteers themselves. Describe one task they might enjoy.\n\nWe will publish the best articles on our website.\n\nWrite your article.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-36-task-03-block-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Articles wanted!",
+            "paragraphs": [
+              "How can we encourage more young people to volunteer at our town's cultural festival?",
+              "We are looking for ideas to attract volunteers. Write an article for our website.",
+              "Suggest one way to make volunteering more appealing. Explain how it could benefit the volunteers themselves. Describe one task they might enjoy.",
+              "We will publish the best articles on our website."
+            ]
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b2-test-36-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Email: Festival visit",
+        "genre": "email",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptText": "You have received this email from your English-speaking friend, Sam.\n\nFrom: Sam\nSubject: Festival visit\n\nHi,\nI'm planning to visit your town during the cultural festival next month. I've heard it's a great event, but I'm also concerned about the environmental impact of large festivals. What is the festival doing to be more sustainable? Also, do you think it's still worth attending? And could you recommend one thing I should definitely see or do?\n\nThanks a lot!\nSam\n\nWrite your email.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-36-task-04-block-01",
+            "type": "email",
+            "from": "Sam",
+            "subject": "Festival visit",
+            "paragraphs": [
+              "Hi,",
+              "I'm planning to visit your town during the cultural festival next month. I've heard it's a great event, but I'm also concerned about the environmental impact of large festivals. What is the festival doing to be more sustainable? Also, do you think it's still worth attending? And could you recommend one thing I should definitely see or do?",
+              "Thanks a lot!",
+              "Sam"
+            ]
+          }
+        ],
+        "presentation": {
+          "template": "email",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "b2-test-36",
+    "level": "b2",
+    "topicFamily": "local festivals",
+    "specificSetting": "a town cultural festival planning brief 30",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "genre": "essay",
+        "scenario": "a town cultural festival planning brief 30: essay brief 1-1",
+        "audience": "English teacher",
+        "purpose": "evaluate and justify priorities",
+        "requiredContentPoints": [
+          "reducing waste from food stalls",
+          "providing free public transport to the event",
+          "own idea"
+        ],
+        "lexicalAnchors": [
+          "local festivals",
+          "a town cultural festival planning brief 30",
+          "b2 writing brief"
+        ],
+        "originalitySelfCheck": "Scenario is specific to festival planning with notes on waste and transport; no overlap with previous tests (b2-test-01 to b2-test-35). Forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "genre": "review",
+        "scenario": "a town cultural festival planning brief 30: review brief 2-5",
+        "audience": "specialist magazine readers",
+        "purpose": "assess effectiveness and recommend",
+        "requiredContentPoints": [
+          "workshop content and organisation",
+          "impact on view of festival",
+          "recommendation"
+        ],
+        "lexicalAnchors": [
+          "local festivals",
+          "a town cultural festival planning brief 30",
+          "b2 writing brief"
+        ],
+        "originalitySelfCheck": "Review focuses on a festival workshop, not a book or film. Distinct from previous review tasks. Forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "genre": "article",
+        "scenario": "a town cultural festival planning brief 30: article brief 3-9",
+        "audience": "programme coordinator",
+        "purpose": "analyse implications and propose action",
+        "requiredContentPoints": [
+          "way to make volunteering appealing",
+          "benefit to volunteers",
+          "enjoyable task"
+        ],
+        "lexicalAnchors": [
+          "local festivals",
+          "a town cultural festival planning brief 30",
+          "b2 writing brief"
+        ],
+        "originalitySelfCheck": "Article about volunteering at a festival; no reuse of previous article themes. Forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 4,
+        "genre": "email",
+        "scenario": "a town cultural festival planning brief 30: email brief 4-13",
+        "audience": "English-speaking contact",
+        "purpose": "explain a position and request arrangements",
+        "requiredContentPoints": [
+          "sustainability measures",
+          "worth attending",
+          "recommendation of one thing to see/do"
+        ],
+        "lexicalAnchors": [
+          "local festivals",
+          "a town cultural festival planning brief 30",
+          "b2 writing brief"
+        ],
+        "originalitySelfCheck": "Email from a friend about festival sustainability; distinct from previous email tasks. Forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ]
+  },
+  "cachedAt": 1785313842636
+}

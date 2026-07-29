@@ -1,0 +1,272 @@
+{
+  "inputHash": "c045474fb4a559678fcf488bc5288ebf697e6ca744110b490dca91f8493b8640",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-20:c045474fb4a559678fcf488bc5288ebf697e6ca744110b490dca91f8493b8640",
+  "test": {
+    "id": "c1-test-20",
+    "level": "c1",
+    "testNumber": 20,
+    "title": "CAE C1 AI Practice Test 20",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-20.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c1-test-20-1785311662736",
+      "generatedAt": 1785311690653,
+      "contentHash": "c27ac196350e365e3b618230cc6206e52a280b5257f2474a7bcb72aa8b14e883",
+      "promptHash": "c045474fb4a559678fcf488bc5288ebf697e6ca744110b490dca91f8493b8640",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-20:c045474fb4a559678fcf488bc5288ebf697e6ca744110b490dca91f8493b8640",
+      "inputHash": "c045474fb4a559678fcf488bc5288ebf697e6ca744110b490dca91f8493b8640",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c1-test-20-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Public parks priorities",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-20-task-01-block-01",
+            "type": "paragraph",
+            "text": "Your class has listened to a radio discussion about how local authorities should balance making public parks convenient for visitors with ensuring long-term environmental and financial responsibility. You have made the notes below."
+          },
+          {
+            "id": "c1-test-20-task-01-block-02",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Priorities for public parks",
+            "listItems": [
+              "installing more lighting and seating for evening use",
+              "introducing a small entry fee for non-residents",
+              "creating dedicated wildlife zones with restricted access"
+            ]
+          },
+          {
+            "id": "c1-test-20-task-01-block-03",
+            "type": "panel",
+            "variant": "opinions",
+            "paragraphs": [
+              "Better lighting and benches would make parks usable after dark, which is great for people who work late. But it might disturb wildlife and increase maintenance costs.",
+              "A small fee for visitors from outside the area could raise money for upkeep. However, it might discourage people from using the park and feel unfair.",
+              "Wildlife zones would protect biodiversity, but closing off parts of the park could annoy regular users who want to walk their dogs or play sports."
+            ]
+          },
+          {
+            "id": "c1-test-20-task-01-block-04",
+            "type": "final-instruction",
+            "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for balancing access and long-term responsibility in public parks, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+          }
+        ],
+        "presentation": {
+          "template": "essay-notes-opinions"
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c1-test-20-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Proposal for park volunteer scheme",
+        "genre": "proposal",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-20-task-02-block-01",
+            "type": "paragraph",
+            "text": "Your local council is planning to introduce a volunteer scheme to help maintain public parks while keeping them accessible to all. The council's parks manager has invited proposals from community groups for how this scheme should operate."
+          },
+          {
+            "id": "c1-test-20-task-02-block-02",
+            "type": "final-instruction",
+            "text": "Write a proposal for the parks manager. In your proposal, you should:\n\n• recommend two specific tasks that volunteers could carry out\n• explain how the scheme could attract and retain volunteers from different age groups\n• suggest how the council could ensure the scheme does not reduce its own long-term responsibility for park maintenance"
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-20-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Email about park event restrictions",
+        "genre": "email",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-20-task-03-block-01",
+            "type": "paragraph",
+            "text": "You are a member of a local park users' group. The programme coordinator of the council's public realm strategy has emailed your group about a proposal to ban all commercial events (such as food festivals and charity runs) from the main city park to reduce wear and tear. Some group members support the ban, while others argue it will make the park less vibrant and reduce funding for maintenance."
+          },
+          {
+            "id": "c1-test-20-task-03-block-02",
+            "type": "final-instruction",
+            "text": "Write an email to the programme coordinator. In your email, you should:\n\n• explain your position on the proposed ban\n• analyse one potential implication for the local community if the ban goes ahead\n• propose an alternative action that could protect the park while still allowing some events"
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-20-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Review of a park restoration project",
+        "genre": "review",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-20-task-04-block-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Reviews wanted: Park restoration projects",
+            "paragraphs": [
+              "Have you visited a public park that has recently undergone a restoration or redesign aimed at balancing visitor access with environmental care?",
+              "We want to hear about your experience. Write a review for our local lifestyle website.",
+              "Describe the changes made to the park. Evaluate how well the project balanced making the park more convenient for people with protecting it for the long term. Would you recommend this approach to other parks? Why or why not?",
+              "The best reviews will be published on our website."
+            ]
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "c1-test-20",
+    "level": "c1",
+    "topicFamily": "public parks",
+    "specificSetting": "a public realm strategy planning brief 14",
+    "centralTension": "access and convenience versus long-term responsibility in public parks",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "genre": "essay",
+        "scenario": "Radio discussion on balancing visitor convenience with environmental/financial responsibility in public parks; notes on lighting/seating, entry fee, wildlife zones; opinions provided.",
+        "audience": "English teacher (tutor)",
+        "purpose": "Discuss two priorities and decide which is more important for balancing access and long-term responsibility.",
+        "requiredContentPoints": [
+          "installing more lighting and seating for evening use",
+          "introducing a small entry fee for non-residents",
+          "creating dedicated wildlife zones with restricted access"
+        ],
+        "lexicalAnchors": [
+          "public parks",
+          "lighting and seating",
+          "entry fee",
+          "wildlife zones",
+          "access",
+          "long-term responsibility"
+        ],
+        "originalitySelfCheck": "Unique scenario: public parks balancing convenience vs responsibility. Notes and opinions are original, not reused from any previous test. No forbidden concepts.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "genre": "proposal",
+        "scenario": "Council planning volunteer scheme for park maintenance; proposal to parks manager.",
+        "audience": "Council parks manager",
+        "purpose": "Recommend volunteer tasks, attract diverse volunteers, ensure council retains responsibility.",
+        "requiredContentPoints": [
+          "two specific volunteer tasks",
+          "how to attract and retain volunteers from different age groups",
+          "how to avoid reducing council's long-term responsibility"
+        ],
+        "lexicalAnchors": [
+          "volunteer scheme",
+          "park maintenance",
+          "attract volunteers",
+          "long-term responsibility"
+        ],
+        "originalitySelfCheck": "Original proposal topic: volunteer scheme for parks. Not similar to any avoided fingerprint. No forbidden concepts.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "genre": "email",
+        "scenario": "Council proposes banning commercial events in main park; email to programme coordinator.",
+        "audience": "Programme coordinator of council's public realm strategy",
+        "purpose": "Explain position, analyse implication of ban, propose alternative action.",
+        "requiredContentPoints": [
+          "position on proposed ban",
+          "one potential implication for local community",
+          "alternative action to protect park while allowing some events"
+        ],
+        "lexicalAnchors": [
+          "commercial events ban",
+          "park wear and tear",
+          "community impact",
+          "alternative action"
+        ],
+        "originalitySelfCheck": "Original email scenario: ban on commercial events in park. Not similar to any avoided fingerprint. No forbidden concepts.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 4,
+        "genre": "review",
+        "scenario": "Announcement on local lifestyle website asking for reviews of park restoration projects.",
+        "audience": "Local lifestyle website readers",
+        "purpose": "Describe park changes, evaluate balance between access and protection, recommend approach.",
+        "requiredContentPoints": [
+          "description of changes",
+          "evaluation of balance between convenience and long-term protection",
+          "recommendation for other parks"
+        ],
+        "lexicalAnchors": [
+          "park restoration",
+          "visitor access",
+          "environmental care",
+          "balance"
+        ],
+        "originalitySelfCheck": "Original review topic: park restoration project. Not similar to any avoided fingerprint. No forbidden concepts.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ],
+    "overallOriginalityCheck": "All tasks are original, with unique scenarios, audiences, and content points. No reuse of sentence frames or structures from previous tests. Forbidden concepts avoided.",
+    "status": "draft"
+  },
+  "cachedAt": 1785311690673
+}

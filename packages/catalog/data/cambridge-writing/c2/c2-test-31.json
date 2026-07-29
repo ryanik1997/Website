@@ -1,0 +1,151 @@
+{
+  "id": "c2-test-31",
+  "level": "c2",
+  "testNumber": 31,
+  "title": "CPE C2 AI Practice Test 31",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-31.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "c2-test-31-1785313497962",
+    "generatedAt": 1785313520058,
+    "contentHash": "3fbcbac3a7ffe6207a591e80801b20a9cdcd4142a40f9781b30ab462693aafff",
+    "promptHash": "716800b0d32714f4d3e956d1817cdb8f1dbe4e5aec76d8634f40b3200a40b920",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-31:716800b0d32714f4d3e956d1817cdb8f1dbe4e5aec76d8634f40b3200a40b920",
+    "inputHash": "716800b0d32714f4d3e956d1817cdb8f1dbe4e5aec76d8634f40b3200a40b920",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "c2-test-31-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay: Climate adaptation and distributive justice",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write an essay summarising and evaluating the key points from both texts in 240–280 words. Use your own words throughout as far as possible, and include your own ideas in your answers.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-31-task-01-source-1",
+          "type": "source-text",
+          "label": "Text 1",
+          "text": "Climate adaptation measures, such as sea walls and irrigation systems, are often sited where they protect the most valuable property, not where they are most needed. This pattern reflects a deeper logic: investment follows economic return. Yet the consequence is that low-income neighbourhoods and informal settlements remain exposed to floods, heatwaves and droughts. Distributive justice demands that adaptation resources be allocated according to vulnerability, not property values. If we continue to let market forces guide adaptation, we will harden existing inequalities into the landscape. A just adaptation policy would prioritise the communities that have contributed least to climate change yet face its worst effects. This argument also matters because institutions shape the choices available to individuals and communities over time, influencing responsibility, trust, and practical judgment."
+        },
+        {
+          "id": "c2-test-31-task-01-source-2",
+          "type": "source-text",
+          "label": "Text 2",
+          "text": "The call to allocate adaptation funds according to vulnerability sounds morally unassailable, but it ignores practical constraints. Adaptation is expensive, and resources are finite. Directing investment toward the most vulnerable often means building in geologically unstable areas or regions with weak governance, where the risk of failure is high. Moreover, the most vulnerable populations are frequently mobile; investing in fixed infrastructure for transient communities may prove wasteful. A responsible adaptation strategy must balance moral ambition with realistic assessments of long-term effectiveness. Prioritising projects with the highest return on investment, even if they benefit wealthier areas, may ultimately generate the economic surplus needed to fund broader protection later. This argument also matters because institutions shape the choices available to individuals and communities over time, influencing responsibility, trust, and practical judgment."
+        }
+      ],
+      "presentation": {
+        "template": "source-texts"
+      },
+      "wordLimit": {
+        "min": 240,
+        "max": 280,
+        "displayText": "240–280 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c2-test-31-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Review: Climate adaptation documentary",
+      "genre": "review",
+      "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-31-task-02-panel",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted: Climate adaptation on screen",
+          "paragraphs": [
+            "A specialist magazine for documentary viewers is running a series of reviews of films that examine how communities are adapting to climate change. Have you watched a documentary that explores the fairness of adaptation efforts? Write a review for the magazine.",
+            "In your review, describe the documentary and its central argument about distributive justice. Assess how effectively it presents the perspectives of those most affected by adaptation decisions. Would you recommend this film to policymakers? Explain your reasons."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-31-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Report: Adaptation programme equity review",
+      "genre": "report",
+      "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-31-task-03-panel",
+          "type": "panel",
+          "variant": "generic",
+          "paragraphs": [
+            "You are a consultant hired by the Coastal Resilience Programme. The programme coordinator has asked you to write a report on how the current allocation of adaptation funding affects distributive justice in the region. The coordinator is concerned that funds are flowing to wealthier coastal areas while inland flood-prone communities are neglected.",
+            "In your report, analyse the main ways in which the current funding model may be perpetuating inequality. Assess the potential consequences for social cohesion if this imbalance is not corrected. Propose two concrete actions the programme could take to align adaptation spending with principles of distributive justice."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-31-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Article: Justice in climate adaptation",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-31-task-04-panel",
+          "type": "panel",
+          "variant": "generic",
+          "paragraphs": [
+            "An English-language online magazine for international readers is publishing a series on 'Fairness in a Warming World'. You have been contacted by an editor who is an English-speaking contact of yours. The editor asks you to write an article explaining your position on whether climate adaptation resources should be distributed according to vulnerability or according to economic efficiency.",
+            "In your article, explain your position on this question. Describe one practical consequence of your preferred approach for how a specific adaptation project (e.g., flood defences, cooling centres) would be sited. Suggest how governments could implement your recommendation while maintaining public support. End your article by requesting that the magazine arrange a follow-up online discussion with readers and adaptation planners to explore the issue further."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

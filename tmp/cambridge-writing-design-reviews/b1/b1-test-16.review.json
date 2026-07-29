@@ -1,0 +1,72 @@
+{
+  "testId": "b1-test-16",
+  "level": "b1",
+  "topicFamily": "urban wildlife",
+  "specificSetting": "a pond survey in the city park planning brief 10",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Student replying to English teacher about planning a pond survey in the city park",
+      "audience": "English teacher (Ms. Rivera)",
+      "purpose": "evaluate and justify priorities: choose main goal of survey, choose practical task, suggest encouragement, ask about start time",
+      "requiredContentPoints": [
+        "the main urban wildlife issue (counting wildlife vs. testing water quality)",
+        "one practical consequence (setting up equipment or recording data)",
+        "a justified recommendation (preferred goal and task)"
+      ],
+      "lexicalAnchors": [
+        "pond survey",
+        "city park",
+        "urban wildlife",
+        "water quality",
+        "volunteer tasks"
+      ],
+      "originalitySelfCheck": "Scenario is specific to pond survey, not generic. Email format with notes panel, four distinct content points. No overlap with existing tests.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Writing an article for a local nature website about the pond survey",
+      "audience": "specialist magazine readers (nature website visitors)",
+      "purpose": "assess effectiveness and recommend: evaluate whether survey helps protect urban wildlife, suggest interesting learning point",
+      "requiredContentPoints": [
+        "the main urban wildlife issue (protection of pond wildlife)",
+        "one practical consequence (what can be learned from survey)",
+        "a justified recommendation (why survey is useful)"
+      ],
+      "lexicalAnchors": [
+        "pond survey",
+        "urban wildlife",
+        "city park",
+        "protection",
+        "learning"
+      ],
+      "originalitySelfCheck": "Article task uses announcement panel with two direct questions, no reused frame from previous tests. Topic is pond survey, not generic.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Writing a story beginning with a specific sentence about the pond survey",
+      "audience": "programme coordinator (implicitly, as story audience is English teacher)",
+      "purpose": "analyse implications and propose action: story shows how the survey changes the narrator's perspective",
+      "requiredContentPoints": [
+        "the main urban wildlife issue (pond survey)",
+        "one practical consequence (unexpected change)",
+        "a justified recommendation (implied through narrative)"
+      ],
+      "lexicalAnchors": [
+        "pond survey",
+        "clipboard",
+        "programme coordinator",
+        "change"
+      ],
+      "originalitySelfCheck": "Story opening is unique, not used in any previous test. It directly references the pond survey scenario. No cliché.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are built around the specific setting 'a pond survey in the city park planning brief 10'. No overlap with any existing test fingerprints. Forbidden concepts avoided. Each task has distinct audience and purpose as per designFingerprint.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "1116363292c166a9d0b53b6cf4404203bb042613dc2552d087acc4c4f94c82b5"
+  }
+}

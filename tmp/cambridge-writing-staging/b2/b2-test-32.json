@@ -1,0 +1,175 @@
+{
+  "id": "b2-test-32",
+  "level": "b2",
+  "testNumber": 32,
+  "title": "FCE B2 AI Practice Test 32",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-32.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b2-test-32-1785313718763",
+    "generatedAt": 1785313737789,
+    "contentHash": "fb3378afd84c7296f1fc4959fe50331858b78af596d3ca5fd0e72b6beeda260b",
+    "promptHash": "c2d22f8e2796b5b4407ad8327dce12fb5697df57fac0bb5e3636a76f8b048052",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-32:c2d22f8e2796b5b4407ad8327dce12fb5697df57fac0bb5e3636a76f8b048052",
+    "inputHash": "c2d22f8e2796b5b4407ad8327dce12fb5697df57fac0bb5e3636a76f8b048052",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b2-test-32-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay: Priorities for a college exchange visit",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-32-task-01-block-01",
+          "type": "paragraph",
+          "text": "In your English class you have been discussing how to plan a college exchange visit that is both accessible and responsible. Now your English teacher has asked you to write an essay."
+        },
+        {
+          "id": "b2-test-32-task-01-block-02",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "listItems": [
+            "1. choosing host families who have time to support visitors",
+            "2. organising activities that involve local students",
+            "3. (your own idea)"
+          ]
+        },
+        {
+          "id": "b2-test-32-task-01-block-03",
+          "type": "final-instruction",
+          "text": "Write an essay using all the notes and giving reasons for your point of view."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes"
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b2-test-32-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Review: Welcome event for exchange visitors",
+      "genre": "review",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-32-task-02-block-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted",
+          "paragraphs": [
+            "Have you attended the welcome event our college organises for incoming exchange visitors?",
+            "Write a review of the event for the college website. Describe what happened, say how well it helped visitors settle in, and recommend one improvement for future events.",
+            "The best reviews will be published on our website."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-32-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Article: Making exchange visits more responsible",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-32-task-03-block-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted",
+          "paragraphs": [
+            "Our college exchange programme wants to become more responsible – balancing the benefits for visiting students with the needs of the host community.",
+            "Write an article for the programme coordinator suggesting one practical way to make exchange visits more responsible. Explain why your idea would work and what the benefits would be for both visitors and hosts.",
+            "We will share the best ideas with the planning team."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-32-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Email: Exchange visit arrangements",
+      "genre": "email",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-32-task-04-block-01",
+          "type": "email",
+          "from": "Maria Santos <m.santos@partnerschool.edu>",
+          "subject": "Exchange visit next month",
+          "paragraphs": [
+            "Dear Student,",
+            "I am writing to confirm the exchange visit from your college next month. We are very excited to welcome your group!",
+            "Could you please let me know if you prefer to stay with a host family or in a student residence? Also, what type of activities would you like us to arrange for your free time?",
+            "Finally, do you have any dietary requirements or special needs we should know about?",
+            "I look forward to hearing from you.",
+            "Best regards,",
+            "Maria Santos",
+            "Exchange Coordinator"
+          ]
+        },
+        {
+          "id": "b2-test-32-task-04-block-02",
+          "type": "final-instruction",
+          "text": "Write your email to Maria Santos. You should explain your preferences, suggest one activity, and ask a question about the schedule."
+        }
+      ],
+      "presentation": {
+        "template": "email",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

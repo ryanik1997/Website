@@ -1,0 +1,247 @@
+{
+  "inputHash": "1b94d696212a820cdaa53d432dbd88f370c2146264a2a7e286a8cd6b8bc1111c",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-35:1b94d696212a820cdaa53d432dbd88f370c2146264a2a7e286a8cd6b8bc1111c",
+  "test": {
+    "id": "b2-test-35",
+    "level": "b2",
+    "testNumber": 35,
+    "title": "FCE B2 AI Practice Test 35",
+    "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-35.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "b2-test-35-1785313795865",
+      "generatedAt": 1785313825755,
+      "contentHash": "817eda422778d0f8687366abbbf87242e956d045c2963e83f1724c2262aaf0d7",
+      "promptHash": "1b94d696212a820cdaa53d432dbd88f370c2146264a2a7e286a8cd6b8bc1111c",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-35:1b94d696212a820cdaa53d432dbd88f370c2146264a2a7e286a8cd6b8bc1111c",
+      "inputHash": "1b94d696212a820cdaa53d432dbd88f370c2146264a2a7e286a8cd6b8bc1111c",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "b2-test-35-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Community garden funding priorities",
+        "genre": "essay",
+        "instruction": "In your English class you have been discussing how to fund community gardens. Now your teacher has asked you to write an essay.\n\nWrite an essay using all the notes and giving reasons for your point of view.\n\nNotes\n\nWrite about:\n\n1. buying tools and seeds\n2. training volunteers\n3. ......................... (your own idea)",
+        "promptBlocks": [
+          {
+            "id": "b2-test-35-task-01-panel",
+            "type": "panel",
+            "variant": "notes",
+            "paragraphs": [
+              "In your English class you have been discussing how to fund community gardens. Now your teacher has asked you to write an essay.",
+              "Write an essay using all the notes and giving reasons for your point of view."
+            ],
+            "listItems": [
+              "buying tools and seeds",
+              "training volunteers",
+              "......................... (your own idea)"
+            ]
+          }
+        ],
+        "presentation": {
+          "template": "essay-notes"
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "b2-test-35-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Community garden workshop review",
+        "genre": "review",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-35-task-02-announcement",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Reviews wanted!",
+            "paragraphs": [
+              "Have you attended a workshop or event at a community garden? Write a review for our specialist magazine.",
+              "Describe what the workshop involved, how well it was organised, and whether it helped you learn something new. Would you recommend it to other readers?",
+              "The best reviews will be published in next month's issue."
+            ]
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b2-test-35-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Encouraging community involvement",
+        "genre": "article",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-35-task-03-announcement",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Articles wanted!",
+            "paragraphs": [
+              "Our town is planning a new community garden. How can we encourage more local people to get involved?",
+              "Write an article for the programme coordinator's website. Suggest one way to attract volunteers, explain why it would work, and describe what the garden could achieve for the community.",
+              "The best articles will be featured on the website."
+            ]
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b2-test-35-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Community garden funding debate",
+        "genre": "email",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-35-task-04-email",
+            "type": "email",
+            "from": "Alex",
+            "subject": "Community garden funding",
+            "paragraphs": [
+              "Hi,",
+              "I heard your local council is debating whether to fund a new community garden. What's your opinion on this? Do you think it's a good use of money? Also, what practical benefits could a community garden bring to your neighbourhood? And how would you convince people who are against it?",
+              "Let me know what you think!",
+              "Thanks,",
+              "Alex"
+            ]
+          }
+        ],
+        "presentation": {
+          "template": "email",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "b2-test-35",
+    "level": "b2",
+    "topicFamily": "community gardens",
+    "specificSetting": "a community garden funding debate planning brief 29",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "Class discussion on funding community gardens; essay on priorities",
+        "audience": "English teacher",
+        "purpose": "evaluate and justify priorities",
+        "requiredContentPoints": [
+          "buying tools and seeds",
+          "training volunteers",
+          "own idea"
+        ],
+        "lexicalAnchors": [
+          "community gardens",
+          "funding",
+          "tools and seeds",
+          "training volunteers"
+        ],
+        "originalitySelfCheck": "Unique scenario; no overlap with previous tests",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "Review of a community garden workshop",
+        "audience": "specialist magazine readers",
+        "purpose": "assess effectiveness and recommend",
+        "requiredContentPoints": [
+          "workshop content",
+          "organisation",
+          "learning outcome",
+          "recommendation"
+        ],
+        "lexicalAnchors": [
+          "community garden",
+          "workshop",
+          "review"
+        ],
+        "originalitySelfCheck": "Unique review topic; no overlap with previous tests",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "Article on attracting volunteers for a new community garden",
+        "audience": "programme coordinator",
+        "purpose": "analyse implications and propose action",
+        "requiredContentPoints": [
+          "way to attract volunteers",
+          "why it would work",
+          "benefits for community"
+        ],
+        "lexicalAnchors": [
+          "community garden",
+          "volunteers",
+          "involvement"
+        ],
+        "originalitySelfCheck": "Unique article angle; no overlap with previous tests",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 4,
+        "scenario": "Email to a friend about council debate on community garden funding",
+        "audience": "English-speaking contact",
+        "purpose": "explain a position and request arrangements",
+        "requiredContentPoints": [
+          "opinion on funding",
+          "practical benefits",
+          "how to convince opponents"
+        ],
+        "lexicalAnchors": [
+          "community garden",
+          "funding",
+          "council debate"
+        ],
+        "originalitySelfCheck": "Unique email context; no overlap with previous tests",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ]
+  },
+  "cachedAt": 1785313825784
+}

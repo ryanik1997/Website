@@ -1,0 +1,221 @@
+{
+  "inputHash": "52f42d1af3d1ad7b3358761a060195ed6a4dea050bb14f7869e1c61a991915ee",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-21:52f42d1af3d1ad7b3358761a060195ed6a4dea050bb14f7869e1c61a991915ee",
+  "test": {
+    "id": "c1-test-21",
+    "level": "c1",
+    "testNumber": 21,
+    "title": "CAE C1 AI Practice Test 21",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-21.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c1-test-21-1785311690675",
+      "generatedAt": 1785311728241,
+      "contentHash": "ba794bebfcfa85b8c1a9c0eb2267a51994d55e541ae8ad72597de5574a1990f5",
+      "promptHash": "52f42d1af3d1ad7b3358761a060195ed6a4dea050bb14f7869e1c61a991915ee",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-21:52f42d1af3d1ad7b3358761a060195ed6a4dea050bb14f7869e1c61a991915ee",
+      "inputHash": "52f42d1af3d1ad7b3358761a060195ed6a4dea050bb14f7869e1c61a991915ee",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c1-test-21-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Essay: Prioritising small-business support",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-21-task-01-panel-notes",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Priorities for a small-business innovation fund",
+            "listItems": [
+              "providing free business mentoring for new entrepreneurs",
+              "offering grants for eco-friendly product development",
+              "creating a shared workspace with affordable rent"
+            ]
+          },
+          {
+            "id": "c1-test-21-task-01-panel-opinions",
+            "type": "panel",
+            "variant": "opinions",
+            "paragraphs": [
+              "Mentoring is the most cost-effective way to help small businesses survive their first year. Without guidance, many fail within months.",
+              "Grants for green innovation are essential if we want small businesses to contribute to environmental goals. That's where the future is.",
+              "Shared workspaces reduce overheads and create a community where entrepreneurs can support each other. That practical help matters most."
+            ]
+          },
+          {
+            "id": "c1-test-21-task-01-final",
+            "type": "final-instruction",
+            "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for the long-term success of small businesses, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+          }
+        ],
+        "presentation": {
+          "template": "essay-notes-opinions"
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c1-test-21-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Proposal: Improving access to the innovation fund",
+        "genre": "proposal",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptText": "Your regional small-business association is reviewing how the innovation fund is promoted and accessed. The association's director has invited proposals for making the fund more accessible to under-represented groups, such as young entrepreneurs and business owners from ethnic minority backgrounds.\n\nWrite a proposal for the director. In your proposal, you should:\n\n• recommend two specific outreach methods to reach under-represented groups\n• explain how these methods would benefit both the applicants and the local economy\n• suggest how the association could measure the success of the outreach strategy",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-21-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Email: Responding to a grant applicant",
+        "genre": "email",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptText": "You are a programme coordinator for a small-business innovation fund. You have received an email from a local entrepreneur whose grant application was rejected. The entrepreneur is unhappy with the decision and has asked for a detailed explanation, as well as advice on how to strengthen a future application.\n\nWrite an email to the entrepreneur. In your email, you should:\n\n• acknowledge the disappointment and explain the reasons for the rejection\n• offer constructive advice on how to improve a future application\n• propose a meeting to discuss the feedback in person",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-21-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Review: A small-business networking event",
+        "genre": "review",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-21-task-04-announcement",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Reviews wanted: Small-business networking events",
+            "paragraphs": [
+              "Have you attended a networking event organised by the small-business innovation fund? We want to hear about your experience.",
+              "Write a review for our business advice website. Describe the event and what it offered. Evaluate how well it balanced making connections easy with providing genuine long-term business value. Would you recommend this type of event to other small-business owners? Why or why not?",
+              "The best reviews will be published on our website."
+            ]
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "task1": {
+      "scenario": "Small-business innovation fund planning brief 15: essay brief 1-1",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "the main small businesses issue",
+        "one practical consequence",
+        "a justified recommendation 1"
+      ],
+      "lexicalAnchors": [
+        "small businesses",
+        "a small-business innovation fund planning brief 15",
+        "c1 writing brief"
+      ],
+      "originalitySelfCheck": "Scenario is unique to this test; notes and opinions are original; no overlap with existing fingerprints.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    "task2": {
+      "scenario": "Small-business innovation fund planning brief 15: proposal brief 2-5",
+      "audience": "specialist magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "the main small businesses issue",
+        "one practical consequence",
+        "a justified recommendation 2"
+      ],
+      "lexicalAnchors": [
+        "small businesses",
+        "a small-business innovation fund planning brief 15",
+        "c1 writing brief"
+      ],
+      "originalitySelfCheck": "Proposal focuses on outreach to under-represented groups; different from any previous proposal in avoided fingerprints.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    "task3": {
+      "scenario": "Small-business innovation fund planning brief 15: email brief 3-9",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "the main small businesses issue",
+        "one practical consequence",
+        "a justified recommendation 3"
+      ],
+      "lexicalAnchors": [
+        "small businesses",
+        "a small-business innovation fund planning brief 15",
+        "c1 writing brief"
+      ],
+      "originalitySelfCheck": "Email involves responding to a rejected grant applicant; unique scenario not seen in previous tests.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    "task4": {
+      "scenario": "Small-business innovation fund planning brief 15: review brief 4-13",
+      "audience": "English-speaking contact",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "the main small businesses issue",
+        "one practical consequence",
+        "a justified recommendation 4"
+      ],
+      "lexicalAnchors": [
+        "small businesses",
+        "a small-business innovation fund planning brief 15",
+        "c1 writing brief"
+      ],
+      "originalitySelfCheck": "Review of a networking event; announcement format used; no similarity to previous review tasks.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  },
+  "cachedAt": 1785311728271
+}

@@ -1,0 +1,66 @@
+{
+  "testId": "b1-test-20",
+  "level": "b1",
+  "topicFamily": "public parks",
+  "specificSetting": "a park clean-up morning planning brief 14",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "a park clean-up morning planning brief 14: email brief 1-1",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "the main public parks issue",
+        "one practical consequence",
+        "a justified recommendation 1"
+      ],
+      "lexicalAnchors": [
+        "public parks",
+        "a park clean-up morning planning brief 14",
+        "b1 writing brief"
+      ],
+      "originalitySelfCheck": "Email uses park clean-up scenario with focus on litter vs flowers, refreshments vs gloves, and long-term care. No overlap with previous tests. Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "a park clean-up morning planning brief 14: article brief 2-5",
+      "audience": "specialist magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "the main public parks issue",
+        "one practical consequence",
+        "a justified recommendation 2"
+      ],
+      "lexicalAnchors": [
+        "public parks",
+        "a park clean-up morning planning brief 14",
+        "b1 writing brief"
+      ],
+      "originalitySelfCheck": "Article asks whether clean-up will make a difference and what volunteers should do. Unique to this test. No reused frames.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "a park clean-up morning planning brief 14: story brief 3-9",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "the main public parks issue",
+        "one practical consequence",
+        "a justified recommendation 3"
+      ],
+      "lexicalAnchors": [
+        "public parks",
+        "a park clean-up morning planning brief 14",
+        "b1 writing brief"
+      ],
+      "originalitySelfCheck": "Story opening about rubbish bags and dirty park is original, not used before. Matches park clean-up scenario.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "4f7690773e0a900f579eefac01455468cb6fd0e967cd9466d3dc68bd43632406"
+  }
+}

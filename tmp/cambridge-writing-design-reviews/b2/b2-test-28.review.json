@@ -1,0 +1,91 @@
+{
+  "testId": "b2-test-28",
+  "level": "b2",
+  "topicFamily": "consumer choices",
+  "specificSetting": "an ethical consumer campaign planning brief 22",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Essay: students discuss priorities for an ethical consumer campaign; teacher asks for essay on the most important priority.",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "reducing the use of single-use plastics",
+        "encouraging local shopping",
+        "own idea"
+      ],
+      "lexicalAnchors": [
+        "ethical consumer campaign",
+        "single-use plastics",
+        "local shopping"
+      ],
+      "originalitySelfCheck": "Unique scenario: not a generic 'environment' essay; specific to campaign planning. Notes are concrete and distinct from previous tests. No forbidden concepts used.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Review: candidate reviews an ethical consumer campaign they participated in, for a specialist magazine.",
+      "audience": "specialist magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "campaign aims",
+        "effectiveness at changing habits",
+        "one improvement"
+      ],
+      "lexicalAnchors": [
+        "ethical consumer campaign",
+        "shopping habits",
+        "improvement"
+      ],
+      "originalitySelfCheck": "Review genre with new context: not a book/film/place review; focuses on a campaign. No overlap with existing review tasks.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Article: candidate writes for programme coordinator's website suggesting a practical way for students to make ethical consumer choices.",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "practical way to make ethical choices",
+        "why it would work",
+        "benefit for local community"
+      ],
+      "lexicalAnchors": [
+        "ethical shopping",
+        "practical way",
+        "local community"
+      ],
+      "originalitySelfCheck": "Article task with specific audience (programme coordinator) and focus on ethical consumer choices. Not a generic 'learning beyond lessons' or 'future skills' article.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Email: candidate responds to Sam Carter, an English-speaking contact, explaining their position on the main issue of an ethical consumer campaign and requesting arrangements.",
+      "audience": "English-speaking contact (Sam Carter)",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "main issue to focus on",
+        "practical consequence of not changing habits",
+        "one recommendation for the campaign"
+      ],
+      "lexicalAnchors": [
+        "ethical consumer campaign",
+        "shopping habits",
+        "recommendation"
+      ],
+      "originalitySelfCheck": "Email from Sam Carter about campaign planning. Not a friend asking for advice about a course/job/holiday. Content points are about campaign focus and consequences, not personal preferences.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "centralTension": "access and convenience versus long-term responsibility in consumer choices",
+  "stakeholders": [
+    "people affected by consumer choices",
+    "organisers of an ethical consumer campaign planning brief 22"
+  ],
+  "forbiddenConcepts": [],
+  "overallOriginalityCheck": "All tasks are original, with concrete scenarios, distinct audiences, and no reuse of existing test fingerprints. No forbidden concepts detected.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "4ebe87633f8b33e37c5931e58db8744adeceb34350495440b02e507fff2782b0"
+  }
+}

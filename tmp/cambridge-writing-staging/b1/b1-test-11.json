@@ -1,0 +1,158 @@
+{
+  "id": "b1-test-11",
+  "level": "b1",
+  "testNumber": 11,
+  "title": "PET B1 AI Practice Test 11",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b1/b1-test-11.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b1-test-11-1785306629253",
+    "generatedAt": 1785306693559,
+    "contentHash": "3ada814ea832ed7f4b72861d09d50b80d44ead46dc38f3d00c7f50a56f706be9",
+    "promptHash": "d33defb754449e7370734514dbd0391ae65a1026931c9b756dd9d604efac200b",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-11:d33defb754449e7370734514dbd0391ae65a1026931c9b756dd9d604efac200b",
+    "inputHash": "d33defb754449e7370734514dbd0391ae65a1026931c9b756dd9d604efac200b",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b1-test-11-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Email to teacher about festival priorities",
+      "genre": "email",
+      "instruction": "You must answer this question. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-11-task-01-email",
+          "type": "email",
+          "from": "Your English teacher, Mr. Davis",
+          "subject": "Spring Food Festival – your ideas",
+          "greeting": "Hi,",
+          "paragraphs": [
+            "Our class is helping to plan the Spring Food Festival. I'd like you to think about what is most important for the festival to be a success. Should we focus on having lots of different food stalls, or on keeping the event affordable for everyone?",
+            "Also, what is one practical problem we might face, and how can we solve it?",
+            "Finally, tell me which stall you would most like to see at the festival and why.",
+            "Thanks, Mr. Davis"
+          ],
+          "closing": "Best wishes,",
+          "sender": "Mr. Davis"
+        },
+        {
+          "id": "b1-test-11-task-01-notes",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes for your reply",
+          "listItems": [
+            "Say which is more important: lots of stalls OR low prices – and explain why.",
+            "Describe one practical problem and suggest a solution.",
+            "Name your favourite type of food stall and give a reason.",
+            "Ask Mr. Davis one question about the festival date or location."
+          ]
+        },
+        {
+          "id": "b1-test-11-task-01-final",
+          "type": "final-instruction",
+          "text": "Write your email to Mr. Davis using all the notes."
+        }
+      ],
+      "presentation": {
+        "template": "email"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b1-test-11-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Article about the festival",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-11-task-02-announcement",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted!",
+          "paragraphs": [
+            "Our town is organising a Spring Food Festival next month. We want to know what you think will make it a success.",
+            "What kind of food should be there?",
+            "How can the festival be fun for both children and adults?",
+            "Would you like to help organise it? Why or why not?",
+            "Write an article answering these questions and we will put it on our town website!"
+          ]
+        },
+        {
+          "id": "b1-test-11-task-02-final",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b1-test-11-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Story about a festival mishap",
+      "genre": "story",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-11-task-03-opening",
+          "type": "paragraph",
+          "text": "Your English teacher has asked you to write a story."
+        },
+        {
+          "id": "b1-test-11-task-03-sentence",
+          "type": "paragraph",
+          "text": "Your story must begin with this sentence:"
+        },
+        {
+          "id": "b1-test-11-task-03-opening-sentence",
+          "type": "source-text",
+          "label": "Opening sentence",
+          "text": "When the chef dropped the cake just before the festival started, everyone gasped."
+        },
+        {
+          "id": "b1-test-11-task-03-final",
+          "type": "final-instruction",
+          "text": "Write your story."
+        }
+      ],
+      "presentation": {
+        "template": "plain"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

@@ -26,18 +26,6 @@ function countWords(text) {
   return String(text).trim().split(/\s+/).filter(Boolean).length
 }
 
-function capSourceText(text) {
-  if (countWords(text) <= 160) return text
-  const sentences = String(text).trim().split(/(?<=[.!?])\s+/)
-  const kept = []
-  for (const sentence of sentences) {
-    if (countWords([...kept, sentence].join(' ')) > 160) break
-    kept.push(sentence)
-  }
-  const result = kept.join(' ')
-  return countWords(result) >= 110 ? result : text
-}
-
 function conciseSummary(test, planRow = null) {
   return {
     testId: test.id,
@@ -113,7 +101,6 @@ function normalizeTest(envelope, row, batchId, cacheMeta) {
       },
     }
     if (row.level === 'c2' && index === 0 && Array.isArray(normalized.promptBlocks)) {
-      normalized.promptBlocks = normalized.promptBlocks.map(block => block.type === 'source-text' ? { ...block, text: capSourceText(block.text) } : block)
     }
     return normalized
   })
@@ -134,9 +121,10 @@ function normalizeTest(envelope, row, batchId, cacheMeta) {
       cacheKey: cacheMeta.cacheKey, inputHash: cacheMeta.inputHash, reviewStatus: 'unreviewed',
     },
   }
-  test.provenance.contentHash = contentHash(test)
   const parsed = TestSchema.parse(test)
   assertIdentity(parsed)
+  // Hash the canonical schema output so defaults/normalization cannot invalidate draft integrity.
+  parsed.provenance.contentHash = contentHash(parsed)
   return parsed
 }
 

@@ -1,0 +1,84 @@
+{
+  "testId": "b2-test-23",
+  "topicFamily": "holiday planning",
+  "specificSetting": "a responsible tourism project planning brief 17",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Essay: evaluating priorities for a responsible tourism project (reducing plastic waste, supporting local businesses, own idea)",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "reducing plastic waste on trips",
+        "supporting local businesses",
+        "own idea"
+      ],
+      "lexicalAnchors": [
+        "responsible tourism",
+        "plastic waste",
+        "local businesses"
+      ],
+      "originalitySelfCheck": "Scenario is original; notes are distinct from previous tests; no forbidden concepts used.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Review: a mobile app that helps tourists travel responsibly",
+      "audience": "specialist magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "what the app does and ease of use",
+        "whether it helped make responsible choices",
+        "recommendation with reason"
+      ],
+      "lexicalAnchors": [
+        "responsible tourism app",
+        "eco-friendly",
+        "travel choices"
+      ],
+      "originalitySelfCheck": "Review genre uses an app rather than a place or event; no overlap with previous review tasks.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Article: suggesting a way volunteer tourism could benefit visitors and local community, with a challenge",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "one practical way volunteer tourism benefits both sides",
+        "why it would work",
+        "one possible challenge"
+      ],
+      "lexicalAnchors": [
+        "volunteer tourism",
+        "local community",
+        "challenge"
+      ],
+      "originalitySelfCheck": "Article focuses on volunteer tourism benefits and challenges; not a generic 'how to' article.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Email: explaining a responsible tourism project and advising a friend on what to avoid",
+      "audience": "English-speaking contact (Sam)",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "describe the project",
+        "opinion on its effectiveness",
+        "one thing to avoid"
+      ],
+      "lexicalAnchors": [
+        "responsible tourism project",
+        "eco-friendly",
+        "minimise impact"
+      ],
+      "originalitySelfCheck": "Email is a reply to a friend's request for advice; not a standard 'invitation' or 'arrangement' email.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are built around the specific setting 'a responsible tourism project planning brief 17'. No task reuses scenarios, audiences, content points, or lexical anchors from previous tests. Forbidden concepts (e.g., 'peer learning project', 'pollution essay', 'touring holiday') are avoided. The essay notes are original; the review uses an app; the article focuses on volunteer tourism; the email is a response to a specific query. All prompts are concrete and answerable.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "4b73aeccda95a96b03335433db96c700a64f03846b5b6f5c4b11bd792ea461cf"
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "id": "c1-test-18",
+  "level": "c1",
+  "testNumber": 18,
+  "title": "CAE C1 AI Practice Test 18",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-18.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "c1-test-18-1785311623862",
+    "generatedAt": 1785311641563,
+    "contentHash": "9338ca7868c458f9286c0909ccc2789cd2ce9953b9883d1a9ea3337c97870983",
+    "promptHash": "d6c2689bff37b497717359bc58fdc315b26691736cf99b08cdc3eea7d286ef47",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-18:d6c2689bff37b497717359bc58fdc315b26691736cf99b08cdc3eea7d286ef47",
+    "inputHash": "d6c2689bff37b497717359bc58fdc315b26691736cf99b08cdc3eea7d286ef47",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "c1-test-18-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Language access policy priorities",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-18-task-01-block-01",
+          "type": "paragraph",
+          "text": "Your class has listened to a radio discussion about how a city should design a language access policy to help residents who are not fluent in the official language. You have made the notes below."
+        },
+        {
+          "id": "c1-test-18-task-01-block-02",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Priorities for a language access policy",
+          "listItems": [
+            "subsidised language classes for adults",
+            "translation of official documents",
+            "interpreters at public services"
+          ]
+        },
+        {
+          "id": "c1-test-18-task-01-block-03",
+          "type": "panel",
+          "variant": "opinions",
+          "heading": "Some opinions expressed in the discussion:",
+          "paragraphs": [
+            "Language classes are the only way to achieve long-term integration. Without them, people remain dependent on interpreters forever.",
+            "Translating forms and websites is the quickest way to remove barriers. People need access to information today, not after a two-year course.",
+            "Interpreters at hospitals and courts are a matter of safety. You can't wait for someone to learn the language when they need medical help."
+          ]
+        },
+        {
+          "id": "c1-test-18-task-01-block-04",
+          "type": "final-instruction",
+          "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for the city to invest in, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes-opinions"
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c1-test-18-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Language support proposal",
+      "genre": "proposal",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-18-task-02-block-01",
+          "type": "paragraph",
+          "text": "Your city council is considering a new language support programme for non-native speakers. The programme would include free evening classes, a conversation partner scheme, and a multilingual helpline. The council has invited proposals from community organisations on how this programme should be designed."
+        },
+        {
+          "id": "c1-test-18-task-02-block-02",
+          "type": "paragraph",
+          "text": "Write a proposal for the city council. In your proposal, you should:"
+        },
+        {
+          "id": "c1-test-18-task-02-block-03",
+          "type": "paragraph",
+          "text": "• recommend two specific components that should be prioritised\n• explain how these components would benefit both learners and the wider community\n• suggest how the council could evaluate the programme's effectiveness"
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-18-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Programme coordinator email",
+      "genre": "email",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-18-task-03-block-01",
+          "type": "email",
+          "from": "Dr. Ana Torres <a.torres@langcentre.org>",
+          "subject": "Language access programme – your views",
+          "paragraphs": [
+            "Dear Student Representative,",
+            "As you know, the city is planning to launch a language access programme for residents who are not fluent in the official language. The programme will include subsidised classes, translation services, and interpreter provision. Some community groups have expressed concern that the programme may not reach the most vulnerable residents, such as those with irregular work schedules or limited digital access.",
+            "I would like to hear your views on this initiative. Please write back explaining your position on the proposed programme, analysing one potential drawback of the current plan, and proposing a way to address that drawback while still moving forward.",
+            "Best regards,",
+            "Dr. Ana Torres"
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-18-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Language learning app review",
+      "genre": "review",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-18-task-04-block-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted: Language learning apps",
+          "paragraphs": [
+            "Have you used a language learning app to improve your skills in a new language? We want to hear about your experience.",
+            "Write a review of the app for our specialist magazine. Describe what the app offers and how easy it is to use. Evaluate how well it balances convenience with genuine language development. Would you recommend it to other learners? Why or why not?",
+            "The best reviews will be published in next month's issue."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "testId": "b2-test-33",
+  "topicFamily": "neighbourhood transport",
+  "specificSetting": "a regional bus improvement plan planning brief 27",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Essay discussing priorities for improving bus services in the region",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "frequency of buses",
+        "cost of tickets",
+        "own idea"
+      ],
+      "lexicalAnchors": [
+        "bus services",
+        "frequency",
+        "ticket cost"
+      ],
+      "originalitySelfCheck": "Unique essay topic on bus improvement; not a reused skeleton. Notes panel with two supplied points plus own idea.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Review of a proposed regional bus improvement plan",
+      "audience": "specialist magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "what the plan aims to do",
+        "whether it will be effective",
+        "recommend one change"
+      ],
+      "lexicalAnchors": [
+        "bus improvement plan",
+        "effectiveness",
+        "recommendation"
+      ],
+      "originalitySelfCheck": "Review of a plan, not a facility or event; different from previous review tasks.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Article explaining how the bus plan could affect young people",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "one possible benefit",
+        "one possible drawback",
+        "suggest how young people can make their voices heard"
+      ],
+      "lexicalAnchors": [
+        "bus plan",
+        "young people",
+        "benefit",
+        "drawback",
+        "voice"
+      ],
+      "originalitySelfCheck": "Article focused on impact on youth; not a generic 'how to improve' article.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Email to a friend about the bus plan",
+      "audience": "English-speaking contact",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "opinion on the plan",
+        "how it will affect daily life",
+        "changes you'd like to see"
+      ],
+      "lexicalAnchors": [
+        "bus plan",
+        "daily life",
+        "changes"
+      ],
+      "originalitySelfCheck": "Email about a local transport plan; different from previous email tasks (e.g., holiday, course advice).",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are based on the same concrete scenario (regional bus improvement plan) but each has a distinct genre, audience, and content points. No reuse of skeletons from previous tests. No forbidden concepts detected.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "146d06af2baa3a361373102ddd382ddf984785dafed573264fb7374b9ab1b5ab"
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "id": "b1-test-18",
+  "level": "b1",
+  "testNumber": 18,
+  "title": "PET B1 AI Practice Test 18",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b1/b1-test-18.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b1-test-18-1785311102560",
+    "generatedAt": 1785311152405,
+    "contentHash": "deffffc371fa81e7abe5e84e4bb3e2b7e4e04901771566982f1daa19da986078",
+    "promptHash": "682a0afae60e19059c64b7ddb28da98df8f8cf8e78315f4cc7760f18d329d2b6",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-18:682a0afae60e19059c64b7ddb28da98df8f8cf8e78315f4cc7760f18d329d2b6",
+    "inputHash": "682a0afae60e19059c64b7ddb28da98df8f8cf8e78315f4cc7760f18d329d2b6",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b1-test-18-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Email about conversation club",
+      "genre": "email",
+      "instruction": "You must answer this question. Write your answer in about 100 words.\n\nRead this email from your English teacher, Mrs. Hill, and the notes you have made.\n\nWrite your email to Mrs. Hill using all the notes.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-18-task-01-p1",
+          "type": "paragraph",
+          "text": "Read this email from your English teacher, Mrs. Hill, and the notes you have made."
+        },
+        {
+          "id": "b1-test-18-task-01-email",
+          "type": "email",
+          "from": "Mrs. Hill",
+          "subject": "Conversation club for newcomers",
+          "greeting": "Hello,",
+          "paragraphs": [
+            "As you know, our school is starting a conversation club for newcomers who are learning English. We want to help them practise speaking in a friendly environment.",
+            "First, should we meet on Tuesday afternoons or Friday afternoons? Which do you think is better for the newcomers?",
+            "Also, we need to choose an activity for the first session. Would you prefer a group discussion about hobbies or a role-play of ordering food?",
+            "Finally, can you suggest one way to make the newcomers feel welcome?",
+            "Best wishes,",
+            "Mrs. Hill"
+          ],
+          "closing": "Best wishes,",
+          "sender": "Mrs. Hill"
+        },
+        {
+          "id": "b1-test-18-task-01-notes",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes for your reply",
+          "listItems": [
+            "Say which day you prefer and explain why.",
+            "Choose an activity (group discussion or role-play) and give a reason.",
+            "Suggest one way to make newcomers feel welcome.",
+            "Ask Mrs. Hill about the number of newcomers expected."
+          ]
+        },
+        {
+          "id": "b1-test-18-task-01-final",
+          "type": "final-instruction",
+          "text": "Write your email to Mrs. Hill using all the notes."
+        }
+      ],
+      "presentation": {
+        "template": "email"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b1-test-18-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Article about conversation club",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.\n\nYou see this notice on a specialist magazine website for language teachers.\n\nWrite your article.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-18-task-02-panel",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted!",
+          "paragraphs": [
+            "Our school has started a conversation club for newcomers. Do you think conversation clubs help newcomers improve their speaking skills?",
+            "What is the most important thing the club should do to help them?",
+            "Write an article answering these questions and we will put it on our website!"
+          ]
+        },
+        {
+          "id": "b1-test-18-task-02-final",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b1-test-18-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Story about conversation club",
+      "genre": "story",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.\n\nYour English teacher has asked you to write a story.\n\nYour story must begin with this sentence:\n\n\"When the programme coordinator asked me to lead the conversation club, I felt both excited and nervous.\"\n\nWrite your story.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-18-task-03-opening",
+          "type": "paragraph",
+          "text": "Your English teacher has asked you to write a story.\n\nYour story must begin with this sentence:\n\n\"When the programme coordinator asked me to lead the conversation club, I felt both excited and nervous.\""
+        },
+        {
+          "id": "b1-test-18-task-03-final",
+          "type": "final-instruction",
+          "text": "Write your story."
+        }
+      ],
+      "presentation": {
+        "template": "plain"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

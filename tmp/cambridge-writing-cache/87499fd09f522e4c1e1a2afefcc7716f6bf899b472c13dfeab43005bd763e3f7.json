@@ -1,0 +1,231 @@
+{
+  "inputHash": "f334f418df323a6094b24d64e248a9582f7e98eb55fd68a4b1730f49c0b813aa",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-26:f334f418df323a6094b24d64e248a9582f7e98eb55fd68a4b1730f49c0b813aa",
+  "test": {
+    "id": "b1-test-26",
+    "level": "b1",
+    "testNumber": 26,
+    "title": "PET B1 AI Practice Test 26",
+    "sourceFile": "packages/catalog/data/cambridge-writing/b1/b1-test-26.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "b1-test-26-1785312276906",
+      "generatedAt": 1785312294377,
+      "contentHash": "d188e3a48b515fc90dac92f04d09a5fd64bb7e2d6900087952122972c5148c94",
+      "promptHash": "f334f418df323a6094b24d64e248a9582f7e98eb55fd68a4b1730f49c0b813aa",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-26:f334f418df323a6094b24d64e248a9582f7e98eb55fd68a4b1730f49c0b813aa",
+      "inputHash": "f334f418df323a6094b24d64e248a9582f7e98eb55fd68a4b1730f49c0b813aa",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "b1-test-26-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Careers afternoon priorities",
+        "genre": "email",
+        "instruction": "You must answer this question. Write your answer in about 100 words.",
+        "promptBlocks": [
+          {
+            "id": "b1-test-26-task-01-email",
+            "type": "email",
+            "from": "Mrs Hill",
+            "subject": "Careers afternoon – your ideas",
+            "paragraphs": [
+              "Hello,",
+              "As you know, our school is planning a careers afternoon for students next term. We want to help them think about future skills they will need. I need your help to decide on a few things.",
+              "First, should we focus on digital skills like coding and online safety, or on communication skills like speaking in public and working in a team? Which do you think is more important for students' future careers?",
+              "Also, we need to choose one practical activity for the afternoon. Would you prefer a workshop where students try a simple coding task, or a role-play activity where they practise a job interview?",
+              "Finally, can you suggest one way to make sure students remember what they learn after the event?",
+              "Let me know your ideas!",
+              "Best wishes,",
+              "Mrs Hill"
+            ]
+          },
+          {
+            "id": "b1-test-26-task-01-notes",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Notes for your reply",
+            "listItems": [
+              "Say which focus you prefer (digital skills or communication skills) and explain why.",
+              "Choose an activity (coding workshop or interview role-play) and give a reason.",
+              "Suggest one way to help students remember what they learn.",
+              "Ask Mrs Hill about the date of the careers afternoon."
+            ]
+          },
+          {
+            "id": "b1-test-26-task-01-final",
+            "type": "final-instruction",
+            "text": "Write your email to Mrs Hill using all the notes."
+          }
+        ],
+        "presentation": {
+          "template": "email"
+        },
+        "wordLimit": {
+          "min": 100,
+          "max": 100,
+          "displayText": "about 100 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "b1-test-26-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Future skills article",
+        "genre": "article",
+        "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+        "promptBlocks": [
+          {
+            "id": "b1-test-26-task-02-announcement",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Articles wanted!",
+            "paragraphs": [
+              "Our school magazine wants to hear your ideas about the careers afternoon.",
+              "What future skill do you think is most important for students to learn?",
+              "How can the careers afternoon help students prepare for jobs?",
+              "Write an article answering these questions and we will put it in the next magazine!"
+            ]
+          },
+          {
+            "id": "b1-test-26-task-02-final",
+            "type": "final-instruction",
+            "text": "Write your article."
+          }
+        ],
+        "presentation": {
+          "template": "announcement"
+        },
+        "wordLimit": {
+          "min": 100,
+          "max": 100,
+          "displayText": "about 100 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b1-test-26-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Careers afternoon story",
+        "genre": "story",
+        "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+        "promptBlocks": [
+          {
+            "id": "b1-test-26-task-03-opening",
+            "type": "paragraph",
+            "text": "Your English teacher has asked you to write a story."
+          },
+          {
+            "id": "b1-test-26-task-03-sentence",
+            "type": "paragraph",
+            "text": "Your story must begin with this sentence:"
+          },
+          {
+            "id": "b1-test-26-task-03-quote",
+            "type": "paragraph",
+            "text": "\"When the programme coordinator asked for a volunteer to try the virtual reality headset, nobody moved.\""
+          },
+          {
+            "id": "b1-test-26-task-03-final",
+            "type": "final-instruction",
+            "text": "Write your story."
+          }
+        ],
+        "presentation": {
+          "template": "plain"
+        },
+        "wordLimit": {
+          "min": 100,
+          "max": 100,
+          "displayText": "about 100 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "b1-test-26",
+    "level": "b1",
+    "topicFamily": "future skills",
+    "specificSetting": "a school careers afternoon planning brief 20",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "Planning a school careers afternoon; email to teacher about focus (digital vs communication skills), activity choice, and follow-up",
+        "audience": "English teacher (Mrs Hill)",
+        "purpose": "Evaluate and justify priorities for the careers afternoon",
+        "requiredContentPoints": [
+          "the main future skills issue (digital vs communication)",
+          "one practical consequence (activity choice)",
+          "a justified recommendation 1 (preferred focus)"
+        ],
+        "lexicalAnchors": [
+          "future skills",
+          "careers afternoon",
+          "digital skills",
+          "communication skills",
+          "coding workshop",
+          "interview role-play"
+        ],
+        "originalitySelfCheck": "Scenario is unique: school careers afternoon planning. Email structure with notes about focus, activity, and follow-up is distinct from previous tests. No forbidden concepts used.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "Article for school magazine about the careers afternoon, asking which future skill is most important and how the event helps",
+        "audience": "School magazine readers (students and staff)",
+        "purpose": "Assess effectiveness of the careers afternoon and recommend a key skill",
+        "requiredContentPoints": [
+          "the main future skills issue (most important skill)",
+          "one practical consequence (how the afternoon helps)",
+          "a justified recommendation 2 (which skill and why)"
+        ],
+        "lexicalAnchors": [
+          "future skills",
+          "careers afternoon",
+          "most important skill",
+          "prepare for jobs"
+        ],
+        "originalitySelfCheck": "Article prompt is original: asks about 'most important future skill' and how the event helps, not a generic 'what do you think'. No overlap with previous article tasks.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "Story set during the careers afternoon, beginning with a moment of hesitation when a volunteer is asked to try VR",
+        "audience": "English teacher",
+        "purpose": "Analyse implications of the event through a narrative",
+        "requiredContentPoints": [
+          "the main future skills issue (technology in careers)",
+          "one practical consequence (reaction to VR)",
+          "a justified recommendation 3 (resolution of the story)"
+        ],
+        "lexicalAnchors": [
+          "future skills",
+          "careers afternoon",
+          "virtual reality headset",
+          "volunteer"
+        ],
+        "originalitySelfCheck": "Story opening is unique: 'When the programme coordinator asked for a volunteer to try the virtual reality headset, nobody moved.' No similar opening in any previous test. Forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ],
+    "overallOriginalityCheck": "All tasks are built around the specific setting 'a school careers afternoon planning brief 20' with concrete audiences and purposes. No reused scenarios, skeletons, or forbidden concepts. Each task has distinct required content points and lexical anchors.",
+    "forbiddenConceptCheck": "PASS"
+  },
+  "cachedAt": 1785312294409
+}

@@ -1,0 +1,274 @@
+{
+  "inputHash": "07771d13fe369a5d35166b2437cd36c3606aef0c6d5c0298fa848498ce814b76",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-20:07771d13fe369a5d35166b2437cd36c3606aef0c6d5c0298fa848498ce814b76",
+  "test": {
+    "id": "b2-test-20",
+    "level": "b2",
+    "testNumber": 20,
+    "title": "FCE B2 AI Practice Test 20",
+    "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-20.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "b2-test-20-1785311332615",
+      "generatedAt": 1785311357656,
+      "contentHash": "2ad9c32a2d26550d2e01b6f8116695b436b65bf211f31531f9203fa25fb278e4",
+      "promptHash": "07771d13fe369a5d35166b2437cd36c3606aef0c6d5c0298fa848498ce814b76",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-20:07771d13fe369a5d35166b2437cd36c3606aef0c6d5c0298fa848498ce814b76",
+      "inputHash": "07771d13fe369a5d35166b2437cd36c3606aef0c6d5c0298fa848498ce814b76",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "b2-test-20-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Essay: Public park redesign priorities",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write 140–190 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-20-task-01-block-01",
+            "type": "paragraph",
+            "text": "In your English class you have been discussing how to redesign a public park to balance access for visitors with long-term maintenance. Now your English teacher has asked you to write an essay."
+          },
+          {
+            "id": "b2-test-20-task-01-block-02",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Notes",
+            "listItems": [
+              "keeping the park open 24 hours a day",
+              "installing solar-powered lighting",
+              "......................... (your own idea)"
+            ]
+          },
+          {
+            "id": "b2-test-20-task-01-block-03",
+            "type": "final-instruction",
+            "text": "Write an essay using all the notes and giving reasons for your point of view."
+          }
+        ],
+        "presentation": {
+          "template": "essay-notes"
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "b2-test-20-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Review: A public park redesign feature",
+        "genre": "review",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-20-task-02-block-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Reviews wanted!",
+            "paragraphs": [
+              "Have you visited a public park that has recently been redesigned? We want to hear about your experience.",
+              "Write a review of a specific feature of the park – for example, a new playground, a community garden, or a fitness trail. Describe the feature, say how well it serves park users, and recommend whether other parks should add something similar.",
+              "The best reviews will be published in our specialist magazine."
+            ]
+          },
+          {
+            "id": "b2-test-20-task-02-block-02",
+            "type": "final-instruction",
+            "text": "Write your review."
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b2-test-20-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Article: Encouraging responsible park use",
+        "genre": "article",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-20-task-03-block-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Articles wanted!",
+            "paragraphs": [
+              "Our programme coordinator is looking for ideas to encourage visitors to take responsibility for keeping the park clean and safe.",
+              "Write an article for the coordinator's website. Suggest one practical way to encourage responsible behaviour in the park, explain why it would work, and describe the benefits for the whole community.",
+              "We will publish the best articles on our website."
+            ]
+          },
+          {
+            "id": "b2-test-20-task-03-block-02",
+            "type": "final-instruction",
+            "text": "Write your article."
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b2-test-20-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Email: Explaining a position on park changes",
+        "genre": "email",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-20-task-04-block-01",
+            "type": "email",
+            "from": "Alex Chen <alex.chen@email.com>",
+            "subject": "Park redesign in your area",
+            "paragraphs": [
+              "Hi,",
+              "I heard that your local park is being redesigned. I'm interested in how the council is balancing making the park convenient for visitors with keeping it well-maintained in the long term.",
+              "What do you think about the proposed changes? Do you support them? Also, what do you think is the biggest challenge the council will face? And how can local residents help look after the park after the redesign?",
+              "Let me know!",
+              "Alex"
+            ]
+          },
+          {
+            "id": "b2-test-20-task-04-block-02",
+            "type": "final-instruction",
+            "text": "Write your email to Alex. You should explain your position on the redesign, describe one challenge, and suggest how residents can help maintain the park."
+          }
+        ],
+        "presentation": {
+          "template": "email",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "b2-test-20",
+    "level": "b2",
+    "topicFamily": "public parks",
+    "specificSetting": "a public park redesign planning brief 14",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "Essay: Public park redesign priorities",
+        "audience": "English teacher",
+        "purpose": "evaluate and justify priorities (keeping park open 24h vs solar lighting vs own idea)",
+        "requiredContentPoints": [
+          "keeping the park open 24 hours a day",
+          "installing solar-powered lighting",
+          "own idea"
+        ],
+        "lexicalAnchors": [
+          "public park",
+          "redesign",
+          "access",
+          "maintenance"
+        ],
+        "originalitySelfCheck": "Unique scenario: park opening hours vs sustainable lighting. Not similar to any previous essay on environment, community centres, or transport. Uses concrete park-specific notes.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "Review: A public park redesign feature",
+        "audience": "specialist magazine readers",
+        "purpose": "assess effectiveness and recommend (review a specific park feature)",
+        "requiredContentPoints": [
+          "describe the feature",
+          "how well it serves users",
+          "recommendation for other parks"
+        ],
+        "lexicalAnchors": [
+          "public park",
+          "redesign",
+          "feature",
+          "playground",
+          "community garden",
+          "fitness trail"
+        ],
+        "originalitySelfCheck": "Review of a park feature, not a book, film, workshop, or study clinic. Unique among previous reviews. Announcement frame is original.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "Article: Encouraging responsible park use",
+        "audience": "programme coordinator",
+        "purpose": "analyse implications and propose action (suggest a way to encourage responsible behaviour)",
+        "requiredContentPoints": [
+          "suggest one practical way",
+          "explain why it would work",
+          "describe benefits for community"
+        ],
+        "lexicalAnchors": [
+          "public park",
+          "responsible behaviour",
+          "community"
+        ],
+        "originalitySelfCheck": "Article about park responsibility, not about learning, skills, or generic community involvement. Unique among previous articles. Announcement frame is original.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 4,
+        "scenario": "Email: Explaining a position on park changes",
+        "audience": "English-speaking contact (Alex)",
+        "purpose": "explain a position and request arrangements (explain position on redesign, describe challenge, suggest resident help)",
+        "requiredContentPoints": [
+          "explain your position on the redesign",
+          "describe one challenge",
+          "suggest how residents can help maintain the park"
+        ],
+        "lexicalAnchors": [
+          "public park",
+          "redesign",
+          "challenge",
+          "maintain"
+        ],
+        "originalitySelfCheck": "Email about park redesign, not about a festival, exchange, or course. Unique among previous emails. Email subject and content are original.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ],
+    "originalitySummary": "All tasks are based on the specific scenario of a public park redesign planning brief 14. No task reuses scenarios, audiences, or content points from previous tests. The essay notes are unique (24-hour access vs solar lighting). The review focuses on a park feature, not a book, film, or workshop. The article is about encouraging responsible park use, not about learning or skills. The email is about park redesign, not about festivals, exchanges, or courses. All forbidden concepts avoided.",
+    "forbiddenConceptCheck": "PASS"
+  },
+  "cachedAt": 1785311357702
+}

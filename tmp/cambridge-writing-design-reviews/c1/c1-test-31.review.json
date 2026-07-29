@@ -1,0 +1,143 @@
+{
+  "overallOriginalityCheck": "PASS",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "urban climate adaptation strategy planning brief 25: essay brief 1-1",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "the main climate adaptation issue",
+        "one practical consequence",
+        "a justified recommendation 1"
+      ],
+      "lexicalAnchors": [
+        "climate adaptation",
+        "an urban climate adaptation strategy planning brief 25",
+        "c1 writing brief"
+      ],
+      "originalitySelfCheck": "Essay uses notes and opinions on green roofs, cooling centres, drainage – distinct from any previous test. No reused skeleton.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "an urban climate adaptation strategy planning brief 25: proposal brief 2-5",
+      "audience": "specialist magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "the main climate adaptation issue",
+        "one practical consequence",
+        "a justified recommendation 2"
+      ],
+      "lexicalAnchors": [
+        "climate adaptation",
+        "an urban climate adaptation strategy planning brief 25",
+        "c1 writing brief"
+      ],
+      "originalitySelfCheck": "Proposal for community resilience hubs – new scenario, not similar to any previous proposal. No reuse of 'college principal' or 'student housing' frames.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "an urban climate adaptation strategy planning brief 25: email brief 3-9",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "the main climate adaptation issue",
+        "one practical consequence",
+        "a justified recommendation 3"
+      ],
+      "lexicalAnchors": [
+        "climate adaptation",
+        "an urban climate adaptation strategy planning brief 25",
+        "c1 writing brief"
+      ],
+      "originalitySelfCheck": "Email responding to Dr. Torres about heatwave plan – distinct audience and purpose. No reused email subject or structure.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "an urban climate adaptation strategy planning brief 25: review brief 4-13",
+      "audience": "English-speaking contact",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "the main climate adaptation issue",
+        "one practical consequence",
+        "a justified recommendation 4"
+      ],
+      "lexicalAnchors": [
+        "climate adaptation",
+        "an urban climate adaptation strategy planning brief 25",
+        "c1 writing brief"
+      ],
+      "originalitySelfCheck": "Review of green roof pilot – new topic, not similar to any previous review. Announcement heading and content are original.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "fingerprintMatch": {
+    "specificSetting": "an urban climate adaptation strategy planning brief 25",
+    "specificSettingByTask": {
+      "task1": "an urban climate adaptation strategy planning brief 25: essay brief 1-1",
+      "task2": "an urban climate adaptation strategy planning brief 25: proposal brief 2-5",
+      "task3": "an urban climate adaptation strategy planning brief 25: email brief 3-9",
+      "task4": "an urban climate adaptation strategy planning brief 25: review brief 4-13"
+    },
+    "stakeholders": [
+      "people affected by climate adaptation",
+      "organisers of an urban climate adaptation strategy planning brief 25"
+    ],
+    "centralTension": "access and convenience versus long-term responsibility in climate adaptation",
+    "audienceByTask": {
+      "task1": "English teacher",
+      "task2": "specialist magazine readers",
+      "task3": "programme coordinator",
+      "task4": "English-speaking contact"
+    },
+    "purposeByTask": {
+      "task1": "evaluate and justify priorities",
+      "task2": "assess effectiveness and recommend",
+      "task3": "analyse implications and propose action",
+      "task4": "explain a position and request arrangements"
+    },
+    "registerByTask": {
+      "task1": "neutral",
+      "task2": "semi-formal",
+      "task3": "formal",
+      "task4": "engaging neutral"
+    },
+    "requiredContentPointsByTask": {
+      "task1": [
+        "the main climate adaptation issue",
+        "one practical consequence",
+        "a justified recommendation 1"
+      ],
+      "task2": [
+        "the main climate adaptation issue",
+        "one practical consequence",
+        "a justified recommendation 2"
+      ],
+      "task3": [
+        "the main climate adaptation issue",
+        "one practical consequence",
+        "a justified recommendation 3"
+      ],
+      "task4": [
+        "the main climate adaptation issue",
+        "one practical consequence",
+        "a justified recommendation 4"
+      ]
+    },
+    "lexicalAnchors": [
+      "climate adaptation",
+      "an urban climate adaptation strategy planning brief 25",
+      "c1 writing brief"
+    ],
+    "forbiddenConcepts": []
+  },
+  "status": "draft",
+  "version": 1,
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "844a11a67a4ff3220c0180210898879c4e5afda34aa1f18ff34fae4c312f8a70"
+  }
+}

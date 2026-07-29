@@ -1,0 +1,102 @@
+{
+  "testId": "c1-test-10",
+  "level": "c1",
+  "topicFamily": "community gardens",
+  "specificSetting": "a civic food-growing initiative planning brief 4",
+  "centralTension": "access and convenience versus long-term responsibility in community gardens",
+  "stakeholders": [
+    "people affected by community gardens",
+    "organisers of a civic food-growing initiative planning brief 4"
+  ],
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "genre": "essay",
+      "scenario": "Class discussion on priorities for a civic food-growing initiative: free starter kits, training workshops, tool library",
+      "audience": "English teacher (tutor)",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "the main community gardens issue",
+        "one practical consequence",
+        "a justified recommendation 1"
+      ],
+      "lexicalAnchors": [
+        "community gardens",
+        "civic food-growing initiative",
+        "starter kits",
+        "training workshops",
+        "tool library"
+      ],
+      "originalitySelfCheck": "Unique scenario: not a reused essay frame. Notes and opinions are original. No overlap with previous tests.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "genre": "proposal",
+      "scenario": "Proposal for sustainable gardening workshops as part of the civic food-growing initiative",
+      "audience": "steering committee of the initiative",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "the main community gardens issue",
+        "one practical consequence",
+        "a justified recommendation 2"
+      ],
+      "lexicalAnchors": [
+        "community gardens",
+        "civic food-growing initiative",
+        "sustainable gardening workshops",
+        "participants",
+        "long-term sustainability"
+      ],
+      "originalitySelfCheck": "Original proposal scenario: not a reused structure. Focus on workshop content, outreach, and sustainability. No overlap.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "genre": "email",
+      "scenario": "Email to residents' association addressing concerns about unfair plot allocation",
+      "audience": "chair of residents' association",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "the main community gardens issue",
+        "one practical consequence",
+        "a justified recommendation 3"
+      ],
+      "lexicalAnchors": [
+        "community gardens",
+        "civic food-growing initiative",
+        "plot allocation",
+        "fairness",
+        "meeting"
+      ],
+      "originalitySelfCheck": "Original email scenario: not a reused frame. Specific concern about allocation fairness. No overlap with previous tests.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "genre": "review",
+      "scenario": "Review of a community garden visit for a local lifestyle magazine",
+      "audience": "local lifestyle magazine readers",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "the main community gardens issue",
+        "one practical consequence",
+        "a justified recommendation 4"
+      ],
+      "lexicalAnchors": [
+        "community gardens",
+        "civic food-growing initiative",
+        "community garden visit",
+        "access",
+        "maintenance"
+      ],
+      "originalitySelfCheck": "Original review scenario: announcement format with specific evaluation criteria. Not a reused structure. No overlap.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are based on the unique scenario of a civic food-growing initiative. No reused skeletons, phrases, or content from previous tests. Forbidden concepts avoided.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "3d60e500b0945994c133060a467caac334e19978ca9281b59a26d14824fe1cce"
+  }
+}

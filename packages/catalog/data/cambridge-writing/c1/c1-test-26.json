@@ -1,0 +1,151 @@
+{
+  "id": "c1-test-26",
+  "level": "c1",
+  "testNumber": 26,
+  "title": "CAE C1 AI Practice Test 26",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-26.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "c1-test-26-1785312586164",
+    "generatedAt": 1785312605203,
+    "contentHash": "3a914b84f40fe24b608f7c134e2333e8a598a9335f8f6cae3eecaf726fe10f55",
+    "promptHash": "256913c6650befc26743cb4804269d9b80e602e7283a09b1673f7fea77d391f2",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-26:256913c6650befc26743cb4804269d9b80e602e7283a09b1673f7fea77d391f2",
+    "inputHash": "256913c6650befc26743cb4804269d9b80e602e7283a09b1673f7fea77d391f2",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "c1-test-26-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Workforce transition programme priorities",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-26-task-01-panel-01",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Priorities for a workforce transition programme",
+          "listItems": [
+            "retraining grants for displaced workers",
+            "partnerships with local employers for guaranteed interviews",
+            "portable skills certification"
+          ]
+        },
+        {
+          "id": "c1-test-26-task-01-panel-02",
+          "type": "panel",
+          "variant": "opinions",
+          "paragraphs": [
+            "Retraining grants give people the financial freedom to learn new skills without worrying about immediate income. That's the most direct way to help.",
+            "Employer partnerships are what actually get people into jobs. Training is useless if there's no job at the end of it.",
+            "Portable certification means skills are recognised across industries, not just in one company. That gives workers long-term security."
+          ]
+        },
+        {
+          "id": "c1-test-26-task-01-final",
+          "type": "final-instruction",
+          "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for the success of a workforce transition programme, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes-opinions"
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c1-test-26-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Proposal for a workforce transition programme",
+      "genre": "proposal",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptText": "Your regional development agency is planning a workforce transition programme for workers whose jobs are at risk due to automation and industry change. The agency has invited proposals from local stakeholders for how this programme should be designed.\n\nWrite a proposal for the regional development agency. In your proposal, you should:\n\n• recommend two specific types of support the programme should offer\n• explain how these would benefit both displaced workers and the regional economy\n• suggest how the agency could measure the programme's effectiveness\n\nWrite your proposal.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-26-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Email to programme coordinator",
+      "genre": "email",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptText": "You are a careers adviser at a local college. The programme coordinator of the workforce transition programme has emailed you with a proposal to prioritise funding for digital skills training over other types of retraining. Some of your colleagues are concerned that this focus will exclude workers who are not comfortable with computers.\n\nWrite an email to the programme coordinator. In your email, you should:\n\n• explain your position on the proposed focus on digital skills\n• analyse one potential implication for less digitally confident workers\n• propose an action the programme could take to address this concern while still investing in digital training\n\nWrite your email.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-26-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Review of a retraining course",
+      "genre": "review",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-26-task-04-announcement",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted: Retraining courses",
+          "paragraphs": [
+            "Have you completed a retraining course as part of a workforce transition programme? We want to hear about your experience.",
+            "Write a review for our careers advice website. Describe the course and what you learned. Evaluate how well it balanced practical skills with theoretical knowledge. Would you recommend this course to other workers facing job change? Why or why not?",
+            "The best reviews will be published on our website."
+          ]
+        },
+        {
+          "id": "c1-test-26-task-04-final",
+          "type": "final-instruction",
+          "text": "Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

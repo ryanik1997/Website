@@ -1,0 +1,209 @@
+{
+  "inputHash": "df6593586a45e233a1ff40ec6e5fab975bfa8b430c31229aea03b3d5cc123806",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-10:df6593586a45e233a1ff40ec6e5fab975bfa8b430c31229aea03b3d5cc123806",
+  "test": {
+    "id": "c2-test-10",
+    "level": "c2",
+    "testNumber": 10,
+    "title": "CPE C2 AI Practice Test 10",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-10.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c2-test-10-1785307386371",
+      "generatedAt": 1785307405786,
+      "contentHash": "0731d9384b89ac0f18c12cfc967316119677d562f86172183c910007624f7f86",
+      "promptHash": "df6593586a45e233a1ff40ec6e5fab975bfa8b430c31229aea03b3d5cc123806",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-10:df6593586a45e233a1ff40ec6e5fab975bfa8b430c31229aea03b3d5cc123806",
+      "inputHash": "df6593586a45e233a1ff40ec6e5fab975bfa8b430c31229aea03b3d5cc123806",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c2-test-10-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Community Gardens: Convenience vs. Long-Term Responsibility",
+        "genre": "essay",
+        "instruction": "Read the two texts below. Write an essay summarising and evaluating the key points from both texts. Use your own words throughout as far as possible, and include your own ideas in your answers.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-10-task-01-source-1",
+            "type": "source-text",
+            "label": "Text 1",
+            "title": "A Right to Grow",
+            "text": "Community gardens are often celebrated as oases of local food and neighbourly cooperation, yet their governance frequently prioritises the convenience of existing plot-holders over the wider public good. Waiting lists stretch for years, and newcomers—especially those from lower-income backgrounds—are effectively excluded. If we are serious about food justice, we must treat community gardens as public infrastructure, not private allotments. This means reserving a proportion of plots for new applicants, offering reduced fees, and providing tools and seeds free of charge. Convenience for current users should not trump the responsibility to make fresh food accessible to everyone who needs it."
+          },
+          {
+            "id": "c2-test-10-task-01-source-2",
+            "type": "source-text",
+            "label": "Text 2",
+            "title": "Stewardship, Not Charity",
+            "text": "Demanding that community gardens function as free food banks misunderstands their purpose. These spaces thrive because committed volunteers invest time, money and skill in maintaining them. If plots are handed out without expectation of contribution, the gardens will quickly deteriorate. The real responsibility is to cultivate a culture of stewardship—teaching newcomers how to grow food, compost and share harvests sustainably. Long-term viability depends on members who care for the land, not on policies that treat gardens as convenience stores. Access must be balanced with accountability; otherwise, the very resource we seek to protect will collapse under the weight of good intentions."
+          }
+        ],
+        "presentation": {
+          "template": "source-texts"
+        },
+        "wordLimit": {
+          "min": 240,
+          "max": 280,
+          "displayText": "240–280 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c2-test-10-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Review of a Community Garden Initiative",
+        "genre": "review",
+        "instruction": "Answer one of the following questions (2–4). Write 280–320 words in an appropriate style.",
+        "promptText": "A specialist magazine called 'Urban Green' is running a series of reviews of community garden initiatives that aim to improve local food systems. You decide to write a review of a community garden project you have visited or know about. In your review, assess how effectively the project balances access for new members with the long-term responsibility of maintaining the garden. Describe one practical consequence of the project's approach—either positive or negative—and recommend a change that would make the project more sustainable or inclusive. Write your review.",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c2-test-10-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Report on Community Garden Plot Allocation",
+        "genre": "report",
+        "instruction": "Answer one of the following questions (2–4). Write 280–320 words in an appropriate style.",
+        "promptText": "You are a consultant for a local council that runs several community gardens. The programme coordinator has asked you to write a report analysing the implications of the current plot allocation system, which gives priority to long-term residents. In your report, analyse how this policy affects both access for new gardeners and the long-term sustainability of the gardens. Propose one action the council could take to make the system fairer while still encouraging responsible stewardship. Write your report.",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c2-test-10-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Article: Community Gardens and Public Responsibility",
+        "genre": "article",
+        "instruction": "Answer one of the following questions (2–4). Write 280–320 words in an appropriate style.",
+        "promptText": "An English-language online magazine for international readers is planning a series on 'Food and the City'. The editors have invited readers to submit articles explaining their position on the following question: Should community gardens be required to set aside a portion of their harvest for local food banks? In your article, explain your position on this question, describe one practical consequence of such a requirement, and request that the magazine arrange a follow-up discussion with readers and garden organisers to explore the idea further. Write your article.",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "c2-test-10",
+    "level": "c2",
+    "topicFamily": "community gardens",
+    "specificSetting": "food systems and public responsibility planning brief 4",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "Two source texts debating whether community gardens should prioritise access for newcomers or long-term stewardship",
+        "audience": "English teacher (educated general reader)",
+        "purpose": "evaluate and justify priorities",
+        "requiredContentPoints": [
+          "the main community gardens issue",
+          "one practical consequence",
+          "a justified recommendation 1"
+        ],
+        "lexicalAnchors": [
+          "community gardens",
+          "food systems and public responsibility planning brief 4",
+          "c2 writing brief"
+        ],
+        "originalitySelfCheck": "Unique source texts with distinct angles (access vs. stewardship). No reuse of previous essay skeletons. Forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "Review of a community garden initiative for a specialist magazine",
+        "audience": "specialist magazine readers",
+        "purpose": "assess effectiveness and recommend",
+        "requiredContentPoints": [
+          "the main community gardens issue",
+          "one practical consequence",
+          "a justified recommendation 2"
+        ],
+        "lexicalAnchors": [
+          "community gardens",
+          "food systems and public responsibility planning brief 4",
+          "c2 writing brief"
+        ],
+        "originalitySelfCheck": "Review genre with specific focus on balance between access and maintenance. No overlap with previous review tasks (e.g., book, documentary, workshop). Forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "Report on plot allocation policy for a local council programme coordinator",
+        "audience": "programme coordinator",
+        "purpose": "analyse implications and propose action",
+        "requiredContentPoints": [
+          "the main community gardens issue",
+          "one practical consequence",
+          "a justified recommendation 3"
+        ],
+        "lexicalAnchors": [
+          "community gardens",
+          "food systems and public responsibility planning brief 4",
+          "c2 writing brief"
+        ],
+        "originalitySelfCheck": "Report genre with concrete policy analysis. No reuse of previous report scenarios (e.g., jobs fair, academic support, trust erosion). Forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 4,
+        "scenario": "Article for an international magazine arguing a position on harvest-sharing requirements",
+        "audience": "English-speaking contact (magazine readers)",
+        "purpose": "explain a position and request arrangements",
+        "requiredContentPoints": [
+          "the main community gardens issue",
+          "one practical consequence",
+          "a justified recommendation 4"
+        ],
+        "lexicalAnchors": [
+          "community gardens",
+          "food systems and public responsibility planning brief 4",
+          "c2 writing brief"
+        ],
+        "originalitySelfCheck": "Article genre with a specific proposition and request for follow-up. No reuse of previous article topics (travel, learning, digital detox). Forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ],
+    "overallOriginalityCheck": "All tasks are based on the unique topic family 'community gardens' with a central tension of access vs. responsibility. No scenarios, audiences, content points, or lexical anchors match any previously generated test. Forbidden concepts (e.g., peer learning, workplace visits, digital communication) are absent.",
+    "status": "PASS"
+  },
+  "cachedAt": 1785307405795
+}

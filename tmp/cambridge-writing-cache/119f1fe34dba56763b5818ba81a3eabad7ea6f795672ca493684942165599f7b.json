@@ -1,0 +1,281 @@
+{
+  "inputHash": "6c4c3a44d81a939890c9e109f4514fafa3de0e9173084e5f79c730f7b4890e8f",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-18:6c4c3a44d81a939890c9e109f4514fafa3de0e9173084e5f79c730f7b4890e8f",
+  "test": {
+    "id": "b2-test-18",
+    "level": "b2",
+    "testNumber": 18,
+    "title": "FCE B2 AI Practice Test 18",
+    "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-18.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "b2-test-18-1785311265864",
+      "generatedAt": 1785311308253,
+      "contentHash": "c16d5f8122198ee521ac97d2a71ee42b77e5410227e53304f916ccd95a11ebc3",
+      "promptHash": "6c4c3a44d81a939890c9e109f4514fafa3de0e9173084e5f79c730f7b4890e8f",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-18:6c4c3a44d81a939890c9e109f4514fafa3de0e9173084e5f79c730f7b4890e8f",
+      "inputHash": "6c4c3a44d81a939890c9e109f4514fafa3de0e9173084e5f79c730f7b4890e8f",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "b2-test-18-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Essay: Language centre outreach priorities",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write 140–190 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-18-task-01-block-01",
+            "type": "paragraph",
+            "text": "In your English class you have been discussing how a language centre can attract more learners from the local community. Now your English teacher has asked you to write an essay."
+          },
+          {
+            "id": "b2-test-18-task-01-block-02",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Notes",
+            "paragraphs": [
+              "Write about:",
+              "1. offering free taster sessions",
+              "2. providing childcare during classes",
+              "3. ......................... (your own idea)"
+            ]
+          },
+          {
+            "id": "b2-test-18-task-01-block-03",
+            "type": "final-instruction",
+            "text": "Write an essay using all the notes and giving reasons for your point of view."
+          }
+        ],
+        "presentation": {
+          "template": "essay-notes"
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "b2-test-18-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Review: Language centre outreach event",
+        "genre": "review",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-18-task-02-block-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Reviews wanted!",
+            "paragraphs": [
+              "Have you attended an outreach event organised by a language centre in your area – for example, a conversation club, a cultural workshop or a taster lesson?",
+              "Write a review of the event for a specialist magazine about language learning.",
+              "Describe what the event involved, say how effective it was at encouraging people to learn the language, and recommend one improvement the centre could make.",
+              "The best reviews will be published in next month's issue."
+            ]
+          },
+          {
+            "id": "b2-test-18-task-02-block-02",
+            "type": "final-instruction",
+            "text": "Write your review."
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b2-test-18-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Article: Encouraging local participation",
+        "genre": "article",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-18-task-03-block-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Articles wanted!",
+            "paragraphs": [
+              "Our language centre wants to encourage more local residents to take part in our outreach programme.",
+              "What would make people in your neighbourhood more interested in learning a new language?",
+              "Write an article for the centre's website suggesting one practical way to involve the community, explaining why it would work and what the benefits would be for both learners and the centre.",
+              "We will publish the best articles on our website."
+            ]
+          },
+          {
+            "id": "b2-test-18-task-03-block-02",
+            "type": "final-instruction",
+            "text": "Write your article."
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b2-test-18-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Email: Outreach partnership proposal",
+        "genre": "email",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-18-task-04-block-01",
+            "type": "email",
+            "from": "Marta Kowalski <m.kowalski@communityhub.org>",
+            "subject": "Language centre outreach partnership",
+            "paragraphs": [
+              "Dear Student,",
+              "I am writing on behalf of the Riverside Community Hub. We are interested in partnering with your language centre to offer free introductory workshops for local residents.",
+              "Could you tell me what type of workshop you think would be most popular? Also, what practical arrangements would we need to make – for example, about the venue and materials? Finally, do you have any suggestions for how we can encourage people who are usually reluctant to attend such events?",
+              "I look forward to your reply.",
+              "Best regards,",
+              "Marta Kowalski"
+            ]
+          },
+          {
+            "id": "b2-test-18-task-04-block-02",
+            "type": "final-instruction",
+            "text": "Write your email to Marta. You should suggest a workshop type, explain one practical arrangement, and propose a way to attract reluctant participants."
+          }
+        ],
+        "presentation": {
+          "template": "email",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "b2-test-18",
+    "level": "b2",
+    "topicFamily": "language learning",
+    "specificSetting": "a language centre outreach plan planning brief 12",
+    "centralTension": "access and convenience versus long-term responsibility in language learning",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "Essay: Language centre outreach priorities – evaluating free taster sessions, childcare provision, and a student's own idea to attract local learners.",
+        "audience": "English teacher",
+        "purpose": "evaluate and justify priorities",
+        "requiredContentPoints": [
+          "offering free taster sessions",
+          "providing childcare during classes",
+          "your own idea"
+        ],
+        "lexicalAnchors": [
+          "language centre",
+          "outreach",
+          "free taster sessions",
+          "childcare",
+          "local community"
+        ],
+        "originalitySelfCheck": "Scenario is specific to language centre outreach, not reused from previous tests. Notes are distinct (free taster sessions, childcare). No forbidden concepts triggered.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "Review: Language centre outreach event – reviewing a conversation club, cultural workshop or taster lesson for a specialist magazine.",
+        "audience": "specialist magazine readers",
+        "purpose": "assess effectiveness and recommend",
+        "requiredContentPoints": [
+          "description of the event",
+          "effectiveness at encouraging language learning",
+          "one improvement recommendation"
+        ],
+        "lexicalAnchors": [
+          "outreach event",
+          "conversation club",
+          "cultural workshop",
+          "taster lesson",
+          "language learning"
+        ],
+        "originalitySelfCheck": "Review focuses on a specific outreach event type, not a generic book/film review. Announcement format is standard but content is original. No overlap with existing tests.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "Article: Encouraging local participation – suggesting a practical way to involve the community in language centre outreach.",
+        "audience": "programme coordinator",
+        "purpose": "analyse implications and propose action",
+        "requiredContentPoints": [
+          "one practical way to involve the community",
+          "why it would work",
+          "benefits for learners and the centre"
+        ],
+        "lexicalAnchors": [
+          "language centre",
+          "outreach programme",
+          "community involvement",
+          "local residents"
+        ],
+        "originalitySelfCheck": "Article is about community engagement for a language centre, not a generic 'how to learn' piece. No similar article found in avoided fingerprints.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 4,
+        "scenario": "Email: Outreach partnership proposal – responding to a community hub coordinator about workshop type, practical arrangements, and attracting reluctant participants.",
+        "audience": "English-speaking contact (Marta Kowalski)",
+        "purpose": "explain a position and request arrangements",
+        "requiredContentPoints": [
+          "suggest a workshop type",
+          "explain one practical arrangement",
+          "propose a way to attract reluctant participants"
+        ],
+        "lexicalAnchors": [
+          "language centre",
+          "outreach partnership",
+          "workshop",
+          "community hub",
+          "reluctant participants"
+        ],
+        "originalitySelfCheck": "Email is a professional partnership proposal, not a personal friend email. Content points are concrete and distinct. No forbidden concepts.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ],
+    "overallOriginalityCheck": "All tasks are built around the specific scenario of a language centre outreach plan. No task reuses scenarios, audiences, content points, or lexical anchors from any existing test in the avoided fingerprints list. The design is original and level-appropriate.",
+    "forbiddenConceptsCheck": "PASS"
+  },
+  "cachedAt": 1785311308265
+}

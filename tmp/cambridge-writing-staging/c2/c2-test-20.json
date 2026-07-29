@@ -1,0 +1,120 @@
+{
+  "id": "c2-test-20",
+  "level": "c2",
+  "testNumber": 20,
+  "title": "CPE C2 AI Practice Test 20",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-20.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "c2-test-20-1785311936267",
+    "generatedAt": 1785311979207,
+    "contentHash": "bc750f4db160b054f0af8c6eb54a0f1869e76a2bde8328bf66b9efb4211a9d7b",
+    "promptHash": "2f1391da4cb775070f35eba42ef326aed62796f15862eafd1706a899890c1e7d",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-20:2f1391da4cb775070f35eba42ef326aed62796f15862eafd1706a899890c1e7d",
+    "inputHash": "2f1391da4cb775070f35eba42ef326aed62796f15862eafd1706a899890c1e7d",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "c2-test-20-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Public Parks and Democratic Life",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write an essay summarising and evaluating the key points from both texts in 240–280 words. Use your own words throughout as far as possible, and include your own ideas in your answers.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-20-task-01-source-1",
+          "type": "source-text",
+          "label": "Text 1",
+          "text": "Public parks are often described as democratic spaces because they are open to everyone regardless of income or background. In practice, however, their design and management frequently prioritise the convenience of the majority over the needs of marginalised groups. Benches are removed to deter rough sleeping, playgrounds are located far from public toilets, and pathways are designed for able-bodied users. If parks are to fulfil their democratic promise, planners must actively consider who is excluded by seemingly neutral decisions. A truly inclusive park requires not just access but also the willingness to accommodate diverse and sometimes conflicting uses, from quiet contemplation to political protest. This argument also matters because institutions shape the choices available to individuals and communities over time, influencing responsibility, trust, and practical judgment."
+        },
+        {
+          "id": "c2-test-20-task-01-source-2",
+          "type": "source-text",
+          "label": "Text 2",
+          "text": "The idea that public parks should be designed around the needs of the most vulnerable is well-intentioned but impractical. Parks serve entire communities, and their primary function is to provide a pleasant environment for recreation and relaxation. Over-accommodating fringe uses can alienate the majority and lead to underuse, which in turn invites neglect and crime. Moreover, the resources required to make parks fully inclusive—specialist equipment, additional staffing, ongoing maintenance—are finite. Responsible stewardship means making trade-offs that serve the greatest number of people over the long term. A park that tries to be everything to everyone risks becoming a space that no one feels safe or welcome in. This argument also matters because institutions shape the choices available to individuals and communities over time, influencing responsibility, trust, and practical judgment."
+        }
+      ],
+      "presentation": {
+        "template": "source-texts"
+      },
+      "wordLimit": {
+        "min": 240,
+        "max": 280,
+        "displayText": "240–280 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c2-test-20-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Public Parks and Democratic Life",
+      "genre": "review",
+      "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+      "promptText": "A specialist magazine for urban planners is running a series of reviews of public park initiatives that aim to balance access with long-term responsibility. You decide to write a review of a park in your city or one you have visited recently. In your review, assess how effectively the park's design and management balance the convenience of different user groups with the need for sustainable maintenance. Describe one practical consequence of the current approach—either positive or negative—and recommend a specific change that would make the park more inclusive or sustainable.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-20-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Public Parks and Democratic Life",
+      "genre": "report",
+      "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+      "promptText": "You are a consultant hired by the Parks and Green Spaces Department of your local council. The programme coordinator has asked you to write a report analysing the implications of a proposal to introduce paid entry to the city's largest park, with exemptions for local residents. In your report, analyse how this policy might affect both visitor numbers and the park's long-term funding, assess the potential consequences for social inclusion and community trust, and propose one alternative funding mechanism that could generate revenue without restricting access.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-20-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Public Parks and Democratic Life",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+      "promptText": "An English-language online magazine for international readers is planning a series on 'Public Spaces and Democracy'. The editors have invited readers to submit articles explaining their position on the following question: Should public parks be allowed to host political protests and demonstrations, even if this disrupts other users' enjoyment? In your article, explain your position on this question, describe one practical consequence of your preferred approach, and request that the magazine arrange a follow-up online discussion with readers and park managers to explore the issue further.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

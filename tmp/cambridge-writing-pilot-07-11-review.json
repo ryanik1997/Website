@@ -1,0 +1,2037 @@
+{
+  "generatedAt": 1785307524521,
+  "tests": [
+    {
+      "testId": "b1-test-07",
+      "level": "b1",
+      "testNumber": 7,
+      "status": "PASS",
+      "tasks": [
+        {
+          "taskId": "b1-test-07-task-01",
+          "genre": "email",
+          "promptBlocks": [
+            {
+              "id": "b1-test-07-task-01-p1",
+              "type": "paragraph",
+              "text": "Read this email from your English teacher, Mrs. Clark, and the notes you have made."
+            },
+            {
+              "id": "b1-test-07-task-01-email",
+              "type": "email",
+              "from": "Mrs. Clark",
+              "subject": "York exchange visit – activities",
+              "paragraphs": [
+                "Dear Student,",
+                "Thank you for agreeing to help plan the school exchange visit to York. We need to choose two main activities for the group. The options are: a guided tour of York Minster, a visit to the Jorvik Viking Centre, or a walk along the city walls.",
+                "Which two activities do you think we should choose? Please give a reason for each choice. Also, would you prefer to have the activities on the same day or on different days? Why?",
+                "Let me know your ideas by Friday.",
+                "Best wishes,",
+                "Mrs. Clark"
+              ]
+            },
+            {
+              "id": "b1-test-07-task-01-notes",
+              "type": "panel",
+              "variant": "notes",
+              "heading": "Notes for your reply",
+              "listItems": [
+                "Choose two activities and say why you chose each one.",
+                "Say if you prefer same day or different days – explain why.",
+                "Suggest one thing the group should do in the evening.",
+                "Ask Mrs. Clark about the budget for activities."
+              ]
+            },
+            {
+              "id": "b1-test-07-task-01-final",
+              "type": "final-instruction",
+              "text": "Write your email to Mrs. Clark using all the notes."
+            }
+          ],
+          "wordLimit": {
+            "min": 100,
+            "max": 100,
+            "displayText": "about 100 words"
+          }
+        },
+        {
+          "taskId": "b1-test-07-task-02",
+          "genre": "article",
+          "promptBlocks": [
+            {
+              "id": "b1-test-07-task-02-p1",
+              "type": "paragraph",
+              "text": "You see this notice on a specialist magazine website for exchange programme coordinators."
+            },
+            {
+              "id": "b1-test-07-task-02-announcement",
+              "type": "panel",
+              "variant": "announcement",
+              "heading": "Articles wanted!",
+              "paragraphs": [
+                "How can a school exchange visit help students learn about history and culture?",
+                "Write an article for our magazine describing one activity from a real or imaginary exchange visit that you think was especially effective. Explain what students learned from it and why you would recommend it to other coordinators.",
+                "The best articles will be published on our website."
+              ]
+            },
+            {
+              "id": "b1-test-07-task-02-final",
+              "type": "final-instruction",
+              "text": "Write your article."
+            }
+          ],
+          "wordLimit": {
+            "min": 100,
+            "max": 100,
+            "displayText": "about 100 words"
+          }
+        },
+        {
+          "taskId": "b1-test-07-task-03",
+          "genre": "story",
+          "promptBlocks": [
+            {
+              "id": "b1-test-07-task-03-p1",
+              "type": "paragraph",
+              "text": "Your English teacher has asked you to write a story."
+            },
+            {
+              "id": "b1-test-07-task-03-opening",
+              "type": "paragraph",
+              "text": "Your story must begin with this sentence:"
+            },
+            {
+              "id": "b1-test-07-task-03-sentence",
+              "type": "paragraph",
+              "text": "\"When the programme coordinator announced that the museum was closed, everyone looked worried.\""
+            },
+            {
+              "id": "b1-test-07-task-03-final",
+              "type": "final-instruction",
+              "text": "Write your story."
+            }
+          ],
+          "wordLimit": {
+            "min": 100,
+            "max": 100,
+            "displayText": "about 100 words"
+          }
+        }
+      ]
+    },
+    {
+      "testId": "b1-test-08",
+      "level": "b1",
+      "testNumber": 8,
+      "status": "PASS",
+      "tasks": [
+        {
+          "taskId": "b1-test-08-task-01",
+          "genre": "email",
+          "promptBlocks": [
+            {
+              "id": "b1-test-08-task-01-para-01",
+              "type": "paragraph",
+              "text": "Read this email from your English teacher, Mrs Hill, and the notes you have made."
+            },
+            {
+              "id": "b1-test-08-task-01-email-01",
+              "type": "email",
+              "from": "Mrs Hill",
+              "subject": "Bus route changes in our area",
+              "paragraphs": [
+                "Hi,",
+                "As you know, the bus company wants to change the route that serves our three villages. Some people want the bus to stop at the new supermarket, but others want it to go directly to the train station. Which option do you think is better? Why?",
+                "Also, what time should the first bus leave in the morning?",
+                "Finally, do you think the fare should be lower for students?",
+                "Let me know your ideas!",
+                "Mrs Hill"
+              ]
+            },
+            {
+              "id": "b1-test-08-task-01-panel-01",
+              "type": "panel",
+              "variant": "notes",
+              "heading": "Notes for your reply",
+              "listItems": [
+                "Choose supermarket or train station – say why.",
+                "Suggest a time for the first bus.",
+                "Give your opinion on student fares.",
+                "Ask Mrs Hill one question about the changes."
+              ]
+            },
+            {
+              "id": "b1-test-08-task-01-final-01",
+              "type": "final-instruction",
+              "text": "Write your email to Mrs Hill using all the notes."
+            }
+          ],
+          "wordLimit": {
+            "min": 100,
+            "max": 100,
+            "displayText": "about 100 words"
+          }
+        },
+        {
+          "taskId": "b1-test-08-task-02",
+          "genre": "article",
+          "promptBlocks": [
+            {
+              "id": "b1-test-08-task-02-panel-01",
+              "type": "panel",
+              "variant": "announcement",
+              "heading": "Articles wanted!",
+              "paragraphs": [
+                "Our village magazine wants to hear your opinion about the bus route changes.",
+                "Do you think the new bus route will help people in our three villages?",
+                "What is the most important thing the bus company should improve?",
+                "Write an article answering these questions and we will publish it in the next issue!"
+              ]
+            },
+            {
+              "id": "b1-test-08-task-02-final-01",
+              "type": "final-instruction",
+              "text": "Write your article."
+            }
+          ],
+          "wordLimit": {
+            "min": 100,
+            "max": 100,
+            "displayText": "about 100 words"
+          }
+        },
+        {
+          "taskId": "b1-test-08-task-03",
+          "genre": "story",
+          "promptBlocks": [
+            {
+              "id": "b1-test-08-task-03-para-01",
+              "type": "paragraph",
+              "text": "Your English teacher has asked you to write a story."
+            },
+            {
+              "id": "b1-test-08-task-03-para-02",
+              "type": "paragraph",
+              "text": "Your story must begin with this sentence:"
+            },
+            {
+              "id": "b1-test-08-task-03-source-01",
+              "type": "source-text",
+              "label": "story opening",
+              "text": "When the bus finally arrived, it was already full of people from the other villages."
+            },
+            {
+              "id": "b1-test-08-task-03-final-01",
+              "type": "final-instruction",
+              "text": "Write your story."
+            }
+          ],
+          "wordLimit": {
+            "min": 100,
+            "max": 100,
+            "displayText": "about 100 words"
+          }
+        }
+      ]
+    },
+    {
+      "testId": "b1-test-09",
+      "level": "b1",
+      "testNumber": 9,
+      "status": "PASS",
+      "tasks": [
+        {
+          "taskId": "b1-test-09-task-01",
+          "genre": "email",
+          "promptBlocks": [
+            {
+              "id": "b1-test-09-task-01-para-01",
+              "type": "paragraph",
+              "text": "Read this email from your English teacher, Mrs. Hill, and the notes you have made."
+            },
+            {
+              "id": "b1-test-09-task-01-email-01",
+              "type": "email",
+              "from": "Mrs. Hill",
+              "subject": "Reading club for teenagers",
+              "paragraphs": [
+                "Hello,",
+                "As you know, we are planning a reading club for teenagers at the library. I need your help to decide on a few things.",
+                "First, should we meet on Saturday mornings or weekday evenings? Which do you think is better for students?",
+                "Also, we need to choose a type of book to start with. Would you prefer adventure stories or science fiction?",
+                "Finally, can you suggest one fun activity we could do during the meetings?",
+                "Let me know what you think!",
+                "Best wishes,",
+                "Mrs. Hill"
+              ]
+            },
+            {
+              "id": "b1-test-09-task-01-panel-01",
+              "type": "panel",
+              "variant": "notes",
+              "heading": "Notes for your reply",
+              "listItems": [
+                "Say which time you prefer and why.",
+                "Choose a book type and give a reason.",
+                "Suggest one activity for the meetings.",
+                "Ask Mrs. Hill about something you need for the club."
+              ]
+            },
+            {
+              "id": "b1-test-09-task-01-final-01",
+              "type": "final-instruction",
+              "text": "Write your email to Mrs. Hill using all the notes."
+            }
+          ],
+          "wordLimit": {
+            "min": 100,
+            "max": 100,
+            "displayText": "about 100 words"
+          }
+        },
+        {
+          "taskId": "b1-test-09-task-02",
+          "genre": "article",
+          "promptBlocks": [
+            {
+              "id": "b1-test-09-task-02-para-01",
+              "type": "paragraph",
+              "text": "You see this notice on a website for teenagers."
+            },
+            {
+              "id": "b1-test-09-task-02-panel-01",
+              "type": "panel",
+              "variant": "announcement",
+              "heading": "Articles wanted!",
+              "paragraphs": [
+                "A library reading club for teenagers is starting in your town.",
+                "Tell us what you think about this idea.",
+                "Would you join a reading club? Why or why not?",
+                "What kind of books would you like to read there?",
+                "Write an article answering these questions and we will put it on our website!"
+              ]
+            },
+            {
+              "id": "b1-test-09-task-02-final-01",
+              "type": "final-instruction",
+              "text": "Write your article."
+            }
+          ],
+          "wordLimit": {
+            "min": 100,
+            "max": 100,
+            "displayText": "about 100 words"
+          }
+        },
+        {
+          "taskId": "b1-test-09-task-03",
+          "genre": "story",
+          "promptBlocks": [
+            {
+              "id": "b1-test-09-task-03-para-01",
+              "type": "paragraph",
+              "text": "Your English teacher has asked you to write a story."
+            },
+            {
+              "id": "b1-test-09-task-03-para-02",
+              "type": "paragraph",
+              "text": "Your story must begin with this sentence:"
+            },
+            {
+              "id": "b1-test-09-task-03-para-03",
+              "type": "paragraph",
+              "text": "\"When I opened the old book, a small key fell out and landed on the floor.\""
+            },
+            {
+              "id": "b1-test-09-task-03-final-01",
+              "type": "final-instruction",
+              "text": "Write your story."
+            }
+          ],
+          "wordLimit": {
+            "min": 100,
+            "max": 100,
+            "displayText": "about 100 words"
+          }
+        }
+      ]
+    },
+    {
+      "testId": "b1-test-10",
+      "level": "b1",
+      "testNumber": 10,
+      "status": "PASS",
+      "tasks": [
+        {
+          "taskId": "b1-test-10-task-01",
+          "genre": "email",
+          "promptBlocks": [
+            {
+              "id": "b1-test-10-task-01-email",
+              "type": "email",
+              "from": "Your English teacher, Ms. Rivera",
+              "subject": "Community garden project",
+              "paragraphs": [
+                "Hi,",
+                "Our class is helping to plan a community garden beside the railway. We need to decide on the main goal. Should we focus on growing food for local families or on creating a green space for everyone to enjoy? Which do you think is more important and why?",
+                "Also, we need to choose one practical feature for the garden. Would you prefer a seating area with benches or a small tool shed?",
+                "Finally, can you suggest one way to encourage people to help look after the garden long-term?",
+                "Thanks,",
+                "Ms. Rivera"
+              ]
+            },
+            {
+              "id": "b1-test-10-task-01-notes",
+              "type": "panel",
+              "variant": "notes",
+              "heading": "Notes for your reply",
+              "listItems": [
+                "Say which main goal you prefer and explain why.",
+                "Choose a feature (seating area or tool shed) and give a reason.",
+                "Suggest one way to get long-term help.",
+                "Ask Ms. Rivera about the garden location."
+              ]
+            },
+            {
+              "id": "b1-test-10-task-01-final",
+              "type": "final-instruction",
+              "text": "Write your email to Ms. Rivera using all the notes."
+            }
+          ],
+          "wordLimit": {
+            "min": 100,
+            "max": 100,
+            "displayText": "about 100 words"
+          }
+        },
+        {
+          "taskId": "b1-test-10-task-02",
+          "genre": "article",
+          "promptBlocks": [
+            {
+              "id": "b1-test-10-task-02-announcement",
+              "type": "panel",
+              "variant": "announcement",
+              "heading": "Articles wanted!",
+              "paragraphs": [
+                "A new community garden is being planned beside the railway in our neighbourhood.",
+                "What do you think is the most important thing about a community garden?",
+                "How can it help people who live nearby?",
+                "Write an article answering these questions and we will put it on our local website!"
+              ]
+            },
+            {
+              "id": "b1-test-10-task-02-final",
+              "type": "final-instruction",
+              "text": "Write your article."
+            }
+          ],
+          "wordLimit": {
+            "min": 100,
+            "max": 100,
+            "displayText": "about 100 words"
+          }
+        },
+        {
+          "taskId": "b1-test-10-task-03",
+          "genre": "story",
+          "promptBlocks": [
+            {
+              "id": "b1-test-10-task-03-opening",
+              "type": "paragraph",
+              "text": "Your English teacher has asked you to write a story."
+            },
+            {
+              "id": "b1-test-10-task-03-sentence",
+              "type": "paragraph",
+              "text": "Your story must begin with this sentence:"
+            },
+            {
+              "id": "b1-test-10-task-03-sentence-text",
+              "type": "paragraph",
+              "text": "\"When I arrived at the community garden, I saw that someone had planted flowers in the shape of a star.\""
+            },
+            {
+              "id": "b1-test-10-task-03-final",
+              "type": "final-instruction",
+              "text": "Write your story."
+            }
+          ],
+          "wordLimit": {
+            "min": 100,
+            "max": 100,
+            "displayText": "about 100 words"
+          }
+        }
+      ]
+    },
+    {
+      "testId": "b1-test-11",
+      "level": "b1",
+      "testNumber": 11,
+      "status": "PASS",
+      "tasks": [
+        {
+          "taskId": "b1-test-11-task-01",
+          "genre": "email",
+          "promptBlocks": [
+            {
+              "id": "b1-test-11-task-01-email",
+              "type": "email",
+              "from": "Your English teacher, Mr. Davis",
+              "subject": "Spring Food Festival – your ideas",
+              "greeting": "Hi,",
+              "paragraphs": [
+                "Our class is helping to plan the Spring Food Festival. I'd like you to think about what is most important for the festival to be a success. Should we focus on having lots of different food stalls, or on keeping the event affordable for everyone?",
+                "Also, what is one practical problem we might face, and how can we solve it?",
+                "Finally, tell me which stall you would most like to see at the festival and why.",
+                "Thanks, Mr. Davis"
+              ],
+              "closing": "Best wishes,",
+              "sender": "Mr. Davis"
+            },
+            {
+              "id": "b1-test-11-task-01-notes",
+              "type": "panel",
+              "variant": "notes",
+              "heading": "Notes for your reply",
+              "listItems": [
+                "Say which is more important: lots of stalls OR low prices – and explain why.",
+                "Describe one practical problem and suggest a solution.",
+                "Name your favourite type of food stall and give a reason.",
+                "Ask Mr. Davis one question about the festival date or location."
+              ]
+            },
+            {
+              "id": "b1-test-11-task-01-final",
+              "type": "final-instruction",
+              "text": "Write your email to Mr. Davis using all the notes."
+            }
+          ],
+          "wordLimit": {
+            "min": 100,
+            "max": 100,
+            "displayText": "about 100 words"
+          }
+        },
+        {
+          "taskId": "b1-test-11-task-02",
+          "genre": "article",
+          "promptBlocks": [
+            {
+              "id": "b1-test-11-task-02-announcement",
+              "type": "panel",
+              "variant": "announcement",
+              "heading": "Articles wanted!",
+              "paragraphs": [
+                "Our town is organising a Spring Food Festival next month. We want to know what you think will make it a success.",
+                "What kind of food should be there?",
+                "How can the festival be fun for both children and adults?",
+                "Would you like to help organise it? Why or why not?",
+                "Write an article answering these questions and we will put it on our town website!"
+              ]
+            },
+            {
+              "id": "b1-test-11-task-02-final",
+              "type": "final-instruction",
+              "text": "Write your article."
+            }
+          ],
+          "wordLimit": {
+            "min": 100,
+            "max": 100,
+            "displayText": "about 100 words"
+          }
+        },
+        {
+          "taskId": "b1-test-11-task-03",
+          "genre": "story",
+          "promptBlocks": [
+            {
+              "id": "b1-test-11-task-03-opening",
+              "type": "paragraph",
+              "text": "Your English teacher has asked you to write a story."
+            },
+            {
+              "id": "b1-test-11-task-03-sentence",
+              "type": "paragraph",
+              "text": "Your story must begin with this sentence:"
+            },
+            {
+              "id": "b1-test-11-task-03-opening-sentence",
+              "type": "source-text",
+              "label": "Opening sentence",
+              "text": "When the chef dropped the cake just before the festival started, everyone gasped."
+            },
+            {
+              "id": "b1-test-11-task-03-final",
+              "type": "final-instruction",
+              "text": "Write your story."
+            }
+          ],
+          "wordLimit": {
+            "min": 100,
+            "max": 100,
+            "displayText": "about 100 words"
+          }
+        }
+      ]
+    },
+    {
+      "testId": "b2-test-07",
+      "level": "b2",
+      "testNumber": 7,
+      "status": "PASS",
+      "tasks": [
+        {
+          "taskId": "b2-test-07-task-01",
+          "genre": "essay",
+          "promptBlocks": [
+            {
+              "id": "b2-test-07-task-01-pb-01",
+              "type": "paragraph",
+              "text": "In your English class you have been discussing how to plan a successful college exchange visit. Now your English teacher has asked you to write an essay."
+            },
+            {
+              "id": "b2-test-07-task-01-pb-02",
+              "type": "panel",
+              "variant": "notes",
+              "heading": "Notes",
+              "paragraphs": [
+                "Write about:",
+                "1. choosing suitable host families",
+                "2. organising cultural activities",
+                "3. ......................... (your own idea)"
+              ]
+            },
+            {
+              "id": "b2-test-07-task-01-pb-03",
+              "type": "final-instruction",
+              "text": "Write an essay using all the notes and giving reasons for your point of view."
+            }
+          ],
+          "wordLimit": {
+            "min": 140,
+            "max": 190,
+            "displayText": "140–190 words"
+          }
+        },
+        {
+          "taskId": "b2-test-07-task-02",
+          "genre": "review",
+          "promptBlocks": [
+            {
+              "id": "b2-test-07-task-02-pb-01",
+              "type": "panel",
+              "variant": "announcement",
+              "heading": "Reviews wanted",
+              "paragraphs": [
+                "Have you used the welcome pack our college gives to exchange visitors?",
+                "Write a review of the welcome pack for the college website. Describe what it contains, say how helpful it was for you, and recommend one improvement.",
+                "The best reviews will be published on our website."
+              ]
+            },
+            {
+              "id": "b2-test-07-task-02-pb-02",
+              "type": "final-instruction",
+              "text": "Write your review."
+            }
+          ],
+          "wordLimit": {
+            "min": 140,
+            "max": 190,
+            "displayText": "140–190 words"
+          }
+        },
+        {
+          "taskId": "b2-test-07-task-03",
+          "genre": "article",
+          "promptBlocks": [
+            {
+              "id": "b2-test-07-task-03-pb-01",
+              "type": "panel",
+              "variant": "announcement",
+              "heading": "Articles wanted",
+              "paragraphs": [
+                "Our college is planning a new exchange programme and wants ideas to make visiting students feel welcome.",
+                "Write an article for the programme coordinator suggesting one practical way to help exchange students settle in, explaining why it would work and what the benefits would be.",
+                "We will share the best ideas with the planning team."
+              ]
+            },
+            {
+              "id": "b2-test-07-task-03-pb-02",
+              "type": "final-instruction",
+              "text": "Write your article."
+            }
+          ],
+          "wordLimit": {
+            "min": 140,
+            "max": 190,
+            "displayText": "140–190 words"
+          }
+        },
+        {
+          "taskId": "b2-test-07-task-04",
+          "genre": "email",
+          "promptBlocks": [
+            {
+              "id": "b2-test-07-task-04-pb-01",
+              "type": "email",
+              "from": "contact@partnerschool.edu",
+              "subject": "Exchange visit next month",
+              "paragraphs": [
+                "Dear student,",
+                "I am writing to confirm the exchange visit from your college next month. We are very excited to welcome your group!",
+                "Could you please let me know if you prefer to stay with a host family or in a student residence? Also, what type of activities would you like us to arrange for your free time?",
+                "Finally, do you have any dietary requirements or special needs we should know about?",
+                "I look forward to hearing from you.",
+                "Best regards,",
+                "Ms. Elena Rossi",
+                "Exchange Coordinator"
+              ]
+            },
+            {
+              "id": "b2-test-07-task-04-pb-02",
+              "type": "final-instruction",
+              "text": "Write your email to Ms. Rossi. You should explain your preferences, suggest one activity, and ask a question about the schedule."
+            }
+          ],
+          "wordLimit": {
+            "min": 140,
+            "max": 190,
+            "displayText": "140–190 words"
+          }
+        }
+      ]
+    },
+    {
+      "testId": "b2-test-08",
+      "level": "b2",
+      "testNumber": 8,
+      "status": "PASS",
+      "tasks": [
+        {
+          "taskId": "b2-test-08-task-01",
+          "genre": "essay",
+          "promptBlocks": [
+            {
+              "id": "b2-test-08-task-01-block-01",
+              "type": "paragraph",
+              "text": "In your English class you have been talking about how to improve bus services in your region. Now your English teacher has asked you to write an essay."
+            },
+            {
+              "id": "b2-test-08-task-01-block-02",
+              "type": "paragraph",
+              "text": "Write an essay using all the notes and giving reasons for your point of view."
+            },
+            {
+              "id": "b2-test-08-task-01-block-03",
+              "type": "paragraph",
+              "text": "What is the most important improvement to make to bus services in your region?"
+            },
+            {
+              "id": "b2-test-08-task-01-block-04",
+              "type": "panel",
+              "variant": "notes",
+              "heading": "Notes",
+              "listItems": [
+                "frequency of buses",
+                "cost of tickets",
+                "......................... (your own idea)"
+              ]
+            }
+          ],
+          "wordLimit": {
+            "min": 140,
+            "max": 190,
+            "displayText": "140–190 words"
+          }
+        },
+        {
+          "taskId": "b2-test-08-task-02",
+          "genre": "review",
+          "promptBlocks": [
+            {
+              "id": "b2-test-08-task-02-block-01",
+              "type": "paragraph",
+              "text": "You see this announcement in your college English-language magazine."
+            },
+            {
+              "id": "b2-test-08-task-02-block-02",
+              "type": "panel",
+              "variant": "announcement",
+              "heading": "Reviews wanted",
+              "paragraphs": [
+                "A regional bus improvement plan has been proposed for our area. Have you seen the plan or heard about it? Write a review of the plan for our magazine.",
+                "Explain what the plan aims to do, say whether you think it will be effective, and recommend one change you would make to improve it.",
+                "The best reviews will be published in the next issue."
+              ]
+            }
+          ],
+          "wordLimit": {
+            "min": 140,
+            "max": 190,
+            "displayText": "140–190 words"
+          }
+        },
+        {
+          "taskId": "b2-test-08-task-03",
+          "genre": "article",
+          "promptBlocks": [
+            {
+              "id": "b2-test-08-task-03-block-01",
+              "type": "paragraph",
+              "text": "You see this announcement on a youth website."
+            },
+            {
+              "id": "b2-test-08-task-03-block-02",
+              "type": "panel",
+              "variant": "announcement",
+              "heading": "Articles wanted",
+              "paragraphs": [
+                "Bus plan: what does it mean for us?",
+                "Our region is planning to improve bus services. Write an article for our website explaining how the plan could affect young people in the area.",
+                "Describe one possible benefit and one possible drawback, and suggest what young people should do to make their voices heard.",
+                "We will publish the best articles on our website."
+              ]
+            }
+          ],
+          "wordLimit": {
+            "min": 140,
+            "max": 190,
+            "displayText": "140–190 words"
+          }
+        },
+        {
+          "taskId": "b2-test-08-task-04",
+          "genre": "email",
+          "promptBlocks": [
+            {
+              "id": "b2-test-08-task-04-block-01",
+              "type": "email",
+              "from": "Chris",
+              "subject": "Bus plan in your area",
+              "paragraphs": [
+                "Hi,",
+                "I heard that your region is planning to improve bus services. What do you think about the plan? Do you support it or not? Also, how will it affect your daily life? I'm curious about what changes you'd like to see.",
+                "Let me know!",
+                "Chris"
+              ]
+            }
+          ],
+          "wordLimit": {
+            "min": 140,
+            "max": 190,
+            "displayText": "140–190 words"
+          }
+        }
+      ]
+    },
+    {
+      "testId": "b2-test-09",
+      "level": "b2",
+      "testNumber": 9,
+      "status": "PASS",
+      "tasks": [
+        {
+          "taskId": "b2-test-09-task-01",
+          "genre": "essay",
+          "promptBlocks": [
+            {
+              "id": "b2-test-09-task-01-block-01",
+              "type": "paragraph",
+              "text": "In your English class you have been discussing how public libraries can stay relevant. Now your teacher has asked you to write an essay."
+            },
+            {
+              "id": "b2-test-09-task-01-block-02",
+              "type": "paragraph",
+              "text": "Write an essay using all the notes and giving reasons for your point of view."
+            },
+            {
+              "id": "b2-test-09-task-01-block-03",
+              "type": "paragraph",
+              "text": "Should public libraries invest in makerspaces (creative workshops with 3D printers, etc.)?"
+            },
+            {
+              "id": "b2-test-09-task-01-block-04",
+              "type": "panel",
+              "variant": "notes",
+              "heading": "Notes",
+              "listItems": [
+                "attracting new visitors",
+                "cost of equipment",
+                "......................... (your own idea)"
+              ]
+            }
+          ],
+          "wordLimit": {
+            "min": 140,
+            "max": 190,
+            "displayText": "140–190 words"
+          }
+        },
+        {
+          "taskId": "b2-test-09-task-02",
+          "genre": "review",
+          "promptBlocks": [
+            {
+              "id": "b2-test-09-task-02-block-01",
+              "type": "panel",
+              "variant": "announcement",
+              "heading": "Reviews wanted!",
+              "paragraphs": [
+                "Have you used a makerspace at a public library? We want to hear about your experience. Write a review of the library makerspace you visited.",
+                "Describe what equipment and activities were available. How helpful was the staff? Would you recommend this makerspace to other students? Why?",
+                "The best reviews will be published in the next issue."
+              ]
+            }
+          ],
+          "wordLimit": {
+            "min": 140,
+            "max": 190,
+            "displayText": "140–190 words"
+          }
+        },
+        {
+          "taskId": "b2-test-09-task-03",
+          "genre": "article",
+          "promptBlocks": [
+            {
+              "id": "b2-test-09-task-03-block-01",
+              "type": "panel",
+              "variant": "announcement",
+              "heading": "Articles wanted!",
+              "paragraphs": [
+                "How can a library makerspace benefit our community?",
+                "We are planning to launch a makerspace in our town library and want to hear your ideas. Write an article for our website.",
+                "Describe one positive change a makerspace could bring to local residents. Explain how it could encourage people to use the library more. Suggest one way to get local businesses involved.",
+                "We will publish the best articles on our website."
+              ]
+            }
+          ],
+          "wordLimit": {
+            "min": 140,
+            "max": 190,
+            "displayText": "140–190 words"
+          }
+        },
+        {
+          "taskId": "b2-test-09-task-04",
+          "genre": "email",
+          "promptBlocks": [
+            {
+              "id": "b2-test-09-task-04-block-01",
+              "type": "email",
+              "from": "Chris",
+              "subject": "Library makerspace idea",
+              "paragraphs": [
+                "Hi,",
+                "I heard your town library is planning to start a makerspace. I'm thinking of suggesting a similar project to my local library here. Could you tell me what equipment you think is essential? Also, what kind of activities would attract teenagers? And how should we convince the library committee to support the idea?",
+                "Thanks a lot!",
+                "Chris"
+              ]
+            }
+          ],
+          "wordLimit": {
+            "min": 140,
+            "max": 190,
+            "displayText": "140–190 words"
+          }
+        }
+      ]
+    },
+    {
+      "testId": "b2-test-10",
+      "level": "b2",
+      "testNumber": 10,
+      "status": "PASS",
+      "tasks": [
+        {
+          "taskId": "b2-test-10-task-01",
+          "genre": "essay",
+          "promptBlocks": [
+            {
+              "id": "b2-test-10-task-01-block-01",
+              "type": "paragraph",
+              "text": "In your English class you have been discussing how to fund community gardens. Now your teacher has asked you to write an essay."
+            },
+            {
+              "id": "b2-test-10-task-01-block-02",
+              "type": "panel",
+              "variant": "notes",
+              "heading": "Notes",
+              "listItems": [
+                "1. buying tools and seeds",
+                "2. training volunteers",
+                "3. ......................... (your own idea)"
+              ]
+            },
+            {
+              "id": "b2-test-10-task-01-block-03",
+              "type": "final-instruction",
+              "text": "Write an essay using all the notes and giving reasons for your point of view."
+            }
+          ],
+          "wordLimit": {
+            "min": 140,
+            "max": 190,
+            "displayText": "140–190 words"
+          }
+        },
+        {
+          "taskId": "b2-test-10-task-02",
+          "genre": "review",
+          "promptBlocks": [
+            {
+              "id": "b2-test-10-task-02-block-01",
+              "type": "panel",
+              "variant": "announcement",
+              "heading": "Reviews wanted!",
+              "paragraphs": [
+                "Have you attended a workshop or event at a community garden? Write a review for our specialist magazine.",
+                "Describe what the workshop involved, how well it was organised, and whether it helped you learn something new. Would you recommend it to other readers?"
+              ],
+              "footer": "The best reviews will be published in next month's issue."
+            },
+            {
+              "id": "b2-test-10-task-02-block-02",
+              "type": "final-instruction",
+              "text": "Write your review."
+            }
+          ],
+          "wordLimit": {
+            "min": 140,
+            "max": 190,
+            "displayText": "140–190 words"
+          }
+        },
+        {
+          "taskId": "b2-test-10-task-03",
+          "genre": "article",
+          "promptBlocks": [
+            {
+              "id": "b2-test-10-task-03-block-01",
+              "type": "panel",
+              "variant": "announcement",
+              "heading": "Articles wanted!",
+              "paragraphs": [
+                "Our town is planning a new community garden. How can we encourage more local people to get involved?",
+                "Write an article for the programme coordinator's website. Suggest one way to attract volunteers, explain why it would work, and describe what the garden could achieve for the community."
+              ],
+              "footer": "The best articles will be featured on the website."
+            },
+            {
+              "id": "b2-test-10-task-03-block-02",
+              "type": "final-instruction",
+              "text": "Write your article."
+            }
+          ],
+          "wordLimit": {
+            "min": 140,
+            "max": 190,
+            "displayText": "140–190 words"
+          }
+        },
+        {
+          "taskId": "b2-test-10-task-04",
+          "genre": "email",
+          "promptBlocks": [
+            {
+              "id": "b2-test-10-task-04-block-01",
+              "type": "email",
+              "from": "Alex",
+              "subject": "Community garden funding",
+              "greeting": "Hi,",
+              "paragraphs": [
+                "I heard your local council is debating whether to fund a new community garden. What's your opinion on this? Do you think it's a good use of money?",
+                "Also, what practical benefits could a community garden bring to your neighbourhood? And how would you convince people who are against it?",
+                "Let me know what you think!",
+                "Thanks, Alex"
+              ],
+              "closing": "Write your email."
+            }
+          ],
+          "wordLimit": {
+            "min": 140,
+            "max": 190,
+            "displayText": "140–190 words"
+          }
+        }
+      ]
+    },
+    {
+      "testId": "b2-test-11",
+      "level": "b2",
+      "testNumber": 11,
+      "status": "PASS",
+      "tasks": [
+        {
+          "taskId": "b2-test-11-task-01",
+          "genre": "essay",
+          "promptBlocks": [
+            {
+              "id": "b2-test-11-task-01-pb-01",
+              "type": "paragraph",
+              "text": "In your English class you have been discussing how to make local festivals more accessible and responsible. Now your teacher has asked you to write an essay."
+            },
+            {
+              "id": "b2-test-11-task-01-pb-02",
+              "type": "paragraph",
+              "text": "Write an essay using all the notes and giving reasons for your point of view."
+            },
+            {
+              "id": "b2-test-11-task-01-pb-03",
+              "type": "paragraph",
+              "text": "Some towns are changing their festivals to reduce environmental impact. What is the most important change to make?"
+            },
+            {
+              "id": "b2-test-11-task-01-pb-04",
+              "type": "panel",
+              "variant": "notes",
+              "heading": "Notes",
+              "listItems": [
+                "reducing waste from food stalls",
+                "providing free public transport to the event",
+                "......................... (your own idea)"
+              ]
+            }
+          ],
+          "wordLimit": {
+            "min": 140,
+            "max": 190,
+            "displayText": "140–190 words"
+          }
+        },
+        {
+          "taskId": "b2-test-11-task-02",
+          "genre": "review",
+          "promptBlocks": [
+            {
+              "id": "b2-test-11-task-02-pb-01",
+              "type": "panel",
+              "variant": "announcement",
+              "heading": "Reviews wanted!",
+              "paragraphs": [
+                "Have you attended a workshop at a local festival? We want to hear about your experience. Write a review of a festival workshop you went to.",
+                "Describe what the workshop involved and how well it was organised. Did it change your view on the festival's impact? Would you recommend it to other students?",
+                "The best reviews will be published in the next issue."
+              ]
+            }
+          ],
+          "wordLimit": {
+            "min": 140,
+            "max": 190,
+            "displayText": "140–190 words"
+          }
+        },
+        {
+          "taskId": "b2-test-11-task-03",
+          "genre": "article",
+          "promptBlocks": [
+            {
+              "id": "b2-test-11-task-03-pb-01",
+              "type": "panel",
+              "variant": "announcement",
+              "heading": "Articles wanted!",
+              "paragraphs": [
+                "How can we encourage more young people to volunteer at our town's cultural festival?",
+                "We are looking for ideas to attract volunteers. Write an article for our website.",
+                "Suggest one way to make volunteering more appealing. Explain how it could benefit the volunteers themselves. Describe one task they might enjoy.",
+                "We will publish the best articles on our website."
+              ]
+            }
+          ],
+          "wordLimit": {
+            "min": 140,
+            "max": 190,
+            "displayText": "140–190 words"
+          }
+        },
+        {
+          "taskId": "b2-test-11-task-04",
+          "genre": "email",
+          "promptBlocks": [
+            {
+              "id": "b2-test-11-task-04-pb-01",
+              "type": "email",
+              "from": "Sam",
+              "subject": "Festival visit",
+              "paragraphs": [
+                "Hi,",
+                "I'm planning to visit your town during the cultural festival next month. I've heard it's a great event, but I'm also concerned about the environmental impact of large festivals. What is the festival doing to be more sustainable? Also, do you think it's still worth attending? And could you recommend one thing I should definitely see or do?",
+                "Thanks a lot!",
+                "Sam"
+              ]
+            }
+          ],
+          "wordLimit": {
+            "min": 140,
+            "max": 190,
+            "displayText": "140–190 words"
+          }
+        }
+      ]
+    },
+    {
+      "testId": "c1-test-07",
+      "level": "c1",
+      "testNumber": 7,
+      "status": "PASS",
+      "tasks": [
+        {
+          "taskId": "c1-test-07-task-01",
+          "genre": "essay",
+          "promptBlocks": [
+            {
+              "id": "c1-test-07-task-01-block-01",
+              "type": "paragraph",
+              "text": "Your class has listened to a radio discussion about how universities should prioritise funding for student exchange programmes. You have made the notes below."
+            },
+            {
+              "id": "c1-test-07-task-01-block-02",
+              "type": "panel",
+              "variant": "notes",
+              "heading": "Priorities for a university exchange programme",
+              "listItems": [
+                "academic preparation courses",
+                "pastoral support during the exchange",
+                "post-exchange follow-up"
+              ]
+            },
+            {
+              "id": "c1-test-07-task-01-block-03",
+              "type": "panel",
+              "variant": "opinions",
+              "paragraphs": [
+                "Academic preparation courses ensure students have the language and subject knowledge to succeed abroad.",
+                "Pastoral support during the exchange helps students cope with culture shock and homesickness, which can otherwise derail the experience.",
+                "Post-exchange follow-up helps students reflect on what they have learned and apply it to their future studies or career."
+              ]
+            },
+            {
+              "id": "c1-test-07-task-01-block-04",
+              "type": "final-instruction",
+              "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for universities to invest in, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+            }
+          ],
+          "wordLimit": {
+            "min": 220,
+            "max": 260,
+            "displayText": "220–260 words"
+          }
+        },
+        {
+          "taskId": "c1-test-07-task-02",
+          "genre": "proposal",
+          "wordLimit": {
+            "min": 220,
+            "max": 260,
+            "displayText": "220–260 words"
+          }
+        },
+        {
+          "taskId": "c1-test-07-task-03",
+          "genre": "email",
+          "wordLimit": {
+            "min": 220,
+            "max": 260,
+            "displayText": "220–260 words"
+          }
+        },
+        {
+          "taskId": "c1-test-07-task-04",
+          "genre": "review",
+          "promptBlocks": [
+            {
+              "id": "c1-test-07-task-04-block-01",
+              "type": "panel",
+              "variant": "announcement",
+              "heading": "Reviews wanted: Exchange experiences",
+              "paragraphs": [
+                "Have you taken part in a university exchange programme? We want to hear about your experience.",
+                "Write a review of the exchange programme you participated in. Describe the academic and cultural aspects of the programme, evaluate how well it prepared you for the experience, and explain whether you would recommend it to other students.",
+                "The best reviews will be published in the consortium's newsletter."
+              ]
+            }
+          ],
+          "wordLimit": {
+            "min": 220,
+            "max": 260,
+            "displayText": "220–260 words"
+          }
+        }
+      ]
+    },
+    {
+      "testId": "c1-test-08",
+      "level": "c1",
+      "testNumber": 8,
+      "status": "PASS",
+      "tasks": [
+        {
+          "taskId": "c1-test-08-task-01",
+          "genre": "essay",
+          "promptBlocks": [
+            {
+              "id": "c1-test-08-task-01-block-01",
+              "type": "paragraph",
+              "text": "Your class has listened to a radio discussion about how a metropolitan transport authority should prioritise spending on neighbourhood transport. You have made the notes below."
+            },
+            {
+              "id": "c1-test-08-task-01-block-02",
+              "type": "panel",
+              "variant": "notes",
+              "heading": "Priorities for neighbourhood transport spending",
+              "listItems": [
+                "improving pedestrian crossings and pavements",
+                "subsidising electric bike-sharing schemes",
+                "creating low-traffic neighbourhood zones"
+              ]
+            },
+            {
+              "id": "c1-test-08-task-01-block-03",
+              "type": "panel",
+              "variant": "opinions",
+              "paragraphs": [
+                "Better pedestrian infrastructure benefits everyone, especially older people and children. It's the most inclusive option.",
+                "E-bike schemes are popular and encourage active travel, but they only help people who can afford the membership.",
+                "Low-traffic zones reduce through-traffic and make streets safer, but they can cause congestion on boundary roads."
+              ]
+            },
+            {
+              "id": "c1-test-08-task-01-block-04",
+              "type": "final-instruction",
+              "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for the transport authority to invest in, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+            }
+          ],
+          "wordLimit": {
+            "min": 220,
+            "max": 260,
+            "displayText": "220–260 words"
+          }
+        },
+        {
+          "taskId": "c1-test-08-task-02",
+          "genre": "proposal",
+          "wordLimit": {
+            "min": 220,
+            "max": 260,
+            "displayText": "220–260 words"
+          }
+        },
+        {
+          "taskId": "c1-test-08-task-03",
+          "genre": "email",
+          "wordLimit": {
+            "min": 220,
+            "max": 260,
+            "displayText": "220–260 words"
+          }
+        },
+        {
+          "taskId": "c1-test-08-task-04",
+          "genre": "review",
+          "wordLimit": {
+            "min": 220,
+            "max": 260,
+            "displayText": "220–260 words"
+          }
+        }
+      ]
+    },
+    {
+      "testId": "c1-test-09",
+      "level": "c1",
+      "testNumber": 9,
+      "status": "PASS",
+      "tasks": [
+        {
+          "taskId": "c1-test-09-task-01",
+          "genre": "essay",
+          "promptBlocks": [
+            {
+              "id": "c1-test-09-task-01-pb01",
+              "type": "paragraph",
+              "text": "Your class has listened to a radio discussion about how public libraries should balance free access with long-term financial responsibility. You have made the notes below."
+            },
+            {
+              "id": "c1-test-09-task-01-pb02",
+              "type": "panel",
+              "variant": "notes",
+              "heading": "Priorities for public libraries",
+              "listItems": [
+                "maintaining free access for all residents",
+                "investing in digital resources and online services",
+                "partnering with local businesses to generate income"
+              ]
+            },
+            {
+              "id": "c1-test-09-task-01-pb03",
+              "type": "panel",
+              "variant": "opinions",
+              "heading": "Opinions expressed in the discussion",
+              "paragraphs": [
+                "Free access is the whole point of a public library. If we start charging, we lose the trust of the community.",
+                "Digital resources are the future. Libraries that don't invest in e-books and online databases will become irrelevant.",
+                "Business partnerships can bring in money, but they might push libraries to prioritise profit over public need."
+              ]
+            },
+            {
+              "id": "c1-test-09-task-01-pb04",
+              "type": "final-instruction",
+              "text": "Write your essay."
+            }
+          ],
+          "wordLimit": {
+            "min": 220,
+            "max": 260,
+            "displayText": "220–260 words"
+          }
+        },
+        {
+          "taskId": "c1-test-09-task-02",
+          "genre": "proposal",
+          "promptBlocks": [
+            {
+              "id": "c1-test-09-task-02-pb01",
+              "type": "paragraph",
+              "text": "The regional library network is reviewing its outreach programme, which aims to bring library services to communities that currently have limited access. The network director has invited proposals for improving the programme's effectiveness. You decide to write a proposal."
+            },
+            {
+              "id": "c1-test-09-task-02-pb02",
+              "type": "final-instruction",
+              "text": "Write your proposal."
+            }
+          ],
+          "wordLimit": {
+            "min": 220,
+            "max": 260,
+            "displayText": "220–260 words"
+          }
+        },
+        {
+          "taskId": "c1-test-09-task-03",
+          "genre": "email",
+          "promptBlocks": [
+            {
+              "id": "c1-test-09-task-03-pb01",
+              "type": "paragraph",
+              "text": "You are a library user representative on a regional library network planning committee. The committee is considering a proposal to reduce opening hours at several branches to save money. The programme coordinator has asked for your views on the proposal."
+            },
+            {
+              "id": "c1-test-09-task-03-pb02",
+              "type": "final-instruction",
+              "text": "Write your email."
+            }
+          ],
+          "wordLimit": {
+            "min": 220,
+            "max": 260,
+            "displayText": "220–260 words"
+          }
+        },
+        {
+          "taskId": "c1-test-09-task-04",
+          "genre": "review",
+          "promptBlocks": [
+            {
+              "id": "c1-test-09-task-04-pb01",
+              "type": "paragraph",
+              "text": "You see this announcement on a regional library network website."
+            },
+            {
+              "id": "c1-test-09-task-04-pb02",
+              "type": "panel",
+              "variant": "announcement",
+              "heading": "Reviews wanted: Library event series",
+              "paragraphs": [
+                "Have you attended any of our 'Libraries Connect' events this year? These events aimed to bring together library users and local organisations to discuss community needs. We would like to hear your views on how successful the series has been and whether it should continue.",
+                "Send us your review and we will publish the best ones on our website."
+              ]
+            },
+            {
+              "id": "c1-test-09-task-04-pb03",
+              "type": "final-instruction",
+              "text": "Write your review."
+            }
+          ],
+          "wordLimit": {
+            "min": 220,
+            "max": 260,
+            "displayText": "220–260 words"
+          }
+        }
+      ]
+    },
+    {
+      "testId": "c1-test-10",
+      "level": "c1",
+      "testNumber": 10,
+      "status": "PASS",
+      "tasks": [
+        {
+          "taskId": "c1-test-10-task-01",
+          "genre": "essay",
+          "promptBlocks": [
+            {
+              "id": "c1-test-10-task-01-block-01",
+              "type": "paragraph",
+              "text": "Your class has listened to a radio discussion about a civic food-growing initiative that is being planned in your area. The organisers have to decide how to balance access and convenience with long-term responsibility. You have made the notes below."
+            },
+            {
+              "id": "c1-test-10-task-01-block-02",
+              "type": "panel",
+              "variant": "notes",
+              "heading": "Priorities for the initiative",
+              "listItems": [
+                "providing free starter kits to all residents",
+                "offering training workshops on sustainable gardening",
+                "setting up a shared tool library"
+              ]
+            },
+            {
+              "id": "c1-test-10-task-01-block-03",
+              "type": "panel",
+              "variant": "opinions",
+              "heading": "Some opinions expressed in the discussion:",
+              "paragraphs": [
+                "Free starter kits will get everyone involved quickly, but people may not use them responsibly.",
+                "Training workshops are essential if we want the gardens to be sustainable in the long run.",
+                "A tool library makes it easy for people to try gardening without a big investment."
+              ]
+            },
+            {
+              "id": "c1-test-10-task-01-block-04",
+              "type": "final-instruction",
+              "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for the success of the initiative, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+            }
+          ],
+          "wordLimit": {
+            "min": 220,
+            "max": 260,
+            "displayText": "220–260 words"
+          }
+        },
+        {
+          "taskId": "c1-test-10-task-02",
+          "genre": "proposal",
+          "promptBlocks": [
+            {
+              "id": "c1-test-10-task-02-block-01",
+              "type": "paragraph",
+              "text": "The organisers of the civic food-growing initiative have received funding to run a series of sustainable gardening workshops. They want to ensure the workshops are effective and reach a wide audience. As a volunteer coordinator, you have been asked to write a proposal for the initiative's steering committee."
+            },
+            {
+              "id": "c1-test-10-task-02-block-02",
+              "type": "final-instruction",
+              "text": "In your proposal, you should:\n• recommend the content and format of the workshops\n• suggest how to attract participants from different age groups and backgrounds\n• explain how the workshops will contribute to the long-term sustainability of the initiative\n\nWrite your proposal."
+            }
+          ],
+          "wordLimit": {
+            "min": 220,
+            "max": 260,
+            "displayText": "220–260 words"
+          }
+        },
+        {
+          "taskId": "c1-test-10-task-03",
+          "genre": "email",
+          "promptBlocks": [
+            {
+              "id": "c1-test-10-task-03-block-01",
+              "type": "paragraph",
+              "text": "You are a member of the steering committee for the civic food-growing initiative. You have received an email from a local residents' association expressing concern that the proposed system for allocating garden plots is unfair and will favour people who live closest to the site."
+            },
+            {
+              "id": "c1-test-10-task-03-block-02",
+              "type": "final-instruction",
+              "text": "Write an email to the chair of the residents' association. In your email, you should:\n• acknowledge the concern and explain the reasoning behind the current allocation proposal\n• suggest a modification to make the system fairer\n• propose a meeting to discuss the issue further\n\nWrite your email."
+            }
+          ],
+          "wordLimit": {
+            "min": 220,
+            "max": 260,
+            "displayText": "220–260 words"
+          }
+        },
+        {
+          "taskId": "c1-test-10-task-04",
+          "genre": "review",
+          "promptBlocks": [
+            {
+              "id": "c1-test-10-task-04-block-01",
+              "type": "panel",
+              "variant": "announcement",
+              "heading": "Reviews wanted: Community gardens",
+              "paragraphs": [
+                "Have you visited a community garden recently? We want to hear about your experience.",
+                "Write a review for our local lifestyle magazine. Describe the garden and what it offers, evaluate how well it balances access for visitors with long-term maintenance, and recommend whether other neighbourhoods should start similar projects.",
+                "The best reviews will be published in next month's issue."
+              ]
+            },
+            {
+              "id": "c1-test-10-task-04-block-02",
+              "type": "final-instruction",
+              "text": "Write your review."
+            }
+          ],
+          "wordLimit": {
+            "min": 220,
+            "max": 260,
+            "displayText": "220–260 words"
+          }
+        }
+      ]
+    },
+    {
+      "testId": "c1-test-11",
+      "level": "c1",
+      "testNumber": 11,
+      "status": "PASS",
+      "tasks": [
+        {
+          "taskId": "c1-test-11-task-01",
+          "genre": "essay",
+          "promptBlocks": [
+            {
+              "id": "c1-test-11-task-01-block-01",
+              "type": "paragraph",
+              "text": "Your class has listened to a radio discussion about a city cultural programme planning brief that aims to make local festivals more accessible while ensuring long-term responsibility. You have made the notes below."
+            },
+            {
+              "id": "c1-test-11-task-01-block-02",
+              "type": "panel",
+              "variant": "notes",
+              "heading": "Priorities for local festivals",
+              "listItems": [
+                "reducing entry fees to attract wider audiences",
+                "providing free public transport on festival days",
+                "investing in environmentally sustainable infrastructure"
+              ]
+            },
+            {
+              "id": "c1-test-11-task-01-block-03",
+              "type": "panel",
+              "variant": "opinions",
+              "heading": "Some opinions expressed in the discussion:",
+              "paragraphs": [
+                "Lowering ticket prices is the most direct way to make festivals inclusive, but it may reduce funding for quality programming.",
+                "Free transport would encourage people to leave their cars at home, cutting congestion and pollution.",
+                "Sustainable infrastructure, like reusable cups and solar power, is expensive initially but pays off in the long run."
+              ]
+            },
+            {
+              "id": "c1-test-11-task-01-block-04",
+              "type": "final-instruction",
+              "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for balancing access and long-term responsibility, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+            }
+          ],
+          "wordLimit": {
+            "min": 220,
+            "max": 260,
+            "displayText": "220–260 words"
+          }
+        },
+        {
+          "taskId": "c1-test-11-task-02",
+          "genre": "proposal",
+          "promptBlocks": [
+            {
+              "id": "c1-test-11-task-02-block-01",
+              "type": "paragraph",
+              "text": "The city cultural programme planning brief has allocated funds to improve the environmental sustainability of local festivals. As a consultant hired by the city council, you have been asked to write a proposal for the programme coordinator. In your proposal, you should:"
+            },
+            {
+              "id": "c1-test-11-task-02-block-02",
+              "type": "paragraph",
+              "text": "• recommend two practical measures to reduce waste and energy use at festivals\n• explain how these measures can be implemented without discouraging attendance\n• outline the expected long-term benefits for the community and the environment"
+            }
+          ],
+          "wordLimit": {
+            "min": 220,
+            "max": 260,
+            "displayText": "220–260 words"
+          }
+        },
+        {
+          "taskId": "c1-test-11-task-03",
+          "genre": "email",
+          "promptBlocks": [
+            {
+              "id": "c1-test-11-task-03-block-01",
+              "type": "paragraph",
+              "text": "You are a member of the city cultural programme planning team. The programme coordinator has emailed you to say that some residents are concerned that making festivals more accessible (e.g., free entry, free transport) will lead to overcrowding and damage to public spaces. Write an email to the programme coordinator. In your email, you should:"
+            },
+            {
+              "id": "c1-test-11-task-03-block-02",
+              "type": "paragraph",
+              "text": "• acknowledge the residents' concerns and show understanding\n• analyse the potential implications of overcrowding for the festival experience and the local area\n• propose specific actions to manage crowd levels while maintaining accessibility"
+            }
+          ],
+          "wordLimit": {
+            "min": 220,
+            "max": 260,
+            "displayText": "220–260 words"
+          }
+        },
+        {
+          "taskId": "c1-test-11-task-04",
+          "genre": "review",
+          "promptBlocks": [
+            {
+              "id": "c1-test-11-task-04-block-01",
+              "type": "panel",
+              "variant": "announcement",
+              "heading": "Reviews wanted: Local festivals",
+              "paragraphs": [
+                "Have you been to a local festival recently? We want to hear about your experience.",
+                "Write a review for our website. Describe the festival and what made it enjoyable or disappointing. Evaluate how well the organisers balanced making it accessible with ensuring it was well-managed and sustainable. Would you recommend this festival to others? Why or why not?",
+                "The best reviews will be featured on our site."
+              ]
+            },
+            {
+              "id": "c1-test-11-task-04-block-02",
+              "type": "final-instruction",
+              "text": "Write your review."
+            }
+          ],
+          "wordLimit": {
+            "min": 220,
+            "max": 260,
+            "displayText": "220–260 words"
+          }
+        }
+      ]
+    },
+    {
+      "testId": "c2-test-07",
+      "level": "c2",
+      "testNumber": 7,
+      "status": "PASS",
+      "tasks": [
+        {
+          "taskId": "c2-test-07-task-01",
+          "genre": "essay",
+          "promptBlocks": [
+            {
+              "id": "c2-test-07-task-01-source-1",
+              "type": "source-text",
+              "label": "Text 1",
+              "title": "Access and Convenience",
+              "text": "School exchange visits are often justified by the opportunities they provide for cultural immersion and language development. Yet in practice, many programmes prioritise convenience over genuine engagement. Students are housed in comfortable hotels rather than with host families, itineraries are packed with tourist attractions rather than meaningful local interactions, and the visiting group rarely has to adapt to local norms. The result is an experience that may be enjoyable but fails to challenge participants or foster real intercultural understanding. If exchange visits are to be ethically defensible, they must be designed to disrupt the visitor's comfort zone, not merely to provide a pleasant holiday abroad."
+            },
+            {
+              "id": "c2-test-07-task-01-source-2",
+              "type": "source-text",
+              "label": "Text 2",
+              "title": "Long-Term Responsibility",
+              "text": "The most serious ethical problem with school exchange visits is not what happens during the trip but what happens afterwards. Host communities often invest considerable resources—time, hospitality, emotional labour—without any lasting benefit to themselves. The visiting students return home with enriched perspectives, while the hosts are left with little more than a memory. If exchanges are to be truly reciprocal, organisers must consider the long-term impact on the host community. This might involve follow-up projects, financial contributions to local schools, or sustained partnerships that outlast any single visit. Without such commitments, exchange programmes risk being a form of educational tourism that exploits the goodwill of others."
+            }
+          ],
+          "wordLimit": {
+            "min": 240,
+            "max": 280,
+            "displayText": "240–280 words"
+          }
+        },
+        {
+          "taskId": "c2-test-07-task-02",
+          "genre": "review",
+          "wordLimit": {
+            "min": 280,
+            "max": 320,
+            "displayText": "280–320 words"
+          }
+        },
+        {
+          "taskId": "c2-test-07-task-03",
+          "genre": "report",
+          "wordLimit": {
+            "min": 280,
+            "max": 320,
+            "displayText": "280–320 words"
+          }
+        },
+        {
+          "taskId": "c2-test-07-task-04",
+          "genre": "article",
+          "wordLimit": {
+            "min": 280,
+            "max": 320,
+            "displayText": "280–320 words"
+          }
+        }
+      ]
+    },
+    {
+      "testId": "c2-test-08",
+      "level": "c2",
+      "testNumber": 8,
+      "status": "PASS",
+      "tasks": [
+        {
+          "taskId": "c2-test-08-task-01",
+          "genre": "essay",
+          "promptBlocks": [
+            {
+              "id": "c2-test-08-task-01-source-1",
+              "type": "source-text",
+              "label": "Text 1",
+              "text": "In many cities, neighbourhood transport improvements are concentrated in areas that already have good services. New metro lines, cycle lanes and bus rapid transit systems tend to serve commercial centres and affluent suburbs, while peripheral housing estates and low-income districts continue to rely on infrequent, unreliable buses. This pattern reinforces existing inequalities: residents of well-connected areas gain better access to jobs, education and healthcare, while those in poorly served neighbourhoods face longer journey times and higher transport costs. The result is a mobility gap that entrenches social and economic disadvantage, making it harder for people in less connected areas to improve their circumstances."
+            },
+            {
+              "id": "c2-test-08-task-01-source-2",
+              "type": "source-text",
+              "label": "Text 2",
+              "text": "Critics of the 'mobility gap' argument claim that transport investment cannot solve deeper structural problems such as housing affordability and labour market segregation. They point out that even when public transport is improved in deprived areas, residents may still lack the skills or opportunities to access better jobs. Moreover, they argue that focusing on transport distracts from more fundamental issues like education, healthcare and social housing. According to this view, transport policy should be guided by efficiency and demand, not by a desire to reduce inequality. Spending limited resources on low-ridership routes in peripheral areas may be wasteful when the same money could improve services where they are most used."
+            }
+          ],
+          "wordLimit": {
+            "min": 240,
+            "max": 280,
+            "displayText": "240–280 words"
+          }
+        },
+        {
+          "taskId": "c2-test-08-task-02",
+          "genre": "review",
+          "wordLimit": {
+            "min": 280,
+            "max": 320,
+            "displayText": "280–320 words"
+          }
+        },
+        {
+          "taskId": "c2-test-08-task-03",
+          "genre": "report",
+          "wordLimit": {
+            "min": 280,
+            "max": 320,
+            "displayText": "280–320 words"
+          }
+        },
+        {
+          "taskId": "c2-test-08-task-04",
+          "genre": "article",
+          "wordLimit": {
+            "min": 280,
+            "max": 320,
+            "displayText": "280–320 words"
+          }
+        }
+      ]
+    },
+    {
+      "testId": "c2-test-09",
+      "level": "c2",
+      "testNumber": 9,
+      "status": "PASS",
+      "tasks": [
+        {
+          "taskId": "c2-test-09-task-01",
+          "genre": "essay",
+          "promptBlocks": [
+            {
+              "id": "c2-test-09-task-01-source-1",
+              "type": "source-text",
+              "label": "Text 1",
+              "title": "Libraries as community hubs",
+              "text": "Public libraries have evolved far beyond their traditional role as repositories of books. In many communities, they now function as vital civic hubs, offering free internet access, workspaces, and a range of social programmes. For people who cannot afford private study spaces or reliable broadband, the library is often the only place where they can participate fully in digital society. This expanded role, however, brings new responsibilities. Libraries must balance the demand for quiet study with the need for community events, and they must serve diverse populations with sometimes conflicting needs. The challenge is to remain a welcoming space for everyone while adapting to rapidly changing social expectations. Those who defend the traditional library model argue that this broadening of purpose risks diluting the core mission of promoting literacy and learning. Yet the evidence suggests that libraries that embrace a civic role are more valued and better funded than those that cling to a narrow identity."
+            },
+            {
+              "id": "c2-test-09-task-01-source-2",
+              "type": "source-text",
+              "label": "Text 2",
+              "title": "The limits of the library as a social service",
+              "text": "The idea that public libraries should become all-purpose community centres is a well-intentioned but dangerous distraction. Libraries were founded on the principle of universal access to knowledge, and that mission is already under threat from budget cuts and digital disruption. Adding social services, such as housing advice or mental health support, stretches already limited resources and blurs the institution's purpose. Staff are trained as librarians, not social workers, and expecting them to handle complex social problems is unrealistic and unfair. Moreover, the push to turn libraries into civic hubs often leads to a reduction in book stock and quiet reading space, alienating the very users who value libraries for their original purpose. If libraries try to be everything to everyone, they risk becoming mediocre at everything. A more responsible approach would be to focus on what libraries do best: providing free access to information and fostering a culture of reading and independent learning."
+            }
+          ],
+          "wordLimit": {
+            "min": 240,
+            "max": 280,
+            "displayText": "240–280 words"
+          }
+        },
+        {
+          "taskId": "c2-test-09-task-02",
+          "genre": "review",
+          "promptBlocks": [
+            {
+              "id": "c2-test-09-task-02-panel",
+              "type": "panel",
+              "variant": "announcement",
+              "heading": "Reviews wanted: Library initiatives",
+              "paragraphs": [
+                "A specialist magazine for library professionals is running a series of reviews of innovative public library programmes. Have you visited or used a library that has introduced a new initiative to strengthen its civic role? Write a review for the magazine.",
+                "In your review, describe the initiative and its aims, evaluate how effectively it serves the local community, and recommend whether other libraries should adopt a similar approach."
+              ]
+            }
+          ],
+          "wordLimit": {
+            "min": 280,
+            "max": 320,
+            "displayText": "280–320 words"
+          }
+        },
+        {
+          "taskId": "c2-test-09-task-03",
+          "genre": "report",
+          "promptBlocks": [
+            {
+              "id": "c2-test-09-task-03-panel",
+              "type": "panel",
+              "variant": "notes",
+              "heading": "Report: Library usage and civic engagement",
+              "paragraphs": [
+                "You are a consultant hired by the Civic Libraries Foundation. The programme coordinator has asked you to write a report on how current library usage patterns affect civic engagement in the communities served. Your report should analyse the implications of declining traditional borrowing and increasing demand for non-traditional services, and propose actions that libraries could take to strengthen their civic role without compromising their core mission."
+              ]
+            }
+          ],
+          "wordLimit": {
+            "min": 280,
+            "max": 320,
+            "displayText": "280–320 words"
+          }
+        },
+        {
+          "taskId": "c2-test-09-task-04",
+          "genre": "article",
+          "promptBlocks": [
+            {
+              "id": "c2-test-09-task-04-panel",
+              "type": "panel",
+              "variant": "announcement",
+              "heading": "Articles wanted: The future of public libraries",
+              "paragraphs": [
+                "An international online magazine is inviting readers to submit articles on the theme 'The Future of Public Libraries'. You decide to write an article in which you explain your position on whether libraries should prioritise their traditional role as knowledge centres or embrace a broader civic mission. In your article, discuss what you see as the main challenge facing public libraries today, describe one practical consequence of getting the balance wrong, and recommend a specific approach that would allow libraries to serve their communities effectively in the coming decades."
+              ]
+            }
+          ],
+          "wordLimit": {
+            "min": 280,
+            "max": 320,
+            "displayText": "280–320 words"
+          }
+        }
+      ]
+    },
+    {
+      "testId": "c2-test-10",
+      "level": "c2",
+      "testNumber": 10,
+      "status": "PASS",
+      "tasks": [
+        {
+          "taskId": "c2-test-10-task-01",
+          "genre": "essay",
+          "promptBlocks": [
+            {
+              "id": "c2-test-10-task-01-source-1",
+              "type": "source-text",
+              "label": "Text 1",
+              "title": "A Right to Grow",
+              "text": "Community gardens are often celebrated as oases of local food and neighbourly cooperation, yet their governance frequently prioritises the convenience of existing plot-holders over the wider public good. Waiting lists stretch for years, and newcomers—especially those from lower-income backgrounds—are effectively excluded. If we are serious about food justice, we must treat community gardens as public infrastructure, not private allotments. This means reserving a proportion of plots for new applicants, offering reduced fees, and providing tools and seeds free of charge. Convenience for current users should not trump the responsibility to make fresh food accessible to everyone who needs it."
+            },
+            {
+              "id": "c2-test-10-task-01-source-2",
+              "type": "source-text",
+              "label": "Text 2",
+              "title": "Stewardship, Not Charity",
+              "text": "Demanding that community gardens function as free food banks misunderstands their purpose. These spaces thrive because committed volunteers invest time, money and skill in maintaining them. If plots are handed out without expectation of contribution, the gardens will quickly deteriorate. The real responsibility is to cultivate a culture of stewardship—teaching newcomers how to grow food, compost and share harvests sustainably. Long-term viability depends on members who care for the land, not on policies that treat gardens as convenience stores. Access must be balanced with accountability; otherwise, the very resource we seek to protect will collapse under the weight of good intentions."
+            }
+          ],
+          "wordLimit": {
+            "min": 240,
+            "max": 280,
+            "displayText": "240–280 words"
+          }
+        },
+        {
+          "taskId": "c2-test-10-task-02",
+          "genre": "review",
+          "wordLimit": {
+            "min": 280,
+            "max": 320,
+            "displayText": "280–320 words"
+          }
+        },
+        {
+          "taskId": "c2-test-10-task-03",
+          "genre": "report",
+          "wordLimit": {
+            "min": 280,
+            "max": 320,
+            "displayText": "280–320 words"
+          }
+        },
+        {
+          "taskId": "c2-test-10-task-04",
+          "genre": "article",
+          "wordLimit": {
+            "min": 280,
+            "max": 320,
+            "displayText": "280–320 words"
+          }
+        }
+      ]
+    },
+    {
+      "testId": "c2-test-11",
+      "level": "c2",
+      "testNumber": 11,
+      "status": "PASS",
+      "tasks": [
+        {
+          "taskId": "c2-test-11-task-01",
+          "genre": "essay",
+          "promptBlocks": [
+            {
+              "id": "c2-test-11-task-01-source-01",
+              "type": "source-text",
+              "label": "Text 1",
+              "text": "Local festivals are often celebrated as expressions of community identity, but their organisation increasingly prioritises visitor convenience over long-term civic responsibility. Temporary infrastructure, single-use decorations and excessive waste are accepted as inevitable costs of a successful event. Yet festivals could be designed to strengthen local resilience rather than deplete it. By mandating reusable systems, sourcing materials from within the community, and embedding educational components about sustainability, organisers can transform festivals into models of responsible stewardship. The challenge is not technical but cultural: we must stop treating festivals as exceptions to normal standards and start holding them to the same ethical expectations we apply to everyday life."
+            },
+            {
+              "id": "c2-test-11-task-01-source-02",
+              "type": "source-text",
+              "label": "Text 2",
+              "text": "Demanding that local festivals become exemplars of sustainability places an unfair burden on volunteer organisers and risks killing the spontaneity that makes these events appealing. Festivals are, by nature, temporary and celebratory; expecting them to solve deep-seated environmental problems is unrealistic. Moreover, the most significant environmental impacts of festivals—travel emissions, energy consumption—are beyond the control of local committees. The real responsibility lies with governments and industries, not with community volunteers who already give their time generously. Insisting on perfect eco-credentials may discourage communities from holding festivals at all, which would be a greater loss to social cohesion than any amount of waste."
+            }
+          ],
+          "wordLimit": {
+            "min": 240,
+            "max": 280,
+            "displayText": "240–280 words"
+          }
+        },
+        {
+          "taskId": "c2-test-11-task-02",
+          "genre": "review",
+          "wordLimit": {
+            "min": 280,
+            "max": 320,
+            "displayText": "280–320 words"
+          }
+        },
+        {
+          "taskId": "c2-test-11-task-03",
+          "genre": "report",
+          "wordLimit": {
+            "min": 280,
+            "max": 320,
+            "displayText": "280–320 words"
+          }
+        },
+        {
+          "taskId": "c2-test-11-task-04",
+          "genre": "article",
+          "wordLimit": {
+            "min": 280,
+            "max": 320,
+            "displayText": "280–320 words"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,269 @@
+{
+  "inputHash": "c62b5faef7aeb3072856363dfe0e73cd99e3e075a2695340f97f77da159824fa",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-15:c62b5faef7aeb3072856363dfe0e73cd99e3e075a2695340f97f77da159824fa",
+  "test": {
+    "id": "b2-test-15",
+    "level": "b2",
+    "testNumber": 15,
+    "title": "FCE B2 AI Practice Test 15",
+    "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-15.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "b2-test-15-1785310397271",
+      "generatedAt": 1785310415727,
+      "contentHash": "09ab55aaba1525dddf6c27435a46b54f00267780b9206d5ae840da98469db316",
+      "promptHash": "c62b5faef7aeb3072856363dfe0e73cd99e3e075a2695340f97f77da159824fa",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-15:c62b5faef7aeb3072856363dfe0e73cd99e3e075a2695340f97f77da159824fa",
+      "inputHash": "c62b5faef7aeb3072856363dfe0e73cd99e3e075a2695340f97f77da159824fa",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "b2-test-15-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Healthy cooking at work",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write 140–190 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-15-task-01-block-01",
+            "type": "paragraph",
+            "text": "In your English class you have been talking about how to encourage healthy cooking at work. Now your English teacher has asked you to write an essay."
+          },
+          {
+            "id": "b2-test-15-task-01-block-02",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Notes",
+            "paragraphs": [
+              "Write about:",
+              "1. providing kitchen facilities",
+              "2. organising cooking workshops",
+              "3. ......................... (your own idea)"
+            ]
+          },
+          {
+            "id": "b2-test-15-task-01-block-03",
+            "type": "final-instruction",
+            "text": "Write an essay using all the notes and giving reasons for your point of view."
+          }
+        ],
+        "presentation": {
+          "template": "essay-notes"
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "b2-test-15-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Healthy cooking workshop review",
+        "genre": "review",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-15-task-02-block-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Reviews wanted!",
+            "paragraphs": [
+              "Have you attended a healthy cooking workshop at your workplace or in your community?",
+              "Write a review of the workshop for our specialist magazine.",
+              "Describe what you learned, say how useful the session was, and explain whether you would recommend it to other workplaces.",
+              "The best reviews will be published in next month's issue."
+            ]
+          },
+          {
+            "id": "b2-test-15-task-02-block-02",
+            "type": "final-instruction",
+            "text": "Write your review."
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b2-test-15-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Healthy cooking at work – article",
+        "genre": "article",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-15-task-03-block-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Articles wanted!",
+            "paragraphs": [
+              "Our programme coordinator wants to hear from employees about healthy cooking at work.",
+              "Write an article for the company newsletter suggesting one practical way to make healthy cooking easier at the workplace.",
+              "Explain why this idea would work and what the benefits would be for staff.",
+              "We will share the best ideas with the planning team."
+            ]
+          },
+          {
+            "id": "b2-test-15-task-03-block-02",
+            "type": "final-instruction",
+            "text": "Write your article."
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b2-test-15-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Healthy cooking email",
+        "genre": "email",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-15-task-04-block-01",
+            "type": "email",
+            "from": "Elena",
+            "subject": "Healthy cooking at work",
+            "paragraphs": [
+              "Hi,",
+              "I heard your office is starting a healthy cooking initiative. I'm thinking of suggesting something similar at my company.",
+              "Could you tell me what has worked well so far? What challenges have you faced? And how did you get people interested?",
+              "Thanks a lot!",
+              "Elena"
+            ]
+          },
+          {
+            "id": "b2-test-15-task-04-block-02",
+            "type": "final-instruction",
+            "text": "Write your email."
+          }
+        ],
+        "presentation": {
+          "template": "email",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "overallOriginalityCheck": "PASS",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "Essay about encouraging healthy cooking at work, focusing on kitchen facilities and workshops plus own idea.",
+        "audience": "English teacher",
+        "purpose": "Evaluate and justify priorities",
+        "requiredContentPoints": [
+          "providing kitchen facilities",
+          "organising cooking workshops",
+          "own idea"
+        ],
+        "lexicalAnchors": [
+          "healthy cooking",
+          "workplace",
+          "kitchen facilities",
+          "cooking workshops"
+        ],
+        "originalitySelfCheck": "Scenario is workplace wellbeing pilot, not generic education. Notes are specific to facilities and workshops. No overlap with previous essay tasks.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "Review of a healthy cooking workshop attended at workplace or community.",
+        "audience": "Specialist magazine readers",
+        "purpose": "Assess effectiveness and recommend",
+        "requiredContentPoints": [
+          "what you learned",
+          "usefulness",
+          "recommendation"
+        ],
+        "lexicalAnchors": [
+          "healthy cooking workshop",
+          "workplace",
+          "review"
+        ],
+        "originalitySelfCheck": "Review focuses on a cooking workshop, not a book, film, or library. No overlap with previous review tasks.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "Article for company newsletter suggesting a practical way to make healthy cooking easier at work.",
+        "audience": "Programme coordinator",
+        "purpose": "Analyse implications and propose action",
+        "requiredContentPoints": [
+          "one practical way",
+          "why it would work",
+          "benefits for staff"
+        ],
+        "lexicalAnchors": [
+          "healthy cooking",
+          "workplace",
+          "practical idea"
+        ],
+        "originalitySelfCheck": "Article is for a company newsletter, not a general website. Focus on workplace cooking, not generic learning or skills. No overlap.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 4,
+        "scenario": "Email to an English-speaking contact explaining a workplace healthy cooking initiative and responding to questions.",
+        "audience": "English-speaking contact (Elena)",
+        "purpose": "Explain a position and request arrangements",
+        "requiredContentPoints": [
+          "what has worked well",
+          "challenges faced",
+          "how to get people interested"
+        ],
+        "lexicalAnchors": [
+          "healthy cooking",
+          "workplace initiative",
+          "challenges",
+          "interest"
+        ],
+        "originalitySelfCheck": "Email is from a friend asking about a workplace initiative, not a standard 'advice' email. No overlap with previous email tasks.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ]
+  },
+  "cachedAt": 1785310415735
+}

@@ -1,0 +1,224 @@
+{
+  "inputHash": "18e665a7ee7831360caf64219d32237213a623a72e131a0e317fbb435413bdcf",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-36:18e665a7ee7831360caf64219d32237213a623a72e131a0e317fbb435413bdcf",
+  "test": {
+    "id": "b1-test-36",
+    "level": "b1",
+    "testNumber": 36,
+    "title": "PET B1 AI Practice Test 36",
+    "sourceFile": "packages/catalog/data/cambridge-writing/b1/b1-test-36.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "b1-test-36-1785313690311",
+      "generatedAt": 1785313706711,
+      "contentHash": "f0e4d57b5d826b5c71779cbaee4784dca51c5fc0ab8b11d670180ec4cade8aca",
+      "promptHash": "18e665a7ee7831360caf64219d32237213a623a72e131a0e317fbb435413bdcf",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-36:18e665a7ee7831360caf64219d32237213a623a72e131a0e317fbb435413bdcf",
+      "inputHash": "18e665a7ee7831360caf64219d32237213a623a72e131a0e317fbb435413bdcf",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "b1-test-36-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Email about the festival",
+        "genre": "email",
+        "instruction": "You must answer this question. Write your answer in about 100 words.",
+        "promptBlocks": [
+          {
+            "id": "b1-test-36-task-01-email",
+            "type": "email",
+            "from": "Mr. Davis",
+            "subject": "Spring Food Festival – your ideas",
+            "paragraphs": [
+              "Hi,",
+              "Our class is helping to plan the Spring Food Festival. I'd like you to think about what is most important for the festival to be a success. Should we focus on having lots of different food stalls, or on keeping the event affordable for everyone?",
+              "Also, what is one practical problem we might face, and how can we solve it?",
+              "Finally, tell me which stall you would most like to see at the festival and why.",
+              "Thanks,",
+              "Mr. Davis"
+            ]
+          },
+          {
+            "id": "b1-test-36-task-01-notes",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Notes for your reply",
+            "listItems": [
+              "Say which is more important: lots of stalls OR low prices – and explain why.",
+              "Describe one practical problem and suggest a solution.",
+              "Name your favourite type of food stall and give a reason.",
+              "Ask Mr. Davis one question about the festival date or location."
+            ]
+          },
+          {
+            "id": "b1-test-36-task-01-final",
+            "type": "final-instruction",
+            "text": "Write your email to Mr. Davis using all the notes."
+          }
+        ],
+        "presentation": {
+          "template": "email"
+        },
+        "wordLimit": {
+          "min": 100,
+          "max": 100,
+          "displayText": "about 100 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "b1-test-36-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Article about the festival",
+        "genre": "article",
+        "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+        "promptBlocks": [
+          {
+            "id": "b1-test-36-task-02-announcement",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Articles wanted!",
+            "paragraphs": [
+              "Our town is organising a Spring Food Festival next month. We want to know what you think will make it a success.",
+              "What kind of food should be there? How can the festival be fun for both children and adults? Would you like to help organise it? Why or why not?",
+              "Write an article answering these questions and we will put it on our town website!"
+            ]
+          },
+          {
+            "id": "b1-test-36-task-02-final",
+            "type": "final-instruction",
+            "text": "Write your article."
+          }
+        ],
+        "presentation": {
+          "template": "announcement"
+        },
+        "wordLimit": {
+          "min": 100,
+          "max": 100,
+          "displayText": "about 100 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b1-test-36-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Story about the festival",
+        "genre": "story",
+        "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+        "promptBlocks": [
+          {
+            "id": "b1-test-36-task-03-opening",
+            "type": "paragraph",
+            "text": "Your English teacher has asked you to write a story."
+          },
+          {
+            "id": "b1-test-36-task-03-sentence",
+            "type": "paragraph",
+            "text": "Your story must begin with this sentence:"
+          },
+          {
+            "id": "b1-test-36-task-03-opening-sentence",
+            "type": "paragraph",
+            "text": "\"When the chef dropped the cake just before the festival started, everyone gasped.\""
+          },
+          {
+            "id": "b1-test-36-task-03-final",
+            "type": "final-instruction",
+            "text": "Write your story."
+          }
+        ],
+        "presentation": {
+          "template": "plain"
+        },
+        "wordLimit": {
+          "min": 100,
+          "max": 100,
+          "displayText": "about 100 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "b1-test-36",
+    "overallOriginalityCheck": "PASS",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "Email to teacher about planning a spring food festival; choose between many stalls or low prices, describe a problem, suggest a stall, ask about date/location.",
+        "audience": "English teacher (Mr. Davis)",
+        "purpose": "Evaluate and justify priorities (stalls vs. prices), identify a practical problem and solution, express a preference, request information.",
+        "requiredContentPoints": [
+          "Choose between lots of stalls or low prices and explain why",
+          "Describe one practical problem and suggest a solution",
+          "Name a favourite food stall and give a reason",
+          "Ask a question about the festival date or location"
+        ],
+        "lexicalAnchors": [
+          "spring food festival",
+          "food stalls",
+          "affordable",
+          "practical problem",
+          "favourite stall"
+        ],
+        "originalitySelfCheck": "Scenario is unique: planning a spring food festival, not a general event. Notes require a choice with reason, a problem-solution, a personal preference, and a question. Not similar to any previous test.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "Article for town website about the Spring Food Festival; give opinions on food types, fun for children and adults, and willingness to help organise.",
+        "audience": "Town website readers (general public)",
+        "purpose": "Assess what makes the festival a success and recommend ideas.",
+        "requiredContentPoints": [
+          "What kind of food should be there",
+          "How to make it fun for both children and adults",
+          "Would you help organise and why/why not"
+        ],
+        "lexicalAnchors": [
+          "spring food festival",
+          "food",
+          "children and adults",
+          "help organise"
+        ],
+        "originalitySelfCheck": "Article about a specific local festival, not a generic 'articles wanted' about films or books. Questions are concrete and tied to the festival context. Not a reused frame.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "Story beginning with a chef dropping a cake just before the festival starts.",
+        "audience": "English teacher",
+        "purpose": "Continue a narrative from a given opening sentence, showing a consequence and resolution related to the festival.",
+        "requiredContentPoints": [
+          "The dropped cake incident",
+          "A consequence or reaction",
+          "A resolution or ending linked to the festival"
+        ],
+        "lexicalAnchors": [
+          "chef",
+          "cake",
+          "festival",
+          "gasped"
+        ],
+        "originalitySelfCheck": "Opening sentence is unique: involves a chef dropping a cake at a festival, not a bus, parcel, phone call, or museum closure. Not similar to any previous story opening.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ]
+  },
+  "cachedAt": 1785313706744
+}

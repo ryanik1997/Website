@@ -1,53 +1,53 @@
 {
   "title": "CAMBRIDGE WRITING AI CORPUS REPORT",
-  "generatedAt": 1785251016106,
+  "generatedAt": 1785307445436,
   "scope": {
     "a2Generated": 0,
-    "b1Generated": 0,
-    "b2Generated": 0,
-    "c1Generated": 0,
-    "c2Generated": 0,
-    "totalGenerated": 0,
-    "totalTasks": 0
+    "b1Generated": 5,
+    "b2Generated": 5,
+    "c1Generated": 5,
+    "c2Generated": 5,
+    "totalGenerated": 20,
+    "totalTasks": 75
   },
   "quality": {
-    "schemaValid": 0,
+    "schemaValid": 20,
     "aiVerified": 0,
-    "failed": 8,
+    "failed": 11,
     "quarantined": 0,
     "duplicatePrompts": 0,
-    "similarityHardFailures": 0
+    "similarityHardFailures": 1
   },
   "status": {
-    "draft": 0,
+    "draft": 20,
     "published": 0,
     "humanApproved": 0
   },
   "perLevel": {
     "b1": {
-      "tests": 0,
-      "tasks": 0,
+      "tests": 5,
+      "tasks": 15,
       "averageQuality": null,
       "minQuality": null,
       "similarityWarnings": 0
     },
     "b2": {
-      "tests": 0,
-      "tasks": 0,
+      "tests": 5,
+      "tasks": 20,
       "averageQuality": null,
       "minQuality": null,
-      "similarityWarnings": 0
+      "similarityWarnings": 1
     },
     "c1": {
-      "tests": 0,
-      "tasks": 0,
+      "tests": 5,
+      "tasks": 20,
       "averageQuality": null,
       "minQuality": null,
       "similarityWarnings": 0
     },
     "c2": {
-      "tests": 0,
-      "tasks": 0,
+      "tests": 5,
+      "tasks": 20,
       "averageQuality": null,
       "minQuality": null,
       "similarityWarnings": 0

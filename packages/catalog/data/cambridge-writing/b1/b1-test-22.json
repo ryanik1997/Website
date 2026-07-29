@@ -1,0 +1,157 @@
+{
+  "id": "b1-test-22",
+  "level": "b1",
+  "testNumber": 22,
+  "title": "PET B1 AI Practice Test 22",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b1/b1-test-22.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b1-test-22-1785312206586",
+    "generatedAt": 1785312222098,
+    "contentHash": "756f73479a83607ed8d04bd22ea391d42d3246eace3f275fcd188f2c9572cd4c",
+    "promptHash": "09066ca1bfedffc8625cb950eb09cc9c24875cbbc6c8da7c097cd5a2593e746e",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-22:09066ca1bfedffc8625cb950eb09cc9c24875cbbc6c8da7c097cd5a2593e746e",
+    "inputHash": "09066ca1bfedffc8625cb950eb09cc9c24875cbbc6c8da7c097cd5a2593e746e",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b1-test-22-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Email about recycling collection change",
+      "genre": "email",
+      "instruction": "You must answer this question. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-22-task-01-email",
+          "type": "email",
+          "from": "Mrs. Hill",
+          "subject": "Recycling collection change",
+          "paragraphs": [
+            "Hello,",
+            "As you know, our town is planning to change the recycling collection service. Instead of collecting every week, they want to collect every two weeks. Some people think this is a good idea because it will save money and reduce pollution from trucks. Others think it will cause problems because bins will get too full.",
+            "I need your help to decide on a few things. First, do you think the change to every two weeks is a good idea? Why or why not?",
+            "Also, what should we do with extra recycling that doesn't fit in the bin? Should people take it to a recycling centre, or should the council provide larger bins?",
+            "Finally, can you suggest one way to encourage people to recycle less so that bins don't overflow?",
+            "Let me know your ideas!",
+            "Best wishes,",
+            "Mrs. Hill"
+          ]
+        },
+        {
+          "id": "b1-test-22-task-01-notes",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes for your reply",
+          "listItems": [
+            "Say if you agree with the change and explain why.",
+            "Choose one option for extra recycling (recycling centre or larger bins) and give a reason.",
+            "Suggest one way to help people reduce their recycling.",
+            "Ask Mrs. Hill when the change will start."
+          ]
+        },
+        {
+          "id": "b1-test-22-task-01-final",
+          "type": "final-instruction",
+          "text": "Write your email to Mrs. Hill using all the notes."
+        }
+      ],
+      "presentation": {
+        "template": "email"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b1-test-22-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Article about recycling changes",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-22-task-02-announcement",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted!",
+          "paragraphs": [
+            "Our town is changing the recycling collection to every two weeks.",
+            "Do you think this change is a good idea?",
+            "What can people do to manage their recycling better?",
+            "Write an article answering these questions and we will put it on our town website!"
+          ]
+        },
+        {
+          "id": "b1-test-22-task-02-final",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b1-test-22-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Story about recycling collection",
+      "genre": "story",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-22-task-03-opening",
+          "type": "paragraph",
+          "text": "Your English teacher has asked you to write a story."
+        },
+        {
+          "id": "b1-test-22-task-03-sentence",
+          "type": "paragraph",
+          "text": "Your story must begin with this sentence:"
+        },
+        {
+          "id": "b1-test-22-task-03-opening-sentence",
+          "type": "paragraph",
+          "text": "\"When the recycling truck didn't arrive on Friday, I knew something was wrong.\""
+        },
+        {
+          "id": "b1-test-22-task-03-final",
+          "type": "final-instruction",
+          "text": "Write your story."
+        }
+      ],
+      "presentation": {
+        "template": "plain"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

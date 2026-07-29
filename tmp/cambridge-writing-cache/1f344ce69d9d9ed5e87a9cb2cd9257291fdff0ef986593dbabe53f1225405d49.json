@@ -1,0 +1,205 @@
+{
+  "inputHash": "bda5ea67bbc55bc01e84281f70653b85b5ef246dc620677a0a5509cc2a9adb1a",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-18:bda5ea67bbc55bc01e84281f70653b85b5ef246dc620677a0a5509cc2a9adb1a",
+  "test": {
+    "id": "c2-test-18",
+    "level": "c2",
+    "testNumber": 18,
+    "title": "CPE C2 AI Practice Test 18",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-18.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c2-test-18-1785311756465",
+      "generatedAt": 1785311783098,
+      "contentHash": "1341cad9aed421eac8871e959655e29695284689b456c235a4aa247301d67dd6",
+      "promptHash": "bda5ea67bbc55bc01e84281f70653b85b5ef246dc620677a0a5509cc2a9adb1a",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-18:bda5ea67bbc55bc01e84281f70653b85b5ef246dc620677a0a5509cc2a9adb1a",
+      "inputHash": "bda5ea67bbc55bc01e84281f70653b85b5ef246dc620677a0a5509cc2a9adb1a",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c2-test-18-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Essay: Language and Belonging",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write an essay summarising and evaluating the key points from both texts in 240–280 words. Use your own words throughout as far as possible, and include your own ideas in your answers.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-18-task-01-source-1",
+            "type": "source-text",
+            "label": "Text 1",
+            "text": "For migrants, learning the dominant language of a new country is often presented as the single most important step towards integration. Without it, access to employment, housing and public services is severely limited, and the risk of social isolation increases dramatically. Yet the pressure to abandon one's first language in favour of the new one can create a painful sense of loss. Many migrants report feeling that they are expected to erase part of their identity in order to belong. A responsible approach to language learning would acknowledge this tension, offering support that values linguistic diversity rather than demanding assimilation. The goal should be functional bilingualism, not replacement."
+          },
+          {
+            "id": "c2-test-18-task-01-source-2",
+            "type": "source-text",
+            "label": "Text 2",
+            "text": "The idea that migrants can maintain their heritage language while fully integrating into a new society is well-meaning but unrealistic. In practice, limited time and resources mean that most newcomers must prioritise the language of their adopted country if they are to secure stable work and participate in civic life. Heritage language maintenance, while emotionally valuable, often comes at the cost of slower progress in the majority language, which can have long-term economic consequences for both individuals and their children. A responsible language policy must therefore be honest about trade-offs: it should encourage rapid acquisition of the host language while providing optional, not compulsory, support for heritage languages."
+          },
+          {
+            "id": "c2-test-18-task-01-final",
+            "type": "final-instruction",
+            "text": "Write your essay."
+          }
+        ],
+        "presentation": {
+          "template": "source-texts"
+        },
+        "wordLimit": {
+          "min": 240,
+          "max": 280,
+          "displayText": "240–280 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c2-test-18-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Review: Language Support Programme",
+        "genre": "review",
+        "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+        "promptText": "A specialist magazine for language educators is running a series of reviews of community-based language support programmes for adult migrants. You decide to write a review of a programme you have observed or participated in. In your review, describe the programme and its approach to language learning, assess how effectively it balances the practical goal of rapid language acquisition with the emotional and cultural needs of learners, and recommend whether other communities should adopt a similar model.",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c2-test-18-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Report: Language Provision for Newcomers",
+        "genre": "report",
+        "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+        "promptText": "You are a consultant hired by a regional integration agency. The programme coordinator has asked you to write a report on how current language learning provision affects the sense of belonging among adult migrants in the region. In your report, analyse the main strengths and weaknesses of existing language courses in fostering both linguistic competence and social inclusion, assess the potential consequences for community cohesion if these weaknesses are not addressed, and propose two concrete actions the agency could take to improve the balance between practical language training and cultural affirmation.",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c2-test-18-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Article: Language and Identity",
+        "genre": "article",
+        "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+        "promptText": "An English-language online magazine for international readers is publishing a series on 'Language and Belonging'. You have been contacted by the editor, who asks you to write an article explaining your position on whether migrants should be expected to prioritise learning the host country's language over maintaining their mother tongue. In your article, discuss what you see as the main tension between integration and identity preservation, describe one practical consequence of your preferred approach for language policy, and suggest how communities could support both goals simultaneously. End your article by requesting that the magazine arrange a follow-up discussion with readers and language educators to explore the issue further.",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "c2-test-18",
+    "overallOriginalityCheck": "PASS",
+    "forbiddenConceptsCheck": "PASS",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "Language, migration and belonging planning brief 12: essay brief 1-1",
+        "audience": "English teacher",
+        "purpose": "evaluate and justify priorities",
+        "requiredContentPoints": [
+          "the main language learning issue",
+          "one practical consequence",
+          "a justified recommendation 1"
+        ],
+        "lexicalAnchors": [
+          "language learning",
+          "language, migration and belonging planning brief 12",
+          "c2 writing brief"
+        ],
+        "originalitySelfCheck": "Essay uses two source texts with contrasting views on heritage language maintenance vs. host language acquisition. No overlap with previous C2 tests (which covered behavioural change, institutional guidance, experience requirements, consultation, green behaviour, communication delay, exchange ethics, transport inequality, library civic role, food systems, festival sustainability, sport belonging, learning data, part-time work, workplace wellbeing, urban wildlife, museum memory). Forbidden concepts avoided. PASS."
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "Language, migration and belonging planning brief 12: review brief 2-5",
+        "audience": "specialist magazine readers",
+        "purpose": "assess effectiveness and recommend",
+        "requiredContentPoints": [
+          "the main language learning issue",
+          "one practical consequence",
+          "a justified recommendation 2"
+        ],
+        "lexicalAnchors": [
+          "language learning",
+          "language, migration and belonging planning brief 12",
+          "c2 writing brief"
+        ],
+        "originalitySelfCheck": "Review of a community-based language support programme for adult migrants. Genre: review. No previous C2 review used this scenario. Forbidden concepts avoided. PASS."
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "Language, migration and belonging planning brief 12: report brief 3-9",
+        "audience": "programme coordinator",
+        "purpose": "analyse implications and propose action",
+        "requiredContentPoints": [
+          "the main language learning issue",
+          "one practical consequence",
+          "a justified recommendation 3"
+        ],
+        "lexicalAnchors": [
+          "language learning",
+          "language, migration and belonging planning brief 12",
+          "c2 writing brief"
+        ],
+        "originalitySelfCheck": "Report on language provision for adult migrants and its effect on belonging. No previous C2 report used this scenario. Forbidden concepts avoided. PASS."
+      },
+      {
+        "taskNumber": 4,
+        "scenario": "Language, migration and belonging planning brief 12: article brief 4-13",
+        "audience": "English-speaking contact",
+        "purpose": "explain a position and request arrangements",
+        "requiredContentPoints": [
+          "the main language learning issue",
+          "one practical consequence",
+          "a justified recommendation 4"
+        ],
+        "lexicalAnchors": [
+          "language learning",
+          "language, migration and belonging planning brief 12",
+          "c2 writing brief"
+        ],
+        "originalitySelfCheck": "Article for an online magazine on language and identity, requesting follow-up discussion. No previous C2 article used this scenario. Forbidden concepts avoided. PASS."
+      }
+    ]
+  },
+  "cachedAt": 1785311783119
+}

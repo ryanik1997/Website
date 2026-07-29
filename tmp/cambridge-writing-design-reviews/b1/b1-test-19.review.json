@@ -1,0 +1,72 @@
+{
+  "testId": "b1-test-19",
+  "level": "b1",
+  "topicFamily": "volunteer services",
+  "specificSetting": "a weekend volunteering scheme planning brief 13",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "genre": "email",
+      "scenario": "Student responds to teacher about choosing a volunteer role (food bank, garden, animal shelter), preferred day, and recruitment idea.",
+      "audience": "English teacher (Mrs. Hill)",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "choose a role and give reason",
+        "preferred day and reason",
+        "suggest one way to encourage more students",
+        "ask about transport"
+      ],
+      "lexicalAnchors": [
+        "volunteer role",
+        "food bank",
+        "community garden",
+        "animal shelter",
+        "weekend day",
+        "encourage students",
+        "transport"
+      ],
+      "originalitySelfCheck": "Email uses a different role set (food bank, garden, shelter) and asks about transport, not equipment or schedule. No overlap with existing tests.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "genre": "article",
+      "scenario": "School magazine article about the volunteering scheme's community benefit and skill development.",
+      "audience": "specialist magazine readers (school magazine)",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "most useful type of volunteering for community",
+        "how volunteering helps students learn skills"
+      ],
+      "lexicalAnchors": [
+        "volunteering",
+        "community benefit",
+        "student skills"
+      ],
+      "originalitySelfCheck": "Article focuses on community usefulness and skill learning, not on personal experience or event description. No overlap with existing tests.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "genre": "story",
+      "scenario": "Story beginning with receiving a volunteer badge and an unexpected weekend.",
+      "audience": "programme coordinator (implied)",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "receiving badge",
+        "unexpected weekend"
+      ],
+      "lexicalAnchors": [
+        "volunteer badge",
+        "weekend"
+      ],
+      "originalitySelfCheck": "Opening sentence is unique: 'volunteer badge' and 'weekend' not used in any existing test. No overlap with Test 01 or any other.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are based on the specific setting 'a weekend volunteering scheme planning brief 13' and use unique scenarios, audiences, and content points. No reuse of skeletons from previous tests.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "cc6fd5baf73a889ece9f9c233e37d91d9750818689ec55e2d0f6ede5bafdf92a"
+  }
+}

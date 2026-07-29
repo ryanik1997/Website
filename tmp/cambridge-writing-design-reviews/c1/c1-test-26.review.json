@@ -1,0 +1,83 @@
+{
+  "testId": "c1-test-26",
+  "level": "c1",
+  "topicFamily": "future skills",
+  "specificSetting": "a workforce transition programme planning brief 20",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Workforce transition programme priorities – essay for tutor",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "retraining grants for displaced workers",
+        "partnerships with local employers for guaranteed interviews",
+        "portable skills certification"
+      ],
+      "lexicalAnchors": [
+        "retraining grants",
+        "employer partnerships",
+        "portable certification"
+      ],
+      "originalitySelfCheck": "Scenario: workforce transition programme (not used before). Notes: retraining grants, employer partnerships, portable certification – all new. Opinions: three distinct voices. No overlap with any avoided fingerprint. ForbiddenConceptCheck: PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Proposal for a workforce transition programme – regional development agency",
+      "audience": "specialist magazine readers (regional development agency)",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "two specific types of support",
+        "benefits for workers and regional economy",
+        "measurement of effectiveness"
+      ],
+      "lexicalAnchors": [
+        "workforce transition programme",
+        "regional development agency",
+        "support types",
+        "effectiveness measurement"
+      ],
+      "originalitySelfCheck": "Audience: regional development agency (new). Purpose: recommend support types and measurement. No overlap with previous proposal tasks. ForbiddenConceptCheck: PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Email to programme coordinator about digital skills focus",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "position on digital skills focus",
+        "implication for less digitally confident workers",
+        "proposed action to address concern"
+      ],
+      "lexicalAnchors": [
+        "digital skills training",
+        "digitally confident workers",
+        "programme coordinator"
+      ],
+      "originalitySelfCheck": "Scenario: email about digital skills focus in workforce transition (new). Audience: programme coordinator (matches plan). Content points: position, implication, action – all distinct. ForbiddenConceptCheck: PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Review of a retraining course for careers advice website",
+      "audience": "English-speaking contact (careers advice website readers)",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "description of course and learning",
+        "evaluation of balance between practical and theoretical",
+        "recommendation for other workers"
+      ],
+      "lexicalAnchors": [
+        "retraining course",
+        "workforce transition programme",
+        "practical skills",
+        "theoretical knowledge"
+      ],
+      "originalitySelfCheck": "Genre: review of a retraining course (new). Announcement heading: 'Reviews wanted: Retraining courses' – not used before. Content points: description, evaluation, recommendation – standard but with new context. ForbiddenConceptCheck: PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are based on the new scenario 'a workforce transition programme planning brief 20'. No task reuses scenarios, audiences, content points, or lexical anchors from any previously generated test. The forbidden concepts list has been checked and none appear. The design is original and level-appropriate.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "cccb19f54e0576cd57f8795bd282817d5aa84794d94ea43d8825790db34d6da7"
+  }
+}

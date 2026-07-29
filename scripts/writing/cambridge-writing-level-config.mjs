@@ -1,4 +1,4 @@
-export const DEFAULT_NEW_TESTS_PER_LEVEL = 50
+export const DEFAULT_NEW_TESTS_PER_LEVEL = 35
 
 function readNewTestCount() {
   const raw = process.env.NEW_TESTS_PER_LEVEL

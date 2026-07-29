@@ -1,0 +1,222 @@
+{
+  "inputHash": "c279ad775a5513be4a7cb3b5b004c092ec7b3ac6082d642d45a4afe2abc34543",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-35:c279ad775a5513be4a7cb3b5b004c092ec7b3ac6082d642d45a4afe2abc34543",
+  "test": {
+    "id": "c1-test-35",
+    "level": "c1",
+    "testNumber": 35,
+    "title": "CAE C1 AI Practice Test 35",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-35.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c1-test-35-1785313912860",
+      "generatedAt": 1785313944127,
+      "contentHash": "833e76fea6467ba6e67735dd99f1a2515d76ba2fecc5aa9d72069823e4295cc7",
+      "promptHash": "c279ad775a5513be4a7cb3b5b004c092ec7b3ac6082d642d45a4afe2abc34543",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-35:c279ad775a5513be4a7cb3b5b004c092ec7b3ac6082d642d45a4afe2abc34543",
+      "inputHash": "c279ad775a5513be4a7cb3b5b004c092ec7b3ac6082d642d45a4afe2abc34543",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c1-test-35-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Essay: Community garden priorities",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-35-task-01-block-01",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Priorities for the civic food-growing initiative",
+            "listItems": [
+              "providing free starter kits to all residents",
+              "offering training workshops on sustainable gardening",
+              "setting up a shared tool library"
+            ]
+          },
+          {
+            "id": "c1-test-35-task-01-block-02",
+            "type": "panel",
+            "variant": "opinions",
+            "paragraphs": [
+              "Free starter kits will get everyone involved quickly, but people may not use them responsibly.",
+              "Training workshops are essential if we want the gardens to be sustainable in the long run.",
+              "A tool library makes it easy for people to try gardening without a big investment."
+            ]
+          },
+          {
+            "id": "c1-test-35-task-01-block-03",
+            "type": "paragraph",
+            "text": "Your class has listened to a radio discussion about a civic food-growing initiative that is being planned in your area. The organisers have to decide how to balance access and convenience with long-term responsibility."
+          },
+          {
+            "id": "c1-test-35-task-01-block-04",
+            "type": "final-instruction",
+            "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for the success of the initiative, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+          }
+        ],
+        "presentation": {
+          "template": "essay-notes-opinions"
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c1-test-35-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Proposal: Sustainable gardening workshops",
+        "genre": "proposal",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptText": "The organisers of the civic food-growing initiative have received funding to run a series of sustainable gardening workshops. They want to ensure the workshops are effective and reach a wide audience. As a volunteer coordinator, you have been asked to write a proposal for the initiative's steering committee.\n\nIn your proposal, you should:\n• recommend the content and format of the workshops\n• suggest how to attract participants from different age groups and backgrounds\n• explain how the workshops will contribute to the long-term sustainability of the initiative\n\nWrite your proposal.",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-35-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Email: Garden plot allocation concerns",
+        "genre": "email",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptText": "You are a member of the steering committee for the civic food-growing initiative. You have received an email from a local residents' association expressing concern that the proposed system for allocating garden plots is unfair and will favour people who live closest to the site.\n\nWrite an email to the chair of the residents' association. In your email, you should:\n• acknowledge the concern and explain the reasoning behind the current allocation proposal\n• suggest a modification to make the system fairer\n• propose a meeting to discuss the issue further\n\nWrite your email.",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-35-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Review: Community garden",
+        "genre": "review",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptText": "Reviews wanted: Community gardens\n\nHave you visited a community garden recently? We want to hear about your experience. Write a review for our local lifestyle magazine.\n\nDescribe the garden and what it offers, evaluate how well it balances access for visitors with long-term maintenance, and recommend whether other neighbourhoods should start similar projects.\n\nThe best reviews will be published in next month's issue.\n\nWrite your review.",
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "c1-test-35",
+    "overallOriginalityCheck": "PASS",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "civic food-growing initiative planning brief 29: essay brief 1-1",
+        "audience": "English teacher",
+        "purpose": "evaluate and justify priorities",
+        "requiredContentPoints": [
+          "the main community gardens issue",
+          "one practical consequence",
+          "a justified recommendation 1"
+        ],
+        "lexicalAnchors": [
+          "community gardens",
+          "a civic food-growing initiative planning brief 29",
+          "c1 writing brief"
+        ],
+        "originalitySelfCheck": "Scenario is unique; notes and opinions are original and not reused from any previous test. Forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "civic food-growing initiative planning brief 29: proposal brief 2-5",
+        "audience": "specialist magazine readers",
+        "purpose": "assess effectiveness and recommend",
+        "requiredContentPoints": [
+          "the main community gardens issue",
+          "one practical consequence",
+          "a justified recommendation 2"
+        ],
+        "lexicalAnchors": [
+          "community gardens",
+          "a civic food-growing initiative planning brief 29",
+          "c1 writing brief"
+        ],
+        "originalitySelfCheck": "Proposal for workshops with specific content, format, and outreach; not a generic proposal frame. Forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "civic food-growing initiative planning brief 29: email brief 3-9",
+        "audience": "programme coordinator",
+        "purpose": "analyse implications and propose action",
+        "requiredContentPoints": [
+          "the main community gardens issue",
+          "one practical consequence",
+          "a justified recommendation 3"
+        ],
+        "lexicalAnchors": [
+          "community gardens",
+          "a civic food-growing initiative planning brief 29",
+          "c1 writing brief"
+        ],
+        "originalitySelfCheck": "Email addresses a specific allocation concern; not a generic complaint or request. Forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 4,
+        "scenario": "civic food-growing initiative planning brief 29: review brief 4-13",
+        "audience": "English-speaking contact",
+        "purpose": "explain a position and request arrangements",
+        "requiredContentPoints": [
+          "the main community gardens issue",
+          "one practical consequence",
+          "a justified recommendation 4"
+        ],
+        "lexicalAnchors": [
+          "community gardens",
+          "a civic food-growing initiative planning brief 29",
+          "c1 writing brief"
+        ],
+        "originalitySelfCheck": "Review of a community garden; not a generic 'book review' or 'event review'. Forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ]
+  },
+  "cachedAt": 1785313944171
+}

@@ -20,7 +20,11 @@ Your writing tasks must be:
 All prompts must be written in English.
 Return valid JSON only.
 Do not use Markdown.
-Do not add commentary outside JSON.`
+Do not add commentary outside JSON.
+
+Think first as an examiner: check answerability, audience clarity, genre authenticity, level-appropriate cognitive demand and cultural fairness.
+Think second as an item writer: make the situation concrete, keep content points distinct, and leave room for both weaker and stronger valid responses.
+Think third as an originality reviewer: reject noun swaps, reused scenario skeletons, repeated audience-purpose pairs, repeated openings, repeated announcement structures and generic filler; redesign before returning JSON.`
 
 export const VERIFIER_SYSTEM_PROMPT = `You are acting as an independent senior Cambridge English Writing examiner and practice-materials quality reviewer.
 
@@ -171,5 +175,5 @@ function levelRules(level) {
   if (level === 'b1') return `Exactly 3 tasks. Task 1 email has paragraph + email + notes panel + final instruction; notes panel has exactly four meaningful notes, including a reason and a preference/choice. Task 2 is an announcement article with at least two direct questions and ends "Write your article." Task 3 supplies one exact non-cliche opening sentence and ends "Write your story." All limits are exactly about 100 words.`
   if (level === 'b2') return `Exactly 4 tasks. Essay notes panel has exactly two supplied notes plus "......................... (your own idea)" and requires all notes. Review and article use announcement panels. Email uses an email block. Part 2 topics differ from each other and the essay. Q2-Q4 use selectionRequired=1. Limits are 140-190.`
   if (level === 'c1') return `Exactly 4 tasks. Essay promptBlocks MUST contain one panel with variant="notes" and exactly three listItems, plus a separate panel with variant="opinions" and exactly three paragraphs. It asks candidates to discuss two notes and decide which is more important/effective/beneficial, and includes an own-words reminder. Proposal has institutional audience, recommendations and benefits/implementation. Email has at least three communicative functions. Review requires description, evaluation and recommendation/comparison. Limits are 220-260; Q2-Q4 selectionRequired=1.`
-  return `Exactly 4 tasks. Essay has exactly two original source-text blocks. Write 190-210 words in EACH source-text text according to your internal count, with meaningfully different angles, no statistics or named researchers. Do not summarize early: develop each argument across at least eight substantial sentences. The task requires summary, evaluation, own ideas and own words; limit 240-280. Review, report and article limits are 280-320 and require mature evaluation. Q2-Q4 selectionRequired=1.`
+  return `Exactly 4 tasks. Essay has exactly two original source-text blocks. Write 110-160 words in EACH source-text text, with meaningfully different angles, no statistics or named researchers. The task requires summary, evaluation, own ideas and own words; limit 240-280. Review, report and article limits are 280-320 and require mature evaluation. Q2-Q4 selectionRequired=1.`
 }

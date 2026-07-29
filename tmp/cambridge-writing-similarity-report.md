@@ -1,5 +1,5 @@
 # Cambridge Writing Similarity Report
 
-- Comparisons reported: 0
-- Warnings: 0
-- Hard failures: 0
+- Comparisons reported: 867
+- Warnings: 779
+- Hard failures: 158

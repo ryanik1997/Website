@@ -1,0 +1,181 @@
+{
+  "id": "b2-test-16",
+  "level": "b2",
+  "testNumber": 16,
+  "title": "FCE B2 AI Practice Test 16",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-16.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b2-test-16-1785310415737",
+    "generatedAt": 1785310451675,
+    "contentHash": "1dd917287ef5e1ad486185d01727efcb1187b3a45b53413e395362181b096dc6",
+    "promptHash": "39def5724797de4e851ad3f946c4d4bd320344217d36e249081d226c24052941",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-16:39def5724797de4e851ad3f946c4d4bd320344217d36e249081d226c24052941",
+    "inputHash": "39def5724797de4e851ad3f946c4d4bd320344217d36e249081d226c24052941",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b2-test-16-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Urban Wildlife Essay",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-16-task-01-p1",
+          "type": "paragraph",
+          "text": "In your English class you have been discussing how to manage urban wildlife in towns and cities. Now your English teacher has asked you to write an essay."
+        },
+        {
+          "id": "b2-test-16-task-01-p2",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "listItems": [
+            "1. preventing damage to property",
+            "2. protecting animal welfare",
+            "3. (your own idea)"
+          ]
+        },
+        {
+          "id": "b2-test-16-task-01-p3",
+          "type": "final-instruction",
+          "text": "Write an essay using all the notes and giving reasons for your point of view."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes"
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b2-test-16-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Urban Wildlife Workshop Review",
+      "genre": "review",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-16-task-02-p1",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted!",
+          "paragraphs": [
+            "Have you attended a workshop about urban wildlife in your area? Write a review of the workshop for a specialist magazine.",
+            "Describe what the workshop covered and how it was organised. Explain whether it changed how you think about urban wildlife. Would you recommend it to other residents?"
+          ],
+          "footer": "The best reviews will be published in next month's issue."
+        },
+        {
+          "id": "b2-test-16-task-02-p2",
+          "type": "final-instruction",
+          "text": "Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-16-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Urban Wildlife Article",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-16-task-03-p1",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted!",
+          "paragraphs": [
+            "Our programme coordinator wants to hear from young people about urban wildlife in our town.",
+            "Write an article for the community website. Describe one problem that urban wildlife causes in your neighbourhood. Suggest a practical way that residents could help solve it. Explain why your idea would benefit both people and animals."
+          ],
+          "footer": "We will publish the best articles on our website."
+        },
+        {
+          "id": "b2-test-16-task-03-p2",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-16-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Urban Wildlife Email",
+      "genre": "email",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-16-task-04-p1",
+          "type": "email",
+          "from": "Chris",
+          "subject": "Urban wildlife project",
+          "paragraphs": [
+            "Hi,",
+            "I heard that your neighbourhood is starting a project to manage urban wildlife. I'm thinking of starting something similar here. Could you tell me what the main issue is in your area? What practical steps have you taken? And how can I get my neighbours interested?",
+            "Thanks a lot!",
+            "Chris"
+          ]
+        },
+        {
+          "id": "b2-test-16-task-04-p2",
+          "type": "final-instruction",
+          "text": "Write your email."
+        }
+      ],
+      "presentation": {
+        "template": "email",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

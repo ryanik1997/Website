@@ -1,0 +1,226 @@
+{
+  "inputHash": "9b8db1c47974cfefe00de129b3bffb24a21ae31ae7c91c2a28126066340a68e2",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-27:9b8db1c47974cfefe00de129b3bffb24a21ae31ae7c91c2a28126066340a68e2",
+  "test": {
+    "id": "c1-test-27",
+    "level": "c1",
+    "testNumber": 27,
+    "title": "CAE C1 AI Practice Test 27",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-27.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c1-test-27-1785313155898",
+      "generatedAt": 1785313186607,
+      "contentHash": "0df6b6e19ab107d05806111445633f9d07595bb122e6e063a638755252e81c83",
+      "promptHash": "9b8db1c47974cfefe00de129b3bffb24a21ae31ae7c91c2a28126066340a68e2",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-27:9b8db1c47974cfefe00de129b3bffb24a21ae31ae7c91c2a28126066340a68e2",
+      "inputHash": "9b8db1c47974cfefe00de129b3bffb24a21ae31ae7c91c2a28126066340a68e2",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c1-test-27-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Student housing strategy: priorities",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-27-task-01-panel-notes",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Priorities for a student housing strategy",
+            "listItems": [
+              "building more on-campus accommodation",
+              "improving the quality of private rented housing",
+              "providing financial support for off-campus rent"
+            ]
+          },
+          {
+            "id": "c1-test-27-task-01-panel-opinions",
+            "type": "panel",
+            "variant": "opinions",
+            "paragraphs": [
+              "On-campus accommodation creates a strong sense of community and is convenient for lectures, but it is expensive to build and can only house a fraction of students.",
+              "Most students live in private rented housing, so raising standards there would benefit the majority directly. However, enforcement is weak and landlords often resist improvements.",
+              "Rent subsidies would help the students who need it most, but they do nothing to increase the supply of housing and may simply push rents higher."
+            ]
+          },
+          {
+            "id": "c1-test-27-task-01-final",
+            "type": "final-instruction",
+            "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for a student housing strategy, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+          }
+        ],
+        "presentation": {
+          "template": "essay-notes-opinions"
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c1-test-27-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Proposal for a student housing advice service",
+        "genre": "proposal",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptText": "Your college is considering setting up a student housing advice service to help students find and maintain suitable accommodation. The college principal has invited proposals for how this service should operate.\n\nWrite a proposal for the college principal. In your proposal, you should:\n\n• recommend what services the advice service should offer\n• explain how it could reach students who are most in need of support\n• suggest how the college could evaluate the effectiveness of the service\n\nWrite your proposal.",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-27-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Email to programme coordinator about housing strategy",
+        "genre": "email",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptText": "You are a student representative on the college's housing strategy committee. The programme coordinator has emailed you about a proposal to reduce the number of rooms reserved for first-year students in on-campus halls, in order to free up space for international students. Some committee members are concerned this will make the transition to college harder for new local students.\n\nWrite an email to the programme coordinator. In your email, you should:\n\n• explain your position on the proposed change\n• analyse one potential implication for first-year students if the change goes ahead\n• propose an action the committee could take to address concerns while still supporting international students\n\nWrite your email.",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-27-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Review of a student accommodation scheme",
+        "genre": "review",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-27-task-04-announcement",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Reviews wanted: Student accommodation schemes",
+            "paragraphs": [
+              "Have you lived in a student accommodation scheme run by your college or a private provider? We want to hear about your experience.",
+              "Write a review for our student advice website. Describe the accommodation and what it offered. Evaluate how well it balanced affordability with quality of life. Would you recommend this type of scheme to other students? Why or why not?",
+              "The best reviews will be published on our website."
+            ]
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "c1-test-27",
+    "overallOriginalityCheck": "PASS",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "Student housing strategy planning brief 21: essay brief 1-1",
+        "audience": "English teacher",
+        "purpose": "evaluate and justify priorities",
+        "requiredContentPoints": [
+          "the main student accommodation issue",
+          "one practical consequence",
+          "a justified recommendation 1"
+        ],
+        "lexicalAnchors": [
+          "student accommodation",
+          "a student housing strategy planning brief 21",
+          "c1 writing brief"
+        ],
+        "originalitySelfCheck": "Essay uses notes and opinions about on-campus vs private vs subsidies; no overlap with previous C1 essay topics (facilities, academic support, transition-to-work, civic participation, event sustainability, hybrid communication, exchange funding, transport spending, library access, food-growing, festival priorities, sports funding, digital tools, internship compact, healthy cooking, biodiversity, museum access, language access, volunteer services, public parks). Forbidden concepts avoided. PASS."
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "Student housing strategy planning brief 21: proposal brief 2-5",
+        "audience": "specialist magazine readers",
+        "purpose": "assess effectiveness and recommend",
+        "requiredContentPoints": [
+          "the main student accommodation issue",
+          "one practical consequence",
+          "a justified recommendation 2"
+        ],
+        "lexicalAnchors": [
+          "student accommodation",
+          "a student housing strategy planning brief 21",
+          "c1 writing brief"
+        ],
+        "originalitySelfCheck": "Proposal for a housing advice service; not similar to previous proposals (study support hub, employer partnership, youth civic forum, sustainable events framework, communication charter, exchange evaluation, transport initiative, library outreach, gardening workshops, festival sustainability, sports retention, AI guidelines, internship compact, healthy cooking, wildlife corridor, museum transparency, language programme, volunteer partnership, park volunteer scheme, business fund, recycling incentive, tourism accreditation, creative skills, privacy campaign, workforce transition). Forbidden concepts avoided. PASS."
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "Student housing strategy planning brief 21: email brief 3-9",
+        "audience": "programme coordinator",
+        "purpose": "analyse implications and propose action",
+        "requiredContentPoints": [
+          "the main student accommodation issue",
+          "one practical consequence",
+          "a justified recommendation 3"
+        ],
+        "lexicalAnchors": [
+          "student accommodation",
+          "a student housing strategy planning brief 21",
+          "c1 writing brief"
+        ],
+        "originalitySelfCheck": "Email about reducing first-year reserved rooms; not similar to previous emails (education coordinator visit, HR director concern, community organisation criticism, supplier negotiation, quality auditor, partner university capacity, congestion charge, residents' association, headteacher access, language programme drawback, training requirement, park events ban, entrepreneur rejection, sustainable tourism charter, creative skills free materials, digital skills focus, feeding birds policy, museum admission, language learning trade-offs, volunteer obligation, park entry fee, recycling convenience, travel asymmetry, creative accountability, privacy sacrifice, skills uncertainty). Forbidden concepts avoided. PASS."
+      },
+      {
+        "taskNumber": 4,
+        "scenario": "Student housing strategy planning brief 21: review brief 4-13",
+        "audience": "English-speaking contact",
+        "purpose": "explain a position and request arrangements",
+        "requiredContentPoints": [
+          "the main student accommodation issue",
+          "one practical consequence",
+          "a justified recommendation 4"
+        ],
+        "lexicalAnchors": [
+          "student accommodation",
+          "a student housing strategy planning brief 21",
+          "c1 writing brief"
+        ],
+        "originalitySelfCheck": "Review of a student accommodation scheme; not similar to previous reviews (academic support, festival workshop, library makerspace, hybrid policy, exchange programme, transport scheme, community garden, sports open day, digital tool, part-time work, healthy cooking, wildlife corridor, museum digital access, language app, volunteer programme, park restoration, business networking, recycling app, sustainable tourism, creative workshop, privacy tool, retraining course, documentary, exhibition, language programme, volunteer programme, park design, recycling service, travel experience, creative workshop, privacy service, training programme). Forbidden concepts avoided. PASS."
+      }
+    ],
+    "forbiddenConceptCheck": "PASS"
+  },
+  "cachedAt": 1785313186617
+}

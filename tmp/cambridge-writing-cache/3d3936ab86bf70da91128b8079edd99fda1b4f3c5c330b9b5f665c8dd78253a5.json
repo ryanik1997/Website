@@ -1,0 +1,220 @@
+{
+  "inputHash": "226e8cd1733317daee26b3b58e34be61f168e016c52c4cce3eb401cdc98a2ebe",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-14:226e8cd1733317daee26b3b58e34be61f168e016c52c4cce3eb401cdc98a2ebe",
+  "test": {
+    "id": "b1-test-14",
+    "level": "b1",
+    "testNumber": 14,
+    "title": "PET B1 AI Practice Test 14",
+    "sourceFile": "packages/catalog/data/cambridge-writing/b1/b1-test-14.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "b1-test-14-1785310081405",
+      "generatedAt": 1785310119523,
+      "contentHash": "70274c49d8af9b9b0e7948914dc4ad59170d45a0c0d9b8fbb1d8f2d041e5fe46",
+      "promptHash": "226e8cd1733317daee26b3b58e34be61f168e016c52c4cce3eb401cdc98a2ebe",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-14:226e8cd1733317daee26b3b58e34be61f168e016c52c4cce3eb401cdc98a2ebe",
+      "inputHash": "226e8cd1733317daee26b3b58e34be61f168e016c52c4cce3eb401cdc98a2ebe",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "b1-test-14-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Weekend job at a bakery",
+        "genre": "email",
+        "instruction": "You must answer this question. Write your answer in about 100 words.",
+        "promptBlocks": [
+          {
+            "id": "b1-test-14-task-01-email",
+            "type": "email",
+            "from": "Mrs. Hill",
+            "subject": "Weekend job at a bakery",
+            "paragraphs": [
+              "Hi,",
+              "As you know, you are going to start your first weekend job at a bakery next month. I need your help to plan a few things.",
+              "First, should we focus on learning how to use the bakery equipment or on practicing customer service? Which do you think is more important for your first weekend?",
+              "Also, we need to choose one thing for you to learn before you start. Would you prefer to learn how to take orders or how to handle money?",
+              "Finally, can you suggest one way to make sure you are not too tired after working on Saturday and Sunday?",
+              "Let me know your ideas!",
+              "Best wishes,",
+              "Mrs. Hill"
+            ]
+          },
+          {
+            "id": "b1-test-14-task-01-notes",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Notes for your reply",
+            "listItems": [
+              "Say which focus you prefer (equipment or customer service) and explain why.",
+              "Choose a skill to learn (taking orders or handling money) and give a reason.",
+              "Suggest one way to avoid feeling too tired after the weekend.",
+              "Ask Mrs. Hill about the uniform or what to wear."
+            ]
+          },
+          {
+            "id": "b1-test-14-task-01-final",
+            "type": "final-instruction",
+            "text": "Write your email to Mrs. Hill using all the notes."
+          }
+        ],
+        "presentation": {
+          "template": "email"
+        },
+        "wordLimit": {
+          "min": 100,
+          "max": 100,
+          "displayText": "about 100 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "b1-test-14-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "First weekend job advice",
+        "genre": "article",
+        "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+        "promptBlocks": [
+          {
+            "id": "b1-test-14-task-02-announcement",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Articles wanted!",
+            "paragraphs": [
+              "What is the best advice for someone starting their first weekend job at a bakery?",
+              "What should they learn first? How can they enjoy the job and do well?",
+              "Write an article answering these questions and we will put it on our website!"
+            ]
+          },
+          {
+            "id": "b1-test-14-task-02-final",
+            "type": "final-instruction",
+            "text": "Write your article."
+          }
+        ],
+        "presentation": {
+          "template": "announcement"
+        },
+        "wordLimit": {
+          "min": 100,
+          "max": 100,
+          "displayText": "about 100 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b1-test-14-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "A surprise at the bakery",
+        "genre": "story",
+        "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+        "promptBlocks": [
+          {
+            "id": "b1-test-14-task-03-opening",
+            "type": "paragraph",
+            "text": "Your English teacher has asked you to write a story."
+          },
+          {
+            "id": "b1-test-14-task-03-sentence",
+            "type": "paragraph",
+            "text": "Your story must begin with this sentence:"
+          },
+          {
+            "id": "b1-test-14-task-03-opening-sentence",
+            "type": "paragraph",
+            "text": "\"When the programme coordinator handed me the bakery apron, I noticed a small note pinned to it.\""
+          },
+          {
+            "id": "b1-test-14-task-03-final",
+            "type": "final-instruction",
+            "text": "Write your story."
+          }
+        ],
+        "presentation": {
+          "template": "plain"
+        },
+        "wordLimit": {
+          "min": 100,
+          "max": 100,
+          "displayText": "about 100 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "task1": {
+      "scenario": "a first weekend job at a bakery planning brief 8: email brief 1-1",
+      "audience": "English teacher (Mrs. Hill)",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "the main part-time work issue (focus on equipment vs customer service)",
+        "one practical consequence (choosing a skill to learn before starting)",
+        "a justified recommendation 1 (preferred focus with reason)"
+      ],
+      "lexicalAnchors": [
+        "part-time work",
+        "first weekend job at a bakery",
+        "bakery equipment",
+        "customer service",
+        "taking orders",
+        "handling money"
+      ],
+      "originalitySelfCheck": "Scenario is unique: first weekend job at a bakery. Email from teacher about planning. Notes require choice between equipment/customer service, skill to learn, suggestion for avoiding tiredness, and question about uniform. No overlap with previous tests.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    "task2": {
+      "scenario": "a first weekend job at a bakery planning brief 8: article brief 2-5",
+      "audience": "specialist magazine readers (website for young workers)",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "the main part-time work issue (advice for starting a weekend job at a bakery)",
+        "one practical consequence (what to learn first)",
+        "a justified recommendation 2 (how to enjoy and do well)"
+      ],
+      "lexicalAnchors": [
+        "part-time work",
+        "first weekend job at a bakery",
+        "advice",
+        "learn first",
+        "enjoy the job"
+      ],
+      "originalitySelfCheck": "Article prompt asks for advice on starting a weekend bakery job. Questions: what to learn first, how to enjoy and do well. No overlap with previous article prompts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    "task3": {
+      "scenario": "a first weekend job at a bakery planning brief 8: story brief 3-9",
+      "audience": "programme coordinator (English teacher)",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "the main part-time work issue (starting a weekend job at a bakery)",
+        "one practical consequence (finding a note on the apron)",
+        "a justified recommendation 3 (story resolution involving the note)"
+      ],
+      "lexicalAnchors": [
+        "part-time work",
+        "first weekend job at a bakery",
+        "apron",
+        "note"
+      ],
+      "originalitySelfCheck": "Story opening: 'When the programme coordinator handed me the bakery apron, I noticed a small note pinned to it.' Unique scenario: bakery job, apron with note. No resemblance to previous story openings.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  },
+  "cachedAt": 1785310119537
+}

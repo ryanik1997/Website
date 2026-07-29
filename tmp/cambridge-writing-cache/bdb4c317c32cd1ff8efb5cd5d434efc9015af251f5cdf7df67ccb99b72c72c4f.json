@@ -1,0 +1,241 @@
+{
+  "inputHash": "cd5b46b5c5fdc64af98cd3e43ce3c623b51e55542cdba979a153e882a2228209",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-17:cd5b46b5c5fdc64af98cd3e43ce3c623b51e55542cdba979a153e882a2228209",
+  "test": {
+    "id": "c1-test-17",
+    "level": "c1",
+    "testNumber": 17,
+    "title": "CAE C1 AI Practice Test 17",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-17.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c1-test-17-1785311464020",
+      "generatedAt": 1785311530141,
+      "contentHash": "aca60eaf0d80552979be6a41590c439df4763271113ab7c6fec94ebc655efee3",
+      "promptHash": "cd5b46b5c5fdc64af98cd3e43ce3c623b51e55542cdba979a153e882a2228209",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-17:cd5b46b5c5fdc64af98cd3e43ce3c623b51e55542cdba979a153e882a2228209",
+      "inputHash": "cd5b46b5c5fdc64af98cd3e43ce3c623b51e55542cdba979a153e882a2228209",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c1-test-17-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Museum access priorities",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-17-task-01-block-01",
+            "type": "paragraph",
+            "text": "Your class has listened to a radio discussion about how museums should balance free access with long-term financial responsibility. You have made the notes below."
+          },
+          {
+            "id": "c1-test-17-task-01-block-02",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Priorities for museum access",
+            "listItems": [
+              "eliminating entry fees for all visitors",
+              "investing in educational outreach programmes",
+              "improving digital access to collections"
+            ]
+          },
+          {
+            "id": "c1-test-17-task-01-block-03",
+            "type": "panel",
+            "variant": "opinions",
+            "paragraphs": [
+              "Free entry is the most direct way to make museums accessible to everyone, regardless of income. It removes the financial barrier that keeps many people away.",
+              "Educational outreach programmes build long-term audiences and ensure that museums serve their communities, not just tourists. Without them, free entry alone won't create engagement.",
+              "Digital access allows people who cannot visit in person to experience collections. In an age of remote work and study, this is an essential investment."
+            ]
+          },
+          {
+            "id": "c1-test-17-task-01-block-04",
+            "type": "final-instruction",
+            "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for museums to invest in, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+          }
+        ],
+        "presentation": {
+          "template": "essay-notes-opinions"
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c1-test-17-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Proposal for museum governance review",
+        "genre": "proposal",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptText": "The board of trustees of a regional museum is conducting a governance review and has invited proposals from staff on how to improve accountability and public trust. You work at the museum. Write a proposal for the board of trustees. In your proposal, you should:\n\n• recommend two specific measures to increase transparency in decision-making\n• explain how these measures would benefit both the museum and its visitors\n• suggest how the board could evaluate the success of the proposed changes",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-17-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Email about museum access programme",
+        "genre": "email",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptText": "You are the programme coordinator for a city museum's community access initiative. A local school headteacher has emailed you expressing concern that the museum's free-entry scheme is not reaching families from disadvantaged backgrounds. Write an email to the headteacher. In your email, you should:\n\n• acknowledge the concern and explain the current outreach strategy\n• analyse one practical barrier that may be limiting the scheme's impact\n• propose a specific action the museum could take to improve access for the school's families",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-17-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Review of a museum's digital access initiative",
+        "genre": "review",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-17-task-04-block-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Reviews wanted: Museum digital access initiatives",
+            "paragraphs": [
+              "Have you used a museum's online collection, virtual tour or digital learning resource? We want to hear about your experience.",
+              "Write a review for our specialist magazine. Describe the digital initiative and what it offers. Evaluate how well it balances convenience for remote users with the quality of the experience. Would you recommend this approach to other museums? Why or why not?",
+              "The best reviews will be published in our next issue."
+            ]
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "c1-test-17",
+    "level": "c1",
+    "topicFamily": "museum access",
+    "specificSetting": "a museum governance review planning brief 11",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "Essay: evaluating priorities for museum access (free entry, outreach, digital) based on radio discussion notes and opinions.",
+        "audience": "English teacher (tutor)",
+        "purpose": "evaluate and justify priorities",
+        "requiredContentPoints": [
+          "eliminating entry fees for all visitors",
+          "investing in educational outreach programmes",
+          "improving digital access to collections"
+        ],
+        "lexicalAnchors": [
+          "museum access",
+          "free entry",
+          "educational outreach",
+          "digital access"
+        ],
+        "originalitySelfCheck": "Scenario is unique: museum governance review, not generic facilities funding. Notes and opinions are original. No overlap with c1-test-01 (which was about local authority funding for museums vs sports centres vs parks). This essay is about museum access priorities specifically, with different content points.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "Proposal to museum board of trustees on improving transparency and accountability as part of a governance review.",
+        "audience": "board of trustees",
+        "purpose": "assess effectiveness and recommend",
+        "requiredContentPoints": [
+          "two specific measures to increase transparency",
+          "benefits for museum and visitors",
+          "evaluation of success"
+        ],
+        "lexicalAnchors": [
+          "museum governance",
+          "transparency",
+          "accountability",
+          "public trust"
+        ],
+        "originalitySelfCheck": "Proposal genre with institutional audience (board of trustees). Content points are distinct from previous proposals (e.g., c1-test-01 proposal was about student events with local community). This proposal is about governance and transparency, not events or programmes.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "Email from museum programme coordinator to school headteacher addressing concerns about free-entry scheme not reaching disadvantaged families.",
+        "audience": "school headteacher",
+        "purpose": "analyse implications and propose action",
+        "requiredContentPoints": [
+          "acknowledge concern and explain current outreach strategy",
+          "analyse one practical barrier",
+          "propose specific action to improve access"
+        ],
+        "lexicalAnchors": [
+          "museum access",
+          "free-entry scheme",
+          "disadvantaged backgrounds",
+          "outreach strategy"
+        ],
+        "originalitySelfCheck": "Email genre with specific professional role (programme coordinator) and audience (headteacher). Content points are about access barriers and outreach, not about course complaints or exchange visits. No overlap with previous emails.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 4,
+        "scenario": "Review of a museum's digital access initiative (online collection, virtual tour, digital learning resource) for a specialist magazine.",
+        "audience": "specialist magazine readers",
+        "purpose": "explain a position and request arrangements",
+        "requiredContentPoints": [
+          "description of digital initiative",
+          "evaluation of convenience vs quality",
+          "recommendation to other museums"
+        ],
+        "lexicalAnchors": [
+          "museum digital access",
+          "online collection",
+          "virtual tour",
+          "digital learning resource"
+        ],
+        "originalitySelfCheck": "Review genre about museum digital access, not about books, films, workshops, or events. Announcement format is unique. Content points focus on digital experience and balance of convenience/quality. No overlap with previous reviews.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ],
+    "overallOriginalityCheck": "All tasks are based on the unique scenario of a museum governance review, with specific content points not used in any previous test. No forbidden concepts (e.g., peer learning, workplace visits, community gardens, etc.) appear. The essay uses notes and opinions panels as required. The proposal, email, and review have distinct audiences and purposes. No generic phrases or recycled frames from avoided fingerprints."
+  },
+  "cachedAt": 1785311530150
+}

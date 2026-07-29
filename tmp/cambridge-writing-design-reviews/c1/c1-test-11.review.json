@@ -1,0 +1,100 @@
+{
+  "testId": "c1-test-11",
+  "level": "c1",
+  "topicFamily": "local festivals",
+  "specificSetting": "a city cultural programme planning brief 5",
+  "centralTension": "access and convenience versus long-term responsibility in local festivals",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "genre": "essay",
+      "scenario": "A city cultural programme planning brief aims to make local festivals more accessible while ensuring long-term responsibility. Candidates discuss two priorities from notes (reducing entry fees, free public transport, sustainable infrastructure) and decide which is more important.",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "reducing entry fees",
+        "free public transport",
+        "sustainable infrastructure"
+      ],
+      "lexicalAnchors": [
+        "local festivals",
+        "access",
+        "long-term responsibility",
+        "entry fees",
+        "public transport",
+        "sustainable infrastructure"
+      ],
+      "originalitySelfCheck": "Scenario is unique: city cultural programme planning brief. Notes and opinions are original and specific. No overlap with previous tests.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "genre": "proposal",
+      "scenario": "As a consultant hired by the city council, write a proposal for the programme coordinator recommending two practical measures to reduce waste and energy use at festivals, explaining implementation without discouraging attendance, and outlining long-term benefits.",
+      "audience": "programme coordinator (specialist magazine readers)",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "two practical measures to reduce waste and energy",
+        "implementation without discouraging attendance",
+        "long-term benefits for community and environment"
+      ],
+      "lexicalAnchors": [
+        "festival sustainability",
+        "waste reduction",
+        "energy use",
+        "attendance",
+        "long-term benefits"
+      ],
+      "originalitySelfCheck": "Proposal is for a city council consultant role, not a student or volunteer. Measures are specific to festivals. No overlap with previous proposals.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "genre": "email",
+      "scenario": "As a member of the planning team, email the programme coordinator acknowledging residents' concerns about overcrowding due to accessibility measures, analysing implications, and proposing crowd management actions.",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "acknowledge residents' concerns",
+        "analyse implications of overcrowding",
+        "propose crowd management actions"
+      ],
+      "lexicalAnchors": [
+        "overcrowding",
+        "accessibility",
+        "crowd management",
+        "public spaces",
+        "festival experience"
+      ],
+      "originalitySelfCheck": "Email is from a planning team member to coordinator, not a complaint or request. Content points are about managing crowd levels, not supplier or resource issues. No overlap.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "genre": "review",
+      "scenario": "Write a review of a local festival for a lifestyle website, describing the festival, evaluating how well it balanced accessibility with management and sustainability, and recommending it or not.",
+      "audience": "English-speaking contact (website readers)",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "description of festival",
+        "evaluation of accessibility vs management/sustainability",
+        "recommendation with reasons"
+      ],
+      "lexicalAnchors": [
+        "local festival",
+        "accessibility",
+        "management",
+        "sustainability",
+        "recommendation"
+      ],
+      "originalitySelfCheck": "Review is for a local festival, not a workshop, event, or facility. The evaluation criterion is unique: balancing accessibility with management and sustainability. Announcement format is original. No overlap.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are built around the specific setting of a city cultural programme planning brief for local festivals. No scenario, audience, content point set, or lexical anchor matches any previous test. Forbidden concepts (e.g., community gardens, low-waste events, digital communication workshops) are avoided. The central tension of access vs long-term responsibility is consistently applied across tasks.",
+  "forbiddenConceptCheck": "PASS",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "6e2b83d41eb247e299f7b95760c639be81fe5ddbbe45a75575cc398488fdfb69"
+  }
+}

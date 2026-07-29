@@ -1,0 +1,13 @@
+{
+  "batchId": "c2-test-10-1785307294586",
+  "generatedAt": 1785307378446,
+  "requested": 1,
+  "results": [
+    {
+      "testId": "c2-test-10",
+      "status": "failed",
+      "error": "c2-test-10: deterministic originality gate failed: skeleton_similarity, skeleton_similarity, skeleton_similarity"
+    }
+  ],
+  "failed": 1
+}

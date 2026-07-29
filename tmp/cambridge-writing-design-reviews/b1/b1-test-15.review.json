@@ -1,0 +1,69 @@
+{
+  "overallOriginalityCheck": "PASS",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Family cooking challenge planning – email to teacher",
+      "audience": "English teacher (Mrs. Hill)",
+      "purpose": "Evaluate and justify priorities for the challenge",
+      "requiredContentPoints": [
+        "preferred focus (fresh vegetables or less sugar) with reason",
+        "one practical problem and solution",
+        "one way to encourage long-term healthy cooking",
+        "question about the date"
+      ],
+      "lexicalAnchors": [
+        "healthy cooking",
+        "family cooking challenge",
+        "fresh vegetables",
+        "less sugar",
+        "practical problem",
+        "long-term"
+      ],
+      "originalitySelfCheck": "Scenario is unique: family cooking challenge planning. Email structure with notes panel is standard PET task 1. Content points are distinct from previous tests. No forbidden concepts used.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Article for specialist magazine about the cooking challenge",
+      "audience": "Specialist magazine readers",
+      "purpose": "Assess effectiveness and recommend the challenge",
+      "requiredContentPoints": [
+        "most important thing families should learn about healthy cooking",
+        "how the challenge helps in the long term",
+        "recommendation with reason"
+      ],
+      "lexicalAnchors": [
+        "healthy cooking",
+        "family cooking challenge",
+        "long term",
+        "recommend"
+      ],
+      "originalitySelfCheck": "Article prompt uses announcement panel with three direct questions. No recycled wording from previous article tasks. Topic is healthy cooking, not generic 'learning' or 'films'. Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Story beginning with the coordinator's announcement about the cooking challenge",
+      "audience": "English teacher",
+      "purpose": "Analyse implications and propose action through narrative",
+      "requiredContentPoints": [
+        "family reaction to the announcement",
+        "one practical consequence",
+        "a justified recommendation (implied through story resolution)"
+      ],
+      "lexicalAnchors": [
+        "programme coordinator",
+        "cooking challenge",
+        "family",
+        "nervously"
+      ],
+      "originalitySelfCheck": "Opening sentence is unique: mentions coordinator announcing cooking challenge and family nervous reaction. No similarity to any previous story opening. Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "45a1113bc9bffec42db2f292b3c91dec771a7e6368feaadafda7805cf02341c1"
+  }
+}

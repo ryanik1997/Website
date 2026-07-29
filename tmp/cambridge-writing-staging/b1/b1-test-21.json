@@ -1,0 +1,157 @@
+{
+  "id": "b1-test-21",
+  "level": "b1",
+  "testNumber": 21,
+  "title": "PET B1 AI Practice Test 21",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b1/b1-test-21.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b1-test-21-1785311223859",
+    "generatedAt": 1785311240121,
+    "contentHash": "57eaf17b2514daec380c29e45c7ea9a18ce2999168a3855bf45dd5c6752cf7ac",
+    "promptHash": "77888bd2231b2b3cbfc59031e496b1f655eec040b5f7f00a72caa8c814a5e306",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-21:77888bd2231b2b3cbfc59031e496b1f655eec040b5f7f00a72caa8c814a5e306",
+    "inputHash": "77888bd2231b2b3cbfc59031e496b1f655eec040b5f7f00a72caa8c814a5e306",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b1-test-21-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Email about choosing local suppliers",
+      "genre": "email",
+      "instruction": "You must answer this question. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-21-task-01-email",
+          "type": "email",
+          "from": "Mrs Hill",
+          "subject": "Choosing local suppliers for our shop",
+          "paragraphs": [
+            "Hi,",
+            "As you know, our school shop is planning to start buying from local suppliers instead of big companies. I need your help to decide on a few things.",
+            "First, should we choose local suppliers because the food is fresher, or because it helps small businesses in our area? Which reason do you think is more important?",
+            "Also, we need to choose one product to buy locally first. Would you prefer to start with fresh bread or seasonal vegetables?",
+            "Finally, can you suggest one way to tell customers that we now use local suppliers?",
+            "Let me know your ideas!",
+            "Best wishes,",
+            "Mrs Hill"
+          ]
+        },
+        {
+          "id": "b1-test-21-task-01-notes",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes for your reply",
+          "listItems": [
+            "Say which reason you prefer (fresher food OR helping small businesses) and explain why.",
+            "Choose a product to start with (bread OR vegetables) and give a reason.",
+            "Suggest one way to tell customers about the change.",
+            "Ask Mrs Hill about the delivery day for the local products."
+          ]
+        },
+        {
+          "id": "b1-test-21-task-01-final",
+          "type": "final-instruction",
+          "text": "Write your email to Mrs Hill using all the notes."
+        }
+      ],
+      "presentation": {
+        "template": "email"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b1-test-21-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Article about local suppliers",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-21-task-02-announcement",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted!",
+          "paragraphs": [
+            "Our town magazine wants to hear your opinion about shops choosing local suppliers.",
+            "Do you think it is a good idea for shops to buy from local farmers and producers?",
+            "What is the most important reason for a shop to choose local suppliers?",
+            "Write an article answering these questions and we will put it in the next magazine!"
+          ]
+        },
+        {
+          "id": "b1-test-21-task-02-final",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b1-test-21-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Story about a local supplier",
+      "genre": "story",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-21-task-03-opening",
+          "type": "paragraph",
+          "text": "Your English teacher has asked you to write a story."
+        },
+        {
+          "id": "b1-test-21-task-03-sentence",
+          "type": "paragraph",
+          "text": "Your story must begin with this sentence:"
+        },
+        {
+          "id": "b1-test-21-task-03-opening-sentence",
+          "type": "paragraph",
+          "text": "\"When the programme coordinator opened the box of vegetables from the local farm, a small envelope fell out.\""
+        },
+        {
+          "id": "b1-test-21-task-03-final",
+          "type": "final-instruction",
+          "text": "Write your story."
+        }
+      ],
+      "presentation": {
+        "template": "plain"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

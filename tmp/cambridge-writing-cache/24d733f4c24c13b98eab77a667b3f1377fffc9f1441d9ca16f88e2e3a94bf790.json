@@ -1,0 +1,283 @@
+{
+  "inputHash": "b74962bff3531b2d9e560f138ca4f6381302187dabfcecfb85f5da00e94ce0c5",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-16:b74962bff3531b2d9e560f138ca4f6381302187dabfcecfb85f5da00e94ce0c5",
+  "test": {
+    "id": "c1-test-16",
+    "level": "c1",
+    "testNumber": 16,
+    "title": "CAE C1 AI Practice Test 16",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-16.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c1-test-16-1785310553771",
+      "generatedAt": 1785310596549,
+      "contentHash": "6ff051b974a818cbe3ab8e25e916370f94a0863785b121e795c39cf00f35bef5",
+      "promptHash": "b74962bff3531b2d9e560f138ca4f6381302187dabfcecfb85f5da00e94ce0c5",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-16:b74962bff3531b2d9e560f138ca4f6381302187dabfcecfb85f5da00e94ce0c5",
+      "inputHash": "b74962bff3531b2d9e560f138ca4f6381302187dabfcecfb85f5da00e94ce0c5",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c1-test-16-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Biodiversity corridor priorities",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-16-task-01-block-01",
+            "type": "paragraph",
+            "text": "Your class has listened to a radio discussion about a biodiversity corridor project being planned in your region. The project aims to connect green spaces so that urban wildlife can move safely between them. You have made the notes below."
+          },
+          {
+            "id": "c1-test-16-task-01-block-02",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Priorities for the biodiversity corridor",
+            "listItems": [
+              "creating safe crossing points across busy roads",
+              "planting native vegetation along the corridor",
+              "involving local residents in monitoring wildlife"
+            ]
+          },
+          {
+            "id": "c1-test-16-task-01-block-03",
+            "type": "panel",
+            "variant": "opinions",
+            "heading": "Some opinions expressed in the discussion:",
+            "paragraphs": [
+              "If animals can't cross roads safely, the corridor is useless. Safe crossings are the most urgent priority.",
+              "Native plants provide food and shelter for wildlife. Without them, the corridor won't attract the species it's meant to protect.",
+              "If residents help monitor, they'll feel ownership and the corridor will be better looked after in the long term."
+            ]
+          },
+          {
+            "id": "c1-test-16-task-01-block-04",
+            "type": "final-instruction",
+            "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for the success of the biodiversity corridor, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+          }
+        ],
+        "presentation": {
+          "template": "essay-notes-opinions"
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c1-test-16-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Proposal for community engagement",
+        "genre": "proposal",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-16-task-02-block-01",
+            "type": "paragraph",
+            "text": "The regional wildlife trust is planning a biodiversity corridor and wants to ensure that local residents are actively involved in its creation and maintenance. The trust has invited proposals from community groups for how this engagement should be organised."
+          },
+          {
+            "id": "c1-test-16-task-02-block-02",
+            "type": "final-instruction",
+            "text": "Write a proposal for the wildlife trust. In your proposal, you should:\n\n• recommend two specific ways to involve residents in the corridor project\n• explain how these activities would benefit both the wildlife and the local community\n• suggest how the trust could measure the success of community engagement"
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-16-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Email to programme coordinator",
+        "genre": "email",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-16-task-03-block-01",
+            "type": "email",
+            "from": "Maya Johansson <m.johansson@greenlink.org>",
+            "subject": "Biodiversity corridor – concerns about access",
+            "paragraphs": [
+              "Dear Programme Coordinator,",
+              "I am writing on behalf of the GreenLink Residents' Association to express some concerns about the proposed biodiversity corridor. While we fully support the aim of protecting urban wildlife, we are worried that the planned route may restrict access to a popular walking path that many residents use daily.",
+              "I would appreciate your analysis of this potential implication. Could you also suggest what action the project organisers could take to address our concerns while still achieving the corridor's goals?",
+              "I look forward to your response.",
+              "Best regards,",
+              "Maya Johansson"
+            ]
+          },
+          {
+            "id": "c1-test-16-task-03-block-02",
+            "type": "final-instruction",
+            "text": "Write an email to Maya Johansson. In your email, you should:\n\n• acknowledge the concern and explain the reasoning behind the planned route\n• analyse one potential implication for residents if the route is changed\n• propose an action the project could take to address the concern while maintaining the corridor's effectiveness"
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-16-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Review of a wildlife corridor",
+        "genre": "review",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-16-task-04-block-01",
+            "type": "paragraph",
+            "text": "You see this announcement on an English-language nature website."
+          },
+          {
+            "id": "c1-test-16-task-04-block-02",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Reviews wanted: Urban wildlife corridors",
+            "paragraphs": [
+              "Have you visited an urban wildlife corridor – a green route designed to help animals move safely through a city? We want to hear about your experience.",
+              "Write a review for our website. Describe the corridor and what wildlife you observed. Evaluate how well it balanced the needs of wildlife with the convenience of people using the area. Would you recommend this corridor as a model for other cities? Why or why not?",
+              "The best reviews will be published on our website."
+            ]
+          },
+          {
+            "id": "c1-test-16-task-04-block-03",
+            "type": "final-instruction",
+            "text": "Write your review."
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "c1-test-16",
+    "level": "c1",
+    "topicFamily": "urban wildlife",
+    "specificSetting": "a biodiversity corridor project planning brief 10",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "Class discussion about priorities for a biodiversity corridor project",
+        "audience": "English teacher",
+        "purpose": "evaluate and justify priorities",
+        "requiredContentPoints": [
+          "creating safe crossing points across busy roads",
+          "planting native vegetation along the corridor",
+          "involving local residents in monitoring wildlife"
+        ],
+        "lexicalAnchors": [
+          "biodiversity corridor",
+          "safe crossing",
+          "native vegetation",
+          "community monitoring"
+        ],
+        "originalitySelfCheck": "Unique scenario: biodiversity corridor planning. Not similar to any avoided fingerprint. No generic phrases. Forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "Regional wildlife trust inviting proposals for community engagement in corridor project",
+        "audience": "specialist magazine readers (wildlife trust)",
+        "purpose": "assess effectiveness and recommend",
+        "requiredContentPoints": [
+          "two specific ways to involve residents",
+          "benefits for wildlife and community",
+          "measuring success of engagement"
+        ],
+        "lexicalAnchors": [
+          "community engagement",
+          "resident involvement",
+          "wildlife trust",
+          "success measurement"
+        ],
+        "originalitySelfCheck": "Proposal for community engagement in wildlife corridor. Not similar to any avoided proposal. Lead-in and content points distinct.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "Email from residents' association concerned about access restrictions due to corridor",
+        "audience": "programme coordinator",
+        "purpose": "analyse implications and propose action",
+        "requiredContentPoints": [
+          "acknowledge concern and explain route reasoning",
+          "analyse implication if route changed",
+          "propose action to address concern"
+        ],
+        "lexicalAnchors": [
+          "access restriction",
+          "walking path",
+          "route change",
+          "corridor effectiveness"
+        ],
+        "originalitySelfCheck": "Email about access vs wildlife conflict. Not similar to any avoided email. Specific stakeholder and concern.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 4,
+        "scenario": "Review of an urban wildlife corridor visited",
+        "audience": "English-speaking contact (nature website readers)",
+        "purpose": "explain a position and request arrangements",
+        "requiredContentPoints": [
+          "describe corridor and wildlife observed",
+          "evaluate balance between wildlife needs and human convenience",
+          "recommend as model for other cities"
+        ],
+        "lexicalAnchors": [
+          "urban wildlife corridor",
+          "wildlife observation",
+          "human convenience",
+          "model for other cities"
+        ],
+        "originalitySelfCheck": "Review of a wildlife corridor. Not similar to any avoided review. Announcement heading and content points unique.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ],
+    "overallOriginalityCheck": "All tasks use the specific setting of a biodiversity corridor project. No reused scenarios, audiences, or content points from previous tests. Forbidden concepts (e.g., peer learning, touring holiday, book review, etc.) are absent. Each task has a concrete audience and clear communicative purpose. Language is natural and non-generic."
+  },
+  "cachedAt": 1785310596610
+}

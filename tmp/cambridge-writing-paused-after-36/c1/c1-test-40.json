@@ -1,0 +1,146 @@
+{
+  "id": "c1-test-40",
+  "level": "c1",
+  "testNumber": 40,
+  "title": "CAE C1 AI Practice Test 40",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-40.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "c1-test-40-1785317180318",
+    "generatedAt": 1785317209889,
+    "contentHash": "d75b92668a7e44df0588887679d4fd3401fe1c67282bd39f62e95fc199964387",
+    "promptHash": "eefdd5d0a0e34ebe12a8f1579782e591b6876d62a6ea4633d7c342e0e99f3f61",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-40:eefdd5d0a0e34ebe12a8f1579782e591b6876d62a6ea4633d7c342e0e99f3f61",
+    "inputHash": "eefdd5d0a0e34ebe12a8f1579782e591b6876d62a6ea4633d7c342e0e99f3f61",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "c1-test-40-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay: Workplace healthy cooking priorities",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-40-task-01-panel-notes",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Priorities for promoting healthy cooking at work",
+          "listItems": [
+            "subsidising healthy ingredients or meal kits",
+            "providing on-site cooking workshops",
+            "creating a supportive kitchen culture"
+          ]
+        },
+        {
+          "id": "c1-test-40-task-01-panel-opinions",
+          "type": "panel",
+          "variant": "opinions",
+          "paragraphs": [
+            "If people can afford healthy ingredients, they are more likely to cook from scratch. Subsidies make this possible for everyone.",
+            "Workshops teach practical skills and build confidence. Without them, people may know what to cook but not how.",
+            "A supportive culture – like shared lunch clubs or recipe swaps – keeps motivation high. It's the social glue that makes the other measures stick."
+          ]
+        },
+        {
+          "id": "c1-test-40-task-01-final-instruction",
+          "type": "final-instruction",
+          "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for encouraging healthy cooking at work, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes-opinions"
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c1-test-40-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Proposal: Healthy cooking initiative for employees",
+      "genre": "proposal",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptText": "Your organisation's wellbeing committee has decided to launch a healthy cooking initiative for employees. The committee has invited proposals for how this initiative should be designed.\n\nWrite a proposal for the wellbeing committee. In your proposal, you should:\n\n• recommend two practical measures to encourage employees to cook healthy meals\n• explain how these measures would benefit both employees and the organisation\n• suggest how the committee could evaluate the success of the initiative",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-40-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Email: Concerns about healthy cooking programme",
+      "genre": "email",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptText": "You are a project coordinator for a workplace wellbeing programme. The programme coordinator has emailed you about a proposal to introduce a healthy cooking programme. Some staff have raised concerns that the programme may be inconvenient for those with long commutes or limited kitchen facilities at home.\n\nWrite an email to the programme coordinator. In your email, you should:\n\n• explain the potential implications of the programme for employees with different home situations\n• propose an action the programme could take to address these concerns while still promoting healthy cooking\n• request a meeting to discuss the proposal further",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-40-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Review: Healthy cooking workshop",
+      "genre": "review",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-40-task-04-announcement",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted: Healthy cooking workshops",
+          "paragraphs": [
+            "Have you attended a healthy cooking workshop organised by your workplace or community? We want to hear about your experience.",
+            "Write a review for our lifestyle website. Describe the workshop and what you learned. Evaluate how well it balanced convenience with teaching lasting skills. Would you recommend it to other organisations? Why or why not?",
+            "The best reviews will be published on our website."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

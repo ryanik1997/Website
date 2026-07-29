@@ -1,0 +1,160 @@
+{
+  "id": "b1-test-29",
+  "level": "b1",
+  "testNumber": 29,
+  "title": "PET B1 AI Practice Test 29",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b1/b1-test-29.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b1-test-29-1785312868167",
+    "generatedAt": 1785312894029,
+    "contentHash": "902e1c724de01295d8871ddf1e9d1db3c1064eb4306594cfbd93180bb09dd25e",
+    "promptHash": "ea105f410bda5b8355b144208f38d3c0fd753256849771d81049adbc25f896df",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-29:ea105f410bda5b8355b144208f38d3c0fd753256849771d81049adbc25f896df",
+    "inputHash": "ea105f410bda5b8355b144208f38d3c0fd753256849771d81049adbc25f896df",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b1-test-29-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Arts grant priorities",
+      "genre": "email",
+      "instruction": "You must answer this question. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-29-task-01-p1",
+          "type": "paragraph",
+          "text": "Read this email from your English teacher, Mrs. Hill, and the notes you have made."
+        },
+        {
+          "id": "b1-test-29-task-01-email",
+          "type": "email",
+          "from": "Mrs. Hill",
+          "subject": "Arts grant – your ideas",
+          "paragraphs": [
+            "Hello,",
+            "As you know, our class is helping to decide how to spend a small community arts grant. We need to choose one main project to fund. Should we spend the money on a mural in the town centre, or on a series of free music workshops for teenagers? Which do you think is more important and why?",
+            "Also, we need to choose one practical thing to organise. Would you prefer to arrange a meeting with the town council, or create a poster to tell people about the project?",
+            "Finally, can you suggest one way to make sure the project benefits the whole community?",
+            "Let me know your ideas!",
+            "Best wishes,",
+            "Mrs. Hill"
+          ]
+        },
+        {
+          "id": "b1-test-29-task-01-notes",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes for your reply",
+          "listItems": [
+            "Say which project you prefer (mural or music workshops) and explain why.",
+            "Choose one thing to organise (council meeting or poster) and give a reason.",
+            "Suggest one way to make the project benefit the whole community.",
+            "Ask Mrs. Hill about the deadline for the grant application."
+          ]
+        },
+        {
+          "id": "b1-test-29-task-01-final",
+          "type": "final-instruction",
+          "text": "Write your email to Mrs. Hill using all the notes."
+        }
+      ],
+      "presentation": {
+        "template": "email"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b1-test-29-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Community arts: your view",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-29-task-02-announcement",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted!",
+          "paragraphs": [
+            "Our town is planning to use a community arts grant for a new project. Do you think arts projects like murals or music workshops make a town a better place to live?",
+            "What is the most important thing for the organisers to consider when choosing a project?",
+            "Write an article answering these questions and we will put it on our town website!"
+          ]
+        },
+        {
+          "id": "b1-test-29-task-02-final",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b1-test-29-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "The grant decision",
+      "genre": "story",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-29-task-03-p1",
+          "type": "paragraph",
+          "text": "Your English teacher has asked you to write a story."
+        },
+        {
+          "id": "b1-test-29-task-03-p2",
+          "type": "paragraph",
+          "text": "Your story must begin with this sentence:"
+        },
+        {
+          "id": "b1-test-29-task-03-opening",
+          "type": "paragraph",
+          "text": "\"When the programme coordinator announced that the arts grant had been approved, everyone in the room started talking at once.\""
+        },
+        {
+          "id": "b1-test-29-task-03-final",
+          "type": "final-instruction",
+          "text": "Write your story."
+        }
+      ],
+      "presentation": {
+        "template": "plain"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

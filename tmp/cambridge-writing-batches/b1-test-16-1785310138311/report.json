@@ -1,0 +1,13 @@
+{
+  "batchId": "b1-test-16-1785310138311",
+  "generatedAt": 1785310206487,
+  "requested": 1,
+  "results": [
+    {
+      "testId": "b1-test-16",
+      "status": "failed",
+      "error": "[\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"null\",\n    \"path\": [\n      \"tasks\",\n      0,\n      \"promptText\"\n    ],\n    \"message\": \"Expected string, received null\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"null\",\n    \"path\": [\n      \"tasks\",\n      1,\n      \"promptText\"\n    ],\n    \"message\": \"Expected string, received null\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"null\",\n    \"path\": [\n      \"tasks\",\n      2,\n      \"promptText\"\n    ],\n    \"message\": \"Expected string, received null\"\n  }\n]"
+    }
+  ],
+  "failed": 1
+}

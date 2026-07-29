@@ -1,0 +1,63 @@
+{
+  "task1": {
+    "scenario": "a first weekend job at a bakery planning brief 8: email brief 1-1",
+    "audience": "English teacher (Mrs. Hill)",
+    "purpose": "evaluate and justify priorities",
+    "requiredContentPoints": [
+      "the main part-time work issue (focus on equipment vs customer service)",
+      "one practical consequence (choosing a skill to learn before starting)",
+      "a justified recommendation 1 (preferred focus with reason)"
+    ],
+    "lexicalAnchors": [
+      "part-time work",
+      "first weekend job at a bakery",
+      "bakery equipment",
+      "customer service",
+      "taking orders",
+      "handling money"
+    ],
+    "originalitySelfCheck": "Scenario is unique: first weekend job at a bakery. Email from teacher about planning. Notes require choice between equipment/customer service, skill to learn, suggestion for avoiding tiredness, and question about uniform. No overlap with previous tests.",
+    "forbiddenConceptCheck": "PASS"
+  },
+  "task2": {
+    "scenario": "a first weekend job at a bakery planning brief 8: article brief 2-5",
+    "audience": "specialist magazine readers (website for young workers)",
+    "purpose": "assess effectiveness and recommend",
+    "requiredContentPoints": [
+      "the main part-time work issue (advice for starting a weekend job at a bakery)",
+      "one practical consequence (what to learn first)",
+      "a justified recommendation 2 (how to enjoy and do well)"
+    ],
+    "lexicalAnchors": [
+      "part-time work",
+      "first weekend job at a bakery",
+      "advice",
+      "learn first",
+      "enjoy the job"
+    ],
+    "originalitySelfCheck": "Article prompt asks for advice on starting a weekend bakery job. Questions: what to learn first, how to enjoy and do well. No overlap with previous article prompts.",
+    "forbiddenConceptCheck": "PASS"
+  },
+  "task3": {
+    "scenario": "a first weekend job at a bakery planning brief 8: story brief 3-9",
+    "audience": "programme coordinator (English teacher)",
+    "purpose": "analyse implications and propose action",
+    "requiredContentPoints": [
+      "the main part-time work issue (starting a weekend job at a bakery)",
+      "one practical consequence (finding a note on the apron)",
+      "a justified recommendation 3 (story resolution involving the note)"
+    ],
+    "lexicalAnchors": [
+      "part-time work",
+      "first weekend job at a bakery",
+      "apron",
+      "note"
+    ],
+    "originalitySelfCheck": "Story opening: 'When the programme coordinator handed me the bakery apron, I noticed a small note pinned to it.' Unique scenario: bakery job, apron with note. No resemblance to previous story openings.",
+    "forbiddenConceptCheck": "PASS"
+  },
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "a1add1709bd98fb4b4cd98d1c5fa8aea46045889fb663ca379ae572431311f27"
+  }
+}

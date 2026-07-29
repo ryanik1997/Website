@@ -1,0 +1,86 @@
+{
+  "testId": "c1-test-23",
+  "overallOriginalityCheck": "PASS",
+  "taskReviews": [
+    {
+      "taskNumber": 1,
+      "scenario": "A class discusses a radio programme about a sustainable tourism charter; candidates write an essay discussing two of three priorities (capping visitor numbers, low-carbon transport, local accommodation) and decide which is more important.",
+      "audience": "English teacher (tutor)",
+      "purpose": "Evaluate and justify priorities",
+      "requiredContentPoints": [
+        "capping visitor numbers at popular sites",
+        "investing in low-carbon transport options",
+        "supporting local accommodation over international chains"
+      ],
+      "lexicalAnchors": [
+        "sustainable tourism charter",
+        "visitor numbers",
+        "low-carbon transport",
+        "local accommodation"
+      ],
+      "originalitySelfCheck": "Scenario is original: sustainable tourism charter, not generic 'environment' or 'facilities'. Notes and opinions are distinct from previous tests. No overlap with forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "A regional tourism board plans an accreditation scheme; candidates propose criteria, benefits, and encouragement for businesses.",
+      "audience": "Specialist magazine readers (tourism board)",
+      "purpose": "Assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "two specific criteria for accreditation",
+        "benefits for tourists and environment",
+        "how to encourage participation and maintain standards"
+      ],
+      "lexicalAnchors": [
+        "sustainable tourism accreditation",
+        "criteria",
+        "local businesses",
+        "standards"
+      ],
+      "originalitySelfCheck": "Proposal genre with institutional audience; scenario is new (accreditation scheme, not a hub or forum). No reuse of previous proposal frames.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "A resident representative emails a programme coordinator about business concerns that a sustainable charter will raise costs and reduce convenience.",
+      "audience": "Programme coordinator",
+      "purpose": "Analyse implications and propose action",
+      "requiredContentPoints": [
+        "acknowledge concerns",
+        "analyse one implication",
+        "propose action to address concerns while achieving goals"
+      ],
+      "lexicalAnchors": [
+        "sustainable tourism charter",
+        "business concerns",
+        "cost",
+        "convenience"
+      ],
+      "originalitySelfCheck": "Email task with three distinct functions; scenario is specific to charter planning, not generic consultation. No similarity to previous email tasks.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "A travel website calls for reviews of sustainable holidays; candidates describe, evaluate balance, and recommend.",
+      "audience": "English-speaking contact (travel website readers)",
+      "purpose": "Explain a position and request arrangements (review with recommendation)",
+      "requiredContentPoints": [
+        "description of sustainable features",
+        "evaluation of balance between responsibility and enjoyment",
+        "recommendation to other travellers"
+      ],
+      "lexicalAnchors": [
+        "sustainable tourism experience",
+        "eco-friendly",
+        "environmental responsibility",
+        "traveller enjoyment"
+      ],
+      "originalitySelfCheck": "Review genre with announcement template; scenario is about a personal holiday experience, not a library, workshop, or event. No overlap with previous review tasks.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "72987e70204009166d0ae7c78fb0db79a706f2629085b78d466f4b2188ba77af"
+  }
+}

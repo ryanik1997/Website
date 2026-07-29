@@ -1,0 +1,92 @@
+{
+  "testId": "c2-test-26",
+  "level": "c2",
+  "topicFamily": "future skills",
+  "specificSetting": "skills, uncertainty and the future planning brief 20",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Two source texts debate whether the priority should be concrete skills or general adaptability in an uncertain future.",
+      "audience": "English teacher (educated general reader)",
+      "purpose": "Synthesise competing claims, evaluate assumptions and develop an independent position.",
+      "requiredContentPoints": [
+        "the main future skills issue",
+        "one practical consequence",
+        "a justified recommendation 1"
+      ],
+      "lexicalAnchors": [
+        "future skills",
+        "uncertainty",
+        "adaptability",
+        "concrete skills",
+        "planning"
+      ],
+      "originalitySelfCheck": "Scenario is original: two texts argue about skills vs. adaptability, not about guidance vs. autonomy or experience vs. merit. No overlap with Test 01 or other avoided tests.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "A review of a training programme that claims to prepare young people for an uncertain future.",
+      "audience": "Specialist magazine readers (educators)",
+      "purpose": "Assess effectiveness and recommend.",
+      "requiredContentPoints": [
+        "the main future skills issue",
+        "one practical consequence",
+        "a justified recommendation 2"
+      ],
+      "lexicalAnchors": [
+        "training programme",
+        "adaptability",
+        "resilience",
+        "future skills",
+        "review"
+      ],
+      "originalitySelfCheck": "Review task is about a training programme, not a book, documentary, or exhibition. No overlap with existing review tasks.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "A report on how current skills-training provision balances employability with long-term adaptability.",
+      "audience": "Programme coordinator (formal)",
+      "purpose": "Analyse implications and propose action.",
+      "requiredContentPoints": [
+        "the main future skills issue",
+        "one practical consequence",
+        "a justified recommendation 3"
+      ],
+      "lexicalAnchors": [
+        "skills-training",
+        "employability",
+        "adaptability",
+        "workforce",
+        "balance"
+      ],
+      "originalitySelfCheck": "Report is about regional training provision, not about a specific organisation or event. No overlap with existing report tasks.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "An article arguing whether governments should predict future skills or focus on general adaptability.",
+      "audience": "English-speaking contact (magazine editor, engaging neutral)",
+      "purpose": "Explain a position and request arrangements.",
+      "requiredContentPoints": [
+        "the main future skills issue",
+        "one practical consequence",
+        "a justified recommendation 4"
+      ],
+      "lexicalAnchors": [
+        "planning",
+        "uncertainty",
+        "skills prediction",
+        "adaptability",
+        "policy"
+      ],
+      "originalitySelfCheck": "Article invites readers to take a position on planning vs. adaptability, a different angle from other article tasks. No overlap.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "6426d8e8f3796a38c0be5fb00a3080022cd332361e73ddc4f4ae3c166db6fa1e"
+  }
+}

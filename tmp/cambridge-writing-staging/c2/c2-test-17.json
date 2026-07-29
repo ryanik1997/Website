@@ -1,0 +1,173 @@
+{
+  "id": "c2-test-17",
+  "level": "c2",
+  "testNumber": 17,
+  "title": "CPE C2 AI Practice Test 17",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-17.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "c2-test-17-1785311736117",
+    "generatedAt": 1785311756453,
+    "contentHash": "e0552b529021fb3c2e027b6e73a55e4b1fa629c31d9b8bc52462d318fdd3ced6",
+    "promptHash": "f8522b446453d075c44a22b8540710cd645ed33e6663af2817157b8d7e3af79c",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-17:f8522b446453d075c44a22b8540710cd645ed33e6663af2817157b8d7e3af79c",
+    "inputHash": "f8522b446453d075c44a22b8540710cd645ed33e6663af2817157b8d7e3af79c",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "c2-test-17-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Museums and contested memory",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write an essay summarising and evaluating the key points from both texts in 240–280 words. Use your own words throughout as far as possible, and include your own ideas in your answers.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-17-task-01-source-1",
+          "type": "source-text",
+          "label": "Text 1",
+          "text": "Museums have a duty to present history as it was, not as contemporary sensibilities would prefer. When curators remove or reinterpret exhibits to avoid causing offence, they betray their core mission of preserving and transmitting knowledge. The current fashion for 'contested memory' labels and critical commentaries risks turning museums into instruments of political correction rather than institutions of learning. Visitors come to see artefacts, not to be lectured about colonial guilt or present-day identity politics. If museums surrender to the demand that every display must be accompanied by a moral judgement, they will lose the trust of the public and the authority that comes from scholarly detachment. The past should be explained, not excused."
+        },
+        {
+          "id": "c2-test-17-task-01-source-2",
+          "type": "source-text",
+          "label": "Text 2",
+          "text": "The idea that museums can simply 'tell the truth' about the past is naive. Every exhibition is already a selection, a framing, a story told from a particular perspective. To pretend otherwise is to disguise power as neutrality. When museums display objects acquired through colonial violence without acknowledging that history, they are not being objective; they are perpetuating a narrative that legitimises that violence. The growing practice of including multiple viewpoints, of noting that some objects were taken rather than given, is not political correctness but intellectual honesty. Far from undermining trust, this transparency builds it, because it respects visitors as adults capable of engaging with complexity. A museum that refuses to examine its own history is not a temple of truth but a monument to silence."
+        },
+        {
+          "id": "c2-test-17-task-01-instruction",
+          "type": "final-instruction",
+          "text": "Write your essay."
+        }
+      ],
+      "presentation": {
+        "template": "source-texts"
+      },
+      "wordLimit": {
+        "min": 240,
+        "max": 280,
+        "displayText": "240–280 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c2-test-17-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Review of a museum exhibition",
+      "genre": "review",
+      "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-17-task-02-panel",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted: Exhibitions that challenge the visitor",
+          "paragraphs": [
+            "A specialist magazine for museum professionals is running a series of reviews of exhibitions that deliberately address contested or difficult histories. Have you visited an exhibition that tried to present multiple perspectives on a historical event or figure? Write a review for the magazine.",
+            "In your review, describe the exhibition and its approach to contested memory, assess how effectively it balanced historical accuracy with ethical reflection, and recommend whether other museums should adopt a similar curatorial strategy."
+          ]
+        },
+        {
+          "id": "c2-test-17-task-02-instruction",
+          "type": "final-instruction",
+          "text": "Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-17-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Report on museum access and community engagement",
+      "genre": "report",
+      "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-17-task-03-panel",
+          "type": "panel",
+          "variant": "generic",
+          "heading": "Report for the programme coordinator",
+          "paragraphs": [
+            "You are a consultant hired by a regional museum service. The programme coordinator has asked you to write a report on how current admission policies and exhibition choices affect access for diverse community groups, particularly those whose histories may be contested or underrepresented.",
+            "In your report, analyse the main barriers to access for these groups, assess the potential consequences for community trust and engagement if these barriers are not addressed, and propose two concrete actions the museum service could take to make its programming more inclusive while maintaining curatorial integrity."
+          ]
+        },
+        {
+          "id": "c2-test-17-task-03-instruction",
+          "type": "final-instruction",
+          "text": "Write your report."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-17-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Article on museums and contested memory",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-17-task-04-panel",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted: Should museums take sides?",
+          "paragraphs": [
+            "An English-language online magazine for international readers is publishing a series on 'Museums and the Politics of Memory'. The editors have invited readers to submit articles addressing the question: Should museums adopt a clear ethical stance on the contested histories they present, or should they remain neutral?",
+            "In your article, explain your position on this question, discuss one practical consequence of your preferred approach for how museums design exhibitions, and suggest how curators could engage with multiple perspectives without losing scholarly authority."
+          ]
+        },
+        {
+          "id": "c2-test-17-task-04-instruction",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

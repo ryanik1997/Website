@@ -1,0 +1,85 @@
+{
+  "id": "ket-a2-writing-test-28",
+  "level": "a2",
+  "testNumber": 28,
+  "title": "KET A2 Writing · Test 28",
+  "status": "draft",
+  "version": 1,
+  "tasks": [
+    {
+      "id": "ket-a2-writing-test-28-task-31",
+      "partNumber": 6,
+      "taskNumber": 31,
+      "title": "Question 31",
+      "genre": "email",
+      "instruction": "Write 25 words or more.",
+      "promptText": "Harry wants to talk about rainy-day plan. what indoor activity to do. what to bring. when to meet.",
+      "promptBlocks": [
+        {
+          "id": "ket-a2-writing-test-28-task-31-lead",
+          "type": "paragraph",
+          "text": "Read this email from your English friend Harry."
+        },
+        {
+          "id": "ket-a2-writing-test-28-task-31-email",
+          "type": "email",
+          "from": "Harry",
+          "subject": "Rain tomorrow",
+          "greeting": "Hi,",
+          "paragraphs": [
+            "I am writing about rainy-day plan. what indoor activity to do? what to bring?",
+            "when to meet? Please write soon."
+          ],
+          "closing": "See you soon,",
+          "sender": "Harry"
+        },
+        {
+          "id": "ket-a2-writing-test-28-task-31-final",
+          "type": "final-instruction",
+          "text": "Write an email to Harry and answer the questions."
+        }
+      ],
+      "presentation": {
+        "template": "email"
+      },
+      "wordLimit": {
+        "min": 25,
+        "displayText": "25 words or more"
+      },
+      "metadata": {
+        "compulsory": true,
+        "sourceQuestionNumber": "31"
+      }
+    },
+    {
+      "id": "ket-a2-writing-test-28-task-32",
+      "partNumber": 7,
+      "taskNumber": 32,
+      "title": "Question 32",
+      "genre": "story",
+      "instruction": "Write 35 words or more.",
+      "promptText": "Look at the three pictures. Write the story shown in the pictures.",
+      "presentation": {
+        "template": "plain"
+      },
+      "wordLimit": {
+        "min": 35,
+        "displayText": "35 words or more"
+      },
+      "metadata": {
+        "compulsory": true,
+        "sourceQuestionNumber": "32",
+        "ketImageRequired": true,
+        "ketImageBrief": {
+          "title": "rainy-day plan",
+          "panel1": "Harry starts rainy-day plan with a clear plan.",
+          "panel2": "A small problem changes the plan.",
+          "panel3": "Harry solves it and finishes happily.",
+          "continuityNotes": [
+            "Keep the same child and objects in all three panels."
+          ]
+        }
+      }
+    }
+  ]
+}

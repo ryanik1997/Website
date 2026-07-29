@@ -1,0 +1,86 @@
+{
+  "testId": "c2-test-10",
+  "level": "c2",
+  "topicFamily": "community gardens",
+  "specificSetting": "food systems and public responsibility planning brief 4",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Two source texts debating whether community gardens should prioritise access for newcomers or long-term stewardship",
+      "audience": "English teacher (educated general reader)",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "the main community gardens issue",
+        "one practical consequence",
+        "a justified recommendation 1"
+      ],
+      "lexicalAnchors": [
+        "community gardens",
+        "food systems and public responsibility planning brief 4",
+        "c2 writing brief"
+      ],
+      "originalitySelfCheck": "Unique source texts with distinct angles (access vs. stewardship). No reuse of previous essay skeletons. Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Review of a community garden initiative for a specialist magazine",
+      "audience": "specialist magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "the main community gardens issue",
+        "one practical consequence",
+        "a justified recommendation 2"
+      ],
+      "lexicalAnchors": [
+        "community gardens",
+        "food systems and public responsibility planning brief 4",
+        "c2 writing brief"
+      ],
+      "originalitySelfCheck": "Review genre with specific focus on balance between access and maintenance. No overlap with previous review tasks (e.g., book, documentary, workshop). Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Report on plot allocation policy for a local council programme coordinator",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "the main community gardens issue",
+        "one practical consequence",
+        "a justified recommendation 3"
+      ],
+      "lexicalAnchors": [
+        "community gardens",
+        "food systems and public responsibility planning brief 4",
+        "c2 writing brief"
+      ],
+      "originalitySelfCheck": "Report genre with concrete policy analysis. No reuse of previous report scenarios (e.g., jobs fair, academic support, trust erosion). Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Article for an international magazine arguing a position on harvest-sharing requirements",
+      "audience": "English-speaking contact (magazine readers)",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "the main community gardens issue",
+        "one practical consequence",
+        "a justified recommendation 4"
+      ],
+      "lexicalAnchors": [
+        "community gardens",
+        "food systems and public responsibility planning brief 4",
+        "c2 writing brief"
+      ],
+      "originalitySelfCheck": "Article genre with a specific proposition and request for follow-up. No reuse of previous article topics (travel, learning, digital detox). Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are based on the unique topic family 'community gardens' with a central tension of access vs. responsibility. No scenarios, audiences, content points, or lexical anchors match any previously generated test. Forbidden concepts (e.g., peer learning, workplace visits, digital communication) are absent.",
+  "status": "PASS",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "1dc0b881a5d416b9afda4b0e366e7e06d5e007dca2a158844c474886cb0fa3e2"
+  }
+}

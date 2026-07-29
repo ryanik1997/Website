@@ -1,0 +1,190 @@
+{
+  "id": "b2-test-25",
+  "level": "b2",
+  "testNumber": 25,
+  "title": "FCE B2 AI Practice Test 25",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-25.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b2-test-25-1785312350224",
+    "generatedAt": 1785312411518,
+    "contentHash": "5a86d711e74b662397ee5e5ab26a445fa6fe5bfc3f91cba3060b10c40115ef12",
+    "promptHash": "2dd820d61ce9cfbb2d42813bfcbedc0b411ae9d91f6501834e19a6e045e2f1bf",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-25:2dd820d61ce9cfbb2d42813bfcbedc0b411ae9d91f6501834e19a6e045e2f1bf",
+    "inputHash": "2dd820d61ce9cfbb2d42813bfcbedc0b411ae9d91f6501834e19a6e045e2f1bf",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b2-test-25-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay: School data policy priorities",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 140–190 words in an appropriate style.",
+      "promptText": "In your English class you have been discussing how schools should manage students' online data. Now your English teacher has asked you to write an essay.\n\nWrite an essay using all the notes and giving reasons for your point of view.\n\nWhat is the most important thing for a school to do when planning its data policy?\n\nNotes\n\nWrite about:\n\n1. protecting students' personal information\n2. teaching students about online privacy\n3. ......................... (your own idea)",
+      "promptBlocks": [
+        {
+          "id": "b2-test-25-task-01-block-01",
+          "type": "paragraph",
+          "text": "In your English class you have been discussing how schools should manage students' online data. Now your English teacher has asked you to write an essay."
+        },
+        {
+          "id": "b2-test-25-task-01-block-02",
+          "type": "paragraph",
+          "text": "Write an essay using all the notes and giving reasons for your point of view."
+        },
+        {
+          "id": "b2-test-25-task-01-block-03",
+          "type": "paragraph",
+          "text": "What is the most important thing for a school to do when planning its data policy?"
+        },
+        {
+          "id": "b2-test-25-task-01-block-04",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "listItems": [
+            "1. protecting students' personal information",
+            "2. teaching students about online privacy",
+            "3. (your own idea)"
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes"
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b2-test-25-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Review: School data privacy workshop",
+      "genre": "review",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptText": "You see this announcement in your school's English-language magazine.\n\nReviews wanted!\n\nHave you attended a workshop about online privacy at your school? We want to hear about your experience. Write a review of the workshop for our magazine.\n\nDescribe what the workshop covered, say how useful it was for understanding data protection, and explain whether you would recommend it to other students.\n\nThe best reviews will be published in the next issue.\n\nWrite your review.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-25-task-02-block-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted!",
+          "paragraphs": [
+            "Have you attended a workshop about online privacy at your school? We want to hear about your experience. Write a review of the workshop for our magazine.",
+            "Describe what the workshop covered, say how useful it was for understanding data protection, and explain whether you would recommend it to other students.",
+            "The best reviews will be published in the next issue."
+          ]
+        },
+        {
+          "id": "b2-test-25-task-02-block-02",
+          "type": "final-instruction",
+          "text": "Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-25-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Article: Encouraging responsible data habits",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptText": "You see this announcement on a youth website.\n\nArticles wanted!\n\nHow can students protect their own online data at school?\n\nWrite an article for our website suggesting one practical habit students can adopt, explaining why it is effective, and describing what the benefit would be for their long-term privacy.\n\nWe will publish the best articles on our website.\n\nWrite your article.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-25-task-03-block-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted!",
+          "paragraphs": [
+            "How can students protect their own online data at school?",
+            "Write an article for our website suggesting one practical habit students can adopt, explaining why it is effective, and describing what the benefit would be for their long-term privacy.",
+            "We will publish the best articles on our website."
+          ]
+        },
+        {
+          "id": "b2-test-25-task-03-block-02",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-25-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Email: Explaining school data policy",
+      "genre": "email",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptText": "You have received this email from your English-speaking friend, Chris.\n\nFrom: Chris\nSubject: Your school's data policy\n\nHi,\nI heard your school has introduced a new data policy about how students' online information is used. I'm curious about it. Can you tell me what the policy says? Do you think it's fair? Also, what's one thing you think could be improved?\n\nThanks!\nChris\n\nWrite your email.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-25-task-04-block-01",
+          "type": "email",
+          "from": "Chris",
+          "subject": "Your school's data policy",
+          "paragraphs": [
+            "Hi,",
+            "I heard your school has introduced a new data policy about how students' online information is used. I'm curious about it. Can you tell me what the policy says? Do you think it's fair? Also, what's one thing you think could be improved?",
+            "Thanks!",
+            "Chris"
+          ]
+        },
+        {
+          "id": "b2-test-25-task-04-block-02",
+          "type": "final-instruction",
+          "text": "Write your email."
+        }
+      ],
+      "presentation": {
+        "template": "email",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

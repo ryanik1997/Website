@@ -73,46 +73,49 @@ describe('Cambridge Writing admin flow', () => {
     renderHarness('/app/writing/cambridge/b1')
     await screen.findByText(/đề, .* bài viết\./i)
 
+    const existingTestNumbers = Array.from(document.querySelectorAll('.cb-card-badge'), node => Number(node.textContent?.match(/Test\s+(\d+)/)?.[1] ?? 0))
+    const expectedNextTestNumber = Math.max(...existingTestNumbers)
+      + 1
     fireEvent.click(screen.getByText('Tạo đề mới'))
     await screen.findByRole('dialog')
     expect(screen.getByDisplayValue('PET · B1')).toBeInTheDocument()
-    expect(screen.getByDisplayValue('7')).toBeInTheDocument()
-    expect(screen.getByDisplayValue('PET B1 Writing · Test 07')).toBeInTheDocument()
+    expect(screen.getByDisplayValue(String(expectedNextTestNumber))).toBeInTheDocument()
+    expect(screen.getByDisplayValue(`PET B1 Writing · Test ${String(expectedNextTestNumber).padStart(2, '0')}`)).toBeInTheDocument()
 
     fireEvent.click(screen.getByText('+ Thêm bài viết'))
     expect(screen.getAllByText(/Task \d+/).length).toBeGreaterThan(1)
 
-    fireEvent.change(screen.getByDisplayValue('PET B1 Writing · Test 07'), { target: { value: 'PET Draft Test 07' } })
+    fireEvent.change(screen.getByDisplayValue(`PET B1 Writing · Test ${String(expectedNextTestNumber).padStart(2, '0')}`), { target: { value: `PET Draft Test ${expectedNextTestNumber}` } })
     fireEvent.change(screen.getAllByRole('textbox')[2], { target: { value: 'Write an email to your friend.' } })
     fireEvent.click(screen.getByText('Lưu bản nháp'))
 
     await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument())
-    await screen.findByText('PET Draft Test 07')
+    await screen.findByText(`PET Draft Test ${expectedNextTestNumber}`)
     expect(screen.getAllByText('Bản nháp').length).toBeGreaterThan(0)
     expect(await db.writingDocs.count()).toBe(0)
 
     const savedTests = await db.cambridgeWritingTests.toArray()
     expect(savedTests).toHaveLength(1)
     const createdTestId = savedTests[0]?.id
-    expect(createdTestId).toBe('pet-b1-writing-test-07')
+    expect(createdTestId).toBe(`pet-b1-writing-test-${String(expectedNextTestNumber).padStart(2, '0')}`)
 
     cleanup()
     renderHarness(`/app/writing/cambridge/b1/${createdTestId}`)
-    await screen.findByRole('heading', { name: 'PET Draft Test 07' })
+    await screen.findByRole('heading', { name: `PET Draft Test ${expectedNextTestNumber}` })
     const taskButtons = Array.from(document.querySelectorAll<HTMLButtonElement>('.cb-grid .cb-card'))
     expect(taskButtons[0]).toBeTruthy()
     fireEvent.click(taskButtons[0] as HTMLButtonElement)
     await screen.findByLabelText('Writing answer')
 
     fireEvent.click(screen.getByLabelText('Back to library'))
-    await screen.findByText('PET Draft Test 07')
+    await screen.findByText(`PET Draft Test ${expectedNextTestNumber}`)
     fireEvent.click(screen.getByText('Chỉnh sửa'))
     await screen.findByRole('dialog')
-    fireEvent.change(screen.getByDisplayValue('PET Draft Test 07'), { target: { value: 'PET Draft Test 07 Updated' } })
+    fireEvent.change(screen.getByDisplayValue(`PET Draft Test ${expectedNextTestNumber}`), { target: { value: `PET Draft Test ${expectedNextTestNumber} Updated` } })
     fireEvent.click(screen.getByText('Lưu bản nháp'))
 
     await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument())
-    await screen.findByText('PET Draft Test 07 Updated')
+    await screen.findByText(`PET Draft Test ${expectedNextTestNumber} Updated`)
   })
 
   it('supports create entry point on every Cambridge Writing level and opens admin guide', async () => {

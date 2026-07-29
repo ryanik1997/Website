@@ -1,0 +1,13 @@
+{
+  "batchId": "c2-test-37-1785318314838",
+  "generatedAt": 1785318362772,
+  "requested": 1,
+  "results": [
+    {
+      "testId": "c2-test-37",
+      "status": "failed",
+      "error": "AI provider error 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}"
+    }
+  ],
+  "failed": 1
+}

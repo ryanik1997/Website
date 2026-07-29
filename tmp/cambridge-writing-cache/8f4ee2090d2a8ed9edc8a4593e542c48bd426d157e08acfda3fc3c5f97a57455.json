@@ -1,0 +1,256 @@
+{
+  "inputHash": "7ed57e4d94a619a1ee35a609f0a2c37fc485612222c835601400703f54c1ec18",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-24:7ed57e4d94a619a1ee35a609f0a2c37fc485612222c835601400703f54c1ec18",
+  "test": {
+    "id": "c2-test-24",
+    "level": "c2",
+    "testNumber": 24,
+    "title": "CPE C2 AI Practice Test 24",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-24.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c2-test-24-1785312654708",
+      "generatedAt": 1785312677770,
+      "contentHash": "2c084ae064a4e40a259272429a219480f9125c3fa7335c2b5af5173f15ea9fc8",
+      "promptHash": "7ed57e4d94a619a1ee35a609f0a2c37fc485612222c835601400703f54c1ec18",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-24:7ed57e4d94a619a1ee35a609f0a2c37fc485612222c835601400703f54c1ec18",
+      "inputHash": "7ed57e4d94a619a1ee35a609f0a2c37fc485612222c835601400703f54c1ec18",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c2-test-24-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Essay: Creative workshops and public value",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write an essay summarising and evaluating the key points from both texts in 240–280 words. Use your own words throughout as far as possible, and include your own ideas in your answers.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-24-task-01-source-1",
+            "type": "source-text",
+            "label": "Text 1",
+            "text": "Creative workshops are often funded by public money on the assumption that they generate broad social value. Yet the benefits they produce—enhanced well-being, community cohesion, cultural expression—are notoriously difficult to measure. In practice, funding bodies tend to favour workshops that produce tangible outputs, such as public exhibitions or marketable products, because these are easier to justify to taxpayers. This distorts the purpose of creative work, pushing organisers toward outcomes that are visible rather than valuable. If we are serious about public value, we must accept that some of the most important benefits of creative workshops are intangible and cannot be captured in a quarterly report. The convenience of measurable results should not override the responsibility to support genuine creative exploration."
+          },
+          {
+            "id": "c2-test-24-task-01-source-2",
+            "type": "source-text",
+            "label": "Text 2",
+            "text": "The claim that creative workshops produce intangible benefits that cannot be measured is often used to shield them from accountability. Every publicly funded activity should be able to demonstrate its worth, and creative workshops are no exception. If organisers cannot articulate what value their workshops create, how can they expect continued public investment? The demand for measurable outcomes is not a philistine attack on art; it is a basic requirement of democratic stewardship. Moreover, the focus on tangible outputs—a performance, a mural, a published anthology—does not necessarily compromise creative integrity. It simply ensures that public money is spent on work that reaches an audience and contributes to the cultural life of the community. Responsibility to the public requires transparency, not special pleading."
+          },
+          {
+            "id": "c2-test-24-task-01-final",
+            "type": "final-instruction",
+            "text": "Write your essay."
+          }
+        ],
+        "presentation": {
+          "template": "source-texts"
+        },
+        "wordLimit": {
+          "min": 240,
+          "max": 280,
+          "displayText": "240–280 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c2-test-24-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Review: A creative workshop programme",
+        "genre": "review",
+        "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-24-task-02-announcement",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Reviews wanted: Creative workshops that make a difference",
+            "paragraphs": [
+              "A specialist magazine for arts organisers is running a series of reviews of creative workshop programmes that aim to generate lasting public value. Have you taken part in or observed a workshop series that tried to balance creative freedom with community benefit? Write a review for the magazine.",
+              "In your review, describe the programme and its intended public value. Assess how effectively it balanced the creative autonomy of participants with the responsibility to produce outcomes that matter to the wider community. Would you recommend this model to other organisers? Explain your reasons."
+            ]
+          },
+          {
+            "id": "c2-test-24-task-02-final",
+            "type": "final-instruction",
+            "text": "Write your review."
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c2-test-24-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Report: Workshop programme evaluation",
+        "genre": "report",
+        "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-24-task-03-email",
+            "type": "email",
+            "from": "Dr. Helena Novak <h.novak@creativetrust.org>",
+            "subject": "Report on creative workshop programme",
+            "paragraphs": [
+              "Dear Programme Coordinator,",
+              "As you know, the Creative Trust has been funding a series of community workshops over the past year. We are now reviewing the programme and would like your assessment of its impact.",
+              "Could you please write a report analysing the main implications of the current programme design? Specifically, I would like you to evaluate how the requirement to produce tangible outcomes has affected the creative process and the participants' experience. What are the potential consequences for the programme's long-term public value if this tension is not addressed?",
+              "Finally, please propose one concrete action the Trust could take to better balance creative freedom with accountability.",
+              "I look forward to your report.",
+              "Best regards,",
+              "Dr. Helena Novak"
+            ]
+          },
+          {
+            "id": "c2-test-24-task-03-final",
+            "type": "final-instruction",
+            "text": "Write your report."
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c2-test-24-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Article: Should creative workshops serve a public purpose?",
+        "genre": "article",
+        "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-24-task-04-prompt",
+            "type": "paragraph",
+            "text": "An English-language online magazine for international readers is publishing a series on 'Art and the Public Good'. You have been contacted by a friend who is an editor at the magazine. Your friend explains that the magazine wants to include a personal perspective on whether publicly funded creative workshops should be expected to produce measurable social value, or whether they should be free to pursue artistic exploration without external demands. Your friend asks you to write an article explaining your position on this issue. In your article, discuss what you see as the main tension between creative freedom and public accountability. Describe one practical consequence of your preferred approach for how workshops are designed and funded. Suggest how funding bodies could support both artistic integrity and community benefit. End your article by requesting that the magazine arrange a follow-up online discussion with readers and workshop organisers to explore the issue further."
+          },
+          {
+            "id": "c2-test-24-task-04-final",
+            "type": "final-instruction",
+            "text": "Write your article."
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "overallOriginalityCheck": "PASS",
+    "forbiddenConceptsCheck": "PASS",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "Two source texts debating whether creative workshops should be judged by measurable public value or protected for intangible benefits.",
+        "audience": "English teacher (educated general reader)",
+        "purpose": "Synthesise competing claims, evaluate assumptions, develop independent position on accountability vs. creative freedom.",
+        "requiredContentPoints": [
+          "intangible vs. measurable value",
+          "accountability to public funders",
+          "own conceptual distinction"
+        ],
+        "lexicalAnchors": [
+          "creative workshops",
+          "public value",
+          "measurable outcomes",
+          "intangible benefits"
+        ],
+        "originalitySelfCheck": "PASS: Source texts are original, no overlap with previous C2 tests. Topic is distinct from education, work, environment, etc."
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "Review of a creative workshop programme that balances creative freedom with community benefit.",
+        "audience": "Specialist magazine readers (arts organisers)",
+        "purpose": "Assess effectiveness of programme in balancing creative autonomy with public value, recommend model.",
+        "requiredContentPoints": [
+          "programme description and intended public value",
+          "balance between creative autonomy and community outcomes",
+          "recommendation for other organisers"
+        ],
+        "lexicalAnchors": [
+          "creative workshop programme",
+          "public value",
+          "creative autonomy",
+          "community benefit"
+        ],
+        "originalitySelfCheck": "PASS: Review genre, no similar review in avoided fingerprints. Unique scenario."
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "Report for a trust funding creative workshops, analysing implications of requiring tangible outcomes.",
+        "audience": "Programme coordinator (Dr. Helena Novak, Creative Trust)",
+        "purpose": "Analyse implications of current programme design, propose action to balance freedom and accountability.",
+        "requiredContentPoints": [
+          "impact of tangible outcome requirement on creative process",
+          "consequences for long-term public value",
+          "concrete action to balance freedom and accountability"
+        ],
+        "lexicalAnchors": [
+          "creative workshop programme",
+          "tangible outcomes",
+          "creative freedom",
+          "accountability"
+        ],
+        "originalitySelfCheck": "PASS: Report genre, unique email from fictional trust. No overlap with previous report tasks."
+      },
+      {
+        "taskNumber": 4,
+        "scenario": "Article for an online magazine about whether publicly funded creative workshops should serve measurable social value or be free to explore.",
+        "audience": "English-speaking contact (friend/editor) and magazine readers",
+        "purpose": "Explain position on creative freedom vs. public accountability, describe consequence, suggest funding approach, request follow-up discussion.",
+        "requiredContentPoints": [
+          "main tension between creative freedom and public accountability",
+          "practical consequence of preferred approach",
+          "how funding bodies can support both integrity and community benefit"
+        ],
+        "lexicalAnchors": [
+          "creative workshops",
+          "public accountability",
+          "creative freedom",
+          "funding"
+        ],
+        "originalitySelfCheck": "PASS: Article genre, personal perspective via friend request. No overlap with previous article tasks."
+      }
+    ]
+  },
+  "cachedAt": 1785312677798
+}

@@ -1,0 +1,233 @@
+{
+  "inputHash": "e0a9fb67a0f0da2283a0ffa19d2ebfe1ed9bd9bb3a658ed27b08e25a525248ca",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-28:e0a9fb67a0f0da2283a0ffa19d2ebfe1ed9bd9bb3a658ed27b08e25a525248ca",
+  "test": {
+    "id": "c2-test-28",
+    "level": "c2",
+    "testNumber": 28,
+    "title": "CPE C2 AI Practice Test 28",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-28.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c2-test-28-1785313304281",
+      "generatedAt": 1785313342699,
+      "contentHash": "b05302b7d10070ef4a2ebc41457f431238f46c2675aaf065d4e088dde0e578a9",
+      "promptHash": "e0a9fb67a0f0da2283a0ffa19d2ebfe1ed9bd9bb3a658ed27b08e25a525248ca",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-28:e0a9fb67a0f0da2283a0ffa19d2ebfe1ed9bd9bb3a658ed27b08e25a525248ca",
+      "inputHash": "e0a9fb67a0f0da2283a0ffa19d2ebfe1ed9bd9bb3a658ed27b08e25a525248ca",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c2-test-28-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Consumer choices and fairness",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write an essay summarising and evaluating the key points from both texts in 240–280 words. Use your own words throughout as far as possible, and include your own ideas in your answers.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-28-task-01-source-1",
+            "type": "source-text",
+            "label": "Text 1",
+            "text": "The modern consumer market offers unprecedented convenience: same-day delivery, personalised recommendations and frictionless returns. Yet this ease masks a troubling asymmetry. The algorithms that curate our choices are designed to maximise profit, not fairness. Low-income shoppers, less able to absorb the cost of a poor purchase, are disproportionately targeted by aggressive marketing for high-interest credit or substandard goods. Meanwhile, wealthier consumers benefit from premium services that anticipate their needs. Convenience, in other words, is not a neutral good; it is distributed along existing lines of advantage. A market that claims to serve everyone must reckon with the fact that its most efficient mechanisms often deepen the very inequalities they purport to transcend."
+          },
+          {
+            "id": "c2-test-28-task-01-source-2",
+            "type": "source-text",
+            "label": "Text 2",
+            "text": "The charge that consumer markets are inherently unfair misunderstands how competition works. When a platform uses data to offer a personalised discount, it is not discriminating; it is responding to revealed preferences. The same convenience that allows a busy parent to order groceries with a tap also enables a student to compare insurance plans in minutes. Markets reward attention and resourcefulness, not privilege. If some consumers make poorer choices, the remedy is better education and transparency, not the dismantling of systems that have lifted millions out of scarcity. Fairness does not require that every transaction produce the same outcome; it requires that the rules be the same for everyone. On that measure, modern consumer markets are more equitable than any alternative yet devised."
+          }
+        ],
+        "presentation": {
+          "template": "source-texts"
+        },
+        "wordLimit": {
+          "min": 240,
+          "max": 280,
+          "displayText": "240–280 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c2-test-28-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Fair-trade certification review",
+        "genre": "review",
+        "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-28-task-02-panel",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Reviews wanted: Fair-trade certification",
+            "paragraphs": [
+              "A specialist magazine for ethical consumers is running a series of reviews of fair-trade certification schemes. Have you bought a product that carried a fair-trade label? Write a review of the scheme for our magazine.",
+              "In your review, assess how effectively the certification balances consumer convenience with genuine producer benefit. Describe one practical consequence of the scheme—either positive or negative—and recommend whether the certification should be adopted more widely."
+            ]
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c2-test-28-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Consumer fairness report",
+        "genre": "report",
+        "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-28-task-03-panel",
+            "type": "panel",
+            "variant": "generic",
+            "heading": "Report for the programme coordinator",
+            "paragraphs": [
+              "You are a consultant hired by a consumer advocacy group. The programme coordinator has asked you to write a report analysing the implications of dynamic pricing—where prices change based on demand, time, or user profile—for fairness in consumer markets.",
+              "In your report, analyse how dynamic pricing affects different groups of consumers. Assess the potential consequences for trust in digital marketplaces if fairness concerns are not addressed. Propose two concrete actions that regulators could take to ensure pricing is transparent without stifling innovation."
+            ]
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c2-test-28-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "The ethics of personalised pricing",
+        "genre": "article",
+        "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-28-task-04-panel",
+            "type": "panel",
+            "variant": "generic",
+            "heading": "Articles wanted: Personalised pricing",
+            "paragraphs": [
+              "An English-language online magazine for international readers is publishing a series on 'Fairness in the Market'. You have been contacted by an English-speaking contact who is an editor at the magazine. The editor asks you to write an article explaining your position on whether personalised pricing—where different customers pay different prices for the same product based on their data—is inherently unfair.",
+              "In your article, explain your position on this question. Describe one practical consequence of your view for how companies should set prices. Suggest how regulators could protect consumers without banning beneficial price differentiation. End your article by requesting that the magazine arrange a follow-up online discussion with readers and consumer rights advocates to explore the issue further."
+            ]
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "c2-test-28",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "Two texts debating fairness in consumer markets: one argues convenience masks inequality, the other argues markets are equitable if rules are uniform.",
+        "audience": "Educated general reader (essay for tutor)",
+        "purpose": "Synthesise competing claims, evaluate assumptions, develop independent position",
+        "requiredContentPoints": [
+          "the main consumer choices issue",
+          "one practical consequence",
+          "a justified recommendation"
+        ],
+        "lexicalAnchors": [
+          "consumer choices",
+          "fairness in consumer markets planning brief 22",
+          "c2 writing brief"
+        ],
+        "originalitySelfCheck": "Source texts are original, no reused theses from previous tests. Topic is specific to consumer fairness, not generic 'education' or 'technology'. No forbidden concepts."
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "Review of a fair-trade certification scheme, assessing balance between consumer convenience and producer benefit.",
+        "audience": "Specialist magazine readers (ethical consumers)",
+        "purpose": "Assess effectiveness and recommend",
+        "requiredContentPoints": [
+          "the main consumer choices issue",
+          "one practical consequence",
+          "a justified recommendation"
+        ],
+        "lexicalAnchors": [
+          "consumer choices",
+          "fairness in consumer markets planning brief 22",
+          "c2 writing brief"
+        ],
+        "originalitySelfCheck": "Review task is about fair-trade certification, not a generic 'book review' or 'workshop review'. No reused frame from previous tests. Forbidden concepts checked: PASS."
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "Report on dynamic pricing implications for fairness, analysing effects on consumer groups and proposing regulatory actions.",
+        "audience": "Programme coordinator (consumer advocacy group)",
+        "purpose": "Analyse implications and propose action",
+        "requiredContentPoints": [
+          "the main consumer choices issue",
+          "one practical consequence",
+          "a justified recommendation"
+        ],
+        "lexicalAnchors": [
+          "consumer choices",
+          "fairness in consumer markets planning brief 22",
+          "c2 writing brief"
+        ],
+        "originalitySelfCheck": "Report focuses on dynamic pricing, a specific and concrete issue. No similarity to previous report tasks. Forbidden concepts: PASS."
+      },
+      {
+        "taskNumber": 4,
+        "scenario": "Article on personalised pricing, arguing whether it is inherently unfair, with practical consequences and regulatory suggestions.",
+        "audience": "English-speaking contact (editor of international magazine)",
+        "purpose": "Explain a position and request arrangements",
+        "requiredContentPoints": [
+          "the main consumer choices issue",
+          "one practical consequence",
+          "a justified recommendation"
+        ],
+        "lexicalAnchors": [
+          "consumer choices",
+          "fairness in consumer markets planning brief 22",
+          "c2 writing brief"
+        ],
+        "originalitySelfCheck": "Article is about personalised pricing, a distinct angle. No reused skeleton from c2-test-27-task-04 (which was about housing). Forbidden concepts: PASS."
+      }
+    ],
+    "forbiddenConceptCheck": "PASS",
+    "notes": "All tasks are original, avoid generic phrases, and match the design fingerprint exactly. No reused scenarios or sentence frames from previous tests."
+  },
+  "cachedAt": 1785313342714
+}

@@ -1,0 +1,316 @@
+{
+  "inputHash": "5fb6868445b02aaf049b1fb06edb72e54e6e8862f522e2484d7ad73fb420b398",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-24:5fb6868445b02aaf049b1fb06edb72e54e6e8862f522e2484d7ad73fb420b398",
+  "test": {
+    "id": "c1-test-24",
+    "level": "c1",
+    "testNumber": 24,
+    "title": "CAE C1 AI Practice Test 24",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-24.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c1-test-24-1785312540232",
+      "generatedAt": 1785312566763,
+      "contentHash": "c6107ff52f45d7e656cf9dfee968c8956a715a30530f17bbfd7dd851c6393f10",
+      "promptHash": "5fb6868445b02aaf049b1fb06edb72e54e6e8862f522e2484d7ad73fb420b398",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-24:5fb6868445b02aaf049b1fb06edb72e54e6e8862f522e2484d7ad73fb420b398",
+      "inputHash": "5fb6868445b02aaf049b1fb06edb72e54e6e8862f522e2484d7ad73fb420b398",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c1-test-24-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Creative skills initiative priorities",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-24-task-01-block-01",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Priorities for the creative skills initiative",
+            "listItems": [
+              "providing free materials and equipment",
+              "offering mentorship from professional artists",
+              "creating a public showcase event"
+            ]
+          },
+          {
+            "id": "c1-test-24-task-01-block-02",
+            "type": "panel",
+            "variant": "opinions",
+            "heading": "Some opinions expressed in the discussion:",
+            "paragraphs": [
+              "Free materials remove the biggest barrier to participation. Many people simply can't afford to start a creative hobby without financial support.",
+              "Mentorship is what turns a casual interest into real skill development. Without guidance, people get frustrated and give up.",
+              "A public showcase gives participants a goal and a sense of achievement. It also helps build community awareness of the initiative."
+            ]
+          },
+          {
+            "id": "c1-test-24-task-01-block-03",
+            "type": "final-instruction",
+            "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for the success of the creative skills initiative, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+          }
+        ],
+        "presentation": {
+          "template": "essay-notes-opinions"
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c1-test-24-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Proposal for a creative skills initiative",
+        "genre": "proposal",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-24-task-02-block-01",
+            "type": "paragraph",
+            "text": "Your local arts council is planning to launch a creative skills initiative aimed at adults who have never had formal training in the arts. The council has invited proposals from community members for how this initiative should be designed."
+          },
+          {
+            "id": "c1-test-24-task-02-block-02",
+            "type": "paragraph",
+            "text": "Write a proposal for the arts council. In your proposal, you should:"
+          },
+          {
+            "id": "c1-test-24-task-02-block-03",
+            "type": "paragraph",
+            "text": "• recommend two specific types of creative workshops to offer\n• explain how these workshops would benefit participants and the wider community\n• suggest how the council could ensure the initiative reaches people who might not otherwise take part"
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-24-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Email about creative skills initiative implications",
+        "genre": "email",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-24-task-03-block-01",
+            "type": "email",
+            "from": "Programme Coordinator <p.coordinator@creativearts.org>",
+            "subject": "Creative skills initiative – your analysis",
+            "paragraphs": [
+              "Dear Resident,",
+              "As you may know, the arts council is planning a creative skills initiative that would offer free workshops in painting, pottery and digital design to local adults. Some local art supply shops have expressed concern that providing free materials will reduce their sales and may put them out of business. Others argue that the initiative will create new customers in the long run by sparking interest in the arts.",
+              "I would like to hear your analysis of this situation. Please write back explaining your position on the proposed free materials policy, analysing one potential implication for local businesses, and proposing an action the council could take to support both the initiative and local shops.",
+              "Best regards,",
+              "Programme Coordinator"
+            ]
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-24-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Review of a creative workshop",
+        "genre": "review",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-24-task-04-block-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Reviews wanted: Creative workshops",
+            "paragraphs": [
+              "Have you attended a creative workshop – for example, in painting, pottery, photography or digital art – that was aimed at beginners? We want to hear about your experience.",
+              "Write a review for our community website. Describe the workshop and what you made or learned. Evaluate how well the workshop balanced providing a supportive environment with challenging you to develop new skills. Would you recommend this workshop to other beginners? Why or why not?",
+              "The best reviews will be published on our website."
+            ]
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "c1-test-24",
+    "level": "c1",
+    "topicFamily": "creative workshops",
+    "designFingerprint": {
+      "specificSetting": "a creative skills initiative planning brief 18",
+      "specificSettingByTask": {
+        "task1": "a creative skills initiative planning brief 18: essay brief 1-1",
+        "task2": "a creative skills initiative planning brief 18: proposal brief 2-5",
+        "task3": "a creative skills initiative planning brief 18: email brief 3-9",
+        "task4": "a creative skills initiative planning brief 18: review brief 4-13"
+      },
+      "audienceByTask": {
+        "task1": "English teacher",
+        "task2": "specialist magazine readers",
+        "task3": "programme coordinator",
+        "task4": "English-speaking contact"
+      },
+      "purposeByTask": {
+        "task1": "evaluate and justify priorities",
+        "task2": "assess effectiveness and recommend",
+        "task3": "analyse implications and propose action",
+        "task4": "explain a position and request arrangements"
+      },
+      "registerByTask": {
+        "task1": "neutral",
+        "task2": "semi-formal",
+        "task3": "formal",
+        "task4": "engaging neutral"
+      },
+      "requiredContentPointsByTask": {
+        "task1": [
+          "the main creative workshops issue",
+          "one practical consequence",
+          "a justified recommendation 1"
+        ],
+        "task2": [
+          "the main creative workshops issue",
+          "one practical consequence",
+          "a justified recommendation 2"
+        ],
+        "task3": [
+          "the main creative workshops issue",
+          "one practical consequence",
+          "a justified recommendation 3"
+        ],
+        "task4": [
+          "the main creative workshops issue",
+          "one practical consequence",
+          "a justified recommendation 4"
+        ]
+      },
+      "lexicalAnchors": [
+        "creative workshops",
+        "a creative skills initiative planning brief 18",
+        "c1 writing brief"
+      ],
+      "forbiddenConcepts": []
+    },
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "Essay discussing priorities for a creative skills initiative (free materials, mentorship, public showcase)",
+        "audience": "English teacher",
+        "purpose": "Evaluate and justify which priority is more important",
+        "requiredContentPoints": [
+          "the main creative workshops issue",
+          "one practical consequence",
+          "a justified recommendation 1"
+        ],
+        "lexicalAnchors": [
+          "creative workshops",
+          "a creative skills initiative planning brief 18",
+          "c1 writing brief"
+        ],
+        "originalitySelfCheck": "Scenario is unique; no overlap with existing tests. Uses creative skills initiative, not generic education or peer learning.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "Proposal for a creative skills initiative aimed at adults without formal arts training",
+        "audience": "specialist magazine readers (arts council)",
+        "purpose": "Assess effectiveness and recommend workshop types and outreach",
+        "requiredContentPoints": [
+          "the main creative workshops issue",
+          "one practical consequence",
+          "a justified recommendation 2"
+        ],
+        "lexicalAnchors": [
+          "creative workshops",
+          "a creative skills initiative planning brief 18",
+          "c1 writing brief"
+        ],
+        "originalitySelfCheck": "Proposal targets adults new to arts; no overlap with existing proposals (e.g., student interaction, study hub, employer partnership).",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "Email analysing implications of free materials policy for local businesses",
+        "audience": "programme coordinator",
+        "purpose": "Analyse implications and propose action",
+        "requiredContentPoints": [
+          "the main creative workshops issue",
+          "one practical consequence",
+          "a justified recommendation 3"
+        ],
+        "lexicalAnchors": [
+          "creative workshops",
+          "a creative skills initiative planning brief 18",
+          "c1 writing brief"
+        ],
+        "originalitySelfCheck": "Email focuses on economic impact on local shops, not generic course complaint or visit arrangement. Unique scenario.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 4,
+        "scenario": "Review of a creative workshop for beginners",
+        "audience": "English-speaking contact (community website readers)",
+        "purpose": "Explain a position and request arrangements (recommendation)",
+        "requiredContentPoints": [
+          "the main creative workshops issue",
+          "one practical consequence",
+          "a justified recommendation 4"
+        ],
+        "lexicalAnchors": [
+          "creative workshops",
+          "a creative skills initiative planning brief 18",
+          "c1 writing brief"
+        ],
+        "originalitySelfCheck": "Review is about a creative workshop (painting, pottery, etc.), not a book, film, digital detox, or study clinic. Unique to this test.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ]
+  },
+  "cachedAt": 1785312566791
+}

@@ -1,0 +1,97 @@
+{
+  "testId": "c1-test-20",
+  "level": "c1",
+  "topicFamily": "public parks",
+  "specificSetting": "a public realm strategy planning brief 14",
+  "centralTension": "access and convenience versus long-term responsibility in public parks",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "genre": "essay",
+      "scenario": "Radio discussion on balancing visitor convenience with environmental/financial responsibility in public parks; notes on lighting/seating, entry fee, wildlife zones; opinions provided.",
+      "audience": "English teacher (tutor)",
+      "purpose": "Discuss two priorities and decide which is more important for balancing access and long-term responsibility.",
+      "requiredContentPoints": [
+        "installing more lighting and seating for evening use",
+        "introducing a small entry fee for non-residents",
+        "creating dedicated wildlife zones with restricted access"
+      ],
+      "lexicalAnchors": [
+        "public parks",
+        "lighting and seating",
+        "entry fee",
+        "wildlife zones",
+        "access",
+        "long-term responsibility"
+      ],
+      "originalitySelfCheck": "Unique scenario: public parks balancing convenience vs responsibility. Notes and opinions are original, not reused from any previous test. No forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "genre": "proposal",
+      "scenario": "Council planning volunteer scheme for park maintenance; proposal to parks manager.",
+      "audience": "Council parks manager",
+      "purpose": "Recommend volunteer tasks, attract diverse volunteers, ensure council retains responsibility.",
+      "requiredContentPoints": [
+        "two specific volunteer tasks",
+        "how to attract and retain volunteers from different age groups",
+        "how to avoid reducing council's long-term responsibility"
+      ],
+      "lexicalAnchors": [
+        "volunteer scheme",
+        "park maintenance",
+        "attract volunteers",
+        "long-term responsibility"
+      ],
+      "originalitySelfCheck": "Original proposal topic: volunteer scheme for parks. Not similar to any avoided fingerprint. No forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "genre": "email",
+      "scenario": "Council proposes banning commercial events in main park; email to programme coordinator.",
+      "audience": "Programme coordinator of council's public realm strategy",
+      "purpose": "Explain position, analyse implication of ban, propose alternative action.",
+      "requiredContentPoints": [
+        "position on proposed ban",
+        "one potential implication for local community",
+        "alternative action to protect park while allowing some events"
+      ],
+      "lexicalAnchors": [
+        "commercial events ban",
+        "park wear and tear",
+        "community impact",
+        "alternative action"
+      ],
+      "originalitySelfCheck": "Original email scenario: ban on commercial events in park. Not similar to any avoided fingerprint. No forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "genre": "review",
+      "scenario": "Announcement on local lifestyle website asking for reviews of park restoration projects.",
+      "audience": "Local lifestyle website readers",
+      "purpose": "Describe park changes, evaluate balance between access and protection, recommend approach.",
+      "requiredContentPoints": [
+        "description of changes",
+        "evaluation of balance between convenience and long-term protection",
+        "recommendation for other parks"
+      ],
+      "lexicalAnchors": [
+        "park restoration",
+        "visitor access",
+        "environmental care",
+        "balance"
+      ],
+      "originalitySelfCheck": "Original review topic: park restoration project. Not similar to any avoided fingerprint. No forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are original, with unique scenarios, audiences, and content points. No reuse of sentence frames or structures from previous tests. Forbidden concepts avoided.",
+  "status": "draft",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "0c227b134f9497ea8189b6bb8b69929c9e150e9174c759ecf6e0c68c414d5ae2"
+  }
+}

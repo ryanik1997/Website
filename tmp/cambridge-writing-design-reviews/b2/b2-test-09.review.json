@@ -1,0 +1,92 @@
+{
+  "testId": "b2-test-09",
+  "level": "b2",
+  "topicFamily": "public libraries",
+  "specificSetting": "a library makerspace launch planning brief 3",
+  "stakeholders": [
+    "people affected by public libraries",
+    "organisers of a library makerspace launch planning brief 3"
+  ],
+  "centralTension": "access and convenience versus long-term responsibility in public libraries",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Essay: class discussion on whether public libraries should invest in makerspaces",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "attracting new visitors",
+        "cost of equipment",
+        "own idea"
+      ],
+      "lexicalAnchors": [
+        "public libraries",
+        "makerspaces",
+        "investment"
+      ],
+      "originalitySelfCheck": "Unique scenario: library makerspace investment. Not used in any previous test. Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Review: a library makerspace visited by the writer",
+      "audience": "college magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "equipment and activities",
+        "staff helpfulness",
+        "recommendation with reason"
+      ],
+      "lexicalAnchors": [
+        "library makerspace",
+        "equipment",
+        "staff"
+      ],
+      "originalitySelfCheck": "Review of a library makerspace, not a book or event. Not similar to any previous review task.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Article: how a library makerspace can benefit the community",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "positive change for residents",
+        "encourage library use",
+        "involve local businesses"
+      ],
+      "lexicalAnchors": [
+        "library makerspace",
+        "community benefit",
+        "local businesses"
+      ],
+      "originalitySelfCheck": "Article about community benefits of makerspace, not a personal experience or generic skill. Not used before.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Email: replying to a friend about library makerspace planning",
+      "audience": "English-speaking contact",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "essential equipment",
+        "activities for teenagers",
+        "convincing the committee"
+      ],
+      "lexicalAnchors": [
+        "library makerspace",
+        "equipment",
+        "teenagers",
+        "committee"
+      ],
+      "originalitySelfCheck": "Email about makerspace planning, not a general advice email. No overlap with previous email tasks.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are original, based on the specific setting of a library makerspace launch. No forbidden concepts used. No overlap with existing test fingerprints.",
+  "status": "draft",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "7c4f0620fdf2eb2575ce418d35147d85481255c8dbe80c658094d4b6fb9a3fd3"
+  }
+}

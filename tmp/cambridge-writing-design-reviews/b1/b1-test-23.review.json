@@ -1,0 +1,74 @@
+{
+  "testId": "b1-test-23",
+  "level": "b1",
+  "topicFamily": "holiday planning",
+  "specificSetting": "a family holiday by train planning brief 17",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Class helping to plan a family train holiday; email from teacher asking about priorities (cost vs comfort), a practical choice (book seats together vs plan a stop), and a fun activity for children.",
+      "audience": "English teacher (Mrs. Hill)",
+      "purpose": "Evaluate and justify priorities: choose between cost and comfort, select a practical arrangement, suggest children's entertainment, and ask about the date.",
+      "requiredContentPoints": [
+        "Say which is more important: low cost OR comfort – and explain why.",
+        "Choose a practical thing to organise (book seats together OR plan a stop) and give a reason.",
+        "Suggest one way to make the journey fun for children.",
+        "Ask Mrs. Hill about the date of the holiday."
+      ],
+      "lexicalAnchors": [
+        "family holiday by train",
+        "cost",
+        "comfort",
+        "book seats together",
+        "plan a stop",
+        "fun for children",
+        "date"
+      ],
+      "originalitySelfCheck": "Scenario is unique: family holiday by train planning, not used in any previous test. Email from teacher about class project. Notes panel with four distinct points including a choice between two options. No forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Travel website for families asking for articles about train travel with family – good points and difficulties.",
+      "audience": "Readers of a family travel website",
+      "purpose": "Assess effectiveness and recommend: give opinion on train travel for families, describe best thing and possible difficulties.",
+      "requiredContentPoints": [
+        "Is a train journey a good way for a family to travel on holiday?",
+        "What is the best thing about it?",
+        "What can be difficult?"
+      ],
+      "lexicalAnchors": [
+        "train journey",
+        "family holiday",
+        "best thing",
+        "difficult"
+      ],
+      "originalitySelfCheck": "Article prompt about family train travel, not used before. Two direct questions plus an overall opinion. No generic phrases. No forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Story beginning with a train stopping suddenly between stations.",
+      "audience": "English teacher",
+      "purpose": "Continue a story from a given opening sentence about an unexpected train stop.",
+      "requiredContentPoints": [
+        "Train stops between stations",
+        "Reaction of people in carriage",
+        "What happens next"
+      ],
+      "lexicalAnchors": [
+        "train stopped",
+        "between stations",
+        "carriage",
+        "looked at each other"
+      ],
+      "originalitySelfCheck": "Opening sentence is unique: train stopping between stations, not used in any previous test. No cliché. Forbidden concepts check passed.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are original, use concrete scenarios from the design fingerprint, avoid forbidden concepts, and do not reuse skeletons from previous tests.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "3c9e5760fd55ded9ce442ef1165c7743cf956c3c8ed1c06a1cfd3a6e64399b12"
+  }
+}

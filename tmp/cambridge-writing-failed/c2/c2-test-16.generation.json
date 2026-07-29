@@ -1,0 +1,18 @@
+{
+  "failedAt": 1785310848636,
+  "testId": "c2-test-16",
+  "level": "c2",
+  "error": "c2-test-16: deterministic originality gate failed: skeleton_similarity",
+  "originality": [
+    {
+      "type": "checkpoint",
+      "leftTaskId": "c2-test-15-task-03",
+      "rightTaskId": "c2-test-16-task-03",
+      "genre": "report",
+      "exact": false,
+      "score": 0.2432,
+      "skeletonScore": 0.6119,
+      "reason": "skeleton_similarity"
+    }
+  ]
+}

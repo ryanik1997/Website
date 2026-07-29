@@ -1,0 +1,186 @@
+{
+  "id": "b2-test-08",
+  "level": "b2",
+  "testNumber": 8,
+  "title": "FCE B2 AI Practice Test 08",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-08.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b2-test-08-1785306803309",
+    "generatedAt": 1785306823941,
+    "contentHash": "37f1d015db1c7f7b42739cb01846976347d0f0b47c5741cdd12207d3c5052fba",
+    "promptHash": "1892d2cd5348d3bff76c761d34de106bc02ab5c0b732e558cf262ea38406cfc7",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-08:1892d2cd5348d3bff76c761d34de106bc02ab5c0b732e558cf262ea38406cfc7",
+    "inputHash": "1892d2cd5348d3bff76c761d34de106bc02ab5c0b732e558cf262ea38406cfc7",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b2-test-08-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay: Priorities for a regional bus improvement plan",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 140–190 words in an appropriate style.",
+      "promptText": "In your English class you have been talking about how to improve bus services in your region. Now your English teacher has asked you to write an essay.\n\nWrite an essay using all the notes and giving reasons for your point of view.\n\nWhat is the most important improvement to make to bus services in your region?\n\nNotes\n\nWrite about:\n\n1. frequency of buses\n2. cost of tickets\n3. ......................... (your own idea)",
+      "promptBlocks": [
+        {
+          "id": "b2-test-08-task-01-block-01",
+          "type": "paragraph",
+          "text": "In your English class you have been talking about how to improve bus services in your region. Now your English teacher has asked you to write an essay."
+        },
+        {
+          "id": "b2-test-08-task-01-block-02",
+          "type": "paragraph",
+          "text": "Write an essay using all the notes and giving reasons for your point of view."
+        },
+        {
+          "id": "b2-test-08-task-01-block-03",
+          "type": "paragraph",
+          "text": "What is the most important improvement to make to bus services in your region?"
+        },
+        {
+          "id": "b2-test-08-task-01-block-04",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "listItems": [
+            "frequency of buses",
+            "cost of tickets",
+            "......................... (your own idea)"
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes"
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b2-test-08-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Review: A bus improvement plan",
+      "genre": "review",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptText": "You see this announcement in your college English-language magazine.\n\nReviews wanted\n\nA regional bus improvement plan has been proposed for our area. Have you seen the plan or heard about it? Write a review of the plan for our magazine.\n\nExplain what the plan aims to do, say whether you think it will be effective, and recommend one change you would make to improve it.\n\nThe best reviews will be published in the next issue.\n\nWrite your review.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-08-task-02-block-01",
+          "type": "paragraph",
+          "text": "You see this announcement in your college English-language magazine."
+        },
+        {
+          "id": "b2-test-08-task-02-block-02",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted",
+          "paragraphs": [
+            "A regional bus improvement plan has been proposed for our area. Have you seen the plan or heard about it? Write a review of the plan for our magazine.",
+            "Explain what the plan aims to do, say whether you think it will be effective, and recommend one change you would make to improve it.",
+            "The best reviews will be published in the next issue."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-08-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Article: How the bus plan affects young people",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptText": "You see this announcement on a youth website.\n\nArticles wanted\n\nBus plan: what does it mean for us?\n\nOur region is planning to improve bus services. Write an article for our website explaining how the plan could affect young people in the area.\n\nDescribe one possible benefit and one possible drawback, and suggest what young people should do to make their voices heard.\n\nWe will publish the best articles on our website.\n\nWrite your article.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-08-task-03-block-01",
+          "type": "paragraph",
+          "text": "You see this announcement on a youth website."
+        },
+        {
+          "id": "b2-test-08-task-03-block-02",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted",
+          "paragraphs": [
+            "Bus plan: what does it mean for us?",
+            "Our region is planning to improve bus services. Write an article for our website explaining how the plan could affect young people in the area.",
+            "Describe one possible benefit and one possible drawback, and suggest what young people should do to make their voices heard.",
+            "We will publish the best articles on our website."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-08-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Email: Explaining your position on the bus plan",
+      "genre": "email",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptText": "You have received this email from your English-speaking friend, Chris.\n\nFrom: Chris\nSubject: Bus plan in your area\n\nHi,\nI heard that your region is planning to improve bus services. What do you think about the plan? Do you support it or not? Also, how will it affect your daily life? I'm curious about what changes you'd like to see.\n\nLet me know!\n\nChris\n\nWrite your email.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-08-task-04-block-01",
+          "type": "email",
+          "from": "Chris",
+          "subject": "Bus plan in your area",
+          "paragraphs": [
+            "Hi,",
+            "I heard that your region is planning to improve bus services. What do you think about the plan? Do you support it or not? Also, how will it affect your daily life? I'm curious about what changes you'd like to see.",
+            "Let me know!",
+            "Chris"
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "email",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

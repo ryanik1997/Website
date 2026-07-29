@@ -1,0 +1,155 @@
+{
+  "id": "b1-test-34",
+  "level": "b1",
+  "testNumber": 34,
+  "title": "PET B1 AI Practice Test 34",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b1/b1-test-34.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b1-test-34-1785313657783",
+    "generatedAt": 1785313677146,
+    "contentHash": "b869b108eb9ab7b192e13ab3f64afbcd6fc33079256d10cfd78b9d40bd9543f8",
+    "promptHash": "f3eb2478cee7ddd1c1afa5f5e8fe66bebf57ed4a87281ffe702921b7d4daeaae",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-34:f3eb2478cee7ddd1c1afa5f5e8fe66bebf57ed4a87281ffe702921b7d4daeaae",
+    "inputHash": "f3eb2478cee7ddd1c1afa5f5e8fe66bebf57ed4a87281ffe702921b7d4daeaae",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b1-test-34-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Email to English teacher about reading club priorities",
+      "genre": "email",
+      "instruction": "You must answer this question. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-34-task-01-email",
+          "type": "email",
+          "from": "Mrs. Hill",
+          "subject": "Reading club for teenagers",
+          "greeting": "Hello,",
+          "paragraphs": [
+            "As you know, we are planning a reading club for teenagers at the library. I need your help to decide on a few things.",
+            "First, should we meet on Saturday mornings or weekday evenings? Which do you think is better for students?",
+            "Also, we need to choose a type of book to start with. Would you prefer adventure stories or science fiction?",
+            "Finally, can you suggest one fun activity we could do during the meetings?",
+            "Let me know what you think! Best wishes, Mrs. Hill"
+          ],
+          "closing": "Best wishes, Mrs. Hill"
+        },
+        {
+          "id": "b1-test-34-task-01-notes",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes for your reply",
+          "listItems": [
+            "Say which time you prefer and why.",
+            "Choose a book type and give a reason.",
+            "Suggest one activity for the meetings.",
+            "Ask Mrs. Hill about something you need for the club."
+          ]
+        },
+        {
+          "id": "b1-test-34-task-01-final",
+          "type": "final-instruction",
+          "text": "Write your email to Mrs. Hill using all the notes."
+        }
+      ],
+      "presentation": {
+        "template": "email"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b1-test-34-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Article about reading club for teenagers",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-34-task-02-announcement",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted!",
+          "paragraphs": [
+            "A library reading club for teenagers is starting in your town.",
+            "Tell us what you think about this idea. Would you join a reading club? Why or why not? What kind of books would you like to read there?",
+            "Write an article answering these questions and we will put it on our website!"
+          ]
+        },
+        {
+          "id": "b1-test-34-task-02-final",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b1-test-34-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Story about a library discovery",
+      "genre": "story",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-34-task-03-opening",
+          "type": "paragraph",
+          "text": "Your English teacher has asked you to write a story."
+        },
+        {
+          "id": "b1-test-34-task-03-sentence",
+          "type": "paragraph",
+          "text": "Your story must begin with this sentence:"
+        },
+        {
+          "id": "b1-test-34-task-03-quote",
+          "type": "paragraph",
+          "text": "\"When I opened the old book, a small key fell out and landed on the floor.\""
+        },
+        {
+          "id": "b1-test-34-task-03-final",
+          "type": "final-instruction",
+          "text": "Write your story."
+        }
+      ],
+      "presentation": {
+        "template": "plain"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

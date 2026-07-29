@@ -1,0 +1,166 @@
+{
+  "id": "b1-test-30",
+  "level": "b1",
+  "testNumber": 30,
+  "title": "PET B1 AI Practice Test 30",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b1/b1-test-30.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b1-test-30-1785312894048",
+    "generatedAt": 1785312924893,
+    "contentHash": "c68a944ad12a5963069f11eb8022d6e66a0651e0871c107038f64497a26bfbd4",
+    "promptHash": "0afd0a1285b953af4a836056cfd6e8138c1a681953c169fb4e61149097d1e8a3",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-30:0afd0a1285b953af4a836056cfd6e8138c1a681953c169fb4e61149097d1e8a3",
+    "inputHash": "0afd0a1285b953af4a836056cfd6e8138c1a681953c169fb4e61149097d1e8a3",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b1-test-30-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Email about health week activities",
+      "genre": "email",
+      "instruction": "You must answer this question. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-30-task-01-p1",
+          "type": "paragraph",
+          "text": "Read this email from your English teacher, Mrs. Hill, and the notes you have made."
+        },
+        {
+          "id": "b1-test-30-task-01-email",
+          "type": "email",
+          "from": "Mrs. Hill",
+          "subject": "Health week activities",
+          "paragraphs": [
+            "Hello,",
+            "As you know, our school is planning a Health Week next month. We need to choose two main activities for the students. The options are: a healthy cooking workshop, a yoga session in the gym, or a talk by a local doctor about sleep.",
+            "Which two activities do you think we should choose? Please give a reason for each choice.",
+            "Also, should the activities take place during lesson time or after school? Which do you think is better?",
+            "Finally, can you suggest one way to encourage students to sign up?",
+            "Best wishes,",
+            "Mrs. Hill"
+          ]
+        },
+        {
+          "id": "b1-test-30-task-01-notes",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes for your reply",
+          "listItems": [
+            "Choose two activities and say why you chose each one.",
+            "Say if you prefer during lessons or after school – explain why.",
+            "Suggest one way to encourage students to sign up.",
+            "Ask Mrs. Hill about the budget for the activities."
+          ]
+        },
+        {
+          "id": "b1-test-30-task-01-final",
+          "type": "final-instruction",
+          "text": "Write your email to Mrs. Hill using all the notes."
+        }
+      ],
+      "presentation": {
+        "template": "email"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b1-test-30-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Article about health week",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-30-task-02-p1",
+          "type": "paragraph",
+          "text": "You see this notice on a specialist magazine website."
+        },
+        {
+          "id": "b1-test-30-task-02-announcement",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted!",
+          "paragraphs": [
+            "Health Week at school – does it really help students?",
+            "Do you think a Health Week can make students more interested in healthy living?",
+            "What kind of activity do you think is most effective?",
+            "Write an article answering these questions and we will put it on our website!"
+          ]
+        },
+        {
+          "id": "b1-test-30-task-02-final",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b1-test-30-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Story about health week",
+      "genre": "story",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-30-task-03-p1",
+          "type": "paragraph",
+          "text": "Your English teacher has asked you to write a story."
+        },
+        {
+          "id": "b1-test-30-task-03-opening",
+          "type": "paragraph",
+          "text": "Your story must begin with this sentence:"
+        },
+        {
+          "id": "b1-test-30-task-03-sentence",
+          "type": "paragraph",
+          "text": "\"When the programme coordinator handed me the list of health week activities, I noticed something strange at the bottom of the page.\""
+        },
+        {
+          "id": "b1-test-30-task-03-final",
+          "type": "final-instruction",
+          "text": "Write your story."
+        }
+      ],
+      "presentation": {
+        "template": "plain"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

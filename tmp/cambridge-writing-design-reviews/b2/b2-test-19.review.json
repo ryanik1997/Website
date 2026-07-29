@@ -1,0 +1,84 @@
+{
+  "testId": "b2-test-19",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Volunteer matching service planning brief 13: essay brief 1-1",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "matching volunteers to projects near their homes",
+        "providing training for volunteers before they start",
+        "own idea"
+      ],
+      "lexicalAnchors": [
+        "volunteer matching service",
+        "local projects",
+        "training"
+      ],
+      "originalityCheck": "Scenario is specific to volunteer matching service; notes are distinct from previous essays (e.g., not about transport, environment, community centres). No reused skeleton.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Volunteer matching service planning brief 13: review brief 2-5",
+      "audience": "specialist magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "how the service matched you with a project",
+        "how well it prepared you for the role",
+        "one improvement"
+      ],
+      "lexicalAnchors": [
+        "volunteer matching service",
+        "matched",
+        "prepared",
+        "improvement"
+      ],
+      "originalityCheck": "Review of a service, not a book, film, or event. Content points are concrete and distinct from previous reviews.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Volunteer matching service planning brief 13: article brief 3-9",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "one practical way to help volunteers stay motivated long-term",
+        "why it would work",
+        "benefits for volunteers and projects"
+      ],
+      "lexicalAnchors": [
+        "volunteer matching service",
+        "stay motivated",
+        "long-term commitment"
+      ],
+      "originalityCheck": "Article focuses on post-placement support, not generic 'learning beyond lessons' or 'useful thing learned'. No overlap with previous article tasks.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Volunteer matching service planning brief 13: email brief 4-13",
+      "audience": "English-speaking contact",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "what makes the service effective",
+        "one challenge",
+        "how it encourages reliability"
+      ],
+      "lexicalAnchors": [
+        "volunteer matching service",
+        "effective",
+        "challenge",
+        "reliability"
+      ],
+      "originalityCheck": "Email is from a friend asking about a service, not about a festival, course, or weekend job. Content points are specific to volunteer matching.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityStatement": "All tasks are based on the volunteer matching service scenario, which is new and not used in any previous test. The specific setting, audiences, purposes, and content points are unique and match the design fingerprint. No forbidden concepts are used. The essay notes, review announcement, article announcement, and email are all original and do not reuse skeletons from previous tests.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "ed8e7535ad358f3639fc6a24a79cc949a7ea548b2d793f5ed3e66ed631d8775d"
+  }
+}

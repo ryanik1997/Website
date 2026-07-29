@@ -1,0 +1,82 @@
+{
+  "overallOriginalityCheck": "PASS",
+  "forbiddenConceptsCheck": "PASS",
+  "tasks": [
+    {
+      "taskId": "c2-test-15-task-01",
+      "scenario": "Two source texts debate whether workplace healthy cooking programmes are superficial convenience or meaningful access to skills",
+      "audience": "educated general reader",
+      "purpose": "synthesise competing claims, evaluate assumptions and develop an independent position",
+      "requiredContentPoints": [
+        "guidance and equality",
+        "autonomy and intellectual risk",
+        "own conceptual distinction"
+      ],
+      "lexicalAnchors": [
+        "workplace wellbeing",
+        "healthy cooking",
+        "convenience",
+        "long-term responsibility"
+      ],
+      "originalitySelfCheck": "PASS - scenario is specific to workplace cooking programmes, not used in any previous test"
+    },
+    {
+      "taskId": "c2-test-15-task-02",
+      "scenario": "Review of a workplace healthy cooking programme for HR professionals",
+      "audience": "specialist magazine readers (HR professionals)",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "the main healthy cooking issue",
+        "one practical consequence",
+        "a justified recommendation 2"
+      ],
+      "lexicalAnchors": [
+        "workplace wellbeing",
+        "healthy cooking",
+        "convenience",
+        "long-term responsibility"
+      ],
+      "originalitySelfCheck": "PASS - review genre with HR magazine audience, not used in previous tests"
+    },
+    {
+      "taskId": "c2-test-15-task-03",
+      "scenario": "Report for health authority on workplace cooking initiatives",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "the main healthy cooking issue",
+        "one practical consequence",
+        "a justified recommendation 3"
+      ],
+      "lexicalAnchors": [
+        "workplace wellbeing",
+        "healthy cooking",
+        "convenience",
+        "long-term responsibility"
+      ],
+      "originalitySelfCheck": "PASS - report genre with health authority audience, not used in previous tests"
+    },
+    {
+      "taskId": "c2-test-15-task-04",
+      "scenario": "Article for international magazine on employer responsibility for healthy cooking",
+      "audience": "English-speaking contact (international readers)",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "the main healthy cooking issue",
+        "one practical consequence",
+        "a justified recommendation 4"
+      ],
+      "lexicalAnchors": [
+        "workplace wellbeing",
+        "healthy cooking",
+        "convenience",
+        "long-term responsibility"
+      ],
+      "originalitySelfCheck": "PASS - article genre with international magazine audience, not used in previous tests"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "655961ac6056a4631e4b892bb896c705d1fb4fb29301ce5a4d255eb4561ce235"
+  }
+}

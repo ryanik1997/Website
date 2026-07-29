@@ -1,0 +1,229 @@
+{
+  "inputHash": "236049bb1ca3608de948e9905a4fd25eed76def10c41a416f36073e57d58ad04",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-24:236049bb1ca3608de948e9905a4fd25eed76def10c41a416f36073e57d58ad04",
+  "test": {
+    "id": "b1-test-24",
+    "level": "b1",
+    "testNumber": 24,
+    "title": "PET B1 AI Practice Test 24",
+    "sourceFile": "packages/catalog/data/cambridge-writing/b1/b1-test-24.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "b1-test-24-1785312239253",
+      "generatedAt": 1785312254822,
+      "contentHash": "621221c364050f7a1dd128139e48182bbbe280c1e1916c196ed6cf7bc8a36540",
+      "promptHash": "236049bb1ca3608de948e9905a4fd25eed76def10c41a416f36073e57d58ad04",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-24:236049bb1ca3608de948e9905a4fd25eed76def10c41a416f36073e57d58ad04",
+      "inputHash": "236049bb1ca3608de948e9905a4fd25eed76def10c41a416f36073e57d58ad04",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "b1-test-24-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Email about photography workshop",
+        "genre": "email",
+        "instruction": "You must answer this question. Write your answer in about 100 words.",
+        "promptBlocks": [
+          {
+            "id": "b1-test-24-task-01-para-01",
+            "type": "paragraph",
+            "text": "Read this email from your English teacher, Mrs. Hill, and the notes you have made."
+          },
+          {
+            "id": "b1-test-24-task-01-email-01",
+            "type": "email",
+            "from": "Mrs. Hill",
+            "subject": "Photography workshop planning",
+            "greeting": "Hello,",
+            "paragraphs": [
+              "As you know, our class is helping to plan a photography workshop for local teenagers. We need to decide on the main goal. Should we focus on teaching technical skills like using a camera, or on helping students express their ideas through photos? Which do you think is more important and why?",
+              "Also, we need to choose one practical thing to organise. Would you prefer to arrange a visit to a local photography exhibition, or invite a professional photographer to give a talk?",
+              "Finally, can you suggest one way to make the workshop affordable for everyone?",
+              "Best wishes,",
+              "Mrs. Hill"
+            ],
+            "closing": "Best wishes,",
+            "sender": "Mrs. Hill"
+          },
+          {
+            "id": "b1-test-24-task-01-panel-01",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Notes for your reply",
+            "listItems": [
+              "Say which goal you prefer (technical skills OR expressing ideas) and explain why.",
+              "Choose a practical thing to organise (exhibition visit OR photographer talk) and give a reason.",
+              "Suggest one way to make the workshop affordable.",
+              "Ask Mrs. Hill about the date of the workshop."
+            ]
+          },
+          {
+            "id": "b1-test-24-task-01-final-01",
+            "type": "final-instruction",
+            "text": "Write your email to Mrs. Hill using all the notes."
+          }
+        ],
+        "presentation": {
+          "template": "email"
+        },
+        "wordLimit": {
+          "min": 100,
+          "max": 100,
+          "displayText": "about 100 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "b1-test-24-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Article about photography workshop",
+        "genre": "article",
+        "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+        "promptBlocks": [
+          {
+            "id": "b1-test-24-task-02-panel-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Articles wanted!",
+            "paragraphs": [
+              "Our town is planning a photography workshop for teenagers. Do you think this is a good idea? What would you like to learn in a photography workshop?",
+              "Write an article answering these questions and we will put it on our town website!"
+            ]
+          },
+          {
+            "id": "b1-test-24-task-02-final-01",
+            "type": "final-instruction",
+            "text": "Write your article."
+          }
+        ],
+        "presentation": {
+          "template": "announcement"
+        },
+        "wordLimit": {
+          "min": 100,
+          "max": 100,
+          "displayText": "about 100 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b1-test-24-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Story about photography workshop",
+        "genre": "story",
+        "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+        "promptBlocks": [
+          {
+            "id": "b1-test-24-task-03-para-01",
+            "type": "paragraph",
+            "text": "Your English teacher has asked you to write a story."
+          },
+          {
+            "id": "b1-test-24-task-03-para-02",
+            "type": "paragraph",
+            "text": "Your story must begin with this sentence:"
+          },
+          {
+            "id": "b1-test-24-task-03-para-03",
+            "type": "paragraph",
+            "text": "\"When the programme coordinator opened the camera bag, a memory card fell out with a note attached.\""
+          },
+          {
+            "id": "b1-test-24-task-03-final-01",
+            "type": "final-instruction",
+            "text": "Write your story."
+          }
+        ],
+        "presentation": {
+          "template": "plain"
+        },
+        "wordLimit": {
+          "min": 100,
+          "max": 100,
+          "displayText": "about 100 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "b1-test-24",
+    "tasks": [
+      {
+        "taskId": "b1-test-24-task-01",
+        "scenario": "Planning a photography workshop for teenagers – email to teacher about priorities, practical organisation, affordability, and date.",
+        "audience": "English teacher (Mrs. Hill)",
+        "purpose": "Evaluate and justify priorities (technical skills vs. expressing ideas), choose a practical activity, suggest affordability, ask about date.",
+        "requiredContentPoints": [
+          "preferred goal (technical skills or expressing ideas) with reason",
+          "preferred practical thing (exhibition visit or photographer talk) with reason",
+          "one way to make workshop affordable",
+          "question about date"
+        ],
+        "lexicalAnchors": [
+          "photography workshop",
+          "technical skills",
+          "expressing ideas",
+          "exhibition visit",
+          "photographer talk",
+          "affordable"
+        ],
+        "originalitySelfCheck": "Scenario unique: photography workshop planning, not used in any previous test. Email structure with notes panel, four distinct content points, no overlap with forbidden concepts.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskId": "b1-test-24-task-02",
+        "scenario": "Article for town website about a planned photography workshop for teenagers.",
+        "audience": "Specialist magazine readers (town website visitors)",
+        "purpose": "Assess effectiveness and recommend – give opinion on the workshop idea and suggest what to learn.",
+        "requiredContentPoints": [
+          "opinion on whether the workshop is a good idea",
+          "what you would like to learn"
+        ],
+        "lexicalAnchors": [
+          "photography workshop",
+          "good idea",
+          "learn"
+        ],
+        "originalitySelfCheck": "Announcement format, two direct questions, no reused frame from previous tests. Topic distinct from any earlier article.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskId": "b1-test-24-task-03",
+        "scenario": "Story beginning with a specific sentence about a memory card and note found in a camera bag during a photography workshop.",
+        "audience": "Programme coordinator (English teacher)",
+        "purpose": "Analyse implications and propose action – continue the story from the given opening.",
+        "requiredContentPoints": [
+          "the main photography workshop issue (implied by the opening)",
+          "one practical consequence",
+          "a justified recommendation (implied by story resolution)"
+        ],
+        "lexicalAnchors": [
+          "programme coordinator",
+          "camera bag",
+          "memory card",
+          "note"
+        ],
+        "originalitySelfCheck": "Opening sentence unique: involves a memory card and note, not used in any existing test. No resemblance to previous story openings.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ],
+    "overallOriginalityCheck": "All tasks are original, no reused scenarios, no forbidden concepts, no generic phrases. Design matches designFingerprint exactly."
+  },
+  "cachedAt": 1785312254836
+}

@@ -1,0 +1,120 @@
+{
+  "id": "c2-test-32",
+  "level": "c2",
+  "testNumber": 32,
+  "title": "CPE C2 AI Practice Test 32",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-32.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "c2-test-32-1785313983685",
+    "generatedAt": 1785314002249,
+    "contentHash": "68ca1f40f897e4df5ac2f34f0e9144441fa43397e9772e63bd136eab93b28a99",
+    "promptHash": "c5061d870e2a117db06d66210ce1d8a49b059a891b79861df6426f825f2537b8",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-32:c5061d870e2a117db06d66210ce1d8a49b059a891b79861df6426f825f2537b8",
+    "inputHash": "c5061d870e2a117db06d66210ce1d8a49b059a891b79861df6426f825f2537b8",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "c2-test-32-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay: Access and convenience vs. long-term responsibility in school exchange visits",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write an essay summarising and evaluating the key points from both texts in 240–280 words. Use your own words throughout as far as possible, and include your own ideas in your answers.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-32-task-01-source-1",
+          "type": "source-text",
+          "label": "Text 1",
+          "text": "School exchange visits are often justified by the opportunities they provide for cultural immersion and language development. Yet in practice, many programmes prioritise convenience over genuine engagement. Students are housed in comfortable hotels rather than with host families, itineraries are packed with tourist attractions rather than meaningful local interactions, and the visiting group rarely has to adapt to local norms. The result is an experience that may be enjoyable but fails to challenge participants or foster real intercultural understanding. If exchange visits are to be ethically defensible, they must be designed to disrupt the visitor's comfort zone, not merely to provide a pleasant holiday abroad. This argument also matters because institutions shape the choices available to individuals and communities over time, influencing responsibility, trust, and practical judgment."
+        },
+        {
+          "id": "c2-test-32-task-01-source-2",
+          "type": "source-text",
+          "label": "Text 2",
+          "text": "The most serious ethical problem with school exchange visits is not what happens during the trip but what happens afterwards. Host communities often invest considerable resources—time, hospitality, emotional labour—without any lasting benefit to themselves. The visiting students return home with enriched perspectives while the hosts are left with little more than a memory. If exchanges are to be truly reciprocal, organisers must consider the long-term impact on the host community. This might involve follow-up projects, financial contributions to local schools, or sustained partnerships that outlast any single visit. Without such commitments, exchange programmes risk being a form of educational tourism that exploits the goodwill of others. This argument also matters because institutions shape the choices available to individuals and communities over time, influencing responsibility, trust, and practical judgment."
+        }
+      ],
+      "presentation": {
+        "template": "source-texts"
+      },
+      "wordLimit": {
+        "min": 240,
+        "max": 280,
+        "displayText": "240–280 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c2-test-32-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Review: Documentary on exchange programmes",
+      "genre": "review",
+      "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+      "promptText": "A specialist magazine for educators is running a series of reviews of documentaries that examine international exchange programmes. You decide to submit a review of a recent documentary called 'The Exchange Effect', which follows a group of students from a European school during a two-week visit to a rural community in West Africa. In your review, evaluate how effectively the documentary captures the ethical complexities of such exchanges, discuss whether it gives adequate voice to the host community, and assess the overall value of the film for educators planning future exchange trips.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-32-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Report: Ethical implications of exchange visit programme",
+      "genre": "report",
+      "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+      "promptText": "You are a consultant hired by the International School Partnership to evaluate the ethical implications of their exchange visit programme. The programme coordinator has asked you to write a report analysing how current practices affect host communities and recommending changes to ensure reciprocity and long-term benefit. In your report, identify two specific ways in which host communities may be disadvantaged, assess the potential consequences for future partnerships, and propose concrete actions that the programme could take to address these issues.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-32-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Article: Rethinking school exchanges",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+      "promptText": "An international education magazine is inviting readers to submit articles on the theme of 'Rethinking School Exchanges'. You decide to write an article in which you explain your position on whether exchange visits should be redesigned to prioritise ethical responsibility over convenience. In your article, discuss what you see as the main ethical issue with current exchange programmes, describe one practical consequence of failing to address this issue, and recommend a specific change that would make exchanges more equitable for all involved.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

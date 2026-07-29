@@ -1,0 +1,89 @@
+{
+  "testId": "c1-test-17",
+  "level": "c1",
+  "topicFamily": "museum access",
+  "specificSetting": "a museum governance review planning brief 11",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Essay: evaluating priorities for museum access (free entry, outreach, digital) based on radio discussion notes and opinions.",
+      "audience": "English teacher (tutor)",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "eliminating entry fees for all visitors",
+        "investing in educational outreach programmes",
+        "improving digital access to collections"
+      ],
+      "lexicalAnchors": [
+        "museum access",
+        "free entry",
+        "educational outreach",
+        "digital access"
+      ],
+      "originalitySelfCheck": "Scenario is unique: museum governance review, not generic facilities funding. Notes and opinions are original. No overlap with c1-test-01 (which was about local authority funding for museums vs sports centres vs parks). This essay is about museum access priorities specifically, with different content points.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Proposal to museum board of trustees on improving transparency and accountability as part of a governance review.",
+      "audience": "board of trustees",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "two specific measures to increase transparency",
+        "benefits for museum and visitors",
+        "evaluation of success"
+      ],
+      "lexicalAnchors": [
+        "museum governance",
+        "transparency",
+        "accountability",
+        "public trust"
+      ],
+      "originalitySelfCheck": "Proposal genre with institutional audience (board of trustees). Content points are distinct from previous proposals (e.g., c1-test-01 proposal was about student events with local community). This proposal is about governance and transparency, not events or programmes.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Email from museum programme coordinator to school headteacher addressing concerns about free-entry scheme not reaching disadvantaged families.",
+      "audience": "school headteacher",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "acknowledge concern and explain current outreach strategy",
+        "analyse one practical barrier",
+        "propose specific action to improve access"
+      ],
+      "lexicalAnchors": [
+        "museum access",
+        "free-entry scheme",
+        "disadvantaged backgrounds",
+        "outreach strategy"
+      ],
+      "originalitySelfCheck": "Email genre with specific professional role (programme coordinator) and audience (headteacher). Content points are about access barriers and outreach, not about course complaints or exchange visits. No overlap with previous emails.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Review of a museum's digital access initiative (online collection, virtual tour, digital learning resource) for a specialist magazine.",
+      "audience": "specialist magazine readers",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "description of digital initiative",
+        "evaluation of convenience vs quality",
+        "recommendation to other museums"
+      ],
+      "lexicalAnchors": [
+        "museum digital access",
+        "online collection",
+        "virtual tour",
+        "digital learning resource"
+      ],
+      "originalitySelfCheck": "Review genre about museum digital access, not about books, films, workshops, or events. Announcement format is unique. Content points focus on digital experience and balance of convenience/quality. No overlap with previous reviews.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are based on the unique scenario of a museum governance review, with specific content points not used in any previous test. No forbidden concepts (e.g., peer learning, workplace visits, community gardens, etc.) appear. The essay uses notes and opinions panels as required. The proposal, email, and review have distinct audiences and purposes. No generic phrases or recycled frames from avoided fingerprints.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "ec6441ad3ed7bf58fe9c7847545e36e0fe1f66951113fbfcf71cca8faff74405"
+  }
+}

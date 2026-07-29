@@ -1,0 +1,95 @@
+{
+  "testId": "c2-test-35",
+  "level": "c2",
+  "topicFamily": "community gardens",
+  "specificSetting": "food systems and public responsibility planning brief 29",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Two source texts debating whether community gardens should prioritise access for newcomers or stewardship by existing members.",
+      "audience": "English teacher (educated general reader)",
+      "purpose": "Synthesise competing claims, evaluate assumptions, and develop an independent position on balancing access and long-term responsibility.",
+      "requiredContentPoints": [
+        "the main community gardens issue (access vs. stewardship)",
+        "one practical consequence (e.g., waiting lists, garden deterioration)",
+        "a justified recommendation (e.g., reserved plots with training)"
+      ],
+      "lexicalAnchors": [
+        "community gardens",
+        "food justice",
+        "stewardship",
+        "plot allocation",
+        "access",
+        "long-term viability"
+      ],
+      "originalitySelfCheck": "Source texts present opposing views on governance; no reused scenario from previous tests. Forbidden concepts (e.g., 'low-waste school event', 'reusable containers') not present.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Review of a community garden project for a specialist magazine, assessing balance between access and maintenance.",
+      "audience": "Specialist magazine readers ('Urban Green')",
+      "purpose": "Assess effectiveness of the project's approach and recommend improvements.",
+      "requiredContentPoints": [
+        "the main community gardens issue (access vs. responsibility)",
+        "one practical consequence (positive or negative)",
+        "a justified recommendation (change to improve sustainability/inclusivity)"
+      ],
+      "lexicalAnchors": [
+        "community garden initiative",
+        "access for new members",
+        "long-term maintenance",
+        "sustainability",
+        "inclusivity"
+      ],
+      "originalitySelfCheck": "Review task with specific magazine title and focus on community garden governance; not similar to previous review tasks (e.g., book review, documentary review).",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Report for a local council analysing the plot allocation system that favours long-term residents.",
+      "audience": "Programme coordinator (local council)",
+      "purpose": "Analyse implications of current policy and propose a fairer action.",
+      "requiredContentPoints": [
+        "the main community gardens issue (access vs. sustainability)",
+        "one practical consequence (effect on new gardeners and garden viability)",
+        "a justified recommendation (action to balance fairness and stewardship)"
+      ],
+      "lexicalAnchors": [
+        "plot allocation system",
+        "priority to long-term residents",
+        "access for new gardeners",
+        "sustainability",
+        "responsible stewardship"
+      ],
+      "originalitySelfCheck": "Report task with specific council context; not a generic report on 'student participation' or 'library usage'. No forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Article arguing whether community gardens should be required to donate harvest to food banks, with request for follow-up discussion.",
+      "audience": "English-speaking contact (magazine editor) and international readers",
+      "purpose": "Explain position, describe consequence, and request follow-up.",
+      "requiredContentPoints": [
+        "the main community gardens issue (food justice vs. volunteer autonomy)",
+        "one practical consequence (e.g., impact on volunteers or food bank supply)",
+        "a justified recommendation (request for follow-up discussion)"
+      ],
+      "lexicalAnchors": [
+        "community gardens",
+        "harvest donation",
+        "food banks",
+        "volunteer commitment",
+        "food justice"
+      ],
+      "originalitySelfCheck": "Article task with a specific policy question and request for magazine follow-up; not a generic 'future of...' article. No forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are based on the designFingerprint specificSetting 'food systems and public responsibility planning brief 29' and use the required content points, audiences, and purposes. No task reuses scenarios, audiences, or content points from previous tests. Forbidden concepts (e.g., 'low-waste school event', 'reusable containers', 'school event organisation') are absent. The essay source texts are original and present contrasting angles on community garden governance. The review, report, and article tasks have distinct contexts and purposes.",
+  "forbiddenConceptCheck": "PASS",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "59dcd3f98a7f292784b7495e75178b560615027c56c999435c7cabff07bc3a6c"
+  }
+}

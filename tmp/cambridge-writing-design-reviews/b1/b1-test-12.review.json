@@ -1,0 +1,61 @@
+{
+  "task1": {
+    "scenario": "Youth football club finals preparation – email to English teacher about training time, team activity, player support, and schedule question.",
+    "audience": "English teacher (Mrs. Hill)",
+    "purpose": "Evaluate and justify priorities for finals preparation.",
+    "requiredContentPoints": [
+      "preferred training time and reason",
+      "chosen team activity and reason",
+      "suggestion for player support",
+      "question about match day schedule"
+    ],
+    "lexicalAnchors": [
+      "youth football club",
+      "finals preparation",
+      "extra training sessions",
+      "team spirit",
+      "support players"
+    ],
+    "originalitySelfCheck": "Unique scenario: football club finals. Email from teacher, not friend. Notes require reason and preference. No overlap with existing tests.",
+    "forbiddenConceptCheck": "PASS"
+  },
+  "task2": {
+    "scenario": "Youth football club finals preparation – article for specialist magazine about building team spirit.",
+    "audience": "Specialist magazine readers (youth sports clubs)",
+    "purpose": "Assess effectiveness of a team spirit activity and recommend.",
+    "requiredContentPoints": [
+      "how to build team spirit",
+      "effective activity from own club",
+      "recommendation to other clubs"
+    ],
+    "lexicalAnchors": [
+      "team spirit",
+      "youth football club",
+      "important matches",
+      "effective activity"
+    ],
+    "originalitySelfCheck": "Unique: article about team spirit in football club. Not generic 'articles wanted' about films or local places. No overlap.",
+    "forbiddenConceptCheck": "PASS"
+  },
+  "task3": {
+    "scenario": "Youth football club finals preparation – story beginning with match cancellation announcement.",
+    "audience": "English teacher",
+    "purpose": "Analyse implications and propose action through narrative.",
+    "requiredContentPoints": [
+      "cancellation announcement",
+      "reaction of team",
+      "resolution or action taken"
+    ],
+    "lexicalAnchors": [
+      "final match cancelled",
+      "programme coordinator",
+      "stared in silence"
+    ],
+    "originalitySelfCheck": "Unique opening sentence about match cancellation. Not similar to any existing story openings. Fits football club scenario.",
+    "forbiddenConceptCheck": "PASS"
+  },
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "78118fc00f1ff0593056923ca826d5ac12d333615ba8624a45080bb182161709"
+  }
+}

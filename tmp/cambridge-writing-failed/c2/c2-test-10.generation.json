@@ -1,0 +1,38 @@
+{
+  "failedAt": 1785307378445,
+  "testId": "c2-test-10",
+  "level": "c2",
+  "error": "c2-test-10: deterministic originality gate failed: skeleton_similarity, skeleton_similarity, skeleton_similarity",
+  "originality": [
+    {
+      "type": "checkpoint",
+      "leftTaskId": "c2-test-07-task-04",
+      "rightTaskId": "c2-test-10-task-04",
+      "genre": "article",
+      "exact": false,
+      "score": 0.3806,
+      "skeletonScore": 0.76,
+      "reason": "skeleton_similarity"
+    },
+    {
+      "type": "checkpoint",
+      "leftTaskId": "c2-test-08-task-03",
+      "rightTaskId": "c2-test-10-task-03",
+      "genre": "report",
+      "exact": false,
+      "score": 0.2671,
+      "skeletonScore": 0.7679,
+      "reason": "skeleton_similarity"
+    },
+    {
+      "type": "checkpoint",
+      "leftTaskId": "c2-test-08-task-04",
+      "rightTaskId": "c2-test-10-task-04",
+      "genre": "article",
+      "exact": false,
+      "score": 0.365,
+      "skeletonScore": 0.6341,
+      "reason": "skeleton_similarity"
+    }
+  ]
+}

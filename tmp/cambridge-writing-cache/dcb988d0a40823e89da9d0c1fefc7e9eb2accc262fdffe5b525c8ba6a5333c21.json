@@ -1,0 +1,228 @@
+{
+  "inputHash": "ffe58cefdb8be66a098cfd54b5c64f96c296bd58eefb991315196494b45d6c55",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-19:ffe58cefdb8be66a098cfd54b5c64f96c296bd58eefb991315196494b45d6c55",
+  "test": {
+    "id": "b1-test-19",
+    "level": "b1",
+    "testNumber": 19,
+    "title": "PET B1 AI Practice Test 19",
+    "sourceFile": "packages/catalog/data/cambridge-writing/b1/b1-test-19.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "b1-test-19-1785311152415",
+      "generatedAt": 1785311189357,
+      "contentHash": "5c4fb762fc7c25aa96f5abb852fae68b431d3737cb6d58845e84df2abd4495dd",
+      "promptHash": "ffe58cefdb8be66a098cfd54b5c64f96c296bd58eefb991315196494b45d6c55",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-19:ffe58cefdb8be66a098cfd54b5c64f96c296bd58eefb991315196494b45d6c55",
+      "inputHash": "ffe58cefdb8be66a098cfd54b5c64f96c296bd58eefb991315196494b45d6c55",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "b1-test-19-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Volunteer role preferences",
+        "genre": "email",
+        "instruction": "You must answer this question. Write your answer in about 100 words.",
+        "promptBlocks": [
+          {
+            "id": "b1-test-19-task-01-email",
+            "type": "email",
+            "from": "Mrs. Hill",
+            "subject": "Weekend volunteering scheme",
+            "paragraphs": [
+              "Hello,",
+              "As you know, our school is planning a weekend volunteering scheme. We need to choose roles for volunteers. The options are: helping at a local food bank, tidying up a community garden, or assisting at an animal shelter.",
+              "Which role would you prefer and why? Also, would you like to volunteer on Saturday or Sunday?",
+              "Finally, can you suggest one way to encourage more students to join the scheme?",
+              "Best wishes,",
+              "Mrs. Hill"
+            ]
+          },
+          {
+            "id": "b1-test-19-task-01-notes",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Notes for your reply",
+            "listItems": [
+              "Choose a role and say why you chose it.",
+              "Say which day you prefer and explain why.",
+              "Suggest one way to encourage more students to join.",
+              "Ask Mrs. Hill about the transport to the volunteering site."
+            ]
+          },
+          {
+            "id": "b1-test-19-task-01-final",
+            "type": "final-instruction",
+            "text": "Write your email to Mrs. Hill using all the notes."
+          }
+        ],
+        "presentation": {
+          "template": "email"
+        },
+        "wordLimit": {
+          "min": 100,
+          "max": 100,
+          "displayText": "about 100 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "b1-test-19-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Volunteering article",
+        "genre": "article",
+        "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+        "promptBlocks": [
+          {
+            "id": "b1-test-19-task-02-announcement",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Articles wanted!",
+            "paragraphs": [
+              "Our school magazine wants to hear about your ideas for the weekend volunteering scheme.",
+              "What kind of volunteering do you think is most useful for our community?",
+              "How can volunteering help students learn new skills?",
+              "Write an article answering these questions and we will put it in the next magazine!"
+            ]
+          },
+          {
+            "id": "b1-test-19-task-02-final",
+            "type": "final-instruction",
+            "text": "Write your article."
+          }
+        ],
+        "presentation": {
+          "template": "announcement"
+        },
+        "wordLimit": {
+          "min": 100,
+          "max": 100,
+          "displayText": "about 100 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b1-test-19-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Volunteering story",
+        "genre": "story",
+        "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+        "promptBlocks": [
+          {
+            "id": "b1-test-19-task-03-opening",
+            "type": "paragraph",
+            "text": "Your English teacher has asked you to write a story."
+          },
+          {
+            "id": "b1-test-19-task-03-sentence",
+            "type": "paragraph",
+            "text": "Your story must begin with this sentence:"
+          },
+          {
+            "id": "b1-test-19-task-03-opening-sentence",
+            "type": "paragraph",
+            "text": "\"When the programme coordinator handed me the volunteer badge, I had no idea what the weekend would bring.\""
+          },
+          {
+            "id": "b1-test-19-task-03-final",
+            "type": "final-instruction",
+            "text": "Write your story."
+          }
+        ],
+        "presentation": {
+          "template": "plain"
+        },
+        "wordLimit": {
+          "min": 100,
+          "max": 100,
+          "displayText": "about 100 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "b1-test-19",
+    "level": "b1",
+    "topicFamily": "volunteer services",
+    "specificSetting": "a weekend volunteering scheme planning brief 13",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "genre": "email",
+        "scenario": "Student responds to teacher about choosing a volunteer role (food bank, garden, animal shelter), preferred day, and recruitment idea.",
+        "audience": "English teacher (Mrs. Hill)",
+        "purpose": "evaluate and justify priorities",
+        "requiredContentPoints": [
+          "choose a role and give reason",
+          "preferred day and reason",
+          "suggest one way to encourage more students",
+          "ask about transport"
+        ],
+        "lexicalAnchors": [
+          "volunteer role",
+          "food bank",
+          "community garden",
+          "animal shelter",
+          "weekend day",
+          "encourage students",
+          "transport"
+        ],
+        "originalitySelfCheck": "Email uses a different role set (food bank, garden, shelter) and asks about transport, not equipment or schedule. No overlap with existing tests.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "genre": "article",
+        "scenario": "School magazine article about the volunteering scheme's community benefit and skill development.",
+        "audience": "specialist magazine readers (school magazine)",
+        "purpose": "assess effectiveness and recommend",
+        "requiredContentPoints": [
+          "most useful type of volunteering for community",
+          "how volunteering helps students learn skills"
+        ],
+        "lexicalAnchors": [
+          "volunteering",
+          "community benefit",
+          "student skills"
+        ],
+        "originalitySelfCheck": "Article focuses on community usefulness and skill learning, not on personal experience or event description. No overlap with existing tests.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "genre": "story",
+        "scenario": "Story beginning with receiving a volunteer badge and an unexpected weekend.",
+        "audience": "programme coordinator (implied)",
+        "purpose": "analyse implications and propose action",
+        "requiredContentPoints": [
+          "receiving badge",
+          "unexpected weekend"
+        ],
+        "lexicalAnchors": [
+          "volunteer badge",
+          "weekend"
+        ],
+        "originalitySelfCheck": "Opening sentence is unique: 'volunteer badge' and 'weekend' not used in any existing test. No overlap with Test 01 or any other.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ],
+    "overallOriginalityCheck": "All tasks are based on the specific setting 'a weekend volunteering scheme planning brief 13' and use unique scenarios, audiences, and content points. No reuse of skeletons from previous tests."
+  },
+  "cachedAt": 1785311189370
+}

@@ -1,0 +1,88 @@
+{
+  "testId": "b2-test-36",
+  "level": "b2",
+  "topicFamily": "local festivals",
+  "specificSetting": "a town cultural festival planning brief 30",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "genre": "essay",
+      "scenario": "a town cultural festival planning brief 30: essay brief 1-1",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "reducing waste from food stalls",
+        "providing free public transport to the event",
+        "own idea"
+      ],
+      "lexicalAnchors": [
+        "local festivals",
+        "a town cultural festival planning brief 30",
+        "b2 writing brief"
+      ],
+      "originalitySelfCheck": "Scenario is specific to festival planning with notes on waste and transport; no overlap with previous tests (b2-test-01 to b2-test-35). Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "genre": "review",
+      "scenario": "a town cultural festival planning brief 30: review brief 2-5",
+      "audience": "specialist magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "workshop content and organisation",
+        "impact on view of festival",
+        "recommendation"
+      ],
+      "lexicalAnchors": [
+        "local festivals",
+        "a town cultural festival planning brief 30",
+        "b2 writing brief"
+      ],
+      "originalitySelfCheck": "Review focuses on a festival workshop, not a book or film. Distinct from previous review tasks. Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "genre": "article",
+      "scenario": "a town cultural festival planning brief 30: article brief 3-9",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "way to make volunteering appealing",
+        "benefit to volunteers",
+        "enjoyable task"
+      ],
+      "lexicalAnchors": [
+        "local festivals",
+        "a town cultural festival planning brief 30",
+        "b2 writing brief"
+      ],
+      "originalitySelfCheck": "Article about volunteering at a festival; no reuse of previous article themes. Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "genre": "email",
+      "scenario": "a town cultural festival planning brief 30: email brief 4-13",
+      "audience": "English-speaking contact",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "sustainability measures",
+        "worth attending",
+        "recommendation of one thing to see/do"
+      ],
+      "lexicalAnchors": [
+        "local festivals",
+        "a town cultural festival planning brief 30",
+        "b2 writing brief"
+      ],
+      "originalitySelfCheck": "Email from a friend about festival sustainability; distinct from previous email tasks. Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "61c811b1c494250049a09beb9ce93df22336fb7cc5c087f8d986a77d425aff3e"
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "id": "b2-test-27",
+  "level": "b2",
+  "testNumber": 27,
+  "title": "FCE B2 AI Practice Test 27",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-27.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b2-test-27-1785312948905",
+    "generatedAt": 1785312966769,
+    "contentHash": "0743ced8bafe1cbd0fcd8c9cc729e0301d38b719c8439f12e38d5ed68294af4b",
+    "promptHash": "80294dd2842c65445c38bfb33147075ca7c86beb51b34fd285f7241fd22eeffa",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-27:80294dd2842c65445c38bfb33147075ca7c86beb51b34fd285f7241fd22eeffa",
+    "inputHash": "80294dd2842c65445c38bfb33147075ca7c86beb51b34fd285f7241fd22eeffa",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b2-test-27-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay: Student housing priorities",
+      "genre": "essay",
+      "instruction": "In your English class you have been discussing how to improve student accommodation. Now your English teacher has asked you to write an essay.\n\nWrite an essay using all the notes and giving reasons for your point of view.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-27-task-01-block-01",
+          "type": "paragraph",
+          "text": "In your English class you have been discussing how to improve student accommodation. Now your English teacher has asked you to write an essay."
+        },
+        {
+          "id": "b2-test-27-task-01-block-02",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "listItems": [
+            "1. reducing rent costs",
+            "2. improving maintenance services",
+            "3. ......................... (your own idea)"
+          ]
+        },
+        {
+          "id": "b2-test-27-task-01-block-03",
+          "type": "final-instruction",
+          "text": "Write an essay using all the notes and giving reasons for your point of view."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes"
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b2-test-27-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Review: Student housing service",
+      "genre": "review",
+      "instruction": "You see this announcement in your college English-language magazine.\n\nReviews wanted!\n\nHave you used the student accommodation advice service at your college? We want to hear about your experience. Write a review of the service.\n\nDescribe what support the service offers, say how helpful it was for you, and explain whether you would recommend it to other students.\n\nThe best reviews will be published in the next issue.\n\nWrite your review.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-27-task-02-block-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted!",
+          "paragraphs": [
+            "Have you used the student accommodation advice service at your college? We want to hear about your experience. Write a review of the service.",
+            "Describe what support the service offers, say how helpful it was for you, and explain whether you would recommend it to other students.",
+            "The best reviews will be published in the next issue."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-27-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Article: Living with housemates",
+      "genre": "article",
+      "instruction": "You see this announcement on a student website.\n\nArticles wanted!\n\nLiving with housemates – tips for success\n\nWhat advice would you give to someone who is about to share a flat or house with other students? Write an article for our website.\n\nDescribe one common challenge of shared accommodation, suggest a practical way to avoid problems, and explain how good communication can make living together easier.\n\nWe will publish the best articles on our website.\n\nWrite your article.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-27-task-03-block-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted!",
+          "paragraphs": [
+            "Living with housemates – tips for success",
+            "What advice would you give to someone who is about to share a flat or house with other students? Write an article for our website.",
+            "Describe one common challenge of shared accommodation, suggest a practical way to avoid problems, and explain how good communication can make living together easier.",
+            "We will publish the best articles on our website."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-27-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Email: Accommodation problem",
+      "genre": "email",
+      "instruction": "You have received this email from your English-speaking friend, Maria.\n\nWrite your email.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-27-task-04-block-01",
+          "type": "email",
+          "from": "Maria",
+          "subject": "My accommodation problem!",
+          "paragraphs": [
+            "Hi,",
+            "I'm having some issues with my student flat. The heating hasn't worked for a week, and the landlord isn't responding to my messages. I'm not sure what to do.",
+            "Can you give me some advice? What should I say to the landlord? Should I involve the college accommodation office? Also, what can I do to stay warm in the meantime?",
+            "Thanks a lot!",
+            "Maria"
+          ]
+        },
+        {
+          "id": "b2-test-27-task-04-block-02",
+          "type": "final-instruction",
+          "text": "Write your email."
+        }
+      ],
+      "presentation": {
+        "template": "email",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

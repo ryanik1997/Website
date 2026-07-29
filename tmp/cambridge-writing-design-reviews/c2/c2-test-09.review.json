@@ -1,0 +1,93 @@
+{
+  "testId": "c2-test-09",
+  "level": "c2",
+  "topicFamily": "public libraries",
+  "specificSetting": "the civic role of libraries planning brief 3",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Two source texts debating whether libraries should expand their civic role beyond traditional knowledge provision.",
+      "audience": "Educated general reader (English teacher as assessor)",
+      "purpose": "Synthesise competing claims, evaluate assumptions, and develop an independent position on the civic role of libraries.",
+      "requiredContentPoints": [
+        "the main public libraries issue (expanded role vs core mission)",
+        "one practical consequence (e.g., resource strain or increased community value)",
+        "a justified recommendation (how to balance roles)"
+      ],
+      "lexicalAnchors": [
+        "public libraries",
+        "civic role",
+        "community hub",
+        "traditional mission",
+        "resource allocation"
+      ],
+      "originalitySelfCheck": "Source texts present contrasting views on library evolution; no reuse of previous essay topics (education, transport, exchange visits). Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Review of an innovative library initiative for a specialist magazine.",
+      "audience": "Specialist magazine readers (library professionals)",
+      "purpose": "Assess effectiveness of a library initiative and recommend adoption by other libraries.",
+      "requiredContentPoints": [
+        "the main public libraries issue (initiative aims and community impact)",
+        "one practical consequence (effectiveness of the initiative)",
+        "a justified recommendation (whether to adopt similar approach)"
+      ],
+      "lexicalAnchors": [
+        "public libraries",
+        "library initiative",
+        "civic role",
+        "community service",
+        "professional recommendation"
+      ],
+      "originalitySelfCheck": "Review genre with library-specific context; no overlap with previous review tasks (book, documentary, workshop). Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Report on library usage patterns and civic engagement for a foundation.",
+      "audience": "Programme coordinator (Civic Libraries Foundation)",
+      "purpose": "Analyse implications of changing usage patterns and propose actions to strengthen civic role.",
+      "requiredContentPoints": [
+        "the main public libraries issue (declining borrowing vs demand for non-traditional services)",
+        "one practical consequence (impact on civic engagement)",
+        "a justified recommendation (actions to balance roles)"
+      ],
+      "lexicalAnchors": [
+        "public libraries",
+        "usage patterns",
+        "civic engagement",
+        "core mission",
+        "proposed actions"
+      ],
+      "originalitySelfCheck": "Report genre with library focus; no reuse of previous report scenarios (jobs fair, decision autonomy, transport access). Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Article for an online magazine arguing a position on the future of public libraries.",
+      "audience": "English-speaking contact (general magazine readers)",
+      "purpose": "Explain a position on library priorities and request engagement with the argument.",
+      "requiredContentPoints": [
+        "the main public libraries issue (traditional vs civic mission)",
+        "one practical consequence of imbalance",
+        "a justified recommendation for future approach"
+      ],
+      "lexicalAnchors": [
+        "public libraries",
+        "future role",
+        "knowledge centre",
+        "civic mission",
+        "balance"
+      ],
+      "originalitySelfCheck": "Article genre with library theme; no reuse of previous article topics (travel, learning, transport). Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are built around the specific setting 'the civic role of libraries planning brief 3' with distinct audiences, purposes, and content points. No forbidden concepts (e.g., peer learning, communication workshops, low-waste events) appear. The source texts for the essay present original arguments not found in previous tests. The review, report, and article tasks have unique lead-ins and required content. The test is structurally original and level-appropriate.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "0cadf01b85470980d320baf586b010e39e1214630071542165b7afbef9dc96f0"
+  }
+}

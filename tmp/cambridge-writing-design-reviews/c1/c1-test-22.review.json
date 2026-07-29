@@ -1,0 +1,91 @@
+{
+  "testId": "c1-test-22",
+  "level": "c1",
+  "topicFamily": "recycling services",
+  "specificSetting": "a municipal resource policy planning brief 16",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Class discussion on municipal recycling priorities; essay for tutor evaluating two of three given priorities (increased collections, home composting bins, deposit-return scheme).",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "increasing the frequency of kerbside collections",
+        "providing free home composting bins",
+        "introducing a deposit-return scheme for bottles and cans"
+      ],
+      "lexicalAnchors": [
+        "recycling services",
+        "municipal authority",
+        "kerbside collections",
+        "home composting",
+        "deposit-return scheme"
+      ],
+      "originalitySelfCheck": "Scenario is specific to recycling service priorities, not reused from any previous test. Notes and opinions are original. Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Proposal for a recycling incentive scheme to the municipal authority, recommending incentives, benefits, and fairness measures.",
+      "audience": "specialist magazine readers (municipal authority)",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "two specific incentives",
+        "benefits for environment and community",
+        "fairness for all residents"
+      ],
+      "lexicalAnchors": [
+        "recycling incentive scheme",
+        "households",
+        "flats",
+        "fairness"
+      ],
+      "originalitySelfCheck": "Proposal genre with institutional audience; content points distinct from essay. No reuse of previous proposal scenarios.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Email to programme coordinator responding to proposed reduction in waste collection frequency, analysing implications and proposing action.",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "position on proposed change",
+        "one potential implication",
+        "proposed action to address concerns"
+      ],
+      "lexicalAnchors": [
+        "recycling services",
+        "waste collection frequency",
+        "odour",
+        "pests"
+      ],
+      "originalitySelfCheck": "Email based on a specific policy proposal, not a generic request. No overlap with previous email tasks.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Review of a municipal recycling app for the authority's website, describing features, evaluating effectiveness, and recommending.",
+      "audience": "English-speaking contact (website readers)",
+      "purpose": "explain a position and request arrangements (review with recommendation)",
+      "requiredContentPoints": [
+        "description of app and ease of use",
+        "evaluation of effectiveness in changing behaviour",
+        "recommendation to other residents"
+      ],
+      "lexicalAnchors": [
+        "recycling app",
+        "waste sorting",
+        "recycling centres",
+        "tracking habits"
+      ],
+      "originalitySelfCheck": "Review of a digital tool, not a physical place or event. Announcement format is unique. No reuse of previous review topics.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are based on the specific scenario of a municipal resource policy planning brief 16, with recycling services as the central topic. No forbidden concepts (e.g., peer learning, touring holiday, low-waste school events) are used. Each task has a distinct audience, purpose, and content points. The essay uses notes and opinions panels as required. The proposal, email, and review are all original in their framing and detail. No overlap with any existing test fingerprints.",
+  "forbiddenConceptCheck": "PASS",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "856d90826e8b5512d669cf1f4f4ff8be9f40c8519e956c92a857e3e86ca0dcc5"
+  }
+}

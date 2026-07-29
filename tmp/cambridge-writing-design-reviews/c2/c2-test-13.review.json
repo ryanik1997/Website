@@ -1,0 +1,89 @@
+{
+  "testId": "c2-test-13",
+  "level": "c2",
+  "topicFamily": "digital study tools",
+  "specificSetting": "the politics of learning data planning brief 7",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "genre": "essay",
+      "scenario": "Two source texts debating whether digital study tools empower learners or exploit their data",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "the main digital study tools issue",
+        "one practical consequence",
+        "a justified recommendation 1"
+      ],
+      "lexicalAnchors": [
+        "digital study tools",
+        "the politics of learning data planning brief 7",
+        "c2 writing brief"
+      ],
+      "originalitySelfCheck": "Source texts present opposing views on data privacy vs. personalised learning; no reuse of previous source-text claims or skeleton.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "genre": "review",
+      "scenario": "Review of a specific digital study tool, evaluating its balance of personalisation and data ethics",
+      "audience": "specialist magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "the main digital study tools issue",
+        "one practical consequence",
+        "a justified recommendation 2"
+      ],
+      "lexicalAnchors": [
+        "digital study tools",
+        "the politics of learning data planning brief 7",
+        "c2 writing brief"
+      ],
+      "originalitySelfCheck": "Review focuses on a concrete tool and its data practices; not a generic 'book review' or 'film review' frame.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "genre": "report",
+      "scenario": "Report for an education authority on data governance risks in schools",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "the main digital study tools issue",
+        "one practical consequence",
+        "a justified recommendation 3"
+      ],
+      "lexicalAnchors": [
+        "digital study tools",
+        "the politics of learning data planning brief 7",
+        "c2 writing brief"
+      ],
+      "originalitySelfCheck": "Report addresses institutional data governance, not individual behaviour; distinct from previous report tasks.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "genre": "article",
+      "scenario": "Article for an international magazine arguing whether data privacy concerns outweigh convenience",
+      "audience": "English-speaking contact",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "the main digital study tools issue",
+        "one practical consequence",
+        "a justified recommendation 4"
+      ],
+      "lexicalAnchors": [
+        "digital study tools",
+        "the politics of learning data planning brief 7",
+        "c2 writing brief"
+      ],
+      "originalitySelfCheck": "Article invites readers to take a position on a contemporary ethical dilemma; no reuse of previous article frames or skeleton.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are built around the specific setting 'the politics of learning data planning brief 7' and avoid forbidden concepts. No skeleton similarity to any previous test was detected. Each task has a unique audience, purpose, and content-point set.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "f6e1865689b91c1737a98882142065a372a0597ac6d78189d2dc6b3c287b071b"
+  }
+}

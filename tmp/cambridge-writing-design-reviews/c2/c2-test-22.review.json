@@ -1,0 +1,88 @@
+{
+  "testId": "c2-test-22",
+  "level": "c2",
+  "topicFamily": "recycling services",
+  "specificSetting": "consumption and environmental responsibility planning brief 16",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Two source texts debate whether convenient recycling services encourage genuine responsibility or merely pacify consumers.",
+      "audience": "Educated general reader (English teacher)",
+      "purpose": "Synthesise competing claims, evaluate assumptions, and develop an independent position on the tension between convenience and responsibility.",
+      "requiredContentPoints": [
+        "the main recycling services issue",
+        "one practical consequence",
+        "a justified recommendation"
+      ],
+      "lexicalAnchors": [
+        "recycling services",
+        "convenience",
+        "responsibility",
+        "consumption"
+      ],
+      "originalitySelfCheck": "Source texts use original framing (convenience vs. moral effort; psychological cost of waste). No reuse of Test 01 structures or phrases.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Review of a local recycling service for a specialist magazine, evaluating balance between convenience and waste reduction.",
+      "audience": "Environmental officers (specialist magazine readers)",
+      "purpose": "Assess effectiveness of the service and recommend a change to increase long-term responsibility.",
+      "requiredContentPoints": [
+        "the main recycling services issue",
+        "one practical consequence",
+        "a justified recommendation"
+      ],
+      "lexicalAnchors": [
+        "recycling service",
+        "convenience",
+        "waste reduction",
+        "long-term responsibility"
+      ],
+      "originalitySelfCheck": "Review genre with concrete audience (environmental officers). No overlap with Test 01 review (book review for literary magazine).",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Report for a municipal waste authority analysing how convenience affects long-term environmental behaviour.",
+      "audience": "Programme coordinator (municipal waste authority)",
+      "purpose": "Analyse implications of current design and propose an action to encourage personal responsibility.",
+      "requiredContentPoints": [
+        "the main recycling services issue",
+        "one practical consequence",
+        "a justified recommendation"
+      ],
+      "lexicalAnchors": [
+        "recycling service design",
+        "convenience",
+        "environmental behaviour",
+        "responsibility"
+      ],
+      "originalitySelfCheck": "Report genre with specific institutional audience. No similarity to Test 01 report (jobs fair).",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Article for an online magazine arguing whether convenience or responsibility should be prioritised in recycling services.",
+      "audience": "English-speaking contact (international readers)",
+      "purpose": "Explain a position, describe a consequence, suggest implementation, and request a follow-up discussion.",
+      "requiredContentPoints": [
+        "the main recycling services issue",
+        "one practical consequence",
+        "a justified recommendation"
+      ],
+      "lexicalAnchors": [
+        "recycling systems",
+        "convenience",
+        "responsibility",
+        "public support"
+      ],
+      "originalitySelfCheck": "Article with direct request to magazine for follow-up. No reuse of Test 01 article structure (travel alternatives).",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "dc8340cce92c338af8713c18e54d05e90a23ec53f659a8943b2d574ea76a206c"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "task1": {
+    "scenario": "a sector-wide internship compact planning brief 8: essay brief 1-1",
+    "audience": "English teacher",
+    "purpose": "evaluate and justify priorities",
+    "requiredContentPoints": [
+      "the main part-time work issue",
+      "one practical consequence",
+      "a justified recommendation 1"
+    ],
+    "lexicalAnchors": [
+      "part-time work",
+      "a sector-wide internship compact planning brief 8",
+      "c1 writing brief"
+    ],
+    "originalitySelfCheck": "Unique scenario: internship compact with three distinct priorities (wage, mentoring, hours). No overlap with any existing test. ForbiddenConceptCheck: PASS"
+  },
+  "task2": {
+    "scenario": "a sector-wide internship compact planning brief 8: proposal brief 2-5",
+    "audience": "specialist magazine readers (national student union)",
+    "purpose": "assess effectiveness and recommend",
+    "requiredContentPoints": [
+      "the main part-time work issue",
+      "one practical consequence",
+      "a justified recommendation 2"
+    ],
+    "lexicalAnchors": [
+      "part-time work",
+      "a sector-wide internship compact planning brief 8",
+      "c1 writing brief"
+    ],
+    "originalitySelfCheck": "Proposal for assessment criteria, distinct from other proposals. ForbiddenConceptCheck: PASS"
+  },
+  "task3": {
+    "scenario": "a sector-wide internship compact planning brief 8: email brief 3-9",
+    "audience": "programme coordinator (Dr. Mark Chen)",
+    "purpose": "analyse implications and propose action",
+    "requiredContentPoints": [
+      "the main part-time work issue",
+      "one practical consequence",
+      "a justified recommendation 3"
+    ],
+    "lexicalAnchors": [
+      "part-time work",
+      "a sector-wide internship compact planning brief 8",
+      "c1 writing brief"
+    ],
+    "originalitySelfCheck": "Email responding to a specific concern about small businesses; not a generic invitation. ForbiddenConceptCheck: PASS"
+  },
+  "task4": {
+    "scenario": "a sector-wide internship compact planning brief 8: review brief 4-13",
+    "audience": "English-speaking contact (student advice website readers)",
+    "purpose": "explain a position and request arrangements",
+    "requiredContentPoints": [
+      "the main part-time work issue",
+      "one practical consequence",
+      "a justified recommendation 4"
+    ],
+    "lexicalAnchors": [
+      "part-time work",
+      "a sector-wide internship compact planning brief 8",
+      "c1 writing brief"
+    ],
+    "originalitySelfCheck": "Review of a part-time work placement, not a generic event or product. Announcement heading unique. ForbiddenConceptCheck: PASS"
+  },
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "d1612f7a2c45ebde7e8b1a9a95c564df87f4cf72c09bc3e199a1be36da945e38"
+  }
+}

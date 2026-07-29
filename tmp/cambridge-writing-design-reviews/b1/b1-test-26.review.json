@@ -1,0 +1,73 @@
+{
+  "testId": "b1-test-26",
+  "level": "b1",
+  "topicFamily": "future skills",
+  "specificSetting": "a school careers afternoon planning brief 20",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Planning a school careers afternoon; email to teacher about focus (digital vs communication skills), activity choice, and follow-up",
+      "audience": "English teacher (Mrs Hill)",
+      "purpose": "Evaluate and justify priorities for the careers afternoon",
+      "requiredContentPoints": [
+        "the main future skills issue (digital vs communication)",
+        "one practical consequence (activity choice)",
+        "a justified recommendation 1 (preferred focus)"
+      ],
+      "lexicalAnchors": [
+        "future skills",
+        "careers afternoon",
+        "digital skills",
+        "communication skills",
+        "coding workshop",
+        "interview role-play"
+      ],
+      "originalitySelfCheck": "Scenario is unique: school careers afternoon planning. Email structure with notes about focus, activity, and follow-up is distinct from previous tests. No forbidden concepts used.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Article for school magazine about the careers afternoon, asking which future skill is most important and how the event helps",
+      "audience": "School magazine readers (students and staff)",
+      "purpose": "Assess effectiveness of the careers afternoon and recommend a key skill",
+      "requiredContentPoints": [
+        "the main future skills issue (most important skill)",
+        "one practical consequence (how the afternoon helps)",
+        "a justified recommendation 2 (which skill and why)"
+      ],
+      "lexicalAnchors": [
+        "future skills",
+        "careers afternoon",
+        "most important skill",
+        "prepare for jobs"
+      ],
+      "originalitySelfCheck": "Article prompt is original: asks about 'most important future skill' and how the event helps, not a generic 'what do you think'. No overlap with previous article tasks.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Story set during the careers afternoon, beginning with a moment of hesitation when a volunteer is asked to try VR",
+      "audience": "English teacher",
+      "purpose": "Analyse implications of the event through a narrative",
+      "requiredContentPoints": [
+        "the main future skills issue (technology in careers)",
+        "one practical consequence (reaction to VR)",
+        "a justified recommendation 3 (resolution of the story)"
+      ],
+      "lexicalAnchors": [
+        "future skills",
+        "careers afternoon",
+        "virtual reality headset",
+        "volunteer"
+      ],
+      "originalitySelfCheck": "Story opening is unique: 'When the programme coordinator asked for a volunteer to try the virtual reality headset, nobody moved.' No similar opening in any previous test. Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are built around the specific setting 'a school careers afternoon planning brief 20' with concrete audiences and purposes. No reused scenarios, skeletons, or forbidden concepts. Each task has distinct required content points and lexical anchors.",
+  "forbiddenConceptCheck": "PASS",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "99daea71b0f6687737e803885480d3c69cbc3dcf99a15e85365d8135bf2770e9"
+  }
+}

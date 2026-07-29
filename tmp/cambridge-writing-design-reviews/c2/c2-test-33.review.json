@@ -1,0 +1,82 @@
+{
+  "testId": "c2-test-33",
+  "overallOriginalityCheck": "PASS",
+  "tasks": [
+    {
+      "taskId": "c2-test-33-task-01",
+      "scenario": "Two source texts debating whether transport investment should target inequality or efficiency",
+      "audience": "Educated general reader (English teacher)",
+      "purpose": "Synthesise competing claims, evaluate assumptions, develop independent position",
+      "requiredContentPoints": [
+        "mobility gap as inequality driver",
+        "efficiency counterargument",
+        "own conceptual distinction"
+      ],
+      "lexicalAnchors": [
+        "neighbourhood transport",
+        "mobility gap",
+        "regional inequality"
+      ],
+      "originalitySelfCheck": "Source texts are original; no reuse of existing test fingerprints; forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "c2-test-33-task-02",
+      "scenario": "Review of a demand-responsive bus service in a low-income neighbourhood",
+      "audience": "Specialist magazine readers (transport planners)",
+      "purpose": "Assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "effectiveness for mobility needs",
+        "unintended consequences",
+        "recommendation for other areas"
+      ],
+      "lexicalAnchors": [
+        "demand-responsive bus",
+        "low-income neighbourhood",
+        "mobility needs"
+      ],
+      "originalitySelfCheck": "Unique initiative; no overlap with previous review tasks; forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "c2-test-33-task-03",
+      "scenario": "Report on transport access and economic opportunity for a regional development agency",
+      "audience": "Programme coordinator (formal)",
+      "purpose": "Analyse implications and propose action",
+      "requiredContentPoints": [
+        "current transport provision and job accessibility",
+        "consequences for productivity and social cohesion",
+        "two concrete actions"
+      ],
+      "lexicalAnchors": [
+        "transport access",
+        "economic opportunity",
+        "peripheral neighbourhoods"
+      ],
+      "originalitySelfCheck": "Original report scenario; no reuse of existing report fingerprints; forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "c2-test-33-task-04",
+      "scenario": "Article arguing whether transport investment should prioritise reducing inequality over efficiency",
+      "audience": "English-speaking contact (magazine readers)",
+      "purpose": "Explain a position and request arrangements",
+      "requiredContentPoints": [
+        "main ethical issue",
+        "consequence of ignoring inequality",
+        "specific policy change"
+      ],
+      "lexicalAnchors": [
+        "transport investment",
+        "inequality",
+        "efficiency"
+      ],
+      "originalitySelfCheck": "Original article theme; no overlap with previous article tasks; forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "0f97a0a03c8f45f799dd966d823bc7a2c658b5c4291a36143adf9b8416651c32"
+  }
+}

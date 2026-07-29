@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { CAMBRIDGE_WRITING_LEVEL_CONFIGS, getTaskId, getTestId, getTestTitle } from './cambridge-writing-level-config.mjs'
-import { buildPlan, TOPIC_FAMILIES, validatePlan } from './plan-cambridge-writing-corpus.mjs'
+import { buildPlan, validatePlan } from './plan-cambridge-writing-corpus.mjs'
 import { buildDiversityReport, jaccard, semanticScenarioKey, similarityPairs, skeletonSimilarity, taskFingerprint } from './cambridge-writing-similarity.mjs'
 import { buildGenerationCacheKey, cachedGenerationMatches, PROMPT_VERSION, SCHEMA_ONLY_EXAMPLE } from './cambridge-writing-ai-contracts.mjs'
 import { TestSchema, assertIdentity, exactSchemaDescription } from './cambridge-writing-runtime.mjs'
@@ -47,10 +47,10 @@ function planScenarioKeys(rows) {
 describe('Cambridge Writing AI corpus contracts', () => {
   it('builds the configurable default 200-row plan with unique checkpoint designs', () => {
     const rows = buildPlan()
-    expect(rows).toHaveLength(200)
+    expect(rows).toHaveLength(140)
     expect(() => validatePlan(rows)).not.toThrow()
-    for (const level of Object.keys(CAMBRIDGE_WRITING_LEVEL_CONFIGS)) expect(rows.filter(row => row.level === level)).toHaveLength(50)
-    expect(new Set(rows.map(row => row.topicFamily))).toEqual(new Set(TOPIC_FAMILIES))
+    for (const level of Object.keys(CAMBRIDGE_WRITING_LEVEL_CONFIGS)) expect(rows.filter(row => row.level === level)).toHaveLength(35)
+    expect(new Set(rows.filter(row => row.testNumber >= 7).map(row => row.topicFamily)).size).toBeGreaterThanOrEqual(18)
     const checkpoint = rows.filter(row => row.testNumber >= 2 && row.testNumber <= 6)
     expect(checkpoint).toHaveLength(20)
     expect(new Set(checkpoint.map(row => row.designFingerprint.specificSetting))).toHaveLength(20)

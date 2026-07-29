@@ -1,0 +1,85 @@
+{
+  "testId": "c1-test-39",
+  "level": "c1",
+  "topicFamily": "part-time work",
+  "specificSetting": "a sector-wide internship compact planning brief 33",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Essay discussing two priorities for the internship compact (fair wage, mentoring, capped hours) and justifying which is more important.",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "the main part-time work issue",
+        "one practical consequence",
+        "a justified recommendation 1"
+      ],
+      "lexicalAnchors": [
+        "part-time work",
+        "a sector-wide internship compact planning brief 33",
+        "c1 writing brief"
+      ],
+      "originalitySelfCheck": "Scenario is original; not found in any avoided fingerprint. Uses essay-notes-opinions template with unique notes and opinions. No reuse of generic phrases.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Proposal to a national student union recommending criteria for measuring the compact's effectiveness and how to involve employers.",
+      "audience": "specialist magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "the main part-time work issue",
+        "one practical consequence",
+        "a justified recommendation 2"
+      ],
+      "lexicalAnchors": [
+        "part-time work",
+        "a sector-wide internship compact planning brief 33",
+        "c1 writing brief"
+      ],
+      "originalitySelfCheck": "Proposal audience is a student union, not a college principal or director. Content points are unique. No similar proposal in avoided fingerprints.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Email responding to a careers centre director's concerns about the compact's impact on small businesses, analysing implications and proposing action.",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "the main part-time work issue",
+        "one practical consequence",
+        "a justified recommendation 3"
+      ],
+      "lexicalAnchors": [
+        "part-time work",
+        "a sector-wide internship compact planning brief 33",
+        "c1 writing brief"
+      ],
+      "originalitySelfCheck": "Email involves a specific external stakeholder (Careers Centre director) and a specific concern (small business impact). Not found in any avoided fingerprint. Unique email subject and content.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Review of a part-time job or internship that was part of studies, evaluating work-learning balance and recommending to other students.",
+      "audience": "English-speaking contact",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "the main part-time work issue",
+        "one practical consequence",
+        "a justified recommendation 4"
+      ],
+      "lexicalAnchors": [
+        "part-time work",
+        "a sector-wide internship compact planning brief 33",
+        "c1 writing brief"
+      ],
+      "originalitySelfCheck": "Review is for a student advice website, not a magazine. Focus is on work-learning balance, not general experience. No similar review in avoided fingerprints.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityNote": "All tasks are built around the specific scenario 'a sector-wide internship compact planning brief 33' with unique content points, audiences, and purposes. No task reuses scenarios, sentence frames, or key wording from any avoided test fingerprint. The forbidden concepts list has been checked and none appear in any task.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "eec7cef4785e4684d02fc75986a09eb6af77bf0d7b45349a9565192c9aa59994"
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "id": "b2-test-09",
+  "level": "b2",
+  "testNumber": 9,
+  "title": "FCE B2 AI Practice Test 09",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-09.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b2-test-09-1785306830127",
+    "generatedAt": 1785306850459,
+    "contentHash": "58596881d82786637b0961a2ddc62efd9c8256291cd96a5a536c80b4c108fa84",
+    "promptHash": "ecff59e8b8cc19cd455499a14b3eac45618ea0d9e81784317eea1783ae30cac9",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-09:ecff59e8b8cc19cd455499a14b3eac45618ea0d9e81784317eea1783ae30cac9",
+    "inputHash": "ecff59e8b8cc19cd455499a14b3eac45618ea0d9e81784317eea1783ae30cac9",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b2-test-09-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 140–190 words in an appropriate style.",
+      "promptText": "In your English class you have been discussing how public libraries can stay relevant. Now your teacher has asked you to write an essay.\n\nWrite an essay using all the notes and giving reasons for your point of view.\n\nShould public libraries invest in makerspaces (creative workshops with 3D printers, etc.)?\n\nNotes\n\nWrite about:\n\n1. attracting new visitors\n2. cost of equipment\n3. ......................... (your own idea)",
+      "promptBlocks": [
+        {
+          "id": "b2-test-09-task-01-block-01",
+          "type": "paragraph",
+          "text": "In your English class you have been discussing how public libraries can stay relevant. Now your teacher has asked you to write an essay."
+        },
+        {
+          "id": "b2-test-09-task-01-block-02",
+          "type": "paragraph",
+          "text": "Write an essay using all the notes and giving reasons for your point of view."
+        },
+        {
+          "id": "b2-test-09-task-01-block-03",
+          "type": "paragraph",
+          "text": "Should public libraries invest in makerspaces (creative workshops with 3D printers, etc.)?"
+        },
+        {
+          "id": "b2-test-09-task-01-block-04",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "listItems": [
+            "attracting new visitors",
+            "cost of equipment",
+            "......................... (your own idea)"
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes"
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b2-test-09-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Review",
+      "genre": "review",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptText": "You see this announcement in your college English-language magazine.\n\nReviews wanted!\n\nHave you used a makerspace at a public library? We want to hear about your experience. Write a review of the library makerspace you visited.\n\nDescribe what equipment and activities were available. How helpful was the staff? Would you recommend this makerspace to other students? Why?\n\nThe best reviews will be published in the next issue.\n\nWrite your review.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-09-task-02-block-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted!",
+          "paragraphs": [
+            "Have you used a makerspace at a public library? We want to hear about your experience. Write a review of the library makerspace you visited.",
+            "Describe what equipment and activities were available. How helpful was the staff? Would you recommend this makerspace to other students? Why?",
+            "The best reviews will be published in the next issue."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-09-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Article",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptText": "You see this announcement on a local community website.\n\nArticles wanted!\n\nHow can a library makerspace benefit our community?\n\nWe are planning to launch a makerspace in our town library and want to hear your ideas. Write an article for our website.\n\nDescribe one positive change a makerspace could bring to local residents. Explain how it could encourage people to use the library more. Suggest one way to get local businesses involved.\n\nWe will publish the best articles on our website.\n\nWrite your article.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-09-task-03-block-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted!",
+          "paragraphs": [
+            "How can a library makerspace benefit our community?",
+            "We are planning to launch a makerspace in our town library and want to hear your ideas. Write an article for our website.",
+            "Describe one positive change a makerspace could bring to local residents. Explain how it could encourage people to use the library more. Suggest one way to get local businesses involved.",
+            "We will publish the best articles on our website."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-09-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Email",
+      "genre": "email",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptText": "You have received this email from your English-speaking friend, Chris.\n\nFrom: Chris\nSubject: Library makerspace idea\n\nHi,\nI heard your town library is planning to start a makerspace. I'm thinking of suggesting a similar project to my local library here. Could you tell me what equipment you think is essential? Also, what kind of activities would attract teenagers? And how should we convince the library committee to support the idea?\n\nThanks a lot!\nChris\n\nWrite your email.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-09-task-04-block-01",
+          "type": "email",
+          "from": "Chris",
+          "subject": "Library makerspace idea",
+          "paragraphs": [
+            "Hi,",
+            "I heard your town library is planning to start a makerspace. I'm thinking of suggesting a similar project to my local library here. Could you tell me what equipment you think is essential? Also, what kind of activities would attract teenagers? And how should we convince the library committee to support the idea?",
+            "Thanks a lot!",
+            "Chris"
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "email",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

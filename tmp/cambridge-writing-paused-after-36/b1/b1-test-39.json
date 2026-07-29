@@ -1,0 +1,158 @@
+{
+  "id": "b1-test-39",
+  "level": "b1",
+  "testNumber": 39,
+  "title": "PET B1 AI Practice Test 39",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b1/b1-test-39.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b1-test-39-1785316969406",
+    "generatedAt": 1785316986044,
+    "contentHash": "15dd42c07419d21779df0e69068b3c589db9a1d7780a6dc2c12f5c91a46e264f",
+    "promptHash": "cc56e4013ec8b733f0cd69a7d69634d389c215a2f4da8c5feb1ec45e8a8deea8",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-39:cc56e4013ec8b733f0cd69a7d69634d389c215a2f4da8c5feb1ec45e8a8deea8",
+    "inputHash": "cc56e4013ec8b733f0cd69a7d69634d389c215a2f4da8c5feb1ec45e8a8deea8",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b1-test-39-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Weekend job at a bakery",
+      "genre": "email",
+      "instruction": "You must answer this question. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-39-task-01-para-01",
+          "type": "paragraph",
+          "text": "Read this email from your English teacher, Mrs. Hill, and the notes you have made."
+        },
+        {
+          "id": "b1-test-39-task-01-email-01",
+          "type": "email",
+          "from": "Mrs. Hill",
+          "subject": "Weekend job at a bakery",
+          "paragraphs": [
+            "Hi, As you know, you are going to start your first weekend job at a bakery next month. I need your help to plan a few things.",
+            "First, should we focus on learning how to use the bakery equipment or on practicing customer service? Which do you think is more important for your first weekend?",
+            "Also, we need to choose one thing for you to learn before you start. Would you prefer to learn how to take orders or how to handle money?",
+            "Finally, can you suggest one way to make sure you are not too tired after working on Saturday and Sunday?",
+            "Let me know your ideas! Best wishes, Mrs. Hill"
+          ]
+        },
+        {
+          "id": "b1-test-39-task-01-panel-01",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes for your reply",
+          "listItems": [
+            "Say which focus you prefer (equipment or customer service) and explain why.",
+            "Choose a skill to learn (taking orders or handling money) and give a reason.",
+            "Suggest one way to avoid feeling too tired after the weekend.",
+            "Ask Mrs. Hill about the uniform or what to wear."
+          ]
+        },
+        {
+          "id": "b1-test-39-task-01-final-01",
+          "type": "final-instruction",
+          "text": "Write your email to Mrs. Hill using all the notes."
+        }
+      ],
+      "presentation": {
+        "template": "email"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b1-test-39-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Advice for a first weekend job",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-39-task-02-panel-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted!",
+          "paragraphs": [
+            "What is the best advice for someone starting their first weekend job at a bakery?",
+            "What should they learn first? How can they enjoy the job and do well?",
+            "Write an article answering these questions and we will put it on our website!"
+          ]
+        },
+        {
+          "id": "b1-test-39-task-02-final-01",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b1-test-39-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "A note on the apron",
+      "genre": "story",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-39-task-03-para-01",
+          "type": "paragraph",
+          "text": "Your English teacher has asked you to write a story."
+        },
+        {
+          "id": "b1-test-39-task-03-para-02",
+          "type": "paragraph",
+          "text": "Your story must begin with this sentence:"
+        },
+        {
+          "id": "b1-test-39-task-03-para-03",
+          "type": "paragraph",
+          "text": "\"When the programme coordinator handed me the bakery apron, I noticed a small note pinned to it.\""
+        },
+        {
+          "id": "b1-test-39-task-03-final-01",
+          "type": "final-instruction",
+          "text": "Write your story."
+        }
+      ],
+      "presentation": {
+        "template": "plain"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

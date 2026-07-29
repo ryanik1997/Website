@@ -1,0 +1,182 @@
+{
+  "id": "b2-test-37",
+  "level": "b2",
+  "testNumber": 37,
+  "title": "FCE B2 AI Practice Test 37",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-37.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b2-test-37-1785317022411",
+    "generatedAt": 1785317038624,
+    "contentHash": "db6dd5eee0490387b18cc0fd1b18ddfe04ba71f9aa4801a0713c903875f0e0d1",
+    "promptHash": "bce4df7f2b69d6aa9c9d766a8bfb5c3d10c7a58e7aa4b29c631e6a9896e2fd40",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-37:bce4df7f2b69d6aa9c9d766a8bfb5c3d10c7a58e7aa4b29c631e6a9896e2fd40",
+    "inputHash": "bce4df7f2b69d6aa9c9d766a8bfb5c3d10c7a58e7aa4b29c631e6a9896e2fd40",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b2-test-37-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Youth Sports Clubs – Essay",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-37-task-01-pb-01",
+          "type": "paragraph",
+          "text": "In your English class you have been talking about youth sports clubs. Now your English teacher has asked you to write an essay."
+        },
+        {
+          "id": "b2-test-37-task-01-pb-02",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "listItems": [
+            "cost of membership",
+            "availability of trained coaches",
+            "......................... (your own idea)"
+          ]
+        },
+        {
+          "id": "b2-test-37-task-01-pb-03",
+          "type": "final-instruction",
+          "text": "Write an essay using all the notes and giving reasons for your point of view."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes"
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b2-test-37-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Youth Sports Club – Review",
+      "genre": "review",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-37-task-02-pb-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted!",
+          "paragraphs": [
+            "Have you attended a youth sports club recently? We want to hear about your experience.",
+            "Write a review of the club for our specialist magazine. Describe the facilities and coaching, say whether the club is good value for money, and recommend one improvement that would make it more accessible to young people.",
+            "The best reviews will be published in the next issue."
+          ]
+        },
+        {
+          "id": "b2-test-37-task-02-pb-02",
+          "type": "final-instruction",
+          "text": "Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-37-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Youth Sports Clubs – Article",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-37-task-03-pb-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted!",
+          "paragraphs": [
+            "How can youth sports clubs encourage long-term responsibility in young members?",
+            "Write an article for the programme coordinator's website. Suggest one practical way clubs can promote responsibility, explain why it would work, and describe the benefits for the club and the wider community.",
+            "We will publish the best articles on our website."
+          ]
+        },
+        {
+          "id": "b2-test-37-task-03-pb-02",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-37-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Youth Sports Club Visit – Email",
+      "genre": "email",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-37-task-04-pb-01",
+          "type": "email",
+          "from": "Jamie",
+          "subject": "Youth sports club visit",
+          "paragraphs": [
+            "Hi,",
+            "I'm planning to visit your town next month and would like to see a youth sports club in action. I'm interested in how clubs balance making sports accessible with teaching responsibility.",
+            "Can you recommend a club I should visit? What do you think is the biggest challenge they face? Also, could you help arrange a visit?",
+            "Thanks,",
+            "Jamie"
+          ]
+        },
+        {
+          "id": "b2-test-37-task-04-pb-02",
+          "type": "final-instruction",
+          "text": "Write your email."
+        }
+      ],
+      "presentation": {
+        "template": "email",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

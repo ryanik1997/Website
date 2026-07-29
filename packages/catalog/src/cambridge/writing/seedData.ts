@@ -6,6 +6,7 @@ import {
   type CambridgeWritingManifest,
 } from './schema.ts'
 import { CAMBRIDGE_WRITING_GENERATED_TESTS } from './generatedData.ts'
+import { CAMBRIDGE_WRITING_A2_GENERATED_TESTS } from './generatedA2Data.ts'
 import ketReadingBook4Test2 from '../../../data/reading-ket-a2-book4-test2.json'
 
 const ketA2Book4Test2 = ketReadingBook4Test2 as {
@@ -48,6 +49,12 @@ const collections = [
             genre: 'email',
             instruction: a2Part6.questionGroups?.[0]?.instruction ?? 'Write 25 words or more.',
             promptText: a2Part6.passage.map((block) => block.text ?? '').filter(Boolean).join('\n\n'),
+            promptBlocks: [
+              { id: 'ket-a2-book4-test2-task-31-lead', type: 'paragraph', text: 'Read this email from your English friend Sam.' },
+              { id: 'ket-a2-book4-test2-task-31-email', type: 'email', from: 'Sam', subject: 'Help! I’m bored!', greeting: 'Hi,', paragraphs: ['I want to ask you something. I’m really bored. Can I borrow something to read from you? What do you think I will enjoy? And when would you like it back?', 'I hope that’s OK.'], closing: 'Cheers!', sender: 'Sam' },
+              { id: 'ket-a2-book4-test2-task-31-final', type: 'final-instruction', text: 'Write an email to Sam and answer his questions.' },
+            ],
+            presentation: { template: 'email' },
             wordLimit: {
               min: a2Part6.questionGroups?.[0]?.questions?.[0]?.minWords ?? 25,
               displayText: a2Part6.questionGroups?.[0]?.instruction ?? '25 words or more',
@@ -530,7 +537,7 @@ const collections = [
 ] satisfies CambridgeWritingCollection[]
 
 for (const collection of collections) {
-  if (collection.level === 'a2') continue
+  if (collection.level === 'a2') { collection.tests.push(...CAMBRIDGE_WRITING_A2_GENERATED_TESTS as unknown as typeof collection.tests); continue }
   const generated = CAMBRIDGE_WRITING_GENERATED_TESTS[collection.level]
   const seenNumbers = new Set(collection.tests.map(test => test.testNumber))
   for (const test of generated) {

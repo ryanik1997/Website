@@ -1,0 +1,57 @@
+{
+  "task1": {
+    "scenario": "Planning a fair-trade shopping survey with class",
+    "audience": "English teacher (Mrs. Hill)",
+    "purpose": "Evaluate and justify priorities for survey focus and logistics",
+    "requiredContentPoints": [
+      "Choose focus: reasons for buying vs. reasons for not buying",
+      "Choose location: supermarket or market",
+      "Suggest way to increase responses",
+      "Ask about deadline"
+    ],
+    "lexicalAnchors": [
+      "fair-trade shopping survey",
+      "survey focus",
+      "location",
+      "response rate",
+      "deadline"
+    ],
+    "originalitySelfCheck": "Scenario unique: fair-trade survey planning. No overlap with existing tests. Email structure uses notes with four distinct content points. Forbidden concepts avoided."
+  },
+  "task2": {
+    "scenario": "Magazine article about fair-trade shopping impact",
+    "audience": "Specialist magazine readers",
+    "purpose": "Assess effectiveness of fair-trade and recommend",
+    "requiredContentPoints": [
+      "Does fair-trade help people in other countries?",
+      "Most important reason to choose fair-trade"
+    ],
+    "lexicalAnchors": [
+      "fair-trade products",
+      "difference",
+      "reason to choose"
+    ],
+    "originalitySelfCheck": "Article prompt asks two direct questions about fair-trade impact. No generic phrases. Forbidden concepts avoided. Skeleton differs from previous article tasks."
+  },
+  "task3": {
+    "scenario": "Story beginning with discovery of a note in fair-trade chocolate box",
+    "audience": "English teacher",
+    "purpose": "Analyse implications and propose action through narrative",
+    "requiredContentPoints": [
+      "Note found",
+      "Reaction and consequence",
+      "Resolution"
+    ],
+    "lexicalAnchors": [
+      "fair-trade chocolate",
+      "note",
+      "discovery"
+    ],
+    "originalitySelfCheck": "Opening sentence unique: 'When the programme coordinator opened the box of fair-trade chocolate, a small note fell out.' No resemblance to previous story openings. Forbidden concepts avoided."
+  },
+  "forbiddenConceptCheck": "PASS",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "edc23b7674e49d08c23fec26f2dd187d5ae40db5bec31b180bbeef5905791055"
+  }
+}

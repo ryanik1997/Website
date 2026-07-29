@@ -1,0 +1,153 @@
+{
+  "id": "c2-test-21",
+  "level": "c2",
+  "testNumber": 21,
+  "title": "CPE C2 AI Practice Test 21",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-21.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "c2-test-21-1785311979217",
+    "generatedAt": 1785312023687,
+    "contentHash": "f81c318ce99013222021739766304e2b87c4af110c97f5eabc14c1772b0760e6",
+    "promptHash": "1cc7d0909361a251b2af7e6114cb40cd0c20a054854c9e9780c06b62464c15a8",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-21:1cc7d0909361a251b2af7e6114cb40cd0c20a054854c9e9780c06b62464c15a8",
+    "inputHash": "1cc7d0909361a251b2af7e6114cb40cd0c20a054854c9e9780c06b62464c15a8",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "c2-test-21-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay: Balancing innovation and local identity in small businesses",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write an essay summarising and evaluating the key points from both texts in 240–280 words. Use your own words throughout as far as possible, and include your own ideas in your answers.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-21-task-01-source-1",
+          "type": "source-text",
+          "label": "Text 1",
+          "text": "Small businesses that cling to traditional methods risk irrelevance in a rapidly evolving market. Innovation is not a luxury but a survival strategy: adopting digital payment systems, social media marketing and flexible product lines allows local shops to compete with larger chains and online retailers. Those who resist change often cite a desire to preserve local identity, but identity that does not adapt becomes a museum piece. True local character is not static; it is continuously recreated through engagement with new ideas. A bakery that introduces a gluten-free range or a bookshop that hosts virtual author events is not abandoning its roots but strengthening them. The businesses that thrive will be those that treat innovation as an expression of their commitment to the community, not a betrayal of it."
+        },
+        {
+          "id": "c2-test-21-task-01-source-2",
+          "type": "source-text",
+          "label": "Text 2",
+          "text": "The pressure on small businesses to innovate often comes at the expense of the very qualities that make them valued. A neighbourhood café that replaces its handwritten menu with a QR-code system may gain efficiency but lose the personal touch that kept customers loyal. Innovation, in practice, frequently means adopting generic corporate practices that erode distinctiveness. The result is a landscape of homogenised outlets that could be anywhere. Moreover, the constant demand to upgrade technology and retrain staff places a heavy burden on enterprises with slim margins. Small businesses should be celebrated for what they already do well: providing stable employment, fostering local relationships and maintaining the character of a place. The most responsible path is not to chase every new trend but to innovate selectively, preserving the identity that gives a community its texture."
+        }
+      ],
+      "presentation": {
+        "template": "source-texts"
+      },
+      "wordLimit": {
+        "min": 240,
+        "max": 280,
+        "displayText": "240–280 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c2-test-21-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Review: A small business that balances innovation and local identity",
+      "genre": "review",
+      "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-21-task-02-panel",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted: Small businesses that get the balance right",
+          "paragraphs": [
+            "A specialist magazine for small business owners is running a series of reviews of enterprises that successfully combine innovation with a strong local identity. Have you visited or used a small business that manages to embrace new technology or methods while retaining its distinctive character? Write a review for the magazine.",
+            "In your review, describe the business and the specific innovations it has adopted. Assess how effectively these innovations have been integrated without undermining the business's local identity. Would you recommend this business as a model for other small enterprises? Explain your reasons."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-21-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Report: Impact of innovation requirements on small businesses",
+      "genre": "report",
+      "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-21-task-03-panel",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Report requested by the Local Enterprise Programme Coordinator",
+          "paragraphs": [
+            "The Local Enterprise Programme Coordinator has asked you to write a report on how the expectation to innovate affects small businesses in your area. The coordinator is concerned that pressure to adopt new technologies and practices may be undermining the local identity that makes these businesses attractive to customers.",
+            "In your report, analyse the main ways in which innovation requirements impact small businesses. Assess the potential consequences for the local economy and community character if businesses feel forced to choose between innovation and identity. Propose two practical actions that the programme could take to help businesses innovate without losing their distinctiveness."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-21-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Article: Should small businesses prioritise innovation or tradition?",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-21-task-04-panel",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted: Innovation vs. tradition in small business",
+          "paragraphs": [
+            "An English-language online magazine for international readers is planning a series on 'The Future of the High Street'. The editors have invited readers to submit articles explaining their position on the following question: Should small businesses prioritise innovation over preserving local identity, or is there a way to achieve both?",
+            "In your article, explain your position on this question. Describe one practical consequence of your preferred approach for a typical small business. Suggest how business owners could implement your recommendation while maintaining the trust of their customers. End your article by requesting that the magazine arrange a follow-up online discussion with readers and small business owners to explore the issue further."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

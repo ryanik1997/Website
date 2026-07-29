@@ -1,0 +1,283 @@
+{
+  "inputHash": "bb2621b6e4c0e058134d302f64d3c3208faeea09b5b08933e648d469dddc0665",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-26:bb2621b6e4c0e058134d302f64d3c3208faeea09b5b08933e648d469dddc0665",
+  "test": {
+    "id": "b2-test-26",
+    "level": "b2",
+    "testNumber": 26,
+    "title": "FCE B2 AI Practice Test 26",
+    "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-26.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "b2-test-26-1785312411552",
+      "generatedAt": 1785312470143,
+      "contentHash": "2a0ed8d8aeac41dd7043f9c23e535f28977dbd5c6d4ba3ea2c2b3bcc12162ac0",
+      "promptHash": "bb2621b6e4c0e058134d302f64d3c3208faeea09b5b08933e648d469dddc0665",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-26:bb2621b6e4c0e058134d302f64d3c3208faeea09b5b08933e648d469dddc0665",
+      "inputHash": "bb2621b6e4c0e058134d302f64d3c3208faeea09b5b08933e648d469dddc0665",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "b2-test-26-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Future skills essay",
+        "genre": "essay",
+        "instruction": "Write an essay using all the notes and giving reasons for your point of view.",
+        "promptText": "In your English class you have been discussing what future skills young people will need. Now your English teacher has asked you to write an essay.\n\nWrite an essay using all the notes and giving reasons for your point of view.\n\nWhat is the most important future skill for young people to develop?\n\nNotes\n\nWrite about:\n\n1. digital literacy\n2. teamwork and collaboration\n3. ......................... (your own idea)",
+        "promptBlocks": [
+          {
+            "id": "b2-test-26-task-01-block-01",
+            "type": "paragraph",
+            "text": "In your English class you have been discussing what future skills young people will need. Now your English teacher has asked you to write an essay."
+          },
+          {
+            "id": "b2-test-26-task-01-block-02",
+            "type": "paragraph",
+            "text": "Write an essay using all the notes and giving reasons for your point of view."
+          },
+          {
+            "id": "b2-test-26-task-01-block-03",
+            "type": "paragraph",
+            "text": "What is the most important future skill for young people to develop?"
+          },
+          {
+            "id": "b2-test-26-task-01-block-04",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Notes",
+            "listItems": [
+              "1. digital literacy",
+              "2. teamwork and collaboration",
+              "3. ......................... (your own idea)"
+            ]
+          }
+        ],
+        "presentation": {
+          "template": "essay-notes"
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "b2-test-26-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Future skills review",
+        "genre": "review",
+        "instruction": "Write your review.",
+        "promptText": "You see this announcement in a specialist magazine for educators.\n\nReviews wanted!\n\nHave you used an online course that teaches future skills such as critical thinking, problem-solving or digital literacy? We want to hear about your experience. Write a review of the course for our magazine.\n\nDescribe what the course covered and how it was delivered. Say how useful it was for developing the skills it promised. Would you recommend it to other educators? Why?\n\nThe best reviews will be published in the next issue.\n\nWrite your review.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-26-task-02-block-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Reviews wanted!",
+            "paragraphs": [
+              "Have you used an online course that teaches future skills such as critical thinking, problem-solving or digital literacy? We want to hear about your experience. Write a review of the course for our magazine.",
+              "Describe what the course covered and how it was delivered. Say how useful it was for developing the skills it promised. Would you recommend it to other educators? Why?",
+              "The best reviews will be published in the next issue."
+            ]
+          },
+          {
+            "id": "b2-test-26-task-02-block-02",
+            "type": "final-instruction",
+            "text": "Write your review."
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b2-test-26-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Future skills article",
+        "genre": "article",
+        "instruction": "Write your article.",
+        "promptText": "You see this announcement on a youth website.\n\nArticles wanted!\n\nFuture skills: what should we learn now?\n\nWhat future skill do you think is most important for young people, and how can they develop it? Write an article for our website.\n\nDescribe one future skill you consider essential. Suggest a practical way young people can learn or practise this skill. Explain how this could benefit their future career or personal life.\n\nWe will publish the best articles on our website.\n\nWrite your article.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-26-task-03-block-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Articles wanted!",
+            "paragraphs": [
+              "Future skills: what should we learn now?",
+              "What future skill do you think is most important for young people, and how can they develop it? Write an article for our website.",
+              "Describe one future skill you consider essential. Suggest a practical way young people can learn or practise this skill. Explain how this could benefit their future career or personal life.",
+              "We will publish the best articles on our website."
+            ]
+          },
+          {
+            "id": "b2-test-26-task-03-block-02",
+            "type": "final-instruction",
+            "text": "Write your article."
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b2-test-26-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Future skills email",
+        "genre": "email",
+        "instruction": "Write your email.",
+        "promptText": "You have received this email from your English-speaking friend, Alex.\n\nFrom: Alex\nSubject: Future skills course\n\nHi,\nI'm thinking of taking a short course on future skills – maybe about creative thinking or data analysis. I know you've done some courses like that. Can you recommend one? What did you find most useful about it? Also, do you think it's better to study online or in a classroom? And how much time should I expect to spend each week?\n\nThanks a lot!\nAlex\n\nWrite your email.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-26-task-04-block-01",
+            "type": "email",
+            "from": "Alex",
+            "subject": "Future skills course",
+            "paragraphs": [
+              "Hi,",
+              "I'm thinking of taking a short course on future skills – maybe about creative thinking or data analysis. I know you've done some courses like that. Can you recommend one? What did you find most useful about it? Also, do you think it's better to study online or in a classroom? And how much time should I expect to spend each week?",
+              "Thanks a lot!",
+              "Alex"
+            ]
+          },
+          {
+            "id": "b2-test-26-task-04-block-02",
+            "type": "final-instruction",
+            "text": "Write your email."
+          }
+        ],
+        "presentation": {
+          "template": "email",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "b2-test-26",
+    "topicFamily": "future skills",
+    "specificSetting": "a future-skills forum planning brief 20",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "Essay: class discussion on future skills, teacher asks for essay on most important skill",
+        "audience": "English teacher",
+        "purpose": "evaluate and justify priorities",
+        "requiredContentPoints": [
+          "digital literacy",
+          "teamwork and collaboration",
+          "own idea"
+        ],
+        "lexicalAnchors": [
+          "future skills",
+          "digital literacy",
+          "teamwork"
+        ],
+        "originalitySelfCheck": "Unique scenario: essay on future skills with notes digital literacy, teamwork, own idea. Not used in any avoided fingerprint.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "Review: online course teaching future skills, for educators magazine",
+        "audience": "specialist magazine readers (educators)",
+        "purpose": "assess effectiveness and recommend",
+        "requiredContentPoints": [
+          "course content and delivery",
+          "usefulness for skill development",
+          "recommendation to other educators"
+        ],
+        "lexicalAnchors": [
+          "online course",
+          "future skills",
+          "critical thinking",
+          "problem-solving",
+          "digital literacy"
+        ],
+        "originalitySelfCheck": "Review of online course for future skills, not a book or documentary. Different from any previous review task.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "Article: future skill importance and development, for youth website",
+        "audience": "programme coordinator (youth website readers)",
+        "purpose": "analyse implications and propose action",
+        "requiredContentPoints": [
+          "one essential future skill",
+          "practical way to learn/practise",
+          "benefit for career or personal life"
+        ],
+        "lexicalAnchors": [
+          "future skill",
+          "learn",
+          "practise",
+          "career",
+          "personal life"
+        ],
+        "originalitySelfCheck": "Article on future skills for youth website, not generic 'learning beyond lessons' or 'most useful thing'. Unique.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 4,
+        "scenario": "Email: friend asking for course recommendation on future skills",
+        "audience": "English-speaking contact (friend Alex)",
+        "purpose": "explain a position and request arrangements",
+        "requiredContentPoints": [
+          "recommend a course",
+          "most useful aspect",
+          "online vs classroom preference",
+          "time commitment"
+        ],
+        "lexicalAnchors": [
+          "future skills course",
+          "creative thinking",
+          "data analysis",
+          "online",
+          "classroom"
+        ],
+        "originalitySelfCheck": "Email about future skills course recommendation, not about holiday, job, or exchange. Unique scenario.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ],
+    "overallOriginalityCheck": "All tasks are original, not overlapping with any avoided fingerprints. No forbidden concepts used. Scenarios are concrete and specific to 'future skills' topic family."
+  },
+  "cachedAt": 1785312470195
+}

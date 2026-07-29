@@ -1,0 +1,156 @@
+{
+  "id": "c1-test-32",
+  "level": "c1",
+  "testNumber": 32,
+  "title": "CAE C1 AI Practice Test 32",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-32.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "c1-test-32-1785313857309",
+    "generatedAt": 1785313877611,
+    "contentHash": "4ec796261176fd6f6612565a6d0c30fbe440bb6bfbd6eb5a8a7c03ac5366be83",
+    "promptHash": "1c1e7dab00397e9ab14c27d2b34a9d3ca6156f3ad7a55f0bf1a99b02f10eb634",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-32:1c1e7dab00397e9ab14c27d2b34a9d3ca6156f3ad7a55f0bf1a99b02f10eb634",
+    "inputHash": "1c1e7dab00397e9ab14c27d2b34a9d3ca6156f3ad7a55f0bf1a99b02f10eb634",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "c1-test-32-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Priorities for a university exchange programme",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-32-task-01-block-01",
+          "type": "paragraph",
+          "text": "Your class has listened to a radio discussion about how a university exchange consortium should prioritise funding for student exchange visits. You have made the notes below."
+        },
+        {
+          "id": "c1-test-32-task-01-block-02",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Priorities for a university exchange programme",
+          "listItems": [
+            "pre-departure cultural orientation sessions",
+            "in-country language support tutors",
+            "re-entry guidance to help students apply their experience"
+          ]
+        },
+        {
+          "id": "c1-test-32-task-01-block-03",
+          "type": "panel",
+          "variant": "opinions",
+          "paragraphs": [
+            "Pre-departure sessions prepare students for cultural differences and reduce the risk of misunderstandings. Without them, students may struggle to adapt and miss the full benefit of the exchange.",
+            "In-country language support tutors provide ongoing help with academic language and everyday communication. This is especially important for students who are not yet fluent in the host language.",
+            "Re-entry guidance helps students reflect on what they have learned and articulate it to employers or further study providers. Many students return with valuable insights but lack the skills to communicate them effectively."
+          ]
+        },
+        {
+          "id": "c1-test-32-task-01-block-04",
+          "type": "final-instruction",
+          "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for the consortium to invest in, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes-opinions"
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c1-test-32-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Proposal for a consortium evaluation framework",
+      "genre": "proposal",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptText": "Your university exchange consortium is planning to introduce a formal evaluation framework for its exchange visits. The consortium director has invited proposals from student representatives for how this framework should be designed.\n\nWrite a proposal for the consortium director. In your proposal, you should:\n\n• recommend two specific aspects of the exchange experience that should be evaluated\n• explain how student feedback will be collected and used to improve future visits\n• describe how the results will be reported to partner institutions to ensure accountability\n\nWrite your proposal.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-32-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Email to programme coordinator about capacity constraints",
+      "genre": "email",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptText": "You are the exchange programme coordinator at your university. You have received an email from a partner university's international office asking whether your institution can increase the number of incoming exchange students next year, despite limited accommodation and academic support resources.\n\nWrite an email to the partner university's international office. In your email, you should:\n\n• acknowledge the request and explain your institution's current capacity constraints\n• propose a realistic increase and outline how it could be managed\n• suggest a follow-up meeting to discuss the details\n\nWrite your email.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-32-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Review of an exchange programme",
+      "genre": "review",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-32-task-04-block-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted: Exchange experiences",
+          "paragraphs": [
+            "Have you taken part in a university exchange visit organised by the consortium? We want to hear about your experience.",
+            "Write a review of the exchange programme you participated in. Describe the academic and cultural aspects of the programme, evaluate how well it prepared you for the experience, and explain whether you would recommend it to other students.",
+            "The best reviews will be published in the consortium's newsletter."
+          ]
+        },
+        {
+          "id": "c1-test-32-task-04-block-02",
+          "type": "final-instruction",
+          "text": "Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

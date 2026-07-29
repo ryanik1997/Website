@@ -1,0 +1,86 @@
+{
+  "testId": "b2-test-32",
+  "topicFamily": "school exchange visits",
+  "specificSetting": "a college exchange partnership planning brief 26",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Essay: choosing host families and involving local students in activities",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "choosing host families who have time to support visitors",
+        "organising activities that involve local students",
+        "own idea"
+      ],
+      "lexicalAnchors": [
+        "host families",
+        "local students",
+        "exchange visit"
+      ],
+      "originalitySelfCheck": "Scenario is original: focuses on host family support and local student involvement, not on cultural activities or academic preparation. Avoids forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Review: welcome event for exchange visitors",
+      "audience": "specialist magazine readers (college website readers)",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "description of event",
+        "how well it helped visitors settle in",
+        "one improvement"
+      ],
+      "lexicalAnchors": [
+        "welcome event",
+        "exchange visitors",
+        "settle in"
+      ],
+      "originalitySelfCheck": "Review of a welcome event, not a study clinic or library. Unique scenario within test set.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Article: making exchange visits more responsible",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "one practical way to make visits more responsible",
+        "why it would work",
+        "benefits for visitors and hosts"
+      ],
+      "lexicalAnchors": [
+        "responsible exchange",
+        "host community",
+        "visitor benefit"
+      ],
+      "originalitySelfCheck": "Article focuses on responsibility and host community, not on general tips for visitors. Avoids forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Email: exchange visit arrangements with coordinator",
+      "audience": "English-speaking contact (exchange coordinator)",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "preference for accommodation",
+        "suggest one activity",
+        "question about schedule"
+      ],
+      "lexicalAnchors": [
+        "host family",
+        "student residence",
+        "free time activities",
+        "schedule"
+      ],
+      "originalitySelfCheck": "Email is a response to a coordinator's inquiry, not a request for advice. Accommodation and activity preferences are specific to exchange context. Avoids forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "centralTension": "access and convenience versus long-term responsibility in school exchange visits",
+  "overallOriginalityNote": "All tasks are built around the specific setting of a college exchange partnership. No two tasks share the same audience, purpose, or required content points. The scenario is distinct from any previously generated test (e.g., b2-test-07, b1-test-07). No forbidden concepts are used.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "6cc2d95058920a0bb871355886a7a50f4e858508c77449d8046302a2ab1267b6"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "testId": "b1-test-21",
+  "level": "b1",
+  "topicFamily": "small businesses",
+  "specificSetting": "a shop choosing local suppliers planning brief 15",
+  "task1": {
+    "scenario": "School shop planning to buy from local suppliers; student advises teacher on priorities, product choice, and communication.",
+    "audience": "English teacher (Mrs Hill)",
+    "purpose": "evaluate and justify priorities (fresher food vs. helping small businesses)",
+    "requiredContentPoints": [
+      "preferred reason (fresher food OR helping small businesses) with explanation",
+      "preferred product (bread OR vegetables) with reason",
+      "suggestion for telling customers about the change",
+      "question about delivery day"
+    ],
+    "lexicalAnchors": [
+      "local suppliers",
+      "fresher food",
+      "helping small businesses",
+      "fresh bread",
+      "seasonal vegetables",
+      "tell customers",
+      "delivery day"
+    ],
+    "originalitySelfCheck": "Email scenario is unique: school shop choosing local suppliers, not used in any previous test. Notes require a choice between two reasons and two products. Opening is not generic. No overlap with forbidden concepts.",
+    "forbiddenConceptCheck": "PASS"
+  },
+  "task2": {
+    "scenario": "Town magazine article about shops choosing local suppliers; student gives opinion on whether it's a good idea and the most important reason.",
+    "audience": "specialist magazine readers (town magazine audience)",
+    "purpose": "assess effectiveness and recommend (whether local supplier choice is good and why)",
+    "requiredContentPoints": [
+      "opinion on whether shops should choose local suppliers",
+      "most important reason for choosing local suppliers"
+    ],
+    "lexicalAnchors": [
+      "local suppliers",
+      "local farmers",
+      "producers",
+      "good idea",
+      "most important reason"
+    ],
+    "originalitySelfCheck": "Article task is about local suppliers in a town magazine, not used before. Questions are direct and specific. No generic phrases.",
+    "forbiddenConceptCheck": "PASS"
+  },
+  "task3": {
+    "scenario": "Story beginning with a discovery of an envelope in a box of vegetables from a local farm.",
+    "audience": "programme coordinator (implied by story opening)",
+    "purpose": "analyse implications and propose action (story about the discovery and its consequences)",
+    "requiredContentPoints": [
+      "discovery of envelope",
+      "reaction or action taken",
+      "resolution or outcome"
+    ],
+    "lexicalAnchors": [
+      "local farm",
+      "box of vegetables",
+      "envelope",
+      "programme coordinator"
+    ],
+    "originalitySelfCheck": "Story opening is unique: 'When the programme coordinator opened the box of vegetables from the local farm, a small envelope fell out.' Not used in any previous test. No cliché.",
+    "forbiddenConceptCheck": "PASS"
+  },
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "651413003b804ca0d22ef2794832eaf0156482182863b5f4a585f07aeeb31e88"
+  }
+}

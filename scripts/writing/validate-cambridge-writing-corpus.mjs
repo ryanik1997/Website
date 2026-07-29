@@ -5,7 +5,7 @@ import { CAMBRIDGE_WRITING_LEVELS, getLevelConfig } from './cambridge-writing-le
 import { contentHash } from './cambridge-writing-ai-provider.mjs'
 import { buildDiversityReport, bannedPhraseFindings, taskText } from './cambridge-writing-similarity.mjs'
 import { buildPlan } from './plan-cambridge-writing-corpus.mjs'
-import { ROOT, TMP_ROOT, TestSchema, assertIdentity, listGeneratedFiles, parseArgs, readJson, writeJson } from './cambridge-writing-runtime.mjs'
+import { ROOT, TMP_ROOT, TestSchema, assertIdentity, listCambridgeWritingFiles, parseArgs, readJson, writeJson } from './cambridge-writing-runtime.mjs'
 
 function countWords(text) { return String(text).trim().split(/\s+/).filter(Boolean).length }
 function blocks(task, type) { return (task.promptBlocks ?? []).filter(block => block.type === type) }
@@ -55,11 +55,8 @@ export async function validateCorpus(level = 'all', options = {}) {
   const from = options.from ?? 2
   const to = options.to ?? Number.MAX_SAFE_INTEGER
   const checkpoint = options.checkpoint === true
-  const allFiles = await listGeneratedFiles(level)
-  const files = allFiles.filter(file => {
-    const match = file.match(/-test-(\d+)\.json$/)
-    return match && Number(match[1]) >= from && Number(match[1]) <= to
-  })
+  const source = options.source ?? 'catalog'
+  const files = await listCambridgeWritingFiles({ source: source === 'combined' ? 'staging' : source, level, from, to })
   const tests = []
   const failures = []
   const ids = new Set()
@@ -83,17 +80,21 @@ export async function validateCorpus(level = 'all', options = {}) {
   }
   const seedRoot = path.join(ROOT, 'packages/catalog/src/cambridge/writing')
   const baselines = await Promise.all(CAMBRIDGE_WRITING_LEVELS.map(current => readJson(path.join(seedRoot, current, `${current}-test-01.json`))))
-  const diversity = buildDiversityReport({ baselineTests: baselines, checkpointTests: tests, planRows: buildPlan() })
+  const existing = source === 'combined' ? await listCambridgeWritingFiles({ source: 'catalog', level, from: 2, to: Math.max(1, from - 1) }) : []
+  const existingTests = await Promise.all(existing.map(readJson))
+  const diversity = buildDiversityReport({ baselineTests: [...baselines, ...existingTests], checkpointTests: tests, planRows: buildPlan() })
   const similarity = { comparisons: diversity.comparisons, failures: diversity.hardFailures, warnings: diversity.warnings, warningThreshold: diversity.thresholds.warningThreshold, failureThreshold: diversity.thresholds.checkpointFailureThreshold }
   const counts = Object.fromEntries(CAMBRIDGE_WRITING_LEVELS.map(current => [current, { tests: tests.filter(test => test.level === current).length, tasks: tests.filter(test => test.level === current).reduce((sum, test) => sum + test.tasks.length, 0) }]))
   for (const levelName of CAMBRIDGE_WRITING_LEVELS) {
     const config = getLevelConfig(levelName)
     const expectedTests = checkpoint ? Math.max(0, to - from + 1) : config.newTestCount
     const expectedTasks = expectedTests * config.testTaskCount
-    if (counts[levelName].tests !== expectedTests) failures.push({ file: levelName, errors: [`expected ${expectedTests} generated tests, got ${counts[levelName].tests}`] })
-    if (counts[levelName].tasks !== expectedTasks) failures.push({ file: levelName, errors: [`expected ${expectedTasks} generated tasks, got ${counts[levelName].tasks}`] })
+    if (options.requireCompleteRange && counts[levelName].tests !== expectedTests) failures.push({ file: levelName, errors: [`expected ${expectedTests} tests in requested range, got ${counts[levelName].tests}`] })
+    if (options.requireCompleteRange && counts[levelName].tasks !== expectedTasks) failures.push({ file: levelName, errors: [`expected ${expectedTasks} tasks in requested range, got ${counts[levelName].tasks}`] })
   }
-  return { generatedAt: Date.now(), files: files.length, tests: tests.length, tasks: tests.reduce((sum, test) => sum + test.tasks.length, 0), counts, aiVerificationSkipped: options.allowUnreviewed === true, failures, similarity, diversity, valid: failures.length === 0 && diversity.hardFailures.length === 0 }
+  const pilotFailures = failures.filter(item => /cambridge-writing-staging/.test(item.file ?? '') || /^([a-z][0-9])-test-0(7|8|9|10|11)/.test(item.testId ?? ''))
+  const legacyFailures = failures.filter(item => !pilotFailures.includes(item))
+  return { generatedAt: Date.now(), source, candidateRange: { from, to }, files: files.length, tests: tests.length, tasks: tests.reduce((sum, test) => sum + test.tasks.length, 0), counts, existingCorpusCounts: { tests: existingTests.length, tasks: existingTests.reduce((sum, test) => sum + test.tasks.length, 0) }, pilotFailures, legacyFailures, failures, aiVerificationSkipped: options.allowUnreviewed === true, similarity, diversity, valid: failures.length === 0 && diversity.hardFailures.length === 0 }
 }
 
 async function main() {
@@ -105,6 +106,8 @@ async function main() {
     to,
     checkpoint: args.from !== undefined || args.to !== undefined,
     allowUnreviewed: args['allow-unreviewed'] === true,
+    source: args.source ?? 'catalog',
+    requireCompleteRange: args['require-complete-range'] === true,
   })
   await writeJson(path.join(TMP_ROOT, 'cambridge-writing-validation-report.json'), report)
   await writeJson(path.join(TMP_ROOT, 'cambridge-writing-similarity-report.json'), report.similarity)

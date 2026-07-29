@@ -1,0 +1,92 @@
+{
+  "testId": "c1-test-36",
+  "level": "c1",
+  "topicFamily": "local festivals",
+  "specificSetting": "a city cultural programme planning brief 30",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "City cultural programme planning brief: essay on priorities for balancing access and responsibility",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "the main local festivals issue",
+        "one practical consequence",
+        "a justified recommendation 1"
+      ],
+      "lexicalAnchors": [
+        "local festivals",
+        "a city cultural programme planning brief 30",
+        "c1 writing brief"
+      ],
+      "originalitySelfCheck": "Unique scenario: city cultural programme planning brief. No overlap with existing tests. Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "City cultural programme planning brief: proposal for sustainable festival measures",
+      "audience": "specialist magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "the main local festivals issue",
+        "one practical consequence",
+        "a justified recommendation 2"
+      ],
+      "lexicalAnchors": [
+        "local festivals",
+        "a city cultural programme planning brief 30",
+        "c1 writing brief"
+      ],
+      "originalitySelfCheck": "Proposal focuses on environmental sustainability measures for festivals. No reuse of previous proposal scenarios.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "City cultural programme planning brief: email addressing overcrowding concerns",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "the main local festivals issue",
+        "one practical consequence",
+        "a justified recommendation 3"
+      ],
+      "lexicalAnchors": [
+        "local festivals",
+        "a city cultural programme planning brief 30",
+        "c1 writing brief"
+      ],
+      "originalitySelfCheck": "Email about managing crowd levels while maintaining accessibility. Distinct from previous email tasks.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "City cultural programme planning brief: review of a local festival",
+      "audience": "English-speaking contact",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "the main local festivals issue",
+        "one practical consequence",
+        "a justified recommendation 4"
+      ],
+      "lexicalAnchors": [
+        "local festivals",
+        "a city cultural programme planning brief 30",
+        "c1 writing brief"
+      ],
+      "originalitySelfCheck": "Review asks to evaluate accessibility and sustainability of a festival. No reuse of review frames from avoided tests.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "centralTension": "access and convenience versus long-term responsibility in local festivals",
+  "stakeholders": [
+    "people affected by local festivals",
+    "organisers of a city cultural programme planning brief 30"
+  ],
+  "forbiddenConcepts": [],
+  "overallOriginalityCheck": "All tasks are original, with concrete audiences and purposes. No generic phrases or reused scenarios.",
+  "forbiddenConceptCheck": "PASS",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "19d0c9e153e009ead65a9ed4cf2f103df79681c274e3bf40f29c7c2a95d4895c"
+  }
+}

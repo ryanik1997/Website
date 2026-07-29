@@ -1,0 +1,184 @@
+{
+  "id": "b2-test-15",
+  "level": "b2",
+  "testNumber": 15,
+  "title": "FCE B2 AI Practice Test 15",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-15.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b2-test-15-1785310397271",
+    "generatedAt": 1785310415727,
+    "contentHash": "d6ea62181ef8be866bc2c7598d8a00d0c77e52feac2869be31ee67c9e5a9846e",
+    "promptHash": "c62b5faef7aeb3072856363dfe0e73cd99e3e075a2695340f97f77da159824fa",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-15:c62b5faef7aeb3072856363dfe0e73cd99e3e075a2695340f97f77da159824fa",
+    "inputHash": "c62b5faef7aeb3072856363dfe0e73cd99e3e075a2695340f97f77da159824fa",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b2-test-15-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Healthy cooking at work",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-15-task-01-block-01",
+          "type": "paragraph",
+          "text": "In your English class you have been talking about how to encourage healthy cooking at work. Now your English teacher has asked you to write an essay."
+        },
+        {
+          "id": "b2-test-15-task-01-block-02",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "listItems": [
+            "1. providing kitchen facilities",
+            "2. organising cooking workshops",
+            "3. ......................... (your own idea)"
+          ]
+        },
+        {
+          "id": "b2-test-15-task-01-block-03",
+          "type": "final-instruction",
+          "text": "Write an essay using all the notes and giving reasons for your point of view."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes"
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b2-test-15-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Healthy cooking workshop review",
+      "genre": "review",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-15-task-02-block-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted!",
+          "paragraphs": [
+            "Have you attended a healthy cooking workshop at your workplace or in your community?",
+            "Write a review of the workshop for our specialist magazine.",
+            "Describe what you learned, say how useful the session was, and explain whether you would recommend it to other workplaces.",
+            "The best reviews will be published in next month's issue."
+          ]
+        },
+        {
+          "id": "b2-test-15-task-02-block-02",
+          "type": "final-instruction",
+          "text": "Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-15-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Healthy cooking at work – article",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-15-task-03-block-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted!",
+          "paragraphs": [
+            "Our programme coordinator wants to hear from employees about healthy cooking at work.",
+            "Write an article for the company newsletter suggesting one practical way to make healthy cooking easier at the workplace.",
+            "Explain why this idea would work and what the benefits would be for staff.",
+            "We will share the best ideas with the planning team."
+          ]
+        },
+        {
+          "id": "b2-test-15-task-03-block-02",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-15-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Healthy cooking email",
+      "genre": "email",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-15-task-04-block-01",
+          "type": "email",
+          "from": "Elena",
+          "subject": "Healthy cooking at work",
+          "paragraphs": [
+            "Hi,",
+            "I heard your office is starting a healthy cooking initiative. I'm thinking of suggesting something similar at my company.",
+            "Could you tell me what has worked well so far? What challenges have you faced? And how did you get people interested?",
+            "Thanks a lot!",
+            "Elena"
+          ]
+        },
+        {
+          "id": "b2-test-15-task-04-block-02",
+          "type": "final-instruction",
+          "text": "Write your email."
+        }
+      ],
+      "presentation": {
+        "template": "email",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

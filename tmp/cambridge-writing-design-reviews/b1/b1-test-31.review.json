@@ -1,0 +1,60 @@
+{
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "a hot-weather neighbourhood plan planning brief 25: email brief 1-1",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "the main climate adaptation issue",
+        "one practical consequence",
+        "a justified recommendation 1"
+      ],
+      "lexicalAnchors": [
+        "climate adaptation",
+        "a hot-weather neighbourhood plan planning brief 25",
+        "b1 writing brief"
+      ],
+      "originalitySelfCheck": "Email about hot-weather plan; notes ask for preference between shaded areas/water stations, cooling centre/phone tree, suggestion for informing people, and question about meeting date. No overlap with previous tests. Forbidden concepts checked: none present."
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "a hot-weather neighbourhood plan planning brief 25: article brief 2-5",
+      "audience": "specialist magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "the main climate adaptation issue",
+        "one practical consequence",
+        "a justified recommendation 2"
+      ],
+      "lexicalAnchors": [
+        "climate adaptation",
+        "a hot-weather neighbourhood plan planning brief 25",
+        "b1 writing brief"
+      ],
+      "originalitySelfCheck": "Article about hot-weather neighbourhood plans; asks if they work and what is most important to include. No overlap with previous tests. Forbidden concepts checked: none present."
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "a hot-weather neighbourhood plan planning brief 25: story brief 3-9",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "the main climate adaptation issue",
+        "one practical consequence",
+        "a justified recommendation 3"
+      ],
+      "lexicalAnchors": [
+        "climate adaptation",
+        "a hot-weather neighbourhood plan planning brief 25",
+        "b1 writing brief"
+      ],
+      "originalitySelfCheck": "Story opening about receiving water bottles during a heatwave; unique sentence not used before. Forbidden concepts checked: none present."
+    }
+  ],
+  "forbiddenConceptCheck": "PASS",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "520f7edd197e89ef29fb0b9b08363666ff12161ac33756ab4bbf7acee4ffdbd0"
+  }
+}

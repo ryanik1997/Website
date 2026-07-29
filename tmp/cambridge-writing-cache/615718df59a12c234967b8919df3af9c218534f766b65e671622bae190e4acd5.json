@@ -1,0 +1,204 @@
+{
+  "inputHash": "9b1192a1baff1f3aa220b5c07f71e73d6f9c88d2fe1c95834cabb04da1079ae4",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-28:9b1192a1baff1f3aa220b5c07f71e73d6f9c88d2fe1c95834cabb04da1079ae4",
+  "test": {
+    "id": "b1-test-28",
+    "level": "b1",
+    "testNumber": 28,
+    "title": "PET B1 AI Practice Test 28",
+    "sourceFile": "packages/catalog/data/cambridge-writing/b1/b1-test-28.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "b1-test-28-1785312853680",
+      "generatedAt": 1785312868155,
+      "contentHash": "3fba146cd46feb991868c74b7998a32a416c564df85485794029d704ff264ad0",
+      "promptHash": "9b1192a1baff1f3aa220b5c07f71e73d6f9c88d2fe1c95834cabb04da1079ae4",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-28:9b1192a1baff1f3aa220b5c07f71e73d6f9c88d2fe1c95834cabb04da1079ae4",
+      "inputHash": "9b1192a1baff1f3aa220b5c07f71e73d6f9c88d2fe1c95834cabb04da1079ae4",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "b1-test-28-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Email to English teacher about survey priorities",
+        "genre": "email",
+        "instruction": "You must answer this question. Write your answer in about 100 words.\n\nRead this email from your English teacher, Mrs. Hill, and the notes you have made.\n\nWrite your email to Mrs. Hill using all the notes.",
+        "promptBlocks": [
+          {
+            "id": "b1-test-28-task-01-email",
+            "type": "email",
+            "from": "Mrs. Hill",
+            "subject": "Fair-trade shopping survey",
+            "paragraphs": [
+              "Hello,",
+              "As you know, our class is helping to plan a fair-trade shopping survey. We want to find out what people in our town think about buying fair-trade products.",
+              "First, should the survey focus on why people buy fair-trade items, or on why they don't? Which do you think is more important and why?",
+              "Also, we need to choose one place to give out the survey. Would you prefer to do it at the local supermarket or at the weekend market?",
+              "Finally, can you suggest one way to encourage more people to complete the survey?",
+              "Let me know your ideas!",
+              "Best wishes,",
+              "Mrs. Hill"
+            ]
+          },
+          {
+            "id": "b1-test-28-task-01-notes",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Notes for your reply",
+            "listItems": [
+              "Say which focus you prefer (reasons for buying OR reasons for not buying) and explain why.",
+              "Choose a place to give out the survey (supermarket or market) and give a reason.",
+              "Suggest one way to increase the number of completed surveys.",
+              "Ask Mrs. Hill about the deadline for the survey."
+            ]
+          },
+          {
+            "id": "b1-test-28-task-01-final",
+            "type": "final-instruction",
+            "text": "Write your email to Mrs. Hill using all the notes."
+          }
+        ],
+        "presentation": {
+          "template": "email"
+        },
+        "wordLimit": {
+          "min": 100,
+          "max": 100,
+          "displayText": "about 100 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "b1-test-28-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Article about fair-trade shopping",
+        "genre": "article",
+        "instruction": "Answer one of these questions. Write your answer in about 100 words.\n\nYou see this notice on a specialist magazine website.\n\nWrite your article.",
+        "promptBlocks": [
+          {
+            "id": "b1-test-28-task-02-announcement",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Articles wanted!",
+            "paragraphs": [
+              "Fair-trade shopping – does it make a difference?",
+              "Do you think buying fair-trade products helps people in other countries? What is the most important reason to choose fair-trade items?",
+              "Write an article answering these questions and we will put it on our website!"
+            ]
+          },
+          {
+            "id": "b1-test-28-task-02-final",
+            "type": "final-instruction",
+            "text": "Write your article."
+          }
+        ],
+        "presentation": {
+          "template": "announcement"
+        },
+        "wordLimit": {
+          "min": 100,
+          "max": 100,
+          "displayText": "about 100 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b1-test-28-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Story about a fair-trade discovery",
+        "genre": "story",
+        "instruction": "Answer one of these questions. Write your answer in about 100 words.\n\nYour English teacher has asked you to write a story.\n\nYour story must begin with this sentence:\n\n\"When the programme coordinator opened the box of fair-trade chocolate, a small note fell out.\"\n\nWrite your story.",
+        "promptBlocks": [
+          {
+            "id": "b1-test-28-task-03-opening",
+            "type": "paragraph",
+            "text": "When the programme coordinator opened the box of fair-trade chocolate, a small note fell out."
+          },
+          {
+            "id": "b1-test-28-task-03-final",
+            "type": "final-instruction",
+            "text": "Write your story."
+          }
+        ],
+        "presentation": {
+          "template": "plain"
+        },
+        "wordLimit": {
+          "min": 100,
+          "max": 100,
+          "displayText": "about 100 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "task1": {
+      "scenario": "Planning a fair-trade shopping survey with class",
+      "audience": "English teacher (Mrs. Hill)",
+      "purpose": "Evaluate and justify priorities for survey focus and logistics",
+      "requiredContentPoints": [
+        "Choose focus: reasons for buying vs. reasons for not buying",
+        "Choose location: supermarket or market",
+        "Suggest way to increase responses",
+        "Ask about deadline"
+      ],
+      "lexicalAnchors": [
+        "fair-trade shopping survey",
+        "survey focus",
+        "location",
+        "response rate",
+        "deadline"
+      ],
+      "originalitySelfCheck": "Scenario unique: fair-trade survey planning. No overlap with existing tests. Email structure uses notes with four distinct content points. Forbidden concepts avoided."
+    },
+    "task2": {
+      "scenario": "Magazine article about fair-trade shopping impact",
+      "audience": "Specialist magazine readers",
+      "purpose": "Assess effectiveness of fair-trade and recommend",
+      "requiredContentPoints": [
+        "Does fair-trade help people in other countries?",
+        "Most important reason to choose fair-trade"
+      ],
+      "lexicalAnchors": [
+        "fair-trade products",
+        "difference",
+        "reason to choose"
+      ],
+      "originalitySelfCheck": "Article prompt asks two direct questions about fair-trade impact. No generic phrases. Forbidden concepts avoided. Skeleton differs from previous article tasks."
+    },
+    "task3": {
+      "scenario": "Story beginning with discovery of a note in fair-trade chocolate box",
+      "audience": "English teacher",
+      "purpose": "Analyse implications and propose action through narrative",
+      "requiredContentPoints": [
+        "Note found",
+        "Reaction and consequence",
+        "Resolution"
+      ],
+      "lexicalAnchors": [
+        "fair-trade chocolate",
+        "note",
+        "discovery"
+      ],
+      "originalitySelfCheck": "Opening sentence unique: 'When the programme coordinator opened the box of fair-trade chocolate, a small note fell out.' No resemblance to previous story openings. Forbidden concepts avoided."
+    },
+    "forbiddenConceptCheck": "PASS"
+  },
+  "cachedAt": 1785312868165
+}

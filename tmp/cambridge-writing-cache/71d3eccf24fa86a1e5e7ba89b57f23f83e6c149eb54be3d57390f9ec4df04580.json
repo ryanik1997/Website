@@ -1,0 +1,214 @@
+{
+  "inputHash": "898d3de819d357409b4566fb80edccb638b8032e7b863f7286254be805ed0c11",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-23:898d3de819d357409b4566fb80edccb638b8032e7b863f7286254be805ed0c11",
+  "test": {
+    "id": "c2-test-23",
+    "level": "c2",
+    "testNumber": 23,
+    "title": "CPE C2 AI Practice Test 23",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-23.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c2-test-23-1785312632981",
+      "generatedAt": 1785312654691,
+      "contentHash": "0a70270a9e84369b57fb25342b2086a2edff2e7cc64e91cf5eb168357fa024d4",
+      "promptHash": "898d3de819d357409b4566fb80edccb638b8032e7b863f7286254be805ed0c11",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-23:898d3de819d357409b4566fb80edccb638b8032e7b863f7286254be805ed0c11",
+      "inputHash": "898d3de819d357409b4566fb80edccb638b8032e7b863f7286254be805ed0c11",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c2-test-23-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Essay: Tourism and cultural asymmetry",
+        "genre": "essay",
+        "instruction": "Write an essay summarising and evaluating the key points from both texts in 240–280 words. Use your own words throughout as far as possible, and include your own ideas in your answers.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-23-task-01-source-01",
+            "type": "source-text",
+            "label": "Text 1",
+            "title": "The convenience of curated travel",
+            "text": "Holiday planning has become a seamless digital experience. Algorithms suggest destinations, platforms bundle flights and accommodation, and user reviews filter out risk. This convenience is not trivial: it democratises travel, allowing people with limited time or confidence to explore places they would otherwise never consider. The curated itinerary, far from being a straitjacket, is a liberation. It removes the anxiety of the unknown and lets visitors focus on enjoyment rather than logistics. For many, the packaged tour or the app-guided city break is the only realistic way to encounter another culture. To dismiss this as superficial tourism is to ignore the genuine encounters that structured travel can still produce."
+          },
+          {
+            "id": "c2-test-23-task-01-source-02",
+            "type": "source-text",
+            "label": "Text 2",
+            "title": "The asymmetry of the tourist gaze",
+            "text": "The convenience of modern holiday planning masks a troubling asymmetry. When visitors follow algorithm-driven itineraries, they consume a destination that has been pre-packaged for their comfort. Local businesses adapt to tourist expectations, public spaces are redesigned for photo opportunities, and the host culture becomes a performance staged for outsiders. The visitor moves through a bubble of familiarity, rarely encountering the frictions that generate genuine understanding. Meanwhile, the local population bears the costs of overcrowding, rising rents and environmental strain. A holiday planned entirely for convenience risks reducing travel to a transaction in which the visitor gains ease while the host community loses authenticity and, ultimately, agency."
+          }
+        ],
+        "presentation": {
+          "template": "source-texts"
+        },
+        "wordLimit": {
+          "min": 240,
+          "max": 280,
+          "displayText": "240–280 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c2-test-23-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Review: A travel experience that challenged your perspective",
+        "genre": "review",
+        "instruction": "Write 280–320 words in an appropriate style.",
+        "promptText": "A specialist travel magazine is running a series of reviews of holiday experiences that made readers rethink the relationship between tourism and local communities. You decide to submit a review of a trip you have taken. In your review, describe the holiday and the way it was organised, assess how far it allowed you to engage with the host culture on its own terms, and recommend what other travellers should consider if they want to travel more responsibly.",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c2-test-23-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Report: Impact of tourism on a local community",
+        "genre": "report",
+        "instruction": "Write 280–320 words in an appropriate style.",
+        "promptText": "You work as a consultant for a regional tourism board. The programme coordinator has asked you to write a report on how the current pattern of holiday planning—characterised by short stays, algorithm-driven bookings and high-season concentration—affects the cultural and economic life of a destination you know. In your report, analyse the main ways in which this type of tourism impacts local residents and businesses, assess the potential consequences for the destination's long-term viability, and propose two concrete actions the tourism board could take to encourage more responsible travel behaviour among visitors.",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c2-test-23-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Article: Rethinking holiday planning",
+        "genre": "article",
+        "instruction": "Write 280–320 words in an appropriate style.",
+        "promptText": "An English-language online magazine for international readers is publishing a series on 'The Future of Travel'. The editors have invited readers to submit articles explaining their position on the following question: Should holiday planning prioritise the convenience of the traveller or the well-being of the host community? In your article, explain your position on this question, describe one practical consequence of your preferred approach for how people plan their holidays, and suggest how travel companies could help travellers make more responsible choices. End your article by requesting that the magazine arrange a follow-up online discussion with readers and travel industry representatives to explore the issue further.",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "c2-test-23",
+    "level": "c2",
+    "topicFamily": "holiday planning",
+    "specificSetting": "tourism and cultural asymmetry planning brief 17",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "Two source texts debating whether curated travel democratises access or reduces host cultures to performances",
+        "audience": "English teacher (educated general reader)",
+        "purpose": "Synthesise competing claims, evaluate assumptions, and develop an independent position on the tension between convenience and cultural responsibility",
+        "requiredContentPoints": [
+          "the main holiday planning issue (convenience vs. cultural depth)",
+          "one practical consequence (e.g., democratisation vs. loss of authenticity)",
+          "a justified recommendation (how to balance access with responsibility)"
+        ],
+        "lexicalAnchors": [
+          "curated travel",
+          "algorithm-driven itineraries",
+          "host culture",
+          "asymmetry",
+          "democratisation",
+          "authenticity"
+        ],
+        "originalitySelfCheck": "Both source texts are original, with contrasting angles (convenience as liberation vs. convenience as masking asymmetry). No reused scenario or sentence skeleton from previous tests. Forbidden concepts avoided."
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "Review of a personal travel experience that prompted reflection on tourism's impact on local communities",
+        "audience": "Specialist travel magazine readers",
+        "purpose": "Assess how far a holiday allowed genuine cultural engagement, and recommend responsible travel practices",
+        "requiredContentPoints": [
+          "the main holiday planning issue (engagement vs. superficiality)",
+          "one practical consequence (e.g., positive or negative impact on host community)",
+          "a justified recommendation (what travellers should consider)"
+        ],
+        "lexicalAnchors": [
+          "responsible travel",
+          "cultural engagement",
+          "host community",
+          "tourist bubble",
+          "authenticity"
+        ],
+        "originalitySelfCheck": "Review task focuses on a personal trip's cultural engagement, not a generic product review. No overlap with existing review tasks. Forbidden concepts avoided."
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "Report for a regional tourism board analysing how current holiday planning patterns affect a destination's cultural and economic life",
+        "audience": "Programme coordinator (tourism board)",
+        "purpose": "Analyse impacts of short-stay, algorithm-driven tourism on local residents and businesses, and propose actions to encourage responsible travel",
+        "requiredContentPoints": [
+          "the main holiday planning issue (short-stay, high-season concentration)",
+          "one practical consequence (e.g., overcrowding, rising rents)",
+          "a justified recommendation (two concrete actions)"
+        ],
+        "lexicalAnchors": [
+          "short stays",
+          "algorithm-driven bookings",
+          "high-season concentration",
+          "responsible travel",
+          "long-term viability"
+        ],
+        "originalitySelfCheck": "Report task is a professional policy document, not a generic school report. No reused scenario. Forbidden concepts avoided."
+      },
+      {
+        "taskNumber": 4,
+        "scenario": "Article for an international magazine arguing whether holiday planning should prioritise traveller convenience or host community well-being",
+        "audience": "English-speaking contact (magazine readers)",
+        "purpose": "Explain a position on the central tension, describe a practical consequence, and suggest how travel companies can help; request follow-up discussion",
+        "requiredContentPoints": [
+          "the main holiday planning issue (traveller convenience vs. host well-being)",
+          "one practical consequence of preferred approach",
+          "a justified recommendation (how travel companies can help)"
+        ],
+        "lexicalAnchors": [
+          "traveller convenience",
+          "host community well-being",
+          "responsible choices",
+          "travel companies",
+          "follow-up discussion"
+        ],
+        "originalitySelfCheck": "Article task is a persuasive opinion piece with a specific request for follow-up, not a generic 'write an article' frame. No reused scenario. Forbidden concepts avoided."
+      }
+    ],
+    "forbiddenConceptCheck": "PASS",
+    "structuralOriginalityCheck": "All tasks use unique lead-ins, candidate roles, and content point ordering. No reused frames from avoided fingerprints. Source texts are original with distinct angles."
+  },
+  "cachedAt": 1785312654707
+}

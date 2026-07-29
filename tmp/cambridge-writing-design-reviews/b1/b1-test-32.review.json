@@ -1,0 +1,66 @@
+{
+  "testId": "b1-test-32",
+  "level": "b1",
+  "topicFamily": "school exchange visits",
+  "specificSetting": "a school exchange visit in York planning brief 26",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Email to English teacher about choosing two activities for a school exchange visit to York, with reasons, preference for scheduling, evening suggestion, and budget question.",
+      "audience": "English teacher (Mrs. Clark)",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "Choose two activities and say why you chose each one.",
+        "Say if you prefer same day or different days – explain why.",
+        "Suggest one thing the group should do in the evening.",
+        "Ask Mrs. Clark about the budget for activities."
+      ],
+      "lexicalAnchors": [
+        "school exchange visits",
+        "a school exchange visit in York planning brief 26",
+        "b1 writing brief"
+      ],
+      "originalitySelfCheck": "Scenario is unique: planning specific activities for York exchange. Email includes four distinct notes. No overlap with Test 01 or any previous test. Forbidden concepts checked: PASS."
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Article for specialist magazine for exchange programme coordinators, evaluating effectiveness of an exchange activity and recommending it.",
+      "audience": "specialist magazine readers (exchange programme coordinators)",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "the main school exchange visits issue",
+        "one practical consequence",
+        "a justified recommendation 2"
+      ],
+      "lexicalAnchors": [
+        "school exchange visits",
+        "a school exchange visit in York planning brief 26",
+        "b1 writing brief"
+      ],
+      "originalitySelfCheck": "Article prompt is about exchange visit benefits, not generic 'films' or 'learning'. No reused skeleton. Forbidden concepts checked: PASS."
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Story beginning with 'When the programme coordinator announced that the museum was closed, everyone looked worried.'",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "the main school exchange visits issue",
+        "one practical consequence",
+        "a justified recommendation 3"
+      ],
+      "lexicalAnchors": [
+        "school exchange visits",
+        "a school exchange visit in York planning brief 26",
+        "b1 writing brief"
+      ],
+      "originalitySelfCheck": "Story opening is unique: museum closure announcement. Not similar to any previous story opening. Forbidden concepts checked: PASS."
+    }
+  ],
+  "forbiddenConceptCheck": "PASS",
+  "notes": "All tasks are original, level-appropriate, and match the design fingerprint exactly. No banned phrases or reused skeletons.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "490d830b164a96fb06449187eb2748989c9c6519d21806156937fece9b947449"
+  }
+}

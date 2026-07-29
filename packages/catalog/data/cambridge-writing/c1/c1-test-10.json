@@ -1,0 +1,179 @@
+{
+  "id": "c1-test-10",
+  "level": "c1",
+  "testNumber": 10,
+  "title": "CAE C1 AI Practice Test 10",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-10.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "c1-test-10-1785307083528",
+    "generatedAt": 1785307104587,
+    "contentHash": "a23ff20a125611ee48f6ef9950c1eeab3c01ec9f403882fa78465759d22865f4",
+    "promptHash": "7a8a25aa752fbd94cb06d6ee7d4753775530f67344cd4e1db55ae1d0c87ded11",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-10:7a8a25aa752fbd94cb06d6ee7d4753775530f67344cd4e1db55ae1d0c87ded11",
+    "inputHash": "7a8a25aa752fbd94cb06d6ee7d4753775530f67344cd4e1db55ae1d0c87ded11",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "c1-test-10-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay: Priorities for a civic food-growing initiative",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-10-task-01-block-01",
+          "type": "paragraph",
+          "text": "Your class has listened to a radio discussion about a civic food-growing initiative that is being planned in your area. The organisers have to decide how to balance access and convenience with long-term responsibility. You have made the notes below."
+        },
+        {
+          "id": "c1-test-10-task-01-block-02",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Priorities for the initiative",
+          "listItems": [
+            "providing free starter kits to all residents",
+            "offering training workshops on sustainable gardening",
+            "setting up a shared tool library"
+          ]
+        },
+        {
+          "id": "c1-test-10-task-01-block-03",
+          "type": "panel",
+          "variant": "opinions",
+          "heading": "Some opinions expressed in the discussion:",
+          "paragraphs": [
+            "Free starter kits will get everyone involved quickly, but people may not use them responsibly.",
+            "Training workshops are essential if we want the gardens to be sustainable in the long run.",
+            "A tool library makes it easy for people to try gardening without a big investment."
+          ]
+        },
+        {
+          "id": "c1-test-10-task-01-block-04",
+          "type": "final-instruction",
+          "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for the success of the initiative, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes-opinions"
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c1-test-10-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Proposal: Sustainable gardening workshops for the community",
+      "genre": "proposal",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-10-task-02-block-01",
+          "type": "paragraph",
+          "text": "The organisers of the civic food-growing initiative have received funding to run a series of sustainable gardening workshops. They want to ensure the workshops are effective and reach a wide audience. As a volunteer coordinator, you have been asked to write a proposal for the initiative's steering committee."
+        },
+        {
+          "id": "c1-test-10-task-02-block-02",
+          "type": "final-instruction",
+          "text": "In your proposal, you should:\n• recommend the content and format of the workshops\n• suggest how to attract participants from different age groups and backgrounds\n• explain how the workshops will contribute to the long-term sustainability of the initiative\n\nWrite your proposal."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-10-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Email: Concerns about plot allocation",
+      "genre": "email",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-10-task-03-block-01",
+          "type": "paragraph",
+          "text": "You are a member of the steering committee for the civic food-growing initiative. You have received an email from a local residents' association expressing concern that the proposed system for allocating garden plots is unfair and will favour people who live closest to the site."
+        },
+        {
+          "id": "c1-test-10-task-03-block-02",
+          "type": "final-instruction",
+          "text": "Write an email to the chair of the residents' association. In your email, you should:\n• acknowledge the concern and explain the reasoning behind the current allocation proposal\n• suggest a modification to make the system fairer\n• propose a meeting to discuss the issue further\n\nWrite your email."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-10-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Review: A community garden visit",
+      "genre": "review",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-10-task-04-block-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted: Community gardens",
+          "paragraphs": [
+            "Have you visited a community garden recently? We want to hear about your experience.",
+            "Write a review for our local lifestyle magazine. Describe the garden and what it offers, evaluate how well it balances access for visitors with long-term maintenance, and recommend whether other neighbourhoods should start similar projects.",
+            "The best reviews will be published in next month's issue."
+          ]
+        },
+        {
+          "id": "c1-test-10-task-04-block-02",
+          "type": "final-instruction",
+          "text": "Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

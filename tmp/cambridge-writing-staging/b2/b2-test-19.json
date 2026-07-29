@@ -1,0 +1,184 @@
+{
+  "id": "b2-test-19",
+  "level": "b2",
+  "testNumber": 19,
+  "title": "FCE B2 AI Practice Test 19",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-19.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b2-test-19-1785311308267",
+    "generatedAt": 1785311332592,
+    "contentHash": "4ca6dd3cc870d6ee653068068ea6605af74aa158e481c1e69794529b9e4e6f3c",
+    "promptHash": "2a63e884c08843701ed4a04a96e921404feab3c5fb49807ee989c9b7f5c0d11a",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-19:2a63e884c08843701ed4a04a96e921404feab3c5fb49807ee989c9b7f5c0d11a",
+    "inputHash": "2a63e884c08843701ed4a04a96e921404feab3c5fb49807ee989c9b7f5c0d11a",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b2-test-19-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Volunteer matching service priorities",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-19-task-01-block-01",
+          "type": "paragraph",
+          "text": "In your English class you have been discussing how a volunteer matching service should decide which local projects to support. Now your English teacher has asked you to write an essay."
+        },
+        {
+          "id": "b2-test-19-task-01-block-02",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "listItems": [
+            "1. matching volunteers to projects near their homes",
+            "2. providing training for volunteers before they start",
+            "3. (your own idea)"
+          ]
+        },
+        {
+          "id": "b2-test-19-task-01-block-03",
+          "type": "final-instruction",
+          "text": "Write an essay using all the notes and giving reasons for your point of view."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes"
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b2-test-19-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Volunteer matching service review",
+      "genre": "review",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-19-task-02-block-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted!",
+          "paragraphs": [
+            "Have you used a volunteer matching service to find a project? We want to hear about your experience.",
+            "Write a review of the service for a specialist magazine about volunteering.",
+            "Describe how the service matched you with a project, say how well it prepared you for the role, and recommend one improvement the service could make.",
+            "The best reviews will be published in next month's issue."
+          ]
+        },
+        {
+          "id": "b2-test-19-task-02-block-02",
+          "type": "final-instruction",
+          "text": "Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-19-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Volunteer matching service article",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-19-task-03-block-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted!",
+          "paragraphs": [
+            "Our volunteer matching service wants to improve how we support volunteers after they start a project.",
+            "Write an article for the programme coordinator's website suggesting one practical way the service could help volunteers stay motivated and committed long-term.",
+            "Explain why your idea would work and what the benefits would be for both volunteers and the projects they join.",
+            "We will publish the best articles on our website."
+          ]
+        },
+        {
+          "id": "b2-test-19-task-03-block-02",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-19-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Volunteer matching service email",
+      "genre": "email",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-19-task-04-block-01",
+          "type": "email",
+          "from": "Sam Carter <sam.carter@email.com>",
+          "subject": "Volunteer matching service in your area",
+          "paragraphs": [
+            "Hi,",
+            "I heard that your town has a volunteer matching service that connects people with local projects. I'm thinking of suggesting something similar in my city.",
+            "Could you tell me what you think makes the service effective? What's the biggest challenge it faces? And how does it make sure volunteers are reliable?",
+            "Thanks a lot!",
+            "Sam"
+          ]
+        },
+        {
+          "id": "b2-test-19-task-04-block-02",
+          "type": "final-instruction",
+          "text": "Write your email to Sam. You should explain what makes the service effective, describe one challenge, and suggest how the service encourages reliability."
+        }
+      ],
+      "presentation": {
+        "template": "email",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

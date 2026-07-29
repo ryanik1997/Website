@@ -1,0 +1,83 @@
+{
+  "overallOriginalityCheck": "PASS",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Class discussion on funding community gardens; essay for teacher evaluating priorities: buying tools/seeds, training volunteers, own idea.",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "buying tools and seeds",
+        "training volunteers",
+        "own idea"
+      ],
+      "lexicalAnchors": [
+        "community gardens",
+        "funding",
+        "tools",
+        "seeds",
+        "training volunteers"
+      ],
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Review of a community garden workshop for a specialist magazine; describe workshop, organisation, learning, recommendation.",
+      "audience": "specialist magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "what the workshop involved",
+        "how well organised",
+        "whether it helped learn something new",
+        "recommendation"
+      ],
+      "lexicalAnchors": [
+        "community garden",
+        "workshop",
+        "organisation",
+        "learning"
+      ],
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Article for programme coordinator's website on encouraging community involvement in a new community garden; suggest one way to attract volunteers, explain why it works, describe what the garden could achieve.",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "one way to attract volunteers",
+        "why it would work",
+        "what the garden could achieve"
+      ],
+      "lexicalAnchors": [
+        "community garden",
+        "volunteers",
+        "involvement",
+        "community achievement"
+      ],
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Email to English-speaking contact Alex explaining position on community garden funding; opinion on funding, practical benefits, convincing opponents.",
+      "audience": "English-speaking contact",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "opinion on funding",
+        "practical benefits",
+        "how to convince opponents"
+      ],
+      "lexicalAnchors": [
+        "community garden",
+        "funding",
+        "benefits",
+        "convincing opponents"
+      ],
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "de33d7cfbd0f5f5572bae4b289b14c2d377f0c934fbfcff01a95ca4c93dc9826"
+  }
+}

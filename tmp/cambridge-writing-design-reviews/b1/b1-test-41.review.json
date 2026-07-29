@@ -1,0 +1,73 @@
+{
+  "testId": "b1-test-41",
+  "level": "b1",
+  "topicFamily": "urban wildlife",
+  "specificSetting": "a pond survey in the city park planning brief 35",
+  "tasks": [
+    {
+      "taskId": "b1-test-41-task-01",
+      "scenario": "Email reply to teacher Ms. Rivera about planning a pond survey in the city park – choose main goal (counting wildlife vs testing water quality), choose a practical task (setting up equipment vs recording data), suggest encouraging more students, ask about start time.",
+      "audience": "English teacher (Ms. Rivera)",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "the main urban wildlife issue (counting wildlife vs testing water quality)",
+        "one practical consequence (choosing a task)",
+        "a justified recommendation 1 (suggest encouraging more students)"
+      ],
+      "lexicalAnchors": [
+        "urban wildlife",
+        "a pond survey in the city park planning brief 35",
+        "b1 writing brief"
+      ],
+      "originalitySelfCheck": "Scenario is unique: pond survey in city park, not used in any previous test. Email structure with notes panel has four distinct notes including a preference and a reason. No overlap with forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "b1-test-41-task-02",
+      "scenario": "Article for a local nature website about the pond survey – whether it will help protect urban wildlife and what interesting thing the writer would like to learn.",
+      "audience": "specialist magazine readers (local nature website readers)",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "the main urban wildlife issue (protecting urban wildlife)",
+        "one practical consequence (interesting thing to learn)",
+        "a justified recommendation 2 (implicit in answering questions)"
+      ],
+      "lexicalAnchors": [
+        "urban wildlife",
+        "a pond survey in the city park planning brief 35",
+        "b1 writing brief"
+      ],
+      "originalitySelfCheck": "Article prompt is original: asks about survey helping protect wildlife and what interesting thing to learn. Not a reused frame. No overlap with forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "b1-test-41-task-03",
+      "scenario": "Story beginning with 'When the programme coordinator handed me the clipboard, I had no idea that the pond survey would change everything.' – must continue the story about the pond survey.",
+      "audience": "programme coordinator (English teacher)",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "the main urban wildlife issue (pond survey)",
+        "one practical consequence (change from survey)",
+        "a justified recommendation 3 (implied in story resolution)"
+      ],
+      "lexicalAnchors": [
+        "urban wildlife",
+        "a pond survey in the city park planning brief 35",
+        "b1 writing brief"
+      ],
+      "originalitySelfCheck": "Story opening is unique: clipboard and pond survey changing everything. Not used in any previous test. No overlap with forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "centralTension": "access and convenience versus long-term responsibility in urban wildlife",
+  "stakeholders": [
+    "people affected by urban wildlife",
+    "organisers of a pond survey in the city park planning brief 35"
+  ],
+  "forbiddenConcepts": [],
+  "overallOriginalityCheck": "All tasks are original, with unique scenarios, content points, and wording. No reuse of previous test skeletons or forbidden concepts.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "2578a96417dae64d35edd0ef5831dce0ac668aa1ef6f529196fdd935549ae876"
+  }
+}

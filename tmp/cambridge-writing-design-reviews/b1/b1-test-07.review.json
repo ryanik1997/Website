@@ -1,0 +1,63 @@
+{
+  "testId": "b1-test-07",
+  "overallOriginalityCheck": "PASS",
+  "forbiddenConceptCheck": "PASS",
+  "tasks": [
+    {
+      "taskId": "b1-test-07-task-01",
+      "scenario": "a school exchange visit in York planning brief 1: email brief 1-1",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "choose two activities with reasons",
+        "prefer same day or different days with reason",
+        "suggest an evening activity",
+        "ask about budget"
+      ],
+      "lexicalAnchors": [
+        "school exchange visits",
+        "a school exchange visit in York planning brief 1",
+        "b1 writing brief"
+      ],
+      "originalitySelfCheck": "Unique scenario: planning activities for a York exchange visit. Email from teacher, not a friend. Notes ask for two activity choices, day preference, evening suggestion, and budget question. No overlap with previous tests."
+    },
+    {
+      "taskId": "b1-test-07-task-02",
+      "scenario": "a school exchange visit in York planning brief 1: article brief 2-5",
+      "audience": "specialist magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "describe one effective activity from an exchange visit",
+        "explain what students learned",
+        "recommend it to other coordinators"
+      ],
+      "lexicalAnchors": [
+        "school exchange visits",
+        "a school exchange visit in York planning brief 1",
+        "b1 writing brief"
+      ],
+      "originalitySelfCheck": "Article for specialist magazine (coordinators), not general website. Focus on history/culture learning from an exchange activity. No overlap with previous article prompts."
+    },
+    {
+      "taskId": "b1-test-07-task-03",
+      "scenario": "a school exchange visit in York planning brief 1: story brief 3-9",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "museum closure announcement",
+        "group reaction",
+        "resolution or alternative plan"
+      ],
+      "lexicalAnchors": [
+        "school exchange visits",
+        "a school exchange visit in York planning brief 1",
+        "b1 writing brief"
+      ],
+      "originalitySelfCheck": "Story opening about a museum closure during an exchange visit. Unique scenario: not a missed bus, not a phone call, not a parcel. Opening sentence is original and fits the exchange visit context."
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "9655a1bc7a195863a786e41c6b835ae65924b9fc464ec2836b4924246f45f4d3"
+  }
+}

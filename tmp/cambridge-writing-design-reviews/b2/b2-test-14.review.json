@@ -1,0 +1,79 @@
+{
+  "testId": "b2-test-14",
+  "overallOriginalityCheck": "PASS",
+  "forbiddenConceptCheck": "PASS",
+  "tasks": [
+    {
+      "taskId": "b2-test-14-task-01",
+      "scenario": "a graduate internship scheme planning brief 8: essay brief 1-1",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "fair selection process",
+        "quality of mentoring",
+        "own idea"
+      ],
+      "lexicalAnchors": [
+        "graduate internship scheme",
+        "fair selection",
+        "mentoring"
+      ],
+      "originalitySelfCheck": "PASS - scenario is specific to internship scheme planning, not reused from any previous test."
+    },
+    {
+      "taskId": "b2-test-14-task-02",
+      "scenario": "a graduate internship scheme planning brief 8: review brief 2-5",
+      "audience": "specialist magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "event aims",
+        "presentation of benefits",
+        "recommendation"
+      ],
+      "lexicalAnchors": [
+        "launch event",
+        "internship scheme",
+        "graduate"
+      ],
+      "originalitySelfCheck": "PASS - review of a launch event, not a book, film, or facility."
+    },
+    {
+      "taskId": "b2-test-14-task-03",
+      "scenario": "a graduate internship scheme planning brief 8: article brief 3-9",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "practical way to attract diverse applicants",
+        "why it works",
+        "benefits"
+      ],
+      "lexicalAnchors": [
+        "inclusive",
+        "diverse backgrounds",
+        "internship scheme"
+      ],
+      "originalitySelfCheck": "PASS - article focuses on inclusivity in internships, not generic 'learning beyond lessons'."
+    },
+    {
+      "taskId": "b2-test-14-task-04",
+      "scenario": "a graduate internship scheme planning brief 8: email brief 4-13",
+      "audience": "English-speaking contact",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "application steps",
+        "typical project",
+        "accommodation question"
+      ],
+      "lexicalAnchors": [
+        "exchange student",
+        "internship placement",
+        "application process"
+      ],
+      "originalitySelfCheck": "PASS - email from an exchange coordinator, not a friend; content points are specific to internship logistics."
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "6d13c71b4e652a121928bb1b30cbb3bfa36fe93e6cdbdf90f14d7c7781c5f300"
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "id": "c2-test-23",
+  "level": "c2",
+  "testNumber": 23,
+  "title": "CPE C2 AI Practice Test 23",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-23.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "c2-test-23-1785312632981",
+    "generatedAt": 1785312654691,
+    "contentHash": "255937296539ed6e40d569f3e8c189d7d179a369747644f65e235359ee131670",
+    "promptHash": "898d3de819d357409b4566fb80edccb638b8032e7b863f7286254be805ed0c11",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-23:898d3de819d357409b4566fb80edccb638b8032e7b863f7286254be805ed0c11",
+    "inputHash": "898d3de819d357409b4566fb80edccb638b8032e7b863f7286254be805ed0c11",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "c2-test-23-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay: Tourism and cultural asymmetry",
+      "genre": "essay",
+      "instruction": "Write an essay summarising and evaluating the key points from both texts in 240–280 words. Use your own words throughout as far as possible, and include your own ideas in your answers.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-23-task-01-source-01",
+          "type": "source-text",
+          "label": "Text 1",
+          "title": "The convenience of curated travel",
+          "text": "Holiday planning has become a seamless digital experience. Algorithms suggest destinations, platforms bundle flights and accommodation, and user reviews filter out risk. This convenience is not trivial: it democratises travel, allowing people with limited time or confidence to explore places they would otherwise never consider. The curated itinerary, far from being a straitjacket, is a liberation. It removes the anxiety of the unknown and lets visitors focus on enjoyment rather than logistics. For many, the packaged tour or the app-guided city break is the only realistic way to encounter another culture. To dismiss this as superficial tourism is to ignore the genuine encounters that structured travel can still produce. This argument also matters because institutions shape the choices available to individuals and communities over time, influencing responsibility, trust, and practical judgment."
+        },
+        {
+          "id": "c2-test-23-task-01-source-02",
+          "type": "source-text",
+          "label": "Text 2",
+          "title": "The asymmetry of the tourist gaze",
+          "text": "The convenience of modern holiday planning masks a troubling asymmetry. When visitors follow algorithm-driven itineraries, they consume a destination that has been pre-packaged for their comfort. Local businesses adapt to tourist expectations, public spaces are redesigned for photo opportunities, and the host culture becomes a performance staged for outsiders. The visitor moves through a bubble of familiarity, rarely encountering the frictions that generate genuine understanding. Meanwhile, the local population bears the costs of overcrowding, rising rents and environmental strain. A holiday planned entirely for convenience risks reducing travel to a transaction in which the visitor gains ease while the host community loses authenticity and, ultimately, agency. This argument also matters because institutions shape the choices available to individuals and communities over time, influencing responsibility, trust, and practical judgment."
+        }
+      ],
+      "presentation": {
+        "template": "source-texts"
+      },
+      "wordLimit": {
+        "min": 240,
+        "max": 280,
+        "displayText": "240–280 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c2-test-23-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Review: A travel experience that challenged your perspective",
+      "genre": "review",
+      "instruction": "Write 280–320 words in an appropriate style.",
+      "promptText": "A specialist travel magazine is running a series of reviews of holiday experiences that made readers rethink the relationship between tourism and local communities. You decide to submit a review of a trip you have taken. In your review, describe the holiday and the way it was organised, assess how far it allowed you to engage with the host culture on its own terms, and recommend what other travellers should consider if they want to travel more responsibly.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-23-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Report: Impact of tourism on a local community",
+      "genre": "report",
+      "instruction": "Write 280–320 words in an appropriate style.",
+      "promptText": "You work as a consultant for a regional tourism board. The programme coordinator has asked you to write a report on how the current pattern of holiday planning—characterised by short stays, algorithm-driven bookings and high-season concentration—affects the cultural and economic life of a destination you know. In your report, analyse the main ways in which this type of tourism impacts local residents and businesses, assess the potential consequences for the destination's long-term viability, and propose two concrete actions the tourism board could take to encourage more responsible travel behaviour among visitors.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-23-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Article: Rethinking holiday planning",
+      "genre": "article",
+      "instruction": "Write 280–320 words in an appropriate style.",
+      "promptText": "An English-language online magazine for international readers is publishing a series on 'The Future of Travel'. The editors have invited readers to submit articles explaining their position on the following question: Should holiday planning prioritise the convenience of the traveller or the well-being of the host community? In your article, explain your position on this question, describe one practical consequence of your preferred approach for how people plan their holidays, and suggest how travel companies could help travellers make more responsible choices. End your article by requesting that the magazine arrange a follow-up online discussion with readers and travel industry representatives to explore the issue further.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "testId": "b2-test-31",
+  "level": "b2",
+  "topicFamily": "climate adaptation",
+  "specificSetting": "a climate resilience partnership planning brief 25",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Essay: setting priorities for a climate resilience partnership in the region",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "improving flood defences in low-lying areas",
+        "setting up emergency cooling centres during heatwaves",
+        "own idea"
+      ],
+      "lexicalAnchors": [
+        "climate resilience partnership",
+        "flood defences",
+        "cooling centres"
+      ],
+      "originalityCheck": "Scenario is specific to climate adaptation, not reused from any previous test. Notes are concrete and distinct. Lead-in avoids generic frames.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Review: community workshop on climate adaptation organised by the partnership",
+      "audience": "specialist magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "what the workshop covered and how it was run",
+        "usefulness for understanding local climate risks",
+        "recommendation to other residents"
+      ],
+      "lexicalAnchors": [
+        "climate adaptation workshop",
+        "local climate risks",
+        "community workshop"
+      ],
+      "originalityCheck": "Review focuses on a specific workshop type not used before. Content points are distinct from other reviews.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Article: low-cost measures to make homes more climate-ready",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "one low-cost measure to protect a home from flooding or heat",
+        "why this measure is effective",
+        "how the partnership could support residents"
+      ],
+      "lexicalAnchors": [
+        "low-cost measure",
+        "home protection",
+        "extreme weather"
+      ],
+      "originalityCheck": "Article topic is practical home adaptation, not previously used. Content points are specific and actionable.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Email: responding to a friend asking about volunteering for climate resilience projects",
+      "audience": "English-speaking contact",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "what tasks volunteers usually do",
+        "practical difference projects make",
+        "time commitment required"
+      ],
+      "lexicalAnchors": [
+        "volunteering",
+        "climate resilience projects",
+        "community impact"
+      ],
+      "originalityCheck": "Email scenario is about volunteering for climate projects, not used before. Content points are concrete and distinct.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityNote": "All tasks are built around the specific setting of a climate resilience partnership. No scenario, audience, content points, or lexical anchors overlap with any previously generated test. The design is original and level-appropriate.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "127f74d234bf317237f9797b809f15ade0671d3bde1888247c1712928694e330"
+  }
+}

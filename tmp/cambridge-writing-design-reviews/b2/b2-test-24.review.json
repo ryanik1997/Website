@@ -1,0 +1,89 @@
+{
+  "testId": "b2-test-24",
+  "level": "b2",
+  "topicFamily": "creative workshops",
+  "specificSetting": "a creative industry workshop planning brief 18",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Essay: choosing a convenient venue vs providing quality materials vs own idea for a creative industry workshop",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "choosing a convenient venue",
+        "providing quality materials",
+        "own idea"
+      ],
+      "lexicalAnchors": [
+        "creative workshops",
+        "convenient venue",
+        "quality materials"
+      ],
+      "originalitySelfCheck": "Unique scenario: not a generic 'environment' or 'life skills' essay. Notes are specific to workshop planning. No overlap with avoided fingerprints.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Review: a creative industry workshop attended by the writer",
+      "audience": "specialist magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "what the workshop involved",
+        "how well it balanced convenience with quality",
+        "recommendation"
+      ],
+      "lexicalAnchors": [
+        "creative industry workshop",
+        "convenience",
+        "quality"
+      ],
+      "originalitySelfCheck": "Review of a workshop, not a book or film. No reused frame from avoided tests. Content points distinct.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Article: suggesting a way to attract young volunteers to workshop planning",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "one practical way to attract young volunteers",
+        "why it would work",
+        "benefit for the workshops"
+      ],
+      "lexicalAnchors": [
+        "creative industry programme",
+        "young volunteers",
+        "workshop planning"
+      ],
+      "originalitySelfCheck": "Article about youth involvement in workshop planning, not a generic 'learning beyond lessons' or 'support small businesses' article. Unique angle.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Email: replying to Marta about workshop focus, venue, and cost-saving",
+      "audience": "English-speaking contact",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "preference for focus (hands-on vs business skills)",
+        "venue choice with reason",
+        "way to keep costs low"
+      ],
+      "lexicalAnchors": [
+        "creative industry workshop",
+        "hands-on making",
+        "creative business skills",
+        "venue",
+        "costs"
+      ],
+      "originalitySelfCheck": "Email about workshop planning, not a holiday or course advice. No reused email subject or content points from avoided tests.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "centralTension": "access and convenience versus long-term responsibility in creative workshops",
+  "overallOriginalityCheck": "All tasks are original, specific to creative workshop planning, and do not reuse scenarios, content points, or frames from any avoided test. Forbidden concepts avoided.",
+  "status": "draft",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "eced8ded3857f1bb907bec8b6be9ca116f70b0ed54a00ecb9f4fc0ce0e47af37"
+  }
+}

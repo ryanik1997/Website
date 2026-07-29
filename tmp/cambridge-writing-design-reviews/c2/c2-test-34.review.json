@@ -1,0 +1,94 @@
+{
+  "testId": "c2-test-34",
+  "level": "c2",
+  "topicFamily": "public libraries",
+  "specificSetting": "the civic role of libraries planning brief 28",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Two source texts debating whether libraries should expand into civic hubs or focus on traditional knowledge provision.",
+      "audience": "English teacher (educated general reader)",
+      "purpose": "Synthesise competing claims, evaluate assumptions, and develop an independent position on the library's civic role.",
+      "requiredContentPoints": [
+        "the main public libraries issue (civic role vs. traditional mission)",
+        "one practical consequence (e.g., resource strain or increased community value)",
+        "a justified recommendation (how to balance both roles)"
+      ],
+      "lexicalAnchors": [
+        "public libraries",
+        "civic hubs",
+        "traditional role",
+        "core mission",
+        "community engagement"
+      ],
+      "originalitySelfCheck": "Scenario is unique: two texts with opposing views on library expansion. No overlap with previous tests (c2-test-01 had behavioural change; c2-test-09 had similar but different source texts). Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Review of a library programme that strengthens its civic role, for a specialist magazine.",
+      "audience": "Specialist magazine readers (library professionals)",
+      "purpose": "Assess effectiveness of a library initiative and recommend adoption.",
+      "requiredContentPoints": [
+        "the main public libraries issue (civic role)",
+        "one practical consequence (impact on community)",
+        "a justified recommendation (whether other libraries should adopt)"
+      ],
+      "lexicalAnchors": [
+        "public libraries",
+        "civic role",
+        "library initiative",
+        "community service",
+        "professional recommendation"
+      ],
+      "originalitySelfCheck": "Review task with specific audience (library professionals) and focus on civic role. Not a generic 'review of a place'. No overlap with previous review tasks.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Report for a foundation on how library usage patterns affect civic engagement.",
+      "audience": "Programme coordinator (Civic Libraries Foundation)",
+      "purpose": "Analyse implications of declining borrowing and rising demand for non-traditional services, propose actions.",
+      "requiredContentPoints": [
+        "the main public libraries issue (usage shift)",
+        "one practical consequence (impact on civic engagement)",
+        "a justified recommendation (actions to strengthen civic role)"
+      ],
+      "lexicalAnchors": [
+        "public libraries",
+        "library usage",
+        "civic engagement",
+        "non-traditional services",
+        "core mission"
+      ],
+      "originalitySelfCheck": "Report task with specific organisational context (Civic Libraries Foundation). No overlap with previous report tasks (c2-test-01 had jobs fair report).",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Article for an international magazine arguing whether libraries should prioritise traditional or civic roles.",
+      "audience": "English-speaking contact (magazine editor)",
+      "purpose": "Explain a position on the library's future role and request a follow-up discussion.",
+      "requiredContentPoints": [
+        "the main public libraries issue (traditional vs. civic mission)",
+        "one practical consequence (of getting balance wrong)",
+        "a justified recommendation (specific approach)"
+      ],
+      "lexicalAnchors": [
+        "public libraries",
+        "knowledge centres",
+        "civic mission",
+        "future role",
+        "community service"
+      ],
+      "originalitySelfCheck": "Article task with clear position-taking and follow-up request. No overlap with previous article tasks (c2-test-01 had travel article).",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are original, with unique scenarios, audiences, and content points. No reuse of sentence frames or generic phrases. Forbidden concepts (e.g., 'life skills in schools', 'peer learning project') are absent.",
+  "status": "PASS",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "de6a80c0cd6097f7a08669b5764d881349b6d59ed09910a9a173fcd176acae0f"
+  }
+}

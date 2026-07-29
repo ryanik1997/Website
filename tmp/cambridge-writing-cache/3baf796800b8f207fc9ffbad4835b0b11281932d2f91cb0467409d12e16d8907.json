@@ -1,0 +1,214 @@
+{
+  "inputHash": "b3db449c9edb21888af205552dc4711de68235fdbc7a52228371db36cffd8c02",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-30:b3db449c9edb21888af205552dc4711de68235fdbc7a52228371db36cffd8c02",
+  "test": {
+    "id": "c2-test-30",
+    "level": "c2",
+    "testNumber": 30,
+    "title": "CPE C2 AI Practice Test 30",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-30.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c2-test-30-1785313476747",
+      "generatedAt": 1785313496979,
+      "contentHash": "c13b5b4464116e396f0e100b6512b78e03f01439c56f99043ea699b723e4e11e",
+      "promptHash": "b3db449c9edb21888af205552dc4711de68235fdbc7a52228371db36cffd8c02",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-30:b3db449c9edb21888af205552dc4711de68235fdbc7a52228371db36cffd8c02",
+      "inputHash": "b3db449c9edb21888af205552dc4711de68235fdbc7a52228371db36cffd8c02",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c2-test-30-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Health messaging and public trust",
+        "genre": "essay",
+        "instruction": "Read the two texts below. Write an essay summarising and evaluating the key points from both texts. Use your own words throughout as far as possible, and include your own ideas in your answers.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-30-task-01-source-1",
+            "type": "source-text",
+            "label": "Text 1",
+            "text": "Public health campaigns that rely on fear-based messaging are often defended on the grounds that they produce rapid behavioural change. Yet the evidence suggests that such campaigns can erode trust in the very authorities that issue them. When people are told that a common behaviour is lethal, and then observe that the predicted harm does not materialise for most, they may conclude that the warning was exaggerated. This breeds scepticism not only about the specific message but about future health advice from the same source. A more responsible approach would prioritise honest communication about uncertainty, even if it makes the message less dramatic. Trust, once lost, is far harder to rebuild than a campaign slogan."
+          },
+          {
+            "id": "c2-test-30-task-01-source-2",
+            "type": "source-text",
+            "label": "Text 2",
+            "text": "The demand that public health messages be perfectly honest about uncertainty is naive. People respond to clear, decisive guidance, not to nuanced caveats. During a crisis, the public needs to know what to do, not to be invited into a seminar on statistical probability. Over-qualifying a warning can lead to inaction, which costs lives. Moreover, the claim that fear-based messages erode trust assumes a passive, gullible public. In reality, citizens are capable of understanding that health authorities must sometimes act on incomplete information. The greater risk to trust is not a dramatic alert that turns out to be overstated, but a hesitant message that arrives too late to be useful."
+          }
+        ],
+        "presentation": {
+          "template": "source-texts"
+        },
+        "wordLimit": {
+          "min": 240,
+          "max": 280,
+          "displayText": "240–280 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c2-test-30-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Review of a health campaign documentary",
+        "genre": "review",
+        "instruction": "Answer one of the following questions (2–4). Write 280–320 words in an appropriate style.",
+        "promptText": "A specialist magazine for public health professionals is running a series of reviews of documentaries that examine the relationship between health messaging and public trust. You decide to submit a review of a recent documentary called 'The Persuasion Gap', which follows the design and public reception of a national vaccination campaign. In your review, evaluate how effectively the documentary captures the tension between persuasive messaging and honest communication, discuss whether it gives adequate attention to the perspectives of those who remained sceptical, and assess the overall value of the film for professionals planning future campaigns.",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c2-test-30-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Report on public trust in health campaigns",
+        "genre": "report",
+        "instruction": "Answer one of the following questions (2–4). Write 280–320 words in an appropriate style.",
+        "promptText": "You are a consultant hired by the National Institute for Health Communication. The programme coordinator has asked you to write a report analysing the implications of a recent decline in public trust following a series of high-profile health campaigns that used strong fear appeals. In your report, analyse the main factors that contributed to the erosion of trust, assess the potential consequences for future public health initiatives if trust is not restored, and propose two concrete actions the institute could take to rebuild credibility while maintaining the effectiveness of its messaging.",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c2-test-30-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Honesty in health messaging",
+        "genre": "article",
+        "instruction": "Answer one of the following questions (2–4). Write 280–320 words in an appropriate style.",
+        "promptText": "An English-language online magazine for international readers is publishing a series on 'The Ethics of Persuasion'. You have been contacted by an editor who is an English-speaking contact of yours. The editor asks you to write an article explaining your position on whether public health campaigns should prioritise honesty about uncertainty over the persuasive power of clear, decisive messages. In your article, explain your position on this question, describe one practical consequence of your view for how health authorities design campaigns, and suggest how communicators could balance the need for clarity with the responsibility to be truthful. End your article by requesting that the magazine arrange a follow-up online discussion with readers and health communication experts to explore the issue further.",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "c2-test-30",
+    "level": "c2",
+    "topicFamily": "public health campaigns",
+    "specificSetting": "health messaging and public trust planning brief 24",
+    "tasks": [
+      {
+        "taskId": "c2-test-30-task-01",
+        "scenario": "Two source texts debating the use of fear-based messaging in public health campaigns, focusing on the tension between persuasive impact and erosion of trust.",
+        "audience": "Educated general reader (English teacher)",
+        "purpose": "Synthesise competing claims, evaluate assumptions about public trust, and develop an independent position on honest versus persuasive messaging.",
+        "requiredContentPoints": [
+          "the main public health campaigns issue",
+          "one practical consequence",
+          "a justified recommendation"
+        ],
+        "lexicalAnchors": [
+          "public health campaigns",
+          "fear-based messaging",
+          "trust",
+          "honest communication",
+          "uncertainty"
+        ],
+        "originalitySelfCheck": "Unique scenario: health messaging and public trust. No overlap with previous C2 tests (which covered education, work, community, environment, technology, etc.). Source texts present opposing views on fear appeals vs. honesty, not a generic debate. Forbidden concepts (e.g., 'peer learning', 'language exchange') not used.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskId": "c2-test-30-task-02",
+        "scenario": "Review of a documentary about a national vaccination campaign, focusing on the tension between persuasive messaging and honest communication.",
+        "audience": "Specialist magazine readers (public health professionals)",
+        "purpose": "Evaluate how effectively the documentary captures the tension, discuss representation of sceptical perspectives, and assess value for professionals.",
+        "requiredContentPoints": [
+          "the main public health campaigns issue",
+          "one practical consequence",
+          "a justified recommendation"
+        ],
+        "lexicalAnchors": [
+          "public health campaigns",
+          "documentary",
+          "vaccination campaign",
+          "persuasive messaging",
+          "honest communication"
+        ],
+        "originalitySelfCheck": "Unique scenario: review of a documentary about health messaging. No similar review in previous tests (which covered books, exhibitions, workshops, etc.). Forbidden concepts not used.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskId": "c2-test-30-task-03",
+        "scenario": "Report for a health institute analysing decline in public trust after fear-based campaigns, proposing actions to rebuild credibility.",
+        "audience": "Programme coordinator (National Institute for Health Communication)",
+        "purpose": "Analyse factors contributing to trust erosion, assess consequences for future initiatives, and propose concrete actions.",
+        "requiredContentPoints": [
+          "the main public health campaigns issue",
+          "one practical consequence",
+          "a justified recommendation"
+        ],
+        "lexicalAnchors": [
+          "public health campaigns",
+          "trust erosion",
+          "fear appeals",
+          "credibility",
+          "messaging"
+        ],
+        "originalitySelfCheck": "Unique scenario: report on trust erosion in health campaigns. No similar report in previous tests (which covered exchange programmes, transport inequality, library usage, etc.). Forbidden concepts not used.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskId": "c2-test-30-task-04",
+        "scenario": "Article for an online magazine arguing whether health campaigns should prioritise honesty about uncertainty over persuasive clarity.",
+        "audience": "English-speaking contact (editor of international magazine)",
+        "purpose": "Explain position on honesty vs. persuasion, describe practical consequence, and suggest how communicators can balance clarity and truthfulness.",
+        "requiredContentPoints": [
+          "the main public health campaigns issue",
+          "one practical consequence",
+          "a justified recommendation"
+        ],
+        "lexicalAnchors": [
+          "public health campaigns",
+          "honesty",
+          "uncertainty",
+          "persuasion",
+          "clarity"
+        ],
+        "originalitySelfCheck": "Unique scenario: article on ethics of persuasion in health messaging. No similar article in previous tests (which covered education, work, volunteering, etc.). Forbidden concepts not used.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ],
+    "overallOriginalityAssessment": "All tasks are original, with concrete audiences and purposes. No reuse of scenarios, content points, or lexical anchors from previous tests. Forbidden concepts avoided."
+  },
+  "cachedAt": 1785313496988
+}

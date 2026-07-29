@@ -1,0 +1,119 @@
+{
+  "id": "c2-test-14",
+  "level": "c2",
+  "testNumber": 14,
+  "title": "CPE C2 AI Practice Test 14",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-14.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "c2-test-14-1785310686911",
+    "generatedAt": 1785310710727,
+    "contentHash": "dd88244dad9eebce10488a4529a0003864f510a557580af4edbb1190dd265dfa",
+    "promptHash": "14ce5a67a8adec93986a5172c540431d93503e7a4d12be140f5dda28bcd9a085",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-14:14ce5a67a8adec93986a5172c540431d93503e7a4d12be140f5dda28bcd9a085",
+    "inputHash": "14ce5a67a8adec93986a5172c540431d93503e7a4d12be140f5dda28bcd9a085",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "c2-test-14-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Part-time work and professional access",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write an essay summarising and evaluating the key points from both texts in 240–280 words. Use your own words throughout as far as possible, and include your own ideas in your answers.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-14-task-01-source-1",
+          "type": "source-text",
+          "label": "Text 1",
+          "title": "A stepping stone to professional networks",
+          "text": "Part-time work is often dismissed as a distraction from academic study, yet it can serve as a crucial entry point into professional networks that full-time education alone rarely provides. For students who lack family connections in desirable industries, a part-time role in a relevant workplace offers exposure to mentors, references and informal knowledge about career progression. The convenience of earning while learning may be the very mechanism that enables access for those who would otherwise be excluded. To restrict part-time work in the name of academic focus is to ignore its role as a leveller in an unequal labour market. This argument also matters because institutions shape the choices available to individuals and communities over time."
+        },
+        {
+          "id": "c2-test-14-task-01-source-2",
+          "type": "source-text",
+          "label": "Text 2",
+          "title": "The trap of short-term convenience",
+          "text": "The argument that part-time work opens doors overlooks the long-term cost of short-term convenience. Students who take on jobs during term time often sacrifice the very activities that build durable professional capital: internships, research projects, volunteering and sustained academic excellence. The networks gained through casual work are typically limited to low-skill sectors and rarely translate into the kind of career advancement that justifies the trade-off. Moreover, the immediate financial benefit can create a dependency that discourages students from pursuing more ambitious but less immediately remunerative opportunities. Convenience today may mean constraint tomorrow. This argument also matters because institutions shape the choices available to individuals and communities over time. This argument also matters because institutions shape the choices available to individuals and communities over time, influencing responsibility, trust, and practical judgment."
+        }
+      ],
+      "presentation": {
+        "template": "source-texts"
+      },
+      "wordLimit": {
+        "min": 240,
+        "max": 280,
+        "displayText": "240–280 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c2-test-14-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Review of a part-time work experience programme",
+      "genre": "review",
+      "instruction": "Answer one of the following questions (2–4). Write 280–320 words in an appropriate style. A specialist magazine for career advisers is running a series of reviews of part-time work experience programmes aimed at students. You decide to write a review of a programme you have observed or participated in. In your review, describe the programme and its intended purpose, assess how effectively it balances the student's immediate need for income with long-term career development, and recommend whether other institutions should adopt a similar model.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-14-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Report on part-time work and academic performance",
+      "genre": "report",
+      "instruction": "Answer one of the following questions (2–4). Write 280–320 words in an appropriate style. You are a consultant hired by a university's student welfare office. The programme coordinator has asked you to write a report on how part-time work affects students' academic performance and well-being. In your report, analyse the main tensions between earning income and maintaining academic engagement, assess the potential consequences for student retention and success if these tensions are not addressed, and propose two concrete actions the university could take to support students who work part-time.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-14-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Article: Should students take part-time jobs?",
+      "genre": "article",
+      "instruction": "Answer one of the following questions (2–4). Write 280–320 words in an appropriate style. An English-language online magazine for international students is publishing a series on 'Work and Study'. You have been contacted by the editor, who asks you to write an article explaining your position on whether university students should take part-time jobs during term time. In your article, discuss what you see as the main advantage and the main disadvantage of part-time work for students, and recommend how students should decide whether to take a job. End your article by requesting that the magazine arrange a follow-up discussion with readers and career advisers to explore the issue further.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "id": "c1-test-19",
+  "level": "c1",
+  "testNumber": 19,
+  "title": "CAE C1 AI Practice Test 19",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-19.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "c1-test-19-1785311642503",
+    "generatedAt": 1785311662722,
+    "contentHash": "b1529ce3042362c9b80461a9ab388808f8921734f901d2089cf8faf46b71be89",
+    "promptHash": "68726d09fbd0da44c3c46e113a2a24a377af4ef638ef88dfdcc38d8fade1f4b3",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-19:68726d09fbd0da44c3c46e113a2a24a377af4ef638ef88dfdcc38d8fade1f4b3",
+    "inputHash": "68726d09fbd0da44c3c46e113a2a24a377af4ef638ef88dfdcc38d8fade1f4b3",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "c1-test-19-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Volunteer services: access vs. long-term responsibility",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-19-task-01-panel-notes",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Priorities for volunteer services",
+          "listItems": [
+            "making it easy for people to sign up for short-term tasks",
+            "investing in training and support for long-term volunteers",
+            "building partnerships with local organisations to share resources"
+          ]
+        },
+        {
+          "id": "c1-test-19-task-01-panel-opinions",
+          "type": "panel",
+          "variant": "opinions",
+          "paragraphs": [
+            "If signing up is quick and simple, more people will volunteer, even if only for a few hours. That's how you build a broad base of support.",
+            "Short-term tasks don't create real change. What matters is investing in people who will stay – that means proper training and ongoing support.",
+            "No single organisation can do everything. Partnering with local groups means you can share costs and reach more people, which is more sustainable in the long run."
+          ]
+        },
+        {
+          "id": "c1-test-19-task-01-final-instruction",
+          "type": "final-instruction",
+          "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for the long-term success of volunteer services, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes-opinions"
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c1-test-19-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Proposal for a volunteer-sector partnership",
+      "genre": "proposal",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptText": "Your local volunteer centre is planning to launch a partnership scheme with local businesses and community groups to make volunteer services more accessible and sustainable. The centre's director has invited proposals for how this scheme should be designed.\n\nWrite a proposal for the director. In your proposal, you should:\n\n• recommend two specific ways that businesses and community groups could contribute to volunteer services\n• explain how these contributions would benefit both volunteers and the partner organisations\n• suggest how the centre could evaluate the success of the partnership scheme\n\nWrite your proposal.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-19-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Email about volunteer training programme",
+      "genre": "email",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptText": "You are a volunteer coordinator for a local charity that runs a community food-growing project. The programme coordinator has emailed you with a proposal to introduce a mandatory training session for all new volunteers, which would cover basic gardening skills and health and safety. Some existing volunteers have complained that this requirement is inconvenient and may discourage new people from joining.\n\nWrite an email to the programme coordinator. In your email, you should:\n\n• explain the potential implications of the training requirement for both new and existing volunteers\n• propose an action the charity could take to address the concerns while still ensuring volunteers are adequately prepared\n• request a meeting to discuss the proposal further\n\nWrite your email.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-19-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Review of a volunteer experience programme",
+      "genre": "review",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptText": "You see this announcement on an English-language community website.\n\nReviews wanted: Volunteer experience programmes\n\nHave you taken part in a volunteer experience programme that aimed to make volunteering more accessible while also ensuring long-term commitment? We want to hear about your experience.\n\nWrite a review for our website. Describe the programme and what it involved. Evaluate how well it balanced making volunteering easy to start with encouraging lasting involvement. Would you recommend this programme to other organisations? Why or why not?\n\nThe best reviews will be published on our website.\n\nWrite your review.",
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "testId": "c1-test-33",
+  "level": "c1",
+  "topicFamily": "neighbourhood transport",
+  "specificSetting": "a metropolitan transport authority planning brief 27",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Essay: evaluating priorities for neighbourhood transport spending (pedestrian crossings, e-bike subsidies, low-traffic zones)",
+      "audience": "English teacher (tutor)",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "the main neighbourhood transport issue",
+        "one practical consequence",
+        "a justified recommendation 1"
+      ],
+      "lexicalAnchors": [
+        "neighbourhood transport",
+        "a metropolitan transport authority planning brief 27",
+        "c1 writing brief"
+      ],
+      "originalitySelfCheck": "Unique scenario: transport authority priorities. No overlap with existing tests. Forbidden concepts check: PASS."
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Proposal: recommending a measure to reduce car dependency in a neighbourhood",
+      "audience": "specialist magazine readers (transport authority)",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "the main neighbourhood transport issue",
+        "one practical consequence",
+        "a justified recommendation 2"
+      ],
+      "lexicalAnchors": [
+        "neighbourhood transport",
+        "a metropolitan transport authority planning brief 27",
+        "c1 writing brief"
+      ],
+      "originalitySelfCheck": "Unique proposal: reduce car dependency. No overlap with existing tests. Forbidden concepts check: PASS."
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Email: responding to a congestion charge proposal as resident representative",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "the main neighbourhood transport issue",
+        "one practical consequence",
+        "a justified recommendation 3"
+      ],
+      "lexicalAnchors": [
+        "neighbourhood transport",
+        "a metropolitan transport authority planning brief 27",
+        "c1 writing brief"
+      ],
+      "originalitySelfCheck": "Unique email: congestion charge. No overlap with existing tests. Forbidden concepts check: PASS."
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Review: evaluating a neighbourhood transport scheme (car-sharing, community bus, cycle hire)",
+      "audience": "English-speaking contact (website readers)",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "the main neighbourhood transport issue",
+        "one practical consequence",
+        "a justified recommendation 4"
+      ],
+      "lexicalAnchors": [
+        "neighbourhood transport",
+        "a metropolitan transport authority planning brief 27",
+        "c1 writing brief"
+      ],
+      "originalitySelfCheck": "Unique review: neighbourhood transport scheme. No overlap with existing tests. Forbidden concepts check: PASS."
+    }
+  ],
+  "forbiddenConceptCheck": "PASS",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "75598cd4f95719e13d2d94bab9634cbe693592fae97641decd368e86943d7bb9"
+  }
+}

@@ -28,7 +28,40 @@ function countWords(text: string) {
 }
 
 type EmailNoteLine = { x1: number; y1: number; x2: number; y2: number }
+export type EmailNotePlacement = { noteIndex: number; side: 'left' | 'right'; desiredTop: number; noteHeight: number; top: number; lineTargetY: number }
 const EMPTY_EMAIL_NOTES: readonly string[] = []
+
+export function resolveNotePlacements({ items, stageHeight, edgePadding = 8, minimumGap = 14 }: { items: EmailNotePlacement[]; stageHeight: number; edgePadding?: number; minimumGap?: number }) {
+  const available = Math.max(0, stageHeight - edgePadding)
+  const result = items.map(item => ({ ...item })).sort((a, b) => a.desiredTop - b.desiredTop)
+  for (let index = 1; index < result.length; index += 1) result[index].top = Math.max(result[index].desiredTop, result[index - 1].top + result[index - 1].noteHeight + minimumGap)
+  if (result.length) {
+    const last = result[result.length - 1]
+    last.top = Math.min(last.top, available - last.noteHeight)
+    for (let index = result.length - 2; index >= 0; index -= 1) result[index].top = Math.min(result[index].top, result[index + 1].top - result[index].noteHeight - minimumGap)
+    for (const item of result) item.top = Math.max(edgePadding, item.top)
+    for (let index = 1; index < result.length; index += 1) result[index].top = Math.max(result[index].top, result[index - 1].top + result[index - 1].noteHeight + minimumGap)
+  }
+  return result
+}
+
+export function isSignatureParagraph({ paragraph, paragraphIndex, paragraphs, emailFrom, emailSender }: { paragraph: string; paragraphIndex: number; paragraphs: readonly string[]; emailFrom?: string; emailSender?: string }) {
+  const value = paragraph.trim().toLowerCase()
+  if (value && (value === emailFrom?.trim().toLowerCase() || value === emailSender?.trim().toLowerCase())) return true
+  return paragraphIndex === paragraphs.length - 1 && value.length <= 24 && Boolean(emailSender?.trim()) && value === emailSender?.trim().toLowerCase()
+}
+
+export function buildAnchorTargets({ anchorIndexes, paragraphRects, anchorableParagraphIndexes }: { anchorIndexes: readonly number[]; paragraphRects: readonly (DOMRect | null)[]; anchorableParagraphIndexes: readonly number[] }) {
+  const groups = new Map<number, number[]>()
+  anchorIndexes.forEach((paragraphIndex, noteIndex) => { if (paragraphIndex >= 0 && anchorableParagraphIndexes.includes(paragraphIndex)) groups.set(paragraphIndex, [...(groups.get(paragraphIndex) ?? []), noteIndex]) })
+  const targets = new Map<number, number>()
+  for (const [paragraphIndex, noteIndexes] of groups) {
+    const rect = paragraphRects[paragraphIndex]
+    if (!rect) continue
+    noteIndexes.sort((a, b) => a - b).forEach((noteIndex, rank) => { targets.set(noteIndex, rect.top + rect.height * ((rank + 1) / (noteIndexes.length + 1))) })
+  }
+  return targets
+}
 
 function areEmailNoteLinesEqual(previous: readonly EmailNoteLine[], next: readonly EmailNoteLine[]) {
   if (previous.length !== next.length) return false
@@ -56,34 +89,43 @@ function B1EmailPrompt({ task, leadText, emailBlock, notes, finalText }: {
   const explicitAnchors = (task.metadata as { noteParagraphIndexes?: number[] } | undefined)?.noteParagraphIndexes
   const paragraphs = emailBlock.paragraphs ?? []
   const paragraphCount = paragraphs.length
+  const anchorableParagraphIndexes = paragraphs.map((paragraph, index) => index).filter(index => !isSignatureParagraph({ paragraph: paragraphs[index], paragraphIndex: index, paragraphs, emailFrom: emailBlock.from, emailSender: emailBlock.sender }))
   const anchorIndexes = useMemo(() => notes.map((_, index) => {
     const configured = explicitAnchors?.[index]
     if (typeof configured === 'number' && configured >= 0 && configured < paragraphCount) return configured
     if (paragraphCount === 0) return -1
-    return Math.min(index, paragraphCount - 1)
-  }), [notes, explicitAnchors, paragraphCount])
+    return anchorableParagraphIndexes[Math.min(index, Math.max(0, anchorableParagraphIndexes.length - 1))] ?? -1
+  }), [notes, explicitAnchors, paragraphCount, anchorableParagraphIndexes.join(',')])
   const updateGeometry = useCallback(() => {
     const stage = stageRef.current
     if (!stage) return
     const stageRect = stage.getBoundingClientRect()
-    const nextLines: EmailNoteLine[] = []
+    const items: EmailNotePlacement[] = []
+    const targetMap = buildAnchorTargets({ anchorIndexes, paragraphRects: paragraphRefs.current.map(element => element?.getBoundingClientRect() ?? null), anchorableParagraphIndexes })
     anchorIndexes.forEach((paragraphIndex, index) => {
       if (paragraphIndex < 0) return
       const note = noteRefs.current[index]
       const paragraph = paragraphRefs.current[paragraphIndex]
       if (!note || !paragraph) return
       const paragraphRect = paragraph.getBoundingClientRect()
-      const centerY = paragraphRect.top - stageRect.top + paragraphRect.height / 2
-      const noteHeight = note.offsetHeight
-      const top = Math.max(8, Math.min(centerY - noteHeight / 2, Math.max(8, stageRect.height - noteHeight - 8)))
-      note.style.top = `${top}px`
-      const noteRect = note.getBoundingClientRect()
       const left = index % 2 === 0
+      const targetY = (targetMap.get(index) ?? (paragraphRect.top + paragraphRect.height / 2)) - stageRect.top
+      items.push({ noteIndex: index, side: left ? 'left' : 'right', desiredTop: targetY - note.offsetHeight / 2, noteHeight: note.offsetHeight, top: targetY - note.offsetHeight / 2, lineTargetY: targetY })
+    })
+    const nextLines: EmailNoteLine[] = []
+    for (const item of ['left', 'right'] as const) resolveNotePlacements({ items: items.filter(candidate => candidate.side === item), stageHeight: stageRect.height }).forEach(placement => {
+      const note = noteRefs.current[placement.noteIndex]
+      const paragraphIndex = anchorIndexes[placement.noteIndex]
+      const paragraph = paragraphRefs.current[paragraphIndex]
+      if (!note || !paragraph) return
+      note.style.top = `${placement.top}px`
+      const noteRect = note.getBoundingClientRect()
+      const paragraphRect = paragraph.getBoundingClientRect()
       nextLines.push({
-        x1: left ? noteRect.right - stageRect.left : noteRect.left - stageRect.left,
+        x1: placement.side === 'left' ? noteRect.right - stageRect.left : noteRect.left - stageRect.left,
         y1: noteRect.top - stageRect.top + noteRect.height / 2,
-        x2: left ? paragraphRect.left - stageRect.left + 12 : paragraphRect.right - stageRect.left - 12,
-        y2: paragraphRect.top - stageRect.top + paragraphRect.height / 2,
+        x2: placement.side === 'left' ? paragraphRect.left - stageRect.left : paragraphRect.right - stageRect.left,
+        y2: placement.lineTargetY,
       })
     })
     setLines(previous => areEmailNoteLinesEqual(previous, nextLines) ? previous : nextLines)
@@ -373,12 +415,18 @@ function A2PromptShell({
   const ketQuestionPrompt = typeof (task.metadata as { ketQuestionPrompt?: unknown } | undefined)?.ketQuestionPrompt === 'string'
     ? (task.metadata as { ketQuestionPrompt?: string }).ketQuestionPrompt
     : ''
-  const imageUrls = promptDoc?.promptImage
+  const imageUrls = task.imageAssets?.length
+    ? task.imageAssets.map(asset => asset.src)
+    : promptDoc?.promptImage
     ? [promptDoc.promptImage]
     : Array.isArray((task.metadata as { ketImageUrls?: unknown } | undefined)?.ketImageUrls)
       ? ((task.metadata as { ketImageUrls?: string[] }).ketImageUrls ?? [])
       : []
   const shellClassName = `b1-writing-screen a2-writing-screen is-part-${task.partNumber}`
+  const emailBlocks = task.promptBlocks ?? []
+  const leadBlock = emailBlocks.find(block => block.type === 'paragraph')
+  const emailBlock = emailBlocks.find(block => block.type === 'email')
+  const finalBlock = emailBlocks.find(block => block.type === 'final-instruction')
 
   return (
     <div className={shellClassName}>
@@ -410,12 +458,9 @@ function A2PromptShell({
             splitStorageKey={`cambridge-writing-${level.level}-${test.id}-${task.id}-split`}
             left={(
               <section className="ket-rw-writing-prompt">
-                <h3>{task.title}</h3>
-                <p>Write <strong>{minWords} words or more</strong>.</p>
-                <div className="ket-rw-writing-prompt__body" style={{ whiteSpace: 'pre-wrap' }}>
-                  {task.promptText}
-                </div>
-                {ketQuestionPrompt && <p>{ketQuestionPrompt}</p>}
+                {leadBlock?.type === 'paragraph' && <p className="a2-email-prompt__lead">{leadBlock.text}</p>}
+                {emailBlock?.type === 'email' ? <article className="a2-email-card"><div className="a2-email-card__header">EMAIL</div><div className="a2-email-card__meta"><div><strong>From:</strong><span>{emailBlock.from}</span></div><div><strong>Subject:</strong><span>{emailBlock.subject}</span></div></div><div className="a2-email-card__body">{emailBlock.greeting && <p>{emailBlock.greeting}</p>}{emailBlock.paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}{emailBlock.closing && <p>{emailBlock.closing}</p>}{emailBlock.sender && <p>{emailBlock.sender}</p>}</div></article> : <div className="ket-rw-writing-prompt__body">{task.promptText}</div>}
+                {finalBlock?.type === 'final-instruction' ? <p className="a2-email-prompt__final">{finalBlock.text}</p> : ketQuestionPrompt && <p>{ketQuestionPrompt}</p>}
               </section>
             )}
             right={(
@@ -426,6 +471,7 @@ function A2PromptShell({
                   className="ket-rw-writing-area b1-writing-textarea"
                   aria-label="Writing answer"
                   rows={14}
+                  placeholder={emailBlock?.type === 'email' ? 'Write your email here...' : undefined}
                 />
                 <p className="ket-rw-word-count">Words: {countWords(text)}</p>
               </section>

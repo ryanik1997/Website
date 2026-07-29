@@ -1,0 +1,84 @@
+{
+  "overallOriginalityCheck": "PASS",
+  "taskReviews": [
+    {
+      "taskId": "b2-test-40-task-01",
+      "scenario": "a workplace wellbeing pilot planning brief 34: essay brief 1-1",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "the main healthy cooking issue",
+        "one practical consequence",
+        "a justified recommendation 1"
+      ],
+      "lexicalAnchors": [
+        "healthy cooking",
+        "workplace wellbeing pilot",
+        "kitchen facilities",
+        "cooking workshops"
+      ],
+      "originalitySelfCheck": "Essay uses notes 'providing kitchen facilities' and 'organising cooking workshops' with own idea. Different from previous essays which used notes like 'managing money', 'frequency of buses', etc. Scenario is workplace healthy cooking, not generic environment or education. PASS.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "b2-test-40-task-02",
+      "scenario": "a workplace wellbeing pilot planning brief 34: review brief 2-5",
+      "audience": "specialist magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "the main healthy cooking issue",
+        "one practical consequence",
+        "a justified recommendation 2"
+      ],
+      "lexicalAnchors": [
+        "healthy cooking workshop",
+        "workplace wellbeing",
+        "review"
+      ],
+      "originalitySelfCheck": "Review asks about a healthy cooking workshop at workplace or community. Not a book review, film review, or library review. Different from previous reviews which covered books, study clinics, documentaries, etc. PASS.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "b2-test-40-task-03",
+      "scenario": "a workplace wellbeing pilot planning brief 34: article brief 3-9",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "the main healthy cooking issue",
+        "one practical consequence",
+        "a justified recommendation 3"
+      ],
+      "lexicalAnchors": [
+        "healthy cooking",
+        "workplace",
+        "company newsletter",
+        "practical way"
+      ],
+      "originalitySelfCheck": "Article suggests a practical way to make healthy cooking easier at work. Not about learning outside class, supporting small businesses, or youth participation. Different audience and purpose. PASS.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "b2-test-40-task-04",
+      "scenario": "a workplace wellbeing pilot planning brief 34: email brief 4-13",
+      "audience": "English-speaking contact",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "the main healthy cooking issue",
+        "one practical consequence",
+        "a justified recommendation 4"
+      ],
+      "lexicalAnchors": [
+        "healthy cooking initiative",
+        "workplace",
+        "challenges",
+        "interest"
+      ],
+      "originalitySelfCheck": "Email from Elena asking about a healthy cooking initiative at work. Not about weekend job, exchange visit, or festival. Different from previous emails. PASS.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "0d64d5bde28c7c3d873386d472cc397c978f8fac9b5364387cfacb7cf6c319cc"
+  }
+}

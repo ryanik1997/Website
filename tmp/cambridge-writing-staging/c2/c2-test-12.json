@@ -1,0 +1,153 @@
+{
+  "id": "c2-test-12",
+  "level": "c2",
+  "testNumber": 12,
+  "title": "CPE C2 AI Practice Test 12",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-12.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "c2-test-12-1785310597535",
+    "generatedAt": 1785310627105,
+    "contentHash": "950469ac8e96f24f9c0596cc3aeaec3395c76e4bf5adbf5c4c0f7f20940a1810",
+    "promptHash": "df0a50cf465a0fd1143d2b4fc6795aa455ed4c55e6a5b712937a33fc8948ba6b",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-12:df0a50cf465a0fd1143d2b4fc6795aa455ed4c55e6a5b712937a33fc8948ba6b",
+    "inputHash": "df0a50cf465a0fd1143d2b4fc6795aa455ed4c55e6a5b712937a33fc8948ba6b",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "c2-test-12-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay: Youth Sports Clubs and Social Belonging",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write an essay summarising and evaluating the key points from both texts in 240–280 words. Use your own words throughout as far as possible, and include your own ideas in your answers.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-12-task-01-source-1",
+          "type": "source-text",
+          "label": "Text 1",
+          "text": "Youth sports clubs are often promoted as vehicles for social integration, yet their membership structures can inadvertently reinforce exclusion. High registration fees, travel costs for away fixtures, and the expectation of parental volunteering create barriers that disproportionately affect families with lower incomes or irregular work schedules. When clubs prioritise competitive success over inclusive participation, they tend to select for talent and commitment levels that favour children whose families can afford private coaching and flexible time. The result is that the very children who might benefit most from the social belonging that team sports offer—those from marginalised backgrounds—are systematically filtered out. If clubs are to fulfil their stated mission of building community, they must confront the uncomfortable truth that convenience for existing members often comes at the cost of access for others."
+        },
+        {
+          "id": "c2-test-12-task-01-source-2",
+          "type": "source-text",
+          "label": "Text 2",
+          "text": "The claim that youth sports clubs are exclusionary overlooks the practical realities of running a voluntary organisation. Clubs depend on membership fees and volunteer labour to survive; lowering costs or relaxing commitment expectations would undermine their financial and operational viability. Furthermore, the argument that clubs should prioritise inclusion over competitive excellence ignores the legitimate aspirations of talented young athletes who seek high-level training and competition. Expecting clubs to be all things to all people is unrealistic. A more responsible approach is to recognise that different clubs serve different purposes: some are elite development pathways, others are recreational community hubs. The real responsibility lies with public authorities to fund accessible programmes for those who cannot afford club sport, rather than burdening volunteer-run clubs with demands that threaten their sustainability."
+        }
+      ],
+      "presentation": {
+        "template": "source-texts"
+      },
+      "wordLimit": {
+        "min": 240,
+        "max": 280,
+        "displayText": "240–280 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c2-test-12-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Review: Youth Sports Club Social Initiatives",
+      "genre": "review",
+      "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-12-task-02-panel",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted: Youth sports clubs and social belonging",
+          "paragraphs": [
+            "A specialist magazine for youth sport organisers is running a series of reviews of initiatives that aim to strengthen social belonging within youth sports clubs. Have you observed or participated in a programme, policy or event designed to make a club more inclusive or to foster a sense of community among members? Write a review for the magazine.",
+            "In your review, describe the initiative and its intended purpose, assess how effectively it achieved its aims, and recommend whether other clubs should adopt a similar approach."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-12-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Report: Youth Sports Club Access and Sustainability",
+      "genre": "report",
+      "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-12-task-03-panel",
+          "type": "panel",
+          "variant": "generic",
+          "heading": "Report for the programme coordinator",
+          "paragraphs": [
+            "You are a consultant hired by a regional youth sports foundation. The programme coordinator has asked you to write a report on how current membership and fee structures in local youth sports clubs affect both access for new participants and the long-term sustainability of the clubs.",
+            "In your report, analyse the main tensions between widening access and maintaining club viability, assess the potential consequences for the community if these tensions are not addressed, and propose one concrete action that the foundation could take to help clubs balance these competing priorities."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-12-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Article: Should Youth Sports Clubs Prioritise Inclusion or Excellence?",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-12-task-04-panel",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted: The purpose of youth sports clubs",
+          "paragraphs": [
+            "An English-language online magazine for international readers is publishing a series on 'Sport and Society'. The editors have invited readers to submit articles addressing the question: Should youth sports clubs prioritise inclusion and social belonging over competitive excellence?",
+            "In your article, explain your position on this question, discuss one practical consequence of your preferred approach, and request that the magazine arrange a follow-up discussion with readers and club organisers to explore the idea further."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

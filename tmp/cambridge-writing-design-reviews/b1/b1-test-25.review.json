@@ -1,0 +1,64 @@
+{
+  "testId": "b1-test-25",
+  "level": "b1",
+  "topicFamily": "online privacy",
+  "specificSetting": "a safe social-media project planning brief 19",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Email to English teacher about planning a safe social-media project, focusing on private information vs fake news, choosing a poster or expert talk, suggesting a way to remember lessons, and asking about start date.",
+      "audience": "English teacher (Mrs. Hill)",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "the main online privacy issue (private information or fake news)",
+        "one practical consequence (choosing an activity)",
+        "a justified recommendation (suggesting a way to remember)"
+      ],
+      "lexicalAnchors": [
+        "online privacy",
+        "safe social-media project",
+        "private information",
+        "fake news"
+      ],
+      "originalitySelfCheck": "Scenario is unique: safe social-media project planning, not used in any previous test. Email frame is new: teacher asks about two issues, two activities, and a follow-up suggestion. Content points are distinct from all avoided fingerprints."
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Article for school magazine about whether the safe social-media project will help students and what the most important thing to learn is.",
+      "audience": "school magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "the main online privacy issue (will the project help?)",
+        "one practical consequence (most important thing to learn)"
+      ],
+      "lexicalAnchors": [
+        "online privacy",
+        "safe social-media project",
+        "staying safe online"
+      ],
+      "originalitySelfCheck": "Article prompt is original: asks about project effectiveness and key learning point. Not a reused frame from previous tests. No overlap with forbidden concepts."
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Story beginning with a programme coordinator seeing a surprising message in project comments.",
+      "audience": "English teacher",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "the main online privacy issue (surprising message)",
+        "one practical consequence (reaction to message)"
+      ],
+      "lexicalAnchors": [
+        "online privacy",
+        "safe social-media project",
+        "programme coordinator"
+      ],
+      "originalitySelfCheck": "Story opening is unique: 'When the programme coordinator checked the project comments, she saw a message that made her stop.' Not used in any previous test. Matches the specific setting of a safe social-media project. No similarity to existing story openings."
+    }
+  ],
+  "forbiddenConceptCheck": "PASS",
+  "notes": "All tasks are original, level-appropriate, and free from forbidden concepts. The scenario is concrete and specific to online privacy within a school project. No generic phrases or reused frames.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "75e9b0a556f9d73558fdc7587bf8f5299dcfc6bdf35b2360dcb473f40e0d6d2d"
+  }
+}

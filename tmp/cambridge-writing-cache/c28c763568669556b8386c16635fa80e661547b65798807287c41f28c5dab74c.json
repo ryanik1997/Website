@@ -1,0 +1,219 @@
+{
+  "inputHash": "a6a32906ad999333146d04799cb259cff7f5541f814b88de2feed0826b10618a",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-36:a6a32906ad999333146d04799cb259cff7f5541f814b88de2feed0826b10618a",
+  "test": {
+    "id": "c2-test-36",
+    "level": "c2",
+    "testNumber": 36,
+    "title": "CPE C2 AI Practice Test 36",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-36.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c2-test-36-1785314068703",
+      "generatedAt": 1785314106044,
+      "contentHash": "d976fe0ea20d8dd83a2a95612b7ab4ee4e0fe4ea3aba28028d526be76a1d26cb",
+      "promptHash": "a6a32906ad999333146d04799cb259cff7f5541f814b88de2feed0826b10618a",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-36:a6a32906ad999333146d04799cb259cff7f5541f814b88de2feed0826b10618a",
+      "inputHash": "a6a32906ad999333146d04799cb259cff7f5541f814b88de2feed0826b10618a",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c2-test-36-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Essay: Festivals as Cultural Institutions",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write an essay summarising and evaluating the key points from both texts in 240–280 words. Use your own words throughout as far as possible, and include your own ideas in your answers.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-36-task-01-source-01",
+            "type": "source-text",
+            "label": "Text 1",
+            "text": "Local festivals are often celebrated as expressions of community identity, but their organisation increasingly prioritises visitor convenience over long-term civic responsibility. Temporary infrastructure, single-use decorations and excessive waste are accepted as inevitable costs of a successful event. Yet festivals could be designed to strengthen local resilience rather than deplete it. By mandating reusable systems, sourcing materials from within the community, and embedding educational components about sustainability, organisers can transform festivals into models of responsible stewardship. The challenge is not technical but cultural: we must stop treating festivals as exceptions to normal standards and start holding them to the same ethical expectations we apply to everyday life."
+          },
+          {
+            "id": "c2-test-36-task-01-source-02",
+            "type": "source-text",
+            "label": "Text 2",
+            "text": "Demanding that local festivals become exemplars of sustainability places an unfair burden on volunteer organisers and risks killing the spontaneity that makes these events appealing. Festivals are by nature temporary and celebratory; expecting them to solve deep-seated environmental problems is unrealistic. Moreover, the most significant environmental impacts of festivals—travel emissions, energy consumption—are beyond the control of local committees. The real responsibility lies with governments and industries, not with community volunteers who already give their time generously. Insisting on perfect eco-credentials may discourage communities from holding festivals at all, which would be a greater loss to social cohesion than any amount of waste."
+          }
+        ],
+        "presentation": {
+          "template": "source-texts"
+        },
+        "wordLimit": {
+          "min": 240,
+          "max": 280,
+          "displayText": "240–280 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c2-test-36-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Review: Festival Sustainability Initiative",
+        "genre": "review",
+        "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+        "promptText": "A specialist magazine for event organisers is running a series of reviews of sustainability initiatives at local festivals. You decide to write a review of a festival you have attended that tried to reduce its environmental footprint. In your review, describe the initiative (e.g., waste sorting, reusable cup schemes, local sourcing), assess how effectively it was implemented and communicated to visitors, and recommend whether other festivals should adopt similar measures.",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c2-test-36-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Report: Festival Impact on Local Life",
+        "genre": "report",
+        "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+        "promptText": "The programme coordinator of a regional cultural association has asked you to write a report on how local festivals affect residents' daily lives. In your report, analyse the main ways in which festivals disrupt or enhance local life (e.g., noise, traffic, economic benefits, community spirit), assess the implications for long-term community well-being, and propose two practical actions that festival organisers could take to minimise negative impacts while preserving the positive aspects.",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c2-test-36-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Article: Residents vs. Visitors at Festivals",
+        "genre": "article",
+        "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+        "promptText": "An English-language online magazine is publishing a series on the future of community events. The editors have invited readers to submit articles addressing the question: 'Should local festivals prioritise the convenience of residents over attracting visitors from outside?' In your article, explain your position on this issue, discuss one practical consequence of your preferred approach, and suggest how festival organisers could implement your recommendation while maintaining the event's appeal.",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "c2-test-36",
+    "level": "c2",
+    "topicFamily": "local festivals",
+    "specificSetting": "festivals as cultural institutions planning brief 30",
+    "centralTension": "access and convenience versus long-term responsibility in local festivals",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "genre": "essay",
+        "scenario": "Two source texts debating whether festivals should prioritise sustainability or accept environmental costs as inevitable.",
+        "audience": "English teacher (educated general reader)",
+        "purpose": "Synthesise competing claims, evaluate assumptions, and develop an independent position on festival responsibility.",
+        "requiredContentPoints": [
+          "the main local festivals issue (sustainability vs. spontaneity)",
+          "one practical consequence (e.g., loss of community events if eco-standards are too strict)",
+          "a justified recommendation (e.g., phased sustainability measures)"
+        ],
+        "lexicalAnchors": [
+          "local festivals",
+          "sustainability",
+          "volunteer organisers",
+          "community identity",
+          "environmental impact"
+        ],
+        "originalitySelfCheck": "Source texts are original, not reused from any previous test. The tension between sustainability and spontaneity is specific to this test. No overlap with forbidden concepts.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "genre": "review",
+        "scenario": "Review of a festival's sustainability initiative (e.g., waste sorting, reusable cups).",
+        "audience": "Specialist magazine readers (event organisers)",
+        "purpose": "Assess effectiveness and recommend whether other festivals should adopt similar measures.",
+        "requiredContentPoints": [
+          "the main local festivals issue (sustainability initiative)",
+          "one practical consequence (implementation and communication quality)",
+          "a justified recommendation (adopt or adapt)"
+        ],
+        "lexicalAnchors": [
+          "local festivals",
+          "sustainability initiative",
+          "implementation",
+          "visitor communication",
+          "reusable cup scheme"
+        ],
+        "originalitySelfCheck": "Review task is distinct from previous review tasks: focuses on festival sustainability initiatives, not books, apps, or workshops. No overlap with forbidden concepts.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "genre": "report",
+        "scenario": "Report on how local festivals affect residents' daily lives (noise, traffic, economic benefits, community spirit).",
+        "audience": "Programme coordinator (regional cultural association)",
+        "purpose": "Analyse implications and propose action to minimise negative impacts while preserving positive aspects.",
+        "requiredContentPoints": [
+          "the main local festivals issue (disruption vs. enhancement)",
+          "one practical consequence (long-term community well-being)",
+          "a justified recommendation (two practical actions)"
+        ],
+        "lexicalAnchors": [
+          "local festivals",
+          "resident impact",
+          "noise",
+          "traffic",
+          "economic benefit",
+          "community spirit"
+        ],
+        "originalitySelfCheck": "Report task is original: focuses on festival impact on residents, not on transport, libraries, or other topics. No overlap with forbidden concepts.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 4,
+        "genre": "article",
+        "scenario": "Article arguing whether festivals should prioritise resident convenience over attracting outside visitors.",
+        "audience": "English-speaking contact (magazine readers)",
+        "purpose": "Explain a position and request arrangements (follow-up discussion).",
+        "requiredContentPoints": [
+          "the main local festivals issue (resident convenience vs. visitor attraction)",
+          "one practical consequence (e.g., economic trade-offs)",
+          "a justified recommendation (how to balance both)"
+        ],
+        "lexicalAnchors": [
+          "local festivals",
+          "resident convenience",
+          "visitor attraction",
+          "community events",
+          "economic impact"
+        ],
+        "originalitySelfCheck": "Article task is original: focuses on a specific ethical dilemma for festival organisers. No overlap with forbidden concepts.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ]
+  },
+  "cachedAt": 1785314106113
+}

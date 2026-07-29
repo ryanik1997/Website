@@ -1,0 +1,97 @@
+{
+  "testId": "c2-test-20",
+  "level": "c2",
+  "topicFamily": "public parks",
+  "specificSetting": "public space and democratic life planning brief 14",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Two source texts debating whether public parks should prioritise inclusive design for marginalised groups or serve the majority's convenience.",
+      "audience": "English teacher (educated general reader)",
+      "purpose": "Synthesise competing claims, evaluate assumptions, and develop an independent position on balancing access and long-term responsibility.",
+      "requiredContentPoints": [
+        "the main public parks issue (inclusive design vs. majority convenience)",
+        "one practical consequence (exclusion vs. underuse)",
+        "a justified recommendation (how to balance competing needs)"
+      ],
+      "lexicalAnchors": [
+        "public parks",
+        "democratic space",
+        "inclusive design",
+        "majority convenience",
+        "marginalised groups",
+        "sustainable maintenance"
+      ],
+      "originalitySelfCheck": "Source texts present opposing views on park design philosophy; no reuse of previous source theses or essay prompts. Forbidden concepts (e.g., peer learning, pollution) avoided.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Review of a specific public park's design and management, assessing balance between user convenience and sustainable maintenance.",
+      "audience": "Specialist magazine readers (urban planners)",
+      "purpose": "Assess effectiveness of current park management and recommend a change to improve inclusivity or sustainability.",
+      "requiredContentPoints": [
+        "the main public parks issue (balance of convenience vs. responsibility)",
+        "one practical consequence (positive or negative outcome of current approach)",
+        "a justified recommendation (specific change to make park more inclusive or sustainable)"
+      ],
+      "lexicalAnchors": [
+        "public parks",
+        "park design",
+        "user groups",
+        "sustainable maintenance",
+        "inclusive",
+        "urban planning"
+      ],
+      "originalitySelfCheck": "Review task focuses on a specific park initiative; different from previous review tasks (e.g., book, documentary, workshop). Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Report analysing implications of a proposed paid entry policy for a city park, with exemptions for local residents.",
+      "audience": "Programme coordinator (Parks and Green Spaces Department)",
+      "purpose": "Analyse implications of a funding proposal and propose an alternative that generates revenue without restricting access.",
+      "requiredContentPoints": [
+        "the main public parks issue (funding vs. access)",
+        "one practical consequence (effect on visitor numbers, social inclusion, trust)",
+        "a justified recommendation (alternative funding mechanism)"
+      ],
+      "lexicalAnchors": [
+        "public parks",
+        "paid entry",
+        "funding",
+        "social inclusion",
+        "community trust",
+        "revenue"
+      ],
+      "originalitySelfCheck": "Report task addresses a concrete policy proposal (paid entry) with analysis of social and financial implications; distinct from previous report tasks (e.g., jobs fair, exchange programme). Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Article arguing whether public parks should host political protests, balancing democratic expression with other users' enjoyment.",
+      "audience": "English-speaking contact (international magazine readers)",
+      "purpose": "Explain a position on a contested issue, describe a practical consequence, and request a follow-up discussion.",
+      "requiredContentPoints": [
+        "the main public parks issue (political protest vs. recreational use)",
+        "one practical consequence (disruption or enhanced democratic function)",
+        "a justified recommendation (how to manage protests)"
+      ],
+      "lexicalAnchors": [
+        "public parks",
+        "political protest",
+        "democratic expression",
+        "disruption",
+        "park management"
+      ],
+      "originalitySelfCheck": "Article task explores a specific ethical dilemma (protests in parks); different from previous article tasks (e.g., travel, education). Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are built around the specific setting of public parks and democratic life, with distinct scenarios, audiences, and purposes. No reuse of previous test fingerprints or forbidden concepts. Each task requires at least two distinct content points and is culturally fair.",
+  "forbiddenConceptCheck": "PASS",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "9a1731b64d7119afef526d0038af59cd623898bd60f673214870ff013573a363"
+  }
+}

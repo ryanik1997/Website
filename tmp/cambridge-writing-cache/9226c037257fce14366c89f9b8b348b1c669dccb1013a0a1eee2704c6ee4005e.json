@@ -1,0 +1,248 @@
+{
+  "inputHash": "95186d0ac9e1b5fd5c0b0f0951dd2460a97594d27fbd873356bdf726d2b5d58b",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-15:95186d0ac9e1b5fd5c0b0f0951dd2460a97594d27fbd873356bdf726d2b5d58b",
+  "test": {
+    "id": "c1-test-15",
+    "level": "c1",
+    "testNumber": 15,
+    "title": "CAE C1 AI Practice Test 15",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-15.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c1-test-15-1785310533285",
+      "generatedAt": 1785310553712,
+      "contentHash": "88668abbdd8fbfab18b52f113d7ea3c790644b453efdf091486a3fcd48dd9835",
+      "promptHash": "95186d0ac9e1b5fd5c0b0f0951dd2460a97594d27fbd873356bdf726d2b5d58b",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-15:95186d0ac9e1b5fd5c0b0f0951dd2460a97594d27fbd873356bdf726d2b5d58b",
+      "inputHash": "95186d0ac9e1b5fd5c0b0f0951dd2460a97594d27fbd873356bdf726d2b5d58b",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c1-test-15-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Healthy cooking in the workplace",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-15-task-01-block-01",
+            "type": "paragraph",
+            "text": "Your class has listened to a radio discussion about how organisations can encourage healthy cooking among employees as part of a workplace wellbeing framework. You have made the notes below."
+          },
+          {
+            "id": "c1-test-15-task-01-block-02",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Priorities for promoting healthy cooking at work",
+            "listItems": [
+              "subsidising healthy ingredients or meal kits",
+              "providing on-site cooking workshops",
+              "creating a supportive kitchen culture"
+            ]
+          },
+          {
+            "id": "c1-test-15-task-01-block-03",
+            "type": "panel",
+            "variant": "opinions",
+            "heading": "Some opinions expressed in the discussion:",
+            "paragraphs": [
+              "If people can afford healthy ingredients, they are more likely to cook from scratch. Subsidies make this possible for everyone.",
+              "Workshops teach practical skills and build confidence. Without them, people may know what to cook but not how.",
+              "A supportive culture – like shared lunch clubs or recipe swaps – keeps motivation high. It's the social glue that makes the other measures stick."
+            ]
+          },
+          {
+            "id": "c1-test-15-task-01-block-04",
+            "type": "final-instruction",
+            "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for encouraging healthy cooking at work, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+          }
+        ],
+        "presentation": {
+          "template": "essay-notes-opinions"
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c1-test-15-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Healthy cooking initiative proposal",
+        "genre": "proposal",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptText": "Your organisation's wellbeing committee has decided to launch a healthy cooking initiative for employees. The committee has invited proposals for how this initiative should be designed.\n\nWrite a proposal for the wellbeing committee. In your proposal, you should:\n\n• recommend two practical measures to encourage employees to cook healthy meals\n• explain how these measures would benefit both employees and the organisation\n• suggest how the committee could evaluate the success of the initiative",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-15-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Healthy cooking programme concerns",
+        "genre": "email",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptText": "You are a project coordinator for a workplace wellbeing programme. The programme coordinator has emailed you about a proposal to introduce a healthy cooking programme. Some staff have raised concerns that the programme may be inconvenient for those with long commutes or limited kitchen facilities at home.\n\nWrite an email to the programme coordinator. In your email, you should:\n\n• explain the potential implications of the programme for employees with different home situations\n• propose an action the programme could take to address these concerns while still promoting healthy cooking\n• request a meeting to discuss the proposal further",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-15-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Healthy cooking workshop review",
+        "genre": "review",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-15-task-04-block-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Reviews wanted: Healthy cooking workshops",
+            "paragraphs": [
+              "Have you attended a healthy cooking workshop organised by your workplace or community? We want to hear about your experience.",
+              "Write a review for our lifestyle website. Describe the workshop and what you learned. Evaluate how well it balanced convenience with teaching lasting skills. Would you recommend it to other organisations? Why or why not?",
+              "The best reviews will be published on our website."
+            ]
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "c1-test-15",
+    "level": "c1",
+    "topicFamily": "healthy cooking",
+    "specificSetting": "an organisational wellbeing framework planning brief 9",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "genre": "essay",
+        "scenario": "Class discussion on workplace healthy cooking priorities; essay for tutor evaluating two of three notes (subsidising ingredients, workshops, kitchen culture) and justifying which is more important.",
+        "audience": "English teacher",
+        "purpose": "evaluate and justify priorities",
+        "requiredContentPoints": [
+          "subsidising healthy ingredients or meal kits",
+          "providing on-site cooking workshops",
+          "creating a supportive kitchen culture"
+        ],
+        "lexicalAnchors": [
+          "healthy cooking",
+          "workplace wellbeing",
+          "subsidies",
+          "workshops",
+          "kitchen culture"
+        ],
+        "originalitySelfCheck": "Unique scenario: workplace healthy cooking, not used in any previous test. Notes and opinions are original. No forbidden concepts.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "genre": "proposal",
+        "scenario": "Proposal to wellbeing committee for a healthy cooking initiative, recommending two measures, benefits, and evaluation.",
+        "audience": "specialist magazine readers (wellbeing committee)",
+        "purpose": "assess effectiveness and recommend",
+        "requiredContentPoints": [
+          "two practical measures",
+          "benefits for employees and organisation",
+          "evaluation of success"
+        ],
+        "lexicalAnchors": [
+          "healthy cooking initiative",
+          "wellbeing committee",
+          "measures",
+          "evaluation"
+        ],
+        "originalitySelfCheck": "Original proposal scenario: workplace healthy cooking initiative. Not similar to any previous proposal (e.g., student events, transport, library).",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "genre": "email",
+        "scenario": "Email to programme coordinator addressing staff concerns about healthy cooking programme convenience for those with long commutes or limited kitchen facilities.",
+        "audience": "programme coordinator",
+        "purpose": "analyse implications and propose action",
+        "requiredContentPoints": [
+          "potential implications for different home situations",
+          "action to address concerns",
+          "request meeting"
+        ],
+        "lexicalAnchors": [
+          "healthy cooking programme",
+          "commute",
+          "kitchen facilities",
+          "concerns"
+        ],
+        "originalitySelfCheck": "Original email scenario: workplace healthy cooking programme concerns. Not similar to previous emails (e.g., course complaints, exchange visits, transport plans).",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 4,
+        "genre": "review",
+        "scenario": "Review of a healthy cooking workshop for a lifestyle website, describing the workshop, evaluating balance of convenience and lasting skills, recommending to other organisations.",
+        "audience": "English-speaking contact (lifestyle website readers)",
+        "purpose": "explain a position and request arrangements",
+        "requiredContentPoints": [
+          "description of workshop",
+          "evaluation of convenience vs lasting skills",
+          "recommendation"
+        ],
+        "lexicalAnchors": [
+          "healthy cooking workshop",
+          "convenience",
+          "lasting skills",
+          "recommendation"
+        ],
+        "originalitySelfCheck": "Original review scenario: healthy cooking workshop. Not similar to previous reviews (e.g., digital detox, study clinics, documentaries).",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ],
+    "overallOriginalityCheck": "All tasks are based on the unique topic family 'healthy cooking' within an organisational wellbeing framework. No forbidden concepts (e.g., peer learning, pollution, touring holiday) appear. Each task has a distinct audience, purpose, and content points. No reused scenarios or skeletons from previous tests.",
+    "forbiddenConceptCheck": "PASS"
+  },
+  "cachedAt": 1785310553769
+}

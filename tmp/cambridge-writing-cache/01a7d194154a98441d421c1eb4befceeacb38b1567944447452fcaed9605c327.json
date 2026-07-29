@@ -1,0 +1,266 @@
+{
+  "inputHash": "c518c1d40d173362b71ea9ab630a591e05add9c4749604e258cd4953f8e4552b",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-22:c518c1d40d173362b71ea9ab630a591e05add9c4749604e258cd4953f8e4552b",
+  "test": {
+    "id": "b2-test-22",
+    "level": "b2",
+    "testNumber": 22,
+    "title": "FCE B2 AI Practice Test 22",
+    "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-22.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "b2-test-22-1785312295416",
+      "generatedAt": 1785312312089,
+      "contentHash": "ef8728372b2a9722920c8e7a3c478d4d5d6a2309ada932beb085c75d40a24503",
+      "promptHash": "c518c1d40d173362b71ea9ab630a591e05add9c4749604e258cd4953f8e4552b",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-22:c518c1d40d173362b71ea9ab630a591e05add9c4749604e258cd4953f8e4552b",
+      "inputHash": "c518c1d40d173362b71ea9ab630a591e05add9c4749604e258cd4953f8e4552b",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "b2-test-22-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Essay: Recycling services priorities",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write 140–190 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-22-task-01-block-01",
+            "type": "paragraph",
+            "text": "In your English class you have been discussing how to improve recycling services in your town. Now your English teacher has asked you to write an essay."
+          },
+          {
+            "id": "b2-test-22-task-01-block-02",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Notes",
+            "listItems": [
+              "making recycling bins more convenient",
+              "providing clearer information about what can be recycled",
+              "......................... (your own idea)"
+            ]
+          },
+          {
+            "id": "b2-test-22-task-01-block-03",
+            "type": "final-instruction",
+            "text": "Write an essay using all the notes and giving reasons for your point of view."
+          }
+        ],
+        "presentation": {
+          "template": "essay-notes"
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "b2-test-22-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Review: Recycling centre visit",
+        "genre": "review",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-22-task-02-block-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Reviews wanted!",
+            "paragraphs": [
+              "Have you visited the new recycling centre in your area? We want to hear about your experience.",
+              "Write a review of the recycling centre for our town website.",
+              "Describe what facilities are available, say how easy it was to use the service, and explain whether you would recommend it to other residents.",
+              "The best reviews will be published on the website."
+            ]
+          },
+          {
+            "id": "b2-test-22-task-02-block-02",
+            "type": "final-instruction",
+            "text": "Write your review."
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b2-test-22-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Article: Encouraging recycling at home",
+        "genre": "article",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-22-task-03-block-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Articles wanted!",
+            "paragraphs": [
+              "Our town is launching a campaign to encourage more people to recycle at home.",
+              "Write an article for the campaign website suggesting one practical way to make recycling easier for families, explaining why it would work, and describing what the result might look like for the community.",
+              "We will publish the best articles on our website."
+            ]
+          },
+          {
+            "id": "b2-test-22-task-03-block-02",
+            "type": "final-instruction",
+            "text": "Write your article."
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b2-test-22-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Email: Coordinating a recycling event",
+        "genre": "email",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-22-task-04-block-01",
+            "type": "email",
+            "from": "Elena Rossi <elena.rossi@greentown.org>",
+            "subject": "Recycling event – your help needed",
+            "paragraphs": [
+              "Hi,",
+              "As you know, we are organising a community recycling event next month. I need your help to decide on a few things.",
+              "First, should we focus on collecting electronic waste or on teaching people how to compost at home? Which do you think is more important and why?",
+              "Also, we need to choose a date. Would you prefer a Saturday morning or a weekday evening?",
+              "Finally, can you suggest one way to attract more people to the event?",
+              "Let me know your ideas!",
+              "Best wishes,",
+              "Elena"
+            ]
+          },
+          {
+            "id": "b2-test-22-task-04-block-02",
+            "type": "final-instruction",
+            "text": "Write your email to Elena. You should explain your preference for the focus of the event, suggest a date and give a reason, and propose a way to attract participants."
+          }
+        ],
+        "presentation": {
+          "template": "email",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "b2-test-22",
+    "overallOriginalityCheck": "PASS",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "a circular-economy campaign planning brief 16: essay brief 1-1",
+        "audience": "English teacher",
+        "purpose": "evaluate and justify priorities",
+        "requiredContentPoints": [
+          "making recycling bins more convenient",
+          "providing clearer information about what can be recycled",
+          "your own idea"
+        ],
+        "lexicalAnchors": [
+          "recycling services",
+          "circular economy",
+          "campaign planning"
+        ],
+        "originalitySelfCheck": "Unique scenario: recycling bins convenience vs. clearer information. Not similar to any avoided fingerprint. ForbiddenConceptCheck: PASS"
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "a circular-economy campaign planning brief 16: review brief 2-5",
+        "audience": "specialist magazine readers",
+        "purpose": "assess effectiveness and recommend",
+        "requiredContentPoints": [
+          "facilities available",
+          "ease of use",
+          "recommendation"
+        ],
+        "lexicalAnchors": [
+          "recycling centre",
+          "facilities",
+          "service quality"
+        ],
+        "originalitySelfCheck": "Review of a recycling centre, not a library or workshop. Not similar to any avoided fingerprint. ForbiddenConceptCheck: PASS"
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "a circular-economy campaign planning brief 16: article brief 3-9",
+        "audience": "programme coordinator",
+        "purpose": "analyse implications and propose action",
+        "requiredContentPoints": [
+          "practical way to make recycling easier",
+          "why it would work",
+          "result for the community"
+        ],
+        "lexicalAnchors": [
+          "recycling at home",
+          "campaign",
+          "community result"
+        ],
+        "originalitySelfCheck": "Article suggesting a practical way for families to recycle, not a generic 'learning beyond lessons' or 'small businesses' article. ForbiddenConceptCheck: PASS"
+      },
+      {
+        "taskNumber": 4,
+        "scenario": "a circular-economy campaign planning brief 16: email brief 4-13",
+        "audience": "English-speaking contact",
+        "purpose": "explain a position and request arrangements",
+        "requiredContentPoints": [
+          "preference for focus (e-waste or composting)",
+          "suggest a date and reason",
+          "propose a way to attract participants"
+        ],
+        "lexicalAnchors": [
+          "recycling event",
+          "electronic waste",
+          "composting",
+          "attract participants"
+        ],
+        "originalitySelfCheck": "Email about organising a recycling event, not a weekend job or exchange visit. ForbiddenConceptCheck: PASS"
+      }
+    ]
+  },
+  "cachedAt": 1785312312096
+}

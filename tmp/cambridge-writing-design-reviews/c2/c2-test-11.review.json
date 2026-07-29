@@ -1,0 +1,92 @@
+{
+  "testId": "c2-test-11",
+  "level": "c2",
+  "topicFamily": "local festivals",
+  "specificSetting": "festivals as cultural institutions planning brief 5",
+  "centralTension": "access and convenience versus long-term responsibility in local festivals",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Two source texts debating whether local festivals should be held to high sustainability standards or whether that burden is unfair on volunteers.",
+      "audience": "Educated general reader (English teacher as assessor)",
+      "purpose": "Synthesise and evaluate competing claims about festival responsibility, and develop an independent position.",
+      "requiredContentPoints": [
+        "the main local festivals issue (sustainability vs. spontaneity)",
+        "one practical consequence (e.g., discouraging festivals vs. improving resilience)",
+        "a justified recommendation (own view on balance)"
+      ],
+      "lexicalAnchors": [
+        "local festivals",
+        "sustainability",
+        "volunteer burden",
+        "community responsibility"
+      ],
+      "originalityCheck": "Source texts present opposing views on festival sustainability, not used in any previous test. No recycled phrases or scenarios.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Review of a specific sustainability initiative at a local festival, evaluating implementation and communication.",
+      "audience": "Specialist magazine readers (event organisers)",
+      "purpose": "Assess effectiveness of a real or imagined initiative and recommend for or against adoption.",
+      "requiredContentPoints": [
+        "the main local festivals issue (sustainability initiative description)",
+        "one practical consequence (implementation and communication effectiveness)",
+        "a justified recommendation (whether other festivals should adopt)"
+      ],
+      "lexicalAnchors": [
+        "local festivals",
+        "sustainability initiative",
+        "visitor communication",
+        "reusable cup scheme"
+      ],
+      "originalityCheck": "Focus on initiative implementation and visitor communication, not on general review of event. Not similar to previous review tasks.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Report analysing how festivals disrupt or enhance local life, with proposals for minimising negative impacts.",
+      "audience": "Programme coordinator of a regional cultural association",
+      "purpose": "Analyse implications of festivals on residents and propose actionable improvements.",
+      "requiredContentPoints": [
+        "the main local festivals issue (disruption vs. enhancement)",
+        "one practical consequence (impact on community well-being)",
+        "a justified recommendation (two practical actions)"
+      ],
+      "lexicalAnchors": [
+        "local festivals",
+        "community impact",
+        "noise traffic",
+        "economic benefit"
+      ],
+      "originalityCheck": "Report focuses on resident experience and practical mitigation, not on general event evaluation. Not similar to previous report tasks.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Article arguing whether festivals should prioritise residents' convenience over attracting outside visitors.",
+      "audience": "English-speaking contact (magazine readers)",
+      "purpose": "Explain a position and request arrangements (implicitly, through recommendation for organisers).",
+      "requiredContentPoints": [
+        "the main local festivals issue (resident vs. visitor priority)",
+        "one practical consequence (of chosen approach)",
+        "a justified recommendation (implementation suggestion)"
+      ],
+      "lexicalAnchors": [
+        "local festivals",
+        "resident convenience",
+        "visitor attraction",
+        "organiser implementation"
+      ],
+      "originalityCheck": "Article addresses a specific tension between residents and visitors, not a generic 'benefits of festivals' piece. Not similar to previous article tasks.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityStatement": "All tasks are built around the unique scenario of local festivals as cultural institutions, with a central tension between access/convenience and long-term responsibility. No task reuses scenarios, audiences, content points, or lexical anchors from any previous test. Forbidden concepts (e.g., low-waste school events, digital communication workshops, community centre improvements) are avoided. Each task has a concrete audience, clear communicative purpose, and at least two distinct content points. The essay uses two original source texts with contrasting angles. The review, report, and article each have distinct genres and purposes. No banned generic phrases are used.",
+  "fingerprintCompliance": "All fields of designFingerprint are followed exactly: specificSetting, specificSettingByTask, audienceByTask, purposeByTask, requiredContentPointsByTask, registerByTask, stakeholders, centralTension, lexicalAnchors, and forbiddenConcepts are all matched.",
+  "structuralOriginality": "The essay uses source-text blocks (not notes/opinions). The review, report, and article have varied lead-ins and candidate roles. No stock frames from avoided fingerprints are reused.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "dd7bed5a554d6aeaca71e8073d380855c6e472808ad26056898b57002877ac06"
+  }
+}

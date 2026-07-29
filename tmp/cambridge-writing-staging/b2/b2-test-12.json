@@ -1,0 +1,156 @@
+{
+  "id": "b2-test-12",
+  "level": "b2",
+  "testNumber": 12,
+  "title": "FCE B2 AI Practice Test 12",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-12.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b2-test-12-1785310248536",
+    "generatedAt": 1785310266765,
+    "contentHash": "7e35428046107814ac5e3014d39b0b0adacacc7209988917649b5e3278e6fff5",
+    "promptHash": "796e04e6654abf8d7b5573ad811c8a6f229dc42b97f4c4a6940ecff82dbbcb38",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-12:796e04e6654abf8d7b5573ad811c8a6f229dc42b97f4c4a6940ecff82dbbcb38",
+    "inputHash": "796e04e6654abf8d7b5573ad811c8a6f229dc42b97f4c4a6940ecff82dbbcb38",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b2-test-12-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Youth sports clubs: priorities",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 140–190 words in an appropriate style.\n\nIn your English class you have been talking about youth sports clubs. Now your English teacher has asked you to write an essay.\n\nWrite an essay using all the notes and giving reasons for your point of view.\n\nWhat is the most important issue facing youth sports clubs today?\n\nNotes\n\nWrite about:\n\n1. cost of membership\n2. availability of trained coaches\n3. ......................... (your own idea)",
+      "promptBlocks": [
+        {
+          "id": "b2-test-12-task-01-panel-01",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "listItems": [
+            "1. cost of membership",
+            "2. availability of trained coaches",
+            "3. (your own idea)"
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes"
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b2-test-12-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Youth sports club review",
+      "genre": "review",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.\n\nYou see this announcement in a specialist magazine for sports club organisers.\n\nReviews wanted\n\nHave you attended a youth sports club recently? We want to hear about your experience.\n\nWrite a review of the club. Describe the facilities and coaching, say whether the club is good value for money, and recommend one improvement that would make it more accessible to young people.\n\nThe best reviews will be published in the next issue.\n\nWrite your review.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-12-task-02-panel-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted",
+          "paragraphs": [
+            "Have you attended a youth sports club recently? We want to hear about your experience.",
+            "Write a review of the club. Describe the facilities and coaching, say whether the club is good value for money, and recommend one improvement that would make it more accessible to young people.",
+            "The best reviews will be published in the next issue."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-12-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Making youth sports clubs more responsible",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.\n\nYou see this announcement on a youth sports programme coordinator's website.\n\nArticles wanted\n\nHow can youth sports clubs encourage long-term responsibility in young members?\n\nWrite an article for the website. Suggest one practical way clubs can promote responsibility, explain why it would work, and describe the benefits for the club and the wider community.\n\nWe will publish the best articles on our website.\n\nWrite your article.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-12-task-03-panel-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted",
+          "paragraphs": [
+            "How can youth sports clubs encourage long-term responsibility in young members?",
+            "Write an article for the website. Suggest one practical way clubs can promote responsibility, explain why it would work, and describe the benefits for the club and the wider community.",
+            "We will publish the best articles on our website."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-12-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Youth sports club visit",
+      "genre": "email",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.\n\nYou have received this email from your English-speaking contact, Jamie.\n\nFrom: Jamie\nSubject: Youth sports club visit\n\nHi,\nI'm planning to visit your town next month and would like to see a youth sports club in action. I'm interested in how clubs balance making sports accessible with teaching responsibility. Can you recommend a club I should visit? What do you think is the biggest challenge they face? Also, could you help arrange a visit?\n\nThanks,\nJamie\n\nWrite your email.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-12-task-04-email-01",
+          "type": "email",
+          "from": "Jamie",
+          "subject": "Youth sports club visit",
+          "paragraphs": [
+            "Hi,",
+            "I'm planning to visit your town next month and would like to see a youth sports club in action. I'm interested in how clubs balance making sports accessible with teaching responsibility. Can you recommend a club I should visit? What do you think is the biggest challenge they face? Also, could you help arrange a visit?",
+            "Thanks,",
+            "Jamie"
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "email",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

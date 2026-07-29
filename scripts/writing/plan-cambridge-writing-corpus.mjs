@@ -264,12 +264,25 @@ function checkpointRow(level, testNumber) {
   }
 }
 
-function genericRow(level, testNumber) {
+const CURATED_FAMILIES = [
+  'school exchange visits', 'neighbourhood transport', 'public libraries', 'community gardens', 'local festivals',
+  'youth sports clubs', 'digital study tools', 'part-time work', 'healthy cooking', 'urban wildlife',
+  'museum access', 'language learning', 'volunteer services', 'public parks', 'small businesses',
+  'recycling services', 'holiday planning', 'creative workshops', 'online privacy', 'future skills',
+  'student accommodation', 'consumer choices', 'arts funding', 'public health campaigns', 'climate adaptation',
+]
+const CURATED_SETTINGS = {
+  b1: ['a school exchange visit in York', 'a bus route serving three villages', 'a library reading club for teenagers', 'a neighbourhood garden beside a railway', 'a spring food festival', 'a youth football club preparing for finals', 'a tablet study group at school', 'a first weekend job at a bakery', 'a family cooking challenge', 'a pond survey in the city park', 'a museum late-opening trial', 'a conversation club for newcomers', 'a weekend volunteering scheme', 'a park clean-up morning', 'a shop choosing local suppliers', 'a recycling collection change', 'a family holiday by train', 'a photography workshop', 'a safe social-media project', 'a school careers afternoon', 'a student room search', 'a fair-trade shopping survey', 'a community arts grant', 'a school health week', 'a hot-weather neighbourhood plan'],
+  b2: ['a college exchange partnership', 'a regional bus improvement plan', 'a library makerspace launch', 'a community garden funding debate', 'a town cultural festival', 'a youth sports participation review', 'a blended-learning platform', 'a graduate internship scheme', 'a workplace wellbeing pilot', 'an urban biodiversity project', 'a museum inclusion programme', 'a language centre outreach plan', 'a volunteer matching service', 'a public park redesign', 'a local enterprise incubator', 'a circular-economy campaign', 'a responsible tourism project', 'a creative industry workshop', 'a school data policy', 'a future-skills forum', 'a college housing consultation', 'an ethical consumer campaign', 'an arts funding review', 'a public health communication plan', 'a climate resilience partnership'],
+  c1: ['a university exchange consortium', 'a metropolitan transport authority', 'a regional library network', 'a civic food-growing initiative', 'a city cultural programme', 'a national youth sport strategy', 'a university learning analytics policy', 'a sector-wide internship compact', 'an organisational wellbeing framework', 'a biodiversity corridor project', 'a museum governance review', 'a language access policy', 'a volunteer-sector partnership', 'a public realm strategy', 'a small-business innovation fund', 'a municipal resource policy', 'a sustainable tourism charter', 'a creative skills initiative', 'a digital privacy framework', 'a workforce transition programme', 'a student housing strategy', 'a consumer standards consultation', 'a cultural investment review', 'a public health equity plan', 'an urban climate adaptation strategy'],
+  c2: ['the ethics of educational exchange', 'mobility and regional inequality', 'the civic role of libraries', 'food systems and public responsibility', 'festivals as cultural institutions', 'sport and social belonging', 'the politics of learning data', 'experience and professional access', 'the meaning of workplace wellbeing', 'urban nature and moral attention', 'museums and contested memory', 'language, migration and belonging', 'volunteering and civic obligation', 'public space and democratic life', 'innovation and local identity', 'consumption and environmental responsibility', 'tourism and cultural asymmetry', 'creative work and public value', 'privacy and social trust', 'skills, uncertainty and the future', 'housing and educational opportunity', 'fairness in consumer markets', 'who should fund culture', 'health messaging and public trust', 'climate adaptation and distributive justice'],
+}
+
+function curatedRow(level, testNumber) {
   const config = CAMBRIDGE_WRITING_LEVEL_CONFIGS[level]
-  const family = TOPIC_FAMILIES[(testNumber - 2) % TOPIC_FAMILIES.length]
-  const cycle = Math.floor((testNumber - 2) / TOPIC_FAMILIES.length) + 1
-  const levelContext = { b1: 'local everyday', b2: 'youth and community', c1: 'institutional policy', c2: 'abstract public debate' }[level]
-  const specificSetting = `${levelContext} ${family} context cycle ${cycle} test ${testNumber}`
+  const index = testNumber - 7
+  const family = CURATED_FAMILIES[index % CURATED_FAMILIES.length]
+  const specificSetting = `${CURATED_SETTINGS[level][index % CURATED_SETTINGS[level].length]} planning brief ${index + 1}`
   const specificSettingByTask = {}
   const audienceByTask = {}
   const purposeByTask = {}
@@ -278,17 +291,17 @@ function genericRow(level, testNumber) {
   const scenarioSeeds = {}
   for (const [index, task] of config.tasks.entries()) {
     const key = `task${task.taskNumber}`
-    specificSettingByTask[key] = `${specificSetting} task ${task.taskNumber} ${task.genre}`
-    audienceByTask[key] = `${AUDIENCE_DEFAULTS[index]} for ${level.toUpperCase()} cycle ${cycle}`
-    purposeByTask[key] = `${PURPOSE_DEFAULTS[index]} in test ${testNumber}`
+    specificSettingByTask[key] = `${specificSetting}: ${task.genre} brief ${index + 1}-${index * 3 + task.taskNumber}`
+    audienceByTask[key] = AUDIENCE_DEFAULTS[index % AUDIENCE_DEFAULTS.length]
+    purposeByTask[key] = PURPOSE_DEFAULTS[index % PURPOSE_DEFAULTS.length]
     registerByTask[key] = REGISTER_DEFAULTS[index]
-    requiredContentPointsByTask[key] = [`${family} dimension ${cycle}-${index + 1}a`, `${family} dimension ${cycle}-${index + 1}b`, `independent judgement ${testNumber}-${index + 1}`]
+    requiredContentPointsByTask[key] = [`the main ${family} issue`, `one practical consequence`, `a justified recommendation ${index + 1}`]
     scenarioSeeds[key] = `${specificSettingByTask[key]} | ${audienceByTask[key]} | ${purposeByTask[key]}`
   }
   return {
     level, testNumber, testId: getTestId(level, testNumber), topicFamily: family,
     subtopics: Object.values(specificSettingByTask), audiences: Object.values(audienceByTask), communicativePurposes: Object.values(purposeByTask), registers: Object.values(registerByTask), scenarioSeeds,
-    designFingerprint: { level, testId: getTestId(level, testNumber), topicFamily: family, specificSetting, specificSettingByTask, stakeholders: [`${level} stakeholder group ${cycle}`, `${family} decision makers`], centralTension: `${family} competing priorities for ${level} cycle ${cycle}`, audienceByTask, purposeByTask, registerByTask, requiredContentPointsByTask, lexicalAnchors: [`${level} ${family}`, `cycle ${cycle}`, `test ${testNumber}`], forbiddenConcepts: [] },
+    designFingerprint: { level, testId: getTestId(level, testNumber), topicFamily: family, specificSetting, specificSettingByTask, stakeholders: [`people affected by ${family}`, `organisers of ${specificSetting}`], centralTension: `access and convenience versus long-term responsibility in ${family}`, audienceByTask, purposeByTask, registerByTask, requiredContentPointsByTask, lexicalAnchors: [family, specificSetting, `${level} writing brief`], forbiddenConcepts: [] },
     forbiddenOverlapWith: [], status: 'planned',
   }
 }
@@ -299,7 +312,7 @@ export function buildPlan() {
     const config = CAMBRIDGE_WRITING_LEVEL_CONFIGS[level]
     for (let offset = 0; offset < config.newTestCount; offset += 1) {
       const testNumber = offset + 2
-      rows.push(testNumber <= 6 ? checkpointRow(level, testNumber) : genericRow(level, testNumber))
+      rows.push(testNumber <= 6 ? checkpointRow(level, testNumber) : curatedRow(level, testNumber))
     }
   }
   return rows
@@ -319,6 +332,7 @@ export function validatePlan(rows) {
     if (ids.has(row.testId)) errors.push(`duplicate test id: ${row.testId}`)
     ids.add(row.testId)
     const fingerprint = row.designFingerprint
+    if (row.testNumber >= 7 && /\b(cycle|dimension|stakeholder group|independent judgement|generic context|topic aspect|first factor|second factor)\b/i.test(JSON.stringify(row))) errors.push(`${row.testId}: placeholder wording detected`)
     if (!fingerprint?.specificSetting || !fingerprint?.centralTension || !fingerprint?.stakeholders?.length) errors.push(`${row.testId}: incomplete designFingerprint`)
     const signature = sha256({ topicFamily: row.topicFamily, specificSetting: fingerprint?.specificSetting, stakeholders: fingerprint?.stakeholders, centralTension: fingerprint?.centralTension, audienceByTask: fingerprint?.audienceByTask, purposeByTask: fingerprint?.purposeByTask, requiredContentPointsByTask: fingerprint?.requiredContentPointsByTask, lexicalAnchors: fingerprint?.lexicalAnchors })
     if (designSignatures.has(signature)) errors.push(`${row.testId}: duplicates complete design of ${designSignatures.get(signature)}`)
@@ -332,7 +346,25 @@ export function validatePlan(rows) {
       scenarioKeys.set(scenarioKey, `${row.testId} ${key}`)
     }
   }
+  for (const level of CAMBRIDGE_WRITING_LEVELS) {
+    const levelRows = rows.filter(row => row.level === level && row.testNumber >= 7)
+    const families = new Set(levelRows.map(row => row.topicFamily))
+    if (families.size < 18) errors.push(`${level}: expected at least 18 topic families, got ${families.size}`)
+    const counts = new Map()
+    for (const row of levelRows) counts.set(row.topicFamily, (counts.get(row.topicFamily) || 0) + 1)
+    for (const [family, count] of counts) if (count > Math.ceil(levelRows.length * 0.15)) errors.push(`${level}: topic family ${family} exceeds 15% quota`)
+    for (let i = 1; i < levelRows.length; i += 1) if (levelRows[i].topicFamily === levelRows[i - 1].topicFamily) errors.push(`${level}: consecutive topic family repeat at ${levelRows[i].testId}`)
+  }
   if (errors.length) throw new Error(`Invalid Cambridge Writing generation plan:\n${errors.join('\n')}`)
+}
+
+export function buildTopicCoverageReport(rows = buildPlan()) {
+  return Object.fromEntries(CAMBRIDGE_WRITING_LEVELS.map(level => {
+    const scoped = rows.filter(row => row.level === level && row.testNumber >= 7)
+    const distribution = {}
+    for (const row of scoped) distribution[row.topicFamily] = (distribution[row.topicFamily] || 0) + 1
+    return [level, { tests: scoped.length, uniqueTopicFamilies: Object.keys(distribution).length, distribution, maxFamilyShare: Math.max(...Object.values(distribution)) / scoped.length }]
+  }))
 }
 
 function toMarkdown(rows) {

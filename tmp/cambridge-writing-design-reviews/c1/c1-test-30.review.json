@@ -1,0 +1,91 @@
+{
+  "testId": "c1-test-30",
+  "level": "c1",
+  "topicFamily": "public health campaigns",
+  "specificSetting": "a public health equity plan planning brief 24",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Essay: Class discussion on funding priorities for public health campaigns within a public health equity plan.",
+      "audience": "English teacher (tutor)",
+      "purpose": "Evaluate and justify which of two priorities (screening, exercise, awareness) is more important for the plan to invest in.",
+      "requiredContentPoints": [
+        "targeted screening programmes for high-risk groups",
+        "community-based exercise initiatives",
+        "public awareness campaigns about nutrition"
+      ],
+      "lexicalAnchors": [
+        "public health campaigns",
+        "public health equity plan",
+        "screening programmes",
+        "exercise initiatives",
+        "awareness campaigns"
+      ],
+      "originalitySelfCheck": "Unique scenario: public health equity plan funding. Notes and opinions are original, not reused from previous tests. No forbidden concepts used.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Proposal: Design a community exercise initiative for inactive adults, submitted to local health authority.",
+      "audience": "Health authority (programme coordinator)",
+      "purpose": "Recommend two exercise activities, explain benefits, and suggest how to reach the least active.",
+      "requiredContentPoints": [
+        "two specific types of exercise activities",
+        "benefits for participants and wider community",
+        "ensuring reach to least active"
+      ],
+      "lexicalAnchors": [
+        "community-based exercise initiative",
+        "inactive adults",
+        "health authority",
+        "reach"
+      ],
+      "originalitySelfCheck": "New scenario: community exercise initiative for inactive adults. No overlap with previous proposals. No forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Email: Respond to programme coordinator about using social media influencers for a nutrition campaign.",
+      "audience": "Programme coordinator of the public health equity plan",
+      "purpose": "Explain position on influencers, analyse implication for public understanding, propose action to address concerns.",
+      "requiredContentPoints": [
+        "position on using social media influencers",
+        "potential implication for public understanding of nutrition",
+        "proposed action to address concerns"
+      ],
+      "lexicalAnchors": [
+        "nutrition awareness campaign",
+        "social media influencers",
+        "public understanding",
+        "public health equity plan"
+      ],
+      "originalitySelfCheck": "New scenario: nutrition campaign using influencers. No similar email in previous tests. No forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Review: Attend a free health screening event organised by the public health equity plan.",
+      "audience": "Local community website readers",
+      "purpose": "Describe the event, evaluate balance between convenience and thoroughness, recommend to other communities.",
+      "requiredContentPoints": [
+        "description of event and what it offered",
+        "evaluation of balance between convenience and thorough health information",
+        "recommendation for other communities"
+      ],
+      "lexicalAnchors": [
+        "health screening event",
+        "public health equity plan",
+        "convenience",
+        "health information"
+      ],
+      "originalitySelfCheck": "New scenario: health screening event review. No similar review in previous tests. No forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are based on the unique topic family 'public health campaigns' and specific setting 'a public health equity plan planning brief 24'. No task reuses scenarios, audiences, content points, or lexical anchors from any previously generated test. All forbidden concepts are avoided.",
+  "status": "PASS",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "4d4b7cfe4aefd7465be66f09b8b5b8d75ca0cac9211215dd83d805e361c2bc7d"
+  }
+}

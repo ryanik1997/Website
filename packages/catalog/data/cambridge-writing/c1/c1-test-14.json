@@ -1,0 +1,187 @@
+{
+  "id": "c1-test-14",
+  "level": "c1",
+  "testNumber": 14,
+  "title": "CAE C1 AI Practice Test 14",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-14.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "c1-test-14-1785310508898",
+    "generatedAt": 1785310533254,
+    "contentHash": "a0ebc488b1fa78b477f01b579f01e8781f06416922860cb2799cfc6787036d2d",
+    "promptHash": "b1b0af3de452a61a2e7d2d2bb9f7f6ca4218363420eb1aaee1f9de395f0c9596",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-14:b1b0af3de452a61a2e7d2d2bb9f7f6ca4218363420eb1aaee1f9de395f0c9596",
+    "inputHash": "b1b0af3de452a61a2e7d2d2bb9f7f6ca4218363420eb1aaee1f9de395f0c9596",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "c1-test-14-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay: Priorities for a sector-wide internship compact",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-14-task-01-block-01",
+          "type": "paragraph",
+          "text": "Your class has listened to a radio discussion about a proposed sector-wide internship compact that would set minimum standards for part-time work placements. You have made the notes below."
+        },
+        {
+          "id": "c1-test-14-task-01-block-02",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Priorities for the internship compact",
+          "listItems": [
+            "guaranteeing a fair hourly wage for all interns",
+            "requiring structured mentoring and feedback during placements",
+            "limiting the maximum weekly hours to protect study time"
+          ]
+        },
+        {
+          "id": "c1-test-14-task-01-block-03",
+          "type": "panel",
+          "variant": "opinions",
+          "paragraphs": [
+            "A fair wage is the most basic requirement – without it, internships are just cheap labour and that discourages students from low-income backgrounds.",
+            "Mentoring is what turns a part-time job into a genuine learning experience; without it, students just do routine tasks and gain nothing.",
+            "If we don't cap hours, students will prioritise earning over studying and their academic performance will suffer – that defeats the purpose of an internship."
+          ]
+        },
+        {
+          "id": "c1-test-14-task-01-block-04",
+          "type": "final-instruction",
+          "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for the success of the internship compact, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes-opinions"
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c1-test-14-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Proposal: Assessing and improving the compact",
+      "genre": "proposal",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-14-task-02-block-01",
+          "type": "paragraph",
+          "text": "A national student union is evaluating the effectiveness of the proposed internship compact. The union has invited proposals from student representatives on how the compact should be assessed and improved."
+        },
+        {
+          "id": "c1-test-14-task-02-block-02",
+          "type": "final-instruction",
+          "text": "Write a proposal for the national student union. In your proposal, you should:\n\n• recommend two criteria for measuring the compact's effectiveness\n• explain how these criteria would benefit both students and employers\n• suggest how the union could encourage employers to participate in the assessment process"
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-14-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Email: Analysing implications and proposing action",
+      "genre": "email",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-14-task-03-block-01",
+          "type": "email",
+          "from": "Dr. Mark Chen <m.chen@careerscentre.org>",
+          "subject": "Internship compact – potential impact on small businesses",
+          "greeting": "Dear Programme Coordinator,",
+          "paragraphs": [
+            "I am writing on behalf of the Careers Centre to express some concerns about the proposed internship compact. While we fully support the aim of fairer conditions, we are worried that the new requirements – particularly the minimum wage and mentoring obligations – could discourage small businesses from offering placements at all. This would reduce the number of opportunities available to students, especially in sectors where small enterprises are the main employers.",
+            "I would appreciate your analysis of this potential implication. Could you also suggest what action the compact organisers could take to support small businesses in meeting the standards?",
+            "I look forward to your response."
+          ],
+          "closing": "Best regards,",
+          "sender": "Dr. Mark Chen"
+        },
+        {
+          "id": "c1-test-14-task-03-block-02",
+          "type": "final-instruction",
+          "text": "Write an email to Dr. Chen. In your email, you should:\n\n• acknowledge the concern and explain the reasoning behind the compact's requirements\n• analyse one potential implication for small businesses if the compact is implemented\n• propose an action the compact organisers could take to address the concern while maintaining standards"
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-14-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Review: A part-time work experience",
+      "genre": "review",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-14-task-04-block-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted: Part-time work experiences",
+          "paragraphs": [
+            "Have you recently completed a part-time job or internship that was part of your studies? We want to hear about your experience.",
+            "Write a review for our student advice website. Describe the placement and what you did. Evaluate how well it balanced your work responsibilities with your learning. Explain whether you would recommend this type of arrangement to other students.",
+            "The best reviews will be published on our website."
+          ]
+        },
+        {
+          "id": "c1-test-14-task-04-block-02",
+          "type": "final-instruction",
+          "text": "Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

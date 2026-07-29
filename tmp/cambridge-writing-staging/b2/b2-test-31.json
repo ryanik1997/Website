@@ -1,0 +1,190 @@
+{
+  "id": "b2-test-31",
+  "level": "b2",
+  "testNumber": 31,
+  "title": "FCE B2 AI Practice Test 31",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-31.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b2-test-31-1785313109677",
+    "generatedAt": 1785313154833,
+    "contentHash": "f99b19abb61fbe1c544596ff454d32c88ea73b4f4e05cfb57a858de11d3e8981",
+    "promptHash": "065f56e4c233ef6566e6fada2163065fc3300e7977ec64da43fac389245a92ee",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-31:065f56e4c233ef6566e6fada2163065fc3300e7977ec64da43fac389245a92ee",
+    "inputHash": "065f56e4c233ef6566e6fada2163065fc3300e7977ec64da43fac389245a92ee",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b2-test-31-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Climate resilience partnership priorities",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-31-task-01-p1",
+          "type": "paragraph",
+          "text": "In your English class you have been discussing how to set priorities for a climate resilience partnership in your region. Now your English teacher has asked you to write an essay."
+        },
+        {
+          "id": "b2-test-31-task-01-p2",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "listItems": [
+            "1. improving flood defences in low-lying areas",
+            "2. setting up emergency cooling centres during heatwaves",
+            "3. (your own idea)"
+          ]
+        },
+        {
+          "id": "b2-test-31-task-01-p3",
+          "type": "final-instruction",
+          "text": "Write an essay using all the notes and giving reasons for your point of view."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes"
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b2-test-31-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Climate adaptation workshop review",
+      "genre": "review",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-31-task-02-p1",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted!",
+          "paragraphs": [
+            "Have you attended a community workshop on climate adaptation organised by the Climate Resilience Partnership? We want to hear about your experience."
+          ],
+          "listItems": [
+            "Describe what the workshop covered and how it was run.",
+            "Say how useful it was for understanding local climate risks.",
+            "Would you recommend this workshop to other residents? Why or why not?"
+          ],
+          "footer": "The best reviews will be published in the partnership's newsletter."
+        },
+        {
+          "id": "b2-test-31-task-02-p2",
+          "type": "final-instruction",
+          "text": "Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-31-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Making homes more climate-ready",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-31-task-03-p1",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted!",
+          "paragraphs": [
+            "The Climate Resilience Partnership wants to help residents make their homes more prepared for extreme weather. What practical steps can people take without spending a lot of money?"
+          ],
+          "listItems": [
+            "Describe one low-cost measure to protect a home from flooding or heat.",
+            "Explain why this measure is effective.",
+            "Suggest how the partnership could support residents in adopting it."
+          ],
+          "footer": "We will publish the best articles on our website."
+        },
+        {
+          "id": "b2-test-31-task-03-p2",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-31-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Volunteering for climate resilience",
+      "genre": "email",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-31-task-04-email",
+          "type": "email",
+          "from": "Sam Carter",
+          "subject": "Volunteering for climate resilience",
+          "paragraphs": [
+            "Hi,",
+            "I heard that the Climate Resilience Partnership is looking for volunteers to help with local projects. I'm thinking of joining but I'm not sure what to expect.",
+            "Can you tell me what kind of tasks volunteers usually do? Also, what practical difference do you think these projects make in the community? And how much time would I need to commit?",
+            "Thanks a lot!",
+            "Sam"
+          ]
+        },
+        {
+          "id": "b2-test-31-task-04-p2",
+          "type": "final-instruction",
+          "text": "Write your email."
+        }
+      ],
+      "presentation": {
+        "template": "email",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

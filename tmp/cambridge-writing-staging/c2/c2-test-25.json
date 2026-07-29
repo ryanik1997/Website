@@ -1,0 +1,138 @@
+{
+  "id": "c2-test-25",
+  "level": "c2",
+  "testNumber": 25,
+  "title": "CPE C2 AI Practice Test 25",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-25.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "c2-test-25-1785312677800",
+    "generatedAt": 1785312709705,
+    "contentHash": "6b1274cf4bf0ae561df77c993ef0cc065772ca40531ed6ae28ff67c572517aa6",
+    "promptHash": "9836010f7bf57872280b34f50cef7d59770bb1912383d91ae43ed72f2195ca95",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-25:9836010f7bf57872280b34f50cef7d59770bb1912383d91ae43ed72f2195ca95",
+    "inputHash": "9836010f7bf57872280b34f50cef7d59770bb1912383d91ae43ed72f2195ca95",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "c2-test-25-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Privacy and Social Trust: Essay",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write an essay summarising and evaluating the key points from both texts in 240–280 words. Use your own words throughout as far as possible, and include your own ideas in your answers.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-25-task-01-source-1",
+          "type": "source-text",
+          "label": "Text 1",
+          "text": "The erosion of online privacy is frequently lamented, yet the convenience of personalised services makes most people reluctant to act. Targeted advertising, recommendation algorithms and seamless data-sharing between platforms are not merely tolerated; they are expected. This trade-off is rational: individuals gain immediate utility in exchange for a diffuse future risk that is difficult to quantify. The real threat, however, is not to the individual but to social trust. When citizens suspect that their every digital move is monitored and commodified, spontaneous public discourse withers. A society that normalises surveillance, even for benign commercial purposes, gradually loses the capacity for open disagreement and genuine deliberation. The convenience of today thus purchases a less democratic tomorrow."
+        },
+        {
+          "id": "c2-test-25-task-01-source-2",
+          "type": "source-text",
+          "label": "Text 2",
+          "text": "The panic over online privacy rests on a misunderstanding of how trust actually operates. People do not need absolute confidentiality to trust one another; they need predictable boundaries. Most users are perfectly capable of distinguishing between a platform that uses their data to recommend a film and one that leaks sensitive information to employers. The demand for total privacy is not only impractical but also anti-social, because it implies that every interaction must be shielded from public view. Healthy societies depend on a degree of visibility: reputations are built, fraud is deterred, and norms are enforced precisely because behaviour is observable. The challenge is not to eliminate data collection but to make its rules transparent and accountable. Convenience and responsibility are not opposites; they are complementary when governance is sound."
+        }
+      ],
+      "presentation": {
+        "template": "source-texts"
+      },
+      "wordLimit": {
+        "min": 240,
+        "max": 280,
+        "displayText": "240–280 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c2-test-25-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Review of a Privacy-Focused Service",
+      "genre": "review",
+      "instruction": "Answer one of the following questions (2–4). Write 280–320 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-25-task-02-prompt",
+          "type": "paragraph",
+          "text": "A specialist magazine for technology users is running a series of reviews of digital services that claim to prioritise user privacy. You decide to write a review of a service you have used – for example, a search engine, a messaging app or a social media platform that emphasises privacy protection. In your review, describe the service and its privacy features, assess how effectively it balances user convenience with genuine data protection, and recommend whether other users should switch to this service. Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-25-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Report on Privacy Awareness Training",
+      "genre": "report",
+      "instruction": "Answer one of the following questions (2–4). Write 280–320 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-25-task-03-prompt",
+          "type": "paragraph",
+          "text": "The programme coordinator of a community centre has asked you to write a report on a recently introduced digital privacy awareness workshop series for local residents. The workshops aimed to help participants understand how their data is collected and how to protect their privacy online. In your report, analyse how the workshops affected participants' awareness and behaviour, assess the implications for long-term digital responsibility in the community, and propose one action the centre could take to build on the workshops' impact. Write your report."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-25-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Article on Privacy and Convenience",
+      "genre": "article",
+      "instruction": "Answer one of the following questions (2–4). Write 280–320 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-25-task-04-prompt",
+          "type": "paragraph",
+          "text": "An English-language online magazine for international readers is publishing a series on 'Privacy in the Digital Age'. You have been contacted by an editor who is an English-speaking contact of yours. The editor asks you to write an article explaining your position on whether people should be willing to sacrifice some online privacy for the sake of convenience. In your article, explain your position on this question, describe one practical consequence of your view for how individuals manage their digital lives, and suggest how technology companies could help users make more informed choices. End your article by requesting that the magazine arrange a follow-up online discussion with readers and privacy advocates to explore the issue further. Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

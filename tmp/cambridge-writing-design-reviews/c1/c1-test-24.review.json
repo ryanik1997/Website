@@ -1,0 +1,138 @@
+{
+  "testId": "c1-test-24",
+  "level": "c1",
+  "topicFamily": "creative workshops",
+  "designFingerprint": {
+    "specificSetting": "a creative skills initiative planning brief 18",
+    "specificSettingByTask": {
+      "task1": "a creative skills initiative planning brief 18: essay brief 1-1",
+      "task2": "a creative skills initiative planning brief 18: proposal brief 2-5",
+      "task3": "a creative skills initiative planning brief 18: email brief 3-9",
+      "task4": "a creative skills initiative planning brief 18: review brief 4-13"
+    },
+    "audienceByTask": {
+      "task1": "English teacher",
+      "task2": "specialist magazine readers",
+      "task3": "programme coordinator",
+      "task4": "English-speaking contact"
+    },
+    "purposeByTask": {
+      "task1": "evaluate and justify priorities",
+      "task2": "assess effectiveness and recommend",
+      "task3": "analyse implications and propose action",
+      "task4": "explain a position and request arrangements"
+    },
+    "registerByTask": {
+      "task1": "neutral",
+      "task2": "semi-formal",
+      "task3": "formal",
+      "task4": "engaging neutral"
+    },
+    "requiredContentPointsByTask": {
+      "task1": [
+        "the main creative workshops issue",
+        "one practical consequence",
+        "a justified recommendation 1"
+      ],
+      "task2": [
+        "the main creative workshops issue",
+        "one practical consequence",
+        "a justified recommendation 2"
+      ],
+      "task3": [
+        "the main creative workshops issue",
+        "one practical consequence",
+        "a justified recommendation 3"
+      ],
+      "task4": [
+        "the main creative workshops issue",
+        "one practical consequence",
+        "a justified recommendation 4"
+      ]
+    },
+    "lexicalAnchors": [
+      "creative workshops",
+      "a creative skills initiative planning brief 18",
+      "c1 writing brief"
+    ],
+    "forbiddenConcepts": []
+  },
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Essay discussing priorities for a creative skills initiative (free materials, mentorship, public showcase)",
+      "audience": "English teacher",
+      "purpose": "Evaluate and justify which priority is more important",
+      "requiredContentPoints": [
+        "the main creative workshops issue",
+        "one practical consequence",
+        "a justified recommendation 1"
+      ],
+      "lexicalAnchors": [
+        "creative workshops",
+        "a creative skills initiative planning brief 18",
+        "c1 writing brief"
+      ],
+      "originalitySelfCheck": "Scenario is unique; no overlap with existing tests. Uses creative skills initiative, not generic education or peer learning.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Proposal for a creative skills initiative aimed at adults without formal arts training",
+      "audience": "specialist magazine readers (arts council)",
+      "purpose": "Assess effectiveness and recommend workshop types and outreach",
+      "requiredContentPoints": [
+        "the main creative workshops issue",
+        "one practical consequence",
+        "a justified recommendation 2"
+      ],
+      "lexicalAnchors": [
+        "creative workshops",
+        "a creative skills initiative planning brief 18",
+        "c1 writing brief"
+      ],
+      "originalitySelfCheck": "Proposal targets adults new to arts; no overlap with existing proposals (e.g., student interaction, study hub, employer partnership).",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Email analysing implications of free materials policy for local businesses",
+      "audience": "programme coordinator",
+      "purpose": "Analyse implications and propose action",
+      "requiredContentPoints": [
+        "the main creative workshops issue",
+        "one practical consequence",
+        "a justified recommendation 3"
+      ],
+      "lexicalAnchors": [
+        "creative workshops",
+        "a creative skills initiative planning brief 18",
+        "c1 writing brief"
+      ],
+      "originalitySelfCheck": "Email focuses on economic impact on local shops, not generic course complaint or visit arrangement. Unique scenario.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Review of a creative workshop for beginners",
+      "audience": "English-speaking contact (community website readers)",
+      "purpose": "Explain a position and request arrangements (recommendation)",
+      "requiredContentPoints": [
+        "the main creative workshops issue",
+        "one practical consequence",
+        "a justified recommendation 4"
+      ],
+      "lexicalAnchors": [
+        "creative workshops",
+        "a creative skills initiative planning brief 18",
+        "c1 writing brief"
+      ],
+      "originalitySelfCheck": "Review is about a creative workshop (painting, pottery, etc.), not a book, film, digital detox, or study clinic. Unique to this test.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "a6ee103fdbf758f71ac5bfb4918db0bd8242b2313a275616beb9e349f3c7c5bc"
+  }
+}

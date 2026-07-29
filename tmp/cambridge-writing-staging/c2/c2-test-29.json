@@ -1,0 +1,122 @@
+{
+  "id": "c2-test-29",
+  "level": "c2",
+  "testNumber": 29,
+  "title": "CPE C2 AI Practice Test 29",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-29.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "c2-test-29-1785313342716",
+    "generatedAt": 1785313385208,
+    "contentHash": "ece99e28e5436690783cddf9e5db1ba3ba63eb682f4a8bbcaa62155c10c3adfd",
+    "promptHash": "0bede12941465c72d08a2ec77ef371539bf87acbddfd4a8c5180e833b6b3fce0",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-29:0bede12941465c72d08a2ec77ef371539bf87acbddfd4a8c5180e833b6b3fce0",
+    "inputHash": "0bede12941465c72d08a2ec77ef371539bf87acbddfd4a8c5180e833b6b3fce0",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "c2-test-29-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Who should fund culture?",
+      "genre": "essay",
+      "instruction": "Write an essay summarising and evaluating the key points from both texts in 240–280 words. Use your own words throughout as far as possible, and include your own ideas in your answers.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-29-task-01-source-1",
+          "type": "source-text",
+          "label": "Text 1",
+          "title": "The case for public funding",
+          "text": "Public funding of the arts is often attacked as an indulgence in times of austerity, yet it is precisely when private budgets tighten that collective cultural provision matters most. A society that leaves cultural production entirely to market forces will get only what sells: blockbuster exhibitions, franchise films and celebrity concerts. The experimental, the challenging and the locally specific will disappear because they cannot compete for attention. Public subsidy corrects this market failure, ensuring that a community's cultural life reflects more than its spending power. It is not a luxury but a necessary instrument of democratic cultural policy, one that distributes access to the symbolic resources that define a civilisation."
+        },
+        {
+          "id": "c2-test-29-task-01-source-2",
+          "type": "source-text",
+          "label": "Text 2",
+          "title": "The limits of state patronage",
+          "text": "The argument that public funding protects artistic quality from commercial vulgarity is a piece of self-serving mythology. In practice, state patronage creates its own conformities: funding bodies favour safe, prestigious projects that will not provoke political controversy, and artists learn to produce work that ticks the right grant-writing boxes. The result is a subsidised culture that is cautious, metropolitan and disconnected from the tastes of the majority. A more honest approach would recognise that most cultural activity is, and always has been, commercially sustained. The public purse should focus on education and infrastructure, not on picking aesthetic winners. Let audiences decide what has value by choosing what to pay for."
+        }
+      ],
+      "presentation": {
+        "template": "source-texts"
+      },
+      "wordLimit": {
+        "min": 240,
+        "max": 280,
+        "displayText": "240–280 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c2-test-29-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "A review of a community arts funding model",
+      "genre": "review",
+      "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+      "promptText": "A specialist magazine for arts administrators is running a series of reviews of alternative arts funding models. You decide to write a review of a community arts funding initiative you have observed or participated in. In your review, describe the funding model and how it operates, assess how effectively it balances the need for financial sustainability with artistic freedom, and recommend whether other communities should adopt a similar approach.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-29-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Report on local arts funding impact",
+      "genre": "report",
+      "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+      "promptText": "You are a consultant hired by a regional cultural consortium. The programme coordinator has asked you to write a report on how recent changes in arts funding have affected cultural organisations in the region. In your report, analyse the main ways in which funding shifts have influenced programming, audience reach and organisational stability. Assess the potential consequences for the region's cultural vitality if current trends continue. Propose two concrete actions that the consortium could take to support a more resilient and inclusive cultural sector.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-29-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Should culture be a public good?",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+      "promptText": "An international online magazine for English-speaking readers is publishing a series on 'Who Pays for Culture?'. You have been contacted by an English-speaking contact who is an editor at the magazine. The editor asks you to write an article explaining your position on whether the arts should be considered a public good that deserves state funding, or a market commodity best left to private enterprise. In your article, explain your position on this question, describe one practical consequence of your view for how cultural institutions should be financed, and suggest how policymakers could implement your recommendation while maintaining public accountability. End your article by requesting that the magazine arrange a follow-up online discussion with readers and cultural leaders to explore the issue further.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,203 @@
+{
+  "inputHash": "96b91e8371ae6be16b350330706b21dfab9e2d72f6b8bb4381bdae6afbc553e0",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-33:96b91e8371ae6be16b350330706b21dfab9e2d72f6b8bb4381bdae6afbc553e0",
+  "test": {
+    "id": "c2-test-33",
+    "level": "c2",
+    "testNumber": 33,
+    "title": "CPE C2 AI Practice Test 33",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-33.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c2-test-33-1785314002261",
+      "generatedAt": 1785314019569,
+      "contentHash": "17aac922b0e87afb33a00eff9a5011476f5c0ce2d3fcb6ae70880a17d82b28f9",
+      "promptHash": "96b91e8371ae6be16b350330706b21dfab9e2d72f6b8bb4381bdae6afbc553e0",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-33:96b91e8371ae6be16b350330706b21dfab9e2d72f6b8bb4381bdae6afbc553e0",
+      "inputHash": "96b91e8371ae6be16b350330706b21dfab9e2d72f6b8bb4381bdae6afbc553e0",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c2-test-33-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Neighbourhood transport and regional inequality",
+        "genre": "essay",
+        "instruction": "Read the two texts below. Write an essay summarising and evaluating the key points from both texts. Use your own words throughout as far as possible, and include your own ideas in your answers.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-33-task-01-source-1",
+            "type": "source-text",
+            "label": "Text 1",
+            "text": "Neighbourhood transport improvements are often concentrated in areas that already have good services. New metro lines and cycle lanes tend to serve commercial centres and affluent suburbs, while peripheral housing estates continue to rely on infrequent, unreliable buses. This pattern reinforces existing inequalities: residents of well-connected areas gain better access to jobs and healthcare, while those in poorly served neighbourhoods face longer journey times and higher costs. The result is a mobility gap that entrenches social and economic disadvantage."
+          },
+          {
+            "id": "c2-test-33-task-01-source-2",
+            "type": "source-text",
+            "label": "Text 2",
+            "text": "Critics of the mobility gap argument claim that transport investment cannot solve deeper structural problems such as housing affordability and labour market segregation. Even when public transport is improved in deprived areas, residents may still lack the skills or opportunities to access better jobs. Moreover, focusing on transport distracts from more fundamental issues like education and social housing. Transport policy should be guided by efficiency and demand, not by a desire to reduce inequality; spending limited resources on low-ridership routes may be wasteful when the same money could improve services where they are most used."
+          }
+        ],
+        "presentation": {
+          "template": "source-texts"
+        },
+        "wordLimit": {
+          "min": 240,
+          "max": 280,
+          "displayText": "240–280 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c2-test-33-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Review of a community transport initiative",
+        "genre": "review",
+        "instruction": "Answer one of the following questions (2–4). Write 280–320 words in an appropriate style.\n\nA specialist magazine for transport planners is running a series of reviews of community-led transport initiatives. You decide to write a review of a recent initiative in your area: a demand-responsive bus service introduced to improve mobility in a low-income neighbourhood. In your review, evaluate how effectively the service addresses the mobility needs of residents, discuss any unintended consequences it may have had, and recommend whether similar schemes should be adopted in other underserved areas.",
+        "promptText": "A specialist magazine for transport planners is running a series of reviews of community-led transport initiatives. You decide to write a review of a recent initiative in your area: a demand-responsive bus service introduced to improve mobility in a low-income neighbourhood. In your review, evaluate how effectively the service addresses the mobility needs of residents, discuss any unintended consequences it may have had, and recommend whether similar schemes should be adopted in other underserved areas.",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c2-test-33-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Report on transport access and economic opportunity",
+        "genre": "report",
+        "instruction": "Answer one of the following questions (2–4). Write 280–320 words in an appropriate style.\n\nYou are a policy analyst for a regional development agency. The programme coordinator has asked you to write a report on the implications of unequal transport access for economic opportunity in the region. In your report, analyse how current transport provision affects job accessibility for residents in peripheral neighbourhoods, assess the potential consequences for regional productivity and social cohesion, and propose two concrete actions that the agency could take to reduce transport-related inequality.",
+        "promptText": "You are a policy analyst for a regional development agency. The programme coordinator has asked you to write a report on the implications of unequal transport access for economic opportunity in the region. In your report, analyse how current transport provision affects job accessibility for residents in peripheral neighbourhoods, assess the potential consequences for regional productivity and social cohesion, and propose two concrete actions that the agency could take to reduce transport-related inequality.",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c2-test-33-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Article on fairer transport",
+        "genre": "article",
+        "instruction": "Answer one of the following questions (2–4). Write 280–320 words in an appropriate style.\n\nAn international online magazine is inviting readers to submit articles on the theme of 'Fairer Transport for All'. You decide to write an article in which you explain your position on whether transport investment should prioritise reducing inequality over maximising efficiency. In your article, discuss what you see as the main ethical issue in current transport planning, describe one practical consequence of ignoring inequality, and recommend a specific policy change that would make transport systems more equitable.",
+        "promptText": "An international online magazine is inviting readers to submit articles on the theme of 'Fairer Transport for All'. You decide to write an article in which you explain your position on whether transport investment should prioritise reducing inequality over maximising efficiency. In your article, discuss what you see as the main ethical issue in current transport planning, describe one practical consequence of ignoring inequality, and recommend a specific policy change that would make transport systems more equitable.",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "c2-test-33",
+    "overallOriginalityCheck": "PASS",
+    "tasks": [
+      {
+        "taskId": "c2-test-33-task-01",
+        "scenario": "Two source texts debating whether transport investment should target inequality or efficiency",
+        "audience": "Educated general reader (English teacher)",
+        "purpose": "Synthesise competing claims, evaluate assumptions, develop independent position",
+        "requiredContentPoints": [
+          "mobility gap as inequality driver",
+          "efficiency counterargument",
+          "own conceptual distinction"
+        ],
+        "lexicalAnchors": [
+          "neighbourhood transport",
+          "mobility gap",
+          "regional inequality"
+        ],
+        "originalitySelfCheck": "Source texts are original; no reuse of existing test fingerprints; forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskId": "c2-test-33-task-02",
+        "scenario": "Review of a demand-responsive bus service in a low-income neighbourhood",
+        "audience": "Specialist magazine readers (transport planners)",
+        "purpose": "Assess effectiveness and recommend",
+        "requiredContentPoints": [
+          "effectiveness for mobility needs",
+          "unintended consequences",
+          "recommendation for other areas"
+        ],
+        "lexicalAnchors": [
+          "demand-responsive bus",
+          "low-income neighbourhood",
+          "mobility needs"
+        ],
+        "originalitySelfCheck": "Unique initiative; no overlap with previous review tasks; forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskId": "c2-test-33-task-03",
+        "scenario": "Report on transport access and economic opportunity for a regional development agency",
+        "audience": "Programme coordinator (formal)",
+        "purpose": "Analyse implications and propose action",
+        "requiredContentPoints": [
+          "current transport provision and job accessibility",
+          "consequences for productivity and social cohesion",
+          "two concrete actions"
+        ],
+        "lexicalAnchors": [
+          "transport access",
+          "economic opportunity",
+          "peripheral neighbourhoods"
+        ],
+        "originalitySelfCheck": "Original report scenario; no reuse of existing report fingerprints; forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskId": "c2-test-33-task-04",
+        "scenario": "Article arguing whether transport investment should prioritise reducing inequality over efficiency",
+        "audience": "English-speaking contact (magazine readers)",
+        "purpose": "Explain a position and request arrangements",
+        "requiredContentPoints": [
+          "main ethical issue",
+          "consequence of ignoring inequality",
+          "specific policy change"
+        ],
+        "lexicalAnchors": [
+          "transport investment",
+          "inequality",
+          "efficiency"
+        ],
+        "originalitySelfCheck": "Original article theme; no overlap with previous article tasks; forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ]
+  },
+  "cachedAt": 1785314019588
+}

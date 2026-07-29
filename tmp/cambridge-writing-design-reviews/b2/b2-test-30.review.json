@@ -1,0 +1,90 @@
+{
+  "testId": "b2-test-30",
+  "level": "b2",
+  "topicFamily": "public health campaigns",
+  "specificSetting": "a public health communication plan planning brief 24",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "genre": "essay",
+      "scenario": "Class discussion on designing effective public health campaigns; teacher asks for essay on most important factor for success.",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "clear and simple messaging",
+        "involving local community leaders",
+        "your own idea"
+      ],
+      "lexicalAnchors": [
+        "public health campaigns",
+        "clear messaging",
+        "community leaders"
+      ],
+      "originalitySelfCheck": "Unique scenario: essay about campaign design factors, not generic education or environment. No overlap with forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "genre": "review",
+      "scenario": "College magazine asks for review of a public health campaign the candidate has seen or taken part in.",
+      "audience": "specialist magazine readers (college magazine)",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "description of campaign and its message",
+        "effectiveness assessment",
+        "recommendation for future"
+      ],
+      "lexicalAnchors": [
+        "public health campaign",
+        "message",
+        "effectiveness"
+      ],
+      "originalitySelfCheck": "Unique: review of a health campaign, not a book, film, or service. No overlap with forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "genre": "article",
+      "scenario": "Youth health website asks for article suggesting a campaign idea to appeal to teenagers.",
+      "audience": "programme coordinator (youth health website readers)",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "one practical campaign idea",
+        "why it would work",
+        "what it might achieve"
+      ],
+      "lexicalAnchors": [
+        "public health campaigns",
+        "young people",
+        "campaign idea"
+      ],
+      "originalitySelfCheck": "Unique: article proposing a health campaign for teenagers, not generic learning or technology. No overlap with forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "genre": "email",
+      "scenario": "Friend Chris asks for advice on starting a neighbourhood exercise campaign.",
+      "audience": "English-speaking contact (friend)",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "main message suggestion",
+        "consequence of inactivity",
+        "one recommendation for campaign"
+      ],
+      "lexicalAnchors": [
+        "public health campaign",
+        "exercise",
+        "neighbourhood"
+      ],
+      "originalitySelfCheck": "Unique: email about planning a local exercise campaign, not a generic advice email. No overlap with forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are original, based on the specific setting of public health campaigns. No reused scenarios, audiences, or content points from previous tests. Forbidden concepts avoided.",
+  "forbiddenConceptCheck": "PASS",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "761b5bee17bc8a6aa603a140db403e78f913a84cfd231ae9bd3ea58d6e8ad475"
+  }
+}

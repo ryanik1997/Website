@@ -1,0 +1,154 @@
+{
+  "id": "c1-test-39",
+  "level": "c1",
+  "testNumber": 39,
+  "title": "CAE C1 AI Practice Test 39",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-39.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "c1-test-39-1785317162713",
+    "generatedAt": 1785317180291,
+    "contentHash": "0f5944caff1b76f7fd58387b4fb3f2b0c9586ddf8ed8adcfbc349a8d6583be28",
+    "promptHash": "c084d1bf6ede5d9edec8dabb379f55150d0e4f79f9bef81b15ea3a0a7935d646",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-39:c084d1bf6ede5d9edec8dabb379f55150d0e4f79f9bef81b15ea3a0a7935d646",
+    "inputHash": "c084d1bf6ede5d9edec8dabb379f55150d0e4f79f9bef81b15ea3a0a7935d646",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "c1-test-39-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay: Priorities for the internship compact",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-39-task-01-panel-notes",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Priorities for the internship compact",
+          "listItems": [
+            "guaranteeing a fair hourly wage for all interns",
+            "requiring structured mentoring and feedback during placements",
+            "limiting the maximum weekly hours to protect study time"
+          ]
+        },
+        {
+          "id": "c1-test-39-task-01-panel-opinions",
+          "type": "panel",
+          "variant": "opinions",
+          "paragraphs": [
+            "A fair wage is the most basic requirement – without it, internships are just cheap labour and that discourages students from low-income backgrounds.",
+            "Mentoring is what turns a part-time job into a genuine learning experience; without it, students just do routine tasks and gain nothing.",
+            "If we don't cap hours, students will prioritise earning over studying and their academic performance will suffer – that defeats the purpose of an internship."
+          ]
+        },
+        {
+          "id": "c1-test-39-task-01-final",
+          "type": "final-instruction",
+          "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for the success of the internship compact, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes-opinions"
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c1-test-39-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Proposal: Assessing the compact's effectiveness",
+      "genre": "proposal",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptText": "A national student union is evaluating the effectiveness of the proposed internship compact. The union has invited proposals from student representatives on how the compact should be assessed and improved.\n\nWrite a proposal for the national student union. In your proposal, you should:\n\n• recommend two criteria for measuring the compact's effectiveness\n• explain how these criteria would benefit both students and employers\n• suggest how the union could encourage employers to participate in the assessment process",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-39-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Email: Responding to concerns about small businesses",
+      "genre": "email",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-39-task-03-email",
+          "type": "email",
+          "from": "Dr. Mark Chen <m.chen@careerscentre.org>",
+          "subject": "Internship compact – potential impact on small businesses",
+          "greeting": "Dear Programme Coordinator,",
+          "paragraphs": [
+            "I am writing on behalf of the Careers Centre to express some concerns about the proposed internship compact. While we fully support the aim of fairer conditions, we are worried that the new requirements – particularly the minimum wage and mentoring obligations – could discourage small businesses from offering placements at all. This would reduce the number of opportunities available to students, especially in sectors where small enterprises are the main employers.",
+            "I would appreciate your analysis of this potential implication. Could you also suggest what action the compact organisers could take to support small businesses in meeting the standards?",
+            "I look forward to your response."
+          ],
+          "closing": "Best regards,",
+          "sender": "Dr. Mark Chen"
+        },
+        {
+          "id": "c1-test-39-task-03-final",
+          "type": "final-instruction",
+          "text": "Write an email to Dr. Chen. In your email, you should:\n\n• acknowledge the concern and explain the reasoning behind the compact's requirements\n• analyse one potential implication for small businesses if the compact is implemented\n• propose an action the compact organisers could take to address the concern while maintaining standards"
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-39-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Review: Part-time work experience",
+      "genre": "review",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptText": "Reviews wanted: Part-time work experiences\n\nHave you recently completed a part-time job or internship that was part of your studies? We want to hear about your experience.\n\nWrite a review for our student advice website. Describe the placement and what you did. Evaluate how well it balanced your work responsibilities with your learning. Explain whether you would recommend this type of arrangement to other students.\n\nThe best reviews will be published on our website.",
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

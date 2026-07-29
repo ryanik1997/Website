@@ -1,0 +1,153 @@
+{
+  "id": "c2-test-26",
+  "level": "c2",
+  "testNumber": 26,
+  "title": "CPE C2 AI Practice Test 26",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-26.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "c2-test-26-1785312709753",
+    "generatedAt": 1785312742573,
+    "contentHash": "feb73570705e87eacbc08902e21722695de4ac3d3730290ee5d5f45e4e7d8a7d",
+    "promptHash": "d14b7783e3734b52dc3476df2239c7437ec74bce4a58b91b306666b503555350",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-26:d14b7783e3734b52dc3476df2239c7437ec74bce4a58b91b306666b503555350",
+    "inputHash": "d14b7783e3734b52dc3476df2239c7437ec74bce4a58b91b306666b503555350",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "c2-test-26-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay: Skills, uncertainty and the future",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write an essay summarising and evaluating the key points from both texts in 240–280 words. Use your own words throughout as far as possible, and include your own ideas in your answers.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-26-task-01-source-1",
+          "type": "source-text",
+          "label": "Text 1",
+          "text": "The future of work is often framed as a problem of skills: if we could only predict which competencies will be needed, we could train people accordingly. This view is dangerously seductive. It implies that uncertainty can be eliminated through better forecasting, and that the responsibility for adaptation lies with individuals who must constantly reskill. In reality, the most valuable capacity in an unpredictable environment is not a fixed set of skills but the ability to learn, unlearn and relearn. Institutions that focus on narrow vocational training risk producing graduates who are perfectly prepared for a world that no longer exists. The real priority should be cultivating intellectual flexibility, critical thinking and comfort with ambiguity."
+        },
+        {
+          "id": "c2-test-26-task-01-source-2",
+          "type": "source-text",
+          "label": "Text 2",
+          "text": "The rhetoric of 'learning to learn' is a convenient excuse for failing to provide concrete skills. Telling young people that they must be adaptable places the burden of uncertainty on them while absolving employers and governments of their responsibility to offer stable career pathways. A society that refuses to specify which skills matter is a society that has given up on planning. The most equitable response to economic uncertainty is not to celebrate flexibility but to invest in robust initial training, strong labour-market institutions and social safety nets. Without these, the demand for adaptability becomes a recipe for anxiety and exploitation, not empowerment. This argument also matters because institutions shape the choices available to individuals and communities over time, influencing responsibility, trust, and practical judgment."
+        }
+      ],
+      "presentation": {
+        "template": "source-texts"
+      },
+      "wordLimit": {
+        "min": 240,
+        "max": 280,
+        "displayText": "240–280 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c2-test-26-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Review: A training programme for uncertain futures",
+      "genre": "review",
+      "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-26-task-02-panel",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted",
+          "paragraphs": [
+            "A specialist magazine for educators is running a series of reviews of training programmes that claim to prepare young people for an uncertain future. Have you participated in or observed a programme that aimed to build adaptability, resilience or 'future skills'? Write a review for the magazine.",
+            "Describe the programme and its intended outcomes. Assess how effectively it balanced the need for concrete skills with the development of adaptability. Would you recommend this programme to other institutions? Explain your reasons."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-26-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Report: Skills provision and long-term responsibility",
+      "genre": "report",
+      "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-26-task-03-panel",
+          "type": "panel",
+          "variant": "generic",
+          "heading": "Report requested by the Programme Coordinator",
+          "paragraphs": [
+            "The Programme Coordinator of the Future Skills Initiative has asked you to write a report on how current skills-training provision in your region balances immediate employability with long-term adaptability. The coordinator is concerned that an overemphasis on narrow vocational skills may leave workers unprepared for structural economic change.",
+            "In your report, analyse the main tensions between teaching specific job-ready skills and fostering broader adaptability. Assess the potential consequences for the local workforce if this balance is not addressed. Propose two concrete actions that the initiative could take to ensure training programmes prepare people for both current and future labour markets."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-26-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Article: Should we plan for an uncertain future?",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-26-task-04-panel",
+          "type": "panel",
+          "variant": "generic",
+          "heading": "Articles wanted: Planning for uncertainty",
+          "paragraphs": [
+            "An international online magazine is publishing a series on 'Living with Uncertainty'. The editors have invited readers to submit articles explaining their position on the following question: Should governments and educational institutions try to predict and plan for future skills needs, or should they focus on building general adaptability?",
+            "In your article, explain your position on this question. Describe one practical consequence of your preferred approach for how training programmes are designed. Suggest how policymakers could implement your recommendation while maintaining public confidence. End your article by requesting that the magazine arrange a follow-up online discussion with readers and training providers to explore the issue further."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

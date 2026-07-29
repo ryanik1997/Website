@@ -1,0 +1,69 @@
+{
+  "testId": "b1-test-36",
+  "overallOriginalityCheck": "PASS",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Email to teacher about planning a spring food festival; choose between many stalls or low prices, describe a problem, suggest a stall, ask about date/location.",
+      "audience": "English teacher (Mr. Davis)",
+      "purpose": "Evaluate and justify priorities (stalls vs. prices), identify a practical problem and solution, express a preference, request information.",
+      "requiredContentPoints": [
+        "Choose between lots of stalls or low prices and explain why",
+        "Describe one practical problem and suggest a solution",
+        "Name a favourite food stall and give a reason",
+        "Ask a question about the festival date or location"
+      ],
+      "lexicalAnchors": [
+        "spring food festival",
+        "food stalls",
+        "affordable",
+        "practical problem",
+        "favourite stall"
+      ],
+      "originalitySelfCheck": "Scenario is unique: planning a spring food festival, not a general event. Notes require a choice with reason, a problem-solution, a personal preference, and a question. Not similar to any previous test.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Article for town website about the Spring Food Festival; give opinions on food types, fun for children and adults, and willingness to help organise.",
+      "audience": "Town website readers (general public)",
+      "purpose": "Assess what makes the festival a success and recommend ideas.",
+      "requiredContentPoints": [
+        "What kind of food should be there",
+        "How to make it fun for both children and adults",
+        "Would you help organise and why/why not"
+      ],
+      "lexicalAnchors": [
+        "spring food festival",
+        "food",
+        "children and adults",
+        "help organise"
+      ],
+      "originalitySelfCheck": "Article about a specific local festival, not a generic 'articles wanted' about films or books. Questions are concrete and tied to the festival context. Not a reused frame.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Story beginning with a chef dropping a cake just before the festival starts.",
+      "audience": "English teacher",
+      "purpose": "Continue a narrative from a given opening sentence, showing a consequence and resolution related to the festival.",
+      "requiredContentPoints": [
+        "The dropped cake incident",
+        "A consequence or reaction",
+        "A resolution or ending linked to the festival"
+      ],
+      "lexicalAnchors": [
+        "chef",
+        "cake",
+        "festival",
+        "gasped"
+      ],
+      "originalitySelfCheck": "Opening sentence is unique: involves a chef dropping a cake at a festival, not a bus, parcel, phone call, or museum closure. Not similar to any previous story opening.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "5b68caeadb68b0fe3cb9a85529d4940cebe042b7fd6957eabc4652863d0b90eb"
+  }
+}

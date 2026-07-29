@@ -1,0 +1,178 @@
+{
+  "id": "c1-test-33",
+  "level": "c1",
+  "testNumber": 33,
+  "title": "CAE C1 AI Practice Test 33",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-33.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "c1-test-33-1785313877622",
+    "generatedAt": 1785313895406,
+    "contentHash": "a4dba0a9794db1524424627ccfb4f7c2f23030c59bca42739b38b2eb71b7b0b4",
+    "promptHash": "d1b41ddbe906ddbd13b30dcaf8011b5b52a5538c9cc684dfd3bade73f69bcdfd",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-33:d1b41ddbe906ddbd13b30dcaf8011b5b52a5538c9cc684dfd3bade73f69bcdfd",
+    "inputHash": "d1b41ddbe906ddbd13b30dcaf8011b5b52a5538c9cc684dfd3bade73f69bcdfd",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "c1-test-33-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay: Neighbourhood transport priorities",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-33-task-01-block-01",
+          "type": "paragraph",
+          "text": "Your class has listened to a radio discussion about how a metropolitan transport authority should prioritise spending on neighbourhood transport. You have made the notes below."
+        },
+        {
+          "id": "c1-test-33-task-01-block-02",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Priorities for neighbourhood transport spending",
+          "listItems": [
+            "improving pedestrian crossings and pavements",
+            "subsidising electric bike-sharing schemes",
+            "creating low-traffic neighbourhood zones"
+          ]
+        },
+        {
+          "id": "c1-test-33-task-01-block-03",
+          "type": "panel",
+          "variant": "opinions",
+          "paragraphs": [
+            "Better pedestrian infrastructure benefits everyone, especially older people and children. It's the most inclusive option.",
+            "E-bike schemes are popular and encourage active travel, but they only help people who can afford the membership.",
+            "Low-traffic zones reduce through-traffic and make streets safer, but they can cause congestion on boundary roads."
+          ]
+        },
+        {
+          "id": "c1-test-33-task-01-block-04",
+          "type": "final-instruction",
+          "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for the transport authority to invest in, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes-opinions"
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c1-test-33-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Proposal: Neighbourhood transport initiative",
+      "genre": "proposal",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-33-task-02-block-01",
+          "type": "paragraph",
+          "text": "The metropolitan transport authority is considering launching a neighbourhood transport initiative to reduce car dependency in residential areas. The authority has invited proposals from local residents for how this initiative should be designed."
+        },
+        {
+          "id": "c1-test-33-task-02-block-02",
+          "type": "final-instruction",
+          "text": "Write a proposal for the transport authority. In your proposal, you should:\n\n• recommend one specific measure to reduce car use in your neighbourhood\n• explain how this measure would benefit residents and the local environment\n• suggest how the authority could encourage community participation and ensure the measure is effective"
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-33-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Email: Congestion charge proposal",
+      "genre": "email",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-33-task-03-block-01",
+          "type": "paragraph",
+          "text": "You are a resident representative on a neighbourhood transport advisory panel. The panel's programme coordinator has sent an email asking for your views on a proposed congestion charge for the area. The charge would apply to non-resident vehicles entering during peak hours."
+        },
+        {
+          "id": "c1-test-33-task-03-block-02",
+          "type": "final-instruction",
+          "text": "Write an email to the programme coordinator. In your email, you should:\n\n• explain your position on the proposed congestion charge\n• analyse one potential implication for local residents and businesses\n• propose an action the panel could take to address concerns and improve the proposal"
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-33-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Review: Neighbourhood transport scheme",
+      "genre": "review",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-33-task-04-block-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted: Neighbourhood transport schemes",
+          "paragraphs": [
+            "Have you used a neighbourhood transport scheme in your area – for example, a car-sharing club, a community bus service, or a cycle hire scheme? Write a review of the scheme for our website.",
+            "In your review, describe how the scheme works, evaluate how well it meets the needs of local residents, and explain whether you would recommend it to other neighbourhoods.",
+            "The best reviews will be published on the website."
+          ]
+        },
+        {
+          "id": "c1-test-33-task-04-block-02",
+          "type": "final-instruction",
+          "text": "Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "testId": "b2-test-07",
+  "level": "b2",
+  "topicFamily": "school exchange visits",
+  "specificSetting": "a college exchange partnership planning brief 1",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Essay about priorities for planning a successful college exchange visit",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "choosing suitable host families",
+        "organising cultural activities",
+        "own idea"
+      ],
+      "lexicalAnchors": [
+        "exchange visit",
+        "host families",
+        "cultural activities"
+      ],
+      "originalitySelfCheck": "Scenario is original; focuses on exchange planning, not generic life skills or environment. Notes are specific to exchange context. No overlap with existing test fingerprints.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Review of a welcome pack for exchange visitors",
+      "audience": "specialist magazine readers (college website audience)",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "content of welcome pack",
+        "helpfulness",
+        "one improvement"
+      ],
+      "lexicalAnchors": [
+        "welcome pack",
+        "exchange visitors",
+        "improvement"
+      ],
+      "originalitySelfCheck": "Review of a welcome pack is a novel scenario; not a book, film, or facility review. No overlap with existing reviews.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Article suggesting a practical way to help exchange students settle in",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "one practical way",
+        "why it would work",
+        "benefits"
+      ],
+      "lexicalAnchors": [
+        "exchange students",
+        "settle in",
+        "practical way"
+      ],
+      "originalitySelfCheck": "Article focuses on welcoming exchange students; not a generic 'learning beyond lessons' or 'skills' article. Specific to exchange context.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Email replying to exchange coordinator about accommodation, activities, and dietary needs",
+      "audience": "English-speaking contact (Ms. Rossi)",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "preference for accommodation",
+        "suggest one activity",
+        "question about schedule"
+      ],
+      "lexicalAnchors": [
+        "exchange visit",
+        "host family",
+        "student residence",
+        "activities",
+        "dietary requirements"
+      ],
+      "originalitySelfCheck": "Email is a reply to an exchange coordinator about visit details; not a friend email about weekend plans or course advice. Unique scenario.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "centralTension": "access and convenience versus long-term responsibility in school exchange visits",
+  "overallOriginalityCheck": "All tasks are built around the specific setting of a college exchange partnership planning brief. No reused scenarios, audiences, or content points from previous tests. Forbidden concepts (e.g., peer learning, environment, digital communication) are avoided. Each task has a concrete audience and clear communicative purpose. The design is original and level-appropriate.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "c41f3e0fa4436173e4beeaed1892e09e925aebe168ab730530411042434315fc"
+  }
+}

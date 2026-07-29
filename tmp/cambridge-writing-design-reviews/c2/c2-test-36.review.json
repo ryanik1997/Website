@@ -1,0 +1,98 @@
+{
+  "testId": "c2-test-36",
+  "level": "c2",
+  "topicFamily": "local festivals",
+  "specificSetting": "festivals as cultural institutions planning brief 30",
+  "centralTension": "access and convenience versus long-term responsibility in local festivals",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "genre": "essay",
+      "scenario": "Two source texts debating whether festivals should prioritise sustainability or accept environmental costs as inevitable.",
+      "audience": "English teacher (educated general reader)",
+      "purpose": "Synthesise competing claims, evaluate assumptions, and develop an independent position on festival responsibility.",
+      "requiredContentPoints": [
+        "the main local festivals issue (sustainability vs. spontaneity)",
+        "one practical consequence (e.g., loss of community events if eco-standards are too strict)",
+        "a justified recommendation (e.g., phased sustainability measures)"
+      ],
+      "lexicalAnchors": [
+        "local festivals",
+        "sustainability",
+        "volunteer organisers",
+        "community identity",
+        "environmental impact"
+      ],
+      "originalitySelfCheck": "Source texts are original, not reused from any previous test. The tension between sustainability and spontaneity is specific to this test. No overlap with forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "genre": "review",
+      "scenario": "Review of a festival's sustainability initiative (e.g., waste sorting, reusable cups).",
+      "audience": "Specialist magazine readers (event organisers)",
+      "purpose": "Assess effectiveness and recommend whether other festivals should adopt similar measures.",
+      "requiredContentPoints": [
+        "the main local festivals issue (sustainability initiative)",
+        "one practical consequence (implementation and communication quality)",
+        "a justified recommendation (adopt or adapt)"
+      ],
+      "lexicalAnchors": [
+        "local festivals",
+        "sustainability initiative",
+        "implementation",
+        "visitor communication",
+        "reusable cup scheme"
+      ],
+      "originalitySelfCheck": "Review task is distinct from previous review tasks: focuses on festival sustainability initiatives, not books, apps, or workshops. No overlap with forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "genre": "report",
+      "scenario": "Report on how local festivals affect residents' daily lives (noise, traffic, economic benefits, community spirit).",
+      "audience": "Programme coordinator (regional cultural association)",
+      "purpose": "Analyse implications and propose action to minimise negative impacts while preserving positive aspects.",
+      "requiredContentPoints": [
+        "the main local festivals issue (disruption vs. enhancement)",
+        "one practical consequence (long-term community well-being)",
+        "a justified recommendation (two practical actions)"
+      ],
+      "lexicalAnchors": [
+        "local festivals",
+        "resident impact",
+        "noise",
+        "traffic",
+        "economic benefit",
+        "community spirit"
+      ],
+      "originalitySelfCheck": "Report task is original: focuses on festival impact on residents, not on transport, libraries, or other topics. No overlap with forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "genre": "article",
+      "scenario": "Article arguing whether festivals should prioritise resident convenience over attracting outside visitors.",
+      "audience": "English-speaking contact (magazine readers)",
+      "purpose": "Explain a position and request arrangements (follow-up discussion).",
+      "requiredContentPoints": [
+        "the main local festivals issue (resident convenience vs. visitor attraction)",
+        "one practical consequence (e.g., economic trade-offs)",
+        "a justified recommendation (how to balance both)"
+      ],
+      "lexicalAnchors": [
+        "local festivals",
+        "resident convenience",
+        "visitor attraction",
+        "community events",
+        "economic impact"
+      ],
+      "originalitySelfCheck": "Article task is original: focuses on a specific ethical dilemma for festival organisers. No overlap with forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "9e5d163501fe546610a990ba7dc4c97a085ed6c1d387b20b15df07777202e764"
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "testId": "c2-test-31",
+  "level": "c2",
+  "topicFamily": "climate adaptation",
+  "specificSetting": "climate adaptation and distributive justice planning brief 25",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Two source texts debating whether adaptation funds should prioritise vulnerability or economic return.",
+      "audience": "English teacher (educated general reader)",
+      "purpose": "Synthesise competing claims, evaluate assumptions, develop an independent position on distributive justice.",
+      "requiredContentPoints": [
+        "the main climate adaptation issue",
+        "one practical consequence",
+        "a justified recommendation"
+      ],
+      "lexicalAnchors": [
+        "climate adaptation",
+        "distributive justice",
+        "vulnerability",
+        "economic efficiency",
+        "allocation"
+      ],
+      "originalitySelfCheck": "Scenario is original: uses source texts with opposing moral and practical arguments about adaptation funding. No overlap with any avoided fingerprint. Forbidden concepts (e.g., low-waste events, digital communication) are absent.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Review of a documentary about fairness in climate adaptation.",
+      "audience": "Specialist magazine readers (documentary viewers)",
+      "purpose": "Assess effectiveness and recommend to policymakers.",
+      "requiredContentPoints": [
+        "the main climate adaptation issue",
+        "one practical consequence",
+        "a justified recommendation"
+      ],
+      "lexicalAnchors": [
+        "climate adaptation",
+        "distributive justice",
+        "documentary",
+        "fairness",
+        "policymakers"
+      ],
+      "originalitySelfCheck": "Review genre with a documentary focus is not used in any avoided fingerprint. The specific angle on distributive justice in adaptation is unique. No forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Report on how adaptation funding allocation affects distributive justice in a region.",
+      "audience": "Programme coordinator (Coastal Resilience Programme)",
+      "purpose": "Analyse implications and propose action.",
+      "requiredContentPoints": [
+        "the main climate adaptation issue",
+        "one practical consequence",
+        "a justified recommendation"
+      ],
+      "lexicalAnchors": [
+        "climate adaptation",
+        "distributive justice",
+        "funding allocation",
+        "inequality",
+        "social cohesion"
+      ],
+      "originalitySelfCheck": "Report task with a specific institutional audience (programme coordinator) and a concrete equity concern. Not similar to any avoided report task. Forbidden concepts absent.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Article arguing whether adaptation resources should be distributed by vulnerability or efficiency, with a request for follow-up discussion.",
+      "audience": "English-speaking contact (editor of international magazine)",
+      "purpose": "Explain a position and request arrangements.",
+      "requiredContentPoints": [
+        "the main climate adaptation issue",
+        "one practical consequence",
+        "a justified recommendation"
+      ],
+      "lexicalAnchors": [
+        "climate adaptation",
+        "distributive justice",
+        "vulnerability",
+        "economic efficiency",
+        "siting",
+        "public support"
+      ],
+      "originalitySelfCheck": "Article task with a personal contact frame and a request for follow-up discussion. The specific question about siting adaptation projects is original. No forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are built around the specific setting 'climate adaptation and distributive justice planning brief 25'. No scenario, audience, content point set, or lexical anchor matches any avoided fingerprint. Forbidden concepts are entirely absent. The test is original and level-appropriate.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "adc0f981d103cd81dd5334c863419b26bc6c2137ef1c39ab83ba49eeab51cf04"
+  }
+}

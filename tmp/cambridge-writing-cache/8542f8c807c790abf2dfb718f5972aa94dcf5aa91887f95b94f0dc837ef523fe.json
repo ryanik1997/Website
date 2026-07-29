@@ -1,0 +1,241 @@
+{
+  "inputHash": "dcddd00c0df1755697e52aaa2a99845392b61def17245b9ae5a7b6320a3a981f",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-07:dcddd00c0df1755697e52aaa2a99845392b61def17245b9ae5a7b6320a3a981f",
+  "test": {
+    "id": "c1-test-07",
+    "level": "c1",
+    "testNumber": 7,
+    "title": "CAE C1 AI Practice Test 07",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-07.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c1-test-07-1785306928341",
+      "generatedAt": 1785306947204,
+      "contentHash": "6b977f3295cd7f7173509ca194a3edc8782d42278da7d1ee717713baccf211c2",
+      "promptHash": "dcddd00c0df1755697e52aaa2a99845392b61def17245b9ae5a7b6320a3a981f",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-07:dcddd00c0df1755697e52aaa2a99845392b61def17245b9ae5a7b6320a3a981f",
+      "inputHash": "dcddd00c0df1755697e52aaa2a99845392b61def17245b9ae5a7b6320a3a981f",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c1-test-07-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Essay: Priorities for a university exchange programme",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-07-task-01-block-01",
+            "type": "paragraph",
+            "text": "Your class has listened to a radio discussion about how universities should prioritise funding for student exchange programmes. You have made the notes below."
+          },
+          {
+            "id": "c1-test-07-task-01-block-02",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Priorities for a university exchange programme",
+            "listItems": [
+              "academic preparation courses",
+              "pastoral support during the exchange",
+              "post-exchange follow-up"
+            ]
+          },
+          {
+            "id": "c1-test-07-task-01-block-03",
+            "type": "panel",
+            "variant": "opinions",
+            "paragraphs": [
+              "Academic preparation courses ensure students have the language and subject knowledge to succeed abroad.",
+              "Pastoral support during the exchange helps students cope with culture shock and homesickness, which can otherwise derail the experience.",
+              "Post-exchange follow-up helps students reflect on what they have learned and apply it to their future studies or career."
+            ]
+          },
+          {
+            "id": "c1-test-07-task-01-block-04",
+            "type": "final-instruction",
+            "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for universities to invest in, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+          }
+        ],
+        "presentation": {
+          "template": "essay-notes-opinions"
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c1-test-07-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Proposal: Exchange programme evaluation system",
+        "genre": "proposal",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptText": "Your university's exchange consortium is planning to introduce a formal evaluation system for its exchange programmes. The consortium director has invited proposals for how this system should work.\n\nWrite a proposal for the consortium director. In your proposal, you should:\n\n• recommend what aspects of the exchange experience should be evaluated\n• explain how student feedback will be collected and used\n• describe how the results will be reported to partner institutions\n\nWrite your proposal.",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-07-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Email: Responding to a partner university about exchange capacity",
+        "genre": "email",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptText": "You are the exchange programme coordinator at your university. You have received an email from a partner university's international office asking whether your institution can increase the number of incoming exchange students next year, despite limited accommodation and academic support resources.\n\nWrite an email to the partner university's international office. In your email, you should:\n\n• acknowledge the request and explain your institution's current capacity constraints\n• propose a realistic increase and outline how it could be managed\n• suggest a follow-up meeting to discuss the details\n\nWrite your email.",
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-07-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Review: An exchange programme you participated in",
+        "genre": "review",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-07-task-04-block-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Reviews wanted: Exchange experiences",
+            "paragraphs": [
+              "Have you taken part in a university exchange programme? We want to hear about your experience.",
+              "Write a review of the exchange programme you participated in. Describe the academic and cultural aspects of the programme, evaluate how well it prepared you for the experience, and explain whether you would recommend it to other students.",
+              "The best reviews will be published in the consortium's newsletter."
+            ]
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "overallOriginalityCheck": "PASS",
+    "taskReviews": [
+      {
+        "taskNumber": 1,
+        "scenario": "University exchange consortium planning brief: evaluating funding priorities for exchange programmes",
+        "audience": "English teacher (tutor)",
+        "purpose": "Evaluate and justify priorities",
+        "requiredContentPoints": [
+          "academic preparation courses",
+          "pastoral support during the exchange",
+          "post-exchange follow-up"
+        ],
+        "lexicalAnchors": [
+          "exchange programme",
+          "funding priorities",
+          "academic preparation",
+          "pastoral support",
+          "post-exchange follow-up"
+        ],
+        "originalitySelfCheck": "Scenario is distinct from previous tests: focuses on exchange programme funding, not facilities, life skills, or workplace visits. Notes and opinions are original. No overlap with forbidden concepts.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "University exchange consortium planning brief: proposing an evaluation system for exchange programmes",
+        "audience": "Consortium director",
+        "purpose": "Assess effectiveness and recommend",
+        "requiredContentPoints": [
+          "aspects of exchange to evaluate",
+          "student feedback collection and use",
+          "reporting results to partner institutions"
+        ],
+        "lexicalAnchors": [
+          "evaluation system",
+          "exchange programme",
+          "student feedback",
+          "reporting",
+          "partner institutions"
+        ],
+        "originalitySelfCheck": "Proposal is about evaluation system, not about setting up a hub, partnership scheme, or civic forum. Content points are distinct. No overlap with forbidden concepts.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "University exchange consortium planning brief: responding to a partner university about increasing exchange capacity",
+        "audience": "Partner university international office",
+        "purpose": "Analyse implications and propose action",
+        "requiredContentPoints": [
+          "acknowledge request and explain capacity constraints",
+          "propose realistic increase and management",
+          "suggest follow-up meeting"
+        ],
+        "lexicalAnchors": [
+          "exchange capacity",
+          "accommodation",
+          "academic support",
+          "partner university",
+          "follow-up meeting"
+        ],
+        "originalitySelfCheck": "Email is about capacity negotiation, not about complaints, advice, or coordination. Distinct from previous email tasks. No overlap with forbidden concepts.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 4,
+        "scenario": "University exchange consortium planning brief: reviewing a past exchange programme",
+        "audience": "Consortium newsletter readers (English-speaking contact)",
+        "purpose": "Explain a position and request arrangements (implicitly recommend)",
+        "requiredContentPoints": [
+          "academic and cultural aspects",
+          "preparation quality",
+          "recommendation"
+        ],
+        "lexicalAnchors": [
+          "exchange programme",
+          "academic aspects",
+          "cultural aspects",
+          "preparation",
+          "recommendation"
+        ],
+        "originalitySelfCheck": "Review is about an exchange programme, not a book, film, workshop, or facility. Distinct from previous review tasks. No overlap with forbidden concepts.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ]
+  },
+  "cachedAt": 1785306947212
+}

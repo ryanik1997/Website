@@ -1,0 +1,80 @@
+{
+  "testId": "b2-test-21",
+  "level": "b2",
+  "topicFamily": "small businesses",
+  "specificSetting": "a local enterprise incubator planning brief 15",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Essay: In English class, discussing how to support small businesses. Teacher asks for essay on most important way to help small businesses succeed. Notes: free business advice, reducing taxes, own idea.",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "providing free business advice",
+        "reducing local taxes for new businesses",
+        "own idea"
+      ],
+      "lexicalAnchors": [
+        "small businesses",
+        "free business advice",
+        "local taxes"
+      ],
+      "originalitySelfCheck": "Unique scenario: essay on supporting small businesses via advice and taxes. No overlap with existing tests. Forbidden concept check: PASS."
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Review: College magazine announcement asking for review of a workshop for small business owners. Candidate describes content, usefulness, and recommendation.",
+      "audience": "college magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "what the workshop covered",
+        "how useful for practical skills",
+        "recommendation"
+      ],
+      "lexicalAnchors": [
+        "workshop for small business owners",
+        "practical skills"
+      ],
+      "originalitySelfCheck": "Unique review scenario: workshop for small business owners, not a book, film, or facility. No overlap with existing tests. Forbidden concept check: PASS."
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Article: Youth website announcement asking how young people can support small businesses. Candidate suggests a practical way, explains impact, describes result.",
+      "audience": "young website readers",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "one practical way young people can help",
+        "why it would make a difference",
+        "what the result might look like"
+      ],
+      "lexicalAnchors": [
+        "young people",
+        "support small businesses",
+        "local economy"
+      ],
+      "originalitySelfCheck": "Unique article scenario: young people supporting small businesses. No overlap with existing tests. Forbidden concept check: PASS."
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Email: Friend Sam asks about business incubator support, online vs markets, and biggest challenge for starting a handmade jewellery business.",
+      "audience": "English-speaking friend",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "kind of support incubator offers",
+        "online vs local markets",
+        "biggest challenge"
+      ],
+      "lexicalAnchors": [
+        "business incubator",
+        "handmade jewellery",
+        "online vs markets"
+      ],
+      "originalitySelfCheck": "Unique email scenario: friend starting handmade jewellery business, asking about incubator and sales channels. No overlap with existing tests. Forbidden concept check: PASS."
+    }
+  ],
+  "forbiddenConceptCheck": "PASS",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "03703a6d227d144ad7035986defc3ced8ff92e14524ffeeebbe98f059740cb16"
+  }
+}

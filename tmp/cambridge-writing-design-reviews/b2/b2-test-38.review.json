@@ -1,0 +1,88 @@
+{
+  "testId": "b2-test-38",
+  "topicFamily": "digital study tools",
+  "specificSetting": "a blended-learning platform planning brief 32",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Essay discussing the most important issue when introducing digital study tools in schools, with notes on equal access, effect on concentration, and own idea.",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "the main digital study tools issue",
+        "one practical consequence",
+        "a justified recommendation 1"
+      ],
+      "lexicalAnchors": [
+        "digital study tools",
+        "equal access",
+        "concentration",
+        "study habits"
+      ],
+      "originalitySelfCheck": "Scenario is unique: essay on digital study tools with notes on access and concentration. No overlap with existing tests.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Review of a digital study tool (e.g., flashcard app, note-taking platform, online quiz site) for a college website.",
+      "audience": "specialist magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "the main digital study tools issue",
+        "one practical consequence",
+        "a justified recommendation 2"
+      ],
+      "lexicalAnchors": [
+        "digital study tool",
+        "flashcard app",
+        "note-taking platform",
+        "online quiz site"
+      ],
+      "originalitySelfCheck": "Review of a digital tool; not a book review or event review. Unique among existing tests.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Article for a programme coordinator's website on how students can use digital study tools responsibly, suggesting one way to avoid over-reliance.",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "the main digital study tools issue",
+        "one practical consequence",
+        "a justified recommendation 3"
+      ],
+      "lexicalAnchors": [
+        "digital study tools",
+        "responsible use",
+        "over-reliance",
+        "long-term study skills"
+      ],
+      "originalitySelfCheck": "Article on responsible use of digital tools; not a generic 'learning beyond lessons' article. Unique.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Email to a friend explaining which digital tool is most useful, problems experienced, and how to convince traditional teachers.",
+      "audience": "English-speaking contact",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "the main digital study tools issue",
+        "one practical consequence",
+        "a justified recommendation 4"
+      ],
+      "lexicalAnchors": [
+        "digital study tools",
+        "useful tool",
+        "problems",
+        "convince teachers"
+      ],
+      "originalitySelfCheck": "Email about digital tools; not a holiday or event email. Unique scenario.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityStatement": "All tasks are original, based on the digital study tools topic family, with concrete audiences and purposes. No forbidden concepts or overlaps with existing tests.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "33e687e33fd2f7e9039927f68db9903bd0ecd206fd8619d07ce4bf8da04b77d4"
+  }
+}

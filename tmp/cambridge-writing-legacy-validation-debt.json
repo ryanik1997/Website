@@ -1,0 +1,7 @@
+{
+  "entries": [
+    {"testId":"b1-test-05","taskId":"b1-test-05-task-02","rule":"B1 article contract","exactError":"B1 Q2 needs at least two questions and final instruction","classification":"A: real content/schema defect","evidence":"catalog validation report","recommendedAction":"human review and repair later","blocksPilot":false},
+    {"testId":"b2-test-02","taskId":"b2-test-02-task-01","rule":"B2 essay notes","exactError":"B2 Q1 notes invalid","classification":"A: real content/schema defect","evidence":"catalog validation report","recommendedAction":"human review and repair later","blocksPilot":false},
+    {"testId":"b2-test-03","taskId":"b2-test-03-task-01","rule":"B2 essay notes","exactError":"B2 Q1 notes invalid","classification":"A: real content/schema defect","evidence":"catalog validation report","recommendedAction":"human review and repair later","blocksPilot":false}
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "tasks": [
+    {
+      "taskId": "b1-test-33-task-01",
+      "scenario": "Bus route serving three villages – email to teacher about route choice, first bus time, student fares",
+      "audience": "English teacher (Mrs Hill)",
+      "purpose": "Evaluate and justify priorities: choose supermarket or train station, suggest time, give opinion on fares, ask a question",
+      "requiredContentPoints": [
+        "Choose supermarket or train station – say why",
+        "Suggest a time for the first bus",
+        "Give opinion on student fares",
+        "Ask Mrs Hill one question about the changes"
+      ],
+      "lexicalAnchors": [
+        "bus route",
+        "three villages",
+        "supermarket",
+        "train station",
+        "first bus",
+        "student fare"
+      ],
+      "originalitySelfCheck": "Scenario is bus route changes in three villages – not used in any previous test. Email structure with notes is standard but content is unique. No overlap with forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "b1-test-33-task-02",
+      "scenario": "Village magazine article about bus route changes – opinion on whether it helps people and what to improve",
+      "audience": "Specialist magazine readers (village residents)",
+      "purpose": "Assess effectiveness and recommend: give opinion on new route, suggest most important improvement",
+      "requiredContentPoints": [
+        "Do you think the new bus route will help people in our three villages?",
+        "What is the most important thing the bus company should improve?"
+      ],
+      "lexicalAnchors": [
+        "bus route",
+        "three villages",
+        "help people",
+        "improve"
+      ],
+      "originalitySelfCheck": "Article task about bus route changes – not used before. Announcement format is standard but content is specific to village context. No overlap with forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "b1-test-33-task-03",
+      "scenario": "Story beginning with bus arriving full of people from other villages – related to bus route serving three villages",
+      "audience": "English teacher",
+      "purpose": "Analyse implications and propose action: continue story from given opening",
+      "requiredContentPoints": [
+        "Bus arrives full",
+        "Reaction or consequence",
+        "Resolution or continuation"
+      ],
+      "lexicalAnchors": [
+        "bus",
+        "full of people",
+        "other villages"
+      ],
+      "originalitySelfCheck": "Story opening about bus arriving full – not used in any previous test. Unique sentence. No overlap with forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "bb85010a87679c0467ba1b68447d2e6da1deb6dbcae3659a5af62b7e923e722e"
+  }
+}

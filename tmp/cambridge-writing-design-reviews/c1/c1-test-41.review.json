@@ -1,0 +1,99 @@
+{
+  "testId": "c1-test-41",
+  "level": "c1",
+  "topicFamily": "urban wildlife",
+  "specificSetting": "a biodiversity corridor project planning brief 35",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "genre": "essay",
+      "scenario": "Radio discussion about priorities for a biodiversity corridor; notes on safe crossings, native vegetation, resident monitoring; three opinions provided",
+      "audience": "English teacher (tutor)",
+      "purpose": "Evaluate and justify which priority is more important for corridor success",
+      "requiredContentPoints": [
+        "creating safe crossing points across busy roads",
+        "planting native vegetation along the corridor",
+        "involving local residents in monitoring wildlife"
+      ],
+      "lexicalAnchors": [
+        "biodiversity corridor",
+        "safe crossing",
+        "native vegetation",
+        "resident monitoring"
+      ],
+      "originalitySelfCheck": "Scenario unique: biodiversity corridor planning, not used in any previous test. Notes and opinions are original. No overlap with forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "genre": "proposal",
+      "scenario": "Wildlife trust invites proposals for community engagement in corridor creation and maintenance",
+      "audience": "Regional wildlife trust (specialist magazine readers)",
+      "purpose": "Recommend two ways to involve residents, explain benefits, suggest measurement of success",
+      "requiredContentPoints": [
+        "two specific ways to involve residents",
+        "benefits for wildlife and community",
+        "measurement of success"
+      ],
+      "lexicalAnchors": [
+        "community engagement",
+        "wildlife trust",
+        "resident involvement",
+        "success measurement"
+      ],
+      "originalitySelfCheck": "Proposal genre with institutional audience and three distinct content points. Not similar to any previous proposal. No forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "genre": "email",
+      "scenario": "Residents' association concerned about restricted access to walking path due to corridor route",
+      "audience": "Programme coordinator (Maya Johansson)",
+      "purpose": "Acknowledge concern, explain reasoning, analyse implication, propose action",
+      "requiredContentPoints": [
+        "acknowledge concern and explain reasoning",
+        "analyse one potential implication for residents",
+        "propose action to address concern"
+      ],
+      "lexicalAnchors": [
+        "access concern",
+        "walking path",
+        "route change",
+        "corridor effectiveness"
+      ],
+      "originalitySelfCheck": "Email responding to a specific concern about access. Not a generic complaint or request. No overlap with previous emails.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "genre": "review",
+      "scenario": "Website announcement asking for reviews of urban wildlife corridors",
+      "audience": "Website readers (English-speaking contact)",
+      "purpose": "Describe corridor, evaluate balance between wildlife needs and human convenience, recommend as model",
+      "requiredContentPoints": [
+        "description of corridor and wildlife observed",
+        "evaluation of balance between wildlife and human convenience",
+        "recommendation as model for other cities"
+      ],
+      "lexicalAnchors": [
+        "urban wildlife corridor",
+        "wildlife needs",
+        "human convenience",
+        "model for other cities"
+      ],
+      "originalitySelfCheck": "Review of an urban wildlife corridor, not a park, museum, or event. Unique scenario. No forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "centralTension": "access and convenience versus long-term responsibility in urban wildlife",
+  "stakeholders": [
+    "people affected by urban wildlife",
+    "organisers of a biodiversity corridor project planning brief 35"
+  ],
+  "forbiddenConcepts": [],
+  "overallOriginalityAssessment": "All tasks are original, with concrete scenarios, distinct audiences, and clear communicative purposes. No reuse of previous test structures or forbidden concepts.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "39df1f009d403be43e6b6958d311541dcf580497bf5b1b1008159157835ae80c"
+  }
+}

@@ -1,0 +1,287 @@
+{
+  "inputHash": "defb80b8f0312f990f95babe79335d8583652a1408a7e5a7fe545f3bc67f0453",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-25:defb80b8f0312f990f95babe79335d8583652a1408a7e5a7fe545f3bc67f0453",
+  "test": {
+    "id": "c1-test-25",
+    "level": "c1",
+    "testNumber": 25,
+    "title": "CAE C1 AI Practice Test 25",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-25.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c1-test-25-1785312566793",
+      "generatedAt": 1785312586117,
+      "contentHash": "6dc02edd7d5e752b47aa31663e4d61fc3b869b7117966374761601f59a8766c0",
+      "promptHash": "defb80b8f0312f990f95babe79335d8583652a1408a7e5a7fe545f3bc67f0453",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-25:defb80b8f0312f990f95babe79335d8583652a1408a7e5a7fe545f3bc67f0453",
+      "inputHash": "defb80b8f0312f990f95babe79335d8583652a1408a7e5a7fe545f3bc67f0453",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c1-test-25-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Online privacy priorities",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-25-task-01-panel-01",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Priorities for a digital privacy framework",
+            "listItems": [
+              "requiring explicit consent for every data use",
+              "giving users the right to delete all stored data",
+              "making privacy settings simple and accessible"
+            ]
+          },
+          {
+            "id": "c1-test-25-task-01-panel-02",
+            "type": "panel",
+            "variant": "opinions",
+            "heading": "Some opinions expressed in the discussion:",
+            "paragraphs": [
+              "Explicit consent forces companies to be transparent. Without it, people agree to things they don't understand.",
+              "The right to deletion gives people real control. If you can't delete your data, you don't really own it.",
+              "Simple settings are the only way to protect the majority. Most people won't read long privacy policies."
+            ]
+          },
+          {
+            "id": "c1-test-25-task-01-final",
+            "type": "final-instruction",
+            "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for protecting online privacy, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+          }
+        ],
+        "presentation": {
+          "template": "essay-notes-opinions"
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c1-test-25-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Privacy awareness proposal",
+        "genre": "proposal",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-25-task-02-panel-01",
+            "type": "panel",
+            "variant": "generic",
+            "heading": "Proposal for a digital privacy framework planning brief 19",
+            "paragraphs": [
+              "The organisers of the Digital Privacy Framework Planning Brief 19 are considering launching a public awareness campaign to help residents understand their online privacy rights. The campaign would include workshops, online resources and local events. The organisers have invited proposals from community members for how this campaign should be designed.",
+              "Write a proposal for the organisers. In your proposal, you should:",
+              "• recommend two specific activities or resources the campaign should include",
+              "• explain how these activities would benefit residents and encourage responsible data practices",
+              "• suggest how the organisers could measure the campaign's effectiveness"
+            ]
+          },
+          {
+            "id": "c1-test-25-task-02-final",
+            "type": "final-instruction",
+            "text": "Write your proposal."
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-25-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Data-sharing concerns",
+        "genre": "email",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-25-task-03-email-01",
+            "type": "email",
+            "from": "Programme Coordinator <coordinator@digitalprivacy.org>",
+            "subject": "Your views on data-sharing requirements",
+            "paragraphs": [
+              "Dear Resident,",
+              "As you know, the Digital Privacy Framework Planning Brief 19 is considering a proposal that would require all local businesses to obtain explicit consent before sharing customer data with third parties. Some business owners have expressed concern that this requirement will be burdensome and may reduce their ability to offer personalised services. Others argue it is essential for protecting consumer trust.",
+              "I would like to hear your views on this proposal. Please write back explaining your position on the proposed consent requirement, analysing one potential implication for small businesses, and proposing an action the planning brief could take to support businesses while still protecting privacy.",
+              "Best regards,",
+              "Programme Coordinator"
+            ]
+          },
+          {
+            "id": "c1-test-25-task-03-final",
+            "type": "final-instruction",
+            "text": "Write your email to the Programme Coordinator."
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-25-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Privacy tool review",
+        "genre": "review",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-25-task-04-panel-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Reviews wanted: Digital privacy tools",
+            "paragraphs": [
+              "Have you used a digital privacy tool – for example, a password manager, a VPN, a browser extension that blocks trackers, or an app that helps you manage your online accounts?",
+              "We want to hear about your experience. Write a review of the tool for our community website.",
+              "Describe what the tool does and how easy it is to use. Evaluate how effectively it protects your privacy without making everyday tasks inconvenient. Would you recommend this tool to other residents? Why or why not?",
+              "The best reviews will be published on our website."
+            ]
+          },
+          {
+            "id": "c1-test-25-task-04-final",
+            "type": "final-instruction",
+            "text": "Write your review."
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "c1-test-25",
+    "level": "c1",
+    "topicFamily": "online privacy",
+    "specificSetting": "a digital privacy framework planning brief 19",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "Essay discussing two priorities for a digital privacy framework: explicit consent, right to deletion, simple settings.",
+        "audience": "English teacher",
+        "purpose": "evaluate and justify priorities",
+        "requiredContentPoints": [
+          "the main online privacy issue",
+          "one practical consequence",
+          "a justified recommendation 1"
+        ],
+        "lexicalAnchors": [
+          "online privacy",
+          "digital privacy framework",
+          "explicit consent",
+          "right to deletion",
+          "simple settings"
+        ],
+        "originalitySelfCheck": "Unique scenario: digital privacy framework planning brief 19. Not used in any previous test. Notes and opinions are original.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "Proposal for a public awareness campaign on online privacy rights, including activities, benefits, and effectiveness measurement.",
+        "audience": "specialist magazine readers",
+        "purpose": "assess effectiveness and recommend",
+        "requiredContentPoints": [
+          "the main online privacy issue",
+          "one practical consequence",
+          "a justified recommendation 2"
+        ],
+        "lexicalAnchors": [
+          "online privacy",
+          "digital privacy framework",
+          "awareness campaign",
+          "workshops",
+          "responsible data practices"
+        ],
+        "originalitySelfCheck": "Unique scenario: campaign design for digital privacy framework. Not a reused proposal skeleton.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "Email to programme coordinator about proposed consent requirement for businesses sharing customer data.",
+        "audience": "programme coordinator",
+        "purpose": "analyse implications and propose action",
+        "requiredContentPoints": [
+          "the main online privacy issue",
+          "one practical consequence",
+          "a justified recommendation 3"
+        ],
+        "lexicalAnchors": [
+          "online privacy",
+          "digital privacy framework",
+          "consent requirement",
+          "small businesses",
+          "consumer trust"
+        ],
+        "originalitySelfCheck": "Unique scenario: email about business data-sharing consent. Not a reused email frame.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 4,
+        "scenario": "Review of a digital privacy tool (e.g., password manager, VPN, tracker blocker).",
+        "audience": "English-speaking contact",
+        "purpose": "explain a position and request arrangements",
+        "requiredContentPoints": [
+          "the main online privacy issue",
+          "one practical consequence",
+          "a justified recommendation 4"
+        ],
+        "lexicalAnchors": [
+          "online privacy",
+          "digital privacy framework",
+          "privacy tool",
+          "password manager",
+          "VPN",
+          "tracker blocker"
+        ],
+        "originalitySelfCheck": "Unique scenario: review of a digital privacy tool. Not a reused review announcement.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ],
+    "overallOriginalityCheck": "All tasks are based on the specific setting 'a digital privacy framework planning brief 19' with unique audiences, purposes, and content points. No overlap with any existing test fingerprints. Forbidden concepts avoided.",
+    "forbiddenConceptCheck": "PASS"
+  },
+  "cachedAt": 1785312586162
+}

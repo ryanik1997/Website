@@ -1,0 +1,91 @@
+{
+  "testId": "c2-test-23",
+  "level": "c2",
+  "topicFamily": "holiday planning",
+  "specificSetting": "tourism and cultural asymmetry planning brief 17",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Two source texts debating whether curated travel democratises access or reduces host cultures to performances",
+      "audience": "English teacher (educated general reader)",
+      "purpose": "Synthesise competing claims, evaluate assumptions, and develop an independent position on the tension between convenience and cultural responsibility",
+      "requiredContentPoints": [
+        "the main holiday planning issue (convenience vs. cultural depth)",
+        "one practical consequence (e.g., democratisation vs. loss of authenticity)",
+        "a justified recommendation (how to balance access with responsibility)"
+      ],
+      "lexicalAnchors": [
+        "curated travel",
+        "algorithm-driven itineraries",
+        "host culture",
+        "asymmetry",
+        "democratisation",
+        "authenticity"
+      ],
+      "originalitySelfCheck": "Both source texts are original, with contrasting angles (convenience as liberation vs. convenience as masking asymmetry). No reused scenario or sentence skeleton from previous tests. Forbidden concepts avoided."
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Review of a personal travel experience that prompted reflection on tourism's impact on local communities",
+      "audience": "Specialist travel magazine readers",
+      "purpose": "Assess how far a holiday allowed genuine cultural engagement, and recommend responsible travel practices",
+      "requiredContentPoints": [
+        "the main holiday planning issue (engagement vs. superficiality)",
+        "one practical consequence (e.g., positive or negative impact on host community)",
+        "a justified recommendation (what travellers should consider)"
+      ],
+      "lexicalAnchors": [
+        "responsible travel",
+        "cultural engagement",
+        "host community",
+        "tourist bubble",
+        "authenticity"
+      ],
+      "originalitySelfCheck": "Review task focuses on a personal trip's cultural engagement, not a generic product review. No overlap with existing review tasks. Forbidden concepts avoided."
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Report for a regional tourism board analysing how current holiday planning patterns affect a destination's cultural and economic life",
+      "audience": "Programme coordinator (tourism board)",
+      "purpose": "Analyse impacts of short-stay, algorithm-driven tourism on local residents and businesses, and propose actions to encourage responsible travel",
+      "requiredContentPoints": [
+        "the main holiday planning issue (short-stay, high-season concentration)",
+        "one practical consequence (e.g., overcrowding, rising rents)",
+        "a justified recommendation (two concrete actions)"
+      ],
+      "lexicalAnchors": [
+        "short stays",
+        "algorithm-driven bookings",
+        "high-season concentration",
+        "responsible travel",
+        "long-term viability"
+      ],
+      "originalitySelfCheck": "Report task is a professional policy document, not a generic school report. No reused scenario. Forbidden concepts avoided."
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Article for an international magazine arguing whether holiday planning should prioritise traveller convenience or host community well-being",
+      "audience": "English-speaking contact (magazine readers)",
+      "purpose": "Explain a position on the central tension, describe a practical consequence, and suggest how travel companies can help; request follow-up discussion",
+      "requiredContentPoints": [
+        "the main holiday planning issue (traveller convenience vs. host well-being)",
+        "one practical consequence of preferred approach",
+        "a justified recommendation (how travel companies can help)"
+      ],
+      "lexicalAnchors": [
+        "traveller convenience",
+        "host community well-being",
+        "responsible choices",
+        "travel companies",
+        "follow-up discussion"
+      ],
+      "originalitySelfCheck": "Article task is a persuasive opinion piece with a specific request for follow-up, not a generic 'write an article' frame. No reused scenario. Forbidden concepts avoided."
+    }
+  ],
+  "forbiddenConceptCheck": "PASS",
+  "structuralOriginalityCheck": "All tasks use unique lead-ins, candidate roles, and content point ordering. No reused frames from avoided fingerprints. Source texts are original with distinct angles.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "ad82e1ee626627468a5b843ad08ac00d86576a818b8d2cfea08d65c208bd9dc2"
+  }
+}

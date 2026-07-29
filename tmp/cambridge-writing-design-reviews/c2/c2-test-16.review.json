@@ -1,0 +1,82 @@
+{
+  "overallOriginalityCheck": "PASS",
+  "forbiddenConceptCheck": "PASS",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Two source texts debating whether urban wildlife deserves moral attention or whether human welfare should take priority.",
+      "audience": "Educated general reader (English teacher)",
+      "purpose": "Summarise and evaluate competing claims, develop own position on moral attention to urban nature.",
+      "requiredContentPoints": [
+        "Moral significance of urban wildlife",
+        "Practical constraints and human welfare",
+        "Own conceptual distinction (e.g., between attention and action)"
+      ],
+      "lexicalAnchors": [
+        "urban wildlife",
+        "moral attention",
+        "human welfare",
+        "practical constraints"
+      ],
+      "originalitySelfCheck": "No overlap with any existing test. Source texts are original, not derived from any previous essay. No reused skeleton."
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Review of a documentary about peregrine falcons nesting on a skyscraper.",
+      "audience": "Specialist magazine readers (documentary enthusiasts)",
+      "purpose": "Evaluate the film's balance of science and ethics, consider resident perspectives, assess value for changing attitudes.",
+      "requiredContentPoints": [
+        "Balance of scientific observation and ethical reflection",
+        "Adequacy of resident perspectives",
+        "Overall value for changing urban attitudes"
+      ],
+      "lexicalAnchors": [
+        "urban wildlife documentary",
+        "peregrine falcon",
+        "ethical reflection",
+        "resident perspective"
+      ],
+      "originalitySelfCheck": "No previous review uses a documentary about urban birds. Different from any existing review scenario."
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Report on a policy encouraging feeding urban birds in parks.",
+      "audience": "Programme coordinator of Green City Initiative",
+      "purpose": "Analyse implications for bird populations and human-wildlife interactions, assess consequences, propose actions.",
+      "requiredContentPoints": [
+        "Effect on bird populations and human-wildlife interactions",
+        "Consequences for public health and park maintenance",
+        "Two specific management actions"
+      ],
+      "lexicalAnchors": [
+        "urban bird feeding",
+        "public health",
+        "park maintenance",
+        "responsible management"
+      ],
+      "originalitySelfCheck": "No previous report uses bird-feeding policy. Distinct from any existing report scenario."
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Article arguing whether public funds should support urban wildlife despite inconvenience.",
+      "audience": "English-speaking contact (international magazine readers)",
+      "purpose": "Explain position, describe consequence, request follow-up discussion.",
+      "requiredContentPoints": [
+        "Position on funding urban wildlife",
+        "One practical consequence",
+        "Request for follow-up discussion"
+      ],
+      "lexicalAnchors": [
+        "public funds",
+        "urban wildlife",
+        "convenience",
+        "follow-up discussion"
+      ],
+      "originalitySelfCheck": "No previous article uses this question or request structure. Different from any existing article."
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "bd2940f70ba6b28ede9d75bff00d5bcc14216fdbfdf1c84f9b964695d17fac67"
+  }
+}

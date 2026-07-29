@@ -1,0 +1,167 @@
+{
+  "id": "b1-test-12",
+  "level": "b1",
+  "testNumber": 12,
+  "title": "PET B1 AI Practice Test 12",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b1/b1-test-12.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b1-test-12-1785310042036",
+    "generatedAt": 1785310062469,
+    "contentHash": "42c19dc35ab1d6e89d055b6218ca16586b0113c5609563bd1a49c1d37574e319",
+    "promptHash": "28f2659058445d923fe408db87b313c5967afe1db0c666aaab1a92fa1a9afb1a",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-12:28f2659058445d923fe408db87b313c5967afe1db0c666aaab1a92fa1a9afb1a",
+    "inputHash": "28f2659058445d923fe408db87b313c5967afe1db0c666aaab1a92fa1a9afb1a",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b1-test-12-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Email about finals preparation",
+      "genre": "email",
+      "instruction": "You must answer this question. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-12-task-01-para-01",
+          "type": "paragraph",
+          "text": "Read this email from your English teacher, Mrs. Hill, and the notes you have made."
+        },
+        {
+          "id": "b1-test-12-task-01-email-01",
+          "type": "email",
+          "from": "Mrs. Hill",
+          "subject": "Football club finals – planning",
+          "paragraphs": [
+            "Hello,",
+            "As you know, our youth football club has reached the finals next month. We need to decide on a few things to prepare well.",
+            "First, should we have extra training sessions on weekday evenings or on Saturday mornings? Which do you think is better for the team?",
+            "Also, we need to choose a team activity to build team spirit. Would you prefer a team dinner or a fun sports day?",
+            "Finally, can you suggest one thing we should do to support the players before the big match?",
+            "Let me know your ideas!",
+            "Best wishes,",
+            "Mrs. Hill"
+          ]
+        },
+        {
+          "id": "b1-test-12-task-01-panel-01",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes for your reply",
+          "listItems": [
+            "Say which training time you prefer and why.",
+            "Choose a team activity (dinner or sports day) and give a reason.",
+            "Suggest one way to support the players before the match.",
+            "Ask Mrs. Hill about the match day schedule."
+          ]
+        },
+        {
+          "id": "b1-test-12-task-01-final-01",
+          "type": "final-instruction",
+          "text": "Write your email to Mrs. Hill using all the notes."
+        }
+      ],
+      "presentation": {
+        "template": "email"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b1-test-12-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Article about team spirit",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-12-task-02-para-01",
+          "type": "paragraph",
+          "text": "You see this notice on a specialist magazine website for youth sports clubs."
+        },
+        {
+          "id": "b1-test-12-task-02-panel-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted!",
+          "paragraphs": [
+            "How can a youth football club build team spirit before important matches?",
+            "What activity from your club was especially effective?",
+            "Why would you recommend it to other clubs?",
+            "Write an article answering these questions and we will put it on our website!"
+          ]
+        },
+        {
+          "id": "b1-test-12-task-02-final-01",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b1-test-12-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Story about a match day surprise",
+      "genre": "story",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-12-task-03-para-01",
+          "type": "paragraph",
+          "text": "Your English teacher has asked you to write a story."
+        },
+        {
+          "id": "b1-test-12-task-03-para-02",
+          "type": "paragraph",
+          "text": "Your story must begin with this sentence:"
+        },
+        {
+          "id": "b1-test-12-task-03-para-03",
+          "type": "paragraph",
+          "text": "\"When the programme coordinator announced that the final match was cancelled, everyone stared in silence.\""
+        },
+        {
+          "id": "b1-test-12-task-03-final-01",
+          "type": "final-instruction",
+          "text": "Write your story."
+        }
+      ],
+      "presentation": {
+        "template": "plain"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

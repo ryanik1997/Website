@@ -1,0 +1,89 @@
+{
+  "overallOriginalityCheck": "PASS",
+  "taskReviews": [
+    {
+      "taskNumber": 1,
+      "scenario": "University exchange consortium planning brief: evaluating funding priorities for exchange programmes",
+      "audience": "English teacher (tutor)",
+      "purpose": "Evaluate and justify priorities",
+      "requiredContentPoints": [
+        "academic preparation courses",
+        "pastoral support during the exchange",
+        "post-exchange follow-up"
+      ],
+      "lexicalAnchors": [
+        "exchange programme",
+        "funding priorities",
+        "academic preparation",
+        "pastoral support",
+        "post-exchange follow-up"
+      ],
+      "originalitySelfCheck": "Scenario is distinct from previous tests: focuses on exchange programme funding, not facilities, life skills, or workplace visits. Notes and opinions are original. No overlap with forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "University exchange consortium planning brief: proposing an evaluation system for exchange programmes",
+      "audience": "Consortium director",
+      "purpose": "Assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "aspects of exchange to evaluate",
+        "student feedback collection and use",
+        "reporting results to partner institutions"
+      ],
+      "lexicalAnchors": [
+        "evaluation system",
+        "exchange programme",
+        "student feedback",
+        "reporting",
+        "partner institutions"
+      ],
+      "originalitySelfCheck": "Proposal is about evaluation system, not about setting up a hub, partnership scheme, or civic forum. Content points are distinct. No overlap with forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "University exchange consortium planning brief: responding to a partner university about increasing exchange capacity",
+      "audience": "Partner university international office",
+      "purpose": "Analyse implications and propose action",
+      "requiredContentPoints": [
+        "acknowledge request and explain capacity constraints",
+        "propose realistic increase and management",
+        "suggest follow-up meeting"
+      ],
+      "lexicalAnchors": [
+        "exchange capacity",
+        "accommodation",
+        "academic support",
+        "partner university",
+        "follow-up meeting"
+      ],
+      "originalitySelfCheck": "Email is about capacity negotiation, not about complaints, advice, or coordination. Distinct from previous email tasks. No overlap with forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "University exchange consortium planning brief: reviewing a past exchange programme",
+      "audience": "Consortium newsletter readers (English-speaking contact)",
+      "purpose": "Explain a position and request arrangements (implicitly recommend)",
+      "requiredContentPoints": [
+        "academic and cultural aspects",
+        "preparation quality",
+        "recommendation"
+      ],
+      "lexicalAnchors": [
+        "exchange programme",
+        "academic aspects",
+        "cultural aspects",
+        "preparation",
+        "recommendation"
+      ],
+      "originalitySelfCheck": "Review is about an exchange programme, not a book, film, workshop, or facility. Distinct from previous review tasks. No overlap with forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "c599d7e44531d6d478582e671ef468721056d642ee62f69583de4f4cfa578688"
+  }
+}

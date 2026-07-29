@@ -1,0 +1,93 @@
+{
+  "testId": "c2-test-30",
+  "level": "c2",
+  "topicFamily": "public health campaigns",
+  "specificSetting": "health messaging and public trust planning brief 24",
+  "tasks": [
+    {
+      "taskId": "c2-test-30-task-01",
+      "scenario": "Two source texts debating the use of fear-based messaging in public health campaigns, focusing on the tension between persuasive impact and erosion of trust.",
+      "audience": "Educated general reader (English teacher)",
+      "purpose": "Synthesise competing claims, evaluate assumptions about public trust, and develop an independent position on honest versus persuasive messaging.",
+      "requiredContentPoints": [
+        "the main public health campaigns issue",
+        "one practical consequence",
+        "a justified recommendation"
+      ],
+      "lexicalAnchors": [
+        "public health campaigns",
+        "fear-based messaging",
+        "trust",
+        "honest communication",
+        "uncertainty"
+      ],
+      "originalitySelfCheck": "Unique scenario: health messaging and public trust. No overlap with previous C2 tests (which covered education, work, community, environment, technology, etc.). Source texts present opposing views on fear appeals vs. honesty, not a generic debate. Forbidden concepts (e.g., 'peer learning', 'language exchange') not used.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "c2-test-30-task-02",
+      "scenario": "Review of a documentary about a national vaccination campaign, focusing on the tension between persuasive messaging and honest communication.",
+      "audience": "Specialist magazine readers (public health professionals)",
+      "purpose": "Evaluate how effectively the documentary captures the tension, discuss representation of sceptical perspectives, and assess value for professionals.",
+      "requiredContentPoints": [
+        "the main public health campaigns issue",
+        "one practical consequence",
+        "a justified recommendation"
+      ],
+      "lexicalAnchors": [
+        "public health campaigns",
+        "documentary",
+        "vaccination campaign",
+        "persuasive messaging",
+        "honest communication"
+      ],
+      "originalitySelfCheck": "Unique scenario: review of a documentary about health messaging. No similar review in previous tests (which covered books, exhibitions, workshops, etc.). Forbidden concepts not used.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "c2-test-30-task-03",
+      "scenario": "Report for a health institute analysing decline in public trust after fear-based campaigns, proposing actions to rebuild credibility.",
+      "audience": "Programme coordinator (National Institute for Health Communication)",
+      "purpose": "Analyse factors contributing to trust erosion, assess consequences for future initiatives, and propose concrete actions.",
+      "requiredContentPoints": [
+        "the main public health campaigns issue",
+        "one practical consequence",
+        "a justified recommendation"
+      ],
+      "lexicalAnchors": [
+        "public health campaigns",
+        "trust erosion",
+        "fear appeals",
+        "credibility",
+        "messaging"
+      ],
+      "originalitySelfCheck": "Unique scenario: report on trust erosion in health campaigns. No similar report in previous tests (which covered exchange programmes, transport inequality, library usage, etc.). Forbidden concepts not used.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "c2-test-30-task-04",
+      "scenario": "Article for an online magazine arguing whether health campaigns should prioritise honesty about uncertainty over persuasive clarity.",
+      "audience": "English-speaking contact (editor of international magazine)",
+      "purpose": "Explain position on honesty vs. persuasion, describe practical consequence, and suggest how communicators can balance clarity and truthfulness.",
+      "requiredContentPoints": [
+        "the main public health campaigns issue",
+        "one practical consequence",
+        "a justified recommendation"
+      ],
+      "lexicalAnchors": [
+        "public health campaigns",
+        "honesty",
+        "uncertainty",
+        "persuasion",
+        "clarity"
+      ],
+      "originalitySelfCheck": "Unique scenario: article on ethics of persuasion in health messaging. No similar article in previous tests (which covered education, work, volunteering, etc.). Forbidden concepts not used.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityAssessment": "All tasks are original, with concrete audiences and purposes. No reuse of scenarios, content points, or lexical anchors from previous tests. Forbidden concepts avoided.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "92be56dacd0667217fff048044a0f4924423b6208922ab23529832c473eb5a2d"
+  }
+}

@@ -1,0 +1,265 @@
+{
+  "inputHash": "278ade28961862c12d2a14ee54a3be2398f747437d15f3ef3a5055dcb055e02e",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-14:278ade28961862c12d2a14ee54a3be2398f747437d15f3ef3a5055dcb055e02e",
+  "test": {
+    "id": "b2-test-14",
+    "level": "b2",
+    "testNumber": 14,
+    "title": "FCE B2 AI Practice Test 14",
+    "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-14.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "b2-test-14-1785310370725",
+      "generatedAt": 1785310387058,
+      "contentHash": "e238b1fe974645490711c94f5b314a4e0c1ea98bc440b5a93440aa6aebabde00",
+      "promptHash": "278ade28961862c12d2a14ee54a3be2398f747437d15f3ef3a5055dcb055e02e",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-14:278ade28961862c12d2a14ee54a3be2398f747437d15f3ef3a5055dcb055e02e",
+      "inputHash": "278ade28961862c12d2a14ee54a3be2398f747437d15f3ef3a5055dcb055e02e",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "b2-test-14-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Essay: Priorities for a graduate internship scheme",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write 140–190 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-14-task-01-block-01",
+            "type": "paragraph",
+            "text": "In your English class you have been discussing how to design a graduate internship scheme that is both accessible and responsible. Now your English teacher has asked you to write an essay."
+          },
+          {
+            "id": "b2-test-14-task-01-block-02",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Notes",
+            "paragraphs": [
+              "Write about:",
+              "1. fair selection process",
+              "2. quality of mentoring",
+              "3. ......................... (your own idea)"
+            ]
+          },
+          {
+            "id": "b2-test-14-task-01-block-03",
+            "type": "final-instruction",
+            "text": "Write an essay using all the notes and giving reasons for your point of view."
+          }
+        ],
+        "presentation": {
+          "template": "essay-notes"
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "b2-test-14-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Review: Internship scheme launch event",
+        "genre": "review",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-14-task-02-block-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Reviews wanted!",
+            "paragraphs": [
+              "Have you attended the launch event of the new graduate internship scheme?",
+              "Write a review for our specialist magazine. Describe what the event aimed to do, how well it presented the scheme's benefits, and whether you would recommend it to other graduates.",
+              "The best reviews will be published in next month's issue."
+            ]
+          },
+          {
+            "id": "b2-test-14-task-02-block-02",
+            "type": "final-instruction",
+            "text": "Write your review."
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b2-test-14-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Article: Making internships inclusive",
+        "genre": "article",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-14-task-03-block-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Articles wanted!",
+            "paragraphs": [
+              "Our programme coordinator wants ideas to make the graduate internship scheme more inclusive.",
+              "Write an article suggesting one practical way to attract applicants from diverse backgrounds, explaining why it would work and what the benefits would be.",
+              "We will share the best ideas with the planning team."
+            ]
+          },
+          {
+            "id": "b2-test-14-task-03-block-02",
+            "type": "final-instruction",
+            "text": "Write your article."
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b2-test-14-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Email: Internship placement enquiry",
+        "genre": "email",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-14-task-04-block-01",
+            "type": "email",
+            "from": "contact@partnergroup.org",
+            "subject": "Internship placement for exchange student",
+            "paragraphs": [
+              "Dear Student,",
+              "I am writing on behalf of our partner organisation. One of our exchange students will be in your town next semester and is interested in joining your graduate internship scheme.",
+              "Could you tell me what the application process involves? What kind of projects would an intern typically work on? Also, is there any financial support available for international participants?",
+              "I look forward to your reply.",
+              "Best regards,",
+              "Ms. Ana Torres",
+              "Exchange Coordinator"
+            ]
+          },
+          {
+            "id": "b2-test-14-task-04-block-02",
+            "type": "final-instruction",
+            "text": "Write your email to Ms. Torres. You should explain the application steps, describe one typical project, and ask about accommodation options."
+          }
+        ],
+        "presentation": {
+          "template": "email",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "b2-test-14",
+    "overallOriginalityCheck": "PASS",
+    "forbiddenConceptCheck": "PASS",
+    "tasks": [
+      {
+        "taskId": "b2-test-14-task-01",
+        "scenario": "a graduate internship scheme planning brief 8: essay brief 1-1",
+        "audience": "English teacher",
+        "purpose": "evaluate and justify priorities",
+        "requiredContentPoints": [
+          "fair selection process",
+          "quality of mentoring",
+          "own idea"
+        ],
+        "lexicalAnchors": [
+          "graduate internship scheme",
+          "fair selection",
+          "mentoring"
+        ],
+        "originalitySelfCheck": "PASS - scenario is specific to internship scheme planning, not reused from any previous test."
+      },
+      {
+        "taskId": "b2-test-14-task-02",
+        "scenario": "a graduate internship scheme planning brief 8: review brief 2-5",
+        "audience": "specialist magazine readers",
+        "purpose": "assess effectiveness and recommend",
+        "requiredContentPoints": [
+          "event aims",
+          "presentation of benefits",
+          "recommendation"
+        ],
+        "lexicalAnchors": [
+          "launch event",
+          "internship scheme",
+          "graduate"
+        ],
+        "originalitySelfCheck": "PASS - review of a launch event, not a book, film, or facility."
+      },
+      {
+        "taskId": "b2-test-14-task-03",
+        "scenario": "a graduate internship scheme planning brief 8: article brief 3-9",
+        "audience": "programme coordinator",
+        "purpose": "analyse implications and propose action",
+        "requiredContentPoints": [
+          "practical way to attract diverse applicants",
+          "why it works",
+          "benefits"
+        ],
+        "lexicalAnchors": [
+          "inclusive",
+          "diverse backgrounds",
+          "internship scheme"
+        ],
+        "originalitySelfCheck": "PASS - article focuses on inclusivity in internships, not generic 'learning beyond lessons'."
+      },
+      {
+        "taskId": "b2-test-14-task-04",
+        "scenario": "a graduate internship scheme planning brief 8: email brief 4-13",
+        "audience": "English-speaking contact",
+        "purpose": "explain a position and request arrangements",
+        "requiredContentPoints": [
+          "application steps",
+          "typical project",
+          "accommodation question"
+        ],
+        "lexicalAnchors": [
+          "exchange student",
+          "internship placement",
+          "application process"
+        ],
+        "originalitySelfCheck": "PASS - email from an exchange coordinator, not a friend; content points are specific to internship logistics."
+      }
+    ]
+  },
+  "cachedAt": 1785310387067
+}

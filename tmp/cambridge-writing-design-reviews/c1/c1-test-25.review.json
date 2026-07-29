@@ -1,0 +1,95 @@
+{
+  "testId": "c1-test-25",
+  "level": "c1",
+  "topicFamily": "online privacy",
+  "specificSetting": "a digital privacy framework planning brief 19",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Essay discussing two priorities for a digital privacy framework: explicit consent, right to deletion, simple settings.",
+      "audience": "English teacher",
+      "purpose": "evaluate and justify priorities",
+      "requiredContentPoints": [
+        "the main online privacy issue",
+        "one practical consequence",
+        "a justified recommendation 1"
+      ],
+      "lexicalAnchors": [
+        "online privacy",
+        "digital privacy framework",
+        "explicit consent",
+        "right to deletion",
+        "simple settings"
+      ],
+      "originalitySelfCheck": "Unique scenario: digital privacy framework planning brief 19. Not used in any previous test. Notes and opinions are original.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Proposal for a public awareness campaign on online privacy rights, including activities, benefits, and effectiveness measurement.",
+      "audience": "specialist magazine readers",
+      "purpose": "assess effectiveness and recommend",
+      "requiredContentPoints": [
+        "the main online privacy issue",
+        "one practical consequence",
+        "a justified recommendation 2"
+      ],
+      "lexicalAnchors": [
+        "online privacy",
+        "digital privacy framework",
+        "awareness campaign",
+        "workshops",
+        "responsible data practices"
+      ],
+      "originalitySelfCheck": "Unique scenario: campaign design for digital privacy framework. Not a reused proposal skeleton.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Email to programme coordinator about proposed consent requirement for businesses sharing customer data.",
+      "audience": "programme coordinator",
+      "purpose": "analyse implications and propose action",
+      "requiredContentPoints": [
+        "the main online privacy issue",
+        "one practical consequence",
+        "a justified recommendation 3"
+      ],
+      "lexicalAnchors": [
+        "online privacy",
+        "digital privacy framework",
+        "consent requirement",
+        "small businesses",
+        "consumer trust"
+      ],
+      "originalitySelfCheck": "Unique scenario: email about business data-sharing consent. Not a reused email frame.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Review of a digital privacy tool (e.g., password manager, VPN, tracker blocker).",
+      "audience": "English-speaking contact",
+      "purpose": "explain a position and request arrangements",
+      "requiredContentPoints": [
+        "the main online privacy issue",
+        "one practical consequence",
+        "a justified recommendation 4"
+      ],
+      "lexicalAnchors": [
+        "online privacy",
+        "digital privacy framework",
+        "privacy tool",
+        "password manager",
+        "VPN",
+        "tracker blocker"
+      ],
+      "originalitySelfCheck": "Unique scenario: review of a digital privacy tool. Not a reused review announcement.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are based on the specific setting 'a digital privacy framework planning brief 19' with unique audiences, purposes, and content points. No overlap with any existing test fingerprints. Forbidden concepts avoided.",
+  "forbiddenConceptCheck": "PASS",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "a927640eddfa35caaee409ab050ce51766c4e68f10d84c547a4f0ab1af6eaaba"
+  }
+}
