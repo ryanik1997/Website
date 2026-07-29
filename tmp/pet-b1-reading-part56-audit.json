@@ -1,0 +1,38 @@
+{
+  "scope": "PET B1 Reading Part 5/6",
+  "discoveredTestIds": ["catalog-reading-pet-b1-test1", "catalog-reading-pet-b1-test13"],
+  "discoveredCount": 2,
+  "expectedRange": "01-51",
+  "missingTestNumbers": [2,3,4,5,6,7,8,9,10,11,12,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51],
+  "status": "SCOPED_TO_REAL_APP_CORPUS",
+  "processedTestIds": ["catalog-reading-pet-b1-test1", "catalog-reading-pet-b1-test13"],
+  "part5Rebuilt": 2,
+  "part6Rebuilt": 2,
+  "questionsRebuilt": 24,
+  "sourceClassification": {
+    "catalog-reading-pet-b1-test1": {
+      "classification": "canonical_static_bundle",
+      "sourceFile": "packages/catalog/data/reading-pet-b1-test1.json",
+      "runtimeFile": "apps/web/public/catalog/exams/reading/catalog-reading-pet-b1-test1.json",
+      "buildPath": "scripts/build-catalog.mjs STATIC_BUNDLES pet-reading-test1"
+    },
+    "catalog-reading-pet-b1-test13": {
+      "classification": "orphan_runtime_import_bundle",
+      "sourceFile": null,
+      "runtimeFile": "apps/web/public/catalog/exams/reading/catalog-reading-pet-b1-test13.json",
+      "importBundle": "D:/App-English-Ryan/Crawl/PET_B1_Reading/Tests/test-13/pet-b1-test13-import",
+      "buildPath": "no current repo/Tainguyen source; standard build cannot regenerate it"
+    }
+  },
+  "filesChanged": [
+    "apps/web/public/catalog/exams/reading/catalog-reading-pet-b1-test1.json",
+    "apps/web/public/catalog/exams/reading/catalog-reading-pet-b1-test1.answers.json",
+    "apps/web/public/catalog/exams/reading/catalog-reading-pet-b1-test13.json",
+    "apps/web/public/catalog/exams/reading/catalog-reading-pet-b1-test13.answers.json",
+    "packages/catalog/data/reading-pet-b1-test1.json",
+    "scripts/reading/rebuild-pet-b1-part56.mjs"
+  ],
+  "idempotency": {"ranTwice": true, "secondRunCreatedDiff": false},
+  "test13OverwriteRisk": "HIGH: any crawl/import sync that reuses the orphan bundle can overwrite runtime Test 13; current standard catalog build has no Test 13 source to preserve this change.",
+  "durability": "Test 01 durable through static bundle source; Test 13 runtime-only and not durable through a full catalog rebuild."
+}
