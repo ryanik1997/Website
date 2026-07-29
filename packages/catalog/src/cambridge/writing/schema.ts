@@ -157,6 +157,7 @@ export const CambridgeWritingTaskSchema = z.object({
     ketSourcePartId: z.string().optional(),
     ketQuestionPrompt: z.string().optional(),
     ketImageUrls: z.array(z.string()).optional(),
+    noteParagraphIndexes: z.array(z.number().int().nonnegative()).optional(),
   }).optional(),
 })
 export type CambridgeWritingTask = z.infer<typeof CambridgeWritingTaskSchema>
