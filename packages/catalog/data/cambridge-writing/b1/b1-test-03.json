@@ -1,0 +1,158 @@
+{
+  "id": "b1-test-03",
+  "level": "b1",
+  "testNumber": 3,
+  "title": "PET B1 AI Practice Test 03",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b1/b1-test-03.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b1-test-03-1785300536436",
+    "generatedAt": 1785300549471,
+    "contentHash": "9ab004492b9d380ab14926180a553d3ef8ca2d027521525a65424fb9c4acc8cd",
+    "promptHash": "53e868107b9b39ea89b906655fe6c5d68571ae90406b37ff159cb20aea3727b2",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-03:53e868107b9b39ea89b906655fe6c5d68571ae90406b37ff159cb20aea3727b2",
+    "inputHash": "53e868107b9b39ea89b906655fe6c5d68571ae90406b37ff159cb20aea3727b2",
+    "reviewStatus": "unreviewed",
+    "qualityIssues": [
+      "Independent AI verification skipped by explicit user request; deterministic originality gates passed."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "b1-test-03-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Helping at the School Open Day",
+      "genre": "email",
+      "instruction": "You must answer this question. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-03-task-01-block-01",
+          "type": "paragraph",
+          "text": "Read this email from your classmate, Ben, and the notes you have made."
+        },
+        {
+          "id": "b1-test-03-task-01-block-02",
+          "type": "email",
+          "from": "Ben",
+          "subject": "Open Day helpers",
+          "paragraphs": [
+            "Hi! Thanks for saying you'll help at the school Open Day next Saturday. There are three roles we need to fill: welcoming visitors at the entrance, helping in the sports hall, or showing people around the science labs. Which one would you like to do?",
+            "Also, what time can you start? The event runs from 10 a.m. to 4 p.m., but we can do half-day shifts.",
+            "Do you have any ideas for a fun activity we could organise for visiting families?",
+            "Let me know if you need any equipment for your role. I'll try to get it ready.",
+            "Thanks, Ben"
+          ]
+        },
+        {
+          "id": "b1-test-03-task-01-block-03",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes for Ben's email",
+          "listItems": [
+            "Choose a role and say why you chose it.",
+            "Tell Ben what time you can start.",
+            "Suggest one fun activity for families.",
+            "Ask Ben for one piece of equipment you need."
+          ]
+        },
+        {
+          "id": "b1-test-03-task-01-block-04",
+          "type": "final-instruction",
+          "text": "Write your email to Ben using all the notes."
+        }
+      ],
+      "presentation": {
+        "template": "email"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b1-test-03-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Learning a Practical Skill",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-03-task-02-block-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted!",
+          "paragraphs": [
+            "What practical skill have you learned that helps you in everyday life?",
+            "How did you learn it – from a family member, a friend, or by yourself?",
+            "When do you use this skill, and why is it useful?",
+            "Write an article answering these questions and we will put it on our school blog!"
+          ]
+        },
+        {
+          "id": "b1-test-03-task-02-block-02",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b1-test-03-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "The Unexpected Parcel",
+      "genre": "story",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-03-task-03-block-01",
+          "type": "paragraph",
+          "text": "Your English teacher has asked you to write a story."
+        },
+        {
+          "id": "b1-test-03-task-03-block-02",
+          "type": "source-text",
+          "label": "opening",
+          "text": "When I got home from school, I found a large cardboard box on the doorstep with no name on the label."
+        },
+        {
+          "id": "b1-test-03-task-03-block-03",
+          "type": "final-instruction",
+          "text": "Write your story."
+        }
+      ],
+      "presentation": {
+        "template": "plain"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

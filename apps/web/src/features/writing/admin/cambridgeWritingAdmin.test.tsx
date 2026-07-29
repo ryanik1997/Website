@@ -76,43 +76,43 @@ describe('Cambridge Writing admin flow', () => {
     fireEvent.click(screen.getByText('Tạo đề mới'))
     await screen.findByRole('dialog')
     expect(screen.getByDisplayValue('PET · B1')).toBeInTheDocument()
-    expect(screen.getByDisplayValue('2')).toBeInTheDocument()
-    expect(screen.getByDisplayValue('PET B1 Writing · Test 02')).toBeInTheDocument()
+    expect(screen.getByDisplayValue('7')).toBeInTheDocument()
+    expect(screen.getByDisplayValue('PET B1 Writing · Test 07')).toBeInTheDocument()
 
     fireEvent.click(screen.getByText('+ Thêm bài viết'))
     expect(screen.getAllByText(/Task \d+/).length).toBeGreaterThan(1)
 
-    fireEvent.change(screen.getByDisplayValue('PET B1 Writing · Test 02'), { target: { value: 'PET Draft Test 02' } })
+    fireEvent.change(screen.getByDisplayValue('PET B1 Writing · Test 07'), { target: { value: 'PET Draft Test 07' } })
     fireEvent.change(screen.getAllByRole('textbox')[2], { target: { value: 'Write an email to your friend.' } })
     fireEvent.click(screen.getByText('Lưu bản nháp'))
 
     await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument())
-    await screen.findByText('PET Draft Test 02')
-    expect(screen.getByText('Bản nháp')).toBeInTheDocument()
+    await screen.findByText('PET Draft Test 07')
+    expect(screen.getAllByText('Bản nháp').length).toBeGreaterThan(0)
     expect(await db.writingDocs.count()).toBe(0)
 
     const savedTests = await db.cambridgeWritingTests.toArray()
     expect(savedTests).toHaveLength(1)
     const createdTestId = savedTests[0]?.id
-    expect(createdTestId).toBe('pet-b1-writing-test-02')
+    expect(createdTestId).toBe('pet-b1-writing-test-07')
 
     cleanup()
     renderHarness(`/app/writing/cambridge/b1/${createdTestId}`)
-    await screen.findByRole('heading', { name: 'PET Draft Test 02' })
+    await screen.findByRole('heading', { name: 'PET Draft Test 07' })
     const taskButtons = Array.from(document.querySelectorAll<HTMLButtonElement>('.cb-grid .cb-card'))
     expect(taskButtons[0]).toBeTruthy()
     fireEvent.click(taskButtons[0] as HTMLButtonElement)
     await screen.findByLabelText('Writing answer')
 
     fireEvent.click(screen.getByLabelText('Back to library'))
-    await screen.findByText('PET Draft Test 02')
+    await screen.findByText('PET Draft Test 07')
     fireEvent.click(screen.getByText('Chỉnh sửa'))
     await screen.findByRole('dialog')
-    fireEvent.change(screen.getByDisplayValue('PET Draft Test 02'), { target: { value: 'PET Draft Test 02 Updated' } })
+    fireEvent.change(screen.getByDisplayValue('PET Draft Test 07'), { target: { value: 'PET Draft Test 07 Updated' } })
     fireEvent.click(screen.getByText('Lưu bản nháp'))
 
     await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument())
-    await screen.findByText('PET Draft Test 02 Updated')
+    await screen.findByText('PET Draft Test 07 Updated')
   })
 
   it('supports create entry point on every Cambridge Writing level and opens admin guide', async () => {

@@ -1,0 +1,71 @@
+{
+  "testId": "b1-test-02",
+  "level": "b1",
+  "tasks": [
+    {
+      "taskId": "b1-test-02-task-01",
+      "scenario": "Organising a weekend visit with a friend: confirming arrival time, suggesting an activity with reason, stating food preference, asking what to bring.",
+      "audience": "English-speaking friend (Sam)",
+      "purpose": "Confirm plans, choose an activity and ask a practical question.",
+      "requiredContentPoints": [
+        "arrival time",
+        "preferred activity and reason",
+        "food preference",
+        "question about what to bring"
+      ],
+      "lexicalAnchors": [
+        "weekend visit",
+        "arrival time",
+        "local activity",
+        "food preference",
+        "what to bring"
+      ],
+      "originalityCheck": "No overlap with test 01 email (which was about a different friend and different notes). Scenario is original.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "b1-test-02-task-02",
+      "scenario": "Youth website collecting recommendations for useful local places for teenagers.",
+      "audience": "Teenage website readers",
+      "purpose": "Describe a useful place and explain why teenagers should visit.",
+      "requiredContentPoints": [
+        "what the place is",
+        "what teenagers can do there",
+        "why it is useful"
+      ],
+      "lexicalAnchors": [
+        "useful place",
+        "teenagers",
+        "local area",
+        "recommendation"
+      ],
+      "originalityCheck": "No overlap with test 01 article (which was about films). Scenario is original.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "b1-test-02-task-03",
+      "scenario": "A journey disrupted after a bus leaves without the traveller.",
+      "audience": "English teacher",
+      "purpose": "Continue a story from a fixed opening with a clear consequence.",
+      "requiredContentPoints": [
+        "missed bus",
+        "unexpected next step",
+        "ending linked to the journey"
+      ],
+      "lexicalAnchors": [
+        "missed bus",
+        "journey",
+        "unexpected help",
+        "bus stop"
+      ],
+      "originalityCheck": "Opening sentence is unique and not similar to test 01 story opening (plane landing). Scenario is original.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginality": "All tasks are original, with distinct scenarios, audiences, and content points. No forbidden concepts used.",
+  "status": "draft",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "6012b46a644813e8293c420a76315c4ecff9523afc8e58efe625d02efc65984a"
+  }
+}

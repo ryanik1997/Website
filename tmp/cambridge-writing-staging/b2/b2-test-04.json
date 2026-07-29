@@ -1,0 +1,184 @@
+{
+  "id": "b2-test-04",
+  "level": "b2",
+  "testNumber": 4,
+  "title": "FCE B2 AI Practice Test 04",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-04.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b2-test-04-1785300663191",
+    "generatedAt": 1785300679693,
+    "contentHash": "5ddeaba2dc6168ad4409be3035f4e3b32ba5e32da70b97bb745e22c71d2bcafd",
+    "promptHash": "33cbde165d954594457d8a9aa539ed9900e0c4ef8234f6c97a4300d2b93e0d19",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-04:33cbde165d954594457d8a9aa539ed9900e0c4ef8234f6c97a4300d2b93e0d19",
+    "inputHash": "33cbde165d954594457d8a9aa539ed9900e0c4ef8234f6c97a4300d2b93e0d19",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b2-test-04-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Improving community centres",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-04-task-01-pb01",
+          "type": "paragraph",
+          "text": "In your English class you have been talking about how to improve local community centres so that they attract more young people. Now your teacher has asked you to write an essay."
+        },
+        {
+          "id": "b2-test-04-task-01-pb02",
+          "type": "paragraph",
+          "text": "Write an essay using all the notes and giving reasons for your point of view."
+        },
+        {
+          "id": "b2-test-04-task-01-pb03",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "listItems": [
+            "opening hours",
+            "activities or equipment",
+            "......................... (your own idea)"
+          ]
+        },
+        {
+          "id": "b2-test-04-task-01-pb04",
+          "type": "final-instruction",
+          "text": "Write your essay."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes"
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b2-test-04-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Review of a public facility",
+      "genre": "review",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-04-task-02-pb01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted!",
+          "paragraphs": [
+            "Have you visited a public facility in your area recently – for example, a library, a sports centre, a park or a museum? Write a review for our town website.",
+            "Describe what the facility is for, how easy it was to use, and whether the service was good. Would you recommend it to other people?"
+          ],
+          "footer": "The best reviews will be published on the town website."
+        },
+        {
+          "id": "b2-test-04-task-02-pb02",
+          "type": "final-instruction",
+          "text": "Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-04-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Getting young people involved locally",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-04-task-03-pb01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted!",
+          "paragraphs": [
+            "Our town wants to involve young people more in local decisions and projects. What would make you or your friends want to take part?",
+            "Write an article for the town website suggesting one way young people could get involved, explaining why it would be attractive, and describing what the result might look like."
+          ],
+          "footer": "We will publish the best articles on the town website."
+        },
+        {
+          "id": "b2-test-04-task-03-pb02",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-04-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Volunteering for a community project",
+      "genre": "email",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-04-task-04-pb01",
+          "type": "email",
+          "from": "Volunteer Coordinator <volunteer@greentown.org>",
+          "subject": "Community garden project – can you help?",
+          "paragraphs": [
+            "We are starting a community garden project next month and are looking for volunteers. Would you be interested in joining?",
+            "Let me know what skill you could bring, how much time you can give, and what role you would prefer. Also, do you have any questions about training?"
+          ]
+        },
+        {
+          "id": "b2-test-04-task-04-pb02",
+          "type": "final-instruction",
+          "text": "Write your email."
+        }
+      ],
+      "presentation": {
+        "template": "email",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

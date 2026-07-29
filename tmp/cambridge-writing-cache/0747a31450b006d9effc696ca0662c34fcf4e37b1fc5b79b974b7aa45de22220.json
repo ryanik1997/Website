@@ -1,0 +1,228 @@
+{
+  "inputHash": "773105ae4c8045c2bf5c0a32f150f4503296864b38726ff4091f02aa1cca8a6f",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-06:773105ae4c8045c2bf5c0a32f150f4503296864b38726ff4091f02aa1cca8a6f",
+  "test": {
+    "id": "c1-test-06",
+    "level": "c1",
+    "testNumber": 6,
+    "title": "CAE C1 AI Practice Test 06",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-06.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c1-test-06-1785301024581",
+      "generatedAt": 1785301043932,
+      "contentHash": "f60d7c214f7f04c0de525fa565bfc5a6a86c131e0061d6263c0f935a605e24cd",
+      "promptHash": "773105ae4c8045c2bf5c0a32f150f4503296864b38726ff4091f02aa1cca8a6f",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-06:773105ae4c8045c2bf5c0a32f150f4503296864b38726ff4091f02aa1cca8a6f",
+      "inputHash": "773105ae4c8045c2bf5c0a32f150f4503296864b38726ff4091f02aa1cca8a6f",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c1-test-06-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Essay: Institutional evaluation of hybrid communication practice",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+        "promptText": "Your university senate is discussing how to improve hybrid communication – the use of email, messaging platforms and in-person meetings for teaching and administration. You have made the notes below.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-06-task-01-panel-notes",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Priorities for a hybrid communication charter",
+            "listItems": [
+              "response-time expectations",
+              "channel clarity",
+              "protected offline periods"
+            ]
+          },
+          {
+            "id": "c1-test-06-task-01-panel-opinions",
+            "type": "panel",
+            "variant": "opinions",
+            "heading": "Some opinions expressed in the discussion:",
+            "paragraphs": [
+              "\"Response-time expectations reduce anxiety – everyone knows when to expect a reply.\"",
+              "\"Channel clarity stops confusion: use email for formal notices, messaging for quick questions.\"",
+              "\"Protected offline periods let staff and students disconnect without guilt.\""
+            ]
+          },
+          {
+            "id": "c1-test-06-task-01-final",
+            "type": "final-instruction",
+            "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for the university to adopt, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+          }
+        ],
+        "presentation": {
+          "template": "essay-notes-opinions"
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c1-test-06-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Proposal: University communication charter",
+        "genre": "proposal",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptText": "The university executive committee has decided to develop a formal communication charter for all hybrid teaching and administration. The committee has invited proposals from staff and students on how the charter should be structured.\n\nWrite a proposal for the executive committee. In your proposal, you should:\n\n• recommend channel standards for different types of communication\n• suggest how staff and student training on the charter should be organised\n• describe a complaint route for when the charter is not followed\n\nWrite your proposal.",
+        "promptBlocks": [],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-06-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Email: Response to external quality auditor",
+        "genre": "email",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptText": "You are the head of the university's communication review team. An external quality auditor has sent you a report highlighting several communication failures in hybrid teaching and administration, and has requested a response.\n\nWrite an email to the external quality auditor. In your email, you should:\n\n• explain the root cause of the communication failures\n• describe the corrective measures the university is implementing\n• arrange a meeting to review the evidence of improvement\n\nWrite your email.",
+        "promptBlocks": [],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-06-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Review: Hybrid communication policy",
+        "genre": "review",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptText": "You see this announcement in a higher-education leadership publication.\n\nReviews wanted: Hybrid communication policies\n\nOur publication is running a series of reviews of hybrid communication policies adopted by universities. Have you experienced or observed a policy that aims to regulate communication across digital and in-person channels? Write a review for our publication.\n\nIn your review, evaluate the clarity of the policy's guidelines, assess its impact on organisational culture, and consider the risks involved in implementing such a policy.\n\nWrite your review.",
+        "promptBlocks": [],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "c1-test-06",
+    "level": "c1",
+    "topicFamily": "technology and communication",
+    "specificSetting": "a university revising communication rules for hybrid teaching and administration",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "institutional evaluation of hybrid communication practice",
+        "audience": "university senate",
+        "purpose": "compare communication principles and identify the most important reform",
+        "requiredContentPoints": [
+          "response-time expectations",
+          "channel clarity",
+          "protected offline periods"
+        ],
+        "lexicalAnchors": [
+          "hybrid communication",
+          "response-time expectations",
+          "channel clarity",
+          "protected offline periods"
+        ],
+        "originalitySelfCheck": "Unique scenario: university senate discussing hybrid communication charter. No overlap with previous tests (c1-test-01 used local authority facilities; c1-test-02 used academic support; c1-test-03 used career transition; c1-test-04 used civic participation; c1-test-05 used arts centre sustainability). Forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "proposal for a university communication charter",
+        "audience": "university executive committee",
+        "purpose": "recommend standards, training and enforcement",
+        "requiredContentPoints": [
+          "channel standards",
+          "staff and student training",
+          "complaint route"
+        ],
+        "lexicalAnchors": [
+          "communication charter",
+          "channel standards",
+          "training",
+          "complaint route"
+        ],
+        "originalitySelfCheck": "Proposal for university communication charter – not a proposal for employer partnership, study hub, youth forum, or sustainable events framework. Forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "email responding to an external auditor about communication failures",
+        "audience": "external quality auditor",
+        "purpose": "explain causes, provide corrective measures and arrange evidence review",
+        "requiredContentPoints": [
+          "root cause",
+          "corrective measure",
+          "evidence review"
+        ],
+        "lexicalAnchors": [
+          "quality auditor",
+          "communication failure",
+          "corrective evidence"
+        ],
+        "originalitySelfCheck": "Email to external quality auditor – not an email to HR director, supplier, community organisation, or course organiser. Forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 4,
+        "scenario": "review of a hybrid communication policy for a higher-education publication",
+        "audience": "higher-education leaders",
+        "purpose": "evaluate clarity, cultural impact and implementation risk",
+        "requiredContentPoints": [
+          "policy clarity",
+          "organisational culture",
+          "implementation risk"
+        ],
+        "lexicalAnchors": [
+          "hybrid policy",
+          "organisational culture",
+          "implementation risk"
+        ],
+        "originalitySelfCheck": "Review for higher-education leadership publication – not a review for college magazine, education policy journal, governance magazine, cultural-sector journal, or arts journal. Forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ],
+    "overallOriginalityCheck": "All tasks are based on the unique scenario of a university revising hybrid communication rules. No overlap with any previous test's scenario, audience, content points, or lexical anchors. Forbidden concepts (communication app review, online group project advice, digital communication workshop) are not used. Each task has a distinct audience and purpose.",
+    "forbiddenConceptCheck": "PASS"
+  },
+  "cachedAt": 1785301044458
+}

@@ -1,0 +1,157 @@
+{
+  "id": "b2-test-05",
+  "level": "b2",
+  "testNumber": 5,
+  "title": "FCE B2 AI Practice Test 05",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-05.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b2-test-05-1785300972688",
+    "generatedAt": 1785300991194,
+    "contentHash": "cbe52131d2fe39574f705034d480df2389f4124ec5d638beaa5f331d524a189e",
+    "promptHash": "2c7dc71c50d0a0bec49c9af47f2712a53438eb3a4ef2849761da2d5a76bdca3a",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-05:2c7dc71c50d0a0bec49c9af47f2712a53438eb3a4ef2849761da2d5a76bdca3a",
+    "inputHash": "2c7dc71c50d0a0bec49c9af47f2712a53438eb3a4ef2849761da2d5a76bdca3a",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b2-test-05-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay: Reducing waste at public events",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 140–190 words in an appropriate style.\n\nIn your English class you have been talking about how to reduce waste at public events such as concerts or sports matches. Now your English teacher has asked you to write an essay.\n\nWrite an essay using all the notes and giving reasons for your point of view.\n\nWhat is the most effective way to reduce waste at public events?\n\nNotes\n\nWrite about:\n\n1. reusable food containers\n2. clear sorting stations\n3. ......................... (your own idea)",
+      "promptBlocks": [
+        {
+          "id": "b2-test-05-task-01-panel-01",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "listItems": [
+            "reusable food containers",
+            "clear sorting stations",
+            "......................... (your own idea)"
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes"
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b2-test-05-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Review: An environmentally responsible event",
+      "genre": "review",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.\n\nYou see this announcement in your college English-language magazine.\n\nReviews wanted\n\nHave you recently attended an event that made a real effort to be environmentally responsible? It could be a festival, a sports event, a market or something similar.\n\nWrite a review for our magazine. Describe one specific environmental action the organisers took, explain how it affected your experience as a visitor, and say whether you would recommend this event to others.\n\nThe best reviews will be published in the next issue.\n\nWrite your review.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-05-task-02-panel-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted",
+          "paragraphs": [
+            "Have you recently attended an event that made a real effort to be environmentally responsible? It could be a festival, a sports event, a market or something similar.",
+            "Write a review for our magazine. Describe one specific environmental action the organisers took, explain how it affected your experience as a visitor, and say whether you would recommend this event to others.",
+            "The best reviews will be published in the next issue."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-05-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Article: Low-waste habits for young adults",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.\n\nYou see this announcement on a lifestyle website for young adults.\n\nArticles wanted\n\nLow-waste habits that actually work\n\nWe are collecting practical, realistic low-waste habits that young people can fit into their daily lives.\n\nWrite an article for our website. Describe one shopping choice and one food or packaging habit that help reduce waste, and explain how you manage to keep them up consistently.\n\nWe will publish the best articles on our website.\n\nWrite your article.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-05-task-03-panel-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted",
+          "paragraphs": [
+            "Low-waste habits that actually work",
+            "We are collecting practical, realistic low-waste habits that young people can fit into their daily lives.",
+            "Write an article for our website. Describe one shopping choice and one food or packaging habit that help reduce waste, and explain how you manage to keep them up consistently.",
+            "We will publish the best articles on our website."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-05-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Email: Helping organise a school event with a waste-reduction target",
+      "genre": "email",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.\n\nYou have received this email from your classmate, Sam, who is helping to organise a multi-school event.\n\nFrom: Sam\nSubject: Help with our event's waste target\n\nHi,\nOur event has a target to reduce waste by 30% compared to last year. I'm responsible for coordinating volunteers and I need help. Could you take on a specific responsibility? Also, what two waste-reduction measures would you recommend for the event? I'd like to know why you think they'd work. Finally, do you have any questions about the suppliers we're using?\n\nThanks,\nSam\n\nWrite your email.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-05-task-04-email-01",
+          "type": "email",
+          "from": "Sam",
+          "subject": "Help with our event's waste target",
+          "paragraphs": [
+            "Hi,",
+            "Our event has a target to reduce waste by 30% compared to last year. I'm responsible for coordinating volunteers and I need help. Could you take on a specific responsibility? Also, what two waste-reduction measures would you recommend for the event? I'd like to know why you think they'd work. Finally, do you have any questions about the suppliers we're using?",
+            "Thanks,",
+            "Sam"
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "email",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

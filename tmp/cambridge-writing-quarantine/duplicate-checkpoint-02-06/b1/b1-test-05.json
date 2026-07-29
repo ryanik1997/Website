@@ -1,0 +1,142 @@
+{
+  "id": "b1-test-05",
+  "level": "b1",
+  "testNumber": 5,
+  "title": "PET B1 AI Practice Test 05",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b1/b1-test-05.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 1,
+    "generationBatchId": "c1-test-04-to-c1-test-05-1785251463023",
+    "generatedAt": 1785251492473,
+    "contentHash": "29aadddc79d19f212f4d9b6a3e9f8ffb2154c4f43f2e2410cb6c54348bf6cf61",
+    "reviewStatus": "unreviewed",
+    "qualityIssues": [
+      "Independent AI verification skipped by explicit user request."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "b1-test-05-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Low-waste school event",
+      "genre": "email",
+      "instruction": "You have received this email from your English teacher, Mrs. Clark.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-05-task-1-email",
+          "type": "email",
+          "from": "Mrs. Clark",
+          "subject": "Low-waste school event",
+          "greeting": "Dear student,",
+          "paragraphs": [
+            "Our school is planning a low-waste event to help the environment. I'd like your ideas. What kind of event do you suggest, and why? Also, how can we encourage students to take part?",
+            "I look forward to your reply."
+          ],
+          "closing": "Best wishes,",
+          "sender": "Mrs. Clark"
+        },
+        {
+          "id": "b1-test-05-task-1-notes",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Your notes:",
+          "listItems": [
+            "Event idea: a swap shop for books and clothes – reduces waste and is fun.",
+            "Reason: students can exchange things they no longer need instead of throwing them away.",
+            "Encouragement: offer a small prize for the class that brings the most items.",
+            "Preference: I think a swap shop is better than a workshop because it's more interactive."
+          ]
+        },
+        {
+          "id": "b1-test-05-task-1-final",
+          "type": "final-instruction",
+          "text": "Write your email."
+        }
+      ],
+      "presentation": {
+        "template": "email"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b1-test-05-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Helping at a school event",
+      "genre": "article",
+      "instruction": "Your school magazine is asking for articles about how students can help at school events. Write an article for the magazine.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-05-task-2-announcement",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Write an article for the magazine.",
+          "paragraphs": [
+            "What can students do to help at school events? Do you think it's important to help? What simple things can you do?",
+            "Share your ideas in an article for the magazine."
+          ]
+        },
+        {
+          "id": "b1-test-05-task-2-final",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b1-test-05-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "A school fair",
+      "genre": "story",
+      "instruction": "Your English teacher has asked you to write a story for homework. Your story must begin with this sentence:",
+      "promptBlocks": [
+        {
+          "id": "b1-test-05-task-3-opening",
+          "type": "paragraph",
+          "text": "When I arrived at the school fair, I saw my friend waving at me."
+        },
+        {
+          "id": "b1-test-05-task-3-final",
+          "type": "final-instruction",
+          "text": "Write your story."
+        }
+      ],
+      "presentation": {
+        "template": "plain"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "valid": false,
+  "overallScore": 74,
+  "dimensionScores": {
+    "formatAccuracy": 70,
+    "levelAppropriacy": 80,
+    "clarity": 85,
+    "answerability": 80,
+    "genreAuthenticity": 75,
+    "topicOriginality": 70,
+    "culturalFairness": 90,
+    "internalConsistency": 85
+  },
+  "issues": [
+    {
+      "severity": "error",
+      "taskId": "b2-test-03-task-02",
+      "code": "FORMAT_ERROR",
+      "message": "The word limit for the review task is not clearly specified in the prompt.",
+      "suggestedAction": "Revise the prompt to clearly state the word limit."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b2-test-03-task-03",
+      "code": "GENRE_INAUTHENTICITY",
+      "message": "The article task may not be the most authentic genre for discussing the value of workplace observation days.",
+      "suggestedAction": "Consider using a more authentic genre, such as a reflective essay or a case study."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b2-test-03-task-04",
+      "code": "TOPIC_UNORIGINALITY",
+      "message": "The email task may not be the most original topic for discussing workplace observation days.",
+      "suggestedAction": "Consider using a more original topic or approach, such as a comparative analysis of different workplace observation days."
+    }
+  ],
+  "duplicateRisk": {
+    "highRisk": false,
+    "similarToTestIds": []
+  },
+  "approvedForDraftCatalog": false
+}

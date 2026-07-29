@@ -1,0 +1,157 @@
+{
+  "id": "b1-test-06",
+  "level": "b1",
+  "testNumber": 6,
+  "title": "PET B1 AI Practice Test 06",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b1/b1-test-06.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b1-test-06-1785301108398",
+    "generatedAt": 1785301151277,
+    "contentHash": "75ff1f8b60e002da07c9920bb88b5a56ed120d82dcc45cd7f69e2978e601daee",
+    "promptHash": "a31672ce257329fc9376bb2be933a111b0291c9ac3a6571ffa6ce9b23e851728",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-06:a31672ce257329fc9376bb2be933a111b0291c9ac3a6571ffa6ce9b23e851728",
+    "inputHash": "a31672ce257329fc9376bb2be933a111b0291c9ac3a6571ffa6ce9b23e851728",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b1-test-06-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Arranging an online language exchange",
+      "genre": "email",
+      "instruction": "You must answer this question. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-06-task-01-intro",
+          "type": "paragraph",
+          "text": "Read this email from your new language exchange partner, Yuki, and the notes you have made."
+        },
+        {
+          "id": "b1-test-06-task-01-email",
+          "type": "email",
+          "from": "Yuki",
+          "subject": "Our first language exchange!",
+          "paragraphs": [
+            "Hi! I'm really excited to start our language exchange. I think we should have a weekly call to practise. What day and time works best for you?",
+            "Also, I'd like to choose an activity for our first call. I was thinking we could talk about our favourite films or maybe play an online word game. Which do you prefer? Why?",
+            "Finally, do you have a preference for which platform we use – Zoom, Skype, or something else? I want to make sure it's easy for both of us.",
+            "Let me know what you think! Best, Yuki"
+          ]
+        },
+        {
+          "id": "b1-test-06-task-01-notes",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes for your reply",
+          "listItems": [
+            "Suggest a weekly time and day.",
+            "Choose an activity and give a reason.",
+            "Answer her question about the platform.",
+            "Ask Yuki if she has any language goals for the exchange."
+          ]
+        },
+        {
+          "id": "b1-test-06-task-01-final",
+          "type": "final-instruction",
+          "text": "Write your email to Yuki using all the notes."
+        }
+      ],
+      "presentation": {
+        "template": "email"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b1-test-06-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Communicating well online",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-06-task-02-announcement",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted!",
+          "paragraphs": [
+            "How can teenagers communicate clearly and respectfully online?",
+            "Write an article for our student website giving advice.",
+            "Tell us:",
+            "- How can you make sure your messages are easy to understand?",
+            "- What should you do if you disagree with someone online?",
+            "- How can you avoid misunderstandings?",
+            "The best articles will be published on our website!"
+          ]
+        },
+        {
+          "id": "b1-test-06-task-02-final",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b1-test-06-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "The wrong message",
+      "genre": "story",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-06-task-03-opening",
+          "type": "paragraph",
+          "text": "Your English teacher has asked you to write a story."
+        },
+        {
+          "id": "b1-test-06-task-03-sentence",
+          "type": "source-text",
+          "label": "Your story must begin with this sentence:",
+          "text": "As soon as I pressed send, I realised the message was meant for my best friend, not my teacher."
+        },
+        {
+          "id": "b1-test-06-task-03-final",
+          "type": "final-instruction",
+          "text": "Write your story."
+        }
+      ],
+      "presentation": {
+        "template": "plain"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

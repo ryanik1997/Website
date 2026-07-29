@@ -1,0 +1,86 @@
+{
+  "testId": "c2-test-04",
+  "level": "c2",
+  "topicFamily": "community and public services",
+  "specificSetting": "debate over legitimacy when public institutions invite participation but retain control",
+  "tasks": [
+    {
+      "taskId": "c2-test-04-task-01",
+      "scenario": "Two source texts contesting the democratic value of consultation",
+      "audience": "educated general reader",
+      "purpose": "synthesise arguments, assess institutional incentives and establish conditions for legitimacy",
+      "requiredContentPoints": [
+        "inclusion claim",
+        "control over outcomes",
+        "conditions for legitimate participation"
+      ],
+      "lexicalAnchors": [
+        "consultation",
+        "managed consent",
+        "democratic legitimacy"
+      ],
+      "originalitySelfCheck": "Source texts are original, no reused theses or statistics. Skeleton differs from all previous C2 essays.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "c2-test-04-task-02",
+      "scenario": "Review of an exhibition about the architecture of public decision-making",
+      "audience": "arts and society journal readers",
+      "purpose": "evaluate conceptual design, accessibility and political insight",
+      "requiredContentPoints": [
+        "curatorial concept",
+        "audience accessibility",
+        "political insight"
+      ],
+      "lexicalAnchors": [
+        "decision architecture",
+        "public exhibition",
+        "political insight"
+      ],
+      "originalitySelfCheck": "Exhibition review is unique; no previous test uses this scenario. Lead-in and content points are distinct.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "c2-test-04-task-03",
+      "scenario": "Report on trust erosion after a symbolic consultation process",
+      "audience": "independent civic commission",
+      "purpose": "analyse causes, consequences and institutional remedies",
+      "requiredContentPoints": [
+        "source of distrust",
+        "effect on participation",
+        "remedy with accountability"
+      ],
+      "lexicalAnchors": [
+        "trust erosion",
+        "symbolic consultation",
+        "institutional remedy"
+      ],
+      "originalitySelfCheck": "Report scenario is original; no previous test uses trust erosion from a consultation. Skeleton and content points are new.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "c2-test-04-task-04",
+      "scenario": "Article exploring whether participation without power is worse than no participation",
+      "audience": "ideas magazine readers",
+      "purpose": "test the proposition and distinguish symbolic from consequential voice",
+      "requiredContentPoints": [
+        "symbolic voice",
+        "consequential influence",
+        "ethical cost of false inclusion"
+      ],
+      "lexicalAnchors": [
+        "participation without power",
+        "symbolic voice",
+        "false inclusion"
+      ],
+      "originalitySelfCheck": "Article proposition is unique; no previous test uses this exact framing. Skeleton and content points are distinct.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are original, avoid forbidden concepts, and do not reuse scenarios, audiences, content points, or sentence skeletons from any previous test.",
+  "status": "PASS",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "a36b58d647612e625217f2c791477c1d4a153fe590c6aa8d5574ac9819b5f53d"
+  }
+}

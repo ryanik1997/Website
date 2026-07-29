@@ -1,0 +1,13 @@
+{
+  "batchId": "b2-test-03-1785300156701",
+  "generatedAt": 1785300249398,
+  "requested": 1,
+  "results": [
+    {
+      "testId": "b2-test-03",
+      "status": "failed",
+      "error": "b2-test-03: deterministic originality gate failed: skeleton_similarity, skeleton_similarity"
+    }
+  ],
+  "failed": 1
+}

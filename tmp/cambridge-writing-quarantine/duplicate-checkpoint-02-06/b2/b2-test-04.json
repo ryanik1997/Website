@@ -1,0 +1,168 @@
+{
+  "id": "b2-test-04",
+  "level": "b2",
+  "testNumber": 4,
+  "title": "FCE B2 AI Practice Test 04",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-04.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 1,
+    "generationBatchId": "b2-test-03-to-b2-test-04-1785251424783",
+    "generatedAt": 1785251463020,
+    "contentHash": "e05581947ec8d3fcd80a93ec45fb66c69a6b1b4238852adb47c9d5ca36604531",
+    "reviewStatus": "unreviewed",
+    "qualityIssues": [
+      "Independent AI verification skipped by explicit user request."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "b2-test-04-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Community centre programme",
+      "genre": "essay",
+      "instruction": "Your school or college is considering introducing a programme where students volunteer at a local community centre. Your principal has asked you to write an essay discussing whether this would be a good idea. In your essay, you should consider the benefits for students and the impact on the community, and include your own idea.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-04-task-1-notes",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "listItems": [
+            "Benefits for students (e.g., new skills, confidence)",
+            "Impact on the community (e.g., support for local people)",
+            "......................... (your own idea)"
+          ]
+        },
+        {
+          "id": "b2-test-04-task-1-final",
+          "type": "final-instruction",
+          "text": "Write your essay."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes"
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b2-test-04-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Community centre programme participation",
+      "genre": "review",
+      "instruction": "You see this announcement on a local community website. Write a review of a community centre programme you have taken part in or know about.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-04-task-2-announcement",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Community Centre Programme Review",
+          "paragraphs": [
+            "Have you taken part in a programme at a local community centre? We want to hear about it! Write a review describing the programme, including what you liked and disliked, and explaining whether you would recommend it to others."
+          ]
+        },
+        {
+          "id": "b2-test-04-task-2-final",
+          "type": "final-instruction",
+          "text": "Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-04-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Community centre programme long-term value",
+      "genre": "article",
+      "instruction": "You see this announcement in an international magazine for young people. Write an article answering the question.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-04-task-3-announcement",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Community Matters",
+          "paragraphs": [
+            "We are looking for articles on the topic: 'What long-term value can community centre programmes bring to young people?' Write an article describing the benefits you think are most important and why."
+          ]
+        },
+        {
+          "id": "b2-test-04-task-3-final",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-04-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Community centre programme for college magazine",
+      "genre": "email",
+      "instruction": "You have received this email from your English teacher. Write your reply.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-04-task-4-email",
+          "type": "email",
+          "from": "Ms. Garcia",
+          "subject": "College magazine article about community centre",
+          "greeting": "Hi,",
+          "paragraphs": [
+            "Our college magazine is planning a feature on local community centres. I know you have been involved in some activities there. Could you write a short piece evaluating the programmes you have seen and recommending one for our readers? Let me know if you are interested."
+          ],
+          "closing": "Best,",
+          "sender": "Ms. Garcia"
+        },
+        {
+          "id": "b2-test-04-task-4-final",
+          "type": "final-instruction",
+          "text": "Write your email."
+        }
+      ],
+      "presentation": {
+        "template": "email",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

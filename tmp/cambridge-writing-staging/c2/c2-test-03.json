@@ -1,0 +1,122 @@
+{
+  "id": "c2-test-03",
+  "level": "c2",
+  "testNumber": 3,
+  "title": "CPE C2 AI Practice Test 03",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-03.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "c2-test-03-1785300577498",
+    "generatedAt": 1785300634431,
+    "contentHash": "25aa8c30f45968a1e5a2e6d631ba575585c9b550811141c342397aefec8ce7f6",
+    "promptHash": "5afb5ee5b579f864b62edfdcf19b04d62d438b2d6e42b3c196e8897e52852ecf",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-03:5afb5ee5b579f864b62edfdcf19b04d62d438b2d6e42b3c196e8897e52852ecf",
+    "inputHash": "5afb5ee5b579f864b62edfdcf19b04d62d438b2d6e42b3c196e8897e52852ecf",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "c2-test-03-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Experience and Merit",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write an essay summarising and evaluating the key points from both texts in 240–280 words. Use your own words throughout as far as possible, and include your own ideas in your answers.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-03-task-01-source-01",
+          "type": "source-text",
+          "label": "Text 1",
+          "title": "Experience as a Gatekeeper",
+          "text": "In many professions, the requirement for a minimum number of years of experience functions as a gatekeeping mechanism that disproportionately excludes those who lack access to established networks. When employers insist on a decade of sector-specific practice, they are not merely seeking competence; they are privileging a particular kind of career trajectory that is only available to individuals who have had the good fortune to be employed continuously in that field. This criterion ignores the reality that many talented people enter the labour market later, change careers, or have taken time out for caregiving. The demand for lengthy experience thus perpetuates a cycle where those already inside the profession control who gets in, regardless of actual ability. If we truly value merit, we must question whether experience requirements are a proxy for privilege rather than a reliable indicator of skill."
+        },
+        {
+          "id": "c2-test-03-task-01-source-02",
+          "type": "source-text",
+          "label": "Text 2",
+          "title": "Experience as Evidence",
+          "text": "Experience is not a luxury; it is the most robust evidence we have that a person can perform under real conditions. Theoretical knowledge and raw talent are valuable, but they do not substitute for the judgement that comes from having navigated complex situations, made mistakes, and learned from them. In fields such as medicine, engineering, or law, the consequences of incompetence are severe, and experience requirements exist precisely to protect the public and maintain professional standards. To dismiss these requirements as mere gatekeeping is to misunderstand the nature of expertise. Moreover, experience often correlates with the development of tacit knowledge—the kind of intuitive understanding that cannot be taught in a classroom. Therefore, while we should ensure fair access to opportunities, we should not pretend that experience is irrelevant to professional readiness."
+        }
+      ],
+      "presentation": {
+        "template": "source-texts"
+      },
+      "wordLimit": {
+        "min": 240,
+        "max": 280,
+        "displayText": "240–280 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c2-test-03-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Review of 'Invisible Pathways'",
+      "genre": "review",
+      "instruction": "Answer one of the following questions (2–4). Write 280–320 words in an appropriate style.",
+      "promptText": "A cultural review magazine is running a series on documentary essays that explore hidden mechanisms of social advantage. You decide to submit a review of a recent documentary essay titled 'Invisible Pathways: How Professional Networks Shape Careers'. In your review, evaluate the narrative approach used by the filmmaker, discuss how effectively the essay represents the experience of those excluded from professional networks, and assess the lasting insight it offers into the nature of career opportunity.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-03-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Report on Inherited Access Patterns",
+      "genre": "report",
+      "instruction": "Answer one of the following questions (2–4). Write 280–320 words in an appropriate style.",
+      "promptText": "You are a governance advisor to the National Association of Chartered Surveyors. The governing council has asked you to write a report on how inherited access—through family connections, informal referrals, and unpaid internships—affects entry into the profession. In your report, identify the main mechanisms through which such access operates, assess the consequences for the profession's diversity and standards, and recommend accountable reforms that the association could implement to ensure fairer entry.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-03-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Competence Beyond Credentials",
+      "genre": "article",
+      "instruction": "Answer one of the following questions (2–4). Write 280–320 words in an appropriate style.",
+      "promptText": "A public affairs magazine is publishing a series on the future of professional work. The editors have invited readers to submit articles addressing the question: 'Can genuine competence ever be separated from credentialled experience?' In your article, analyse the competing definitions of competence, consider the limitations of relying on formal credentials as evidence of ability, and argue for or against the use of alternative forms of evidence—such as portfolio assessments, simulations, or peer reviews—in professional selection.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

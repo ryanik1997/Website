@@ -1,0 +1,42 @@
+{
+  "valid": false,
+  "overallScore": 74,
+  "dimensionScores": {
+    "formatAccuracy": 70,
+    "levelAppropriacy": 80,
+    "clarity": 85,
+    "answerability": 80,
+    "genreAuthenticity": 75,
+    "topicOriginality": 70,
+    "culturalFairness": 90,
+    "internalConsistency": 85
+  },
+  "issues": [
+    {
+      "severity": "error",
+      "taskId": "b2-test-03-task-01",
+      "code": "FORMAT_ERROR",
+      "message": "The word limit for the essay task is too restrictive and may not allow candidates to fully develop their ideas.",
+      "suggestedAction": "Consider increasing the word limit to 220-250 words."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b2-test-03-task-02",
+      "code": "GENRE_AUTHENTICITY",
+      "message": "The review task may not be the most authentic genre for this topic, as workplace observation days are not typically reviewed in the same way as products or services.",
+      "suggestedAction": "Consider using a more authentic genre, such as a reflective essay or a report."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b2-test-03-task-03",
+      "code": "TOPIC_ORIGINALITY",
+      "message": "The topic of the article task may be too similar to the essay task, and may not allow candidates to demonstrate their full range of writing skills.",
+      "suggestedAction": "Consider using a more distinct topic for the article task, or adding more specific requirements to the task instructions."
+    }
+  ],
+  "duplicateRisk": {
+    "highRisk": false,
+    "similarToTestIds": []
+  },
+  "approvedForDraftCatalog": false
+}

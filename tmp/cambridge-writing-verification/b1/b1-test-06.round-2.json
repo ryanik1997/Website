@@ -1,0 +1,42 @@
+{
+  "valid": false,
+  "overallScore": 70,
+  "dimensionScores": {
+    "formatAccuracy": 60,
+    "levelAppropriacy": 80,
+    "clarity": 70,
+    "answerability": 80,
+    "genreAuthenticity": 80,
+    "topicOriginality": 60,
+    "culturalFairness": 90,
+    "internalConsistency": 70
+  },
+  "issues": [
+    {
+      "severity": "error",
+      "taskId": "b1-test-06-task-01",
+      "code": "FORMAT_ERROR",
+      "message": "The word limit for the email task is too restrictive and may not allow candidates to fully express their ideas.",
+      "suggestedAction": "Consider increasing the word limit for this task."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b1-test-06-task-02",
+      "code": "LEVEL_MISMATCH",
+      "message": "The language and tone used in the announcement may be too formal for B1 level candidates.",
+      "suggestedAction": "Consider simplifying the language and tone to make it more accessible to B1 level candidates."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b1-test-06-task-03",
+      "code": "GENRE_AUTHENTICITY",
+      "message": "The story prompt may not be engaging or relevant to the candidates' interests.",
+      "suggestedAction": "Consider using a more interesting or relatable prompt to motivate candidates to write a compelling story."
+    }
+  ],
+  "duplicateRisk": {
+    "highRisk": false,
+    "similarToTestIds": []
+  },
+  "approvedForDraftCatalog": false
+}

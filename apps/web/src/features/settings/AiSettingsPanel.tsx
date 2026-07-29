@@ -150,10 +150,10 @@ export default function AiSettingsPanel({ showUsage = true, onSave }: Props) {
 
         <button
           onClick={connectWritingPipeline}
-          disabled={connectingPipeline || !keys.deepseek?.trim() || !keys.groq?.trim()}
+          disabled={connectingPipeline || !keys.deepseek?.trim()}
           className="w-full px-4 py-2.5 text-sm rounded-lg border font-medium disabled:opacity-50 transition-colors"
           style={{ borderColor: 'var(--border-color)', color: 'var(--text-primary)', background: 'var(--bg-secondary)' }}
-          title="DeepSeek generates; Groq verifies independently"
+          title="DeepSeek generates; independent verification is optional"
         >
           <span className="flex items-center justify-center gap-2">
             {connectingPipeline

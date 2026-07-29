@@ -1,0 +1,84 @@
+{
+  "testId": "c2-test-03",
+  "tasks": [
+    {
+      "taskId": "c2-test-03-task-01",
+      "scenario": "Two source texts presenting opposing accounts of experience and merit in professional gatekeeping.",
+      "audience": "Educated general reader",
+      "purpose": "Synthesise claims, expose value assumptions and formulate a defensible criterion of fairness",
+      "requiredContentPoints": [
+        "experience as signal",
+        "access to opportunity",
+        "fair criterion for readiness"
+      ],
+      "lexicalAnchors": [
+        "experience requirement",
+        "merit",
+        "opportunity structure",
+        "professional pathways"
+      ],
+      "originalitySelfCheck": "No overlap with previous tests. Source texts are original and avoid generic phrases. Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "c2-test-03-task-02",
+      "scenario": "Review of a documentary essay about invisible pathways into professional life.",
+      "audience": "Cultural review readers",
+      "purpose": "Evaluate intellectual coherence, representation and lasting insight",
+      "requiredContentPoints": [
+        "narrative approach",
+        "representation of access",
+        "lasting insight"
+      ],
+      "lexicalAnchors": [
+        "invisible advantage",
+        "documentary essay",
+        "professional pathways"
+      ],
+      "originalitySelfCheck": "No overlap with previous reviews. Unique title and focus. Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "c2-test-03-task-03",
+      "scenario": "Report on inherited access patterns in a professional association.",
+      "audience": "Association governing council",
+      "purpose": "Diagnose mechanisms, assess consequences and propose accountable change",
+      "requiredContentPoints": [
+        "access mechanism",
+        "institutional consequence",
+        "accountable reform"
+      ],
+      "lexicalAnchors": [
+        "professional association",
+        "inherited access",
+        "accountable reform"
+      ],
+      "originalitySelfCheck": "No overlap with previous reports. Specific profession and council audience. Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "c2-test-03-task-04",
+      "scenario": "Article asking whether competence can be separated from credentialled experience.",
+      "audience": "Public affairs magazine readers",
+      "purpose": "Analyse competing definitions and argue a nuanced position",
+      "requiredContentPoints": [
+        "competence definition",
+        "credential limits",
+        "alternative evidence"
+      ],
+      "lexicalAnchors": [
+        "competence",
+        "credentialled experience",
+        "alternative evidence"
+      ],
+      "originalitySelfCheck": "No overlap with previous articles. Unique question and alternative evidence focus. Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are original, avoid forbidden concepts, and do not substantially resemble any previous test fingerprints.",
+  "status": "PASS",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "af5ad3ac17ede05ae46a66c22ae0fea3ea295694c647930f436d44e4823b71d8"
+  }
+}

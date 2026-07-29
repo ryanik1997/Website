@@ -1,0 +1,139 @@
+{
+  "id": "c2-test-05",
+  "level": "c2",
+  "testNumber": 5,
+  "title": "CPE C2 AI Practice Test 05",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-05.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 1,
+    "generationBatchId": "c2-test-05-to-c2-test-05-1785252451904",
+    "generatedAt": 1785252464335,
+    "contentHash": "67ae2203583b68a066fafce9a42d2642576aba5ff86c362ef7a592e62ae1d5dc",
+    "reviewStatus": "unreviewed",
+    "qualityIssues": [
+      "Independent AI verification skipped by explicit user request."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "c2-test-05-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Low-waste school events",
+      "genre": "essay",
+      "instruction": "Read the two texts below. Write an essay summarising and evaluating the key points from both texts. Use your own words throughout, and include your own ideas on the value of low-waste events in schools.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-05-task-1-text-1",
+          "type": "source-text",
+          "label": "Text 1",
+          "text": "Organising a low-waste school event requires careful planning but can yield significant educational benefits. By minimising single-use plastics, encouraging reusable containers, and composting food scraps, students learn firsthand about resource management. Such events also foster a sense of collective responsibility, as pupils collaborate to reduce waste. Moreover, they provide a practical context for discussing environmental issues, making abstract concepts tangible. However, critics argue that the logistical challenges, such as sourcing sustainable materials and managing waste streams, can be overwhelming for staff. Additionally, the initial cost of eco-friendly alternatives may deter schools with limited budgets. Despite these obstacles, the potential for instilling lifelong sustainable habits in students makes low-waste events a worthwhile endeavour. The key is to integrate them gradually, allowing schools to adapt without compromising educational goals."
+        },
+        {
+          "id": "c2-test-05-task-1-text-2",
+          "type": "source-text",
+          "label": "Text 2",
+          "text": "While low-waste school events are commendable in theory, their actual impact on student behaviour is often overstated. Many such events are one-off occasions that fail to change long-term habits. Students may participate enthusiastically during the event but revert to wasteful practices afterwards unless the principles are reinforced consistently. Furthermore, the emphasis on waste reduction can overshadow other important environmental actions, such as energy conservation or biodiversity protection. There is also a risk that low-waste events become performative, with schools prioritising visible eco-friendly measures over deeper systemic changes. For instance, using compostable plates may seem green, but the energy and resources required to produce them can be significant. To be truly valuable, low-waste events must be part of a broader, sustained educational strategy that addresses the root causes of waste and empowers students to think critically about consumption."
+        },
+        {
+          "id": "c2-test-05-task-1-final",
+          "type": "final-instruction",
+          "text": "Write your essay."
+        }
+      ],
+      "presentation": {
+        "template": "source-texts"
+      },
+      "wordLimit": {
+        "min": 240,
+        "max": 280
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c2-test-05-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Review of a low-waste school event",
+      "genre": "review",
+      "instruction": "A college magazine is running a series on innovative school initiatives. You have been asked to write a review of a low-waste event you recently attended at a school. In your review, you should describe the event, evaluate its strengths and weaknesses, and recommend whether other schools should adopt similar events.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-05-task-2-instruction",
+          "type": "paragraph",
+          "text": "A college magazine is running a series on innovative school initiatives. You have been asked to write a review of a low-waste event you recently attended at a school. In your review, you should describe the event, evaluate its strengths and weaknesses, and recommend whether other schools should adopt similar events."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-05-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Report on student participation in low-waste events",
+      "genre": "report",
+      "instruction": "Your school's environmental committee has asked you to write a report on student participation in low-waste events over the past year. In your report, you should analyse participation trends, identify factors that encourage or discourage involvement, and suggest ways to increase engagement in future events.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-05-task-3-instruction",
+          "type": "paragraph",
+          "text": "Your school's environmental committee has asked you to write a report on student participation in low-waste events over the past year. In your report, you should analyse participation trends, identify factors that encourage or discourage involvement, and suggest ways to increase engagement in future events."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-05-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Do low-waste school events have lasting value?",
+      "genre": "article",
+      "instruction": "An English-language magazine for young people is planning a special issue on 'Actions that Last'. You have been asked to write an article arguing whether low-waste school events have lasting value. In your article, you should discuss the potential long-term benefits and limitations, and give your overall assessment.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-05-task-4-instruction",
+          "type": "paragraph",
+          "text": "An English-language magazine for young people is planning a special issue on 'Actions that Last'. You have been asked to write an article arguing whether low-waste school events have lasting value. In your article, you should discuss the potential long-term benefits and limitations, and give your overall assessment."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

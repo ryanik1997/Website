@@ -1,0 +1,159 @@
+{
+  "id": "b1-test-04",
+  "level": "b1",
+  "testNumber": 4,
+  "title": "PET B1 AI Practice Test 04",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b1/b1-test-04.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b1-test-04-1785300634564",
+    "generatedAt": 1785300662659,
+    "contentHash": "67b2868f6ff09826b8355c0be8774310a7e22e0bd60b98e4cecda7885699ff3f",
+    "promptHash": "29a2695c47286a4bcab62190e49b580cf01816a21b24b36342a83e571b6f106c",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-04:29a2695c47286a4bcab62190e49b580cf01816a21b24b36342a83e571b6f106c",
+    "inputHash": "29a2695c47286a4bcab62190e49b580cf01816a21b24b36342a83e571b6f106c",
+    "reviewStatus": "unreviewed",
+    "qualityIssues": [
+      "Independent AI verification skipped by explicit user request; deterministic originality gates passed."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "b1-test-04-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Birthday activity with a friend",
+      "genre": "email",
+      "instruction": "You must answer this question. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-04-task-01-block-01",
+          "type": "paragraph",
+          "text": "Read this email from your English-speaking friend, Mia, and the notes you have made."
+        },
+        {
+          "id": "b1-test-04-task-01-block-02",
+          "type": "email",
+          "from": "Mia",
+          "subject": "Birthday plans!",
+          "paragraphs": [
+            "Hi! My birthday is next Saturday and I want to do something fun with you. We have two options: go to the new escape room in town or have a picnic in the park. Which one do you prefer? Also, what time should we meet? And do you think we should invite a few other friends or keep it just the two of us? Let me know!",
+            "Mia"
+          ]
+        },
+        {
+          "id": "b1-test-04-task-01-block-03",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes for your reply",
+          "listItems": [
+            "Say which activity you prefer and explain why.",
+            "Suggest a meeting time.",
+            "Answer her question about other guests.",
+            "Ask her if she needs help with anything for the birthday."
+          ]
+        },
+        {
+          "id": "b1-test-04-task-01-block-04",
+          "type": "final-instruction",
+          "text": "Write your email to Mia using all the notes."
+        }
+      ],
+      "presentation": {
+        "template": "email"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b1-test-04-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Favourite annual event",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-04-task-02-block-01",
+          "type": "paragraph",
+          "text": "You see this notice on a local English-language magazine website."
+        },
+        {
+          "id": "b1-test-04-task-02-block-02",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted!",
+          "paragraphs": [
+            "What is your favourite annual event in your town or city? It could be a festival, a sports competition, a market, or something else.",
+            "Tell us what happens at this event and why you like it so much. Also, who would enjoy it most?",
+            "Write an article and we will publish the best ones in our magazine!"
+          ]
+        },
+        {
+          "id": "b1-test-04-task-02-block-03",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b1-test-04-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "An unexpected phone call",
+      "genre": "story",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-04-task-03-block-01",
+          "type": "paragraph",
+          "text": "Your English teacher has asked you to write a story."
+        },
+        {
+          "id": "b1-test-04-task-03-block-02",
+          "type": "source-text",
+          "label": "Your story must begin with this sentence:",
+          "text": "The phone rang just as we sat down for dinner, and everyone looked at it."
+        },
+        {
+          "id": "b1-test-04-task-03-block-03",
+          "type": "final-instruction",
+          "text": "Write your story."
+        }
+      ],
+      "presentation": {
+        "template": "plain"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

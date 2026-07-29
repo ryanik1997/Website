@@ -1,0 +1,74 @@
+{
+  "testId": "b1-test-04",
+  "level": "b1",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Planning a birthday activity with a friend",
+      "audience": "English-speaking friend Mia",
+      "purpose": "Choose an activity (escape room or picnic), explain the choice, suggest a meeting time, answer about other guests, and ask if she needs help.",
+      "requiredContentPoints": [
+        "activity choice and reason",
+        "meeting time",
+        "answer about other guests",
+        "ask if she needs help"
+      ],
+      "lexicalAnchors": [
+        "birthday activity",
+        "escape room",
+        "picnic",
+        "meeting time",
+        "other guests",
+        "help"
+      ],
+      "originalitySelfCheck": "Scenario is unique: planning a birthday activity with two specific options (escape room vs picnic). No similarity to Test 01 email (which was about a weekend visit with arrival time, activity, food, and what to bring). Notes panel includes four distinct points including a reason and a preference. No forbidden concepts used.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "A local magazine featuring favourite annual events",
+      "audience": "Local magazine readers",
+      "purpose": "Describe a favourite annual event, explain what happens and why you like it, and say who would enjoy it most.",
+      "requiredContentPoints": [
+        "event description",
+        "best feature",
+        "who would enjoy it"
+      ],
+      "lexicalAnchors": [
+        "annual event",
+        "festival",
+        "sports competition",
+        "market",
+        "favourite",
+        "enjoy"
+      ],
+      "originalitySelfCheck": "Scenario is unique: writing about a favourite annual event in the town. No similarity to Test 01 article (which was about films). No similarity to Test 02 article (useful places for teenagers). No similarity to Test 03 article (practical skill). The announcement uses a local magazine website, not a youth website or school blog. Two direct questions: 'what happens' and 'why you like it', plus 'who would enjoy it'. Ends with 'Write your article.' No forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "An unexpected phone call interrupting a family dinner",
+      "audience": "English teacher",
+      "purpose": "Continue a story in which a phone call during dinner changes the evening.",
+      "requiredContentPoints": [
+        "phone call during dinner",
+        "urgent or surprising message",
+        "resolved ending"
+      ],
+      "lexicalAnchors": [
+        "phone call",
+        "dinner",
+        "family",
+        "surprising message",
+        "evening"
+      ],
+      "originalitySelfCheck": "Opening sentence is unique: 'The phone rang just as we sat down for dinner, and everyone looked at it.' No similarity to Test 01 story opening (plane landing on island). No similarity to Test 02 story opening (missed bus). No similarity to Test 03 story opening (parcel on doorstep). The scenario matches the designFingerprint exactly: 'an unexpected phone call interrupting a family dinner'. No forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are original and do not reuse scenarios, content points, or sentence frames from previous tests. The designFingerprint constraints are followed exactly.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "e40ec7786d0cfeb92a4cad5c744725e126d5e5edf157a641d447a846bb265476"
+  }
+}

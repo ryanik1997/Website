@@ -1,0 +1,139 @@
+{
+  "id": "c1-test-06",
+  "level": "c1",
+  "testNumber": 6,
+  "title": "CAE C1 AI Practice Test 06",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-06.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "c1-test-06-1785301029790",
+    "generatedAt": 1785301048298,
+    "contentHash": "899c89374e68a8b12db98d547c9f907a41ff6477114c2d95d1d66b9a9081620f",
+    "promptHash": "0b44a436e49e3533d387de87f2185355e45a8bfe64d6840e49aa2b9ceac978a1",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-06:0b44a436e49e3533d387de87f2185355e45a8bfe64d6840e49aa2b9ceac978a1",
+    "inputHash": "0b44a436e49e3533d387de87f2185355e45a8bfe64d6840e49aa2b9ceac978a1",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "c1-test-06-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay: Hybrid communication principles",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-06-task-01-block-01",
+          "type": "paragraph",
+          "text": "Your class has listened to a radio discussion about how universities should manage hybrid communication – the mix of email, instant messaging, virtual meetings and in-person contact. You have made the notes below."
+        },
+        {
+          "id": "c1-test-06-task-01-block-02",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Principles for hybrid communication",
+          "listItems": [
+            "response-time expectations",
+            "channel clarity",
+            "protected offline periods"
+          ]
+        },
+        {
+          "id": "c1-test-06-task-01-block-03",
+          "type": "panel",
+          "variant": "opinions",
+          "paragraphs": [
+            "Response-time expectations reduce anxiety – everyone knows when to expect a reply, so there is less pressure to check messages constantly.",
+            "Channel clarity means using the right tool for the right purpose – a quick question by instant message, a formal request by email – which avoids confusion and overload.",
+            "Protected offline periods give staff and students permission to disconnect without guilt, supporting wellbeing and deep work."
+          ]
+        },
+        {
+          "id": "c1-test-06-task-01-block-04",
+          "type": "final-instruction",
+          "text": "Write an essay for your tutor discussing two of the principles in your notes. You should explain which principle you think is more important for universities to adopt, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes-opinions"
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c1-test-06-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Proposal: University communication charter",
+      "genre": "proposal",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptText": "Your university's executive committee has decided to create a formal communication charter to regulate hybrid communication among students, academic staff and professional services. The committee has invited proposals for what the charter should contain.\n\nWrite a proposal for the executive committee. In your proposal, you should:\n\n• recommend standards for which communication channels should be used for different purposes\n• suggest how staff and students should be trained on the charter\n• describe a clear complaint route for those who feel the charter has been breached\n\nWrite your proposal.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-06-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Email: Response to external auditor",
+      "genre": "email",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptText": "You are the head of communications at Northwood University. An external quality auditor has sent you an email expressing concern about recent communication failures that have affected students – for example, missed deadlines and conflicting messages from different departments. The auditor has asked for an explanation.\n\nWrite an email to the auditor. In your email, you should:\n\n• explain the root cause of the communication failures\n• describe the corrective measures the university is putting in place\n• arrange a meeting to review the evidence of improvement\n\nWrite your email.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-06-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Review: Hybrid communication policy",
+      "genre": "review",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptText": "You see this announcement on the website of a higher-education leadership publication.\n\nReviews wanted: Hybrid communication policies\n\nOur publication is running a series of reviews of hybrid communication policies adopted by universities. Have you experienced or observed the implementation of such a policy at your institution? Write a review for our publication.\n\nDescribe the policy and assess its clarity, evaluate its impact on organisational culture, and consider the main risks involved in implementing it.\n\nThe most insightful reviews will be published in our next issue.\n\nWrite your review.",
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

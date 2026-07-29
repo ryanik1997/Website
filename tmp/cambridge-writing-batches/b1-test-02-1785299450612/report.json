@@ -1,0 +1,13 @@
+{
+  "batchId": "b1-test-02-1785299450612",
+  "generatedAt": 1785299484533,
+  "requested": 1,
+  "results": [
+    {
+      "testId": "b1-test-02",
+      "status": "failed",
+      "error": "[\n  {\n    \"code\": \"invalid_union_discriminator\",\n    \"options\": [\n      \"paragraph\",\n      \"panel\",\n      \"email\",\n      \"source-text\",\n      \"final-instruction\"\n    ],\n    \"path\": [\n      \"tasks\",\n      0,\n      \"promptBlocks\",\n      3,\n      \"type\"\n    ],\n    \"message\": \"Invalid discriminator value. Expected 'paragraph' | 'panel' | 'email' | 'source-text' | 'final-instruction'\"\n  },\n  {\n    \"code\": \"invalid_union_discriminator\",\n    \"options\": [\n      \"paragraph\",\n      \"panel\",\n      \"email\",\n      \"source-text\",\n      \"final-instruction\"\n    ],\n    \"path\": [\n      \"tasks\",\n      1,\n      \"promptBlocks\",\n      2,\n      \"type\"\n    ],\n    \"message\": \"Invalid discriminator value. Expected 'paragraph' | 'panel' | 'email' | 'source-text' | 'final-instruction'\"\n  },\n  {\n    \"code\": \"invalid_union_discriminator\",\n    \"options\": [\n      \"paragraph\",\n      \"panel\",\n      \"email\",\n      \"source-text\",\n      \"final-instruction\"\n    ],\n    \"path\": [\n      \"tasks\",\n      2,\n      \"promptBlocks\",\n      1,\n      \"type\"\n    ],\n    \"message\": \"Invalid discriminator value. Expected 'paragraph' | 'panel' | 'email' | 'source-text' | 'final-instruction'\"\n  },\n  {\n    \"code\": \"invalid_union_discriminator\",\n    \"options\": [\n      \"paragraph\",\n      \"panel\",\n      \"email\",\n      \"source-text\",\n      \"final-instruction\"\n    ],\n    \"path\": [\n      \"tasks\",\n      2,\n      \"promptBlocks\",\n      2,\n      \"type\"\n    ],\n    \"message\": \"Invalid discriminator value. Expected 'paragraph' | 'panel' | 'email' | 'source-text' | 'final-instruction'\"\n  }\n]"
+    }
+  ],
+  "failed": 1
+}

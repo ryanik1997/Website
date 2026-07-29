@@ -1,0 +1,85 @@
+{
+  "testId": "c2-test-05",
+  "level": "c2",
+  "topicFamily": "environment and sustainability",
+  "specificSetting": "ethical debate about visible green behaviour and hidden systems of consumption",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Two source texts disputing the moral and practical value of visible green behaviour",
+      "audience": "educated general reader",
+      "purpose": "synthesise positions, evaluate causal claims and develop a layered account of responsibility",
+      "requiredContentPoints": [
+        "cultural signalling",
+        "systemic leverage",
+        "distribution of responsibility"
+      ],
+      "lexicalAnchors": [
+        "visible green behaviour",
+        "systemic leverage",
+        "responsibility"
+      ],
+      "originalitySelfCheck": "Source texts are original, no reused phrasing from existing tests. Forbidden concepts (low-waste event, reusable containers, school event) avoided.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Review of a public campaign that turns environmental responsibility into spectacle",
+      "audience": "media and culture readers",
+      "purpose": "evaluate persuasive design, ethical tension and behavioural consequence",
+      "requiredContentPoints": [
+        "campaign strategy",
+        "ethical tension",
+        "likely consequence"
+      ],
+      "lexicalAnchors": [
+        "environmental spectacle",
+        "public campaign",
+        "behavioural consequence"
+      ],
+      "originalitySelfCheck": "Campaign 'The Green Pledge' is invented; no overlap with existing test reviews. Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Report on hidden resource costs in a major institution",
+      "audience": "institutional audit committee",
+      "purpose": "identify blind spots, evaluate governance and recommend disclosure",
+      "requiredContentPoints": [
+        "hidden resource flow",
+        "governance weakness",
+        "disclosure mechanism"
+      ],
+      "lexicalAnchors": [
+        "resource cost",
+        "governance blind spot",
+        "disclosure"
+      ],
+      "originalitySelfCheck": "Scenario is a university sustainability audit; no overlap with existing reports. Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Article considering whether environmental consistency is an impossible moral demand",
+      "audience": "philosophy and society magazine readers",
+      "purpose": "analyse the demand without dismissing responsibility",
+      "requiredContentPoints": [
+        "limits of personal consistency",
+        "collective structures",
+        "credible standard of responsibility"
+      ],
+      "lexicalAnchors": [
+        "environmental consistency",
+        "moral demand",
+        "collective structure"
+      ],
+      "originalitySelfCheck": "Question is original; no reuse of article frames from existing tests. Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are newly designed, with distinct scenarios, audiences, and content points. No substantial similarity to any existing test fingerprints. Forbidden concepts fully avoided.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "7028b5db768b59b1d3a1dda941a641dce38f250c305f9ebe6343eb734b9c1388"
+  }
+}

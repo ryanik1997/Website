@@ -1,0 +1,300 @@
+{
+  "inputHash": "0a04a9d4b322c6d7a15b800ac6d8cf54e69cbfe6d4410d5cb42165ab90709d79",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-05:0a04a9d4b322c6d7a15b800ac6d8cf54e69cbfe6d4410d5cb42165ab90709d79",
+  "test": {
+    "id": "b2-test-05",
+    "level": "b2",
+    "testNumber": 5,
+    "title": "FCE B2 AI Practice Test 05",
+    "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-05.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "b2-test-05-1785300939770",
+      "generatedAt": 1785300962986,
+      "contentHash": "eea537aac412fc7b6ddddbfb2e8ab9d700f381e2b2d9c467c2ffc843ff0bb734",
+      "promptHash": "0a04a9d4b322c6d7a15b800ac6d8cf54e69cbfe6d4410d5cb42165ab90709d79",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-05:0a04a9d4b322c6d7a15b800ac6d8cf54e69cbfe6d4410d5cb42165ab90709d79",
+      "inputHash": "0a04a9d4b322c6d7a15b800ac6d8cf54e69cbfe6d4410d5cb42165ab90709d79",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "b2-test-05-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Essay: Reducing waste at public events",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write 140–190 words in an appropriate style.",
+        "promptText": "In your English class you have been talking about how to reduce waste at public events such as concerts or sports matches. Now your English teacher has asked you to write an essay.\n\nWrite an essay using all the notes and giving reasons for your point of view.\n\nWhat is the most effective way to reduce waste at public events?\n\nNotes\n\nWrite about:\n\n1. reusable food containers\n2. clear sorting stations\n3. ......................... (your own idea)",
+        "promptBlocks": [
+          {
+            "id": "b2-test-05-task-01-para-01",
+            "type": "paragraph",
+            "text": "In your English class you have been talking about how to reduce waste at public events such as concerts or sports matches. Now your English teacher has asked you to write an essay."
+          },
+          {
+            "id": "b2-test-05-task-01-para-02",
+            "type": "paragraph",
+            "text": "Write an essay using all the notes and giving reasons for your point of view."
+          },
+          {
+            "id": "b2-test-05-task-01-para-03",
+            "type": "paragraph",
+            "text": "What is the most effective way to reduce waste at public events?"
+          },
+          {
+            "id": "b2-test-05-task-01-panel-01",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Notes",
+            "listItems": [
+              "reusable food containers",
+              "clear sorting stations",
+              "......................... (your own idea)"
+            ]
+          }
+        ],
+        "presentation": {
+          "template": "essay-notes"
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "b2-test-05-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Review: An environmentally responsible event",
+        "genre": "review",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptText": "You see this announcement in your college English-language magazine.\n\nReviews wanted!\n\nHave you been to an event recently that tried to be environmentally responsible? It could be a festival, a sports event, a market or something else.\n\nWrite a review of the event. Describe one specific environmental action the organisers took, explain how it affected your experience as a visitor, and say whether you would recommend the event to others based on its environmental efforts.\n\nThe best reviews will be published in the next issue.\n\nWrite your review.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-05-task-02-para-01",
+            "type": "paragraph",
+            "text": "You see this announcement in your college English-language magazine."
+          },
+          {
+            "id": "b2-test-05-task-02-panel-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Reviews wanted!",
+            "paragraphs": [
+              "Have you been to an event recently that tried to be environmentally responsible? It could be a festival, a sports event, a market or something else.",
+              "Write a review of the event. Describe one specific environmental action the organisers took, explain how it affected your experience as a visitor, and say whether you would recommend the event to others based on its environmental efforts.",
+              "The best reviews will be published in the next issue."
+            ]
+          },
+          {
+            "id": "b2-test-05-task-02-final-01",
+            "type": "final-instruction",
+            "text": "Write your review."
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b2-test-05-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Article: Low-waste habits for young adults",
+        "genre": "article",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptText": "You see this announcement on a lifestyle website for young adults.\n\nArticles wanted!\n\nLow-waste living: small changes that stick\n\nWe are collecting practical habits that young people can adopt to reduce waste. Write an article for our website.\n\nDescribe one shopping choice you make to avoid waste and one habit related to food or packaging that you follow. Explain how you manage to keep these habits consistently.\n\nWe will publish the best articles on our site.\n\nWrite your article.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-05-task-03-para-01",
+            "type": "paragraph",
+            "text": "You see this announcement on a lifestyle website for young adults."
+          },
+          {
+            "id": "b2-test-05-task-03-panel-01",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Articles wanted!",
+            "paragraphs": [
+              "Low-waste living: small changes that stick",
+              "We are collecting practical habits that young people can adopt to reduce waste. Write an article for our website.",
+              "Describe one shopping choice you make to avoid waste and one habit related to food or packaging that you follow. Explain how you manage to keep these habits consistently.",
+              "We will publish the best articles on our site."
+            ]
+          },
+          {
+            "id": "b2-test-05-task-03-final-01",
+            "type": "final-instruction",
+            "text": "Write your article."
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "b2-test-05-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Email: Helping organise a school event with a waste-reduction target",
+        "genre": "email",
+        "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+        "promptText": "You have received this email from your friend Sam, who is helping to organise a multi-school event and wants to reduce waste.\n\nFrom: Sam\nSubject: Help with the school event!\n\nHi,\n\nI'm on the organising team for the big multi-school event next month, and we've set a target to reduce waste by 30%. I know you're good at this kind of thing. Could you help out? Let me know which responsibility you'd like to take on – for example, managing the reuse system for cups or supervising the sorting stations.\n\nAlso, what two measures do you think we should introduce? And why those? Finally, do you have any questions about the suppliers we're using?\n\nThanks a lot!\nSam\n\nWrite your email.",
+        "promptBlocks": [
+          {
+            "id": "b2-test-05-task-04-para-01",
+            "type": "paragraph",
+            "text": "You have received this email from your friend Sam, who is helping to organise a multi-school event and wants to reduce waste."
+          },
+          {
+            "id": "b2-test-05-task-04-email-01",
+            "type": "email",
+            "from": "Sam",
+            "subject": "Help with the school event!",
+            "paragraphs": [
+              "Hi,",
+              "I'm on the organising team for the big multi-school event next month, and we've set a target to reduce waste by 30%. I know you're good at this kind of thing. Could you help out? Let me know which responsibility you'd like to take on – for example, managing the reuse system for cups or supervising the sorting stations.",
+              "Also, what two measures do you think we should introduce? And why those? Finally, do you have any questions about the suppliers we're using?",
+              "Thanks a lot!",
+              "Sam"
+            ]
+          },
+          {
+            "id": "b2-test-05-task-04-final-01",
+            "type": "final-instruction",
+            "text": "Write your email."
+          }
+        ],
+        "presentation": {
+          "template": "email",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 140,
+          "max": 190,
+          "displayText": "140–190 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "b2-test-05",
+    "level": "b2",
+    "topicFamily": "environment and sustainability",
+    "specificSetting": "organisers reducing waste at a multi-school public event",
+    "centralTension": "visitor convenience versus measurable waste reduction",
+    "stakeholders": [
+      "event visitors",
+      "student organisers",
+      "food vendors"
+    ],
+    "taskReviews": [
+      {
+        "taskNumber": 1,
+        "scenario": "a class debate on reducing waste at public events",
+        "audience": "English teacher",
+        "purpose": "evaluate measures and identify the most effective",
+        "requiredContentPoints": [
+          "reusable food containers",
+          "clear sorting stations",
+          "own idea"
+        ],
+        "lexicalAnchors": [
+          "public event",
+          "reuse system",
+          "sorting station"
+        ],
+        "originalitySelfCheck": "Essay uses notes panel with two supplied notes plus own idea. Scenario is class debate on waste reduction at public events. Not similar to any avoided fingerprint (b2-test-01 task 1 is about pollution and transport; b2-test-02 task 1 is about life skills; b2-test-03 task 1 is about workplace visits; b2-test-04 task 1 is about community centres). Forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "an environmentally responsible event attended recently",
+        "audience": "college magazine readers",
+        "purpose": "review how credible and convenient its environmental measures were",
+        "requiredContentPoints": [
+          "specific environmental action",
+          "visitor experience",
+          "recommendation"
+        ],
+        "lexicalAnchors": [
+          "responsible event",
+          "waste policy",
+          "visitor experience"
+        ],
+        "originalitySelfCheck": "Review asks for a specific environmental action and its effect on visitor experience. Not similar to b2-test-01 task 2 (book review), b2-test-02 task 2 (study clinic review), b2-test-03 task 2 (documentary review), b2-test-04 task 2 (public facility review). Forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "a lifestyle site collecting practical low-waste habits",
+        "audience": "young adult readers",
+        "purpose": "share realistic habits and explain how to maintain them",
+        "requiredContentPoints": [
+          "shopping choice",
+          "food or packaging habit",
+          "method for consistency"
+        ],
+        "lexicalAnchors": [
+          "low-waste habit",
+          "refill",
+          "routine"
+        ],
+        "originalitySelfCheck": "Article asks for shopping choice and a food/packaging habit plus consistency method. Not similar to b2-test-01 task 3 (most useful thing learned), b2-test-02 task 3 (learning beyond lessons), b2-test-03 task 3 (employability skills), b2-test-04 task 3 (youth participation). Forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 4,
+        "scenario": "helping organise a school event with a waste-reduction target",
+        "audience": "student event organiser",
+        "purpose": "offer help, recommend two measures and ask about responsibilities",
+        "requiredContentPoints": [
+          "chosen responsibility",
+          "two waste measures",
+          "reason",
+          "question about suppliers"
+        ],
+        "lexicalAnchors": [
+          "school event planning",
+          "waste target",
+          "supplier"
+        ],
+        "originalitySelfCheck": "Email from Sam about helping with a multi-school event. Candidate chooses responsibility, recommends two measures, gives reasons, and asks about suppliers. Not similar to b2-test-01 task 4 (touring holiday), b2-test-02 task 4 (short course advice), b2-test-03 task 4 (weekend job), b2-test-04 task 4 (community garden). Forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ],
+    "overallOriginalityCheck": "All tasks are original, use the specific setting of reducing waste at public events, and avoid all forbidden concepts and previously used scenarios. The essay uses the required notes panel with two supplied notes plus own idea. The review and article use announcement panels. The email uses an email block. Part 2 tasks differ from each other and from the essay. No banned generic phrases used. All tasks have concrete audiences and clear communicative purposes."
+  },
+  "cachedAt": 1785300963344
+}

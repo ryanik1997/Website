@@ -47,6 +47,7 @@
     "ielts:reading:build-cam9": "python scripts/build-ielts-reading-cam9-test1.py && python scripts/build-ielts-reading-cam9-tests-234.py",
     "ielts:reading:build-cam10": "python scripts/build-ielts-reading-cam10.py",
     "import:cambridge-writing": "node scripts/import-cambridge-writing.ts",
+    "writing:ai:health": "node scripts/writing/check-cambridge-writing-provider-health.mjs",
     "writing:ai:contract": "node scripts/writing/report-cambridge-writing-current-contract.mjs",
     "writing:ai:plan": "node scripts/writing/plan-cambridge-writing-corpus.mjs",
     "writing:ai:generate": "node scripts/writing/generate-cambridge-writing-tests.mjs",

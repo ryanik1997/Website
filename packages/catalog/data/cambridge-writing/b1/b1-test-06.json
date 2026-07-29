@@ -1,0 +1,164 @@
+{
+  "id": "b1-test-06",
+  "level": "b1",
+  "testNumber": 6,
+  "title": "PET B1 AI Practice Test 06",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b1/b1-test-06.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 1,
+    "generationBatchId": "c2-test-05-to-c2-test-06-1785251506492",
+    "generatedAt": 1785251517117,
+    "contentHash": "80259fc3f7181969d189f2458ae2ceb30326277201e19a2cef9abdb11812965a",
+    "reviewStatus": "unreviewed",
+    "qualityIssues": [
+      "Independent AI verification skipped by explicit user request."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "b1-test-06-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Digital Communication Workshop",
+      "genre": "email",
+      "instruction": "You have received this email from your English-speaking friend, Sam.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-06-task-1-p1",
+          "type": "paragraph",
+          "text": "You have received this email from your English-speaking friend, Sam."
+        },
+        {
+          "id": "b1-test-06-task-1-email",
+          "type": "email",
+          "from": "Sam",
+          "subject": "Digital workshop",
+          "greeting": "Hi,",
+          "paragraphs": [
+            "I heard about a digital communication workshop in your town. Are you going to attend? What do you hope to learn there? Also, would you like me to come and join you? Let me know!"
+          ],
+          "closing": "Thanks,",
+          "sender": "Sam"
+        },
+        {
+          "id": "b1-test-06-task-1-notes",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "listItems": [
+            "Reply to Sam's email.",
+            "Say if you are going to the workshop.",
+            "Explain what you want to learn (e.g., video calls, online safety).",
+            "Tell Sam if you want him to come and suggest a day."
+          ]
+        },
+        {
+          "id": "b1-test-06-task-1-final",
+          "type": "final-instruction",
+          "text": "Write your email."
+        }
+      ],
+      "presentation": {
+        "template": "email"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b1-test-06-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Digital Workshop Article",
+      "genre": "article",
+      "instruction": "You see this announcement on a community website.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-06-task-2-p1",
+          "type": "paragraph",
+          "text": "You see this announcement on a community website."
+        },
+        {
+          "id": "b1-test-06-task-2-panel",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Digital Communication Workshop – Write an Article!",
+          "paragraphs": [
+            "Our community centre is running a digital communication workshop next month. We want to hear from people who have taken part in similar events. Write an article for our website telling us:",
+            "• What did you learn at a digital workshop?",
+            "• How has it helped you communicate better?",
+            "• Would you recommend it to others? Why?",
+            "The best articles will be published on our site."
+          ]
+        },
+        {
+          "id": "b1-test-06-task-2-final",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b1-test-06-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "A Surprising Message",
+      "genre": "story",
+      "instruction": "Your English teacher has asked you to write a story.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-06-task-3-p1",
+          "type": "paragraph",
+          "text": "Your English teacher has asked you to write a story."
+        },
+        {
+          "id": "b1-test-06-task-3-opening",
+          "type": "paragraph",
+          "text": "Your story must begin with this sentence:"
+        },
+        {
+          "id": "b1-test-06-task-3-sentence",
+          "type": "paragraph",
+          "text": "“When I checked my phone after the workshop, I saw a message from someone I didn't know.”"
+        },
+        {
+          "id": "b1-test-06-task-3-final",
+          "type": "final-instruction",
+          "text": "Write your story."
+        }
+      ],
+      "presentation": {
+        "template": "plain"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

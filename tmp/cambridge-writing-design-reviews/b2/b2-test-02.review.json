@@ -1,0 +1,78 @@
+{
+  "overallOriginalityCheck": "PASS - All tasks are original, with distinct scenarios, audiences, and content points. No overlap with existing tests or forbidden concepts.",
+  "tasks": [
+    {
+      "taskId": "b2-test-02-task-01",
+      "scenario": "Class debate on schools teaching practical life skills",
+      "audience": "English teacher",
+      "purpose": "Evaluate benefits and decide which provision matters most",
+      "requiredContentPoints": [
+        "managing money",
+        "basic cooking or home care",
+        "own idea"
+      ],
+      "lexicalAnchors": [
+        "life skills",
+        "school timetable",
+        "independent living"
+      ],
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "b2-test-02-task-02",
+      "scenario": "Town library introducing weekend study clinics",
+      "audience": "College magazine readers",
+      "purpose": "Review a place that supports effective study",
+      "requiredContentPoints": [
+        "facilities",
+        "quality of support",
+        "recommendation for specific learners"
+      ],
+      "lexicalAnchors": [
+        "study clinic",
+        "library schedule",
+        "quiet workspace"
+      ],
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "b2-test-02-task-03",
+      "scenario": "Youth culture website exploring learning beyond lessons",
+      "audience": "Young website readers",
+      "purpose": "Recommend ways to learn outside class",
+      "requiredContentPoints": [
+        "community activity",
+        "self-directed practice",
+        "benefit for future study or work"
+      ],
+      "lexicalAnchors": [
+        "learning outside class",
+        "community course",
+        "independent practice"
+      ],
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "b2-test-02-task-04",
+      "scenario": "Exchange student choosing a short practical course",
+      "audience": "Exchange student",
+      "purpose": "Compare course options and advise how to prepare",
+      "requiredContentPoints": [
+        "recommended course",
+        "reason",
+        "likely challenge",
+        "preparation advice"
+      ],
+      "lexicalAnchors": [
+        "exchange course",
+        "practical class",
+        "course choice"
+      ],
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "d93927a9e9baa97bebcec7400bdc9aae17d9e40fc551cdd2a0477e7017d6cf65"
+  }
+}

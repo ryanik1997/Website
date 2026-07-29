@@ -1,0 +1,232 @@
+{
+  "inputHash": "a3ca85d74081d22d6298207c651868094371d05953f8cb3755a9796e6f26a621",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-06:a3ca85d74081d22d6298207c651868094371d05953f8cb3755a9796e6f26a621",
+  "test": {
+    "id": "c2-test-06",
+    "level": "c2",
+    "testNumber": 6,
+    "title": "CPE C2 AI Practice Test 06",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-06.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c2-test-06-1785301044459",
+      "generatedAt": 1785301069039,
+      "contentHash": "b80fdba7ac91bad62d1a62f58a32a2b4d51f125475ea65c80e3dc8f8fa03b85a",
+      "promptHash": "a3ca85d74081d22d6298207c651868094371d05953f8cb3755a9796e6f26a621",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-06:a3ca85d74081d22d6298207c651868094371d05953f8cb3755a9796e6f26a621",
+      "inputHash": "a3ca85d74081d22d6298207c651868094371d05953f8cb3755a9796e6f26a621",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c2-test-06-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Essay: Communication delay as failure or safeguard",
+        "genre": "essay",
+        "instruction": "Write an essay summarising and evaluating the key points from both texts in 240–280 words. Use your own words throughout as far as possible, and include your own ideas in your answers.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-06-task-01-source-1",
+            "type": "source-text",
+            "label": "Text 1",
+            "title": "The imperative of immediacy",
+            "text": "In an era where digital tools enable instantaneous exchange, any delay in responding to a message is increasingly interpreted as a failure of attentiveness or respect. Organisations now measure employee responsiveness through metrics, and individuals feel compelled to reply within minutes, lest they appear disengaged or unprofessional. This culture of immediacy, however, exacts a heavy toll on the quality of communication. When responses are rushed, nuance is lost, misunderstandings proliferate, and decisions are made without adequate reflection. The expectation of instant reply erodes the space for thoughtful deliberation, reducing complex exchanges to superficial transactions. Moreover, it blurs the boundary between professional obligation and personal time, contributing to burnout and resentment. Those who defend this norm argue that speed signals commitment and that in fast-moving environments, hesitation can mean missed opportunities. Yet the evidence suggests that the costs of constant connectivity—fragmented attention, increased stress, and poorer judgement—outweigh the benefits of marginally faster replies."
+          },
+          {
+            "id": "c2-test-06-task-01-source-2",
+            "type": "source-text",
+            "label": "Text 2",
+            "title": "Delay as a safeguard",
+            "text": "Far from being a sign of neglect, a deliberate pause in communication can function as a vital safeguard for both relationships and decision quality. In many professional contexts, an immediate answer is neither possible nor desirable; complex issues require time to gather information, consult stakeholders, and weigh alternatives. The expectation of instant response often leads to premature commitments that later need to be retracted, damaging credibility more than a considered delay would have done. Furthermore, delay can serve as a filter, discouraging trivial or manipulative messages that rely on the pressure of urgency to extract a quick concession. In intercultural communication, different norms around response time are well documented, and imposing a single standard of immediacy can be a form of cultural imperialism. Organisations that explicitly protect 'thinking time'—by setting response windows rather than demanding instant replies—report higher satisfaction among both staff and clients."
+          }
+        ],
+        "presentation": {
+          "template": "source-texts"
+        },
+        "wordLimit": {
+          "min": 240,
+          "max": 280,
+          "displayText": "240–280 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c2-test-06-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Review: Interactive work about silence in networked life",
+        "genre": "review",
+        "instruction": "Write a review of the interactive work for the readers of an arts and technology magazine. In your review, evaluate the interactive form, discuss the conceptual depth of its treatment of silence, and assess the effect it is likely to have on its audience.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-06-task-02-prompt",
+            "type": "paragraph",
+            "text": "An arts and technology magazine is running a series of reviews of interactive works that explore the theme of silence in networked life. You decide to submit a review of a recent installation called 'The Quiet Room', in which participants enter a soundproofed space and are asked to remain silent for ten minutes while their physiological responses—heart rate, eye movement, posture—are displayed on a screen visible only to them. After the session, participants receive a printout showing how their body reacted to the absence of digital stimulation."
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c2-test-06-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Report: Organisation damaged by expectation of instant response",
+        "genre": "report",
+        "instruction": "Write a report for the board risk committee. In your report, analyse the behavioural incentives that led to the problem, describe the operational consequences, and recommend policy corrections that would restore decision quality.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-06-task-03-prompt",
+            "type": "paragraph",
+            "text": "The board risk committee of a financial services firm has asked you to investigate a recent incident in which the organisation suffered significant reputational and financial damage because a junior employee, under pressure to respond instantly to a client's email, authorised a transaction without following standard verification procedures. The committee is concerned that a culture of immediate responsiveness may be undermining careful judgement across the firm."
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c2-test-06-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Article: Could slower communication produce more trustworthy institutions?",
+        "genre": "article",
+        "instruction": "Write an article for the magazine. In your article, examine the mechanisms by which slower communication might build trust, consider the costs and objections, and discuss the practical limits of such an approach.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-06-task-04-prompt",
+            "type": "paragraph",
+            "text": "A public ideas magazine is publishing a series on trust and institutions. The editors have invited readers to submit articles addressing the question: 'Could slower communication produce more trustworthy institutions?' They want contributors to explore whether deliberately reducing the speed of organisational communication—through scheduled response windows, mandatory reflection periods, or asynchronous channels—could enhance the reliability and integrity of institutional decisions."
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "c2-test-06",
+    "level": "c2",
+    "topicFamily": "technology and communication",
+    "specificSetting": "debate about frictionless communication and the social value of delay",
+    "centralTension": "immediacy as responsiveness versus delay as space for judgement and responsibility",
+    "stakeholders": [
+      "individuals",
+      "organisations",
+      "digital platforms"
+    ],
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "Two source texts interpreting delay in communication as failure or safeguard",
+        "audience": "educated general reader",
+        "purpose": "synthesise arguments, evaluate their models of responsibility and develop an original distinction",
+        "requiredContentPoints": [
+          "immediacy and access",
+          "delay and judgement",
+          "responsible responsiveness"
+        ],
+        "lexicalAnchors": [
+          "communication delay",
+          "judgement",
+          "responsiveness"
+        ],
+        "originalitySelfCheck": "Source texts present opposing views on delay; no reuse of previous test scenarios. Forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "Review of an interactive work about silence in networked life",
+        "audience": "arts and technology readers",
+        "purpose": "evaluate form, conceptual depth and audience effect",
+        "requiredContentPoints": [
+          "interactive form",
+          "conceptual treatment of silence",
+          "audience effect"
+        ],
+        "lexicalAnchors": [
+          "networked silence",
+          "interactive work",
+          "audience effect"
+        ],
+        "originalitySelfCheck": "Unique installation concept; no overlap with previous review tasks. Forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "Report on an organisation damaged by an expectation of instant response",
+        "audience": "board risk committee",
+        "purpose": "analyse behavioural incentives, operational consequences and policy correction",
+        "requiredContentPoints": [
+          "response expectation",
+          "decision-quality consequence",
+          "policy correction"
+        ],
+        "lexicalAnchors": [
+          "instant response",
+          "decision quality",
+          "risk policy"
+        ],
+        "originalitySelfCheck": "Specific incident of financial firm; no reuse of previous report scenarios. Forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 4,
+        "scenario": "Article asking whether slower communication could produce more trustworthy institutions",
+        "audience": "public ideas magazine readers",
+        "purpose": "examine mechanisms, objections and practical limits",
+        "requiredContentPoints": [
+          "mechanism linking delay and trust",
+          "cost of slower response",
+          "practical boundary"
+        ],
+        "lexicalAnchors": [
+          "slower communication",
+          "institutional trust",
+          "practical boundary"
+        ],
+        "originalitySelfCheck": "Novel angle on trust and communication speed; no overlap with previous article tasks. Forbidden concepts avoided.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ],
+    "overallOriginalityCheck": "All tasks are original, with unique scenarios, audiences, and content points. No reuse of previous test fingerprints or forbidden concepts."
+  },
+  "cachedAt": 1785301069641
+}

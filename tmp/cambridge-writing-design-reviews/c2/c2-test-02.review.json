@@ -1,0 +1,92 @@
+{
+  "testId": "c2-test-02",
+  "level": "c2",
+  "topicFamily": "education and learning",
+  "specificSetting": "public debate about whether institutional guidance weakens intellectual independence",
+  "centralTension": "structured guidance as equality of access versus autonomy as the condition of mature learning",
+  "stakeholders": [
+    "learners",
+    "educational institutions",
+    "society"
+  ],
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Two source texts disputing the relationship between guidance and learner autonomy",
+      "audience": "educated general reader",
+      "purpose": "synthesise competing claims, evaluate assumptions and develop an independent position",
+      "requiredContentPoints": [
+        "guidance and equality",
+        "autonomy and intellectual risk",
+        "own conceptual distinction"
+      ],
+      "lexicalAnchors": [
+        "institutional guidance",
+        "learner autonomy",
+        "intellectual independence"
+      ],
+      "forbiddenConceptCheck": "PASS",
+      "originalityCheck": "Unique source texts with distinct arguments; no overlap with previous tests."
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Review of a book examining dependence on educational expertise",
+      "audience": "serious review readers",
+      "purpose": "evaluate argument, method and contemporary relevance",
+      "requiredContentPoints": [
+        "central argument",
+        "quality of evidence or examples",
+        "broader relevance"
+      ],
+      "lexicalAnchors": [
+        "educational expertise",
+        "dependence",
+        "critical review"
+      ],
+      "forbiddenConceptCheck": "PASS",
+      "originalityCheck": "Book title and focus on expertise dependence are new; no reuse of previous review topics."
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Report on decision-making autonomy within a learning organisation",
+      "audience": "foundation trustees",
+      "purpose": "analyse structural barriers and recommend proportionate reform",
+      "requiredContentPoints": [
+        "current decision structure",
+        "barrier to autonomy",
+        "reform with safeguard"
+      ],
+      "lexicalAnchors": [
+        "learning organisation",
+        "decision autonomy",
+        "safeguard"
+      ],
+      "forbiddenConceptCheck": "PASS",
+      "originalityCheck": "Specific foundation and focus on structural barriers; distinct from previous report tasks."
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Article exploring whether productive uncertainty should be designed into education",
+      "audience": "ideas magazine readers",
+      "purpose": "interrogate the concept and reach a nuanced conclusion",
+      "requiredContentPoints": [
+        "value of uncertainty",
+        "risk of abandonment",
+        "conditions for productive challenge"
+      ],
+      "lexicalAnchors": [
+        "productive uncertainty",
+        "educational challenge",
+        "institutional responsibility"
+      ],
+      "forbiddenConceptCheck": "PASS",
+      "originalityCheck": "Novel concept of designing uncertainty; no similar article task in previous tests."
+    }
+  ],
+  "overallForbiddenConceptCheck": "PASS",
+  "notes": "All tasks adhere to the design fingerprint. No generic phrases or forbidden concepts used. Each task has a concrete audience and clear communicative purpose.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "2008643a735c321f7e156366f49304f675d159657e0f0513812f802ea284ebb7"
+  }
+}

@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url'
 import { createRequire } from 'node:module'
 import { CambridgeWritingTestSchema } from '../../packages/catalog/src/cambridge/writing/schema.ts'
 import { CAMBRIDGE_WRITING_LEVELS, formatNumber, getLevelConfig, getTaskId, getTestId, getTestTitle } from './cambridge-writing-level-config.mjs'
+import { SCHEMA_ONLY_EXAMPLE } from './cambridge-writing-ai-contracts.mjs'
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 export const DATA_ROOT = path.join(ROOT, 'packages/catalog/data/cambridge-writing')
@@ -19,6 +20,15 @@ export const VerificationSchema = z.object({
   dimensionScores: z.object({ formatAccuracy: z.number(), levelAppropriacy: z.number(), clarity: z.number(), answerability: z.number(), genreAuthenticity: z.number(), topicOriginality: z.number(), culturalFairness: z.number(), internalConsistency: z.number() }),
   issues: z.array(z.object({ severity: z.enum(['warning', 'error']), taskId: z.string().optional(), code: z.string(), message: z.string(), suggestedAction: z.string() })),
   duplicateRisk: z.object({ highRisk: z.boolean(), similarToTestIds: z.array(z.string()) }),
+  contentOriginality: z.object({
+    valid: z.boolean(),
+    similarToTest01: z.boolean(),
+    similarToGeneratedTests: z.array(z.string()),
+    reusedScenario: z.boolean(),
+    reusedAudiencePurposePair: z.boolean(),
+    reusedRequiredContentPoints: z.boolean(),
+    issues: z.array(z.string()),
+  }),
   approvedForDraftCatalog: z.boolean(),
 })
 
@@ -71,6 +81,12 @@ export function passVerification(review) {
     && review.overallScore >= 88
     && review.approvedForDraftCatalog === true
     && review.duplicateRisk.highRisk === false
+    && review.contentOriginality.valid === true
+    && review.contentOriginality.similarToTest01 === false
+    && review.contentOriginality.similarToGeneratedTests.length === 0
+    && review.contentOriginality.reusedScenario === false
+    && review.contentOriginality.reusedAudiencePurposePair === false
+    && review.contentOriginality.reusedRequiredContentPoints === false
     && !review.issues.some(issue => issue.severity === 'error')
     && Object.values(review.dimensionScores).every(score => score >= 80)
 }
@@ -104,9 +120,17 @@ export function sourcePathFor(level, testNumber) {
 
 export function exactSchemaDescription() {
   return {
+    schemaOnlyExample: SCHEMA_ONLY_EXAMPLE,
     test: { required: ['id', 'level', 'testNumber', 'title', 'status', 'version', 'sourceFile', 'tasks'], forbidden: ['sourceUrl', 'sampleAnswers'] },
     task: { required: ['id', 'partNumber', 'taskNumber', 'title', 'genre', 'instruction', 'wordLimit', 'metadata'], optional: ['promptText', 'promptBlocks', 'presentation'] },
-    promptBlockTypes: ['paragraph', 'panel', 'email', 'source-text', 'final-instruction'],
+    promptBlockTypes: {
+      paragraph: { required: ['id', 'type', 'text'] },
+      panel: { required: ['id', 'type', 'variant'], variants: ['notes', 'announcement', 'opinions', 'generic'], optional: ['heading', 'paragraphs', 'listItems', 'footer'] },
+      email: { required: ['id', 'type', 'paragraphs'], optional: ['from', 'subject', 'greeting', 'closing', 'sender'] },
+      sourceText: { required: ['id', 'type', 'label', 'text'], optional: ['title'] },
+      finalInstruction: { required: ['id', 'type', 'text'] },
+    },
+    presentation: { required: ['template'], templates: ['plain', 'essay-notes', 'essay-notes-opinions', 'announcement', 'email', 'source-texts'], note: 'presentation is always an object, never a string' },
   }
 }
 

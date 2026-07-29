@@ -1,0 +1,156 @@
+{
+  "id": "b1-test-02",
+  "level": "b1",
+  "testNumber": 2,
+  "title": "PET B1 AI Practice Test 02",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b1/b1-test-02.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b1-test-02-1785300413261",
+    "generatedAt": 1785300486641,
+    "contentHash": "a24963ee817c8cb5e747242b45202ab539810a9a02884fdd1a4aca41d3a0864c",
+    "promptHash": "55ad04e1e8120f9e341e9f57b5bc60e25e0670b34cac20c9eec8878be6a42d6e",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-02:55ad04e1e8120f9e341e9f57b5bc60e25e0670b34cac20c9eec8878be6a42d6e",
+    "inputHash": "55ad04e1e8120f9e341e9f57b5bc60e25e0670b34cac20c9eec8878be6a42d6e",
+    "reviewStatus": "unreviewed",
+    "qualityIssues": [
+      "Independent AI verification skipped by explicit user request; deterministic originality gates passed."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "b1-test-02-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Weekend visit",
+      "genre": "email",
+      "instruction": "You must answer this question. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-02-task-01-pb-01",
+          "type": "paragraph",
+          "text": "Read this email from your English-speaking friend, Sam, and the notes you have made."
+        },
+        {
+          "id": "b1-test-02-task-01-pb-02",
+          "type": "email",
+          "from": "Sam",
+          "subject": "Weekend visit!",
+          "paragraphs": [
+            "I'm so excited about visiting you next weekend! My train arrives at 10:30 on Saturday morning. Is that okay?",
+            "There are so many things we could do. I'd love to try something local and fun. What do you think?",
+            "Also, I'm not sure what food you like. Should I bring anything special for us to eat?",
+            "Let me know if I need to bring anything else for the weekend."
+          ]
+        },
+        {
+          "id": "b1-test-02-task-01-pb-03",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes for Sam's email",
+          "listItems": [
+            "Say yes, and suggest a time to meet at the station.",
+            "Suggest an activity – say why you think it's a good idea.",
+            "Tell him what food you like.",
+            "Ask him to bring something you need."
+          ]
+        },
+        {
+          "id": "b1-test-02-task-01-pb-04",
+          "type": "final-instruction",
+          "text": "Write your email to Sam using all the notes."
+        }
+      ],
+      "presentation": {
+        "template": "email"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b1-test-02-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Useful places for teenagers",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-02-task-02-pb-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted!",
+          "paragraphs": [
+            "What places in your local area are really useful for teenagers?",
+            "Describe one place that you think is helpful. What can teenagers do there? Why is it useful?",
+            "Write an article answering these questions and we will put it on our website!"
+          ]
+        },
+        {
+          "id": "b1-test-02-task-02-pb-02",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b1-test-02-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "The bus that left without me",
+      "genre": "story",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-02-task-03-pb-01",
+          "type": "paragraph",
+          "text": "Your English teacher has asked you to write a story."
+        },
+        {
+          "id": "b1-test-02-task-03-pb-02",
+          "type": "source-text",
+          "label": "Your story must begin with this sentence:",
+          "text": "As I watched the bus disappear around the corner, I realised I was completely alone at the bus stop."
+        },
+        {
+          "id": "b1-test-02-task-03-pb-03",
+          "type": "final-instruction",
+          "text": "Write your story."
+        }
+      ],
+      "presentation": {
+        "template": "plain"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

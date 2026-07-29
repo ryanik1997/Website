@@ -1,0 +1,33 @@
+{
+  "batchId": "b1-test-02-to-b1-test-03-1785251154224",
+  "generatedAt": 1785251218279,
+  "requested": 5,
+  "results": [
+    {
+      "testId": "b1-test-02",
+      "status": "failed",
+      "error": "b1-test-02: title does not match canonical title; task 1 ID mismatch; task 1 compulsory flag mismatch; task 2 ID mismatch; task 2 compulsory flag mismatch; task 3 ID mismatch; task 3 compulsory flag mismatch"
+    },
+    {
+      "testId": "b2-test-02",
+      "status": "failed",
+      "error": "b2-test-02: title does not match canonical title; task 1 ID mismatch; task 2 ID mismatch; task 2 selectionRequired must be 1; task 3 ID mismatch; task 3 selectionRequired must be 1; task 4 ID mismatch; task 4 selectionRequired must be 1"
+    },
+    {
+      "testId": "c1-test-02",
+      "status": "failed",
+      "error": "c1-test-02: title does not match canonical title; task 1 ID mismatch; task 2 ID mismatch; task 2 selectionRequired must be 1; task 3 ID mismatch; task 3 selectionRequired must be 1; task 4 ID mismatch; task 4 selectionRequired must be 1"
+    },
+    {
+      "testId": "c2-test-02",
+      "status": "failed",
+      "error": "c2-test-02: title does not match canonical title; task 1 ID mismatch; task 2 ID mismatch; task 2 selectionRequired must be 1; task 3 ID mismatch; task 3 selectionRequired must be 1; task 4 ID mismatch; task 4 selectionRequired must be 1"
+    },
+    {
+      "testId": "b1-test-03",
+      "status": "failed",
+      "error": "b1-test-03: title does not match canonical title; task 1 ID mismatch; task 1 compulsory flag mismatch; task 2 ID mismatch; task 2 compulsory flag mismatch; task 3 ID mismatch; task 3 compulsory flag mismatch"
+    }
+  ],
+  "failed": 5
+}

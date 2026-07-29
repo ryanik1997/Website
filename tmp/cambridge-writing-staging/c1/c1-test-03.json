@@ -1,0 +1,134 @@
+{
+  "id": "c1-test-03",
+  "level": "c1",
+  "testNumber": 3,
+  "title": "CAE C1 AI Practice Test 03",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-03.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "c1-test-03-1785300565211",
+    "generatedAt": 1785300577397,
+    "contentHash": "0334d264bd99428892946015bb3e2f64cda67d98293f71356c2e169695d5e56d",
+    "promptHash": "694e9d00a48ef823278b53e8f09b4316422f91febe66244c49990581489f8f93",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-03:694e9d00a48ef823278b53e8f09b4316422f91febe66244c49990581489f8f93",
+    "inputHash": "694e9d00a48ef823278b53e8f09b4316422f91febe66244c49990581489f8f93",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "c1-test-03-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Transition-to-work provision",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-03-task-01-panel-notes",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Approaches to transition-to-work provision",
+          "listItems": [
+            "rotational employer placements",
+            "professional communication coaching",
+            "reflective career planning"
+          ]
+        },
+        {
+          "id": "c1-test-03-task-01-panel-opinions",
+          "type": "panel",
+          "variant": "opinions",
+          "paragraphs": [
+            "Rotational placements give students a taste of different sectors and build adaptability.",
+            "Communication coaching is essential because employers consistently report that graduates lack professional writing and speaking skills.",
+            "Reflective career planning helps students make informed choices and reduces the risk of early job dissatisfaction."
+          ]
+        },
+        {
+          "id": "c1-test-03-task-01-final",
+          "type": "final-instruction",
+          "text": "Write an essay for your tutor discussing two of the approaches in your notes. You should explain which approach is more likely to produce durable career readiness, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes-opinions"
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c1-test-03-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Employer partnership scheme",
+      "genre": "proposal",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptText": "Your regional college consortium is considering setting up a formal employer partnership scheme to improve students' transition to work. The consortium director has invited proposals for how such a scheme should be organised.\n\nWrite a proposal for the consortium director. In your proposal, you should:\n\n• outline the proposed partnership structure and governance\n• explain how student selection will ensure fairness\n• describe the commitments expected from participating employers\n\nWrite your proposal.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-03-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Employer concern about student preparedness",
+      "genre": "email",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptText": "You are the careers coordinator at a college that runs a transition-to-work programme. You have received an email from a local human resources director who is concerned that students from your programme may not be adequately prepared for the workplace.\n\nWrite an email to the HR director. In your email, you should:\n\n• acknowledge the concern and show understanding\n• explain the safeguards already in place to prepare students\n• propose terms for a pilot placement to demonstrate your programme's effectiveness\n\nWrite your email.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-03-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Careers transition programme review",
+      "genre": "review",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptText": "You see this announcement in an education policy journal.\n\nReviews wanted: Careers transition programmes\n\nOur journal is publishing a series of reviews of innovative careers transition programmes. Have you participated in or observed a programme that helps students move from education to employment? Write a review for our journal.\n\nIn your review, describe the programme's design, evaluate the evidence of its impact on participants' readiness, and consider how the programme could be adapted for use in different types of institutions.\n\nWrite your review.",
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

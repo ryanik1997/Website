@@ -1,0 +1,42 @@
+{
+  "valid": false,
+  "overallScore": 70,
+  "dimensionScores": {
+    "formatAccuracy": 60,
+    "levelAppropriacy": 80,
+    "clarity": 70,
+    "answerability": 80,
+    "genreAuthenticity": 70,
+    "topicOriginality": 60,
+    "culturalFairness": 80,
+    "internalConsistency": 70
+  },
+  "issues": [
+    {
+      "severity": "error",
+      "taskId": "b2-test-04-task-02",
+      "code": "GENRE_MISMATCH",
+      "message": "The task is labeled as a review but the prompt and template are more suitable for an article or essay.",
+      "suggestedAction": "Revise the task to better match the genre or adjust the prompt and template to fit the review genre."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b2-test-04-task-03",
+      "code": "TEMPLATE_INCONSISTENCY",
+      "message": "The task uses an announcement template which may not be the best fit for an article.",
+      "suggestedAction": "Consider using a more appropriate template for the article genre."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b2-test-04-task-04",
+      "code": "GENRE_AUTHENTICITY",
+      "message": "The email task may not fully capture the authenticity of the genre as it is somewhat constrained by the context provided.",
+      "suggestedAction": "Enhance the task to better reflect real-world email writing scenarios."
+    }
+  ],
+  "duplicateRisk": {
+    "highRisk": false,
+    "similarToTestIds": []
+  },
+  "approvedForDraftCatalog": false
+}

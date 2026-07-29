@@ -1,0 +1,42 @@
+{
+  "valid": false,
+  "overallScore": 70,
+  "dimensionScores": {
+    "formatAccuracy": 60,
+    "levelAppropriacy": 80,
+    "clarity": 70,
+    "answerability": 80,
+    "genreAuthenticity": 70,
+    "topicOriginality": 60,
+    "culturalFairness": 90,
+    "internalConsistency": 80
+  },
+  "issues": [
+    {
+      "severity": "error",
+      "taskId": "b1-test-02-task-02",
+      "code": "GENRE_MISMATCH",
+      "message": "Task 2 is supposed to be an article, but the presentation template is set to 'announcement', which is not suitable for an article.",
+      "suggestedAction": "Change the presentation template to 'article' or 'editorial'."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b1-test-02-task-03",
+      "code": "PRESENTATION_TEMPLATE_INCONSISTENCY",
+      "message": "Task 3 has a presentation template of 'plain', but the task is supposed to be a story. Consider using a more suitable template.",
+      "suggestedAction": "Change the presentation template to 'story' or 'narrative'."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b1-test-02-task-01",
+      "code": "WORD_LIMIT_CONSTRAINT",
+      "message": "The word limit for Task 1 is very restrictive (about 100 words). Consider increasing the word limit to allow for more detailed responses.",
+      "suggestedAction": "Increase the word limit to at least 120-150 words."
+    }
+  ],
+  "duplicateRisk": {
+    "highRisk": false,
+    "similarToTestIds": []
+  },
+  "approvedForDraftCatalog": false
+}

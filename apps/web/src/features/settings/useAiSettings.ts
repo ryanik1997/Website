@@ -70,8 +70,8 @@ export function useAiSettings() {
   const connectWritingPipeline = useCallback(async () => {
     const deepseekKey = keys.deepseek?.trim()
     const groqKey = keys.groq?.trim()
-    if (!deepseekKey || !groqKey) {
-      setPipelineResult({ ok: false, msg: 'Can co du key DeepSeek va Groq' })
+    if (!deepseekKey) {
+      setPipelineResult({ ok: false, msg: 'Can co key DeepSeek' })
       return
     }
 
@@ -86,7 +86,7 @@ export function useAiSettings() {
       })
       const result = await response.json() as { ok?: boolean; error?: string }
       if (!response.ok || !result.ok) throw new Error(result.error || 'Khong the ket noi pipeline')
-      setPipelineResult({ ok: true, msg: 'Pipeline da dung DeepSeek de sinh va Groq de kiem dinh' })
+      setPipelineResult({ ok: true, msg: groqKey ? 'Pipeline da dung DeepSeek de sinh va Groq de kiem dinh' : 'Pipeline da dung DeepSeek de sinh; kiem dinh doc lap dang bo qua' })
     } catch (error) {
       setPipelineResult({
         ok: false,

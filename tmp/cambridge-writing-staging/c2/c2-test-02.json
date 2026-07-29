@@ -1,0 +1,122 @@
+{
+  "id": "c2-test-02",
+  "level": "c2",
+  "testNumber": 2,
+  "title": "CPE C2 AI Practice Test 02",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-02.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "c2-test-02-1785300517998",
+    "generatedAt": 1785300536400,
+    "contentHash": "9b94db0f81550a912b012cfcd25877db62469ae1ad7d538e1752243649ba44bf",
+    "promptHash": "ec1a35c9a4230daddf1192cabb0de728cf9861613543e5fb459c34ed9238ed72",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-02:ec1a35c9a4230daddf1192cabb0de728cf9861613543e5fb459c34ed9238ed72",
+    "inputHash": "ec1a35c9a4230daddf1192cabb0de728cf9861613543e5fb459c34ed9238ed72",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "c2-test-02-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Guidance and Autonomy in Education",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write an essay summarising and evaluating the key points from both texts in 240–280 words. Use your own words throughout as far as possible, and include your own ideas in your answers.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-02-task-01-source-1",
+          "type": "source-text",
+          "label": "Text 1",
+          "title": "The Scaffold of Opportunity",
+          "text": "Institutional guidance in education is frequently dismissed as a constraint on intellectual freedom, yet this view overlooks its foundational role in ensuring equitable access to knowledge. For learners from backgrounds where academic capital is scarce, a well-structured curriculum and explicit instruction are not obstacles to autonomy but the very conditions that make it possible. Without clear frameworks, the gap between those who can navigate educational systems intuitively and those who cannot widens inexorably. Guidance provides a scaffold: it offers the rules of the game before expecting students to play it creatively. Moreover, the claim that structure stifles curiosity ignores the reality that most intellectual breakthroughs occur within established paradigms. Even the most radical thinkers first mastered the conventions they later challenged. To remove guidance in the name of freedom is to abandon the very students who depend on it most, leaving autonomy as a privilege of the already advantaged."
+        },
+        {
+          "id": "c2-test-02-task-01-source-2",
+          "type": "source-text",
+          "label": "Text 2",
+          "title": "The Risk of Dependency",
+          "text": "The educational establishment has constructed a system that systematically undermines the very autonomy it claims to foster. By prescribing every step of the learning journey, institutions cultivate a passive mindset in which students wait to be told what to think rather than learning to think for themselves. The proliferation of rubrics, learning outcomes and assessment criteria has created a culture of dependency where intellectual risk-taking is penalised and conformity rewarded. True learning, by contrast, requires uncertainty, experimentation and the freedom to fail. When every question has a pre-approved answer and every essay a marking scheme, students are trained to reproduce rather than create. The result is a generation of competent performers who lack the resilience and originality that genuine autonomy demands. If education is to prepare learners for an unpredictable world, it must relinquish its obsession with control and trust students to navigate complexity without constant institutional hand-holding."
+        }
+      ],
+      "presentation": {
+        "template": "source-texts"
+      },
+      "wordLimit": {
+        "min": 240,
+        "max": 280,
+        "displayText": "240–280 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c2-test-02-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Review of 'The Expert Trap'",
+      "genre": "review",
+      "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+      "promptText": "A serious review magazine is running a series on books that examine society's reliance on professional expertise. You decide to write a review of a book called 'The Expert Trap: How Dependence on Educational Specialists Undermines Independent Learning'. In your review, you should outline the book's central argument, evaluate the quality of the evidence or examples it uses, and consider how relevant its critique is to contemporary education systems. Write your review.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-02-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Decision-Making Autonomy at the Meridian Foundation",
+      "genre": "report",
+      "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+      "promptText": "The trustees of the Meridian Foundation, a learning organisation, have asked for a report on how decision-making autonomy is currently distributed among staff and learners. You have been asked to write the report. You should analyse the main structural barriers that limit autonomy within the organisation, and recommend proportionate reforms that would increase decision-making autonomy while maintaining necessary safeguards. Write your report.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-02-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Designing Uncertainty into Education",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write 280–320 words in an appropriate style.",
+      "promptText": "An ideas magazine is inviting readers to submit articles on the theme of 'productive uncertainty' in education. You decide to write an article for the magazine. In your article, you should explore whether deliberately introducing uncertainty into educational design can foster deeper learning, consider the risk that this may leave learners feeling abandoned, and discuss the conditions under which productive challenge can be achieved without causing harm. Write your article.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "valid": false,
+  "overallScore": 70,
+  "dimensionScores": {
+    "formatAccuracy": 60,
+    "levelAppropriacy": 80,
+    "clarity": 70,
+    "answerability": 80,
+    "genreAuthenticity": 70,
+    "topicOriginality": 60,
+    "culturalFairness": 80,
+    "internalConsistency": 70
+  },
+  "issues": [
+    {
+      "severity": "error",
+      "taskId": "b1-test-05-task-01",
+      "code": "FORMAT_ERROR",
+      "message": "The word limit for the email task is too restrictive and does not allow for a proper development of ideas.",
+      "suggestedAction": "Increase the word limit to at least 120-150 words."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b1-test-05-task-02",
+      "code": "LEVEL_MISMATCH",
+      "message": "The article task may be too challenging for B1 level students, as it requires a higher level of writing proficiency.",
+      "suggestedAction": "Review the task instructions and adjust the language and requirements to better suit the B1 level."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b1-test-05-task-03",
+      "code": "GENRE_AUTHENTICITY",
+      "message": "The story task may not be the best fit for the B1 level, as it requires a higher level of creative writing skills.",
+      "suggestedAction": "Consider replacing the story task with a more suitable genre, such as a descriptive essay or a short report."
+    }
+  ],
+  "duplicateRisk": {
+    "highRisk": false,
+    "similarToTestIds": []
+  },
+  "approvedForDraftCatalog": false
+}

@@ -1,0 +1,153 @@
+{
+  "id": "b1-test-03",
+  "level": "b1",
+  "testNumber": 3,
+  "title": "PET B1 AI Practice Test 03",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b1/b1-test-03.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 1,
+    "generationBatchId": "b1-test-02-to-b1-test-03-1785251388156",
+    "generatedAt": 1785251424780,
+    "contentHash": "20cbd6abe6cfd08677a24ce7d6bc2b6fa91a74bd98ace996e6dd2ba5417ec707",
+    "reviewStatus": "unreviewed",
+    "qualityIssues": [
+      "Independent AI verification skipped by explicit user request."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "b1-test-03-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Workplace Observation Day",
+      "genre": "email",
+      "instruction": "You have visited a workplace for a day to see what it is like. Your English-speaking friend, Sam, is interested in doing the same. Write an email to Sam.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-03-task-1-p1",
+          "type": "paragraph",
+          "text": "You have visited a workplace for a day to see what it is like. Your English-speaking friend, Sam, is interested in doing the same."
+        },
+        {
+          "id": "b1-test-03-task-1-email",
+          "type": "email",
+          "from": "You",
+          "subject": "My workplace visit",
+          "greeting": "Hi Sam,",
+          "paragraphs": [
+            "I recently spent a day at a local engineering company to learn about their work.",
+            "I really enjoyed it and I think you would too."
+          ],
+          "closing": "Best,",
+          "sender": "You"
+        },
+        {
+          "id": "b1-test-03-task-1-notes",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "listItems": [
+            "Say where you went and what you did",
+            "Explain why you enjoyed it",
+            "Suggest a workplace Sam might like",
+            "Give a reason for your suggestion"
+          ]
+        },
+        {
+          "id": "b1-test-03-task-1-final",
+          "type": "final-instruction",
+          "text": "Write your email."
+        }
+      ],
+      "presentation": {
+        "template": "email"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b1-test-03-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Take Part in Workplace Observation Day",
+      "genre": "article",
+      "instruction": "Your school is organising a Workplace Observation Day for students. Write an article for the school magazine explaining why students should take part.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-03-task-2-p1",
+          "type": "paragraph",
+          "text": "Your school is organising a Workplace Observation Day for students. Write an article for the school magazine explaining why students should take part."
+        },
+        {
+          "id": "b1-test-03-task-2-panel",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Workplace Observation Day",
+          "paragraphs": [
+            "Have you ever wondered what a real job is like?",
+            "Do you want to find out what skills you need for your future career?"
+          ],
+          "footer": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b1-test-03-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "A Surprising Day at Work",
+      "genre": "story",
+      "instruction": "Write a story that begins with this sentence: 'When I arrived at the office, I realised something was different.'",
+      "promptBlocks": [
+        {
+          "id": "b1-test-03-task-3-p1",
+          "type": "paragraph",
+          "text": "Write a story that begins with this sentence:"
+        },
+        {
+          "id": "b1-test-03-task-3-opening",
+          "type": "paragraph",
+          "text": "When I arrived at the office, I realised something was different."
+        },
+        {
+          "id": "b1-test-03-task-3-final",
+          "type": "final-instruction",
+          "text": "Write your story."
+        }
+      ],
+      "presentation": {
+        "template": "plain"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

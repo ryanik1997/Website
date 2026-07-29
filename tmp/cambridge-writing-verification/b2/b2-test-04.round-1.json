@@ -1,0 +1,45 @@
+{
+  "valid": false,
+  "overallScore": 70,
+  "dimensionScores": {
+    "formatAccuracy": 60,
+    "levelAppropriacy": 80,
+    "clarity": 70,
+    "answerability": 80,
+    "genreAuthenticity": 70,
+    "topicOriginality": 60,
+    "culturalFairness": 80,
+    "internalConsistency": 70
+  },
+  "issues": [
+    {
+      "severity": "error",
+      "taskId": "b2-test-04-task-01",
+      "code": "FORMAT_ERROR",
+      "message": "The word limit for the essay task is too narrow for the B2 level.",
+      "suggestedAction": "Increase the word limit to 240-260 words."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b2-test-04-task-02",
+      "code": "GENRE_MISMATCH",
+      "message": "The review task does not match the expected genre for the B2 level.",
+      "suggestedAction": "Revise the task to better align with the expected review genre."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b2-test-04-task-03",
+      "code": "TOPIC_DUPLICATION",
+      "message": "The article task topic is too similar to the review task topic.",
+      "suggestedAction": "Revise the article task topic to be more distinct from the review task topic."
+    }
+  ],
+  "duplicateRisk": {
+    "highRisk": true,
+    "similarToTestIds": [
+      "b2-test-01",
+      "b2-test-02"
+    ]
+  },
+  "approvedForDraftCatalog": false
+}

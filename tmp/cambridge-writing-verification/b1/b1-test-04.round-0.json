@@ -1,0 +1,42 @@
+{
+  "valid": false,
+  "overallScore": 70,
+  "dimensionScores": {
+    "formatAccuracy": 60,
+    "levelAppropriacy": 80,
+    "clarity": 70,
+    "answerability": 80,
+    "genreAuthenticity": 70,
+    "topicOriginality": 60,
+    "culturalFairness": 80,
+    "internalConsistency": 70
+  },
+  "issues": [
+    {
+      "severity": "error",
+      "taskId": "b1-test-04-task-01",
+      "code": "FORMAT_ERROR",
+      "message": "The word limit for the email task is too restrictive and may not allow candidates to fully express their ideas.",
+      "suggestedAction": "Consider increasing the word limit to at least 120-150 words."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b1-test-04-task-02",
+      "code": "LEVEL_MISMATCH",
+      "message": "The language and tone used in the announcement may be too formal for a B1 level candidate.",
+      "suggestedAction": "Consider using more accessible language and a more conversational tone."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b1-test-04-task-03",
+      "code": "GENRE_AUTHENTICITY",
+      "message": "The story prompt may not be engaging or relevant to the target audience.",
+      "suggestedAction": "Consider using a more interesting or thought-provoking prompt to inspire candidates' creativity."
+    }
+  ],
+  "duplicateRisk": {
+    "highRisk": false,
+    "similarToTestIds": []
+  },
+  "approvedForDraftCatalog": false
+}

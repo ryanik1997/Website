@@ -1,0 +1,17 @@
+{
+  "failedAt": 1785300919157,
+  "testId": "b1-test-02",
+  "level": "b1",
+  "error": "b1-test-02: deterministic originality gate failed: similarity_to_test01",
+  "originality": [
+    {
+      "type": "test01",
+      "leftTaskId": "b1-test-02-task-03",
+      "rightTaskId": "b1-test-01-task-03",
+      "genre": "story",
+      "score": 0.5106,
+      "skeletonScore": 0.6765,
+      "reason": "similarity_to_test01"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "testId": "c1-test-06",
+  "overallOriginalityCheck": "PASS",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "University senate evaluating hybrid communication principles",
+      "audience": "tutor (representing university senate)",
+      "purpose": "Compare response-time expectations, channel clarity and protected offline periods; decide which is most important",
+      "requiredContentPoints": [
+        "response-time expectations",
+        "channel clarity",
+        "protected offline periods"
+      ],
+      "lexicalAnchors": [
+        "hybrid communication",
+        "response-time expectations",
+        "channel clarity",
+        "protected offline periods"
+      ],
+      "originalitySelfCheck": "Scenario: institutional evaluation of hybrid communication practice. Not used in any previous test. Notes and opinions are original. Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Proposal for a university communication charter",
+      "audience": "university executive committee",
+      "purpose": "Recommend channel standards, training and complaint route",
+      "requiredContentPoints": [
+        "channel standards",
+        "staff and student training",
+        "complaint route"
+      ],
+      "lexicalAnchors": [
+        "communication charter",
+        "channel standards",
+        "training",
+        "complaint route"
+      ],
+      "originalitySelfCheck": "Proposal genre, institutional audience, three distinct recommendations. No overlap with previous proposals.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Email responding to an external auditor about communication failures",
+      "audience": "external quality auditor",
+      "purpose": "Explain root cause, describe corrective measures, arrange evidence review meeting",
+      "requiredContentPoints": [
+        "root cause",
+        "corrective measure",
+        "evidence review"
+      ],
+      "lexicalAnchors": [
+        "quality auditor",
+        "communication failure",
+        "corrective evidence"
+      ],
+      "originalitySelfCheck": "Email genre, formal register, three communicative functions. No similar email in avoided fingerprints.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Review of a hybrid communication policy for a higher-education publication",
+      "audience": "higher-education leaders",
+      "purpose": "Evaluate policy clarity, impact on organisational culture, implementation risk",
+      "requiredContentPoints": [
+        "policy clarity",
+        "organisational culture",
+        "implementation risk"
+      ],
+      "lexicalAnchors": [
+        "hybrid policy",
+        "organisational culture",
+        "implementation risk"
+      ],
+      "originalitySelfCheck": "Review genre, evaluative purpose, three distinct content points. No overlap with previous reviews.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "9237a4cae70364d7602a613cc805442bb53fd73f3a1abac1c1704040d34f5a55"
+  }
+}

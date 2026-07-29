@@ -1,0 +1,42 @@
+{
+  "valid": false,
+  "overallScore": 70,
+  "dimensionScores": {
+    "formatAccuracy": 60,
+    "levelAppropriacy": 80,
+    "clarity": 70,
+    "answerability": 80,
+    "genreAuthenticity": 70,
+    "topicOriginality": 60,
+    "culturalFairness": 80,
+    "internalConsistency": 70
+  },
+  "issues": [
+    {
+      "severity": "error",
+      "taskId": "b2-test-03-task-01",
+      "code": "FORMAT_ERROR",
+      "message": "The word limit for the essay task is not clearly defined within the promptBlocks.",
+      "suggestedAction": "Revise the promptBlocks to clearly state the word limit for the essay task."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b2-test-03-task-02",
+      "code": "GENRE_AUTHENTICITY_WARNING",
+      "message": "The review task lacks authenticity as it does not provide a clear context for the review.",
+      "suggestedAction": "Add more context to the review task to make it more authentic."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b2-test-03-task-03",
+      "code": "TOPIC_ORIGINALITY_WARNING",
+      "message": "The article task topic may be too similar to existing topics.",
+      "suggestedAction": "Consider revising the topic to make it more original."
+    }
+  ],
+  "duplicateRisk": {
+    "highRisk": false,
+    "similarToTestIds": []
+  },
+  "approvedForDraftCatalog": false
+}

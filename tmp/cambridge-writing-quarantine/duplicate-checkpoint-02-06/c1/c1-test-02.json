@@ -1,0 +1,181 @@
+{
+  "id": "c1-test-02",
+  "level": "c1",
+  "testNumber": 2,
+  "title": "CAE C1 AI Practice Test 02",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-02.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 1,
+    "generationBatchId": "b1-test-02-to-b1-test-03-1785251388156",
+    "generatedAt": 1785251414719,
+    "contentHash": "0cf381b90d4976ab2cb6ed3a629c381395a43389cb2c3ca4a3c079921dc525f3",
+    "reviewStatus": "unreviewed",
+    "qualityIssues": [
+      "Independent AI verification skipped by explicit user request."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "c1-test-02-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay: Peer Learning Project",
+      "genre": "essay",
+      "instruction": "Write an essay discussing TWO of the notes. You should explain which of the two you think is more important for the success of a peer learning project, giving reasons in support of your answer.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-02-task-1-p1",
+          "type": "paragraph",
+          "text": "Your class has been discussing peer learning projects, where students teach and learn from each other. Your teacher has asked you to write an essay discussing the factors that contribute to the success of such projects."
+        },
+        {
+          "id": "c1-test-02-task-1-notes",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "listItems": [
+            "participant motivation",
+            "group composition",
+            "clear objectives"
+          ]
+        },
+        {
+          "id": "c1-test-02-task-1-opinions",
+          "type": "panel",
+          "variant": "opinions",
+          "heading": "Opinions",
+          "paragraphs": [
+            "Sofia: 'Motivation is key – if participants aren't keen, the project will fail.'",
+            "Omar: 'The way groups are formed matters more than anything else.'",
+            "Yuki: 'Without clear goals, participants won't know what to achieve.'"
+          ]
+        },
+        {
+          "id": "c1-test-02-task-1-final",
+          "type": "final-instruction",
+          "text": "Write your essay. You should use your own words as far as possible."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes-opinions"
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c1-test-02-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Proposal: Peer Learning Project Participation",
+      "genre": "proposal",
+      "instruction": "Write a proposal for the college principal. In your proposal, you should evaluate the potential benefits of a peer learning project for students, recommend how to encourage participation, and suggest how the project could be implemented effectively.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-02-task-2-p1",
+          "type": "paragraph",
+          "text": "Your college is considering introducing a peer learning project where students help each other with coursework. The principal has asked students to submit proposals outlining how such a project could be set up and what its benefits would be."
+        },
+        {
+          "id": "c1-test-02-task-2-final",
+          "type": "final-instruction",
+          "text": "Write your proposal."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-02-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Email: Long-Term Value of Peer Learning",
+      "genre": "email",
+      "instruction": "Write an email to your English-speaking friend. In your email, you should explain what a peer learning project is, describe your experience of taking part in one, and discuss whether you think it has long-term value for participants.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-02-task-3-email",
+          "type": "email",
+          "from": "You",
+          "subject": "My peer learning project experience",
+          "greeting": "Hi [Friend's name],",
+          "paragraphs": [
+            "I wanted to tell you about a peer learning project I've been involved in at college. It's a scheme where students teach each other in small groups, and I thought you might find it interesting.",
+            "Write back and let me know what you think!"
+          ],
+          "closing": "Best wishes,",
+          "sender": "[Your name]"
+        },
+        {
+          "id": "c1-test-02-task-3-final",
+          "type": "final-instruction",
+          "text": "Write your email."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-02-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Review: Peer Learning Workshop",
+      "genre": "review",
+      "instruction": "Write a review of a peer learning workshop you attended. In your review, you should describe what happened at the workshop, evaluate its strengths and weaknesses, and recommend whether the community programme should offer similar workshops in the future.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-02-task-4-announcement",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Community Programme Notice",
+          "paragraphs": [
+            "The local community centre recently held a peer learning workshop where participants shared skills in areas like languages, cooking and IT. The organisers are now looking for feedback to decide whether to run more such events. Write a review of the workshop for the community programme newsletter."
+          ]
+        },
+        {
+          "id": "c1-test-02-task-4-final",
+          "type": "final-instruction",
+          "text": "Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

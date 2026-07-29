@@ -1,0 +1,169 @@
+{
+  "id": "b2-test-03",
+  "level": "b2",
+  "testNumber": 3,
+  "title": "FCE B2 AI Practice Test 03",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-03.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 1,
+    "generationBatchId": "b2-test-03-to-b2-test-04-1785251424783",
+    "generatedAt": 1785251435962,
+    "contentHash": "d78f475b94d083cad657372d645fc87b09dc514a6ca5c85aeff6d8aae83ce22e",
+    "reviewStatus": "unreviewed",
+    "qualityIssues": [
+      "Independent AI verification skipped by explicit user request."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "b2-test-03-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Workplace Observation Day",
+      "genre": "essay",
+      "instruction": "Your class has watched a video about workplace observation days, where students spend a day at a company to learn about a job. Your teacher has asked you to write an essay discussing the benefits of workplace observation days for students.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-03-task-1-notes",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "listItems": [
+            "learn about different careers",
+            "develop communication skills",
+            "......................... (your own idea)"
+          ]
+        },
+        {
+          "id": "b2-test-03-task-1-final",
+          "type": "final-instruction",
+          "text": "Write your essay. You must use all the notes. Your essay should be between 140 and 190 words."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes"
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b2-test-03-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Review of a workplace observation day",
+      "genre": "review",
+      "instruction": "You recently took part in a workplace observation day at a local company. Your school magazine is asking for reviews of the experience. Write a review of the workplace observation day you attended.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-03-task-2-announcement",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "School Magazine – Reviews Wanted!",
+          "paragraphs": [
+            "Have you done a workplace observation day? Write a review for our magazine. Describe what you did, what you learned, and whether you would recommend it to other students. Include details about the company and the tasks you observed."
+          ]
+        },
+        {
+          "id": "b2-test-03-task-2-final",
+          "type": "final-instruction",
+          "text": "Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-03-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "The value of workplace observation days",
+      "genre": "article",
+      "instruction": "Your school is organising a series of articles about career preparation. You have been asked to write an article for the school website about the long-term value of workplace observation days for students.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-03-task-3-announcement",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Write for our website!",
+          "paragraphs": [
+            "We are looking for articles on how workplace observation days can help students in the long term. Tell us how such experiences can influence future career choices and develop useful skills. Consider both personal and professional benefits."
+          ]
+        },
+        {
+          "id": "b2-test-03-task-3-final",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-03-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Workplace observation day invitation",
+      "genre": "email",
+      "instruction": "Your friend in another country is interested in workplace observation days. Write an email to your friend explaining what a workplace observation day is and why it might be a good idea to take part in one.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-03-task-4-email",
+          "type": "email",
+          "from": "You",
+          "subject": "Workplace observation day",
+          "greeting": "Hi,",
+          "paragraphs": [
+            "You asked me about workplace observation days. I recently took part in one and I think it's a great idea. Let me tell you more about it.",
+            "Write your email."
+          ],
+          "closing": "Best wishes,",
+          "sender": "[Your name]"
+        },
+        {
+          "id": "b2-test-03-task-4-final",
+          "type": "final-instruction",
+          "text": "Write your email."
+        }
+      ],
+      "presentation": {
+        "template": "email",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "testId": "b2-test-03",
+  "topicFamily": "work and careers",
+  "specificSetting": "students considering short workplace visits before choosing courses",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "a class debate about short workplace visits",
+      "audience": "English teacher",
+      "purpose": "assess benefits and identify the most valuable outcome",
+      "requiredContentPoints": [
+        "career awareness",
+        "professional communication",
+        "own idea"
+      ],
+      "lexicalAnchors": [
+        "workplace visit",
+        "career awareness",
+        "professional conduct"
+      ],
+      "originalitySelfCheck": "Scenario unique among existing tests; no overlap with forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "a documentary about working life shown at a youth film club",
+      "audience": "college magazine readers",
+      "purpose": "review how effectively a documentary presents working life",
+      "requiredContentPoints": [
+        "content and perspective",
+        "memorable feature",
+        "recommendation"
+      ],
+      "lexicalAnchors": [
+        "working life documentary",
+        "career story",
+        "film club"
+      ],
+      "originalitySelfCheck": "No similar review task in existing tests; documentary focus is fresh.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "a careers website asking which skills employers may value",
+      "audience": "young job seekers",
+      "purpose": "explain useful employability skills and how to develop them",
+      "requiredContentPoints": [
+        "collaboration",
+        "reliability or initiative",
+        "realistic development method"
+      ],
+      "lexicalAnchors": [
+        "employability skills",
+        "initiative",
+        "work habits"
+      ],
+      "originalitySelfCheck": "No article on skills in existing tests; avoids generic 'learning' topic.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "a friend deciding whether to take weekend work",
+      "audience": "English-speaking friend",
+      "purpose": "weigh advantages, warn about one risk and suggest a decision process",
+      "requiredContentPoints": [
+        "possible benefit",
+        "possible drawback",
+        "study balance",
+        "practical advice"
+      ],
+      "lexicalAnchors": [
+        "weekend work",
+        "study balance",
+        "job decision"
+      ],
+      "originalitySelfCheck": "Email about weekend work decision not used before; no overlap with touring holiday or other emails.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallForbiddenConceptCheck": "PASS",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "d8bf4c45cbbf1b8e4cb7d97f158160e998a071150a55141dd1326f87f146c575"
+  }
+}

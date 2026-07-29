@@ -69,17 +69,17 @@ function headers(provider, key) {
   return result
 }
 
-function requestBody(provider, model, systemPrompt, userPrompt, temperature) {
+function requestBody(provider, model, systemPrompt, userPrompt, temperature, maxTokens) {
   if (provider === 'anthropic') {
-    return { model, max_tokens: 12000, temperature, system: systemPrompt, messages: [{ role: 'user', content: userPrompt }] }
+    return { model, max_tokens: maxTokens, temperature, system: systemPrompt, messages: [{ role: 'user', content: userPrompt }] }
   }
   if (provider === 'ollama') {
-    return { model, prompt: `${systemPrompt}\n\n${userPrompt}`, format: 'json', stream: false, options: { temperature, num_predict: 12000 } }
+    return { model, prompt: `${systemPrompt}\n\n${userPrompt}`, format: 'json', stream: false, options: { temperature, num_predict: maxTokens } }
   }
   return {
     model,
     temperature,
-    max_tokens: 12000,
+    max_tokens: maxTokens,
     response_format: { type: 'json_object' },
     messages: [
       { role: 'system', content: systemPrompt },
@@ -110,6 +110,19 @@ async function fetchWithTimeout(url, options, timeoutMs) {
   }
 }
 
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms))
+}
+
+let lastVerificationRequestAt = 0
+
+async function throttle(role) {
+  if (role !== 'verification') return
+  const waitMs = 13_000 - (Date.now() - lastVerificationRequestAt)
+  if (waitMs > 0) await delay(waitMs)
+  lastVerificationRequestAt = Date.now()
+}
+
 export function isAiConfigured(role = 'generation') {
   const config = getConfig(role)
   return config.provider === 'ollama' || Boolean(config.key)
@@ -120,7 +133,7 @@ export function getAiIdentity(role = 'generation') {
   return { provider, model }
 }
 
-export async function callCambridgeWritingAi({ role = 'generation', systemPrompt, userPrompt, temperature = 0.6, timeoutMs = 120000, maxRetries = 2 }) {
+export async function callCambridgeWritingAi({ role = 'generation', systemPrompt, userPrompt, temperature = 0.6, timeoutMs = 120000, maxRetries = 2, maxTokens = 6000 }) {
   const config = getConfig(role)
   if (config.provider !== 'ollama' && !config.key) {
     const prefix = role === 'verification' ? 'CAMBRIDGE_WRITING_VERIFY' : 'CAMBRIDGE_WRITING_AI'
@@ -130,10 +143,11 @@ export async function callCambridgeWritingAi({ role = 'generation', systemPrompt
   let lastError
   for (let attempt = 0; attempt <= maxRetries; attempt += 1) {
     try {
+      await throttle(role)
       const response = await fetchWithTimeout(url, {
         method: 'POST',
         headers: headers(config.provider, config.key),
-        body: JSON.stringify(requestBody(config.provider, config.model, systemPrompt, userPrompt, temperature)),
+        body: JSON.stringify(requestBody(config.provider, config.model, systemPrompt, userPrompt, temperature, maxTokens)),
       }, timeoutMs)
       if (!response.ok) throw new Error(`AI provider error ${response.status}: ${(await response.text()).slice(0, 800)}`)
       const body = await response.json()
@@ -141,6 +155,7 @@ export async function callCambridgeWritingAi({ role = 'generation', systemPrompt
     } catch (error) {
       lastError = error
       if (attempt >= maxRetries) break
+      await delay(3000 * (2 ** attempt))
     }
   }
   throw lastError

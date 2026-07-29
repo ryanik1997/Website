@@ -1,0 +1,178 @@
+{
+  "id": "b2-test-05",
+  "level": "b2",
+  "testNumber": 5,
+  "title": "FCE B2 AI Practice Test 05",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-05.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 1,
+    "generationBatchId": "c1-test-04-to-c1-test-05-1785251463023",
+    "generatedAt": 1785251493860,
+    "contentHash": "5b00409641c1ba8c078809687bc987bffc3a9a4b4d1eb643cfc68521223aed74",
+    "reviewStatus": "unreviewed",
+    "qualityIssues": [
+      "Independent AI verification skipped by explicit user request."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "b2-test-05-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Low-waste school event",
+      "genre": "essay",
+      "instruction": "Your English teacher has asked you to write an essay on how to organise a low-waste school event. Write an essay discussing two of the points in the notes below. You should explain which point is more important and give reasons for your opinion. You may add an idea of your own.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-05-task-1-p1",
+          "type": "paragraph",
+          "text": "Your English teacher has asked you to write an essay on how to organise a low-waste school event."
+        },
+        {
+          "id": "b2-test-05-task-1-notes",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "listItems": [
+            "use reusable cups and plates",
+            "encourage people to bring their own containers",
+            "......................... (your own idea)"
+          ]
+        },
+        {
+          "id": "b2-test-05-task-1-final",
+          "type": "final-instruction",
+          "text": "Write your essay."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes"
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b2-test-05-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Low-waste school event participation",
+      "genre": "review",
+      "instruction": "You see this announcement on a college noticeboard. Write your review.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-05-task-2-announcement",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "College Magazine",
+          "paragraphs": [
+            "Reviews wanted: Low-waste events",
+            "Have you taken part in a low-waste event? Write a review of the event you attended. Describe what happened, say what you liked or disliked about it, and recommend whether other students should participate in similar events in the future.",
+            "The best reviews will be published in the next issue of the college magazine."
+          ]
+        },
+        {
+          "id": "b2-test-05-task-2-final",
+          "type": "final-instruction",
+          "text": "Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-05-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Low-waste school event long-term value",
+      "genre": "article",
+      "instruction": "You see this announcement in an international student magazine. Write your article.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-05-task-3-announcement",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "International Student Magazine",
+          "paragraphs": [
+            "Articles wanted: The long-term value of low-waste events",
+            "What lasting benefits can low-waste school events bring to students and the school community? Write an article describing at least two positive effects and explaining why organising such events is worthwhile in the long term.",
+            "The best articles will be published on our website."
+          ]
+        },
+        {
+          "id": "b2-test-05-task-3-final",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-05-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Low-waste school event advice",
+      "genre": "email",
+      "instruction": "You have received an email from your English-speaking friend, Sam. Write your email.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-05-task-4-email",
+          "type": "email",
+          "from": "Sam",
+          "subject": "Low-waste event at my school",
+          "greeting": "Hi,",
+          "paragraphs": [
+            "My school is planning a low-waste event and I'm on the organising committee. I want to make sure it has a lasting impact on students' habits. What advice can you give me to make the event effective in the long term? Also, how can we encourage students to keep practising low-waste habits after the event?",
+            "Thanks for your help! Hope to hear from you soon."
+          ],
+          "closing": "Best wishes,",
+          "sender": "Sam"
+        },
+        {
+          "id": "b2-test-05-task-4-final",
+          "type": "final-instruction",
+          "text": "Write your email."
+        }
+      ],
+      "presentation": {
+        "template": "email",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

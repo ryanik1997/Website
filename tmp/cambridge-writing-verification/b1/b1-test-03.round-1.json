@@ -1,0 +1,42 @@
+{
+  "valid": false,
+  "overallScore": 70,
+  "dimensionScores": {
+    "formatAccuracy": 60,
+    "levelAppropriacy": 80,
+    "clarity": 70,
+    "answerability": 80,
+    "genreAuthenticity": 70,
+    "topicOriginality": 60,
+    "culturalFairness": 90,
+    "internalConsistency": 80
+  },
+  "issues": [
+    {
+      "severity": "error",
+      "taskId": "b1-test-03-task-01",
+      "code": "FORMAT_ERROR",
+      "message": "The word limit for task 1 is too restrictive for the genre and level.",
+      "suggestedAction": "Increase the word limit to at least 120 words."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b1-test-03-task-02",
+      "code": "GENRE_MISMATCH",
+      "message": "The genre of task 2 (article) may not be the best fit for the topic and level.",
+      "suggestedAction": "Consider changing the genre to a more suitable one, such as a report or a letter."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b1-test-03-task-03",
+      "code": "TOPIC_LIMITATION",
+      "message": "The topic of task 3 (story) may be too narrow or restrictive for the level and genre.",
+      "suggestedAction": "Consider broadening the topic or providing more context to allow for more creative freedom."
+    }
+  ],
+  "duplicateRisk": {
+    "highRisk": false,
+    "similarToTestIds": []
+  },
+  "approvedForDraftCatalog": false
+}

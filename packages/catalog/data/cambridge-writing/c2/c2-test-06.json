@@ -1,0 +1,156 @@
+{
+  "id": "c2-test-06",
+  "level": "c2",
+  "testNumber": 6,
+  "title": "CPE C2 AI Practice Test 06",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-06.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 1,
+    "generationBatchId": "c2-test-06-to-c2-test-06-1785252190540",
+    "generatedAt": 1785252206196,
+    "contentHash": "74106660871b4b4007ac529258f0db5a37a4a463102d25b5a6f76dbf2cb216a0",
+    "reviewStatus": "unreviewed",
+    "qualityIssues": [
+      "Independent AI verification skipped by explicit user request."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "c2-test-06-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay",
+      "genre": "essay",
+      "instruction": "Read the two texts below. Write an essay summarising and evaluating the key points from both texts. Use your own words throughout. You should also include your own ideas on the topic.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-06-task-1-text-1",
+          "type": "source-text",
+          "label": "Text 1",
+          "title": "The Case for Digital Communication Workshops",
+          "text": "In an era where much of our interaction occurs through screens, the ability to communicate effectively online is no longer optional. Digital communication workshops offer structured training in crafting clear emails, participating in virtual meetings, and maintaining professional etiquette on social media. Proponents argue that such workshops bridge the gap between informal online habits and the demands of the workplace. Participants learn to adapt their tone, structure messages logically, and avoid misunderstandings that can arise from lack of non-verbal cues. Moreover, these workshops often include exercises in active listening and feedback, skills that are transferable to face-to-face contexts. For young people entering the job market, this training can be a distinct advantage, helping them to present themselves competently in a digital environment."
+        },
+        {
+          "id": "c2-test-06-task-1-text-2",
+          "type": "source-text",
+          "label": "Text 2",
+          "title": "Questioning the Need for Formal Training",
+          "text": "While digital communication workshops may seem beneficial, there is a risk that they over-formalise what is essentially a natural, evolving mode of interaction. Many people already communicate effectively online through daily practice, learning by trial and error. Formal training could stifle creativity and spontaneity, leading to overly cautious or formulaic exchanges. Furthermore, the rapid pace of technological change means that specific platforms and norms quickly become outdated; skills learned today may not be relevant tomorrow. Critics also point out that the most important aspects of communication—empathy, clarity, and respect—are not unique to digital contexts and can be developed through general education. Instead of separate workshops, integrating digital literacy into existing curricula might be a more sustainable approach."
+        },
+        {
+          "id": "c2-test-06-task-1-final",
+          "type": "final-instruction",
+          "text": "Write your essay."
+        }
+      ],
+      "presentation": {
+        "template": "source-texts"
+      },
+      "wordLimit": {
+        "min": 240,
+        "max": 280
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c2-test-06-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Review",
+      "genre": "review",
+      "instruction": "Write a review of a digital communication workshop you have recently attended. Describe what the workshop covered, and evaluate how useful it was for improving your own online communication skills. Would you recommend it to others?",
+      "promptBlocks": [
+        {
+          "id": "c2-test-06-task-2-p1",
+          "type": "paragraph",
+          "text": "A website for young professionals is inviting reviews of digital communication workshops. Write a review of a workshop you have attended. Describe what the workshop covered, evaluate how useful it was for improving your own online communication skills, and say whether you would recommend it to others."
+        },
+        {
+          "id": "c2-test-06-task-2-final",
+          "type": "final-instruction",
+          "text": "Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-06-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Report",
+      "genre": "report",
+      "instruction": "Your school or college is considering introducing a digital communication workshop for students. As a student representative, you have been asked to write a report for the leadership team. Your report should outline the potential benefits and drawbacks of such a workshop, and make a recommendation on whether it should be implemented.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-06-task-3-p1",
+          "type": "paragraph",
+          "text": "Your school or college is considering introducing a digital communication workshop for students. As a student representative, you have been asked to write a report for the leadership team. Your report should outline the potential benefits and drawbacks of such a workshop, and make a recommendation on whether it should be implemented."
+        },
+        {
+          "id": "c2-test-06-task-3-final",
+          "type": "final-instruction",
+          "text": "Write your report."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-06-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Article",
+      "genre": "article",
+      "instruction": "Write an article for an international online magazine in which you argue for or against the idea that formal training in digital communication is necessary in today's world. You should explain your views and support them with reasons and examples.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-06-task-4-p1",
+          "type": "paragraph",
+          "text": "An international online magazine is planning a special issue on 'Communication in the Digital Age'. You have been asked to write an article arguing for or against the idea that formal training in digital communication is necessary in today's world. You should explain your views and support them with reasons and examples."
+        },
+        {
+          "id": "c2-test-06-task-4-final",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

@@ -1,5 +1,16 @@
 # Consolidated Session Summary — Ryan English Website
 
+## 2026-07-28 — Task 7 Cambridge Writing checkpoint 02-06 (Groq skipped by user)
+
+- Generated and indexed exactly B1/B2/C1/C2 Test 02-06: **20 tests / 75 tasks**. No A2 data, Test 01, or manual seed was changed.
+- DeepSeek `deepseek-chat` health and generation PASS. Groq health PASS, but independent verification was stopped and skipped by explicit user request; all 20 generated tests remain `draft` + `unreviewed`, with `aiVerified=0` and `published=0`.
+- Added `--skip-ai` promotion mode that preserves truthful unreviewed provenance, and `--allow-unreviewed` checkpoint validation mode. Default strict verification gates remain unchanged.
+- Checkpoint validation PASS: schema valid 20, failures 0, duplicate/similarity hard failures 0, counts B1 5/15 and B2/C1/C2 5/20 each.
+- Fixed generated draft visibility: static draft tests are excluded for normal users and included for admins. Admin sees Test 02-06; the next local draft number is Test 07.
+- Runtime Playwright smoke PASS for all four level libraries and every task in B1/B2/C1/C2 Test 02 (15 tasks); C2 renders both source texts. Evidence: `tmp/cambridge-writing-checkpoint-c2-test02.png`.
+- Verification PASS: TypeScript, Writing 33/33, DB 6/6, pipeline 6/6, `git diff --check`.
+- Reports: `tmp/cambridge-writing-checkpoint-02-06.{json,md}`. Next work must not claim independent AI verification unless Groq is run later; current checkpoint is complete only under the user-requested no-Groq scope.
+
 ## 2026-07-28 — Cambridge Writing local credential bridge
 
 - Added a localhost-only Vite credential bridge at `/__local/cambridge-writing-credentials`.

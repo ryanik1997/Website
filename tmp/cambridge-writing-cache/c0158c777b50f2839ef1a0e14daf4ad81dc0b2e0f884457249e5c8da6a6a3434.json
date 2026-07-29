@@ -1,0 +1,227 @@
+{
+  "inputHash": "3e39c12a7b5469c489cbf50fc8b53f477d4145adb63961454fb180762273a133",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-05:3e39c12a7b5469c489cbf50fc8b53f477d4145adb63961454fb180762273a133",
+  "test": {
+    "id": "c2-test-05",
+    "level": "c2",
+    "testNumber": 5,
+    "title": "CPE C2 AI Practice Test 05",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-05.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c2-test-05-1785301000451",
+      "generatedAt": 1785301024123,
+      "contentHash": "d245d59433ed2dcb1f626c7183cb7e7b358da04a378340dc570c128a15a26cdc",
+      "promptHash": "3e39c12a7b5469c489cbf50fc8b53f477d4145adb63961454fb180762273a133",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-05:3e39c12a7b5469c489cbf50fc8b53f477d4145adb63961454fb180762273a133",
+      "inputHash": "3e39c12a7b5469c489cbf50fc8b53f477d4145adb63961454fb180762273a133",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c2-test-05-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "The moral and practical value of visible green behaviour",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write an essay summarising and evaluating the key points from both texts in 240–280 words. Use your own words throughout as far as possible, and include your own ideas in your answers.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-05-task-01-source1",
+            "type": "source-text",
+            "label": "Text 1",
+            "title": "The signal of virtue",
+            "text": "Visible green behaviour—carrying a reusable cup, sorting waste meticulously, choosing a bicycle over a car—has become a powerful social signal. Critics dismiss these acts as mere performance, yet this misses their genuine value. When individuals adopt conspicuous sustainable habits, they normalise environmental concern and create peer pressure that shifts cultural expectations. A person who cycles to work is not only reducing their own emissions; they are making the choice visible and therefore more conceivable for others. Furthermore, these behaviours often require personal sacrifice—time, convenience, money—which signals genuine commitment. The cumulative effect of millions of small visible actions can reshape markets and political will. To dismiss them as trivial is to ignore how cultural change actually happens: through repeated, observable acts that gradually redefine what is considered normal. The real problem is not that visible behaviour is performative, but that we have not yet made it sufficiently widespread."
+          },
+          {
+            "id": "c2-test-05-task-01-source2",
+            "type": "source-text",
+            "label": "Text 2",
+            "title": "The trap of the visible",
+            "text": "The celebration of visible green behaviour is a dangerous distraction from the structural reforms that actually matter. When we focus on individual acts—reusable straws, cloth bags, ethical consumerism—we risk implying that environmental responsibility is primarily a matter of personal virtue rather than systemic change. This framing plays directly into the hands of corporations and governments that prefer citizens to blame themselves rather than demand regulation of industrial emissions, supply-chain waste, and planned obsolescence. Moreover, visible green behaviour is unequally distributed: it is far easier for affluent individuals to afford organic products, install solar panels, or buy electric vehicles. The poor, who often have smaller ecological footprints, are paradoxically made to feel guilty for not performing sustainability visibly. The most consequential environmental actions—voting for climate policy, joining collective campaigns, reducing overall consumption—are often invisible. By overvaluing the visible, we misallocate energy and let the truly powerful actors off the hook."
+          }
+        ],
+        "presentation": {
+          "template": "source-texts"
+        },
+        "wordLimit": {
+          "min": 240,
+          "max": 280,
+          "displayText": "240–280 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c2-test-05-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Review of a public campaign that turns environmental responsibility into spectacle",
+        "genre": "review",
+        "instruction": "Answer one of the following questions (2–4). Write 280–320 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-05-task-02-p1",
+            "type": "paragraph",
+            "text": "A media and culture magazine is running a series of reviews of public campaigns that use spectacle to promote environmental responsibility. You decide to submit a review of a recent campaign called 'The Green Pledge Wall', in which passers-by in a city centre were invited to write a personal environmental promise on a large digital screen, which was then displayed publicly and shared on social media. In your review, evaluate the persuasive design of the campaign, discuss the ethical tension between raising awareness and turning responsibility into a public performance, and assess the likely long-term behavioural consequence of such initiatives."
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c2-test-05-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Report on hidden resource costs in a major institution",
+        "genre": "report",
+        "instruction": "Answer one of the following questions (2–4). Write 280–320 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-05-task-03-p1",
+            "type": "paragraph",
+            "text": "The audit committee of a large university has asked you to write a report on the hidden resource costs that the institution incurs but does not currently measure or disclose. These include energy consumption of underused buildings, waste from catering and events, and the environmental impact of staff commuting and business travel. In your report, identify the main areas where resource costs are currently invisible, evaluate the governance weaknesses that allow these blind spots to persist, and recommend a disclosure mechanism that would make these costs visible and accountable."
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c2-test-05-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Article: Is environmental consistency an impossible moral demand?",
+        "genre": "article",
+        "instruction": "Answer one of the following questions (2–4). Write 280–320 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c2-test-05-task-04-p1",
+            "type": "paragraph",
+            "text": "A philosophy and society magazine is inviting readers to submit articles on the theme of moral demands in everyday life. You decide to write an article addressing the question: 'Is environmental consistency an impossible moral demand?' In your article, analyse the limits of expecting individuals to be fully consistent in their environmental behaviour, consider the role of collective structures in enabling or constraining personal choices, and argue for a credible standard of responsibility that avoids both perfectionism and resignation."
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 280,
+          "max": 320,
+          "displayText": "280–320 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "c2-test-05",
+    "level": "c2",
+    "topicFamily": "environment and sustainability",
+    "specificSetting": "ethical debate about visible green behaviour and hidden systems of consumption",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "scenario": "Two source texts disputing the moral and practical value of visible green behaviour",
+        "audience": "educated general reader",
+        "purpose": "synthesise positions, evaluate causal claims and develop a layered account of responsibility",
+        "requiredContentPoints": [
+          "cultural signalling",
+          "systemic leverage",
+          "distribution of responsibility"
+        ],
+        "lexicalAnchors": [
+          "visible green behaviour",
+          "cultural signalling",
+          "systemic leverage",
+          "distribution of responsibility"
+        ],
+        "originalitySelfCheck": "Source texts are original, not based on any existing test. Theses are distinct: one argues visible behaviour normalises concern, the other argues it distracts from systemic change. No overlap with previous tests.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "scenario": "Review of a public campaign that turns environmental responsibility into spectacle",
+        "audience": "media and culture readers",
+        "purpose": "evaluate persuasive design, ethical tension and behavioural consequence",
+        "requiredContentPoints": [
+          "campaign strategy",
+          "ethical tension",
+          "likely consequence"
+        ],
+        "lexicalAnchors": [
+          "environmental spectacle",
+          "public campaign",
+          "behavioural consequence"
+        ],
+        "originalitySelfCheck": "Campaign 'The Green Pledge Wall' is invented. No previous test uses a spectacle-based campaign review. Ethical tension between awareness and performance is unique.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "scenario": "Report on hidden resource costs in a major institution",
+        "audience": "institutional audit committee",
+        "purpose": "identify blind spots, evaluate governance and recommend disclosure",
+        "requiredContentPoints": [
+          "hidden resource flow",
+          "governance weakness",
+          "disclosure mechanism"
+        ],
+        "lexicalAnchors": [
+          "resource cost",
+          "governance blind spot",
+          "disclosure"
+        ],
+        "originalitySelfCheck": "Focus on hidden resource costs in a university is original. No previous test uses audit committee audience or disclosure mechanism recommendation. Forbidden concepts (low-waste event, reusable containers) avoided.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 4,
+        "scenario": "Article considering whether environmental consistency is an impossible moral demand",
+        "audience": "philosophy and society magazine readers",
+        "purpose": "analyse the demand without dismissing responsibility",
+        "requiredContentPoints": [
+          "limits of personal consistency",
+          "collective structures",
+          "credible standard of responsibility"
+        ],
+        "lexicalAnchors": [
+          "environmental consistency",
+          "moral demand",
+          "collective structure"
+        ],
+        "originalitySelfCheck": "Philosophical framing of consistency as impossible demand is unique. No previous test uses this angle. Avoids generic 'importance of education' or 'learning a skill' themes.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ],
+    "overallOriginalityCheck": "All tasks are original, with no reuse of scenarios, audiences, content points, or lexical anchors from any previous test. The designFingerprint.forbiddenConcepts have been strictly avoided."
+  },
+  "cachedAt": 1785301024576
+}

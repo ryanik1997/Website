@@ -1,0 +1,42 @@
+{
+  "valid": false,
+  "overallScore": 82,
+  "dimensionScores": {
+    "formatAccuracy": 90,
+    "levelAppropriacy": 85,
+    "clarity": 88,
+    "answerability": 80,
+    "genreAuthenticity": 92,
+    "topicOriginality": 78,
+    "culturalFairness": 95,
+    "internalConsistency": 89
+  },
+  "issues": [
+    {
+      "severity": "warning",
+      "taskId": "b2-test-02-task-02",
+      "code": "GENRE_MISMATCH",
+      "message": "The task is labeled as a review, but the prompt does not provide sufficient information for the candidate to write a review.",
+      "suggestedAction": "Provide more context or details about the film or TV series to be reviewed."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b2-test-02-task-03",
+      "code": "TEMPLATE_INCONSISTENCY",
+      "message": "The task uses the 'announcement' template, but the genre is an article.",
+      "suggestedAction": "Use a template that is more suitable for an article."
+    },
+    {
+      "severity": "error",
+      "taskId": "b2-test-02-task-01",
+      "code": "WORD_LIMIT_INCONSISTENCY",
+      "message": "The word limit for the essay task is not consistent with the level contract.",
+      "suggestedAction": "Update the word limit to match the level contract."
+    }
+  ],
+  "duplicateRisk": {
+    "highRisk": false,
+    "similarToTestIds": []
+  },
+  "approvedForDraftCatalog": false
+}

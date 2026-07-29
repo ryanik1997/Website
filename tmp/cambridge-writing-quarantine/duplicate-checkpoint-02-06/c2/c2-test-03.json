@@ -1,0 +1,141 @@
+{
+  "id": "c2-test-03",
+  "level": "c2",
+  "testNumber": 3,
+  "title": "CPE C2 AI Practice Test 03",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-03.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 1,
+    "generationBatchId": "c2-test-03-to-c2-test-03-1785252351621",
+    "generatedAt": 1785252363643,
+    "contentHash": "d29d8a47c145ef7214d4a4ffa9fefb214076e47eef97c60e6d48bca4b3ee99d7",
+    "reviewStatus": "unreviewed",
+    "qualityIssues": [
+      "Independent AI verification skipped by explicit user request."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "c2-test-03-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Workplace Observation Day",
+      "genre": "essay",
+      "instruction": "Read the two texts below. Write an essay summarising and evaluating the key points from both texts. Use your own words throughout, and include your own ideas in your response.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-03-task-1-text-1",
+          "type": "source-text",
+          "label": "Text 1",
+          "title": "The Case for Workplace Observation Days",
+          "text": "Workplace observation days offer students a valuable glimpse into professional environments, helping them connect academic learning with real-world applications. By shadowing employees, young people gain insights into daily routines, workplace culture, and the skills required in various careers. This exposure can demystify professions and inspire students to pursue paths they might not have considered. Moreover, observation days foster soft skills such as communication and professionalism, as students interact with mentors and observe workplace etiquette. Proponents argue that even a single day can broaden horizons and motivate students to set clearer career goals. However, critics question whether such brief experiences have lasting impact, suggesting that without structured follow-up, the benefits may fade quickly. Nonetheless, many educators believe that when integrated into a broader careers programme, observation days can be a powerful tool for student development."
+        },
+        {
+          "id": "c2-test-03-task-1-text-2",
+          "type": "source-text",
+          "label": "Text 2",
+          "title": "Limitations of Short-Term Placements",
+          "text": "While workplace observation days are popular, their long-term value remains debatable. A single day rarely provides enough depth for students to understand the complexities of a job or industry. Observers may only see routine tasks rather than the challenges and problem-solving that define professional work. Additionally, the experience can be passive, with students watching rather than doing, which limits skill development. For students from disadvantaged backgrounds, a lack of relevant networks may mean they observe in fields that do not match their interests, reinforcing rather than breaking stereotypes. Furthermore, without careful preparation and reflection, students may form superficial impressions. Some argue that longer work placements or internships offer more meaningful learning. Nevertheless, observation days can still spark curiosity and provide a starting point for career exploration, especially if schools actively involve students in choosing placements and debriefing afterwards."
+        },
+        {
+          "id": "c2-test-03-task-1-final",
+          "type": "final-instruction",
+          "text": "Write your essay."
+        }
+      ],
+      "presentation": {
+        "template": "source-texts"
+      },
+      "wordLimit": {
+        "min": 240,
+        "max": 280
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c2-test-03-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Review of a Workplace Observation Day",
+      "genre": "review",
+      "instruction": "A website for young professionals is inviting reviews of workplace observation day programmes. Write a review of a workplace observation day you have participated in or heard about, evaluating its strengths and weaknesses, and suggesting how such programmes could be improved.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-03-task-2-final",
+          "type": "final-instruction",
+          "text": "Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-03-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Report on Workplace Observation Day Scheme",
+      "genre": "report",
+      "instruction": "Your school or college has been running a workplace observation day scheme for students. The leadership team has asked you to write a report evaluating the scheme's impact on students' career readiness and recommending changes to improve its long-term value.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-03-task-3-final",
+          "type": "final-instruction",
+          "text": "Write your report."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-03-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Should Workplace Observation Days Be Compulsory?",
+      "genre": "article",
+      "instruction": "You have been asked to write an article for an international careers magazine arguing for or against making workplace observation days a compulsory part of the school curriculum. In your article, you should propose a specific approach and justify your views.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-03-task-4-final",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

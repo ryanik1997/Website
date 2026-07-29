@@ -1,0 +1,42 @@
+{
+  "valid": false,
+  "overallScore": 70,
+  "dimensionScores": {
+    "formatAccuracy": 80,
+    "levelAppropriacy": 70,
+    "clarity": 80,
+    "answerability": 70,
+    "genreAuthenticity": 80,
+    "topicOriginality": 60,
+    "culturalFairness": 90,
+    "internalConsistency": 80
+  },
+  "issues": [
+    {
+      "severity": "error",
+      "taskId": "b1-test-04-task-01",
+      "code": "WORD_LIMIT_TOO_RESTRICTIVE",
+      "message": "The word limit for task 1 is too restrictive for the B1 level.",
+      "suggestedAction": "Increase the word limit to at least 120-150 words."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b1-test-04-task-02",
+      "code": "GENRE_MISMATCH",
+      "message": "The genre of task 2 (article) may not be the best fit for the topic.",
+      "suggestedAction": "Consider changing the genre to a more suitable one, such as a report or a proposal."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b1-test-04-task-03",
+      "code": "TOPIC_TOO_LIMITED",
+      "message": "The topic of task 3 (The Community Garden) may be too limited for a story.",
+      "suggestedAction": "Consider broadening the topic or providing more context to allow for more creative freedom."
+    }
+  ],
+  "duplicateRisk": {
+    "highRisk": false,
+    "similarToTestIds": []
+  },
+  "approvedForDraftCatalog": false
+}

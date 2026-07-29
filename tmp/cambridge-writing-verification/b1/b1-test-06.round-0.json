@@ -1,0 +1,42 @@
+{
+  "valid": false,
+  "overallScore": 70,
+  "dimensionScores": {
+    "formatAccuracy": 60,
+    "levelAppropriacy": 80,
+    "clarity": 70,
+    "answerability": 80,
+    "genreAuthenticity": 70,
+    "topicOriginality": 60,
+    "culturalFairness": 80,
+    "internalConsistency": 70
+  },
+  "issues": [
+    {
+      "severity": "error",
+      "taskId": "b1-test-06-task-01",
+      "code": "FORMAT_ERROR",
+      "message": "The word limit for the email task is too restrictive for a B1 level exam.",
+      "suggestedAction": "Increase the word limit to at least 120-150 words."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b1-test-06-task-02",
+      "code": "GENRE_INAUTHENTICITY",
+      "message": "The article task lacks authenticity, as it is unlikely that a community website would ask for articles from individuals who have attended a digital workshop.",
+      "suggestedAction": "Revise the task to make it more authentic, such as asking for a review of a digital workshop or a reflection on the importance of digital communication."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b1-test-06-task-03",
+      "code": "TOPIC_UNORIGINALITY",
+      "message": "The story task is too similar to other story tasks in the corpus, and the topic may not be engaging for all candidates.",
+      "suggestedAction": "Revise the task to make it more original and engaging, such as adding a twist to the story or using a more interesting prompt."
+    }
+  ],
+  "duplicateRisk": {
+    "highRisk": false,
+    "similarToTestIds": []
+  },
+  "approvedForDraftCatalog": false
+}

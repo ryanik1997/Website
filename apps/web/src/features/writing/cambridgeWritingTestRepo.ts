@@ -72,14 +72,16 @@ export function validateRecord(record: CambridgeWritingTestRecord): ValidationRe
 async function mergedTests(level: CambridgeWritingLevel, options: MergeOptions = {}): Promise<ListResult> {
   const includeDrafts = options.includeDrafts === true
   const itemsById = new Map<string, CambridgeWritingMergedTest>(
-    seedTests(level).map(test => [test.id, {
+    seedTests(level)
+      .filter(test => includeDrafts || test.status !== 'draft')
+      .map(test => [test.id, {
       test,
       origin: 'seed',
       status: test.status ?? 'published',
       editable: false,
       version: test.version ?? 1,
       recordId: test.id,
-    }]),
+      }]),
   )
   const errors: string[] = []
   const records = await cambridgeWritingTestLocalRepo.listByLevel(level)

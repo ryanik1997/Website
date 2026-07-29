@@ -3,7 +3,8 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import { CAMBRIDGE_WRITING_LEVELS, getLevelConfig } from './cambridge-writing-level-config.mjs'
 import { contentHash } from './cambridge-writing-ai-provider.mjs'
-import { bannedPhraseFindings, similarityPairs, taskText } from './cambridge-writing-similarity.mjs'
+import { buildDiversityReport, bannedPhraseFindings, taskText } from './cambridge-writing-similarity.mjs'
+import { buildPlan } from './plan-cambridge-writing-corpus.mjs'
 import { ROOT, TMP_ROOT, TestSchema, assertIdentity, listGeneratedFiles, parseArgs, readJson, writeJson } from './cambridge-writing-runtime.mjs'
 
 function countWords(text) { return String(text).trim().split(/\s+/).filter(Boolean).length }
@@ -50,8 +51,15 @@ function levelChecks(test) {
   return errors
 }
 
-export async function validateCorpus(level = 'all') {
-  const files = await listGeneratedFiles(level)
+export async function validateCorpus(level = 'all', options = {}) {
+  const from = options.from ?? 2
+  const to = options.to ?? Number.MAX_SAFE_INTEGER
+  const checkpoint = options.checkpoint === true
+  const allFiles = await listGeneratedFiles(level)
+  const files = allFiles.filter(file => {
+    const match = file.match(/-test-(\d+)\.json$/)
+    return match && Number(match[1]) >= from && Number(match[1]) <= to
+  })
   const tests = []
   const failures = []
   const ids = new Set()
@@ -59,12 +67,12 @@ export async function validateCorpus(level = 'all') {
     try {
       const test = TestSchema.parse(await readJson(file))
       assertIdentity(test)
-      const errors = [...validateStrings(test), ...levelChecks(test)]
+      const errors = [...validateStrings(test.tasks, 'test.tasks'), ...levelChecks(test)]
       if (!test.provenance) errors.push('missing provenance')
       else {
-        if (test.provenance.reviewStatus !== 'ai-verified' && test.provenance.reviewStatus !== 'human-approved') errors.push('provenance is not verified')
+        if (!options.allowUnreviewed && test.provenance.reviewStatus !== 'ai-verified' && test.provenance.reviewStatus !== 'human-approved') errors.push('provenance is not verified')
         if (contentHash(test) !== test.provenance.contentHash) errors.push('content hash mismatch')
-        if ((test.provenance.qualityScore ?? 0) < 88) errors.push('quality score below 88')
+        if (!options.allowUnreviewed && (test.provenance.qualityScore ?? 0) < 88) errors.push('quality score below 88')
       }
       for (const id of [test.id, ...test.tasks.map(task => task.id)]) { if (ids.has(id)) errors.push(`duplicate ID: ${id}`); ids.add(id) }
       const banned = bannedPhraseFindings(test)
@@ -73,20 +81,31 @@ export async function validateCorpus(level = 'all') {
       tests.push(test)
     } catch (error) { failures.push({ file: path.relative(ROOT, file).replaceAll('\\', '/'), errors: [error instanceof Error ? error.message : String(error)] }) }
   }
-  const similarity = similarityPairs(tests)
+  const seedRoot = path.join(ROOT, 'packages/catalog/src/cambridge/writing')
+  const baselines = await Promise.all(CAMBRIDGE_WRITING_LEVELS.map(current => readJson(path.join(seedRoot, current, `${current}-test-01.json`))))
+  const diversity = buildDiversityReport({ baselineTests: baselines, checkpointTests: tests, planRows: buildPlan() })
+  const similarity = { comparisons: diversity.comparisons, failures: diversity.hardFailures, warnings: diversity.warnings, warningThreshold: diversity.thresholds.warningThreshold, failureThreshold: diversity.thresholds.checkpointFailureThreshold }
   const counts = Object.fromEntries(CAMBRIDGE_WRITING_LEVELS.map(current => [current, { tests: tests.filter(test => test.level === current).length, tasks: tests.filter(test => test.level === current).reduce((sum, test) => sum + test.tasks.length, 0) }]))
   for (const levelName of CAMBRIDGE_WRITING_LEVELS) {
     const config = getLevelConfig(levelName)
-    const expectedTasks = config.newTestCount * config.testTaskCount
-    if (counts[levelName].tests !== config.newTestCount) failures.push({ file: levelName, errors: [`expected ${config.newTestCount} generated tests, got ${counts[levelName].tests}`] })
+    const expectedTests = checkpoint ? Math.max(0, to - from + 1) : config.newTestCount
+    const expectedTasks = expectedTests * config.testTaskCount
+    if (counts[levelName].tests !== expectedTests) failures.push({ file: levelName, errors: [`expected ${expectedTests} generated tests, got ${counts[levelName].tests}`] })
     if (counts[levelName].tasks !== expectedTasks) failures.push({ file: levelName, errors: [`expected ${expectedTasks} generated tasks, got ${counts[levelName].tasks}`] })
   }
-  return { generatedAt: Date.now(), files: files.length, tests: tests.length, tasks: tests.reduce((sum, test) => sum + test.tasks.length, 0), counts, failures, similarity, valid: failures.length === 0 && similarity.failures.length === 0 }
+  return { generatedAt: Date.now(), files: files.length, tests: tests.length, tasks: tests.reduce((sum, test) => sum + test.tasks.length, 0), counts, aiVerificationSkipped: options.allowUnreviewed === true, failures, similarity, diversity, valid: failures.length === 0 && diversity.hardFailures.length === 0 }
 }
 
 async function main() {
   const args = parseArgs()
-  const report = await validateCorpus(args.level ?? 'all')
+  const from = args.from === undefined ? 2 : Number.parseInt(String(args.from), 10)
+  const to = args.to === undefined ? Number.MAX_SAFE_INTEGER : Number.parseInt(String(args.to), 10)
+  const report = await validateCorpus(args.level ?? 'all', {
+    from,
+    to,
+    checkpoint: args.from !== undefined || args.to !== undefined,
+    allowUnreviewed: args['allow-unreviewed'] === true,
+  })
   await writeJson(path.join(TMP_ROOT, 'cambridge-writing-validation-report.json'), report)
   await writeJson(path.join(TMP_ROOT, 'cambridge-writing-similarity-report.json'), report.similarity)
   await fs.writeFile(path.join(TMP_ROOT, 'cambridge-writing-similarity-report.md'), `# Cambridge Writing Similarity Report\n\n- Comparisons reported: ${report.similarity.comparisons.length}\n- Warnings: ${report.similarity.warnings.length}\n- Hard failures: ${report.similarity.failures.length}\n`)

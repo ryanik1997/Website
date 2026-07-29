@@ -1,0 +1,42 @@
+{
+  "valid": false,
+  "overallScore": 70,
+  "dimensionScores": {
+    "formatAccuracy": 60,
+    "levelAppropriacy": 80,
+    "clarity": 70,
+    "answerability": 80,
+    "genreAuthenticity": 70,
+    "topicOriginality": 60,
+    "culturalFairness": 90,
+    "internalConsistency": 80
+  },
+  "issues": [
+    {
+      "severity": "error",
+      "taskId": "b1-test-02-task-02",
+      "code": "GENRE_MISMATCH",
+      "message": "The task is labeled as an 'article' but the presentation template is 'announcement', which may cause confusion.",
+      "suggestedAction": "Change the presentation template to 'article' or adjust the task genre to match the template."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b1-test-02-task-03",
+      "code": "PRESENTATION_INCONSISTENCY",
+      "message": "The presentation template for the story task is 'plain', which may not be suitable for a story genre.",
+      "suggestedAction": "Consider changing the presentation template to 'story' or 'narrative' to better match the task genre."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b1-test-02-task-01",
+      "code": "WORD_LIMIT_CONSTRAINT",
+      "message": "The word limit for the email task is very restrictive (about 100 words), which may not allow candidates to fully express their ideas.",
+      "suggestedAction": "Consider increasing the word limit to give candidates more flexibility in their response."
+    }
+  ],
+  "duplicateRisk": {
+    "highRisk": false,
+    "similarToTestIds": []
+  },
+  "approvedForDraftCatalog": false
+}

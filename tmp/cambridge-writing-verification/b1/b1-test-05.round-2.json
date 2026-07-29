@@ -1,0 +1,42 @@
+{
+  "valid": false,
+  "overallScore": 70,
+  "dimensionScores": {
+    "formatAccuracy": 60,
+    "levelAppropriacy": 80,
+    "clarity": 70,
+    "answerability": 80,
+    "genreAuthenticity": 70,
+    "topicOriginality": 60,
+    "culturalFairness": 90,
+    "internalConsistency": 80
+  },
+  "issues": [
+    {
+      "severity": "error",
+      "taskId": "b1-test-05-task-01",
+      "code": "FORMAT_ERROR",
+      "message": "The word limit for task 1 is too restrictive for the B1 level.",
+      "suggestedAction": "Increase the word limit to at least 120-150 words."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b1-test-05-task-02",
+      "code": "GENRE_MISMATCH",
+      "message": "The genre for task 2 is listed as 'article', but the presentation is 'announcement'.",
+      "suggestedAction": "Change the presentation to 'article' or adjust the genre to match the presentation."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b1-test-05-task-03",
+      "code": "TOPIC_LIMITATION",
+      "message": "The topic for task 3 is too narrow and may not allow for sufficient creativity.",
+      "suggestedAction": "Broaden the topic or provide more context to allow for a wider range of responses."
+    }
+  ],
+  "duplicateRisk": {
+    "highRisk": false,
+    "similarToTestIds": []
+  },
+  "approvedForDraftCatalog": false
+}

@@ -1,0 +1,42 @@
+{
+  "valid": false,
+  "overallScore": 70,
+  "dimensionScores": {
+    "formatAccuracy": 60,
+    "levelAppropriacy": 80,
+    "clarity": 70,
+    "answerability": 80,
+    "genreAuthenticity": 70,
+    "topicOriginality": 60,
+    "culturalFairness": 80,
+    "internalConsistency": 70
+  },
+  "issues": [
+    {
+      "severity": "error",
+      "taskId": "b1-test-03-task-01",
+      "code": "FORMAT_ERROR",
+      "message": "The word limit for task 1 is too restrictive for the genre and level.",
+      "suggestedAction": "Increase the word limit to at least 120-150 words."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b1-test-03-task-02",
+      "code": "GENRE_INAUTHENTICITY",
+      "message": "The article genre for task 2 may not be the most suitable for the level and topic.",
+      "suggestedAction": "Consider using a more authentic genre, such as a blog post or a letter to the editor."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b1-test-03-task-03",
+      "code": "TOPIC_UNORIGINALITY",
+      "message": "The story topic for task 3 may be too similar to other topics in the corpus.",
+      "suggestedAction": "Consider using a more original topic or adding a unique twist to the existing topic."
+    }
+  ],
+  "duplicateRisk": {
+    "highRisk": false,
+    "similarToTestIds": []
+  },
+  "approvedForDraftCatalog": false
+}

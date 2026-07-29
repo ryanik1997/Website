@@ -113,7 +113,7 @@ describe('Cambridge Writing pages', () => {
     await screen.findByText(/đề, .* bài viết\./i)
     await waitFor(() => {
       expect(screen.getByText('Local draft title')).toBeInTheDocument()
-      expect(screen.getByText('Bản nháp')).toBeInTheDocument()
+      expect(screen.getAllByText('Bản nháp').length).toBeGreaterThan(0)
     })
 
     fireEvent.change(screen.getByPlaceholderText('Tìm theo tên đề hoặc dạng bài...'), { target: { value: 'draft title' } })

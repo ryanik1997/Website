@@ -1,0 +1,164 @@
+{
+  "id": "b2-test-03",
+  "level": "b2",
+  "testNumber": 3,
+  "title": "FCE B2 AI Practice Test 03",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-03.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b2-test-03-1785300849746",
+    "generatedAt": 1785300865376,
+    "contentHash": "cbb91d886b7a56c07deff0e0b344772dd121ddec1445c37e914aec761ac92d0f",
+    "promptHash": "6a940236800202fff784f830fcabc69a4fa36f81d2592a675805f9a40a216c7f",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-03:6a940236800202fff784f830fcabc69a4fa36f81d2592a675805f9a40a216c7f",
+    "inputHash": "6a940236800202fff784f830fcabc69a4fa36f81d2592a675805f9a40a216c7f",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b2-test-03-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Short workplace visits",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 140–190 words in an appropriate style.\n\nIn your English class you have been talking about short workplace visits for students. Now your English teacher has asked you to write an essay.\n\nWrite an essay using all the notes and giving reasons for your point of view.\n\nSome schools arrange short visits to local workplaces so that students can see what different jobs involve. What are the benefits of these visits, and which is the most valuable outcome?",
+      "promptBlocks": [
+        {
+          "id": "b2-test-03-task-01-panel-01",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "paragraphs": [
+            "Career awareness – understanding what jobs really involve",
+            "Professional communication – seeing how people interact at work",
+            "......................... (your own idea)"
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes"
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b2-test-03-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Documentary review",
+      "genre": "review",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.\n\nYou see this announcement in your college English-language magazine.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-03-task-02-panel-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted",
+          "paragraphs": [
+            "A Day in the Life – a new documentary about working people in our region"
+          ],
+          "listItems": [
+            "How effectively does the film show what working life is really like?",
+            "What is the most memorable scene or interview?",
+            "Would you recommend this documentary to other students?"
+          ],
+          "footer": "Send us your review and we will publish the best ones in next month's magazine."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-03-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Skills employers value",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.\n\nYou see this announcement on a careers website for young people.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-03-task-03-panel-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted",
+          "paragraphs": [
+            "What skills do employers look for?"
+          ],
+          "listItems": [
+            "Which two skills do you think are most useful in the workplace?",
+            "How can young people develop these skills while still at school or college?"
+          ],
+          "footer": "Write an article answering these questions. The best articles will be featured on our site."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-03-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Weekend work decision",
+      "genre": "email",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.\n\nYou have received this email from your English-speaking friend Alex.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-03-task-04-email-01",
+          "type": "email",
+          "from": "Alex",
+          "subject": "Weekend job offer",
+          "paragraphs": [
+            "Hi,",
+            "I've been offered a weekend job at a local café. It would mean working both Saturday and Sunday, but the pay is good and I'd get experience. I'm not sure if I should take it because I have exams coming up. What do you think?",
+            "What are the advantages of doing this job? Is there any risk I should watch out for? And how should I decide?",
+            "Let me know!",
+            "Alex"
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "email",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

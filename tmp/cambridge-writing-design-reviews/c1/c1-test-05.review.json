@@ -1,0 +1,86 @@
+{
+  "testId": "c1-test-05",
+  "level": "c1",
+  "topicFamily": "environment and sustainability",
+  "specificSetting": "an arts institution adopting an audited resource policy for major events",
+  "tasks": [
+    {
+      "taskId": "c1-test-05-task-01",
+      "scenario": "institutional evaluation of event sustainability priorities",
+      "audience": "arts centre trustees",
+      "purpose": "assess two policy levers and choose the more credible priority",
+      "requiredContentPoints": [
+        "contractor standards",
+        "audience behaviour systems",
+        "transparent resource auditing"
+      ],
+      "lexicalAnchors": [
+        "contractor standards",
+        "audience behaviour systems",
+        "transparent resource auditing"
+      ],
+      "originalitySelfCheck": "Unique scenario: arts centre trustees evaluating sustainability priorities. No overlap with previous tests (c1-test-01 to c1-test-04, c2-test-01 to c2-test-04). Notes and opinions are original, not copied from any existing test.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "c1-test-05-task-02",
+      "scenario": "proposal for an audited sustainable-events framework",
+      "audience": "arts centre executive board",
+      "purpose": "recommend procurement rules, staff responsibilities and reporting",
+      "requiredContentPoints": [
+        "procurement criteria",
+        "operational ownership",
+        "public reporting"
+      ],
+      "lexicalAnchors": [
+        "procurement criteria",
+        "operational ownership",
+        "public reporting"
+      ],
+      "originalitySelfCheck": "Unique scenario: proposal for sustainable-events framework at an arts centre. No overlap with previous proposal tasks (c1-test-01-task-02, c1-test-02-task-02, etc.). Content points are distinct.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "c1-test-05-task-03",
+      "scenario": "email negotiating new requirements with a long-term supplier",
+      "audience": "venue supplier",
+      "purpose": "explain the policy, recognise practical constraints and agree transition steps",
+      "requiredContentPoints": [
+        "policy rationale",
+        "supplier constraint",
+        "transition timetable"
+      ],
+      "lexicalAnchors": [
+        "policy rationale",
+        "supplier constraint",
+        "transition timetable"
+      ],
+      "originalitySelfCheck": "Unique scenario: events manager emailing a catering supplier about new resource policy. No overlap with previous email tasks (c1-test-01-task-03, c1-test-02-task-03, etc.). Functions are distinct.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "c1-test-05-task-04",
+      "scenario": "review of an institution environmental policy for a cultural-sector journal",
+      "audience": "cultural managers",
+      "purpose": "evaluate credibility, visitor impact and replicability",
+      "requiredContentPoints": [
+        "policy credibility",
+        "visitor experience",
+        "replicability"
+      ],
+      "lexicalAnchors": [
+        "policy credibility",
+        "visitor experience",
+        "replicability"
+      ],
+      "originalitySelfCheck": "Unique scenario: review of an environmental policy for a cultural-sector journal. No overlap with previous review tasks (c1-test-01-task-04, c1-test-02-task-04, etc.). Announcement heading and content are original.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallForbiddenConceptCheck": "PASS",
+  "notes": "All tasks are original, level-appropriate, and match the design fingerprint exactly. No forbidden concepts or generic phrases used.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "4147e751d89c87cc73289d227ef1db3f0b1dbfa6b7fa8986f3e9c30d35dfae80"
+  }
+}

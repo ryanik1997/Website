@@ -1,0 +1,42 @@
+{
+  "valid": false,
+  "overallScore": 70,
+  "dimensionScores": {
+    "formatAccuracy": 60,
+    "levelAppropriacy": 80,
+    "clarity": 70,
+    "answerability": 80,
+    "genreAuthenticity": 70,
+    "topicOriginality": 60,
+    "culturalFairness": 90,
+    "internalConsistency": 80
+  },
+  "issues": [
+    {
+      "severity": "error",
+      "taskId": "b1-test-06-task-01",
+      "code": "FORMAT_ERROR",
+      "message": "The word limit for the email task is too restrictive for a B1 level exam.",
+      "suggestedAction": "Increase the word limit to at least 120-150 words."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b1-test-06-task-02",
+      "code": "GENRE_AUTHENTICITY_WARNING",
+      "message": "The article task may not be the most authentic genre for a B1 level exam.",
+      "suggestedAction": "Consider using a more authentic genre, such as a review or a report."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b1-test-06-task-03",
+      "code": "TOPIC_ORIGINALITY_WARNING",
+      "message": "The story task may be too similar to other tasks in the exam.",
+      "suggestedAction": "Consider using a more original topic or prompt for the story task."
+    }
+  ],
+  "duplicateRisk": {
+    "highRisk": false,
+    "similarToTestIds": []
+  },
+  "approvedForDraftCatalog": false
+}

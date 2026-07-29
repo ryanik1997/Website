@@ -1,0 +1,160 @@
+{
+  "id": "c2-test-05",
+  "level": "c2",
+  "testNumber": 5,
+  "title": "CPE C2 AI Practice Test 05",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-05.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "c2-test-05-1785301049229",
+    "generatedAt": 1785301073444,
+    "contentHash": "b47567f83870540298b1728a32e6c060513d48fb943be2eeb8bc378cf6ec8e07",
+    "promptHash": "21aa9bad8891ab920b55b263be9044a15bb4167a40e77892c7624541e9a5c02d",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-05:21aa9bad8891ab920b55b263be9044a15bb4167a40e77892c7624541e9a5c02d",
+    "inputHash": "21aa9bad8891ab920b55b263be9044a15bb4167a40e77892c7624541e9a5c02d",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "c2-test-05-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay: Visible Green Behaviour and Systemic Change",
+      "genre": "essay",
+      "instruction": "Write an essay summarising and evaluating the key points from both texts in 240–280 words. Use your own words throughout as far as possible, and include your own ideas in your answers.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-05-task-01-source-1",
+          "type": "source-text",
+          "label": "Text 1",
+          "title": "The Power of Visible Commitment",
+          "text": "When individuals adopt visibly green behaviours—carrying reusable bottles, cycling to work, or choosing plant-based meals—they do more than reduce their own footprint. They create a cultural signal that environmental responsibility is normal and desirable. This visibility matters because social norms are powerful drivers of collective action. A person who sees a neighbour installing solar panels is more likely to consider it themselves. Far from being mere spectacle, these acts build a constituency for broader policy change. Politicians and corporations pay attention when green behaviour becomes mainstream. Moreover, visible commitment can be personally transformative: it aligns daily habits with values, fostering a sense of integrity that sustains long-term engagement. Critics who dismiss such actions as trivial overlook their cumulative effect. A society where millions make small visible choices is one where systemic reform becomes politically feasible. The personal is not the enemy of the political; it is its foundation."
+        },
+        {
+          "id": "c2-test-05-task-01-source-2",
+          "type": "source-text",
+          "label": "Text 2",
+          "title": "The Limits of Personal Gestures",
+          "text": "The emphasis on visible green behaviour risks reducing environmental responsibility to a matter of personal virtue, diverting attention from the structural changes that actually matter. A corporation that sponsors tree-planting while continuing to lobby against carbon regulation is not contributing to sustainability; it is managing its image. Similarly, individuals who meticulously sort their recycling while the products they buy are designed for obsolescence are participating in a system that rewards gesture over substance. The focus on personal choices plays into a narrative that absolves governments and industries of their responsibility. Worse, it creates a moral hierarchy in which those who cannot afford organic food or electric vehicles are judged as less committed. True environmental progress requires regulation of production, investment in public infrastructure, and a redistribution of resources—changes that are invisible to the consumer but far more consequential. The cult of visible virtue may feel satisfying, but it is a distraction from the hard work of systemic reform."
+        },
+        {
+          "id": "c2-test-05-task-01-final",
+          "type": "final-instruction",
+          "text": "Write your essay."
+        }
+      ],
+      "presentation": {
+        "template": "source-texts"
+      },
+      "wordLimit": {
+        "min": 240,
+        "max": 280,
+        "displayText": "240–280 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c2-test-05-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Review: Environmental Spectacle Campaign",
+      "genre": "review",
+      "instruction": "A media and culture magazine is running a series of reviews of public campaigns that use spectacle to promote environmental responsibility. You decide to submit a review of a recent campaign called 'The Green Pledge', which invited citizens to make public promises—filmed and shared online—to adopt eco-friendly habits. In your review, evaluate the campaign's persuasive design, discuss the ethical tension between raising awareness and encouraging performative behaviour, and assess the likely long-term consequences for participants' environmental engagement.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-05-task-02-p1",
+          "type": "paragraph",
+          "text": "A media and culture magazine is running a series of reviews of public campaigns that use spectacle to promote environmental responsibility. You decide to submit a review of a recent campaign called 'The Green Pledge', which invited citizens to make public promises—filmed and shared online—to adopt eco-friendly habits. In your review, evaluate the campaign's persuasive design, discuss the ethical tension between raising awareness and encouraging performative behaviour, and assess the likely long-term consequences for participants' environmental engagement."
+        },
+        {
+          "id": "c2-test-05-task-02-final",
+          "type": "final-instruction",
+          "text": "Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-05-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Report: Hidden Resource Costs in a Major Institution",
+      "genre": "report",
+      "instruction": "The sustainability audit committee of a large university has asked you to write a report on hidden resource costs within the institution. In your report, identify two or three areas where resource consumption is overlooked or poorly measured, evaluate the current governance weaknesses that allow these blind spots to persist, and recommend specific disclosure mechanisms that would improve transparency and accountability.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-05-task-03-p1",
+          "type": "paragraph",
+          "text": "The sustainability audit committee of a large university has asked you to write a report on hidden resource costs within the institution. In your report, identify two or three areas where resource consumption is overlooked or poorly measured, evaluate the current governance weaknesses that allow these blind spots to persist, and recommend specific disclosure mechanisms that would improve transparency and accountability."
+        },
+        {
+          "id": "c2-test-05-task-03-final",
+          "type": "final-instruction",
+          "text": "Write your report."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-05-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Article: Is Environmental Consistency an Impossible Moral Demand?",
+      "genre": "article",
+      "instruction": "A philosophy and society magazine is publishing a series on moral demands in everyday life. The editors have invited readers to submit articles addressing the question: 'Is environmental consistency an impossible moral demand?' In your article, analyse the limits of expecting individuals to be consistent in their environmental behaviour, consider the role of collective structures in enabling or undermining consistency, and argue what a credible standard of environmental responsibility might look like.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-05-task-04-p1",
+          "type": "paragraph",
+          "text": "A philosophy and society magazine is publishing a series on moral demands in everyday life. The editors have invited readers to submit articles addressing the question: 'Is environmental consistency an impossible moral demand?' In your article, analyse the limits of expecting individuals to be consistent in their environmental behaviour, consider the role of collective structures in enabling or undermining consistency, and argue what a credible standard of environmental responsibility might look like."
+        },
+        {
+          "id": "c2-test-05-task-04-final",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

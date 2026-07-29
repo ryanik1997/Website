@@ -1,0 +1,64 @@
+{
+  "testId": "b1-test-06",
+  "level": "b1",
+  "topicFamily": "technology and communication",
+  "tasks": [
+    {
+      "taskId": "b1-test-06-task-01",
+      "scenario": "Arranging an online language exchange with a new partner",
+      "audience": "teenage language partner (Yuki)",
+      "purpose": "agree a schedule, select activities and set a communication rule",
+      "requiredContentPoints": [
+        "weekly time",
+        "preferred activity",
+        "reason",
+        "question about platform"
+      ],
+      "lexicalAnchors": [
+        "language exchange",
+        "weekly call",
+        "practice activity"
+      ],
+      "originalitySelfCheck": "Unique scenario: language exchange arrangement. No overlap with avoided fingerprints. Forbidden concepts avoided."
+    },
+    {
+      "taskId": "b1-test-06-task-02",
+      "scenario": "A student website publishing advice about communicating well online",
+      "audience": "teenage internet users",
+      "purpose": "give practical advice for clear and respectful online communication",
+      "requiredContentPoints": [
+        "clear messages",
+        "respectful disagreement",
+        "checking misunderstandings"
+      ],
+      "lexicalAnchors": [
+        "clear message",
+        "online tone",
+        "misunderstanding"
+      ],
+      "originalitySelfCheck": "Unique scenario: student website advice. No overlap with avoided fingerprints. Forbidden concepts avoided."
+    },
+    {
+      "taskId": "b1-test-06-task-03",
+      "scenario": "A message accidentally sent to the wrong person",
+      "audience": "English teacher",
+      "purpose": "continue a story about correcting a digital mistake",
+      "requiredContentPoints": [
+        "wrong recipient",
+        "immediate reaction",
+        "consequence and resolution"
+      ],
+      "lexicalAnchors": [
+        "wrong message",
+        "recipient",
+        "digital mistake"
+      ],
+      "originalitySelfCheck": "Unique story opening: accidental send to teacher instead of friend. No overlap with avoided fingerprints. Forbidden concepts avoided."
+    }
+  ],
+  "forbiddenConceptCheck": "PASS",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "be333f4a6a9978978ba15e21bcc05c3ffff3a9f939f3334de30e1aa0e3483e8d"
+  }
+}

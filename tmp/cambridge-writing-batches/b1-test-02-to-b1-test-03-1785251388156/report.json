@@ -1,0 +1,28 @@
+{
+  "batchId": "b1-test-02-to-b1-test-03-1785251388156",
+  "generatedAt": 1785251424782,
+  "requested": 5,
+  "results": [
+    {
+      "testId": "b1-test-02",
+      "status": "generated"
+    },
+    {
+      "testId": "b2-test-02",
+      "status": "generated"
+    },
+    {
+      "testId": "c1-test-02",
+      "status": "generated"
+    },
+    {
+      "testId": "c2-test-02",
+      "status": "generated"
+    },
+    {
+      "testId": "b1-test-03",
+      "status": "generated"
+    }
+  ],
+  "failed": 0
+}

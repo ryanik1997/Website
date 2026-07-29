@@ -1,0 +1,192 @@
+{
+  "id": "c1-test-02",
+  "level": "c1",
+  "testNumber": 2,
+  "title": "CAE C1 AI Practice Test 02",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-02.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "c1-test-02-1785300502497",
+    "generatedAt": 1785300517976,
+    "contentHash": "f73b5db64abf35576ede857bc44f71d17d6133456e653e177bff24d74d48675f",
+    "promptHash": "0b1c41d2c8c59ba98d7f324ea5c18608aa2a3cff4c0dfa9655e4ace3a73d9f88",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-02:0b1c41d2c8c59ba98d7f324ea5c18608aa2a3cff4c0dfa9655e4ace3a73d9f88",
+    "inputHash": "0b1c41d2c8c59ba98d7f324ea5c18608aa2a3cff4c0dfa9655e4ace3a73d9f88",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "c1-test-02-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay: Academic support models",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-02-task-01-block-01",
+          "type": "paragraph",
+          "text": "Your class has listened to a radio discussion about how colleges should prioritise academic support for students. You have made the notes below."
+        },
+        {
+          "id": "c1-test-02-task-01-block-02",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Priorities for academic support",
+          "listItems": [
+            "drop-in academic clinics",
+            "trained peer mentors",
+            "early diagnostic guidance"
+          ]
+        },
+        {
+          "id": "c1-test-02-task-01-block-03",
+          "type": "panel",
+          "variant": "opinions",
+          "paragraphs": [
+            "Drop-in clinics allow students to get help when they need it most, without an appointment.",
+            "Peer mentors can offer relatable advice and reduce the stigma of asking for help.",
+            "Early diagnostic guidance can identify struggling students before they fall behind."
+          ]
+        },
+        {
+          "id": "c1-test-02-task-01-block-04",
+          "type": "paragraph",
+          "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more important for colleges to invest in, giving reasons in support of your answer."
+        },
+        {
+          "id": "c1-test-02-task-01-block-05",
+          "type": "final-instruction",
+          "text": "You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes-opinions"
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c1-test-02-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Proposal for a cross-department study support hub",
+      "genre": "proposal",
+      "instruction": "Answer one of these questions. Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-02-task-02-block-01",
+          "type": "paragraph",
+          "text": "Your college principal has asked for proposals for a cross-department study support hub that would offer tutoring, workshops and quiet study space. The hub would be open to all students, regardless of their department."
+        },
+        {
+          "id": "c1-test-02-task-02-block-02",
+          "type": "paragraph",
+          "text": "You decide to write a proposal in which you recommend a staffing model, suggest how to ensure student access and participation, and outline the success indicators you would use to evaluate the hub's effectiveness."
+        },
+        {
+          "id": "c1-test-02-task-02-block-03",
+          "type": "final-instruction",
+          "text": "Write your proposal."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-02-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Email to a visiting education coordinator",
+      "genre": "email",
+      "instruction": "Answer one of these questions. Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-02-task-03-block-01",
+          "type": "paragraph",
+          "text": "You work in the academic support office at your college. A visiting education coordinator from another institution will be coming to observe your support provision. Write an email to the coordinator."
+        },
+        {
+          "id": "c1-test-02-task-03-block-02",
+          "type": "paragraph",
+          "text": "In your email you should briefly explain the model of academic support your college uses, acknowledge one limitation of the current system, and arrange a specific observation visit, including what they will see."
+        },
+        {
+          "id": "c1-test-02-task-03-block-03",
+          "type": "final-instruction",
+          "text": "Write your email."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-02-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Review of a first-term academic support initiative",
+      "genre": "review",
+      "instruction": "Answer one of these questions. Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-02-task-04-block-01",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted: Academic support initiatives",
+          "paragraphs": [
+            "Has your college introduced a new academic support initiative this term? We want to hear about it.",
+            "Write a review for our professional education newsletter. Assess the observed impact on students, identify any unintended weakness that emerged, and recommend whether the initiative could be transferred to another institution."
+          ]
+        },
+        {
+          "id": "c1-test-02-task-04-block-02",
+          "type": "final-instruction",
+          "text": "Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

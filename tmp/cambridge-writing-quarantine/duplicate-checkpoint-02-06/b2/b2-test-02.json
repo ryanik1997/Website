@@ -1,0 +1,182 @@
+{
+  "id": "b2-test-02",
+  "level": "b2",
+  "testNumber": 2,
+  "title": "FCE B2 AI Practice Test 02",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-02.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 1,
+    "generationBatchId": "b1-test-02-to-b1-test-03-1785251388156",
+    "generatedAt": 1785251400762,
+    "contentHash": "7832e6e9449fd7754df5e71a98abfeaf518c3073d4f08192064bb871b04d70fb",
+    "reviewStatus": "unreviewed",
+    "qualityIssues": [
+      "Independent AI verification skipped by explicit user request."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "b2-test-02-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay",
+      "genre": "essay",
+      "instruction": "Your English teacher has asked you to write an essay on the benefits of peer learning projects for language development. Write your essay using all the notes and giving reasons for your point of view.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-02-task-1-p1",
+          "type": "paragraph",
+          "text": "In your English class, you have been discussing different ways to improve language skills. Your teacher has asked you to write an essay on the benefits of peer learning projects for language development."
+        },
+        {
+          "id": "b2-test-02-task-1-p2",
+          "type": "paragraph",
+          "text": "Write your essay using all the notes and giving reasons for your point of view."
+        },
+        {
+          "id": "b2-test-02-task-1-notes",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "listItems": [
+            "Practice speaking in a relaxed setting",
+            "Learn from different perspectives",
+            "Improve confidence in using the language (your own idea)"
+          ]
+        },
+        {
+          "id": "b2-test-02-task-1-final",
+          "type": "final-instruction",
+          "text": "Write your essay."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes"
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b2-test-02-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Review",
+      "genre": "review",
+      "instruction": "You see this announcement in your college magazine. Write your review.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-02-task-2-announcement",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "College Magazine",
+          "paragraphs": [
+            "Reviews wanted!",
+            "Have you recently watched a film or TV series that you think other students would enjoy? Write a review of a film or TV series you have seen. Describe the plot, the characters, and what you liked or disliked about it. Would you recommend it?"
+          ],
+          "footer": "The best reviews will be published in next month's magazine."
+        },
+        {
+          "id": "b2-test-02-task-2-final",
+          "type": "final-instruction",
+          "text": "Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-02-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Article",
+      "genre": "article",
+      "instruction": "You see this announcement on an English-language website for young people. Write your article.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-02-task-3-announcement",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Write for Us!",
+          "paragraphs": [
+            "We are looking for articles on the topic: 'The importance of learning a new skill'. Have you ever learned a new skill, such as playing a musical instrument, cooking, or coding? What motivated you to start, and what benefits have you gained? Write an article for our website explaining why learning a new skill is important."
+          ],
+          "footer": "Send us your article by the end of the month."
+        },
+        {
+          "id": "b2-test-02-task-3-final",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-02-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Email",
+      "genre": "email",
+      "instruction": "You have received this email from your English-speaking friend, Sam. Write your email in reply.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-02-task-4-email",
+          "type": "email",
+          "from": "Sam",
+          "subject": "Peer learning project idea",
+          "greeting": "Hi,",
+          "paragraphs": [
+            "I'm thinking of starting a peer learning project at our community centre to help people improve their English. I remember you took part in something similar at your college. Do you think it's a good idea? What should I consider to make it successful? Any advice would be great!",
+            "Thanks, Sam"
+          ],
+          "closing": "Best,",
+          "sender": "Sam"
+        },
+        {
+          "id": "b2-test-02-task-4-final",
+          "type": "final-instruction",
+          "text": "Write your email."
+        }
+      ],
+      "presentation": {
+        "template": "email",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

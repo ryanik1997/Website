@@ -1,0 +1,207 @@
+{
+  "id": "b2-test-02",
+  "level": "b2",
+  "testNumber": 2,
+  "title": "FCE B2 AI Practice Test 02",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-02.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b2-test-02-1785300486647",
+    "generatedAt": 1785300502483,
+    "contentHash": "974c0dbb1879b7dbeae1b0af5868d7f92e113186fea0e8f224a8c980db205094",
+    "promptHash": "16bdb5f334f63713d92b2edbbdd0e2a265465d70d026ed52f3f971a2d9d92720",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b2:b2-test-02:16bdb5f334f63713d92b2edbbdd0e2a265465d70d026ed52f3f971a2d9d92720",
+    "inputHash": "16bdb5f334f63713d92b2edbbdd0e2a265465d70d026ed52f3f971a2d9d92720",
+    "reviewStatus": "unreviewed",
+    "qualityIssues": [
+      "Independent AI verification skipped by explicit user request; deterministic originality gates passed."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "b2-test-02-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Should schools teach practical life skills?",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 140–190 words in an appropriate style.",
+      "promptText": "In your English class you have been discussing whether schools should teach practical life skills. Now your teacher has asked you to write an essay.\n\nWrite an essay using all the notes and giving reasons for your point of view.\n\nShould schools teach practical life skills?\n\nNotes\n\nWrite about:\n\n1. managing money\n2. basic cooking or home care\n3. ......................... (your own idea)",
+      "promptBlocks": [
+        {
+          "id": "b2-test-02-task-01-pb-01",
+          "type": "paragraph",
+          "text": "In your English class you have been discussing whether schools should teach practical life skills. Now your teacher has asked you to write an essay."
+        },
+        {
+          "id": "b2-test-02-task-01-pb-02",
+          "type": "paragraph",
+          "text": "Write an essay using all the notes and giving reasons for your point of view."
+        },
+        {
+          "id": "b2-test-02-task-01-pb-03",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Should schools teach practical life skills?",
+          "paragraphs": [
+            "Notes",
+            "Write about:",
+            "1. managing money",
+            "2. basic cooking or home care",
+            "3. ......................... (your own idea)"
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes"
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b2-test-02-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Weekend study clinics at the town library",
+      "genre": "review",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptText": "You see this announcement in your college magazine.\n\nReviews wanted!\n\nDo you use the weekend study clinics at our town library?\n\nWe want to hear about your experience. Write a review of the library's weekend study clinics.\n\nDescribe the facilities available and the quality of support you received. Would you recommend these clinics to other students? Why?\n\nThe best reviews will be published in the next issue.\n\nWrite your review.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-02-task-02-pb-01",
+          "type": "paragraph",
+          "text": "You see this announcement in your college magazine."
+        },
+        {
+          "id": "b2-test-02-task-02-pb-02",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted!",
+          "paragraphs": [
+            "Do you use the weekend study clinics at our town library?",
+            "We want to hear about your experience. Write a review of the library's weekend study clinics.",
+            "Describe the facilities available and the quality of support you received. Would you recommend these clinics to other students? Why?",
+            "The best reviews will be published in the next issue."
+          ]
+        },
+        {
+          "id": "b2-test-02-task-02-pb-03",
+          "type": "final-instruction",
+          "text": "Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-02-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Learning beyond lessons",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptText": "You see this announcement on a youth culture website.\n\nArticles wanted!\n\nLearning beyond lessons\n\nWhat can young people learn outside the classroom? Write an article for our website.\n\nDescribe a community activity or a self-directed practice that has helped you learn something valuable. Explain how this could benefit your future study or work.\n\nWe will publish the best articles on our website.\n\nWrite your article.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-02-task-03-pb-01",
+          "type": "paragraph",
+          "text": "You see this announcement on a youth culture website."
+        },
+        {
+          "id": "b2-test-02-task-03-pb-02",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted!",
+          "paragraphs": [
+            "Learning beyond lessons",
+            "What can young people learn outside the classroom? Write an article for our website.",
+            "Describe a community activity or a self-directed practice that has helped you learn something valuable. Explain how this could benefit your future study or work.",
+            "We will publish the best articles on our website."
+          ]
+        },
+        {
+          "id": "b2-test-02-task-03-pb-03",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-02-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Choosing a short practical course",
+      "genre": "email",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptText": "You have received this email from your English-speaking friend, Maria, who is planning to study in your town for a month.\n\nFrom: Maria\nSubject: Short course advice!\n\nHi,\nI'm coming to your town next month for a short exchange. I want to take a practical course while I'm there – maybe photography, cooking, or something similar. Can you recommend one? What would be the reason for your choice? Also, what challenge might I face? And how should I prepare before I come?\n\nThanks a lot!\nMaria\n\nWrite your email.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-02-task-04-pb-01",
+          "type": "paragraph",
+          "text": "You have received this email from your English-speaking friend, Maria, who is planning to study in your town for a month."
+        },
+        {
+          "id": "b2-test-02-task-04-pb-02",
+          "type": "email",
+          "from": "Maria",
+          "subject": "Short course advice!",
+          "paragraphs": [
+            "Hi,",
+            "I'm coming to your town next month for a short exchange. I want to take a practical course while I'm there – maybe photography, cooking, or something similar. Can you recommend one? What would be the reason for your choice? Also, what challenge might I face? And how should I prepare before I come?",
+            "Thanks a lot!",
+            "Maria"
+          ]
+        },
+        {
+          "id": "b2-test-02-task-04-pb-03",
+          "type": "final-instruction",
+          "text": "Write your email."
+        }
+      ],
+      "presentation": {
+        "template": "email",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

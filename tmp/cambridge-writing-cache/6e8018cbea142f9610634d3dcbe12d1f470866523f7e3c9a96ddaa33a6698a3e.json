@@ -1,0 +1,267 @@
+{
+  "inputHash": "6825d3ef71886cbd9f592202c61a45cddf7a7b2c2311e2432ff220379c802170",
+  "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-05:6825d3ef71886cbd9f592202c61a45cddf7a7b2c2311e2432ff220379c802170",
+  "test": {
+    "id": "c1-test-05",
+    "level": "c1",
+    "testNumber": 5,
+    "title": "CAE C1 AI Practice Test 05",
+    "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-05.json",
+    "status": "draft",
+    "version": 1,
+    "provenance": {
+      "origin": "ai-generated",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "promptVersion": 2,
+      "generationBatchId": "c1-test-05-1785300963346",
+      "generatedAt": 1785301000048,
+      "contentHash": "746e7d451541d2365739ee215e0bf61d0c6aa9e9ce87825c58fe7a33898bd190",
+      "promptHash": "6825d3ef71886cbd9f592202c61a45cddf7a7b2c2311e2432ff220379c802170",
+      "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-05:6825d3ef71886cbd9f592202c61a45cddf7a7b2c2311e2432ff220379c802170",
+      "inputHash": "6825d3ef71886cbd9f592202c61a45cddf7a7b2c2311e2432ff220379c802170",
+      "reviewStatus": "unreviewed"
+    },
+    "tasks": [
+      {
+        "id": "c1-test-05-task-01",
+        "partNumber": 1,
+        "taskNumber": 1,
+        "title": "Essay: Event Sustainability Priorities",
+        "genre": "essay",
+        "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-05-task-01-panel-notes",
+            "type": "panel",
+            "variant": "notes",
+            "heading": "Notes",
+            "listItems": [
+              "contractor standards",
+              "audience behaviour systems",
+              "transparent resource auditing"
+            ]
+          },
+          {
+            "id": "c1-test-05-task-01-panel-opinions",
+            "type": "panel",
+            "variant": "opinions",
+            "heading": "Opinions expressed in the discussion",
+            "paragraphs": [
+              "Contractor standards are the only way to ensure real change – without them, promises mean nothing.",
+              "Audience behaviour systems shift responsibility onto visitors, which is unfair and hard to enforce.",
+              "Transparent auditing builds public trust and shows the institution is serious about its commitments."
+            ]
+          },
+          {
+            "id": "c1-test-05-task-01-final",
+            "type": "final-instruction",
+            "text": "Write an essay for your tutor discussing two of the priorities in your notes. You should explain which priority you think is more credible for an arts centre to adopt, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+          }
+        ],
+        "presentation": {
+          "template": "essay-notes-opinions"
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": true
+        }
+      },
+      {
+        "id": "c1-test-05-task-02",
+        "partNumber": 2,
+        "taskNumber": 2,
+        "title": "Proposal: Sustainable-Events Framework",
+        "genre": "proposal",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-05-task-02-p1",
+            "type": "paragraph",
+            "text": "The executive board of your arts centre has decided to adopt an audited sustainable-events framework. The board has invited proposals from staff for how the framework should be implemented."
+          },
+          {
+            "id": "c1-test-05-task-02-final",
+            "type": "final-instruction",
+            "text": "Write a proposal for the executive board. In your proposal, you should:\n• recommend procurement criteria for event supplies and services\n• suggest how operational ownership of sustainability targets should be assigned among staff\n• outline a public reporting mechanism to demonstrate progress to stakeholders\n\nWrite your proposal."
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-05-task-03",
+        "partNumber": 2,
+        "taskNumber": 3,
+        "title": "Email: Supplier Negotiation",
+        "genre": "email",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-05-task-03-p1",
+            "type": "paragraph",
+            "text": "You are the events manager at the arts centre. The centre has just adopted a new resource policy that requires all suppliers to meet stricter environmental standards. One of your long-term suppliers, a catering company, has written to you expressing concern about the feasibility of the new requirements within the current contract period."
+          },
+          {
+            "id": "c1-test-05-task-03-final",
+            "type": "final-instruction",
+            "text": "Write an email to the supplier. In your email, you should:\n• explain the rationale behind the new policy\n• acknowledge the practical constraints the supplier faces\n• propose a transition timetable that balances ambition with realistic implementation\n\nWrite your email."
+          }
+        ],
+        "presentation": {
+          "template": "plain",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      },
+      {
+        "id": "c1-test-05-task-04",
+        "partNumber": 2,
+        "taskNumber": 4,
+        "title": "Review: Institutional Environmental Policy",
+        "genre": "review",
+        "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+        "promptBlocks": [
+          {
+            "id": "c1-test-05-task-04-p1",
+            "type": "paragraph",
+            "text": "You see this announcement in a cultural-sector journal."
+          },
+          {
+            "id": "c1-test-05-task-04-panel",
+            "type": "panel",
+            "variant": "announcement",
+            "heading": "Reviews wanted: Institutional environmental policies",
+            "paragraphs": [
+              "Our journal is running a series of reviews of environmental policies adopted by cultural institutions. Have you observed or experienced the impact of such a policy at an arts centre, museum or theatre?",
+              "Write a review for our journal. In your review, evaluate the credibility of the policy's targets, assess its effect on the visitor experience, and consider whether the approach could be replicated by other cultural organisations."
+            ]
+          },
+          {
+            "id": "c1-test-05-task-04-final",
+            "type": "final-instruction",
+            "text": "Write your review."
+          }
+        ],
+        "presentation": {
+          "template": "announcement",
+          "selectionRequired": 1
+        },
+        "wordLimit": {
+          "min": 220,
+          "max": 260,
+          "displayText": "220–260 words"
+        },
+        "metadata": {
+          "compulsory": false
+        }
+      }
+    ]
+  },
+  "designReview": {
+    "testId": "c1-test-05",
+    "level": "c1",
+    "topicFamily": "environment and sustainability",
+    "specificSetting": "an arts institution adopting an audited resource policy for major events",
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "genre": "essay",
+        "scenario": "institutional evaluation of event sustainability priorities",
+        "audience": "arts centre trustees",
+        "purpose": "assess two policy levers and choose the more credible priority",
+        "requiredContentPoints": [
+          "contractor standards",
+          "audience behaviour systems",
+          "transparent resource auditing"
+        ],
+        "lexicalAnchors": [
+          "contractor standards",
+          "audience behaviour systems",
+          "transparent resource auditing"
+        ],
+        "originalitySelfCheck": "Unique scenario: arts centre trustees evaluating sustainability priorities. Notes and opinions are original and specific to this context. No overlap with any previous test.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 2,
+        "genre": "proposal",
+        "scenario": "proposal for an audited sustainable-events framework",
+        "audience": "arts centre executive board",
+        "purpose": "recommend procurement rules, staff responsibilities and reporting",
+        "requiredContentPoints": [
+          "procurement criteria",
+          "operational ownership",
+          "public reporting"
+        ],
+        "lexicalAnchors": [
+          "procurement criteria",
+          "operational ownership",
+          "public reporting"
+        ],
+        "originalitySelfCheck": "Unique scenario: proposal for sustainable-events framework at an arts centre. Content points are specific to procurement, staff responsibilities, and reporting. No overlap with previous proposals.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 3,
+        "genre": "email",
+        "scenario": "email negotiating new requirements with a long-term supplier",
+        "audience": "venue supplier",
+        "purpose": "explain the policy, recognise practical constraints and agree transition steps",
+        "requiredContentPoints": [
+          "policy rationale",
+          "supplier constraint",
+          "transition timetable"
+        ],
+        "lexicalAnchors": [
+          "policy rationale",
+          "supplier constraint",
+          "transition timetable"
+        ],
+        "originalitySelfCheck": "Unique scenario: events manager negotiating with a long-term catering supplier about new environmental standards. Content points are specific to policy rationale, constraints, and transition timetable. No overlap with previous emails.",
+        "forbiddenConceptCheck": "PASS"
+      },
+      {
+        "taskNumber": 4,
+        "genre": "review",
+        "scenario": "review of an institution environmental policy for a cultural-sector journal",
+        "audience": "cultural managers",
+        "purpose": "evaluate credibility, visitor impact and replicability",
+        "requiredContentPoints": [
+          "policy credibility",
+          "visitor experience",
+          "replicability"
+        ],
+        "lexicalAnchors": [
+          "policy credibility",
+          "visitor experience",
+          "replicability"
+        ],
+        "originalitySelfCheck": "Unique scenario: review of an environmental policy at a cultural institution for a sector journal. Content points are specific to credibility, visitor impact, and replicability. No overlap with previous reviews.",
+        "forbiddenConceptCheck": "PASS"
+      }
+    ]
+  },
+  "cachedAt": 1785301000449
+}

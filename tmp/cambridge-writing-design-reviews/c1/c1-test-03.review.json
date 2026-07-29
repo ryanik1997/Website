@@ -1,0 +1,77 @@
+{
+  "overallOriginalityCheck": "PASS - All tasks are original, no overlap with existing fingerprints.",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Institutional debate on transition-to-work provision for a college consortium board",
+      "audience": "College consortium board",
+      "purpose": "Evaluate two approaches and decide which produces more durable readiness",
+      "requiredContentPoints": [
+        "rotational employer placements",
+        "professional communication coaching",
+        "reflective career planning"
+      ],
+      "lexicalAnchors": [
+        "career transition",
+        "employer placement",
+        "reflective planning"
+      ],
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "Proposal for a consortium employer partnership scheme to regional college directors",
+      "audience": "Regional college directors",
+      "purpose": "Set out governance, student selection and employer commitments",
+      "requiredContentPoints": [
+        "partnership structure",
+        "selection fairness",
+        "employer responsibility"
+      ],
+      "lexicalAnchors": [
+        "employer partnership",
+        "governance",
+        "selection fairness"
+      ],
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Email responding to an employer concerned about student preparedness",
+      "audience": "Human resources director",
+      "purpose": "Address concerns, explain safeguards and negotiate a pilot",
+      "requiredContentPoints": [
+        "concern acknowledged",
+        "preparation safeguard",
+        "pilot terms"
+      ],
+      "lexicalAnchors": [
+        "employer concern",
+        "student preparedness",
+        "pilot terms"
+      ],
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "Review of a careers transition programme for a policy journal",
+      "audience": "Education policy readers",
+      "purpose": "Evaluate evidence of readiness and recommend adaptation",
+      "requiredContentPoints": [
+        "programme design",
+        "evidence of impact",
+        "adaptation for different institutions"
+      ],
+      "lexicalAnchors": [
+        "transition programme",
+        "readiness evidence",
+        "policy adaptation"
+      ],
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "b11cf0362430e85c7c675078de840fdf1e4114891dcae7a950722e9e00225741"
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "testId": "b2-test-06",
+  "level": "b2",
+  "topicFamily": "technology and communication",
+  "specificSetting": "students reviewing how digital communication affects real relationships",
+  "tasks": [
+    {
+      "taskId": "b2-test-06-task-01",
+      "scenario": "a class debate on whether digital communication improves relationships",
+      "audience": "English teacher",
+      "purpose": "evaluate relationship benefits and limitations and reach a judgement",
+      "requiredContentPoints": [
+        "keeping contact",
+        "quality of conversation",
+        "own idea"
+      ],
+      "lexicalAnchors": [
+        "digital relationship",
+        "constant contact",
+        "conversation quality"
+      ],
+      "originalitySelfCheck": "Unique scenario; no overlap with existing tests; essay uses notes panel with two supplied notes plus own idea.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "b2-test-06-task-02",
+      "scenario": "a communication app or service used for collaboration",
+      "audience": "technology website readers",
+      "purpose": "review usability, communication quality and appropriate users",
+      "requiredContentPoints": [
+        "main functions",
+        "strength or weakness",
+        "recommendation"
+      ],
+      "lexicalAnchors": [
+        "communication app",
+        "group coordination",
+        "usability"
+      ],
+      "originalitySelfCheck": "Unique scenario; review of an app, not a book or documentary; no overlap with existing tests.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "b2-test-06-task-03",
+      "scenario": "a youth website addressing misunderstandings online",
+      "audience": "teenage internet users",
+      "purpose": "explain why misunderstandings happen and recommend prevention",
+      "requiredContentPoints": [
+        "tone without body language",
+        "checking meaning",
+        "repairing a mistake"
+      ],
+      "lexicalAnchors": [
+        "online misunderstanding",
+        "tone",
+        "clarification"
+      ],
+      "originalitySelfCheck": "Unique scenario; article about online misunderstandings; no overlap with existing tests.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskId": "b2-test-06-task-04",
+      "scenario": "a friend struggling with an online group project",
+      "audience": "English-speaking friend",
+      "purpose": "diagnose the communication problem and advise a workable team process",
+      "requiredContentPoints": [
+        "likely cause",
+        "meeting or message rule",
+        "division of work",
+        "follow-up step"
+      ],
+      "lexicalAnchors": [
+        "online group project",
+        "team rule",
+        "follow-up"
+      ],
+      "originalitySelfCheck": "Unique scenario; email about group project trouble; no overlap with existing tests.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "d672f4e81d53e36eab7f2746a4abb09fd8d653aeea7e885f82c4ad222eb5f67a"
+  }
+}

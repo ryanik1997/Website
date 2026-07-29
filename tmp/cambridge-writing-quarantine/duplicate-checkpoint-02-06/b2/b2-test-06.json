@@ -1,0 +1,175 @@
+{
+  "id": "b2-test-06",
+  "level": "b2",
+  "testNumber": 6,
+  "title": "FCE B2 AI Practice Test 06",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b2/b2-test-06.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 1,
+    "generationBatchId": "c2-test-05-to-c2-test-06-1785251506492",
+    "generatedAt": 1785251528264,
+    "contentHash": "3b6aaa7489b21cc27cd585e33f2d0b947dec82afa85147741ec5b95491d9596a",
+    "reviewStatus": "unreviewed",
+    "qualityIssues": [
+      "Independent AI verification skipped by explicit user request."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "b2-test-06-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay",
+      "genre": "essay",
+      "instruction": "Your class has watched a discussion about the importance of digital communication skills. Now your teacher has asked you to write an essay giving your opinions on the following statement.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-06-task-1-p1",
+          "type": "paragraph",
+          "text": "Digital communication skills are essential for young people today."
+        },
+        {
+          "id": "b2-test-06-task-1-notes",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "listItems": [
+            "helps with future careers",
+            "makes it easier to stay in touch with friends",
+            "......................... (your own idea)"
+          ]
+        },
+        {
+          "id": "b2-test-06-task-1-final",
+          "type": "final-instruction",
+          "text": "Write your essay using all the notes and giving reasons for your point of view."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes"
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b2-test-06-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Review",
+      "genre": "review",
+      "instruction": "You see this announcement on a community website.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-06-task-2-announcement",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Digital Communication Workshop",
+          "paragraphs": [
+            "Have you attended our Digital Communication Workshop? Write a review of the workshop for our website. Describe what you did and say whether you would recommend it to others."
+          ],
+          "footer": "The best reviews will be published."
+        },
+        {
+          "id": "b2-test-06-task-2-final",
+          "type": "final-instruction",
+          "text": "Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-06-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Article",
+      "genre": "article",
+      "instruction": "You see this announcement in your school magazine.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-06-task-3-announcement",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Digital Communication Workshop",
+          "paragraphs": [
+            "We are looking for articles about the Digital Communication Workshop. Was it a valuable experience? What did you learn about communicating online? Write an article for the magazine."
+          ],
+          "footer": "We look forward to reading your articles."
+        },
+        {
+          "id": "b2-test-06-task-3-final",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b2-test-06-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Email",
+      "genre": "email",
+      "instruction": "You have received this email from your English-speaking friend, Sam.",
+      "promptBlocks": [
+        {
+          "id": "b2-test-06-task-4-email",
+          "type": "email",
+          "from": "Sam",
+          "subject": "Digital Communication Workshop",
+          "greeting": "Hi,",
+          "paragraphs": [
+            "I'm thinking of joining a digital communication workshop next month. Have you ever been to one? Do you think it would be useful for me? What kind of things do they teach? Let me know what you think!"
+          ],
+          "closing": "Thanks,",
+          "sender": "Sam"
+        },
+        {
+          "id": "b2-test-06-task-4-final",
+          "type": "final-instruction",
+          "text": "Write your email."
+        }
+      ],
+      "presentation": {
+        "template": "email",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 140,
+        "max": 190
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

@@ -114,6 +114,9 @@ export const CambridgeWritingGenerationProvenanceSchema = z.object({
   generationBatchId: z.string(),
   generatedAt: z.number().int(),
   contentHash: z.string(),
+  promptHash: z.string().optional(),
+  cacheKey: z.string().optional(),
+  inputHash: z.string().optional(),
   reviewStatus: z.enum([
     'unreviewed',
     'ai-verified',

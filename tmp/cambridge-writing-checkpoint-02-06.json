@@ -1,0 +1,59 @@
+{
+  "title": "CAMBRIDGE WRITING CHECKPOINT 02-06",
+  "generatedAt": 1785252729531,
+  "provider": {
+    "generator": "DeepSeek/deepseek-chat",
+    "verifier": "Groq/llama-3.3-70b-versatile",
+    "generatorHealth": "PASS",
+    "verifierHealth": "PASS",
+    "verifierExecution": "SKIPPED_BY_USER"
+  },
+  "counts": {
+    "b1": {
+      "tests": 5,
+      "tasks": 15
+    },
+    "b2": {
+      "tests": 5,
+      "tasks": 20
+    },
+    "c1": {
+      "tests": 5,
+      "tasks": 20
+    },
+    "c2": {
+      "tests": 5,
+      "tasks": 20
+    },
+    "totalTests": 20,
+    "totalTasks": 75
+  },
+  "quality": {
+    "schemaValid": 20,
+    "aiVerified": 0,
+    "failed": 0,
+    "quarantined": 0,
+    "similarityFailures": 0,
+    "minimumScore": null,
+    "averageScore": null
+  },
+  "status": {
+    "draft": 20,
+    "unreviewed": 20,
+    "published": 0
+  },
+  "runtime": {
+    "b1": "PASS",
+    "b2": "PASS",
+    "c1": "PASS",
+    "c2": "PASS"
+  },
+  "tests": {
+    "typecheck": "PASS",
+    "writing": "33/33 PASS",
+    "db": "6/6 PASS",
+    "pipeline": "6/6 PASS"
+  },
+  "completeUnderUserRequestedScope": true,
+  "independentlyAiVerified": false
+}

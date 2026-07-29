@@ -1,0 +1,155 @@
+{
+  "id": "b1-test-04",
+  "level": "b1",
+  "testNumber": 4,
+  "title": "PET B1 AI Practice Test 04",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b1/b1-test-04.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 1,
+    "generationBatchId": "b2-test-03-to-b2-test-04-1785251424783",
+    "generatedAt": 1785251451527,
+    "contentHash": "c2b27d9ec3098c899e68f0e4cffea8fa1409dacb239e90838308059dec8e4e5b",
+    "reviewStatus": "unreviewed",
+    "qualityIssues": [
+      "Independent AI verification skipped by explicit user request."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "b1-test-04-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Community Centre Visit",
+      "genre": "email",
+      "instruction": "Write an email to your teacher.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-04-task-1-p1",
+          "type": "paragraph",
+          "text": "Your class is planning a visit to a local community centre. Your teacher has asked you to suggest activities for the visit. Read the notes below and the email from your teacher."
+        },
+        {
+          "id": "b1-test-04-task-1-email",
+          "type": "email",
+          "from": "Mrs. Jones",
+          "subject": "Community centre visit",
+          "greeting": "Hi,",
+          "paragraphs": [
+            "As you know, we are going to visit the Greenfield Community Centre next month. I want to include some activities that will be interesting and useful for everyone. Can you suggest two activities we could do there? Also, tell me which one you prefer and why. Finally, let me know what time you think we should arrive."
+          ],
+          "closing": "Thanks,",
+          "sender": "Mrs. Jones"
+        },
+        {
+          "id": "b1-test-04-task-1-notes",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "listItems": [
+            "Activity 1: Help in the community garden – plant flowers, learn about nature",
+            "Activity 2: Talk to elderly people – listen to their stories, play board games",
+            "Reason for preference: (your own reason)",
+            "Arrival time: (choose a time and say why)"
+          ]
+        },
+        {
+          "id": "b1-test-04-task-1-final",
+          "type": "final-instruction",
+          "text": "Write your email. You must use the notes above."
+        }
+      ],
+      "presentation": {
+        "template": "email"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b1-test-04-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Community Centre Activities",
+      "genre": "article",
+      "instruction": "Write an article for your school magazine.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-04-task-2-p1",
+          "type": "paragraph",
+          "text": "You see this announcement in your school magazine."
+        },
+        {
+          "id": "b1-test-04-task-2-announcement",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Community Centre Activities Wanted!",
+          "paragraphs": [
+            "Our local community centre wants to offer new activities for teenagers. What activities would you like to see? Why do you think they would be popular? How could they help the community? Write an article answering these questions and we will publish the best ideas in the next magazine."
+          ]
+        },
+        {
+          "id": "b1-test-04-task-2-final",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b1-test-04-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "The Community Garden",
+      "genre": "story",
+      "instruction": "Write a story.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-04-task-3-p1",
+          "type": "paragraph",
+          "text": "Your English teacher has asked you to write a story. Your story must begin with this sentence:"
+        },
+        {
+          "id": "b1-test-04-task-3-opening",
+          "type": "paragraph",
+          "text": "When I arrived at the community garden, I saw something unusual."
+        },
+        {
+          "id": "b1-test-04-task-3-final",
+          "type": "final-instruction",
+          "text": "Write your story."
+        }
+      ],
+      "presentation": {
+        "template": "plain"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

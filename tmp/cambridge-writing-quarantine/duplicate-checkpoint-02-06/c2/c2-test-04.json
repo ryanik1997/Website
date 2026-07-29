@@ -1,0 +1,141 @@
+{
+  "id": "c2-test-04",
+  "level": "c2",
+  "testNumber": 4,
+  "title": "CPE C2 AI Practice Test 04",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-04.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 1,
+    "generationBatchId": "c2-test-04-to-c2-test-04-1785252438658",
+    "generatedAt": 1785252451899,
+    "contentHash": "fd9c3a9b3bf6f9a83b94136b28f82def2230ac312213fdb020c6a5b5ea354d49",
+    "reviewStatus": "unreviewed",
+    "qualityIssues": [
+      "Independent AI verification skipped by explicit user request."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "c2-test-04-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Community centre programmes",
+      "genre": "essay",
+      "instruction": "Read the two texts below. Write an essay summarising and evaluating the key points from both texts. Use your own words throughout, and include your own ideas on the long-term value of community centre programmes.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-04-task-1-text-1",
+          "type": "source-text",
+          "label": "Text 1",
+          "title": "The case for community centres",
+          "text": "Community centres have long been regarded as vital hubs for social cohesion, offering a space where people from diverse backgrounds can come together. Their programmes, ranging from arts workshops to sports leagues, provide accessible opportunities for personal development and community engagement. Proponents argue that these centres foster a sense of belonging, reduce social isolation, and empower residents to take an active role in local life. Moreover, they often serve as a first point of contact for public services, signposting individuals to healthcare, employment support, or legal advice. In an era of increasing digitalisation, the physical presence of a community centre remains irreplaceable for those who lack online access or prefer face-to-face interaction. The informal networks that form around such centres can also lead to lasting friendships and mutual support, strengthening the social fabric over time."
+        },
+        {
+          "id": "c2-test-04-task-1-text-2",
+          "type": "source-text",
+          "label": "Text 2",
+          "title": "Questioning the impact",
+          "text": "While community centre programmes are often celebrated, their actual long-term value deserves closer scrutiny. Many initiatives are short-lived, dependent on temporary funding or the enthusiasm of a few volunteers, which raises questions about sustainability. Even well-established centres can struggle to demonstrate tangible outcomes beyond anecdotal success stories. For instance, a weekly youth club may keep teenagers occupied, but does it meaningfully improve their educational attainment or employment prospects? Without rigorous evaluation, it is difficult to know whether resources are being used effectively. Furthermore, centres can inadvertently become insular, serving only a core group of regular attendees rather than reaching the wider community. There is also a risk of duplication, with multiple organisations offering similar activities in the same area, leading to inefficiency. To justify continued investment, advocates need to provide clearer evidence of lasting benefits, such as improved health, reduced crime, or enhanced civic participation."
+        },
+        {
+          "id": "c2-test-04-task-1-final",
+          "type": "final-instruction",
+          "text": "Write your essay."
+        }
+      ],
+      "presentation": {
+        "template": "source-texts"
+      },
+      "wordLimit": {
+        "min": 240,
+        "max": 280
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c2-test-04-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Community centre programme review",
+      "genre": "review",
+      "instruction": "A local community centre has introduced a new programme of activities aimed at encouraging greater participation among young adults. Write a review of the programme for an online magazine that focuses on community issues. In your review, you should describe the programme, evaluate its strengths and weaknesses, and suggest how it could be improved to attract more young people.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-04-task-2-final",
+          "type": "final-instruction",
+          "text": "Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-04-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Long-term value of community centre programmes",
+      "genre": "report",
+      "instruction": "Your local council is considering funding a community centre programme for the next five years. As a volunteer coordinator, you have been asked to write a report for the council assessing the programme's long-term value. Your report should evaluate the programme's impact on the community, consider potential challenges, and recommend whether funding should continue.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-04-task-3-final",
+          "type": "final-instruction",
+          "text": "Write your report."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-04-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Community centre programmes and community spirit",
+      "genre": "article",
+      "instruction": "You have been asked to write an article for your college magazine about the role of community centre programmes in fostering community spirit. In your article, you should discuss the benefits and limitations of such programmes, evaluate their overall contribution to community life, and suggest how they could be made more relevant to students.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-04-task-4-final",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

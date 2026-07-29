@@ -1,0 +1,13 @@
+{
+  "batchId": "b1-test-03-1785299682509",
+  "generatedAt": 1785299720243,
+  "requested": 1,
+  "results": [
+    {
+      "testId": "b1-test-03",
+      "status": "failed",
+      "error": "b1-test-03: deterministic originality gate failed: duplicate_story_opening"
+    }
+  ],
+  "failed": 1
+}

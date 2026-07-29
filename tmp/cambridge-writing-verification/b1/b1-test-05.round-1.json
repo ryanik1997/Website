@@ -1,0 +1,42 @@
+{
+  "valid": false,
+  "overallScore": 74,
+  "dimensionScores": {
+    "formatAccuracy": 90,
+    "levelAppropriacy": 70,
+    "clarity": 80,
+    "answerability": 85,
+    "genreAuthenticity": 75,
+    "topicOriginality": 60,
+    "culturalFairness": 95,
+    "internalConsistency": 80
+  },
+  "issues": [
+    {
+      "severity": "error",
+      "taskId": "b1-test-05-task-02",
+      "code": "LEVEL_MISMATCH",
+      "message": "The task is not suitable for the B1 level due to the complexity of the topic and the required writing skills.",
+      "suggestedAction": "Revise the task to better align with the B1 level requirements."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b1-test-05-task-01",
+      "code": "WORD_LIMIT_CONSTRAINT",
+      "message": "The word limit for the task is too restrictive and may not allow candidates to fully express their ideas.",
+      "suggestedAction": "Consider increasing the word limit to provide more flexibility for candidates."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b1-test-05-task-03",
+      "code": "GENRE_AUTHENTICITY",
+      "message": "The story prompt may not be engaging or relevant to the target audience, which could affect the candidate's motivation to write.",
+      "suggestedAction": "Revise the prompt to make it more appealing and authentic."
+    }
+  ],
+  "duplicateRisk": {
+    "highRisk": false,
+    "similarToTestIds": []
+  },
+  "approvedForDraftCatalog": false
+}

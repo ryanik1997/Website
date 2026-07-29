@@ -1,0 +1,161 @@
+{
+  "id": "b1-test-05",
+  "level": "b1",
+  "testNumber": 5,
+  "title": "PET B1 AI Practice Test 05",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b1/b1-test-05.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "b1-test-05-1785300840040",
+    "generatedAt": 1785300868305,
+    "contentHash": "e9cfe2e8668cedc03371ee2e1aeb3719a453a834f6301abbbf11ee8bb4f790cd",
+    "promptHash": "bcc384c6076f07c9a431eca3118784f3f6318479710f6418e57b5b4bdc262fdd",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:b1:b1-test-05:bcc384c6076f07c9a431eca3118784f3f6318479710f6418e57b5b4bdc262fdd",
+    "inputHash": "bcc384c6076f07c9a431eca3118784f3f6318479710f6418e57b5b4bdc262fdd",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "b1-test-05-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Joining the Green Neighbours Club",
+      "genre": "email",
+      "instruction": "You must answer this question. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-05-task-01-para",
+          "type": "paragraph",
+          "text": "Read this email from the youth leader of the Green Neighbours environmental club, and the notes you have made."
+        },
+        {
+          "id": "b1-test-05-task-01-email",
+          "type": "email",
+          "from": "Maya",
+          "subject": "Welcome to Green Neighbours!",
+          "paragraphs": [
+            "Hi there,",
+            "Thanks for your interest in joining Green Neighbours! We're excited to have you.",
+            "Our first project is a local park clean-up. We also have a tree-planting day and a recycling workshop. Which project would you like to help with?",
+            "Also, are you free on Saturday mornings? That's when we usually meet.",
+            "Let me know if you have any questions about the first meeting.",
+            "Best, Maya"
+          ]
+        },
+        {
+          "id": "b1-test-05-task-01-notes",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes for your reply",
+          "listItems": [
+            "Say which project you prefer and why.",
+            "Tell Maya if Saturday mornings are good for you.",
+            "Ask about something you need to bring to the first meeting.",
+            "Suggest one idea for a future club project."
+          ]
+        },
+        {
+          "id": "b1-test-05-task-01-final",
+          "type": "final-instruction",
+          "text": "Write your email to Maya using all the notes."
+        }
+      ],
+      "presentation": {
+        "template": "email"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b1-test-05-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Reducing Household Waste",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-05-task-02-para",
+          "type": "paragraph",
+          "text": "You see this notice on a family website."
+        },
+        {
+          "id": "b1-test-05-task-02-panel",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Articles wanted!",
+          "paragraphs": [
+            "How can families reduce the amount of waste they produce at home?",
+            "Tell us about one habit related to food waste and one habit related to packaging that really work.",
+            "Also, explain how family members can help each other keep these habits.",
+            "Write an article and we will share your ideas with our readers!"
+          ]
+        },
+        {
+          "id": "b1-test-05-task-02-final",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b1-test-05-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "The Unusual Discovery",
+      "genre": "story",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-05-task-03-para",
+          "type": "paragraph",
+          "text": "Your English teacher has asked you to write a story."
+        },
+        {
+          "id": "b1-test-05-task-03-opening",
+          "type": "source-text",
+          "label": "Opening sentence",
+          "text": "As I walked along the path through the park, I noticed something strange lying in the grass."
+        },
+        {
+          "id": "b1-test-05-task-03-final",
+          "type": "final-instruction",
+          "text": "Write your story."
+        }
+      ],
+      "presentation": {
+        "template": "plain"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

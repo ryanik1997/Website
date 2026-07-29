@@ -1,0 +1,28 @@
+{
+  "generatedAt": 1785300014572,
+  "scope": "generation-only",
+  "maskedConfig": {
+    "generatorProvider": "deepseek",
+    "generatorModel": "deepseek-chat",
+    "generatorKeyLoaded": true,
+    "verifierProvider": null,
+    "verifierModel": null,
+    "verifierKeyLoaded": false
+  },
+  "health": {
+    "generator": {
+      "role": "generation",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "keyLoaded": true,
+      "status": "PASS",
+      "latencyMs": 717
+    },
+    "verifier": {
+      "role": "verification",
+      "status": "SKIPPED_BY_USER",
+      "reason": "DeepSeek-only scope"
+    }
+  },
+  "valid": true
+}

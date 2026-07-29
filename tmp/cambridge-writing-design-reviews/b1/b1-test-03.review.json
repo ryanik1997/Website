@@ -1,0 +1,75 @@
+{
+  "testId": "b1-test-03",
+  "level": "b1",
+  "topicFamily": "community and public services",
+  "overallOriginalityCheck": "All tasks are new scenarios not used in previous tests. No overlap with forbidden concepts.",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "Helping at a school Open Day – choosing a volunteer role, explaining availability, suggesting an activity, and asking about equipment.",
+      "audience": "Classmate (Ben)",
+      "purpose": "Choose a role, explain availability, suggest an activity, and ask for equipment.",
+      "requiredContentPoints": [
+        "Choose a role and say why",
+        "Tell Ben what time you can start",
+        "Suggest one fun activity for families",
+        "Ask for one piece of equipment"
+      ],
+      "lexicalAnchors": [
+        "school event",
+        "volunteer role",
+        "open day",
+        "welcoming visitors",
+        "sports hall",
+        "science labs",
+        "fun activity",
+        "equipment"
+      ],
+      "originalitySelfCheck": "Email from classmate about school Open Day roles. Not similar to any previous test email. Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "School blog inviting articles about learning a practical skill that helps in everyday life.",
+      "audience": "School blog readers",
+      "purpose": "Describe a practical skill, how it was learned, and when it is useful.",
+      "requiredContentPoints": [
+        "What the skill is",
+        "How you learned it",
+        "When you use it and why it is useful"
+      ],
+      "lexicalAnchors": [
+        "practical skill",
+        "learning by doing",
+        "useful habit",
+        "everyday life"
+      ],
+      "originalitySelfCheck": "Article about a practical skill learned from someone or by yourself. Not about films, places, or generic 'most useful thing'. Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "Finding a large cardboard box on the doorstep with no name on the label – a surprising discovery at home.",
+      "audience": "English teacher",
+      "purpose": "Continue a story from a surprising discovery – decide whether to open or return the parcel and reveal an explanation.",
+      "requiredContentPoints": [
+        "Unexpected parcel",
+        "Decision about opening or returning it",
+        "Revealed explanation"
+      ],
+      "lexicalAnchors": [
+        "unexpected parcel",
+        "delivery label",
+        "surprise",
+        "cardboard box",
+        "doorstep"
+      ],
+      "originalitySelfCheck": "Story opening about a parcel with no name. Not similar to previous story openings (bus, plane, etc.). Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "ae49021b8f10f80e227249e6efb0a9a1afa793ec8a4b0587a901e678b85969b9"
+  }
+}

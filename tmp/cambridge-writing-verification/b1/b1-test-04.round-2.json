@@ -1,0 +1,42 @@
+{
+  "valid": false,
+  "overallScore": 70,
+  "dimensionScores": {
+    "formatAccuracy": 60,
+    "levelAppropriacy": 80,
+    "clarity": 70,
+    "answerability": 80,
+    "genreAuthenticity": 70,
+    "topicOriginality": 60,
+    "culturalFairness": 80,
+    "internalConsistency": 70
+  },
+  "issues": [
+    {
+      "severity": "error",
+      "taskId": "b1-test-04-task-01",
+      "code": "FORMAT_ERROR",
+      "message": "The word limit for task 1 is too restrictive for the B1 level.",
+      "suggestedAction": "Increase the word limit to at least 120-150 words."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b1-test-04-task-02",
+      "code": "LEVEL_MISMATCH",
+      "message": "The language and tone used in the announcement for task 2 may be too formal for the B1 level.",
+      "suggestedAction": "Use more informal language and tone to match the B1 level."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b1-test-04-task-03",
+      "code": "GENRE_AUTHENTICITY",
+      "message": "The story prompt for task 3 may not be engaging or realistic for the B1 level.",
+      "suggestedAction": "Use a more interesting and realistic prompt to motivate candidates."
+    }
+  ],
+  "duplicateRisk": {
+    "highRisk": false,
+    "similarToTestIds": []
+  },
+  "approvedForDraftCatalog": false
+}

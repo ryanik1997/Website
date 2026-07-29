@@ -1,0 +1,82 @@
+{
+  "overallOriginalityCheck": "PASS",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "a class discussion about improving community centres",
+      "audience": "English teacher",
+      "purpose": "compare improvements and justify the priority",
+      "requiredContentPoints": [
+        "opening hours",
+        "activities or equipment",
+        "own idea"
+      ],
+      "lexicalAnchors": [
+        "community centre",
+        "opening hours",
+        "youth facilities"
+      ],
+      "originalitySelfCheck": "Scenario is about improving community centres to attract young people – distinct from previous essay topics (environment, life skills, workplace visits). Notes are opening hours, activities/equipment, own idea – not used before. Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "a local public facility recently used by the writer",
+      "audience": "local website readers",
+      "purpose": "review accessibility, usefulness and service quality",
+      "requiredContentPoints": [
+        "purpose of facility",
+        "user experience",
+        "recommendation"
+      ],
+      "lexicalAnchors": [
+        "public facility",
+        "service quality",
+        "access"
+      ],
+      "originalitySelfCheck": "Review of a public facility (library, sports centre, park, museum) – not a book review, film review, study clinic review, or weekend study clinic review. Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "a town website seeking ideas for involving young people locally",
+      "audience": "young residents",
+      "purpose": "propose attractive ways to participate in local decisions or projects",
+      "requiredContentPoints": [
+        "one participation route",
+        "motivation",
+        "visible outcome"
+      ],
+      "lexicalAnchors": [
+        "youth participation",
+        "local project",
+        "public decision"
+      ],
+      "originalitySelfCheck": "Article about getting young people involved locally – not about learning beyond lessons, useful skills, or films. Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "a volunteer coordinator asking about a forthcoming community project",
+      "audience": "volunteer coordinator",
+      "purpose": "confirm interest, explain suitable contribution and request details",
+      "requiredContentPoints": [
+        "relevant skill",
+        "available time",
+        "preferred role",
+        "question about training"
+      ],
+      "lexicalAnchors": [
+        "volunteer coordinator",
+        "community project",
+        "training details"
+      ],
+      "originalitySelfCheck": "Email about volunteering for a community garden project – not about weekend work, exchange courses, or touring holidays. Forbidden concepts avoided.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "25ac0b93e9a9f63796d6a46a87338014f9ad8b7c5bd62bc17babfeab2975e40c"
+  }
+}

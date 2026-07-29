@@ -1,0 +1,146 @@
+{
+  "id": "b1-test-02",
+  "level": "b1",
+  "testNumber": 2,
+  "title": "PET B1 AI Practice Test 02",
+  "sourceFile": "packages/catalog/data/cambridge-writing/b1/b1-test-02.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 1,
+    "generationBatchId": "b1-test-02-to-b1-test-03-1785251388156",
+    "generatedAt": 1785251398940,
+    "contentHash": "331787fabc300def0633ef421f72fcb2610da9df49ee23712ea393cefbd323f2",
+    "reviewStatus": "unreviewed",
+    "qualityIssues": [
+      "Independent AI verification skipped by explicit user request."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "b1-test-02-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Peer Learning Project",
+      "genre": "email",
+      "instruction": "Write an email to your English teacher.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-02-task-1-p1",
+          "type": "paragraph",
+          "text": "Your teacher has asked you to choose a topic for a peer learning project. Read the notes below and write an email to your teacher."
+        },
+        {
+          "id": "b1-test-02-task-1-email",
+          "type": "email",
+          "from": "Your teacher",
+          "subject": "Peer learning project",
+          "greeting": "Hi,",
+          "paragraphs": [
+            "Please choose a topic for our peer learning project and tell me why you think it's a good choice. Also, let me know if you prefer to work in a pair or a group."
+          ],
+          "closing": "Best regards,",
+          "sender": "Mr. Smith"
+        },
+        {
+          "id": "b1-test-02-task-1-notes",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "listItems": [
+            "Topic: learning vocabulary through games",
+            "Reason: makes studying fun and effective",
+            "Preference: work in a pair",
+            "Ask teacher for advice on how to start"
+          ]
+        },
+        {
+          "id": "b1-test-02-task-1-final",
+          "type": "final-instruction",
+          "text": "Write your email."
+        }
+      ],
+      "presentation": {
+        "template": "email"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "b1-test-02-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Peer Learning Project Participation",
+      "genre": "article",
+      "instruction": "Write an article for your college magazine.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-02-task-2-p1",
+          "type": "paragraph",
+          "text": "Your college magazine is running a series on student activities. The editor has asked you to write an article about the peer learning project. Do you think it's a good idea for students to take part? What are the benefits? What challenges might there be?"
+        },
+        {
+          "id": "b1-test-02-task-2-final",
+          "type": "final-instruction",
+          "text": "Write your article."
+        }
+      ],
+      "presentation": {
+        "template": "announcement"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "b1-test-02-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Long-Term Value of Peer Learning",
+      "genre": "story",
+      "instruction": "Write a story for an English-speaking friend.",
+      "promptBlocks": [
+        {
+          "id": "b1-test-02-task-3-p1",
+          "type": "paragraph",
+          "text": "Your English-speaking friend wants to hear a story about something you learned from a classmate. Write a story that begins with the following sentence:"
+        },
+        {
+          "id": "b1-test-02-task-3-opening",
+          "type": "paragraph",
+          "text": "\"I never thought I would learn so much from a simple conversation with my classmate.\""
+        },
+        {
+          "id": "b1-test-02-task-3-final",
+          "type": "final-instruction",
+          "text": "Write your story."
+        }
+      ],
+      "presentation": {
+        "template": "plain"
+      },
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

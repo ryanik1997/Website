@@ -1,0 +1,198 @@
+{
+  "id": "c1-test-04",
+  "level": "c1",
+  "testNumber": 4,
+  "title": "CAE C1 AI Practice Test 04",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-04.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 1,
+    "generationBatchId": "c1-test-04-to-c1-test-05-1785251463023",
+    "generatedAt": 1785251479501,
+    "contentHash": "46262298c461470c10d6fa2f992a067d348277f07f923e8c72105ac03a7c0771",
+    "reviewStatus": "unreviewed",
+    "qualityIssues": [
+      "Independent AI verification skipped by explicit user request."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "c1-test-04-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay: Community centre programme",
+      "genre": "essay",
+      "instruction": "Write an essay.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-04-task-1-p1",
+          "type": "paragraph",
+          "text": "Your class has watched a documentary about community centres and the activities they offer. You have made the notes below."
+        },
+        {
+          "id": "c1-test-04-task-1-notes",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "listItems": [
+            "sports and fitness classes",
+            "arts and crafts workshops",
+            "study support sessions"
+          ]
+        },
+        {
+          "id": "c1-test-04-task-1-opinions",
+          "type": "panel",
+          "variant": "opinions",
+          "heading": "Opinions",
+          "paragraphs": [
+            "Sports and fitness classes bring people together and improve health.",
+            "Arts and crafts workshops allow people to express themselves creatively.",
+            "Study support sessions help young people succeed at school."
+          ]
+        },
+        {
+          "id": "c1-test-04-task-1-final",
+          "type": "final-instruction",
+          "text": "Write an essay discussing TWO of the activities in your notes. You should explain which one you think is more beneficial for the community, providing reasons to support your opinion. You should use your own words as far as possible."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes-opinions"
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c1-test-04-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Proposal: Encouraging participation",
+      "genre": "proposal",
+      "instruction": "Write a proposal.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-04-task-2-p1",
+          "type": "paragraph",
+          "text": "The management committee of your local community centre wants to encourage more local residents to take part in its activities. You have been asked to write a proposal suggesting how this could be achieved."
+        },
+        {
+          "id": "c1-test-04-task-2-p2",
+          "type": "paragraph",
+          "text": "In your proposal you should:"
+        },
+        {
+          "id": "c1-test-04-task-2-list",
+          "type": "panel",
+          "variant": "generic",
+          "listItems": [
+            "identify reasons why participation may be low",
+            "suggest practical measures to attract more people",
+            "explain the benefits of increased participation for the community"
+          ]
+        },
+        {
+          "id": "c1-test-04-task-2-final",
+          "type": "final-instruction",
+          "text": "Write your proposal."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-04-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Email: Long-term value of community centre",
+      "genre": "email",
+      "instruction": "Write an email.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-04-task-3-email",
+          "type": "email",
+          "from": "your English teacher",
+          "subject": "Long-term value of community centres",
+          "greeting": "Dear [Teacher's name],",
+          "paragraphs": [
+            "In our last lesson we discussed the role of community centres. I would like you to write an email giving your personal views on their long-term value. Consider the following points:",
+            "• why community centres are important for social cohesion",
+            "• how they contribute to personal development",
+            "• whether they are worth the investment in the long run"
+          ],
+          "closing": "Best regards,",
+          "sender": "[Your name]"
+        },
+        {
+          "id": "c1-test-04-task-3-final",
+          "type": "final-instruction",
+          "text": "Write your email."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-04-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Review: Community centre programme",
+      "genre": "review",
+      "instruction": "Write a review.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-04-task-4-announcement",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "College Magazine: Reviews Section",
+          "paragraphs": [
+            "Have you taken part in a community centre programme recently? We are looking for reviews of local community centre activities. Write a review describing a programme you attended, evaluating it, and saying whether you would recommend it to other students."
+          ]
+        },
+        {
+          "id": "c1-test-04-task-4-final",
+          "type": "final-instruction",
+          "text": "Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

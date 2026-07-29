@@ -1,0 +1,167 @@
+{
+  "id": "c1-test-05",
+  "level": "c1",
+  "testNumber": 5,
+  "title": "CAE C1 AI Practice Test 05",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-05.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 1,
+    "generationBatchId": "c1-test-04-to-c1-test-05-1785251463023",
+    "generatedAt": 1785251506489,
+    "contentHash": "b75d897aaf54039fd013696ec8496524e3abc99022d8373c6e8c38e4a1a347c5",
+    "reviewStatus": "unreviewed",
+    "qualityIssues": [
+      "Independent AI verification skipped by explicit user request."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "c1-test-05-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay: Low-waste school events",
+      "genre": "essay",
+      "instruction": "Write an essay discussing the importance of low-waste school events. You must discuss two of the notes and explain which one you think is more important.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-05-task-1-p1",
+          "type": "paragraph",
+          "text": "Your class has recently had a discussion about organising low-waste events at your school. Your teacher has asked you to write an essay discussing the importance of such events, with reference to the notes below."
+        },
+        {
+          "id": "c1-test-05-task-1-notes",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "listItems": [
+            "Reducing waste sent to landfill",
+            "Educating students about sustainability",
+            "Saving money for the school"
+          ]
+        },
+        {
+          "id": "c1-test-05-task-1-opinions",
+          "type": "panel",
+          "variant": "opinions",
+          "heading": "Three opinions from other students",
+          "paragraphs": [
+            "I think the main benefit is that we can reduce the amount of rubbish we produce. Landfills are overflowing.",
+            "For me, the most important thing is that students learn how to be more environmentally aware. That knowledge stays with them.",
+            "Low-waste events can also save the school money, which can be used for other projects. That's a practical advantage."
+          ]
+        },
+        {
+          "id": "c1-test-05-task-1-final",
+          "type": "final-instruction",
+          "text": "Write your essay. You must discuss two of the notes. You should explain which note you think is more important, giving reasons in your own words."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes-opinions"
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c1-test-05-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Proposal: Encouraging participation in low-waste events",
+      "genre": "proposal",
+      "instruction": "Your college is planning a series of low-waste events and wants to increase student participation. As a student representative, you have been asked to write a proposal suggesting ways to encourage more students to take part. Write your proposal, describing your recommendations and explaining how they would benefit the college community.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-05-task-2-p1",
+          "type": "paragraph",
+          "text": "Your college is planning a series of low-waste events and wants to increase student participation. As a student representative, you have been asked to write a proposal suggesting ways to encourage more students to take part. Write your proposal, describing your recommendations and explaining how they would benefit the college community."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-05-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Email: Long-term value of low-waste events",
+      "genre": "email",
+      "instruction": "You have a friend who is an exchange student in another country. Your friend has heard that your college has started organising low-waste events and is curious about their long-term value. Write an email to your friend, explaining what these events involve, how they have impacted students and the college, and whether you think they are worth continuing.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-05-task-3-email",
+          "type": "email",
+          "from": "You",
+          "subject": "Our low-waste events",
+          "greeting": "Hi [Friend's name],",
+          "paragraphs": [
+            "You mentioned you were curious about the low-waste events we've been having at college. I'd be happy to tell you more about them and their long-term value.",
+            "First, let me explain what these events involve...",
+            "I think they have had a positive impact on both students and the college, and I believe they are worth continuing."
+          ],
+          "closing": "Best wishes,",
+          "sender": "[Your name]"
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-05-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Review: A low-waste event you attended",
+      "genre": "review",
+      "instruction": "You see this announcement in a community programme newsletter. Write your review.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-05-task-4-announcement",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted!",
+          "paragraphs": [
+            "Have you attended a low-waste event recently? We would like to hear about your experience. Write a review of a low-waste event you have been to, describing what happened, what you liked or disliked, and whether you would recommend it to others. The best reviews will be published in our next newsletter."
+          ]
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "valid": false,
+  "overallScore": 70,
+  "dimensionScores": {
+    "formatAccuracy": 60,
+    "levelAppropriacy": 80,
+    "clarity": 70,
+    "answerability": 80,
+    "genreAuthenticity": 70,
+    "topicOriginality": 60,
+    "culturalFairness": 80,
+    "internalConsistency": 70
+  },
+  "issues": [
+    {
+      "severity": "error",
+      "taskId": "b2-test-02-task-01",
+      "code": "FORMAT_ERROR",
+      "message": "The essay task does not provide clear notes for the candidate to use.",
+      "suggestedAction": "Revise the task to include clear and relevant notes."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b2-test-02-task-02",
+      "code": "GENRE_INAUTHENTICITY",
+      "message": "The review task may not accurately reflect a real-life review scenario.",
+      "suggestedAction": "Consider revising the task to better reflect a genuine review context."
+    },
+    {
+      "severity": "warning",
+      "taskId": "b2-test-02-task-03",
+      "code": "TOPIC_UNORIGINALITY",
+      "message": "The article task topic may be too similar to other existing topics.",
+      "suggestedAction": "Consider revising the topic to make it more unique and original."
+    }
+  ],
+  "duplicateRisk": {
+    "highRisk": false,
+    "similarToTestIds": []
+  },
+  "approvedForDraftCatalog": false
+}

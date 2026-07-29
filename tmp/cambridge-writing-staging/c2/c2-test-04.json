@@ -1,0 +1,122 @@
+{
+  "id": "c2-test-04",
+  "level": "c2",
+  "testNumber": 4,
+  "title": "CPE C2 AI Practice Test 04",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-04.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "c2-test-04-1785300714593",
+    "generatedAt": 1785300839745,
+    "contentHash": "17490f58f14c96fb4b5b42f1400632f54fa5c37751115491ebaebf57a5a9d898",
+    "promptHash": "95f3b3a16335866963da59bc95e1aa34deab04743c5aed43f610eac60cc9fbab",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c2:c2-test-04:95f3b3a16335866963da59bc95e1aa34deab04743c5aed43f610eac60cc9fbab",
+    "inputHash": "95f3b3a16335866963da59bc95e1aa34deab04743c5aed43f610eac60cc9fbab",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "c2-test-04-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay: The Democratic Value of Consultation",
+      "genre": "essay",
+      "instruction": "Write an essay summarising and evaluating the key points from both texts in 240–280 words. Use your own words throughout as far as possible, and include your own ideas in your answers.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-04-task-01-source-01",
+          "type": "source-text",
+          "label": "Text 1",
+          "title": "Consultation as Democratic Inclusion",
+          "text": "Public consultation is often dismissed as a token gesture, yet it remains one of the few mechanisms through which ordinary citizens can influence decisions that affect their lives. When properly resourced and designed, consultation processes allow diverse voices to be heard, challenge institutional assumptions, and generate solutions that experts alone might miss. The charge that consultation is merely a legitimising ritual ignores the many instances where sustained public input has redirected policy, halted unwanted developments, or secured additional funding for neglected services. The problem is not consultation itself but the conditions under which it is conducted. Where there is genuine commitment to listening, adequate time for deliberation, and transparent feedback loops, consultation can deepen democratic accountability and produce outcomes that enjoy broader legitimacy. To abandon it because it is sometimes done poorly would be to surrender a vital democratic tool."
+        },
+        {
+          "id": "c2-test-04-task-01-source-02",
+          "type": "source-text",
+          "label": "Text 2",
+          "title": "Consultation as Managed Consent",
+          "text": "The language of participation masks a more troubling reality: consultation is frequently deployed as a technique for manufacturing consent rather than enabling genuine influence. Institutions invite public input precisely because they can control how that input is used, filtering out inconvenient views and framing outcomes as inevitable. The very structure of most consultations—short deadlines, complex documents, limited options—ensures that only the most resourced and articulate citizens can engage effectively, while the majority are excluded in practice. Far from empowering communities, this managed form of participation breeds cynicism and disengagement. People learn that their contributions make no difference, and the democratic deficit widens. Real democracy would require not more consultation but a fundamental redistribution of decision-making authority, so that those affected by decisions hold meaningful power over the process and its outcomes."
+        }
+      ],
+      "presentation": {
+        "template": "source-texts"
+      },
+      "wordLimit": {
+        "min": 240,
+        "max": 280,
+        "displayText": "240–280 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c2-test-04-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Review: Exhibition on the Architecture of Public Decision-Making",
+      "genre": "review",
+      "instruction": "Write a review of the exhibition for the readers of an arts and society journal. In your review, evaluate the curatorial concept, discuss how accessible the exhibition is to a general audience, and assess the political insight it offers into how public decisions are made.",
+      "promptText": "An arts and society journal is running a series of reviews of exhibitions that explore how public institutions operate. You decide to submit a review of a recent exhibition titled 'The Architecture of Public Decision-Making', which uses installations, documents and interactive displays to reveal the spaces and processes behind civic consultations, planning hearings and council meetings.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-04-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Report: Trust Erosion After a Symbolic Consultation Process",
+      "genre": "report",
+      "instruction": "Write a report for the independent civic commission. In your report, analyse the causes of the trust erosion, describe the consequences for future participation, and recommend institutional remedies that would restore accountability.",
+      "promptText": "An independent civic commission has asked you to investigate a recent case in which a local authority conducted a public consultation on a major transport project. Although thousands of residents submitted views, the final decision ignored the majority opinion, leading to widespread accusations that the process was merely symbolic. The commission is concerned that this incident has eroded trust in public consultation and may discourage future civic engagement.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-04-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Article: Participation Without Power",
+      "genre": "article",
+      "instruction": "Write an article for the ideas magazine. In your article, explore the distinction between symbolic voice and consequential influence, consider the ethical cost of false inclusion, and argue whether participation without power is ultimately worse than no participation at all.",
+      "promptText": "An ideas magazine is publishing a series on the theme of 'voice and power'. The editors have invited readers to submit articles addressing the proposition: 'Participation without power is worse than no participation.' They want contributors to test this claim by examining situations where citizens are invited to speak but have no real influence over outcomes.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320,
+        "displayText": "280–320 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

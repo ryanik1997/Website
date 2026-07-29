@@ -1,0 +1,92 @@
+{
+  "testId": "b2-test-05",
+  "level": "b2",
+  "topicFamily": "environment and sustainability",
+  "specificSetting": "organisers reducing waste at a multi-school public event",
+  "centralTension": "visitor convenience versus measurable waste reduction",
+  "stakeholders": [
+    "event visitors",
+    "student organisers",
+    "food vendors"
+  ],
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "a class debate on reducing waste at public events",
+      "audience": "English teacher",
+      "purpose": "evaluate measures and identify the most effective",
+      "requiredContentPoints": [
+        "reusable food containers",
+        "clear sorting stations",
+        "own idea"
+      ],
+      "lexicalAnchors": [
+        "public event",
+        "reuse system",
+        "sorting station"
+      ],
+      "originalitySelfCheck": "Essay uses notes panel with two supplied notes plus own idea; scenario is class debate about waste at public events, not generic pollution. No overlap with existing tests.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "an environmentally responsible event attended recently",
+      "audience": "college magazine readers",
+      "purpose": "review how credible and convenient its environmental measures were",
+      "requiredContentPoints": [
+        "specific environmental action",
+        "visitor experience",
+        "recommendation"
+      ],
+      "lexicalAnchors": [
+        "responsible event",
+        "waste policy",
+        "visitor experience"
+      ],
+      "originalitySelfCheck": "Review asks for a specific environmental action and its effect on visitor experience; announcement panel uses different wording from previous reviews.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "a lifestyle site collecting practical low-waste habits",
+      "audience": "young adult readers",
+      "purpose": "share realistic habits and explain how to maintain them",
+      "requiredContentPoints": [
+        "shopping choice",
+        "food or packaging habit",
+        "method for consistency"
+      ],
+      "lexicalAnchors": [
+        "low-waste habit",
+        "refill",
+        "routine"
+      ],
+      "originalitySelfCheck": "Article focuses on practical daily habits, not generic 'learning outside class'. Announcement panel is original.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "helping organise a school event with a waste-reduction target",
+      "audience": "student event organiser",
+      "purpose": "offer help, recommend two measures and ask about responsibilities",
+      "requiredContentPoints": [
+        "chosen responsibility",
+        "two waste measures",
+        "reason",
+        "question about suppliers"
+      ],
+      "lexicalAnchors": [
+        "school event planning",
+        "waste target",
+        "supplier"
+      ],
+      "originalitySelfCheck": "Email from Sam about a multi-school event waste target; content points are unique. No overlap with previous email tasks.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginalityCheck": "All tasks are original, avoid forbidden concepts, and do not reuse scenarios or wording from previous tests. Each task has a concrete audience and clear communicative purpose.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "60ddbc41768fdc25f5c9f5a83d06809a1b1e3db20a8550b9dcf87754727c0a61"
+  }
+}

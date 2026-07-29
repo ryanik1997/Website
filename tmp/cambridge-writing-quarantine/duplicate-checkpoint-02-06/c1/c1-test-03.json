@@ -1,0 +1,168 @@
+{
+  "id": "c1-test-03",
+  "level": "c1",
+  "testNumber": 3,
+  "title": "CAE C1 AI Practice Test 03",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-03.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 1,
+    "generationBatchId": "c1-test-03-to-c1-test-03-1785252135200",
+    "generatedAt": 1785252144805,
+    "contentHash": "7dcfb404b985bc2538db4c170ca7039950d7bb96a3c461c4538a6aa94f793fd2",
+    "reviewStatus": "unreviewed",
+    "qualityIssues": [
+      "Independent AI verification skipped by explicit user request."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "c1-test-03-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay",
+      "genre": "essay",
+      "instruction": "Your class has watched a discussion about the value of Workplace Observation Days for students. You have made the notes below.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-03-task-1-notes",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "listItems": [
+            "exposure to real working environments",
+            "networking opportunities with professionals",
+            "career clarity and motivation"
+          ]
+        },
+        {
+          "id": "c1-test-03-task-1-opinions",
+          "type": "panel",
+          "variant": "opinions",
+          "heading": "Opinions",
+          "paragraphs": [
+            "Seeing a real workplace helps students understand what a job actually involves. It's much more practical than reading about it.",
+            "Meeting professionals can lead to future mentors or even job offers. The connections you make are invaluable.",
+            "Many students change their career plans after a Workplace Observation Day. It gives them a clearer sense of direction."
+          ]
+        },
+        {
+          "id": "c1-test-03-task-1-final",
+          "type": "final-instruction",
+          "text": "Write an essay discussing two of the notes. You should explain which of the two benefits you consider more important, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes-opinions"
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c1-test-03-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Proposal",
+      "genre": "proposal",
+      "instruction": "Your local community centre runs a programme that helps young people find work experience. The coordinator has asked you to write a proposal suggesting how a Workplace Observation Day could be organised for local students.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-03-task-2-p1",
+          "type": "paragraph",
+          "text": "In your proposal you should outline the key features of the day, explain the benefits for participants, and recommend how to encourage participation."
+        },
+        {
+          "id": "c1-test-03-task-2-final",
+          "type": "final-instruction",
+          "text": "Write your proposal."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-03-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Email",
+      "genre": "email",
+      "instruction": "You recently took part in a Workplace Observation Day at a local company. Write an email to an English-speaking friend.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-03-task-3-p1",
+          "type": "paragraph",
+          "text": "In your email you should describe what you did during the day, explain what you learned from the experience, and suggest whether your friend would benefit from a similar opportunity."
+        },
+        {
+          "id": "c1-test-03-task-3-final",
+          "type": "final-instruction",
+          "text": "Write your email."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-03-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Review",
+      "genre": "review",
+      "instruction": "You see this announcement on a website for young people.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-03-task-4-announcement",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Reviews wanted: Workplace Observation Day",
+          "paragraphs": [
+            "Have you ever attended a Workplace Observation Day? We'd like to hear from you! Write a review of your experience, describing what happened, evaluating how useful it was, and saying whether you would recommend it to other young people. The best reviews will be published on our website."
+          ]
+        },
+        {
+          "id": "c1-test-03-task-4-final",
+          "type": "final-instruction",
+          "text": "Write your review."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

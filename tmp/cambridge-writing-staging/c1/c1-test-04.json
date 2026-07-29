@@ -1,0 +1,140 @@
+{
+  "id": "c1-test-04",
+  "level": "c1",
+  "testNumber": 4,
+  "title": "CAE C1 AI Practice Test 04",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-04.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 2,
+    "generationBatchId": "c1-test-04-1785300679875",
+    "generatedAt": 1785300714339,
+    "contentHash": "89086976388b9b4dc5f8a41121cfe71af8202aad67540a62fd2ced11e48829cf",
+    "promptHash": "6587aef7c271e6bf90d04e68cd7a45eebfc3905fd1d7a9a92f81be2a5e351035",
+    "cacheKey": "cambridge-writing:2:deepseek:deepseek-chat:c1:c1-test-04:6587aef7c271e6bf90d04e68cd7a45eebfc3905fd1d7a9a92f81be2a5e351035",
+    "inputHash": "6587aef7c271e6bf90d04e68cd7a45eebfc3905fd1d7a9a92f81be2a5e351035",
+    "reviewStatus": "unreviewed"
+  },
+  "tasks": [
+    {
+      "id": "c1-test-04-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Evaluating Civic Participation Mechanisms",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 220–260 words in an appropriate style.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-04-task-01-pb-01",
+          "type": "paragraph",
+          "text": "Your municipal scrutiny committee has been discussing how to make local decisions more legitimate by involving residents. You have made the notes below."
+        },
+        {
+          "id": "c1-test-04-task-01-pb-02",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Civic participation mechanisms",
+          "listItems": [
+            "citizen assemblies",
+            "digital consultation",
+            "community liaison staff"
+          ]
+        },
+        {
+          "id": "c1-test-04-task-01-pb-03",
+          "type": "panel",
+          "variant": "opinions",
+          "heading": "Some opinions expressed in the discussion:",
+          "paragraphs": [
+            "Citizen assemblies give ordinary people real decision-making power and build trust in the process.",
+            "Digital consultation reaches a wider audience quickly, but responses may lack depth.",
+            "Community liaison staff can mediate between residents and officials, yet their role is often unclear."
+          ]
+        },
+        {
+          "id": "c1-test-04-task-01-pb-04",
+          "type": "final-instruction",
+          "text": "Write an essay for your tutor discussing two of the mechanisms in your notes. You should explain which mechanism is more likely to build legitimate decisions, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion, but you should use your own words as far as possible."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes-opinions"
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c1-test-04-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Proposal for a Youth Civic Forum",
+      "genre": "proposal",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptText": "Your municipal authority is considering setting up a youth civic forum to give young people a voice in council decisions. The authority has invited proposals for how the forum should operate.\n\nWrite a proposal for the municipal authority. In your proposal, you should:\n\n• recommend a remit for the forum, including which decisions it should be linked to\n• explain how membership should be selected to ensure fair representation\n• describe how the forum's activities and impact will be reported to the public\n\nWrite your proposal.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-04-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Email about a Contested Consultation",
+      "genre": "email",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptText": "You are a community liaison officer for your local council. A recent consultation on a new public space has been criticised by a community organisation for being rushed and not representative. The director of the organisation has emailed you expressing these concerns.\n\nWrite an email to the director. In your email, you should:\n\n• clarify the process that was followed in the consultation\n• respond to the specific criticism about representativeness\n• propose a corrective meeting to address the concerns and improve future consultations\n\nWrite your email.",
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-04-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Review of a Public Participation Project",
+      "genre": "review",
+      "instruction": "Answer one of the following questions (2–4). Write 220–260 words in an appropriate style.",
+      "promptText": "You see this announcement on a governance magazine website.\n\nReviews wanted: Public participation projects\n\nOur magazine is running a series of reviews of public participation projects. Have you taken part in or observed a project that aimed to involve residents in local decision-making? Write a review for our magazine.\n\nIn your review, describe who participated and how inclusive the process was, evaluate the effect the project had on actual decisions, and consider whether the project is sustainable in the long term.\n\nWrite your review.",
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260,
+        "displayText": "220–260 words"
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "testId": "c1-test-02",
+  "level": "c1",
+  "topicFamily": "education and learning",
+  "specificSetting": "a college governing body reviewing access to academic support",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "scenario": "institutional review of academic support priorities",
+      "audience": "college governing body",
+      "purpose": "evaluate two support models and determine the more effective institutional priority",
+      "requiredContentPoints": [
+        "drop-in academic clinics",
+        "trained peer mentors",
+        "early diagnostic guidance"
+      ],
+      "lexicalAnchors": [
+        "academic support",
+        "institutional access",
+        "diagnostic guidance"
+      ],
+      "originalitySelfCheck": "Scenario is unique: no existing test uses 'drop-in academic clinics' or 'early diagnostic guidance'. Avoids all forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "proposal for a cross-department study support hub",
+      "audience": "college principal",
+      "purpose": "recommend implementation, participation incentives and evaluation measures",
+      "requiredContentPoints": [
+        "staffing model",
+        "student access",
+        "success indicators"
+      ],
+      "lexicalAnchors": [
+        "support hub",
+        "implementation",
+        "success indicator"
+      ],
+      "originalitySelfCheck": "No existing test proposes a cross-department study support hub. Avoids 'peer learning project' and 'weekend study clinic review'.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "email to a visiting education coordinator about support provision",
+      "audience": "visiting education coordinator",
+      "purpose": "explain the institutional model, acknowledge a limitation and arrange an observation",
+      "requiredContentPoints": [
+        "model overview",
+        "limitation",
+        "visit arrangement"
+      ],
+      "lexicalAnchors": [
+        "education coordinator",
+        "support provision",
+        "observation visit"
+      ],
+      "originalitySelfCheck": "No existing test uses 'visiting education coordinator' or 'observation visit'. Avoids all forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "review of an academic support initiative after its first term",
+      "audience": "professional education newsletter readers",
+      "purpose": "assess impact, inclusion and transferability",
+      "requiredContentPoints": [
+        "observed impact",
+        "unintended weakness",
+        "recommendation for another institution"
+      ],
+      "lexicalAnchors": [
+        "academic initiative",
+        "first-term review",
+        "transferability"
+      ],
+      "originalitySelfCheck": "No existing test uses 'first-term review' or 'transferability'. Avoids all forbidden concepts.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallForbiddenConceptCheck": "PASS",
+  "notes": "All tasks are original, avoid existing fingerprints, and match the designFingerprint exactly. No generic phrases used.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "a863f51442afad6c38401265a60689d2379b2d69becb133104e491969888fb7e"
+  }
+}

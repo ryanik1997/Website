@@ -1,0 +1,141 @@
+{
+  "id": "c2-test-02",
+  "level": "c2",
+  "testNumber": 2,
+  "title": "CPE C2 AI Practice Test 02",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c2/c2-test-02.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 1,
+    "generationBatchId": "c2-test-02-to-c2-test-02-1785252336662",
+    "generatedAt": 1785252351616,
+    "contentHash": "ebde28b9c88f4816b0c6a8de7b8431886bd5559962f58fc4791a1e715e811f14",
+    "reviewStatus": "unreviewed",
+    "qualityIssues": [
+      "Independent AI verification skipped by explicit user request."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "c2-test-02-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Peer Learning Projects",
+      "genre": "essay",
+      "instruction": "Read the two texts below. Write an essay summarising and evaluating the key points from both texts. Use your own words throughout, and include your own ideas on the value of peer learning projects.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-02-task-1-text-1",
+          "type": "source-text",
+          "label": "Text 1",
+          "title": "The Case for Peer Learning",
+          "text": "Peer learning projects, where students teach and learn from each other, have gained traction in educational circles. Proponents argue that such initiatives foster deeper understanding because explaining concepts to peers requires the explainer to organise their thoughts clearly. This process, often called 'learning by teaching', can consolidate knowledge more effectively than solitary study. Furthermore, peer learning creates a collaborative environment that reduces the anxiety associated with traditional teacher-led assessments. Students often feel more comfortable asking questions of their peers, leading to more open discussion and exploration of ideas. However, critics point out that the quality of peer instruction can be uneven. Without proper guidance, misconceptions may be reinforced rather than corrected. Additionally, some students may dominate discussions, while others remain passive, limiting the benefits for the group as a whole. Therefore, the success of peer learning depends heavily on careful structuring and facilitation by educators."
+        },
+        {
+          "id": "c2-test-02-task-1-text-2",
+          "type": "source-text",
+          "label": "Text 2",
+          "title": "Challenges in Implementation",
+          "text": "Despite the theoretical advantages of peer learning, practical implementation often reveals significant hurdles. One major challenge is the variability in student motivation and commitment. In many peer learning projects, participation is voluntary, and those who opt out may miss valuable opportunities. Even among participants, differing levels of preparation can lead to frustration; advanced students may feel held back, while struggling students may feel overwhelmed. Another issue is the assessment of learning outcomes. Traditional grading systems are ill-equipped to measure the collaborative skills and deeper understanding that peer learning aims to develop. Teachers may struggle to evaluate individual contributions fairly. Moreover, peer learning requires a shift in the teacher's role from knowledge dispenser to facilitator, a transition that not all educators are comfortable with. Without adequate training and support, teachers may revert to conventional methods, undermining the project's goals. Thus, while peer learning holds promise, its success is contingent on addressing these practical concerns."
+        },
+        {
+          "id": "c2-test-02-task-1-final",
+          "type": "final-instruction",
+          "text": "Write your essay."
+        }
+      ],
+      "presentation": {
+        "template": "source-texts"
+      },
+      "wordLimit": {
+        "min": 240,
+        "max": 280
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c2-test-02-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Peer Learning Project Review",
+      "genre": "review",
+      "instruction": "A college magazine is running a series on student-led initiatives. Write a review of a peer learning project you have taken part in or observed. Describe what the project involved, evaluate its strengths and weaknesses, and recommend whether other students should get involved in similar projects.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-02-task-2-instruction",
+          "type": "paragraph",
+          "text": "A college magazine is running a series on student-led initiatives. Write a review of a peer learning project you have taken part in or observed. Describe what the project involved, evaluate its strengths and weaknesses, and recommend whether other students should get involved in similar projects."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-02-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Long-Term Value of Peer Learning",
+      "genre": "report",
+      "instruction": "You have been asked by a community programme coordinator to write a report on the long-term value of peer learning projects for adult learners. Based on your experience or research, outline the potential benefits and drawbacks of such projects, and suggest how the programme could maximise their effectiveness.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-02-task-3-instruction",
+          "type": "paragraph",
+          "text": "You have been asked by a community programme coordinator to write a report on the long-term value of peer learning projects for adult learners. Based on your experience or research, outline the potential benefits and drawbacks of such projects, and suggest how the programme could maximise their effectiveness."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c2-test-02-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Setting Up a Peer Learning Project",
+      "genre": "article",
+      "instruction": "An English-speaking friend is considering starting a peer learning project in their community. Write an article for your college website giving advice on how to set up such a project. Explain what makes a peer learning project successful, what challenges to expect, and how to overcome them.",
+      "promptBlocks": [
+        {
+          "id": "c2-test-02-task-4-instruction",
+          "type": "paragraph",
+          "text": "An English-speaking friend is considering starting a peer learning project in their community. Write an article for your college website giving advice on how to set up such a project. Explain what makes a peer learning project successful, what challenges to expect, and how to overcome them."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 280,
+        "max": 320
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "testId": "c2-test-06",
+  "level": "c2",
+  "testNumber": 6,
+  "topicFamily": "technology and communication",
+  "specificSetting": "debate about frictionless communication and the social value of delay",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "genre": "essay",
+      "scenario": "Two source texts interpreting delay in communication as failure or safeguard",
+      "audience": "educated general reader",
+      "purpose": "synthesise arguments, evaluate their models of responsibility and develop an original distinction",
+      "requiredContentPoints": [
+        "immediacy and access",
+        "delay and judgement",
+        "responsible responsiveness"
+      ],
+      "lexicalAnchors": [
+        "communication delay",
+        "judgement",
+        "responsiveness"
+      ],
+      "originalityCheck": "Unique source texts about instant response vs. delay as safeguard; no overlap with previous tests.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 2,
+      "genre": "review",
+      "scenario": "review of an interactive work about silence in networked life",
+      "audience": "arts and technology readers",
+      "purpose": "evaluate form, conceptual depth and audience effect",
+      "requiredContentPoints": [
+        "interactive form",
+        "conceptual treatment of silence",
+        "audience effect"
+      ],
+      "lexicalAnchors": [
+        "networked silence",
+        "interactive work",
+        "audience effect"
+      ],
+      "originalityCheck": "Interactive installation 'The Quiet Room' is original; no similar review in previous tests.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 3,
+      "genre": "report",
+      "scenario": "report on an organisation damaged by an expectation of instant response",
+      "audience": "board risk committee",
+      "purpose": "analyse behavioural incentives, operational consequences and policy correction",
+      "requiredContentPoints": [
+        "response expectation",
+        "decision-quality consequence",
+        "policy correction"
+      ],
+      "lexicalAnchors": [
+        "instant response",
+        "decision quality",
+        "risk policy"
+      ],
+      "originalityCheck": "Financial services firm scenario is distinct; no similar report in previous tests.",
+      "forbiddenConceptCheck": "PASS"
+    },
+    {
+      "taskNumber": 4,
+      "genre": "article",
+      "scenario": "article asking whether slower communication could produce more trustworthy institutions",
+      "audience": "public ideas magazine readers",
+      "purpose": "examine mechanisms, objections and practical limits",
+      "requiredContentPoints": [
+        "mechanism linking delay and trust",
+        "cost of slower response",
+        "practical boundary"
+      ],
+      "lexicalAnchors": [
+        "slower communication",
+        "institutional trust",
+        "practical boundary"
+      ],
+      "originalityCheck": "Focus on trust and institutions is original; no similar article in previous tests.",
+      "forbiddenConceptCheck": "PASS"
+    }
+  ],
+  "overallOriginality": "All tasks are based on the unique topic family of technology and communication with a central tension around immediacy vs. delay. No scenarios, audiences, or content points duplicate any previous test. Forbidden concepts (e.g., digital relationships, communication app, online misunderstanding) are avoided.",
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "7464811a2b9396f13aaa23467e7eff262f3f5fe62a5f2bf52689de4703f48ad9"
+  }
+}

@@ -103,15 +103,17 @@ function cambridgeWritingCredentialBridge() {
           }
           const deepseekKey = typeof payload.deepseekKey === 'string' ? payload.deepseekKey.trim() : ''
           const groqKey = typeof payload.groqKey === 'string' ? payload.groqKey.trim() : ''
-          if (!deepseekKey || !groqKey) throw new Error('DeepSeek and Groq keys are required')
+          if (!deepseekKey) throw new Error('DeepSeek key is required')
 
           const content = [
             'CAMBRIDGE_WRITING_AI_PROVIDER=deepseek',
             'CAMBRIDGE_WRITING_AI_MODEL=deepseek-chat',
             `CAMBRIDGE_WRITING_AI_KEY=${envValue(deepseekKey)}`,
-            'CAMBRIDGE_WRITING_VERIFY_PROVIDER=groq',
-            'CAMBRIDGE_WRITING_VERIFY_MODEL=llama-3.3-70b-versatile',
-            `CAMBRIDGE_WRITING_VERIFY_KEY=${envValue(groqKey)}`,
+            ...(groqKey ? [
+              'CAMBRIDGE_WRITING_VERIFY_PROVIDER=groq',
+              'CAMBRIDGE_WRITING_VERIFY_MODEL=llama-3.3-70b-versatile',
+              `CAMBRIDGE_WRITING_VERIFY_KEY=${envValue(groqKey)}`,
+            ] : []),
             '',
           ].join('\n')
           writeFileSync(resolve(__dirname, '../../.env.cambridge-writing.local'), content, {

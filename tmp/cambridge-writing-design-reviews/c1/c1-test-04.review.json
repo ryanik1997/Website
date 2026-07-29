@@ -1,0 +1,82 @@
+{
+  "testId": "c1-test-04",
+  "overallOriginalityCheck": "PASS",
+  "taskReviews": [
+    {
+      "taskNumber": 1,
+      "scenario": "municipal scrutiny committee evaluating civic participation mechanisms",
+      "audience": "tutor (representing committee)",
+      "purpose": "compare two mechanisms and decide which builds more legitimate decisions",
+      "requiredContentPoints": [
+        "citizen assemblies",
+        "digital consultation",
+        "community liaison staff"
+      ],
+      "lexicalAnchors": [
+        "civic participation",
+        "public legitimacy",
+        "consultation mechanism"
+      ],
+      "forbiddenConceptCheck": "PASS",
+      "originalitySelfCheck": "Scenario is distinct from previous tests; uses citizen assemblies, digital consultation, and community liaison staff. No overlap with forbidden concepts."
+    },
+    {
+      "taskNumber": 2,
+      "scenario": "proposal for a youth civic forum linked to council decisions",
+      "audience": "municipal authority",
+      "purpose": "recommend remit, representation and accountability",
+      "requiredContentPoints": [
+        "representative membership",
+        "decision link",
+        "public reporting"
+      ],
+      "lexicalAnchors": [
+        "youth civic forum",
+        "representation",
+        "accountability"
+      ],
+      "forbiddenConceptCheck": "PASS",
+      "originalitySelfCheck": "Focus on youth forum with specific remit, selection, and reporting. No similarity to previous proposal tasks."
+    },
+    {
+      "taskNumber": 3,
+      "scenario": "email to a community organisation about a contested consultation",
+      "audience": "community organisation director",
+      "purpose": "clarify process, respond to criticism and propose corrective action",
+      "requiredContentPoints": [
+        "process explanation",
+        "criticism response",
+        "corrective meeting"
+      ],
+      "lexicalAnchors": [
+        "contested consultation",
+        "community criticism",
+        "corrective action"
+      ],
+      "forbiddenConceptCheck": "PASS",
+      "originalitySelfCheck": "Email about a consultation controversy; distinct from previous email tasks. No reuse of frames."
+    },
+    {
+      "taskNumber": 4,
+      "scenario": "review of a public participation project for a governance magazine",
+      "audience": "public administration readers",
+      "purpose": "evaluate inclusiveness, influence and sustainability",
+      "requiredContentPoints": [
+        "who participated",
+        "effect on decisions",
+        "long-term viability"
+      ],
+      "lexicalAnchors": [
+        "participation project",
+        "decision influence",
+        "viability"
+      ],
+      "forbiddenConceptCheck": "PASS",
+      "originalitySelfCheck": "Review of a participation project; distinct from previous review tasks. No forbidden concepts."
+    }
+  ],
+  "deterministicOriginality": {
+    "valid": true,
+    "fingerprintHash": "07bafdfeea9efe6059c440c8f3c12044d1e7e6dd0e18e0c547995ba1fb95c45c"
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "id": "c1-test-06",
+  "level": "c1",
+  "testNumber": 6,
+  "title": "CAE C1 AI Practice Test 06",
+  "sourceFile": "packages/catalog/data/cambridge-writing/c1/c1-test-06.json",
+  "status": "draft",
+  "version": 1,
+  "provenance": {
+    "origin": "ai-generated",
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "promptVersion": 1,
+    "generationBatchId": "c2-test-05-to-c2-test-06-1785251506492",
+    "generatedAt": 1785251536086,
+    "contentHash": "09bbc5f7c4398b9b3187cf0aa6dfd14354943664b8489434d5dc45ab8b33a8df",
+    "reviewStatus": "unreviewed",
+    "qualityIssues": [
+      "Independent AI verification skipped by explicit user request."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "c1-test-06-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Essay: Digital communication and personal relationships",
+      "genre": "essay",
+      "instruction": "Your class has watched a documentary about how digital communication affects personal relationships. You have made the notes below.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-06-task-1-p1",
+          "type": "paragraph",
+          "text": "Write an essay discussing two of the points in your notes. You should explain which point is more important for maintaining strong personal relationships, giving reasons in support of your answer."
+        },
+        {
+          "id": "c1-test-06-task-1-notes",
+          "type": "panel",
+          "variant": "notes",
+          "heading": "Notes",
+          "listItems": [
+            "Frequency of contact",
+            "Quality of conversations",
+            "Use of visual cues"
+          ]
+        },
+        {
+          "id": "c1-test-06-task-1-opinions",
+          "type": "panel",
+          "variant": "opinions",
+          "heading": "Opinions",
+          "paragraphs": [
+            "Sophie: 'I think messaging every day keeps friendships alive.'",
+            "Tom: 'For me, a deep conversation once a week is better than lots of short texts.'",
+            "Emma: 'Video calls are great because you can see the other person's expressions.'"
+          ]
+        },
+        {
+          "id": "c1-test-06-task-1-final",
+          "type": "final-instruction",
+          "text": "Write your essay. You should use your own words as far as possible."
+        }
+      ],
+      "presentation": {
+        "template": "essay-notes-opinions"
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260
+      },
+      "metadata": {
+        "compulsory": true
+      }
+    },
+    {
+      "id": "c1-test-06-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Proposal: Digital communication workshop for community programme",
+      "genre": "proposal",
+      "instruction": "Your local community centre runs a programme for young adults. The coordinator has asked you to propose a one-day workshop on digital communication skills. Write your proposal, including recommendations for content, practical benefits, and how it could be implemented.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-06-task-2-p1",
+          "type": "paragraph",
+          "text": "Your local community centre runs a programme for young adults. The coordinator has asked you to propose a one-day workshop on digital communication skills. Write your proposal, including recommendations for content, practical benefits, and how it could be implemented."
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-06-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Email: Invitation to digital communication workshop",
+      "genre": "email",
+      "instruction": "You are organising a digital communication workshop at your college. Write an email to an English-speaking friend who might be interested. In your email, you should explain what the workshop involves, why you think your friend would benefit, and encourage them to attend.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-06-task-3-email",
+          "type": "email",
+          "from": "You",
+          "subject": "Digital communication workshop",
+          "greeting": "Hi [Friend's name],",
+          "paragraphs": [
+            "I'm writing to tell you about a workshop I'm organising at college on digital communication.",
+            "It will cover things like managing online conversations, using video calls effectively, and balancing screen time with face-to-face contact.",
+            "I know you've been trying to improve your online teamwork skills, so I think this would be really useful for you.",
+            "Would you like to come? It's free and there will be refreshments. Let me know if you're interested!"
+          ],
+          "closing": "Best wishes,",
+          "sender": "[Your name]"
+        }
+      ],
+      "presentation": {
+        "template": "plain",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    },
+    {
+      "id": "c1-test-06-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Review: Digital communication workshop",
+      "genre": "review",
+      "instruction": "You recently attended a digital communication workshop. Write a review for your college website. Describe the workshop, evaluate its strengths and weaknesses, and recommend whether other students should attend.",
+      "promptBlocks": [
+        {
+          "id": "c1-test-06-task-4-announcement",
+          "type": "panel",
+          "variant": "announcement",
+          "heading": "Call for reviews",
+          "paragraphs": [
+            "Have you attended a workshop or event recently? Write a review for our college website. The best reviews will be published."
+          ]
+        },
+        {
+          "id": "c1-test-06-task-4-p1",
+          "type": "paragraph",
+          "text": "You recently attended a digital communication workshop. Write a review for your college website. Describe the workshop, evaluate its strengths and weaknesses, and recommend whether other students should attend."
+        }
+      ],
+      "presentation": {
+        "template": "announcement",
+        "selectionRequired": 1
+      },
+      "wordLimit": {
+        "min": 220,
+        "max": 260
+      },
+      "metadata": {
+        "compulsory": false
+      }
+    }
+  ]
+}
