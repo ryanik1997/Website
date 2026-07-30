@@ -10992,3 +10992,55 @@ Kiểm tra trực quan Light/Mid/Dark tại `/app/vocab`, `/app/listening`, `/ap
 - Root cause: `ExamTrackPage` hardcoded Cambridge A2 Writing count to `1`, bypassing the runtime catalog manifest.
 - Fix: card now reads `CAMBRIDGE_WRITING_MANIFEST.a2.testCount`, so it shows 52 after Test 52 is generated.
 - Verification: web TypeScript PASS; ExamSkillPicker test 1/1 PASS; `git diff --check` PASS.
+
+## 2026-07-30 - FCE B2 Reading semantic repair: Part 3 Q17
+
+- Root cause fixed: FCE Part 3 source `part-3.full.json` stores the passage in `passageHtml`, while the converter only read `passageTextHtml`; Q17 and all Part 3 markers were therefore missing during conversion.
+- Minimal fix: `scripts/reading/fce-b2-pages-to-parts.mjs` now falls back to `page.passageHtml`; no schema, IDs, numbering, renderer, dependency, AI/provider, or question text changed.
+- Q17 source answer remains `observant` from `OBSERVE`; the passage supports “be very observant in the way that they dress.” This is FCE Part 3 word formation, so it has no options/distractors.
+- Validation: targeted conversion test 4 PASS (7 parts / 52 questions, no failures), semantic validation PASS (26 exams x 2 locations), TypeScript PASS, `git diff --check` PASS.
+- Next session start prompt: continue with the next existing FCE B2 source/content issue; Q17 is no longer failing.
+
+## 2026-07-30 - FCE B2 Reading semantic repair: Test 4 Part 4
+
+- Classified the empty shared passage as valid for FCE Part 4 Key Word Transformation; each item is rendered from `sourceSentence`, `keyword`, and `targetSentence`.
+- Source Test 4 Part 4 contains the complete six-question content in `exam/exam.json` and `fullHtml`; the converter was ignoring `fullHtml` and therefore failed to parse the real input fields.
+- Minimal fixes: Part 4 now parses `page.fullHtml`; the deterministic empty-passage report excludes only Part 4. Parts 1-3 and 5-7 keep their passage requirements.
+- Test 4 → app Test 5 Part 4 remains six questions (25-30), with existing answers unchanged. Test 4 converts to 7 parts / 52 questions with no failures.
+- Validation: semantic PASS (26 exams x 2 locations), TypeScript PASS, `git diff --check` PASS. Q17 regression check PASS.
+- Next session start prompt: stop after Part 4; do not continue to the next failing item in the same task.
+
+## 2026-07-30 - FCE B2 Reading semantic repair: full 26-test validation
+
+- Rebuilt/converted source Tests 1-26 through the standard pipeline after the Part 3 `passageHtml` and Part 4 `fullHtml` fixes: 26/26 tests, 182/182 parts, 1,352/1,352 questions, 0 failures.
+- Corpus assertions PASS: every test has 7 parts, 52 questions, 52 answer-vault entries, contiguous Q1-52 numbering, unique IDs, correct per-part ranges, valid Part 4 transformation fields, and required passages for Parts 1-3 and 5-7.
+- Regression PASS: Test 5 Part 3 Q17 remains `observant`; Test 4 Part 4 Q25-30 remains complete; no answer-vault files changed; no duplicate catalog records.
+- Semantic validation PASS (26 exams x 2 locations), answer consistency PASS (364 part records), TypeScript PASS, and `git diff --check` PASS.
+- No remaining FCE B2 semantic/structural failures in this validation scope. No commit or push performed.
+
+## 2026-07-30 - PET B1 Reading Tests 14-51 generation
+
+- Added offline deterministic generator `scripts/reading/generate-pet-b1-reading-tests-14-51.mjs` with `--from/--to`, `--test`, `--audit`, and `--validate-only` support.
+- Generated 38 original PET B1 Reading tests (14-51): 228 parts, 1,216 questions, and 1,216 answers. Test 01 and Test 13 were preserved by SHA256 regression check.
+- Added `scripts/reading/validate-pet-b1-reading-tests-14-51.mjs` for IDs, numbering, part ranges, passage requirements, options, matching uniqueness, answer vault consistency, and Part 6 one-word answers.
+- Updated catalog data, runtime bodies, answer vaults, manifest/meta registration, and PET Part 1 renderer/CSS so text cards render semantically when no image is imported.
+- Validation PASS: generator audit, structural validator, runtime catalog validator (27 entries), TypeScript, and `git diff --check`. Second generator run is deterministic; no Test 01/13 changes.
+- Known limitations: full browser smoke, full unit/integration suite, lint, and automated admin asset-preservation flow remain to be run; the existing targeted Vitest invocation is blocked by an unrelated `@ryan/core` workspace alias resolution error.
+
+## 2026-07-30 - PET B1 completion verification (task 2)
+
+- Catalog count root cause resolved: `scripts/validate-catalog-runtime.mjs` previously reported only its hardcoded FCE metric (`27`). It now reports `petB1ReadingEntryCount` separately.
+- Independent count: PET B1 Reading has exactly 40 entries: Test 01, Test 13, and Test 14-51. No Test 02-12 or duplicate PET entries were created.
+- Generated Test 14-51 Part 1 now declares `renderMode: html-css`; generated data has five semantic text cards, zero image references, and the renderer selects the structured text card for that mode. Test 01/13 image behavior remains unchanged.
+- Added and passed `scripts/reading/test-pet-b1-asset-preservation.mjs`: Part 2 Option A preserves `imageSlotId`, `assetId`, `alt`, and text after a partial generator run.
+- Validation: PET structural validator PASS, catalog runtime validator PASS (`petB1ReadingEntryCount=40`), targeted catalog Vitest PASS (3 tests), TypeScript PASS, and `git diff --check` PASS.
+- Browser smoke and lint remain blocked/not available: no local Playwright project command is configured; targeted full Vitest suites still have the pre-existing `@ryan/core` alias resolution failure. No commit or push performed.
+
+## 2026-07-30 - PET B1 blocker closure verification (task 3)
+
+- `@ryan/core` root cause identified: the previous test command used `--root ../..`, bypassing `apps/web/vitest.config.ts`; the existing alias was already correct. Running Vitest from `apps/web` fixed the blocker without code/config changes.
+- Targeted PET suites PASS: catalog runtime 3/3, batch ZIP import 12/12, PET navigation 3/3; total 18/18.
+- Full Vitest is available and most suites pass; remaining failures are pre-existing unrelated E2E files being collected without browser setup and `src/security/phase2Hardening.test.ts` expecting a stale `SIGN_TTL_SEC` source string. No PET failure was introduced.
+- Browser smoke: no browser-use/browser tool is available in this agent environment; no Playwright dependency/config was added.
+- Lint: repository root and `apps/web` have no lint script or ESLint/Biome/Oxlint config; reported as unavailable, not fabricated.
+- TypeScript, PET asset preservation, PET structural/catalog validation, idempotency, and `git diff --check` PASS. No PET content, IDs, Test 01/13, or catalog counts changed.

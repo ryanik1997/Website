@@ -1,0 +1,812 @@
+{
+  "id": "catalog-reading-pet-b1-test30",
+  "title": "PET B1 Reading – Test 30",
+  "durationMinutes": 45,
+  "bandHint": "B1 Preliminary Reading – 6 parts",
+  "examTrack": "cambridge",
+  "cambridgeLevel": "b1",
+  "catalogCanonical": true,
+  "parts": [
+    {
+      "id": "catalog-reading-pet-b1-test30-part-1",
+      "partNumber": 1,
+      "renderMode": "html-css",
+      "rangeLabel": "Questions 1–5",
+      "passageTitle": "Part 1 – Short texts",
+      "passage": [
+        {
+          "text": "Community gardens notice\nThe community gardens team needs helpers on Saturday. Bring gloves and arrive before nine."
+        },
+        {
+          "text": "Message from a friend\nI have booked the shared plots session for Tuesday, but I may arrive late. Please start without me and save a place."
+        },
+        {
+          "text": "Information sign\nVisitors to the community gardens may use the tools, but they must return them before leaving."
+        },
+        {
+          "text": "Short announcement\nThe local gardeners meeting has moved from Room 2 to Room 4 because the first room is being painted."
+        },
+        {
+          "text": "Notice for members\nMembers can borrow one shared plots guide for a week. Ask at the desk if you need another copy."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test30-part-1-g0",
+          "range": "Questions 1–5",
+          "instruction": "For each question, choose the correct answer A, B or C.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test30-part-1-q1",
+              "number": 1,
+              "type": "multiple-choice",
+              "prompt": "What should volunteers do?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Bring gloves and arrive early."
+                },
+                {
+                  "id": "B",
+                  "label": "Pay for equipment at the gate."
+                },
+                {
+                  "id": "C",
+                  "label": "Work there every morning."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test30-part-1-q2",
+              "number": 2,
+              "type": "multiple-choice",
+              "prompt": "What does the writer ask the friend to do?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Wait until Tuesday evening."
+                },
+                {
+                  "id": "B",
+                  "label": "Begin the session if necessary."
+                },
+                {
+                  "id": "C",
+                  "label": "Cancel the booking."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test30-part-1-q3",
+              "number": 3,
+              "type": "multiple-choice",
+              "prompt": "What must visitors do?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Take the tools home."
+                },
+                {
+                  "id": "B",
+                  "label": "Use the tools only outdoors."
+                },
+                {
+                  "id": "C",
+                  "label": "Return the tools after use."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test30-part-1-q4",
+              "number": 4,
+              "type": "multiple-choice",
+              "prompt": "Why has the meeting moved?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "The original room is unavailable."
+                },
+                {
+                  "id": "B",
+                  "label": "The meeting has finished early."
+                },
+                {
+                  "id": "C",
+                  "label": "More people have joined the group."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test30-part-1-q5",
+              "number": 5,
+              "type": "multiple-choice",
+              "prompt": "What is the rule about guides?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Members may keep one for a week."
+                },
+                {
+                  "id": "B",
+                  "label": "Only visitors may borrow one."
+                },
+                {
+                  "id": "C",
+                  "label": "All copies must be returned that day."
+                }
+              ],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-pet-b1-test30-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 6–10",
+      "passageTitle": "Part 2 – Matching",
+      "passage": [
+        {
+          "text": "The people below all want to take part in community gardens. Decide which option would be most suitable."
+        },
+        {
+          "label": "A",
+          "text": "A morning course about shared plots, with equipment supplied.",
+          "imageSlotId": "catalog-reading-pet-b1-test30-part-2-option-a-image",
+          "imageRequired": false
+        },
+        {
+          "label": "B",
+          "text": "An evening club for people who prefer meeting local experts.",
+          "imageSlotId": "catalog-reading-pet-b1-test30-part-2-option-b-image",
+          "imageRequired": false
+        },
+        {
+          "label": "C",
+          "text": "A weekend event offering practical activities in small groups.",
+          "imageSlotId": "catalog-reading-pet-b1-test30-part-2-option-c-image",
+          "imageRequired": false
+        },
+        {
+          "label": "D",
+          "text": "A low-cost programme near the town centre, open to beginners.",
+          "imageSlotId": "catalog-reading-pet-b1-test30-part-2-option-d-image",
+          "imageRequired": false
+        },
+        {
+          "label": "E",
+          "text": "A quiet project where members can work independently.",
+          "imageSlotId": "catalog-reading-pet-b1-test30-part-2-option-e-image",
+          "imageRequired": false
+        },
+        {
+          "label": "F",
+          "text": "A short course that includes advice from experienced local gardeners.",
+          "imageSlotId": "catalog-reading-pet-b1-test30-part-2-option-f-image",
+          "imageRequired": false
+        },
+        {
+          "label": "G",
+          "text": "A family activity held outdoors when the weather is suitable.",
+          "imageSlotId": "catalog-reading-pet-b1-test30-part-2-option-g-image",
+          "imageRequired": false
+        },
+        {
+          "label": "H",
+          "text": "A longer programme combining study with social events.",
+          "imageSlotId": "catalog-reading-pet-b1-test30-part-2-option-h-image",
+          "imageRequired": false
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test30-part-2-g0",
+          "range": "Questions 6–10",
+          "instruction": "For each question, choose the most suitable option.",
+          "type": "matching-features",
+          "features": [
+            {
+              "id": "a",
+              "name": "A morning course about shared plots, with equipment supplied."
+            },
+            {
+              "id": "b",
+              "name": "An evening club for people who prefer meeting local experts."
+            },
+            {
+              "id": "c",
+              "name": "A weekend event offering practical activities in small groups."
+            },
+            {
+              "id": "d",
+              "name": "A low-cost programme near the town centre, open to beginners."
+            },
+            {
+              "id": "e",
+              "name": "A quiet project where members can work independently."
+            },
+            {
+              "id": "f",
+              "name": "A short course that includes advice from experienced local gardeners."
+            },
+            {
+              "id": "g",
+              "name": "A family activity held outdoors when the weather is suitable."
+            },
+            {
+              "id": "h",
+              "name": "A longer programme combining study with social events."
+            }
+          ],
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test30-part-2-q6",
+              "number": 6,
+              "type": "matching-features",
+              "prompt": "Mia has only one free morning and wants to learn about shared plots.",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test30-part-2-q7",
+              "number": 7,
+              "type": "matching-features",
+              "prompt": "Noah works late, so he needs an activity that starts in the evening.",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test30-part-2-q8",
+              "number": 8,
+              "type": "matching-features",
+              "prompt": "Aisha is new to community gardens and wants friendly expert advice.",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test30-part-2-q9",
+              "number": 9,
+              "type": "matching-features",
+              "prompt": "Leo has little money and would like somewhere easy to reach.",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test30-part-2-q10",
+              "number": 10,
+              "type": "matching-features",
+              "prompt": "Sara dislikes crowds and would rather work quietly on her own.",
+              "options": [],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-pet-b1-test30-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 11–15",
+      "passageTitle": "Part 3 – community gardens",
+      "passage": [
+        {
+          "text": "When the local gardeners in our town started a community gardens project, few residents expected it to grow so quickly. At first, the organisers met in a small room and planned one simple activity involving shared plots. They soon discovered that people were more willing to join when they could see a clear benefit for the neighbourhood. The organisers therefore published a short timetable and invited local businesses to offer practical help."
+        },
+        {
+          "text": "The project was not completely easy. Some volunteers were worried that the work would take too much time, while others wanted to change the plan every week. The team solved this by giving each person one small responsibility and reviewing the results together. This made the project feel manageable, and it also meant that new volunteers could contribute without special experience."
+        },
+        {
+          "text": "Looking back, the organiser says the most important lesson was not the final result but the way people learned to cooperate. The group still has problems, especially when the weather affects outdoor work, yet members now discuss solutions rather than blaming one another. For this reason, the project has become a useful example of how a modest local idea can create lasting connections."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test30-part-3-g0",
+          "range": "Questions 11–15",
+          "instruction": "Read the text and choose the correct answer A, B, C or D.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test30-part-3-q11",
+              "number": 11,
+              "type": "multiple-choice",
+              "prompt": "What was one reason more residents joined the project?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "They could understand its practical value."
+                },
+                {
+                  "id": "B",
+                  "label": "They were promised paid work."
+                },
+                {
+                  "id": "C",
+                  "label": "They wanted to compete with local businesses."
+                },
+                {
+                  "id": "D",
+                  "label": "They were required to attend."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test30-part-3-q12",
+              "number": 12,
+              "type": "multiple-choice",
+              "prompt": "What problem did some volunteers have at the beginning?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "They disagreed about how often to change the plan."
+                },
+                {
+                  "id": "B",
+                  "label": "They could not find a suitable meeting room."
+                },
+                {
+                  "id": "C",
+                  "label": "They lacked permission to contact businesses."
+                },
+                {
+                  "id": "D",
+                  "label": "They had no interest in outdoor work."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test30-part-3-q13",
+              "number": 13,
+              "type": "multiple-choice",
+              "prompt": "How did the team make participation easier?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "It divided the work into smaller responsibilities."
+                },
+                {
+                  "id": "B",
+                  "label": "It removed the timetable completely."
+                },
+                {
+                  "id": "C",
+                  "label": "It asked only experienced people to help."
+                },
+                {
+                  "id": "D",
+                  "label": "It stopped reviewing the results."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test30-part-3-q14",
+              "number": 14,
+              "type": "multiple-choice",
+              "prompt": "What does the organiser value most about the project?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "The cooperation that developed among residents."
+                },
+                {
+                  "id": "B",
+                  "label": "The money earned by local businesses."
+                },
+                {
+                  "id": "C",
+                  "label": "The speed at which the first activity finished."
+                },
+                {
+                  "id": "D",
+                  "label": "The number of changes made to the timetable."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test30-part-3-q15",
+              "number": 15,
+              "type": "multiple-choice",
+              "prompt": "What is the writer’s main point?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A small local project can strengthen a community."
+                },
+                {
+                  "id": "B",
+                  "label": "Outdoor projects are always more successful than indoor ones."
+                },
+                {
+                  "id": "C",
+                  "label": "Volunteers should avoid changing their plans."
+                },
+                {
+                  "id": "D",
+                  "label": "Businesses should organise neighbourhood activities."
+                }
+              ],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-pet-b1-test30-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 16–20",
+      "passageTitle": "Part 4 – community gardens",
+      "passage": [
+        {
+          "text": "The local gardeners began their community gardens plan with one short meeting. (16) ..... The next week, more residents arrived than expected. (17) ..... They wanted to keep the activity useful rather than simply make it larger. (18) ..... The organisers therefore asked members to choose one task each. (19) ..... The work became easier to manage, and new volunteers quickly understood what to do. (20) ..... The project now meets regularly and welcomes anyone who wants to take part."
+        },
+        {
+          "label": "A",
+          "text": "This was the first sign that the idea might work."
+        },
+        {
+          "label": "B",
+          "text": "For that reason, the group changed its meeting place."
+        },
+        {
+          "label": "C",
+          "text": "As a result, several people offered to help."
+        },
+        {
+          "label": "D",
+          "text": "The organisers had not expected such a quick response."
+        },
+        {
+          "label": "E",
+          "text": "Even so, the original aim remained the same."
+        },
+        {
+          "label": "F",
+          "text": "They later used the same method in another area."
+        },
+        {
+          "label": "G",
+          "text": "This made the final decision much easier."
+        },
+        {
+          "label": "H",
+          "text": "In the end, everyone agreed to continue."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test30-part-4-g0",
+          "range": "Questions 16–20",
+          "instruction": "Choose the sentence which fits each gap.",
+          "type": "matching-features",
+          "features": [
+            {
+              "id": "a",
+              "name": "This was the first sign that the idea might work."
+            },
+            {
+              "id": "b",
+              "name": "For that reason, the group changed its meeting place."
+            },
+            {
+              "id": "c",
+              "name": "As a result, several people offered to help."
+            },
+            {
+              "id": "d",
+              "name": "The organisers had not expected such a quick response."
+            },
+            {
+              "id": "e",
+              "name": "Even so, the original aim remained the same."
+            },
+            {
+              "id": "f",
+              "name": "They later used the same method in another area."
+            },
+            {
+              "id": "g",
+              "name": "This made the final decision much easier."
+            },
+            {
+              "id": "h",
+              "name": "In the end, everyone agreed to continue."
+            }
+          ],
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test30-part-4-q16",
+              "number": 16,
+              "type": "gap-fill",
+              "prompt": "Gap 16",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test30-part-4-q17",
+              "number": 17,
+              "type": "gap-fill",
+              "prompt": "Gap 17",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test30-part-4-q18",
+              "number": 18,
+              "type": "gap-fill",
+              "prompt": "Gap 18",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test30-part-4-q19",
+              "number": 19,
+              "type": "gap-fill",
+              "prompt": "Gap 19",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test30-part-4-q20",
+              "number": 20,
+              "type": "gap-fill",
+              "prompt": "Gap 20",
+              "options": [],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-pet-b1-test30-part-5",
+      "partNumber": 5,
+      "rangeLabel": "Questions 21–26",
+      "passageTitle": "Part 5 – community gardens",
+      "passage": [
+        {
+          "text": "The local gardeners usually meet (21) ........ Saturday. New members are shown how to (22) ........ the equipment. They can ask for advice if they are (23) ........ about a task. The group works together (24) ........ everyone can learn. Members often share ideas (25) ........ the session. The project has become a popular way to meet (26) ........ people."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test30-part-5-g0",
+          "range": "Questions 21–26",
+          "instruction": "For each question, choose the correct answer A, B, C or D.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test30-part-5-q21",
+              "number": 21,
+              "type": "multiple-choice",
+              "prompt": "Gap (21)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "every"
+                },
+                {
+                  "id": "B",
+                  "label": "each"
+                },
+                {
+                  "id": "C",
+                  "label": "whole"
+                },
+                {
+                  "id": "D",
+                  "label": "all"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test30-part-5-q22",
+              "number": 22,
+              "type": "multiple-choice",
+              "prompt": "Gap (22)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "use"
+                },
+                {
+                  "id": "B",
+                  "label": "make"
+                },
+                {
+                  "id": "C",
+                  "label": "bring"
+                },
+                {
+                  "id": "D",
+                  "label": "hold"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test30-part-5-q23",
+              "number": 23,
+              "type": "multiple-choice",
+              "prompt": "Gap (23)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "uncertain"
+                },
+                {
+                  "id": "B",
+                  "label": "narrow"
+                },
+                {
+                  "id": "C",
+                  "label": "single"
+                },
+                {
+                  "id": "D",
+                  "label": "empty"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test30-part-5-q24",
+              "number": 24,
+              "type": "multiple-choice",
+              "prompt": "Gap (24)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "so that"
+                },
+                {
+                  "id": "B",
+                  "label": "unless"
+                },
+                {
+                  "id": "C",
+                  "label": "although"
+                },
+                {
+                  "id": "D",
+                  "label": "before"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test30-part-5-q25",
+              "number": 25,
+              "type": "multiple-choice",
+              "prompt": "Gap (25)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "during"
+                },
+                {
+                  "id": "B",
+                  "label": "between"
+                },
+                {
+                  "id": "C",
+                  "label": "inside"
+                },
+                {
+                  "id": "D",
+                  "label": "through"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test30-part-5-q26",
+              "number": 26,
+              "type": "multiple-choice",
+              "prompt": "Gap (26)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "local"
+                },
+                {
+                  "id": "B",
+                  "label": "private"
+                },
+                {
+                  "id": "C",
+                  "label": "silent"
+                },
+                {
+                  "id": "D",
+                  "label": "rare"
+                }
+              ],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-pet-b1-test30-part-6",
+      "partNumber": 6,
+      "rangeLabel": "Questions 27–32",
+      "passageTitle": "Part 6 – community gardens",
+      "passage": [
+        {
+          "text": "The local gardeners meet (27) ........ week to plan activities. New members learn (28) ........ to use the shared plots safely. They can join the work, (29) ........ they should follow the group’s instructions. The project has kept useful materials (30) ........ being thrown away. It is a place (31) ........ people can exchange ideas. Remember (32) ........ ask for help when you need it."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test30-part-6-g0",
+          "range": "Questions 27–32",
+          "instruction": "Write one word for each gap.",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test30-part-6-q27",
+              "number": 27,
+              "type": "gap-fill",
+              "prompt": "Gap (27)",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test30-part-6-q28",
+              "number": 28,
+              "type": "gap-fill",
+              "prompt": "Gap (28)",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test30-part-6-q29",
+              "number": 29,
+              "type": "gap-fill",
+              "prompt": "Gap (29)",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test30-part-6-q30",
+              "number": 30,
+              "type": "gap-fill",
+              "prompt": "Gap (30)",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test30-part-6-q31",
+              "number": 31,
+              "type": "gap-fill",
+              "prompt": "Gap (31)",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test30-part-6-q32",
+              "number": 32,
+              "type": "gap-fill",
+              "prompt": "Gap (32)",
+              "options": [],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

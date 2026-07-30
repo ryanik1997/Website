@@ -7,6 +7,7 @@ const ROOT = path.resolve(__dirname, '..')
 const DATA_DIR = path.join(ROOT, 'packages', 'catalog', 'data')
 const PUB_DIR = path.join(ROOT, 'apps', 'web', 'public', 'catalog', 'exams')
 const FCE_IDS = Array.from({ length: 27 }, (_, i) => `catalog-reading-fce-b2-test${i + 1}`)
+const PET_IDS = [1, 13, ...Array.from({ length: 38 }, (_, i) => i + 14)].map(n => `catalog-reading-pet-b1-test${n}`)
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'))
@@ -56,6 +57,12 @@ function validateReadingRuntime() {
   const seenQuestionIds = new Set()
   let bodyCount = 0
   let answerVaultCount = 0
+  const petMeta = getMetaIds(PET_IDS)
+  const petManifest = getManifestIds(PET_IDS)
+  const petRuntime = PET_IDS.filter(id => fs.existsSync(path.join(PUB_DIR, 'reading', `${id}.json`)) && fs.existsSync(path.join(PUB_DIR, 'reading', `${id}.answers.json`)))
+  if (petMeta.size !== PET_IDS.length || petManifest.size !== PET_IDS.length || petRuntime.length !== PET_IDS.length) {
+    errors.push(`PET B1 reading catalog incomplete: meta=${petMeta.size}, manifest=${petManifest.size}, runtime=${petRuntime.length}, expected=${PET_IDS.length}`)
+  }
 
   for (const id of FCE_IDS) {
     if (!manifestIds.has(id)) errors.push(`manifest missing ${id}`)
@@ -162,7 +169,18 @@ function validateReadingRuntime() {
     metaCount: metaIds.size,
     bodyCount,
     answerVaultCount,
+    petB1ReadingEntryCount: petRuntime.length,
   }
+}
+
+function getMetaIds(ids) {
+  const meta = readJson(path.join(DATA_DIR, 'catalog-reading-meta.json'))
+  return new Set(meta.filter(item => ids.includes(item.id)).map(item => item.id))
+}
+
+function getManifestIds(ids) {
+  const manifest = readJson(path.join(DATA_DIR, 'manifest.json'))
+  return new Set((manifest.reading ?? []).filter(item => ids.includes(item.id)).map(item => item.id))
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {

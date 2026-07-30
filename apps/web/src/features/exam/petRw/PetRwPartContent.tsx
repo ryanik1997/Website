@@ -448,6 +448,7 @@ export default function PetRwPartContent({
   if (part.partNumber === 1 && renderedQuestion) {
     const imgIndex = renderedQuestion.number - 1
     const signBlock = part.passage[imgIndex]
+    const semanticPart1 = (part as ReadingPart & { renderMode?: string }).renderMode === 'html-css'
     return (
       <>
         <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
@@ -458,11 +459,19 @@ export default function PetRwPartContent({
               data-question-id={renderedQuestion.id}
             >
               <div className="pet-rw-part1-image-frame">
-                <PassageImage
-                  imageKey={signBlock?.imageKey}
-                  imageUrl={signBlock?.imageUrl}
-                  alt={`Sign ${renderedQuestion.number}`}
-                />
+                {!semanticPart1 && (signBlock?.imageKey || signBlock?.imageUrl) ? (
+                  <PassageImage
+                    imageKey={signBlock?.imageKey}
+                    imageUrl={signBlock?.imageUrl}
+                    alt={`Sign ${renderedQuestion.number}`}
+                  />
+                ) : (
+                  <div className="pet-rw-part1-text-card" role="article">
+                    {(signBlock?.text ?? '').split('\n').map((line, index) => (
+                      <p key={`${renderedQuestion.id}-line-${index}`}>{line}</p>
+                    ))}
+                  </div>
+                )}
               </div>
               <RwMcRadioQuestion
                 partId={partId}
