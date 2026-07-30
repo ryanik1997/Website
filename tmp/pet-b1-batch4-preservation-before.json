@@ -1,0 +1,58 @@
+{
+  "tests": [
+    14,
+    19,
+    30,
+    51
+  ],
+  "files": [
+    {
+      "file": "packages/catalog/data/reading-pet-b1-test14.json",
+      "sha256": "70da626abf5c866c77c54d364973530505de366696739643a94289fe7c7bcca2"
+    },
+    {
+      "file": "apps/web/public/catalog/exams/reading/catalog-reading-pet-b1-test14.json",
+      "sha256": "c3b143f81dd56f6623e682dbaeb39aa4b813224bf8f15295893b117f533e72c5"
+    },
+    {
+      "file": "apps/web/public/catalog/exams/reading/catalog-reading-pet-b1-test14.answers.json",
+      "sha256": "b57472a56d8e8ea276a0b4afc1e2d38d73c676d8a33ca2d5ddfd31ef5836166c"
+    },
+    {
+      "file": "packages/catalog/data/reading-pet-b1-test19.json",
+      "sha256": "45f061546f6c77164f085d0415a3118c973a9d50ade94c8ad5fcb931d8b146de"
+    },
+    {
+      "file": "apps/web/public/catalog/exams/reading/catalog-reading-pet-b1-test19.json",
+      "sha256": "45f061546f6c77164f085d0415a3118c973a9d50ade94c8ad5fcb931d8b146de"
+    },
+    {
+      "file": "apps/web/public/catalog/exams/reading/catalog-reading-pet-b1-test19.answers.json",
+      "sha256": "c119d67f0ada61b85be723592efa6c2b618b0cbe11353d6a50db2d05168b7193"
+    },
+    {
+      "file": "packages/catalog/data/reading-pet-b1-test30.json",
+      "sha256": "f8c6f0372b9196ea459a3143bd168a4f8f90e98b57ebb474d55b808c1b2334f9"
+    },
+    {
+      "file": "apps/web/public/catalog/exams/reading/catalog-reading-pet-b1-test30.json",
+      "sha256": "f8c6f0372b9196ea459a3143bd168a4f8f90e98b57ebb474d55b808c1b2334f9"
+    },
+    {
+      "file": "apps/web/public/catalog/exams/reading/catalog-reading-pet-b1-test30.answers.json",
+      "sha256": "190ec90bd70442c17839263f016f98e46f7c288d8a2eccb518f9f3067cc351e6"
+    },
+    {
+      "file": "packages/catalog/data/reading-pet-b1-test51.json",
+      "sha256": "d2703bd32aed6380082cfa3ea3ed9f0a3944b4e8f2322be048a7a91e725df453"
+    },
+    {
+      "file": "apps/web/public/catalog/exams/reading/catalog-reading-pet-b1-test51.json",
+      "sha256": "d2703bd32aed6380082cfa3ea3ed9f0a3944b4e8f2322be048a7a91e725df453"
+    },
+    {
+      "file": "apps/web/public/catalog/exams/reading/catalog-reading-pet-b1-test51.answers.json",
+      "sha256": "ebf821a0442e900d3df6baf17c55a6b8a4b9c880e5d0509c05a397162c1fcfc0"
+    }
+  ]
+}

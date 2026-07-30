@@ -1,11 +1,14 @@
 {
-  "batch": 1,
-  "tests": [15, 16, 17, 18, 19],
+  "batches": [
+    { "batch": 1, "tests": [15, 16, 17, 18, 19] },
+    { "batch": 3, "tests": [25, 26, 27, 28, 29] }
+  ],
+  "tests": [15, 16, 17, 18, 19, 25, 26, 27, 28, 29],
   "diversityCheck": {
-    "part2Domains": ["food and cooking classes", "sports clubs and fitness activities", "music lessons and performing arts", "work experience and career skills", "environmental volunteering and conservation"],
-    "part3Topics": ["a local cooking competition", "learning to swim as an adult", "a school music concert", "a first day at a new job", "a river clean-up day"],
-    "part4NarrativeStructures": ["sequencing-cause-effect", "contrast-sequencing", "time-addition", "cause-effect-contrast", "time-cause-effect"],
-    "part6Sequences": ["article-relative-conjunction-preposition-pronoun-linking", "preposition-conjunction-article-relative-pronoun-auxiliary", "relative-preposition-conjunction-article-linking-pronoun", "conjunction-article-relative-preposition-auxiliary-pronoun", "article-conjunction-relative-preposition-pronoun-linking"]
+    "part2Domains": ["food and cooking classes", "sports clubs and fitness activities", "music lessons and performing arts", "work experience and career skills", "environmental volunteering and conservation", "travel planning and local transport", "health services and fitness programmes", "coding clubs and digital skills", "art classes and craft workshops", "part-time work and youth earning"],
+    "part3Topics": ["a local cooking competition", "learning to swim as an adult", "a school music concert", "a first day at a new job", "a river clean-up day", "a school trip that went wrong", "training for a first 5K run", "a coding competition at school", "a community mural project", "my first Saturday job"],
+    "part4NarrativeStructures": ["sequencing-cause-effect", "contrast-sequencing", "time-addition", "cause-effect-contrast", "time-cause-effect", "result-sequencing-contrast", "addition-time-cause", "contrast-result-time", "sequencing-addition-result", "cause-time-contrast"],
+    "part6Sequences": ["article-relative-conjunction-preposition-pronoun-linking", "preposition-conjunction-article-relative-pronoun-auxiliary", "relative-preposition-conjunction-article-linking-pronoun", "conjunction-article-relative-preposition-auxiliary-pronoun", "article-conjunction-relative-preposition-pronoun-linking", "preposition-article-conjunction-relative-pronoun-linking", "relative-conjunction-preposition-article-linking-pronoun", "conjunction-relative-article-preposition-pronoun-auxiliary", "article-preposition-relative-conjunction-linking-pronoun", "preposition-conjunction-relative-article-pronoun-linking"]
   },
   "entries": [
     {
@@ -86,6 +89,86 @@
       "part5Targets": ["collocation", "linking-word", "phrasal-verb", "dependent-preposition", "fixed-expression", "verb-choice"],
       "part6Topic": "a school recycling scheme",
       "part6Targets": ["article", "conjunction", "relative-word", "preposition", "pronoun", "linking-word"],
+      "difficultyProfile": "standard-B1"
+    },
+    {
+      "testNumber": 25,
+      "part1Contexts": ["bus timetable notice", "train delay announcement", "travel agency email", "airport information screen", "hotel booking text"],
+      "part1Skills": ["timing", "condition", "required-action", "exception", "recommendation"],
+      "part2Domain": "travel planning and local transport",
+      "part3Topic": "a school trip that went wrong",
+      "part3NarrativeType": "humorous-anecdote",
+      "part3Skills": ["detail", "reason", "attitude", "inference", "main-idea"],
+      "part4Topic": "cycling to school for the first time",
+      "part4CohesionTypes": ["result", "sequencing", "contrast", "addition", "cause-effect"],
+      "part5Topic": "a family road trip",
+      "part5Targets": ["dependent-preposition", "collocation", "phrasal-verb", "linking-word", "verb-choice", "fixed-expression"],
+      "part6Topic": "using public transport in a new city",
+      "part6Targets": ["preposition", "article", "conjunction", "relative-word", "pronoun", "linking-word"],
+      "difficultyProfile": "standard-B1"
+    },
+    {
+      "testNumber": 26,
+      "part1Contexts": ["surgery appointment letter", "gym membership notice", "pharmacy label", "school nurse email", "fitness class reminder"],
+      "part1Skills": ["required-action", "timing", "condition", "warning", "recommendation"],
+      "part2Domain": "health services and fitness programmes",
+      "part3Topic": "training for a first 5K run",
+      "part3NarrativeType": "personal-journey",
+      "part3Skills": ["reason", "detail", "purpose", "attitude", "inference"],
+      "part4Topic": "organising a school sports day",
+      "part4CohesionTypes": ["addition", "time", "cause-effect", "contrast", "result"],
+      "part5Topic": "a healthy eating project at school",
+      "part5Targets": ["collocation", "phrasal-verb", "dependent-preposition", "adjective-adverb", "linking-word", "verb-choice"],
+      "part6Topic": "a walking group for beginners",
+      "part6Targets": ["relative-word", "conjunction", "preposition", "article", "linking-word", "pronoun"],
+      "difficultyProfile": "standard-B1"
+    },
+    {
+      "testNumber": 27,
+      "part1Contexts": ["coding club sign-up email", "app update notification", "online safety poster", "IT support ticket reply", "website message"],
+      "part1Skills": ["required-action", "condition", "timing", "exception", "rule"],
+      "part2Domain": "coding clubs and digital skills",
+      "part3Topic": "a coding competition at school",
+      "part3NarrativeType": "reflective-account",
+      "part3Skills": ["main-idea", "detail", "reason", "reference", "attitude"],
+      "part4Topic": "starting a school podcast",
+      "part4CohesionTypes": ["contrast", "result", "time", "sequencing", "addition"],
+      "part5Topic": "using technology in the classroom",
+      "part5Targets": ["phrasal-verb", "collocation", "dependent-preposition", "fixed-expression", "meaning-distinction", "linking-word"],
+      "part6Topic": "a robotics workshop",
+      "part6Targets": ["conjunction", "relative-word", "article", "preposition", "pronoun", "auxiliary"],
+      "difficultyProfile": "standard-B1"
+    },
+    {
+      "testNumber": 28,
+      "part1Contexts": ["art class timetable change", "gallery opening invitation", "craft fair notice", "photography club email", "drama rehearsal text"],
+      "part1Skills": ["timing", "recommendation", "required-action", "condition", "exception"],
+      "part2Domain": "art classes and craft workshops",
+      "part3Topic": "a community mural project",
+      "part3NarrativeType": "descriptive-narrative",
+      "part3Skills": ["attitude", "main-idea", "detail", "purpose", "inference"],
+      "part4Topic": "entering a photography competition",
+      "part4CohesionTypes": ["sequencing", "addition", "result", "cause-effect", "contrast"],
+      "part5Topic": "learning pottery as a hobby",
+      "part5Targets": ["verb-choice", "dependent-preposition", "collocation", "phrasal-verb", "linking-word", "adjective-adverb"],
+      "part6Topic": "a school drama production",
+      "part6Targets": ["article", "preposition", "relative-word", "conjunction", "linking-word", "pronoun"],
+      "difficultyProfile": "standard-B1"
+    },
+    {
+      "testNumber": 29,
+      "part1Contexts": ["babysitting job reply", "shop shift confirmation", "market stall notice", "payment reminder text", "weekend job advert"],
+      "part1Skills": ["deadline", "required-action", "condition", "timing", "recommendation"],
+      "part2Domain": "part-time work and youth earning",
+      "part3Topic": "my first Saturday job",
+      "part3NarrativeType": "personal-narrative",
+      "part3Skills": ["detail", "inference", "reason", "attitude", "purpose"],
+      "part4Topic": "starting a small business at school",
+      "part4CohesionTypes": ["cause-effect", "time", "contrast", "result", "sequencing"],
+      "part5Topic": "saving money as a teenager",
+      "part5Targets": ["dependent-preposition", "phrasal-verb", "collocation", "linking-word", "fixed-expression", "verb-choice"],
+      "part6Topic": "a youth enterprise project",
+      "part6Targets": ["preposition", "conjunction", "relative-word", "article", "pronoun", "linking-word"],
       "difficultyProfile": "standard-B1"
     }
   ]

@@ -1,0 +1,662 @@
+[
+  {
+    "test": 20,
+    "part4": {
+      "totalWords": 328,
+      "paragraphCount": 5,
+      "gapCount": 5,
+      "optionCount": 8,
+      "featureCount": 8,
+      "wordsPerBlock": [
+        69,
+        66,
+        63,
+        66,
+        64
+      ],
+      "gapMatches": [
+        {
+          "number": 16,
+          "blockIndex": 0
+        },
+        {
+          "number": 17,
+          "blockIndex": 1
+        },
+        {
+          "number": 18,
+          "blockIndex": 2
+        },
+        {
+          "number": 19,
+          "blockIndex": 3
+        },
+        {
+          "number": 20,
+          "blockIndex": 4
+        }
+      ],
+      "wordsBeforeQ16": 15,
+      "wordsAfterQ20": 48,
+      "wordsBetweenGaps": [
+        67,
+        66,
+        65,
+        67
+      ]
+    },
+    "part5": {
+      "totalWords": 196,
+      "gapCount": 6,
+      "questionCount": 6,
+      "optionsPerQuestion": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "allHave4Options": true
+    },
+    "part6": {
+      "totalWords": 187,
+      "gapCount": 6,
+      "questionCount": 6
+    }
+  },
+  {
+    "test": 21,
+    "part4": {
+      "totalWords": 342,
+      "paragraphCount": 5,
+      "gapCount": 5,
+      "optionCount": 8,
+      "featureCount": 8,
+      "wordsPerBlock": [
+        76,
+        68,
+        63,
+        75,
+        60
+      ],
+      "gapMatches": [
+        {
+          "number": 16,
+          "blockIndex": 0
+        },
+        {
+          "number": 17,
+          "blockIndex": 1
+        },
+        {
+          "number": 18,
+          "blockIndex": 2
+        },
+        {
+          "number": 19,
+          "blockIndex": 3
+        },
+        {
+          "number": 20,
+          "blockIndex": 4
+        }
+      ],
+      "wordsBeforeQ16": 20,
+      "wordsAfterQ20": 48,
+      "wordsBetweenGaps": [
+        69,
+        68,
+        65,
+        72
+      ]
+    },
+    "part5": {
+      "totalWords": 183,
+      "gapCount": 6,
+      "questionCount": 6,
+      "optionsPerQuestion": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "allHave4Options": true
+    },
+    "part6": {
+      "totalWords": 191,
+      "gapCount": 6,
+      "questionCount": 6
+    }
+  },
+  {
+    "test": 22,
+    "part4": {
+      "totalWords": 346,
+      "paragraphCount": 5,
+      "gapCount": 5,
+      "optionCount": 8,
+      "featureCount": 8,
+      "wordsPerBlock": [
+        69,
+        74,
+        70,
+        71,
+        62
+      ],
+      "gapMatches": [
+        {
+          "number": 16,
+          "blockIndex": 0
+        },
+        {
+          "number": 17,
+          "blockIndex": 1
+        },
+        {
+          "number": 18,
+          "blockIndex": 2
+        },
+        {
+          "number": 19,
+          "blockIndex": 3
+        },
+        {
+          "number": 20,
+          "blockIndex": 4
+        }
+      ],
+      "wordsBeforeQ16": 20,
+      "wordsAfterQ20": 46,
+      "wordsBetweenGaps": [
+        66,
+        75,
+        68,
+        71
+      ]
+    },
+    "part5": {
+      "totalWords": 214,
+      "gapCount": 6,
+      "questionCount": 6,
+      "optionsPerQuestion": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "allHave4Options": true
+    },
+    "part6": {
+      "totalWords": 194,
+      "gapCount": 6,
+      "questionCount": 6
+    }
+  },
+  {
+    "test": 23,
+    "part4": {
+      "totalWords": 331,
+      "paragraphCount": 5,
+      "gapCount": 5,
+      "optionCount": 8,
+      "featureCount": 8,
+      "wordsPerBlock": [
+        70,
+        66,
+        71,
+        65,
+        59
+      ],
+      "gapMatches": [
+        {
+          "number": 16,
+          "blockIndex": 0
+        },
+        {
+          "number": 17,
+          "blockIndex": 1
+        },
+        {
+          "number": 18,
+          "blockIndex": 2
+        },
+        {
+          "number": 19,
+          "blockIndex": 3
+        },
+        {
+          "number": 20,
+          "blockIndex": 4
+        }
+      ],
+      "wordsBeforeQ16": 23,
+      "wordsAfterQ20": 45,
+      "wordsBetweenGaps": [
+        65,
+        66,
+        70,
+        62
+      ]
+    },
+    "part5": {
+      "totalWords": 199,
+      "gapCount": 6,
+      "questionCount": 6,
+      "optionsPerQuestion": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "allHave4Options": true
+    },
+    "part6": {
+      "totalWords": 187,
+      "gapCount": 6,
+      "questionCount": 6
+    }
+  },
+  {
+    "test": 24,
+    "part4": {
+      "totalWords": 320,
+      "paragraphCount": 5,
+      "gapCount": 5,
+      "optionCount": 8,
+      "featureCount": 8,
+      "wordsPerBlock": [
+        67,
+        62,
+        68,
+        63,
+        60
+      ],
+      "gapMatches": [
+        {
+          "number": 16,
+          "blockIndex": 0
+        },
+        {
+          "number": 17,
+          "blockIndex": 1
+        },
+        {
+          "number": 18,
+          "blockIndex": 2
+        },
+        {
+          "number": 19,
+          "blockIndex": 3
+        },
+        {
+          "number": 20,
+          "blockIndex": 4
+        }
+      ],
+      "wordsBeforeQ16": 17,
+      "wordsAfterQ20": 47,
+      "wordsBetweenGaps": [
+        64,
+        64,
+        70,
+        58
+      ]
+    },
+    "part5": {
+      "totalWords": 191,
+      "gapCount": 6,
+      "questionCount": 6,
+      "optionsPerQuestion": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "allHave4Options": true
+    },
+    "part6": {
+      "totalWords": 182,
+      "gapCount": 6,
+      "questionCount": 6
+    }
+  },
+  {
+    "test": 25,
+    "part4": {
+      "totalWords": 332,
+      "paragraphCount": 5,
+      "gapCount": 5,
+      "optionCount": 8,
+      "featureCount": 8,
+      "wordsPerBlock": [
+        63,
+        66,
+        73,
+        69,
+        61
+      ],
+      "gapMatches": [
+        {
+          "number": 16,
+          "blockIndex": 0
+        },
+        {
+          "number": 17,
+          "blockIndex": 1
+        },
+        {
+          "number": 18,
+          "blockIndex": 2
+        },
+        {
+          "number": 19,
+          "blockIndex": 3
+        },
+        {
+          "number": 20,
+          "blockIndex": 4
+        }
+      ],
+      "wordsBeforeQ16": 13,
+      "wordsAfterQ20": 48,
+      "wordsBetweenGaps": [
+        65,
+        69,
+        70,
+        67
+      ]
+    },
+    "part5": {
+      "totalWords": 188,
+      "gapCount": 6,
+      "questionCount": 6,
+      "optionsPerQuestion": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "allHave4Options": true
+    },
+    "part6": {
+      "totalWords": 176,
+      "gapCount": 6,
+      "questionCount": 6
+    }
+  },
+  {
+    "test": 26,
+    "part4": {
+      "totalWords": 326,
+      "paragraphCount": 5,
+      "gapCount": 5,
+      "optionCount": 8,
+      "featureCount": 8,
+      "wordsPerBlock": [
+        69,
+        64,
+        61,
+        66,
+        66
+      ],
+      "gapMatches": [
+        {
+          "number": 16,
+          "blockIndex": 0
+        },
+        {
+          "number": 17,
+          "blockIndex": 1
+        },
+        {
+          "number": 18,
+          "blockIndex": 2
+        },
+        {
+          "number": 19,
+          "blockIndex": 3
+        },
+        {
+          "number": 20,
+          "blockIndex": 4
+        }
+      ],
+      "wordsBeforeQ16": 18,
+      "wordsAfterQ20": 46,
+      "wordsBetweenGaps": [
+        66,
+        65,
+        63,
+        68
+      ]
+    },
+    "part5": {
+      "totalWords": 189,
+      "gapCount": 6,
+      "questionCount": 6,
+      "optionsPerQuestion": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "allHave4Options": true
+    },
+    "part6": {
+      "totalWords": 186,
+      "gapCount": 6,
+      "questionCount": 6
+    }
+  },
+  {
+    "test": 27,
+    "part4": {
+      "totalWords": 323,
+      "paragraphCount": 5,
+      "gapCount": 5,
+      "optionCount": 8,
+      "featureCount": 8,
+      "wordsPerBlock": [
+        75,
+        65,
+        63,
+        64,
+        56
+      ],
+      "gapMatches": [
+        {
+          "number": 16,
+          "blockIndex": 0
+        },
+        {
+          "number": 17,
+          "blockIndex": 1
+        },
+        {
+          "number": 18,
+          "blockIndex": 2
+        },
+        {
+          "number": 19,
+          "blockIndex": 3
+        },
+        {
+          "number": 20,
+          "blockIndex": 4
+        }
+      ],
+      "wordsBeforeQ16": 18,
+      "wordsAfterQ20": 43,
+      "wordsBetweenGaps": [
+        76,
+        61,
+        63,
+        62
+      ]
+    },
+    "part5": {
+      "totalWords": 194,
+      "gapCount": 6,
+      "questionCount": 6,
+      "optionsPerQuestion": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "allHave4Options": true
+    },
+    "part6": {
+      "totalWords": 187,
+      "gapCount": 6,
+      "questionCount": 6
+    }
+  },
+  {
+    "test": 28,
+    "part4": {
+      "totalWords": 327,
+      "paragraphCount": 5,
+      "gapCount": 5,
+      "optionCount": 8,
+      "featureCount": 8,
+      "wordsPerBlock": [
+        67,
+        71,
+        65,
+        65,
+        59
+      ],
+      "gapMatches": [
+        {
+          "number": 16,
+          "blockIndex": 0
+        },
+        {
+          "number": 17,
+          "blockIndex": 1
+        },
+        {
+          "number": 18,
+          "blockIndex": 2
+        },
+        {
+          "number": 19,
+          "blockIndex": 3
+        },
+        {
+          "number": 20,
+          "blockIndex": 4
+        }
+      ],
+      "wordsBeforeQ16": 16,
+      "wordsAfterQ20": 47,
+      "wordsBetweenGaps": [
+        69,
+        68,
+        64,
+        63
+      ]
+    },
+    "part5": {
+      "totalWords": 182,
+      "gapCount": 6,
+      "questionCount": 6,
+      "optionsPerQuestion": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "allHave4Options": true
+    },
+    "part6": {
+      "totalWords": 183,
+      "gapCount": 6,
+      "questionCount": 6
+    }
+  },
+  {
+    "test": 29,
+    "part4": {
+      "totalWords": 341,
+      "paragraphCount": 5,
+      "gapCount": 5,
+      "optionCount": 8,
+      "featureCount": 8,
+      "wordsPerBlock": [
+        68,
+        70,
+        68,
+        74,
+        61
+      ],
+      "gapMatches": [
+        {
+          "number": 16,
+          "blockIndex": 0
+        },
+        {
+          "number": 17,
+          "blockIndex": 1
+        },
+        {
+          "number": 18,
+          "blockIndex": 2
+        },
+        {
+          "number": 19,
+          "blockIndex": 3
+        },
+        {
+          "number": 20,
+          "blockIndex": 4
+        }
+      ],
+      "wordsBeforeQ16": 17,
+      "wordsAfterQ20": 41,
+      "wordsBetweenGaps": [
+        68,
+        67,
+        72,
+        76
+      ]
+    },
+    "part5": {
+      "totalWords": 207,
+      "gapCount": 6,
+      "questionCount": 6,
+      "optionsPerQuestion": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "allHave4Options": true
+    },
+    "part6": {
+      "totalWords": 187,
+      "gapCount": 6,
+      "questionCount": 6
+    }
+  }
+]
