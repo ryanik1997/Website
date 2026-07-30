@@ -15,45 +15,49 @@
       "passageTitle": "Part 1 – Short texts",
       "passage": [
         {
-          "text": "Repair cafés notice\nThe repair cafés team needs helpers on Saturday. Bring gloves and arrive before nine."
+          "text": "Cooking-class email\nYour pasta session has moved to Room 3 on Thursday. Please bring a clean tea towel and a container for leftovers. The flour and eggs are provided, but you will need your own rolling pin. Arrive five minutes early so we can start on time."
         },
         {
-          "text": "Message from a friend\nI have booked the broken appliances session for Tuesday, but I may arrive late. Please start without me and save a place."
+          "text": "Market notice\nThe Saturday fruit market will close at one o’clock this week instead of three, because of a street parade. Traders will move their tables to the car park behind the library. Customers who usually collect pre-ordered boxes should arrive before twelve."
         },
         {
-          "text": "Information sign\nVisitors to the repair cafés may use the tools, but they must return them before leaving."
+          "text": "Recipe website message\nThank you for your question about the lemon cake recipe. You can replace butter with the same amount of coconut oil, but do not use olive oil because the flavour is too strong. The baking time stays the same. Let us know how it turns out!"
         },
         {
-          "text": "Short announcement\nThe volunteers meeting has moved from Room 2 to Room 4 because the first room is being painted."
+          "text": "Booking update\nYour bread-making workshop is confirmed for 5 April at 10 a.m. The session lasts two hours and includes all ingredients. Cancel at least 48 hours before the date for a full refund. After that, we can offer a place on another date but cannot return the fee."
         },
         {
-          "text": "Notice for members\nMembers can borrow one broken appliances guide for a week. Ask at the desk if you need another copy."
+          "text": "Club instruction\nMembers of the supper club should bring one dish to share on Friday evening. Please label your container with your name and list any nuts in the ingredients. The kitchen closes at nine, so plan to arrive with your dish ready to serve by seven."
         }
       ],
       "questionGroups": [
         {
           "id": "catalog-reading-pet-b1-test15-part-1-g0",
           "range": "Questions 1–5",
-          "instruction": "For each question, choose the correct answer A, B or C.",
+          "instruction": "For each question, choose the correct answer A, B, C or D.",
           "type": "multiple-choice",
           "questions": [
             {
               "id": "catalog-reading-pet-b1-test15-part-1-q1",
               "number": 1,
               "type": "multiple-choice",
-              "prompt": "What should volunteers do?",
+              "prompt": "What must participants bring?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Bring gloves and arrive early."
+                  "label": "Flour and eggs."
                 },
                 {
                   "id": "B",
-                  "label": "Pay for equipment at the gate."
+                  "label": "A rolling pin."
                 },
                 {
                   "id": "C",
-                  "label": "Work there every morning."
+                  "label": "A cooking apron."
+                },
+                {
+                  "id": "D",
+                  "label": "Extra chairs."
                 }
               ],
               "answerConfidence": "key"
@@ -62,19 +66,23 @@
               "id": "catalog-reading-pet-b1-test15-part-1-q2",
               "number": 2,
               "type": "multiple-choice",
-              "prompt": "What does the writer ask the friend to do?",
+              "prompt": "What has changed?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Wait until Tuesday evening."
+                  "label": "The market location and closing time."
                 },
                 {
                   "id": "B",
-                  "label": "Begin the session if necessary."
+                  "label": "The price of fruit boxes."
                 },
                 {
                   "id": "C",
-                  "label": "Cancel the booking."
+                  "label": "The day of the market."
+                },
+                {
+                  "id": "D",
+                  "label": "The library opening hours."
                 }
               ],
               "answerConfidence": "key"
@@ -83,19 +91,23 @@
               "id": "catalog-reading-pet-b1-test15-part-1-q3",
               "number": 3,
               "type": "multiple-choice",
-              "prompt": "What must visitors do?",
+              "prompt": "What advice is given?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Take the tools home."
+                  "label": "Use olive oil for a better taste."
                 },
                 {
                   "id": "B",
-                  "label": "Use the tools only outdoors."
+                  "label": "Bake the cake for longer."
                 },
                 {
                   "id": "C",
-                  "label": "Return the tools after use."
+                  "label": "Coconut oil can replace butter."
+                },
+                {
+                  "id": "D",
+                  "label": "Remove the lemon from the recipe."
                 }
               ],
               "answerConfidence": "key"
@@ -104,19 +116,23 @@
               "id": "catalog-reading-pet-b1-test15-part-1-q4",
               "number": 4,
               "type": "multiple-choice",
-              "prompt": "Why has the meeting moved?",
+              "prompt": "What happens if you cancel late?",
               "options": [
                 {
                   "id": "A",
-                  "label": "The original room is unavailable."
+                  "label": "You receive a full refund."
                 },
                 {
                   "id": "B",
-                  "label": "The meeting has finished early."
+                  "label": "You can move to another date."
                 },
                 {
                   "id": "C",
-                  "label": "More people have joined the group."
+                  "label": "The workshop is cancelled for everyone."
+                },
+                {
+                  "id": "D",
+                  "label": "You must pay an extra fee."
                 }
               ],
               "answerConfidence": "key"
@@ -125,19 +141,23 @@
               "id": "catalog-reading-pet-b1-test15-part-1-q5",
               "number": 5,
               "type": "multiple-choice",
-              "prompt": "What is the rule about guides?",
+              "prompt": "What should members do?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Members may keep one for a week."
+                  "label": "Cook a dish at the venue."
                 },
                 {
                   "id": "B",
-                  "label": "Only visitors may borrow one."
+                  "label": "Arrive before seven with a labelled dish."
                 },
                 {
                   "id": "C",
-                  "label": "All copies must be returned that day."
+                  "label": "Bring ingredients for others."
+                },
+                {
+                  "id": "D",
+                  "label": "Stay until the kitchen closes."
                 }
               ],
               "answerConfidence": "key"
@@ -153,53 +173,53 @@
       "passageTitle": "Part 2 – Matching",
       "passage": [
         {
-          "text": "The people below all want to take part in repair cafés. Decide which option would be most suitable."
+          "text": "The people below want to choose from food and cooking classes. Decide which option is most suitable."
         },
         {
           "label": "A",
-          "text": "A morning course about broken appliances, with equipment supplied.",
+          "text": "Weekday evening Italian cooking for beginners — Every Thursday from six to eight, a small group gathers at the community centre to make fresh pasta and simple sauces. The tutor supplies all equipment and ingredients, so participants only need to bring themselves. Each session ends with a shared tasting, and learners take home whatever they have cooked. The six-week course suits people who work during the day.",
           "imageSlotId": "catalog-reading-pet-b1-test15-part-2-option-a-image",
           "imageRequired": false
         },
         {
           "label": "B",
-          "text": "An evening club for people who prefer meeting local experts.",
+          "text": "Saturday family baking with children — Families with children aged five and above are welcome to join this relaxed Saturday morning baking session. Adults and children work side by side preparing sweet and savoury recipes, while aprons and mixing bowls are provided. Ingredients cost a small extra amount per family. The atmosphere is social rather than competitive, and the group often shares tea afterwards.",
           "imageSlotId": "catalog-reading-pet-b1-test15-part-2-option-b-image",
           "imageRequired": false
         },
         {
           "label": "C",
-          "text": "A weekend event offering practical activities in small groups.",
+          "text": "Free lunchtime soup taster, no booking — No booking, no fee and no commitment are required for this forty-minute lunchtime session held in the college canteen. Each week, adults try one simple soup or bread recipe and receive printed notes to study later. Walk in during your break, grab an apron from the counter and join whenever a seat is free. Sessions run every Tuesday and Thursday.",
           "imageSlotId": "catalog-reading-pet-b1-test15-part-2-option-c-image",
           "imageRequired": false
         },
         {
           "label": "D",
-          "text": "A low-cost programme near the town centre, open to beginners.",
+          "text": "Advanced French pastry masterclass — French pastry techniques form the core of this demanding evening masterclass aimed at experienced home cooks. Participants work independently on croissants, éclairs and tarts while receiving detailed written feedback on each attempt. Specialist tools such as marble slabs and piping sets are provided. The fee is high, reflecting the small class size and premium ingredients.",
           "imageSlotId": "catalog-reading-pet-b1-test15-part-2-option-d-image",
           "imageRequired": false
         },
         {
           "label": "E",
-          "text": "A quiet project where members can work independently.",
+          "text": "Quick healthy meals, step-free kitchen — People who want quick dinner ideas without a long weekly commitment will appreciate this accessible introduction. The tutor demonstrates step-free recipes in a ground-floor kitchen, and each participant receives a printed recipe booklet to keep. Sessions last ninety minutes and focus on three-ingredient meals that take under twenty minutes. There is no homework and no pressure to return.",
           "imageSlotId": "catalog-reading-pet-b1-test15-part-2-option-e-image",
           "imageRequired": false
         },
         {
           "label": "F",
-          "text": "A short course that includes advice from experienced volunteers.",
+          "text": "Village hall bread-making workshop — In a small village hall ten minutes from the bus stop, learners knead dough by hand and take home a finished loaf. The wood-fired oven limits the group to six people, so places must be reserved well in advance. The workshop runs on selected weekends and lasts three hours. A cup of tea and a slice of warm bread await at the end.",
           "imageSlotId": "catalog-reading-pet-b1-test15-part-2-option-f-image",
           "imageRequired": false
         },
         {
           "label": "G",
-          "text": "A family activity held outdoors when the weather is suitable.",
+          "text": "Monthly supper club, everyone cooks — Join a friendly group of home cooks who meet once a month to prepare and share a themed meal together. The host announces the theme two weeks ahead, and each member contributes one course. The evening is informal and laughter-filled, with no judging or scoring. Members arrange their own transport, as the venue rotates between houses.",
           "imageSlotId": "catalog-reading-pet-b1-test15-part-2-option-g-image",
           "imageRequired": false
         },
         {
           "label": "H",
-          "text": "A longer programme combining study with social events.",
+          "text": "Weekend cooking challenge with certificate — Earn a recognised certificate by competing in a timed weekend cooking challenge. Teams of three prepare a full three-course meal while judges score presentation, flavour and teamwork under pressure. The entry fee covers ingredients and venue hire. Successful participants receive a printed certificate useful when applying for café or catering work.",
           "imageSlotId": "catalog-reading-pet-b1-test15-part-2-option-h-image",
           "imageRequired": false
         }
@@ -213,35 +233,35 @@
           "features": [
             {
               "id": "a",
-              "name": "A morning course about broken appliances, with equipment supplied."
+              "name": "Weekday evening Italian cooking for beginners — Every Thursday from six to eight, a small group gathers at the community centre to make fresh pasta and simple sauces. The tutor supplies all equipment and ingredients, so participants only need to bring themselves. Each session ends with a shared tasting, and learners take home whatever they have cooked. The six-week course suits people who work during the day."
             },
             {
               "id": "b",
-              "name": "An evening club for people who prefer meeting local experts."
+              "name": "Saturday family baking with children — Families with children aged five and above are welcome to join this relaxed Saturday morning baking session. Adults and children work side by side preparing sweet and savoury recipes, while aprons and mixing bowls are provided. Ingredients cost a small extra amount per family. The atmosphere is social rather than competitive, and the group often shares tea afterwards."
             },
             {
               "id": "c",
-              "name": "A weekend event offering practical activities in small groups."
+              "name": "Free lunchtime soup taster, no booking — No booking, no fee and no commitment are required for this forty-minute lunchtime session held in the college canteen. Each week, adults try one simple soup or bread recipe and receive printed notes to study later. Walk in during your break, grab an apron from the counter and join whenever a seat is free. Sessions run every Tuesday and Thursday."
             },
             {
               "id": "d",
-              "name": "A low-cost programme near the town centre, open to beginners."
+              "name": "Advanced French pastry masterclass — French pastry techniques form the core of this demanding evening masterclass aimed at experienced home cooks. Participants work independently on croissants, éclairs and tarts while receiving detailed written feedback on each attempt. Specialist tools such as marble slabs and piping sets are provided. The fee is high, reflecting the small class size and premium ingredients."
             },
             {
               "id": "e",
-              "name": "A quiet project where members can work independently."
+              "name": "Quick healthy meals, step-free kitchen — People who want quick dinner ideas without a long weekly commitment will appreciate this accessible introduction. The tutor demonstrates step-free recipes in a ground-floor kitchen, and each participant receives a printed recipe booklet to keep. Sessions last ninety minutes and focus on three-ingredient meals that take under twenty minutes. There is no homework and no pressure to return."
             },
             {
               "id": "f",
-              "name": "A short course that includes advice from experienced volunteers."
+              "name": "Village hall bread-making workshop — In a small village hall ten minutes from the bus stop, learners knead dough by hand and take home a finished loaf. The wood-fired oven limits the group to six people, so places must be reserved well in advance. The workshop runs on selected weekends and lasts three hours. A cup of tea and a slice of warm bread await at the end."
             },
             {
               "id": "g",
-              "name": "A family activity held outdoors when the weather is suitable."
+              "name": "Monthly supper club, everyone cooks — Join a friendly group of home cooks who meet once a month to prepare and share a themed meal together. The host announces the theme two weeks ahead, and each member contributes one course. The evening is informal and laughter-filled, with no judging or scoring. Members arrange their own transport, as the venue rotates between houses."
             },
             {
               "id": "h",
-              "name": "A longer programme combining study with social events."
+              "name": "Weekend cooking challenge with certificate — Earn a recognised certificate by competing in a timed weekend cooking challenge. Teams of three prepare a full three-course meal while judges score presentation, flavour and teamwork under pressure. The entry fee covers ingredients and venue hire. Successful participants receive a printed certificate useful when applying for café or catering work."
             }
           ],
           "questions": [
@@ -249,7 +269,7 @@
               "id": "catalog-reading-pet-b1-test15-part-2-q6",
               "number": 6,
               "type": "matching-features",
-              "prompt": "Mia has only one free morning and wants to learn about broken appliances.",
+              "prompt": "Marco works late and wants an evening beginner course where equipment is provided. He has a medium budget and would like to take food home.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -257,7 +277,7 @@
               "id": "catalog-reading-pet-b1-test15-part-2-q7",
               "number": 7,
               "type": "matching-features",
-              "prompt": "Noah works late, so he needs an activity that starts in the evening.",
+              "prompt": "Aisha is free Saturday mornings, has a medium budget and wants a social class she can attend with her young child.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -265,7 +285,7 @@
               "id": "catalog-reading-pet-b1-test15-part-2-q8",
               "number": 8,
               "type": "matching-features",
-              "prompt": "Aisha is new to repair cafés and wants friendly expert advice.",
+              "prompt": "Ben has one free lunchtime hour, wants a free taster with no booking and prefers to receive printed notes to study later.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -273,7 +293,7 @@
               "id": "catalog-reading-pet-b1-test15-part-2-q9",
               "number": 9,
               "type": "matching-features",
-              "prompt": "Leo has little money and would like somewhere easy to reach.",
+              "prompt": "Callum uses a wheelchair, wants a short accessible course with a recipe booklet and does not want a long weekly commitment.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -281,7 +301,7 @@
               "id": "catalog-reading-pet-b1-test15-part-2-q10",
               "number": 10,
               "type": "matching-features",
-              "prompt": "Sara dislikes crowds and would rather work quietly on her own.",
+              "prompt": "Diana wants to improve her skills for a future café job, enjoys pressure and would like a certificate to show employers.",
               "options": [],
               "answerConfidence": "key"
             }
@@ -293,16 +313,19 @@
       "id": "catalog-reading-pet-b1-test15-part-3",
       "partNumber": 3,
       "rangeLabel": "Questions 11–15",
-      "passageTitle": "Part 3 – repair cafés",
+      "passageTitle": "Part 3 – A local cooking competition",
       "passage": [
         {
-          "text": "When the volunteers in our town started a repair cafés project, few residents expected it to grow so quickly. At first, the organisers met in a small room and planned one simple activity involving broken appliances. They soon discovered that people were more willing to join when they could see a clear benefit for the neighbourhood. The organisers therefore published a short timetable and invited local businesses to offer practical help."
+          "text": "Last October, I entered a cooking competition at our community hall for the first time. The event was organised by a local food group, and twelve of us had signed up. Each participant received a basket of ingredients and had ninety minutes to prepare two dishes. I chose a vegetable tart and a mushroom soup, feeling confident until I noticed the woman beside me unpacking professional knives and a metal whisk."
         },
         {
-          "text": "The project was not completely easy. Some volunteers were worried that the work would take too much time, while others wanted to change the plan every week. The team solved this by giving each person one small responsibility and reviewing the results together. This made the project feel manageable, and it also meant that new volunteers could contribute without special experience."
+          "text": "The first hour went smoothly. My tart dough came together quickly, and the soup tasted good when I tested it. Then I made a mistake: I set the oven too high, and the edge of the tart turned black. For a moment, I wanted to give up. Instead, I cut away the burnt part and used the remaining pastry to make a smaller pie. A neighbour at the next table suggested I add cheese to hide the smoky flavour, which proved excellent advice."
         },
         {
-          "text": "Looking back, the organiser says the most important lesson was not the final result but the way people learned to cooperate. The group still has problems, especially when the weather affects outdoor work, yet members now discuss solutions rather than blaming one another. For this reason, the project has become a useful example of how a modest local idea can create lasting connections."
+          "text": "In the final thirty minutes, I stopped worrying about presentation and focused on seasoning. The judges tasted everything without knowing who had cooked it. When the results were announced, I came third, behind the woman with the professional knives and a quiet student who had made an impressive fish dish. Looking back, I realise the competition changed my relationship with food. Before that day, I cooked the same five meals repeatedly and avoided anything unfamiliar. Now I visit the market on Saturdays, looking for ingredients I have never tried. The woman with the professional knives turned out to be a retired teacher who now runs a small supper club, and she invited me to join. I accepted immediately. The experience proved that making a mistake in front of strangers is less frightening than I had imagined, and that local events can create friendships that last well beyond a single afternoon."
+        },
+        {
+          "text": "What surprised me most was not the result but the atmosphere. Everyone offered advice rather than criticism, and several participants exchanged recipes afterwards. I have since signed up for two more competitions and now practise every weekend with a friend who also took part. My approach has changed completely: instead of following recipes exactly, I try to understand how flavours work together. The burnt tart taught me more about cooking under pressure than any lesson could."
         }
       ],
       "questionGroups": [
@@ -316,23 +339,23 @@
               "id": "catalog-reading-pet-b1-test15-part-3-q11",
               "number": 11,
               "type": "multiple-choice",
-              "prompt": "What was one reason more residents joined the project?",
+              "prompt": "Why did the writer feel less confident at the start?",
               "options": [
                 {
                   "id": "A",
-                  "label": "They could understand its practical value."
+                  "label": "The ingredients were unfamiliar."
                 },
                 {
                   "id": "B",
-                  "label": "They were promised paid work."
+                  "label": "Another participant had professional equipment."
                 },
                 {
                   "id": "C",
-                  "label": "They wanted to compete with local businesses."
+                  "label": "The time limit was shorter than expected."
                 },
                 {
                   "id": "D",
-                  "label": "They were required to attend."
+                  "label": "The judges were watching immediately."
                 }
               ],
               "answerConfidence": "key"
@@ -341,23 +364,23 @@
               "id": "catalog-reading-pet-b1-test15-part-3-q12",
               "number": 12,
               "type": "multiple-choice",
-              "prompt": "What problem did some volunteers have at the beginning?",
+              "prompt": "What did the writer do after the tart burned?",
               "options": [
                 {
                   "id": "A",
-                  "label": "They disagreed about how often to change the plan."
+                  "label": "Asked the judges for extra time."
                 },
                 {
                   "id": "B",
-                  "label": "They could not find a suitable meeting room."
+                  "label": "Left the competition early."
                 },
                 {
                   "id": "C",
-                  "label": "They lacked permission to contact businesses."
+                  "label": "Used the remaining pastry differently."
                 },
                 {
                   "id": "D",
-                  "label": "They had no interest in outdoor work."
+                  "label": "Copied the neighbour’s recipe."
                 }
               ],
               "answerConfidence": "key"
@@ -366,23 +389,23 @@
               "id": "catalog-reading-pet-b1-test15-part-3-q13",
               "number": 13,
               "type": "multiple-choice",
-              "prompt": "How did the team make participation easier?",
+              "prompt": "Why does the writer mention the quiet student?",
               "options": [
                 {
                   "id": "A",
-                  "label": "It divided the work into smaller responsibilities."
+                  "label": "To show that unexpected participants can do well."
                 },
                 {
                   "id": "B",
-                  "label": "It removed the timetable completely."
+                  "label": "To explain why the tart burned."
                 },
                 {
                   "id": "C",
-                  "label": "It asked only experienced people to help."
+                  "label": "To criticise the judging process."
                 },
                 {
                   "id": "D",
-                  "label": "It stopped reviewing the results."
+                  "label": "To suggest the competition was unfair."
                 }
               ],
               "answerConfidence": "key"
@@ -391,23 +414,23 @@
               "id": "catalog-reading-pet-b1-test15-part-3-q14",
               "number": 14,
               "type": "multiple-choice",
-              "prompt": "What does the organiser value most about the project?",
+              "prompt": "What does the writer suggest about the other participants?",
               "options": [
                 {
                   "id": "A",
-                  "label": "The cooperation that developed among residents."
+                  "label": "They were mainly professional cooks."
                 },
                 {
                   "id": "B",
-                  "label": "The money earned by local businesses."
+                  "label": "They created a supportive atmosphere."
                 },
                 {
                   "id": "C",
-                  "label": "The speed at which the first activity finished."
+                  "label": "They refused to share their recipes."
                 },
                 {
                   "id": "D",
-                  "label": "The number of changes made to the timetable."
+                  "label": "They criticised the writer’s dishes."
                 }
               ],
               "answerConfidence": "key"
@@ -416,23 +439,23 @@
               "id": "catalog-reading-pet-b1-test15-part-3-q15",
               "number": 15,
               "type": "multiple-choice",
-              "prompt": "What is the writer’s main point?",
+              "prompt": "What has changed since the competition?",
               "options": [
                 {
                   "id": "A",
-                  "label": "A small local project can strengthen a community."
+                  "label": "The writer avoids cooking unfamiliar food."
                 },
                 {
                   "id": "B",
-                  "label": "Outdoor projects are always more successful than indoor ones."
+                  "label": "The writer has stopped following recipes completely."
                 },
                 {
                   "id": "C",
-                  "label": "Volunteers should avoid changing their plans."
+                  "label": "The writer now experiments and understands flavours better."
                 },
                 {
                   "id": "D",
-                  "label": "Businesses should organise neighbourhood activities."
+                  "label": "The writer wants to become a professional chef."
                 }
               ],
               "answerConfidence": "key"
@@ -445,42 +468,70 @@
       "id": "catalog-reading-pet-b1-test15-part-4",
       "partNumber": 4,
       "rangeLabel": "Questions 16–20",
-      "passageTitle": "Part 4 – repair cafés",
+      "passageTitle": "Part 4 – Preparing a community kitchen",
       "passage": [
         {
-          "text": "The volunteers began their repair cafés plan with one short meeting. (16) ..... The next week, more residents arrived than expected. (17) ..... They wanted to keep the activity useful rather than simply make it larger. (18) ..... The organisers therefore asked members to choose one task each. (19) ..... The work became easier to manage, and new volunteers quickly understood what to do. (20) ..... The project now meets regularly and welcomes anyone who wants to take part."
+          "text": "When the old classroom at the community centre became available, a group of residents saw an opportunity. They had wanted a shared cooking space for years, but the cost of renting a professional kitchen was too high. (16) ..... The room needed cleaning, but it already had a sink and electricity. The change gave the building a new purpose without expensive building work. The centre manager was pleased because the room had been empty for two years."
+        },
+        {
+          "text": "The first task was to collect basic equipment. Several families donated pans, chopping boards and mixing bowls from their own homes. (17) ..... Within a week, the shelves held enough tools for six people to cook at the same time. The donations meant the project could start without spending shared funds. One resident even brought a set of measuring spoons she had never used."
+        },
+        {
+          "text": "A local electrician checked the wiring and confirmed the room was safe. The group then wrote simple rules about cleaning and food storage. (18) ..... Everyone signed the notice, and a copy was pinned beside the door. The rules kept everyone safe without making the kitchen feel restrictive. Visitors who forgot to clean were reminded politely but firmly."
+        },
+        {
+          "text": "During the first month, only a few residents used the kitchen. Some felt unsure about cooking near strangers, while others simply did not know the timetable. (19) ..... Attendance grew steadily once people understood how to book a slot. A simple poster and a weekly email solved both problems within days. The organiser noticed that regulars began helping newcomers without being asked."
+        },
+        {
+          "text": "By the end of the term, the kitchen had hosted thirty sessions. The organisers reviewed their notes and agreed the project had succeeded beyond expectation. (20) ..... Plans for a second room were already being discussed. The kitchen had become a reason for neighbours to meet and share skills. Several users said the kitchen had changed how they thought about their street."
         },
         {
           "label": "A",
-          "text": "This was the first sign that the idea might work."
+          "text": "The organisers therefore advertised the kitchen more clearly.",
+          "key": "test15-part4-option-3",
+          "correctForGap": 19
         },
         {
           "label": "B",
-          "text": "For that reason, the group changed its meeting place."
+          "text": "The electrician recommended closing the kitchen permanently.",
+          "key": "test15-part4-option-7",
+          "correctForGap": null
         },
         {
           "label": "C",
-          "text": "As a result, several people offered to help."
+          "text": "The empty classroom offered a cheaper solution.",
+          "key": "test15-part4-option-0",
+          "correctForGap": 16
         },
         {
           "label": "D",
-          "text": "The organisers had not expected such a quick response."
+          "text": "The council refused to support any community project.",
+          "key": "test15-part4-option-5",
+          "correctForGap": null
         },
         {
           "label": "E",
-          "text": "Even so, the original aim remained the same."
+          "text": "These conditions reassured people who had never cooked publicly before.",
+          "key": "test15-part4-option-2",
+          "correctForGap": 18
         },
         {
           "label": "F",
-          "text": "They later used the same method in another area."
+          "text": "Nobody in the area had ever cooked a meal at home.",
+          "key": "test15-part4-option-6",
+          "correctForGap": null
         },
         {
           "label": "G",
-          "text": "This made the final decision much easier."
+          "text": "A retired chef also donated a set of sharp knives.",
+          "key": "test15-part4-option-1",
+          "correctForGap": 17
         },
         {
           "label": "H",
-          "text": "In the end, everyone agreed to continue."
+          "text": "It had also brought people closer together.",
+          "key": "test15-part4-option-4",
+          "correctForGap": 20
         }
       ],
       "questionGroups": [
@@ -492,35 +543,51 @@
           "features": [
             {
               "id": "a",
-              "name": "This was the first sign that the idea might work."
+              "name": "The organisers therefore advertised the kitchen more clearly.",
+              "key": "test15-part4-option-3",
+              "correctForGap": 19
             },
             {
               "id": "b",
-              "name": "For that reason, the group changed its meeting place."
+              "name": "The electrician recommended closing the kitchen permanently.",
+              "key": "test15-part4-option-7",
+              "correctForGap": null
             },
             {
               "id": "c",
-              "name": "As a result, several people offered to help."
+              "name": "The empty classroom offered a cheaper solution.",
+              "key": "test15-part4-option-0",
+              "correctForGap": 16
             },
             {
               "id": "d",
-              "name": "The organisers had not expected such a quick response."
+              "name": "The council refused to support any community project.",
+              "key": "test15-part4-option-5",
+              "correctForGap": null
             },
             {
               "id": "e",
-              "name": "Even so, the original aim remained the same."
+              "name": "These conditions reassured people who had never cooked publicly before.",
+              "key": "test15-part4-option-2",
+              "correctForGap": 18
             },
             {
               "id": "f",
-              "name": "They later used the same method in another area."
+              "name": "Nobody in the area had ever cooked a meal at home.",
+              "key": "test15-part4-option-6",
+              "correctForGap": null
             },
             {
               "id": "g",
-              "name": "This made the final decision much easier."
+              "name": "A retired chef also donated a set of sharp knives.",
+              "key": "test15-part4-option-1",
+              "correctForGap": 17
             },
             {
               "id": "h",
-              "name": "In the end, everyone agreed to continue."
+              "name": "It had also brought people closer together.",
+              "key": "test15-part4-option-4",
+              "correctForGap": 20
             }
           ],
           "questions": [
@@ -572,10 +639,10 @@
       "id": "catalog-reading-pet-b1-test15-part-5",
       "partNumber": 5,
       "rangeLabel": "Questions 21–26",
-      "passageTitle": "Part 5 – repair cafés",
+      "passageTitle": "Part 5 – Multiple-choice cloze",
       "passage": [
         {
-          "text": "The volunteers usually meet (21) ........ Saturday. New members are shown how to (22) ........ the equipment. They can ask for advice if they are (23) ........ about a task. The group works together (24) ........ everyone can learn. Members often share ideas (25) ........ the session. The project has become a popular way to meet (26) ........ people."
+          "text": "The neighbourhood food festival began as a small idea, but it quickly became an annual event that (21) ...... On the morning of the festival, volunteers arrived early (22) ..... and tables in the park. Local families prepared dishes from their own cultures, and the smell of (23) ..... by midday. Children helped by carrying plates (24) ..... to visitors. A local shop owner agreed (25) ..... at a reduced price, which made the event possible without a large budget. Although rain arrived in the afternoon, nobody left early, and the (26) ..... until the music stopped. The organisers later said the festival succeeded because people cared more about sharing than about perfection.  Since then, the committee has added a recipe exchange board where visitors pin their favourite dishes. This small addition has helped neighbours discover common interests beyond the festival itself."
         }
       ],
       "questionGroups": [
@@ -593,19 +660,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "every"
+                  "label": "looked"
                 },
                 {
                   "id": "B",
-                  "label": "each"
+                  "label": "moved"
                 },
                 {
                   "id": "C",
-                  "label": "whole"
+                  "label": "seeing"
                 },
                 {
                   "id": "D",
-                  "label": "all"
+                  "label": "went"
                 }
               ],
               "answerConfidence": "key"
@@ -618,19 +685,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "use"
+                  "label": "put up"
                 },
                 {
                   "id": "B",
-                  "label": "make"
+                  "label": "put on"
                 },
                 {
                   "id": "C",
-                  "label": "bring"
+                  "label": "put out"
                 },
                 {
                   "id": "D",
-                  "label": "hold"
+                  "label": "put away"
                 }
               ],
               "answerConfidence": "key"
@@ -643,19 +710,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "uncertain"
+                  "label": "filled"
                 },
                 {
                   "id": "B",
-                  "label": "narrow"
+                  "label": "full"
                 },
                 {
                   "id": "C",
-                  "label": "single"
+                  "label": "filling"
                 },
                 {
                   "id": "D",
-                  "label": "empty"
+                  "label": "fills"
                 }
               ],
               "answerConfidence": "key"
@@ -668,19 +735,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "so that"
+                  "label": "handing"
                 },
                 {
                   "id": "B",
-                  "label": "unless"
+                  "label": "hand"
                 },
                 {
                   "id": "C",
-                  "label": "although"
+                  "label": "handed"
                 },
                 {
                   "id": "D",
-                  "label": "before"
+                  "label": "hands"
                 }
               ],
               "answerConfidence": "key"
@@ -693,19 +760,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "during"
+                  "label": "supply"
                 },
                 {
                   "id": "B",
-                  "label": "between"
+                  "label": "support"
                 },
                 {
                   "id": "C",
-                  "label": "inside"
+                  "label": "suppose"
                 },
                 {
                   "id": "D",
-                  "label": "through"
+                  "label": "surround"
                 }
               ],
               "answerConfidence": "key"
@@ -718,19 +785,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "local"
+                  "label": "remained"
                 },
                 {
                   "id": "B",
-                  "label": "private"
+                  "label": "remaining"
                 },
                 {
                   "id": "C",
-                  "label": "silent"
+                  "label": "remain"
                 },
                 {
                   "id": "D",
-                  "label": "rare"
+                  "label": "remains"
                 }
               ],
               "answerConfidence": "key"
@@ -743,10 +810,10 @@
       "id": "catalog-reading-pet-b1-test15-part-6",
       "partNumber": 6,
       "rangeLabel": "Questions 27–32",
-      "passageTitle": "Part 6 – repair cafés",
+      "passageTitle": "Part 6 – Open cloze",
       "passage": [
         {
-          "text": "The volunteers meet (27) ........ week to plan activities. New members learn (28) ........ to use the broken appliances safely. They can join the work, (29) ........ they should follow the group’s instructions. The project has kept useful materials (30) ........ being thrown away. It is a place (31) ........ people can exchange ideas. Remember (32) ........ ask for help when you need it."
+          "text": "When I joined (27) ........ cookery club, I was not sure what to expect. A member (28) ........ had been attending for two years welcomed me at the door. I wanted to leave early, (29) ........ she persuaded me to stay for the main dish. The group meets (30) ........ seven every Thursday evening. Members share tasks, and (31) ........ all contribute something to the meal. I learned to chop vegetables properly, (32) ........ I also discovered how to make a simple sauce from scratch.  The club keeps a notebook where members write down useful tips. Newcomers are encouraged to add their own suggestions after the first month, which makes the record feel shared rather than fixed.  The organiser updates the list each term so that recipes stay seasonal."
         }
       ],
       "questionGroups": [
@@ -760,7 +827,7 @@
               "id": "catalog-reading-pet-b1-test15-part-6-q27",
               "number": 27,
               "type": "gap-fill",
-              "prompt": "Gap (27)",
+              "prompt": "Gap 27",
               "options": [],
               "answerConfidence": "key"
             },
@@ -768,7 +835,7 @@
               "id": "catalog-reading-pet-b1-test15-part-6-q28",
               "number": 28,
               "type": "gap-fill",
-              "prompt": "Gap (28)",
+              "prompt": "Gap 28",
               "options": [],
               "answerConfidence": "key"
             },
@@ -776,7 +843,7 @@
               "id": "catalog-reading-pet-b1-test15-part-6-q29",
               "number": 29,
               "type": "gap-fill",
-              "prompt": "Gap (29)",
+              "prompt": "Gap 29",
               "options": [],
               "answerConfidence": "key"
             },
@@ -784,7 +851,7 @@
               "id": "catalog-reading-pet-b1-test15-part-6-q30",
               "number": 30,
               "type": "gap-fill",
-              "prompt": "Gap (30)",
+              "prompt": "Gap 30",
               "options": [],
               "answerConfidence": "key"
             },
@@ -792,7 +859,7 @@
               "id": "catalog-reading-pet-b1-test15-part-6-q31",
               "number": 31,
               "type": "gap-fill",
-              "prompt": "Gap (31)",
+              "prompt": "Gap 31",
               "options": [],
               "answerConfidence": "key"
             },
@@ -800,7 +867,7 @@
               "id": "catalog-reading-pet-b1-test15-part-6-q32",
               "number": 32,
               "type": "gap-fill",
-              "prompt": "Gap (32)",
+              "prompt": "Gap 32",
               "options": [],
               "answerConfidence": "key"
             }

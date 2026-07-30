@@ -1,0 +1,631 @@
+{
+  "batch": "15-19",
+  "generatedAt": "2026-07-30T10:23:10.983Z",
+  "tests": [
+    {
+      "testNumber": 15,
+      "part1": {
+        "wordCounts": [
+          47,
+          43,
+          49,
+          49,
+          47
+        ],
+        "cards": 5,
+        "optionsPerQ": 4
+      },
+      "part2": {
+        "profiles": 5,
+        "options": 8,
+        "answers": [
+          "A",
+          "B",
+          "C",
+          "E",
+          "H"
+        ]
+      },
+      "part3": {
+        "wordCounts": [
+          71,
+          83,
+          150,
+          76
+        ],
+        "totalWords": 380,
+        "questions": 5
+      },
+      "part4": {
+        "wordCounts": [
+          77,
+          64,
+          58,
+          62,
+          62
+        ],
+        "totalWords": 323,
+        "paragraphs": 5,
+        "answers": [
+          "c",
+          "g",
+          "e",
+          "a",
+          "h"
+        ],
+        "permutation": [
+          19,
+          null,
+          16,
+          null,
+          18,
+          null,
+          17,
+          20
+        ],
+        "semanticMapping": [
+          {
+            "label": "a",
+            "correctForGap": 19
+          },
+          {
+            "label": "b",
+            "correctForGap": null
+          },
+          {
+            "label": "c",
+            "correctForGap": 16
+          },
+          {
+            "label": "d",
+            "correctForGap": null
+          },
+          {
+            "label": "e",
+            "correctForGap": 18
+          },
+          {
+            "label": "f",
+            "correctForGap": null
+          },
+          {
+            "label": "g",
+            "correctForGap": 17
+          },
+          {
+            "label": "h",
+            "correctForGap": 20
+          }
+        ]
+      },
+      "part5": {
+        "wordCounts": [
+          142
+        ],
+        "markers": 6,
+        "answers": [
+          "a",
+          "a",
+          "a",
+          "a",
+          "a",
+          "a"
+        ]
+      },
+      "part6": {
+        "wordCounts": [
+          129
+        ],
+        "markers": 6,
+        "answers": [
+          "the",
+          "who",
+          "but",
+          "at",
+          "they",
+          "so"
+        ]
+      }
+    },
+    {
+      "testNumber": 16,
+      "part1": {
+        "wordCounts": [
+          41,
+          41,
+          41,
+          38,
+          41
+        ],
+        "cards": 5,
+        "optionsPerQ": 4
+      },
+      "part2": {
+        "profiles": 5,
+        "options": 8,
+        "answers": [
+          "A",
+          "B",
+          "C",
+          "F",
+          "H"
+        ]
+      },
+      "part3": {
+        "wordCounts": [
+          71,
+          79,
+          157,
+          68
+        ],
+        "totalWords": 375,
+        "questions": 5
+      },
+      "part4": {
+        "wordCounts": [
+          68,
+          61,
+          65,
+          60,
+          58
+        ],
+        "totalWords": 312,
+        "paragraphs": 5,
+        "answers": [
+          "d",
+          "g",
+          "b",
+          "f",
+          "h"
+        ],
+        "permutation": [
+          null,
+          18,
+          null,
+          16,
+          null,
+          19,
+          17,
+          20
+        ],
+        "semanticMapping": [
+          {
+            "label": "a",
+            "correctForGap": null
+          },
+          {
+            "label": "b",
+            "correctForGap": 18
+          },
+          {
+            "label": "c",
+            "correctForGap": null
+          },
+          {
+            "label": "d",
+            "correctForGap": 16
+          },
+          {
+            "label": "e",
+            "correctForGap": null
+          },
+          {
+            "label": "f",
+            "correctForGap": 19
+          },
+          {
+            "label": "g",
+            "correctForGap": 17
+          },
+          {
+            "label": "h",
+            "correctForGap": 20
+          }
+        ]
+      },
+      "part5": {
+        "wordCounts": [
+          132
+        ],
+        "markers": 6,
+        "answers": [
+          "a",
+          "a",
+          "a",
+          "a",
+          "a",
+          "a"
+        ]
+      },
+      "part6": {
+        "wordCounts": [
+          124
+        ],
+        "markers": 6,
+        "answers": [
+          "at",
+          "and",
+          "which",
+          "so",
+          "they",
+          "could"
+        ]
+      }
+    },
+    {
+      "testNumber": 17,
+      "part1": {
+        "wordCounts": [
+          42,
+          39,
+          42,
+          42,
+          45
+        ],
+        "cards": 5,
+        "optionsPerQ": 4
+      },
+      "part2": {
+        "profiles": 5,
+        "options": 8,
+        "answers": [
+          "A",
+          "C",
+          "E",
+          "D",
+          "H"
+        ]
+      },
+      "part3": {
+        "wordCounts": [
+          76,
+          69,
+          146,
+          83
+        ],
+        "totalWords": 374,
+        "questions": 5
+      },
+      "part4": {
+        "wordCounts": [
+          74,
+          70,
+          65,
+          61,
+          66
+        ],
+        "totalWords": 336,
+        "paragraphs": 5,
+        "answers": [
+          "f",
+          "d",
+          "h",
+          "b",
+          "g"
+        ],
+        "permutation": [
+          null,
+          19,
+          null,
+          17,
+          null,
+          16,
+          20,
+          18
+        ],
+        "semanticMapping": [
+          {
+            "label": "a",
+            "correctForGap": null
+          },
+          {
+            "label": "b",
+            "correctForGap": 19
+          },
+          {
+            "label": "c",
+            "correctForGap": null
+          },
+          {
+            "label": "d",
+            "correctForGap": 17
+          },
+          {
+            "label": "e",
+            "correctForGap": null
+          },
+          {
+            "label": "f",
+            "correctForGap": 16
+          },
+          {
+            "label": "g",
+            "correctForGap": 20
+          },
+          {
+            "label": "h",
+            "correctForGap": 18
+          }
+        ]
+      },
+      "part5": {
+        "wordCounts": [
+          148
+        ],
+        "markers": 6,
+        "answers": [
+          "a",
+          "a",
+          "a",
+          "a",
+          "a",
+          "a"
+        ]
+      },
+      "part6": {
+        "wordCounts": [
+          131
+        ],
+        "markers": 6,
+        "answers": [
+          "that",
+          "in",
+          "but",
+          "the",
+          "so",
+          "it"
+        ]
+      }
+    },
+    {
+      "testNumber": 18,
+      "part1": {
+        "wordCounts": [
+          48,
+          48,
+          48,
+          48,
+          42
+        ],
+        "cards": 5,
+        "optionsPerQ": 4
+      },
+      "part2": {
+        "profiles": 5,
+        "options": 8,
+        "answers": [
+          "A",
+          "B",
+          "E",
+          "D",
+          "H"
+        ]
+      },
+      "part3": {
+        "wordCounts": [
+          74,
+          65,
+          170,
+          71
+        ],
+        "totalWords": 380,
+        "questions": 5
+      },
+      "part4": {
+        "wordCounts": [
+          72,
+          69,
+          81,
+          76,
+          71
+        ],
+        "totalWords": 369,
+        "paragraphs": 5,
+        "answers": [
+          "g",
+          "d",
+          "f",
+          "h",
+          "b"
+        ],
+        "permutation": [
+          null,
+          20,
+          null,
+          17,
+          null,
+          18,
+          16,
+          19
+        ],
+        "semanticMapping": [
+          {
+            "label": "a",
+            "correctForGap": null
+          },
+          {
+            "label": "b",
+            "correctForGap": 20
+          },
+          {
+            "label": "c",
+            "correctForGap": null
+          },
+          {
+            "label": "d",
+            "correctForGap": 17
+          },
+          {
+            "label": "e",
+            "correctForGap": null
+          },
+          {
+            "label": "f",
+            "correctForGap": 18
+          },
+          {
+            "label": "g",
+            "correctForGap": 16
+          },
+          {
+            "label": "h",
+            "correctForGap": 19
+          }
+        ]
+      },
+      "part5": {
+        "wordCounts": [
+          143
+        ],
+        "markers": 6,
+        "answers": [
+          "a",
+          "a",
+          "a",
+          "a",
+          "a",
+          "a"
+        ]
+      },
+      "part6": {
+        "wordCounts": [
+          121
+        ],
+        "markers": 6,
+        "answers": [
+          "although",
+          "who",
+          "an",
+          "at",
+          "would",
+          "we"
+        ]
+      }
+    },
+    {
+      "testNumber": 19,
+      "part1": {
+        "wordCounts": [
+          48,
+          50,
+          44,
+          50,
+          47
+        ],
+        "cards": 5,
+        "optionsPerQ": 4
+      },
+      "part2": {
+        "profiles": 5,
+        "options": 8,
+        "answers": [
+          "A",
+          "F",
+          "C",
+          "E",
+          "D"
+        ]
+      },
+      "part3": {
+        "wordCounts": [
+          67,
+          72,
+          163,
+          63
+        ],
+        "totalWords": 365,
+        "questions": 5
+      },
+      "part4": {
+        "wordCounts": [
+          75,
+          71,
+          65,
+          65,
+          70
+        ],
+        "totalWords": 346,
+        "paragraphs": 5,
+        "answers": [
+          "g",
+          "c",
+          "h",
+          "e",
+          "a"
+        ],
+        "permutation": [
+          20,
+          null,
+          17,
+          null,
+          19,
+          null,
+          16,
+          18
+        ],
+        "semanticMapping": [
+          {
+            "label": "a",
+            "correctForGap": 20
+          },
+          {
+            "label": "b",
+            "correctForGap": null
+          },
+          {
+            "label": "c",
+            "correctForGap": 17
+          },
+          {
+            "label": "d",
+            "correctForGap": null
+          },
+          {
+            "label": "e",
+            "correctForGap": 19
+          },
+          {
+            "label": "f",
+            "correctForGap": null
+          },
+          {
+            "label": "g",
+            "correctForGap": 16
+          },
+          {
+            "label": "h",
+            "correctForGap": 18
+          }
+        ]
+      },
+      "part5": {
+        "wordCounts": [
+          136
+        ],
+        "markers": 6,
+        "answers": [
+          "a",
+          "a",
+          "a",
+          "a",
+          "a",
+          "a"
+        ]
+      },
+      "part6": {
+        "wordCounts": [
+          119
+        ],
+        "markers": 6,
+        "answers": [
+          "a",
+          "who",
+          "and",
+          "in",
+          "that",
+          "so"
+        ]
+      }
+    }
+  ]
+}

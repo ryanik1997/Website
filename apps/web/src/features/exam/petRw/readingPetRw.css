@@ -463,6 +463,10 @@
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--ket-accent) 25%, transparent);
 }
 
+.pet-rw-drag__bank-card.is-dragging {
+  opacity: 0.35;
+}
+
 .pet-rw-drag__bank-heading {
   margin: 0;
   font-size: 0.9rem;
@@ -801,19 +805,30 @@
   line-height: 1.35;
 }
 
+/* ── Drop zone: empty state ── */
 .pet-rw-shell.is-part-2
 .pet-rw-drag__slot {
-  width: 303px;
-  min-height: 24px;
-  height: 24px;
-  padding: 0 8px;
-  justify-content: center;
+  width: 100%;
+  min-height: 50px;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-sizing: border-box;
   border: 1px dashed #929292;
   border-radius: 4px;
   background: #fff;
   color: #050505;
   font-size: 16px;
-  line-height: 22px;
+  line-height: 1.35;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.pet-rw-shell.is-part-2
+.pet-rw-drag__slot.is-drag-over {
+  border-color: #238ed0;
+  background: #eef7fc;
 }
 
 .pet-rw-shell.is-part-2
@@ -828,17 +843,111 @@
   opacity: 1;
   font-style: normal;
   font-weight: 700;
+  font-size: 18px;
+}
+
+/* ── Drop zone: filled state (selected card) ── */
+.pet-rw-shell.is-part-2
+.pet-rw-drag__slot.is-filled {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  height: auto;
+  min-height: 50px;
+  padding: 8px 10px;
+  border: 1px solid #b6b8b9;
+  border-radius: 4px;
+  background: #fff;
+  cursor: grab;
+  user-select: none;
 }
 
 .pet-rw-shell.is-part-2
-.pet-rw-drag__slot.is-filled {
-  height: auto;
-  min-height: 28px;
-  justify-content: flex-start;
-  border-style: solid;
+.pet-rw-drag__slot.is-filled.is-dragging {
+  opacity: 0.35;
 }
 
-/* City Markets column — no nested scrollbar */
+.pet-rw-shell.is-part-2
+.pet-rw-drag__slot.is-filled:active {
+  cursor: grabbing;
+}
+
+.pet-rw-shell.is-part-2
+.pet-rw-part2-selected-content {
+  flex: 1;
+  min-width: 0;
+  line-height: 1.35;
+}
+
+.pet-rw-shell.is-part-2
+.pet-rw-part2-selected-title {
+  font-weight: 700;
+  font-size: 16px;
+  color: #050505;
+}
+
+.pet-rw-shell.is-part-2
+.pet-rw-part2-selected-description {
+  font-weight: 400;
+  font-size: 16px;
+  color: #050505;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.pet-rw-shell.is-part-2
+.pet-rw-part2-selected-remove {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: #666;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+}
+
+.pet-rw-shell.is-part-2
+.pet-rw-part2-selected-remove:hover {
+  background: #f0f0f0;
+  color: #222;
+}
+
+.pet-rw-shell.is-part-2
+.pet-rw-part2-selected-remove:focus-visible {
+  outline: 2px solid #238ed0;
+  outline-offset: 1px;
+}
+
+/* ── Person block drop highlight ── */
+.pet-rw-shell.is-part-2
+.pet-rw-person.is-drop-target {
+  background: rgba(35, 142, 208, 0.04);
+  border-radius: 4px;
+}
+
+/* City Markets column — return-to-bank drop */
+.pet-rw-shell.is-part-2
+.pet-rw-part2-column--markets {
+  min-height: 160px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: border-color 120ms ease, background 120ms ease;
+}
+
+.pet-rw-shell.is-part-2
+.pet-rw-part2-column--markets.is-return-drop-active {
+  border-color: #238ed0;
+  background: rgba(35, 142, 208, 0.06);
+}
+
 .pet-rw-shell.is-part-2
 .pet-rw-part2-column--markets .pet-rw-drag__bank {
   max-height: none;
@@ -1485,7 +1594,6 @@
   .pet-rw-shell.is-part-2
   .pet-rw-drag__slot {
     width: 100%;
-    max-width: 303px;
   }
 }
 
@@ -1523,6 +1631,11 @@
 
   .pet-rw-footer {
     overflow-x: auto;
+  }
+
+  .pet-rw-shell.is-part-2
+  .pet-rw-part2-selected-description {
+    display: inline;
   }
 }
 

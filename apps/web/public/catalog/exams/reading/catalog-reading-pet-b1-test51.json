@@ -15,45 +15,49 @@
       "passageTitle": "Part 1 – Short texts",
       "passage": [
         {
-          "text": "Wildlife walks notice\nThe wildlife walks team needs helpers on Saturday. Bring gloves and arrive before nine."
+          "text": "Transport update\nThe 8.15 bus to West Bay is cancelled Friday because of roadworks. Use the 8.35 from the same stop, but it skips the harbour. Allow extra time to walk from the station."
         },
         {
-          "text": "Message from a friend\nI have booked the woodland trails session for Tuesday, but I may arrive late. Please start without me and save a place."
+          "text": "Hostel notice\nBreakfast is served 7–9 a.m. Early departures can request a packed breakfast at reception before 8 p.m. the previous evening. Label food kept in the shared fridge."
         },
         {
-          "text": "Information sign\nVisitors to the wildlife walks may use the tools, but they must return them before leaving."
+          "text": "Eco-tour message\nTomorrow’s wetland tour uses the shorter boardwalk because rain made the outer path slippery. Bring waterproof shoes and binoculars if available. The group returns by midday."
         },
         {
-          "text": "Short announcement\nThe young naturalists meeting has moved from Room 2 to Room 4 because the first room is being painted."
+          "text": "Travel booking email\nYour sleeper-train reservation is confirmed for 4 June. One small cabin bag is included; larger luggage costs extra. Changes are free until 28 May; afterwards the booking is non-refundable."
         },
         {
-          "text": "Notice for members\nMembers can borrow one woodland trails guide for a week. Ask at the desk if you need another copy."
+          "text": "Visitor-centre announcement\nThe lighthouse exhibition is open, but the viewing platform is closed while staff replace a railing. Visitors may join the guided talk inside; tickets remain valid."
         }
       ],
       "questionGroups": [
         {
           "id": "catalog-reading-pet-b1-test51-part-1-g0",
           "range": "Questions 1–5",
-          "instruction": "For each question, choose the correct answer A, B or C.",
+          "instruction": "For each question, choose the correct answer A, B, C or D.",
           "type": "multiple-choice",
           "questions": [
             {
               "id": "catalog-reading-pet-b1-test51-part-1-q1",
               "number": 1,
               "type": "multiple-choice",
-              "prompt": "What should volunteers do?",
+              "prompt": "What should passengers do?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Bring gloves and arrive early."
+                  "label": "Take the later bus and walk."
                 },
                 {
                   "id": "B",
-                  "label": "Pay for equipment at the gate."
+                  "label": "Wait at the harbour."
                 },
                 {
                   "id": "C",
-                  "label": "Work there every morning."
+                  "label": "Use another 8.15 bus."
+                },
+                {
+                  "id": "D",
+                  "label": "Expect the harbour stop."
                 }
               ],
               "answerConfidence": "key"
@@ -62,19 +66,23 @@
               "id": "catalog-reading-pet-b1-test51-part-1-q2",
               "number": 2,
               "type": "multiple-choice",
-              "prompt": "What does the writer ask the friend to do?",
+              "prompt": "What should an early guest do?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Wait until Tuesday evening."
+                  "label": "Request a packed breakfast in advance."
                 },
                 {
                   "id": "B",
-                  "label": "Begin the session if necessary."
+                  "label": "Eat after returning the key."
                 },
                 {
                   "id": "C",
-                  "label": "Cancel the booking."
+                  "label": "Leave food unlabelled."
+                },
+                {
+                  "id": "D",
+                  "label": "Collect it after nine."
                 }
               ],
               "answerConfidence": "key"
@@ -83,19 +91,23 @@
               "id": "catalog-reading-pet-b1-test51-part-1-q3",
               "number": 3,
               "type": "multiple-choice",
-              "prompt": "What must visitors do?",
+              "prompt": "What changed?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Take the tools home."
+                  "label": "The route is shorter."
                 },
                 {
                   "id": "B",
-                  "label": "Use the tools only outdoors."
+                  "label": "It returns afternoon."
                 },
                 {
                   "id": "C",
-                  "label": "Return the tools after use."
+                  "label": "Binoculars are compulsory."
+                },
+                {
+                  "id": "D",
+                  "label": "The tour is cancelled."
                 }
               ],
               "answerConfidence": "key"
@@ -104,19 +116,23 @@
               "id": "catalog-reading-pet-b1-test51-part-1-q4",
               "number": 4,
               "type": "multiple-choice",
-              "prompt": "Why has the meeting moved?",
+              "prompt": "What is important?",
               "options": [
                 {
                   "id": "A",
-                  "label": "The original room is unavailable."
+                  "label": "Changes after 28 May are free."
                 },
                 {
                   "id": "B",
-                  "label": "The meeting has finished early."
+                  "label": "Large luggage is included."
                 },
                 {
                   "id": "C",
-                  "label": "More people have joined the group."
+                  "label": "It is refundable afterwards."
+                },
+                {
+                  "id": "D",
+                  "label": "Free changes end 28 May."
                 }
               ],
               "answerConfidence": "key"
@@ -125,19 +141,23 @@
               "id": "catalog-reading-pet-b1-test51-part-1-q5",
               "number": 5,
               "type": "multiple-choice",
-              "prompt": "What is the rule about guides?",
+              "prompt": "What can visitors do?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Members may keep one for a week."
+                  "label": "Join the indoor guided talk."
                 },
                 {
                   "id": "B",
-                  "label": "Only visitors may borrow one."
+                  "label": "Use the platform later."
                 },
                 {
                   "id": "C",
-                  "label": "All copies must be returned that day."
+                  "label": "Exchange every ticket."
+                },
+                {
+                  "id": "D",
+                  "label": "Watch the repair."
                 }
               ],
               "answerConfidence": "key"
@@ -153,53 +173,53 @@
       "passageTitle": "Part 2 – Matching",
       "passage": [
         {
-          "text": "The people below all want to take part in wildlife walks. Decide which option would be most suitable."
+          "text": "The people below want to choose from trips, outdoor activities and responsible travel. Decide which option is most suitable."
         },
         {
           "label": "A",
-          "text": "A morning course about woodland trails, with equipment supplied.",
+          "text": "Half-day beginner kayak on calm water — A half-day beginner kayak trip on calm water. Boats and safety equipment are supplied, the launch is beside the bus station, and groups are small; participants must swim confidently.",
           "imageSlotId": "catalog-reading-pet-b1-test51-part-2-option-a-image",
           "imageRequired": false
         },
         {
           "label": "B",
-          "text": "An evening club for people who prefer meeting local experts.",
+          "text": "Two-day mountain walk for experienced hikers — A demanding two-day mountain walk for experienced hikers. Walkers carry food, tents and equipment; the remote start is reached by a morning train.",
           "imageSlotId": "catalog-reading-pet-b1-test51-part-2-option-b-image",
           "imageRequired": false
         },
         {
           "label": "C",
-          "text": "A weekend event offering practical activities in small groups.",
+          "text": "Low-cost coastal cycle with bike hire — A low-cost coastal cycle route with bike hire. Riders use quiet lanes between villages and return before evening; the route is mostly flat but lunch is self-arranged.",
           "imageSlotId": "catalog-reading-pet-b1-test51-part-2-option-c-image",
           "imageRequired": false
         },
         {
           "label": "D",
-          "text": "A low-cost programme near the town centre, open to beginners.",
+          "text": "Wildlife photography weekend, forest lodge — A wildlife photography weekend at a forest lodge. The guide teaches observation, vegetarian meals are provided and guests share a minibus; it is not for very young children.",
           "imageSlotId": "catalog-reading-pet-b1-test51-part-2-option-d-image",
           "imageRequired": false
         },
         {
           "label": "E",
-          "text": "A quiet project where members can work independently.",
+          "text": "Responsible city walk led by residents — A responsible city walk led by residents. It supports independent businesses, is accessible and affordable, stays on foot and has indoor stops for bad weather.",
           "imageSlotId": "catalog-reading-pet-b1-test51-part-2-option-e-image",
           "imageRequired": false
         },
         {
           "label": "F",
-          "text": "A short course that includes advice from experienced young naturalists.",
+          "text": "Family beach clean with plastic talk — A family beach-clean morning. Gloves and bags are supplied, children join with an adult and the work ends with a talk about reducing plastic waste.",
           "imageSlotId": "catalog-reading-pet-b1-test51-part-2-option-f-image",
           "imageRequired": false
         },
         {
           "label": "G",
-          "text": "A family activity held outdoors when the weather is suitable.",
+          "text": "Luxury island boat with lunch and transfers — A luxury island boat excursion with lunch and transfers. It costs a lot and follows a fixed timetable, with little independent exploring.",
           "imageSlotId": "catalog-reading-pet-b1-test51-part-2-option-g-image",
           "imageRequired": false
         },
         {
           "label": "H",
-          "text": "A longer programme combining study with social events.",
+          "text": "Free self-guided moorland audio route — A free self-guided moorland route with audio stories. It is flexible, but has no transport or equipment hire and limited signal high up.",
           "imageSlotId": "catalog-reading-pet-b1-test51-part-2-option-h-image",
           "imageRequired": false
         }
@@ -213,35 +233,35 @@
           "features": [
             {
               "id": "a",
-              "name": "A morning course about woodland trails, with equipment supplied."
+              "name": "Half-day beginner kayak on calm water — A half-day beginner kayak trip on calm water. Boats and safety equipment are supplied, the launch is beside the bus station, and groups are small; participants must swim confidently."
             },
             {
               "id": "b",
-              "name": "An evening club for people who prefer meeting local experts."
+              "name": "Two-day mountain walk for experienced hikers — A demanding two-day mountain walk for experienced hikers. Walkers carry food, tents and equipment; the remote start is reached by a morning train."
             },
             {
               "id": "c",
-              "name": "A weekend event offering practical activities in small groups."
+              "name": "Low-cost coastal cycle with bike hire — A low-cost coastal cycle route with bike hire. Riders use quiet lanes between villages and return before evening; the route is mostly flat but lunch is self-arranged."
             },
             {
               "id": "d",
-              "name": "A low-cost programme near the town centre, open to beginners."
+              "name": "Wildlife photography weekend, forest lodge — A wildlife photography weekend at a forest lodge. The guide teaches observation, vegetarian meals are provided and guests share a minibus; it is not for very young children."
             },
             {
               "id": "e",
-              "name": "A quiet project where members can work independently."
+              "name": "Responsible city walk led by residents — A responsible city walk led by residents. It supports independent businesses, is accessible and affordable, stays on foot and has indoor stops for bad weather."
             },
             {
               "id": "f",
-              "name": "A short course that includes advice from experienced young naturalists."
+              "name": "Family beach clean with plastic talk — A family beach-clean morning. Gloves and bags are supplied, children join with an adult and the work ends with a talk about reducing plastic waste."
             },
             {
               "id": "g",
-              "name": "A family activity held outdoors when the weather is suitable."
+              "name": "Luxury island boat with lunch and transfers — A luxury island boat excursion with lunch and transfers. It costs a lot and follows a fixed timetable, with little independent exploring."
             },
             {
               "id": "h",
-              "name": "A longer programme combining study with social events."
+              "name": "Free self-guided moorland audio route — A free self-guided moorland route with audio stories. It is flexible, but has no transport or equipment hire and limited signal high up."
             }
           ],
           "questions": [
@@ -249,7 +269,7 @@
               "id": "catalog-reading-pet-b1-test51-part-2-q6",
               "number": 6,
               "type": "matching-features",
-              "prompt": "Mia has only one free morning and wants to learn about woodland trails.",
+              "prompt": "Sam has never kayaked, needs equipment supplied, wants a small beginner group and must reach the launch by public transport.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -257,7 +277,7 @@
               "id": "catalog-reading-pet-b1-test51-part-2-q7",
               "number": 7,
               "type": "matching-features",
-              "prompt": "Noah works late, so he needs an activity that starts in the evening.",
+              "prompt": "Tara wants an affordable accessible activity supporting residents, prefers walking, needs rain shelter and has half a day in the city.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -265,7 +285,7 @@
               "id": "catalog-reading-pet-b1-test51-part-2-q8",
               "number": 8,
               "type": "matching-features",
-              "prompt": "Aisha is new to wildlife walks and wants friendly expert advice.",
+              "prompt": "Uma travels with her ten-year-old daughter and wants an adult-supervised environmental activity with gloves supplied before lunch.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -273,7 +293,7 @@
               "id": "catalog-reading-pet-b1-test51-part-2-q9",
               "number": 9,
               "type": "matching-features",
-              "prompt": "Leo has little money and would like somewhere easy to reach.",
+              "prompt": "Victor is an experienced hiker with camping equipment, wants a remote challenge and can catch an early train.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -281,7 +301,7 @@
               "id": "catalog-reading-pet-b1-test51-part-2-q10",
               "number": 10,
               "type": "matching-features",
-              "prompt": "Sara dislikes crowds and would rather work quietly on her own.",
+              "prompt": "Wendy wants a weekend wildlife photography trip with vegetarian food and shared transport; she owns a camera and has no young children.",
               "options": [],
               "answerConfidence": "key"
             }
@@ -293,16 +313,16 @@
       "id": "catalog-reading-pet-b1-test51-part-3",
       "partNumber": 3,
       "rangeLabel": "Questions 11–15",
-      "passageTitle": "Part 3 – wildlife walks",
+      "passageTitle": "Part 3 – The journey that changed our plans",
       "passage": [
         {
-          "text": "When the young naturalists in our town started a wildlife walks project, few residents expected it to grow so quickly. At first, the organisers met in a small room and planned one simple activity involving woodland trails. They soon discovered that people were more willing to join when they could see a clear benefit for the neighbourhood. The organisers therefore published a short timetable and invited local businesses to offer practical help."
+          "text": "Last summer, my cousin and I planned to walk along the northern coast. We had studied the map carefully and booked a small room in a fishing village. On the first morning, however, a storm closed the cliff path. At first we were disappointed because the walk was the main reason for our trip. The owner of the guesthouse suggested that we take a local bus inland, where a community museum was looking for visitors to help prepare an exhibition."
         },
         {
-          "text": "The project was not completely easy. Some volunteers were worried that the work would take too much time, while others wanted to change the plan every week. The team solved this by giving each person one small responsibility and reviewing the results together. This made the project feel manageable, and it also meant that new volunteers could contribute without special experience."
+          "text": "The museum was not what we had expected. It was in an old railway station, and the exhibition showed how families had travelled before the coastal road was built. We spent the morning cleaning display cases and listening to stories from a retired conductor. In the afternoon, the rain stopped, so we took the bus to a quieter beach. We noticed that the bus was nearly empty, while cars were queuing at the popular viewpoint."
         },
         {
-          "text": "Looking back, the organiser says the most important lesson was not the final result but the way people learned to cooperate. The group still has problems, especially when the weather affects outdoor work, yet members now discuss solutions rather than blaming one another. For this reason, the project has become a useful example of how a modest local idea can create lasting connections."
+          "text": "We eventually walked part of the coast the next day, but the changed plan stayed with us. The museum had made us curious about the places between the famous sights, and the bus journey had shown us that slower travel could be more peaceful. We still want to return for the cliff path. This time, though, we will leave space in our plan for an unexpected recommendation. We had expected the most memorable part to be the cliff walk, so the change felt disappointing at first. The museum visit gradually altered that opinion. Its displays connected transport, work and landscape, while the quiet bus ride gave us time to notice villages we would have missed by car. We also realised that responsible travel is not simply a list of rules. It involves asking local people, accepting limits and making choices that leave room for other visitors. The next morning, when the path reopened, we walked only a short section and spent longer in a small café. The journey became less about completing a route and more about paying attention to the places that made the route meaningful."
         }
       ],
       "questionGroups": [
@@ -316,23 +336,23 @@
               "id": "catalog-reading-pet-b1-test51-part-3-q11",
               "number": 11,
               "type": "multiple-choice",
-              "prompt": "What was one reason more residents joined the project?",
+              "prompt": "Why could the writers not begin their planned walk?",
               "options": [
                 {
                   "id": "A",
-                  "label": "They could understand its practical value."
+                  "label": "A storm had made the cliff path unsafe."
                 },
                 {
                   "id": "B",
-                  "label": "They were promised paid work."
+                  "label": "The guesthouse had lost their booking."
                 },
                 {
                   "id": "C",
-                  "label": "They wanted to compete with local businesses."
+                  "label": "The museum needed them to work all day."
                 },
                 {
                   "id": "D",
-                  "label": "They were required to attend."
+                  "label": "The local bus had stopped running."
                 }
               ],
               "answerConfidence": "key"
@@ -341,23 +361,23 @@
               "id": "catalog-reading-pet-b1-test51-part-3-q12",
               "number": 12,
               "type": "multiple-choice",
-              "prompt": "What problem did some volunteers have at the beginning?",
+              "prompt": "Why did the guesthouse owner suggest the museum?",
               "options": [
                 {
                   "id": "A",
-                  "label": "They disagreed about how often to change the plan."
+                  "label": "It offered an alternative activity during the bad weather."
                 },
                 {
                   "id": "B",
-                  "label": "They could not find a suitable meeting room."
+                  "label": "It was the fastest route to the popular viewpoint."
                 },
                 {
                   "id": "C",
-                  "label": "They lacked permission to contact businesses."
+                  "label": "It needed someone to repair the old railway station."
                 },
                 {
                   "id": "D",
-                  "label": "They had no interest in outdoor work."
+                  "label": "It had already arranged a walk along the coast."
                 }
               ],
               "answerConfidence": "key"
@@ -366,23 +386,23 @@
               "id": "catalog-reading-pet-b1-test51-part-3-q13",
               "number": 13,
               "type": "multiple-choice",
-              "prompt": "How did the team make participation easier?",
+              "prompt": "What did the writers notice about the bus and the viewpoint?",
               "options": [
                 {
                   "id": "A",
-                  "label": "It divided the work into smaller responsibilities."
+                  "label": "The less popular form of transport was much quieter."
                 },
                 {
                   "id": "B",
-                  "label": "It removed the timetable completely."
+                  "label": "Both places were crowded with families that afternoon."
                 },
                 {
                   "id": "C",
-                  "label": "It asked only experienced people to help."
+                  "label": "Cars were avoided because the road had been closed."
                 },
                 {
                   "id": "D",
-                  "label": "It stopped reviewing the results."
+                  "label": "The bus was expensive compared with travelling by car."
                 }
               ],
               "answerConfidence": "key"
@@ -391,23 +411,23 @@
               "id": "catalog-reading-pet-b1-test51-part-3-q14",
               "number": 14,
               "type": "multiple-choice",
-              "prompt": "What does the organiser value most about the project?",
+              "prompt": "How did the changed plan affect the writers?",
               "options": [
                 {
                   "id": "A",
-                  "label": "The cooperation that developed among residents."
+                  "label": "They became more interested in places away from famous sights."
                 },
                 {
                   "id": "B",
-                  "label": "The money earned by local businesses."
+                  "label": "They decided that coastal walking was no longer enjoyable."
                 },
                 {
                   "id": "C",
-                  "label": "The speed at which the first activity finished."
+                  "label": "They felt the museum was more interesting than every other place."
                 },
                 {
                   "id": "D",
-                  "label": "The number of changes made to the timetable."
+                  "label": "They planned to travel only when the weather was perfect."
                 }
               ],
               "answerConfidence": "key"
@@ -416,23 +436,23 @@
               "id": "catalog-reading-pet-b1-test51-part-3-q15",
               "number": 15,
               "type": "multiple-choice",
-              "prompt": "What is the writer’s main point?",
+              "prompt": "What will the writers probably do on a future trip?",
               "options": [
                 {
                   "id": "A",
-                  "label": "A small local project can strengthen a community."
+                  "label": "Keep their main plan but allow time for new suggestions."
                 },
                 {
                   "id": "B",
-                  "label": "Outdoor projects are always more successful than indoor ones."
+                  "label": "Book every activity before leaving home."
                 },
                 {
                   "id": "C",
-                  "label": "Volunteers should avoid changing their plans."
+                  "label": "Avoid buses because they make journeys too slow."
                 },
                 {
                   "id": "D",
-                  "label": "Businesses should organise neighbourhood activities."
+                  "label": "Visit only the most popular viewpoints."
                 }
               ],
               "answerConfidence": "key"
@@ -445,42 +465,70 @@
       "id": "catalog-reading-pet-b1-test51-part-4",
       "partNumber": 4,
       "rangeLabel": "Questions 16–20",
-      "passageTitle": "Part 4 – wildlife walks",
+      "passageTitle": "Part 4 – A cleaner way to travel",
       "passage": [
         {
-          "text": "The young naturalists began their wildlife walks plan with one short meeting. (16) ..... The next week, more residents arrived than expected. (17) ..... They wanted to keep the activity useful rather than simply make it larger. (18) ..... The organisers therefore asked members to choose one task each. (19) ..... The work became easier to manage, and new volunteers quickly understood what to do. (20) ..... The project now meets regularly and welcomes anyone who wants to take part."
+          "text": "Maya wanted to travel across the island without producing much rubbish. She had checked the route but decided to carry only what she really needed. (16) ..... A bottle, cloth bag and small food container were enough for the first part of the journey. This choice made the beginning of the trip simple and easy to manage. She felt ready to continue without buying another packaged drink."
+        },
+        {
+          "text": "At the first station, a café filled Maya’s bottle without charging her. Later, she bought fruit from a market rather than a wrapped snack. (17) ..... The shopkeeper then explained where visitors could refill water nearby. She preferred small practical decisions to carrying unnecessary supplies. The small bag was easier to carry than the supplies she had considered."
+        },
+        {
+          "text": "At another stop, Maya found a second refill point and avoided buying a disposable drink. (18) ..... The friendly service made the next part of her journey easier, because she no longer worried about running out of water. Maya also noticed that local advice could save time and money. The refill point also showed why local knowledge was valuable."
+        },
+        {
+          "text": "The shopkeeper explained that visitors rarely asked about local refill points. (19) ..... Maya listened to the advice and changed her route slightly, choosing a quieter road to the island centre. The conversation gave her confidence to explore beyond the main route. Maya thanked him before following the quieter road."
+        },
+        {
+          "text": "By the end of the trip, Maya had spent less money and carried almost no waste home. (20) ..... She decided that future trips should leave room for useful local suggestions. The unexpected delay became one of the most useful parts of the trip. She would remember the route when planning another low-waste journey."
         },
         {
           "label": "A",
-          "text": "This was the first sign that the idea might work."
+          "text": "This was the first time Maya had used a train.",
+          "key": "test51-part4-option-7",
+          "correctForGap": null
         },
         {
           "label": "B",
-          "text": "For that reason, the group changed its meeting place."
+          "text": "The market was closed because of a public holiday.",
+          "key": "test51-part4-option-2",
+          "correctForGap": null
         },
         {
           "label": "C",
-          "text": "As a result, several people offered to help."
+          "text": "Her plan began with choosing what not to take.",
+          "key": "test51-part4-option-0",
+          "correctForGap": 16
         },
         {
           "label": "D",
-          "text": "The organisers had not expected such a quick response."
+          "text": "The shopkeeper had never met a visitor before.",
+          "key": "test51-part4-option-6",
+          "correctForGap": 19
         },
         {
           "label": "E",
-          "text": "Even so, the original aim remained the same."
+          "text": "The journey was longer than she had first expected.",
+          "key": "test51-part4-option-4",
+          "correctForGap": 20
         },
         {
           "label": "F",
-          "text": "They later used the same method in another area."
+          "text": "This friendly service made the next part of the journey easier.",
+          "key": "test51-part4-option-1",
+          "correctForGap": 18
         },
         {
           "label": "G",
-          "text": "This made the final decision much easier."
+          "text": "She decided that travelling lightly was only possible by plane.",
+          "key": "test51-part4-option-5",
+          "correctForGap": null
         },
         {
           "label": "H",
-          "text": "In the end, everyone agreed to continue."
+          "text": "That choice also meant she could avoid several disposable packets.",
+          "key": "test51-part4-option-3",
+          "correctForGap": 17
         }
       ],
       "questionGroups": [
@@ -492,35 +540,51 @@
           "features": [
             {
               "id": "a",
-              "name": "This was the first sign that the idea might work."
+              "name": "This was the first time Maya had used a train.",
+              "key": "test51-part4-option-7",
+              "correctForGap": null
             },
             {
               "id": "b",
-              "name": "For that reason, the group changed its meeting place."
+              "name": "The market was closed because of a public holiday.",
+              "key": "test51-part4-option-2",
+              "correctForGap": null
             },
             {
               "id": "c",
-              "name": "As a result, several people offered to help."
+              "name": "Her plan began with choosing what not to take.",
+              "key": "test51-part4-option-0",
+              "correctForGap": 16
             },
             {
               "id": "d",
-              "name": "The organisers had not expected such a quick response."
+              "name": "The shopkeeper had never met a visitor before.",
+              "key": "test51-part4-option-6",
+              "correctForGap": 19
             },
             {
               "id": "e",
-              "name": "Even so, the original aim remained the same."
+              "name": "The journey was longer than she had first expected.",
+              "key": "test51-part4-option-4",
+              "correctForGap": 20
             },
             {
               "id": "f",
-              "name": "They later used the same method in another area."
+              "name": "This friendly service made the next part of the journey easier.",
+              "key": "test51-part4-option-1",
+              "correctForGap": 18
             },
             {
               "id": "g",
-              "name": "This made the final decision much easier."
+              "name": "She decided that travelling lightly was only possible by plane.",
+              "key": "test51-part4-option-5",
+              "correctForGap": null
             },
             {
               "id": "h",
-              "name": "In the end, everyone agreed to continue."
+              "name": "That choice also meant she could avoid several disposable packets.",
+              "key": "test51-part4-option-3",
+              "correctForGap": 17
             }
           ],
           "questions": [
@@ -572,10 +636,10 @@
       "id": "catalog-reading-pet-b1-test51-part-5",
       "partNumber": 5,
       "rangeLabel": "Questions 21–26",
-      "passageTitle": "Part 5 – wildlife walks",
+      "passageTitle": "Part 5 – Multiple-choice cloze",
       "passage": [
         {
-          "text": "The young naturalists usually meet (21) ........ Saturday. New members are shown how to (22) ........ the equipment. They can ask for advice if they are (23) ........ about a task. The group works together (24) ........ everyone can learn. Members often share ideas (25) ........ the session. The project has become a popular way to meet (26) ........ people."
+          "text": "Our coastal trip (21) ..... the cliff path. At first we wanted to (22) ....., but a local guide (23) ..... to a small museum inland. The museum showed how families had travelled before the new road was built, and we helped (24) ..... for visitors. Later, the rain stopped and we took the bus to a (25) ...... There were few people there, while cars waited in a long queue at the famous viewpoint. We had planned to see more sights, yet the slower day made us notice how much travel depends on (26) ...... Since then, we have carried reusable containers, used public transport when possible and left space in our plans for places that are not in every guidebook.  We now choose local services more often, because their advice makes a journey both lighter and more interesting. The choice also supports small businesses that understand the route and helped us understand the area better in many practical ways today."
         }
       ],
       "questionGroups": [
@@ -593,19 +657,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "every"
+                  "label": "changed"
                 },
                 {
                   "id": "B",
-                  "label": "each"
+                  "label": "change"
                 },
                 {
                   "id": "C",
-                  "label": "whole"
+                  "label": "changing"
                 },
                 {
                   "id": "D",
-                  "label": "all"
+                  "label": "changes"
                 }
               ],
               "answerConfidence": "key"
@@ -618,19 +682,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "use"
+                  "label": "wait"
                 },
                 {
                   "id": "B",
-                  "label": "make"
+                  "label": "waiting"
                 },
                 {
                   "id": "C",
-                  "label": "bring"
+                  "label": "waited"
                 },
                 {
                   "id": "D",
-                  "label": "hold"
+                  "label": "waits"
                 }
               ],
               "answerConfidence": "key"
@@ -643,19 +707,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "uncertain"
+                  "label": "suggested"
                 },
                 {
                   "id": "B",
-                  "label": "narrow"
+                  "label": "suggestion"
                 },
                 {
                   "id": "C",
-                  "label": "single"
+                  "label": "suggesting"
                 },
                 {
                   "id": "D",
-                  "label": "empty"
+                  "label": "suggests"
                 }
               ],
               "answerConfidence": "key"
@@ -668,19 +732,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "so that"
+                  "label": "prepare"
                 },
                 {
                   "id": "B",
-                  "label": "unless"
+                  "label": "preparing"
                 },
                 {
                   "id": "C",
-                  "label": "although"
+                  "label": "preparation"
                 },
                 {
                   "id": "D",
-                  "label": "before"
+                  "label": "prepares"
                 }
               ],
               "answerConfidence": "key"
@@ -693,19 +757,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "during"
+                  "label": "quiet"
                 },
                 {
                   "id": "B",
-                  "label": "between"
+                  "label": "quietly"
                 },
                 {
                   "id": "C",
-                  "label": "inside"
+                  "label": "quietness"
                 },
                 {
                   "id": "D",
-                  "label": "through"
+                  "label": "quieten"
                 }
               ],
               "answerConfidence": "key"
@@ -722,15 +786,15 @@
                 },
                 {
                   "id": "B",
-                  "label": "private"
+                  "label": "locally"
                 },
                 {
                   "id": "C",
-                  "label": "silent"
+                  "label": "locality"
                 },
                 {
                   "id": "D",
-                  "label": "rare"
+                  "label": "locate"
                 }
               ],
               "answerConfidence": "key"
@@ -743,10 +807,10 @@
       "id": "catalog-reading-pet-b1-test51-part-6",
       "partNumber": 6,
       "rangeLabel": "Questions 27–32",
-      "passageTitle": "Part 6 – wildlife walks",
+      "passageTitle": "Part 6 – Open cloze",
       "passage": [
         {
-          "text": "The young naturalists meet (27) ........ week to plan activities. New members learn (28) ........ to use the woodland trails safely. They can join the work, (29) ........ they should follow the group’s instructions. The project has kept useful materials (30) ........ being thrown away. It is a place (31) ........ people can exchange ideas. Remember (32) ........ ask for help when you need it."
+          "text": "The storm arrived (27) ........ we reached the cliff path, so the guide suggested a safer route. We travelled (28) ........ bus and spent the morning in a museum. The exhibition explained (29) ........ coastal families had once moved between villages. We stayed there (30) ........ the rain stopped. In the afternoon, we chose a beach (31) ........ was outside the busiest resort. The experience taught us (32) ........ to travel with less waste and more curiosity.  We kept the tickets and route notes, but the most useful record was a list of refill points. On our next visit, we will use it before buying anything in disposable packaging. Writing the information down made the environmental choice easier to repeat. It also gave us a practical way to compare responsible choices on future journeys.  The notes will guide our choices when we travel again."
         }
       ],
       "questionGroups": [
@@ -760,7 +824,7 @@
               "id": "catalog-reading-pet-b1-test51-part-6-q27",
               "number": 27,
               "type": "gap-fill",
-              "prompt": "Gap (27)",
+              "prompt": "Gap 27",
               "options": [],
               "answerConfidence": "key"
             },
@@ -768,7 +832,7 @@
               "id": "catalog-reading-pet-b1-test51-part-6-q28",
               "number": 28,
               "type": "gap-fill",
-              "prompt": "Gap (28)",
+              "prompt": "Gap 28",
               "options": [],
               "answerConfidence": "key"
             },
@@ -776,7 +840,7 @@
               "id": "catalog-reading-pet-b1-test51-part-6-q29",
               "number": 29,
               "type": "gap-fill",
-              "prompt": "Gap (29)",
+              "prompt": "Gap 29",
               "options": [],
               "answerConfidence": "key"
             },
@@ -784,7 +848,7 @@
               "id": "catalog-reading-pet-b1-test51-part-6-q30",
               "number": 30,
               "type": "gap-fill",
-              "prompt": "Gap (30)",
+              "prompt": "Gap 30",
               "options": [],
               "answerConfidence": "key"
             },
@@ -792,7 +856,7 @@
               "id": "catalog-reading-pet-b1-test51-part-6-q31",
               "number": 31,
               "type": "gap-fill",
-              "prompt": "Gap (31)",
+              "prompt": "Gap 31",
               "options": [],
               "answerConfidence": "key"
             },
@@ -800,7 +864,7 @@
               "id": "catalog-reading-pet-b1-test51-part-6-q32",
               "number": 32,
               "type": "gap-fill",
-              "prompt": "Gap (32)",
+              "prompt": "Gap 32",
               "options": [],
               "answerConfidence": "key"
             }

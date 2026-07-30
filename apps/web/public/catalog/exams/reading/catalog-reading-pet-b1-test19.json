@@ -15,45 +15,49 @@
       "passageTitle": "Part 1 – Short texts",
       "passage": [
         {
-          "text": "Wildlife walks notice\nThe wildlife walks team needs helpers on Saturday. Bring gloves and arrive before nine."
+          "text": "Clean-up notice\nSaturday’s river clean-up will meet at the footbridge at 9 a.m. Wear old shoes that can get muddy and bring gardening gloves if you have them. Bags and litter pickers are provided. The session ends at noon, and tea will be available at the community hut."
         },
         {
-          "text": "Message from a friend\nI have booked the woodland trails session for Tuesday, but I may arrive late. Please start without me and save a place."
+          "text": "Project update email\nHi volunteers, the hedgehog habitat project has received funding for materials, so we can now build the log piles this month. Please reply by Wednesday if you can help on the 22nd. We need six people minimum; if fewer reply, we will postpone to the following Saturday."
         },
         {
-          "text": "Information sign\nVisitors to the wildlife walks may use the tools, but they must return them before leaving."
+          "text": "Safety instruction\nAll conservation volunteers must attend a short safety briefing before their first outdoor session. The briefing covers tool handling, tick awareness and what to do near water. It takes twenty minutes and runs every Monday at 5.30 p.m. at the ranger’s office."
         },
         {
-          "text": "Short announcement\nThe young naturalists meeting has moved from Room 2 to Room 4 because the first room is being painted."
+          "text": "Booking update\nYour place on the birdwatching walk is confirmed for Sunday 8 a.m. The walk lasts two hours and follows a flat path beside the reservoir. Bring binoculars if you own them; a limited number can be borrowed from the visitor centre. Dogs are not permitted on this route."
         },
         {
-          "text": "Notice for members\nMembers can borrow one woodland trails guide for a week. Ask at the desk if you need another copy."
+          "text": "School announcement\nYear 10 students taking part in the recycling scheme must empty their classroom bins every Thursday before lunch. Full bags should be tied and placed in the green container behind the sports hall. Do not mix paper with plastic; contaminated bags will not be collected."
         }
       ],
       "questionGroups": [
         {
           "id": "catalog-reading-pet-b1-test19-part-1-g0",
           "range": "Questions 1–5",
-          "instruction": "For each question, choose the correct answer A, B or C.",
+          "instruction": "For each question, choose the correct answer A, B, C or D.",
           "type": "multiple-choice",
           "questions": [
             {
               "id": "catalog-reading-pet-b1-test19-part-1-q1",
               "number": 1,
               "type": "multiple-choice",
-              "prompt": "What should volunteers do?",
+              "prompt": "What should volunteers bring?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Bring gloves and arrive early."
+                  "label": "Litter pickers and bags."
                 },
                 {
                   "id": "B",
-                  "label": "Pay for equipment at the gate."
+                  "label": "Old shoes and gloves."
                 },
                 {
                   "id": "C",
-                  "label": "Work there every morning."
+                  "label": "Tea for the group."
+                },
+                {
+                  "id": "D",
+                  "label": "A change of clothes."
                 }
               ],
               "answerConfidence": "key"
@@ -62,19 +66,23 @@
               "id": "catalog-reading-pet-b1-test19-part-1-q2",
               "number": 2,
               "type": "multiple-choice",
-              "prompt": "What does the writer ask the friend to do?",
+              "prompt": "What determines whether the event proceeds?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Wait until Tuesday evening."
+                  "label": "Whether the funding arrives on time."
                 },
                 {
                   "id": "B",
-                  "label": "Begin the session if necessary."
+                  "label": "Whether at least six volunteers reply."
                 },
                 {
                   "id": "C",
-                  "label": "Cancel the booking."
+                  "label": "Whether the weather is suitable."
+                },
+                {
+                  "id": "D",
+                  "label": "Whether the materials are delivered."
                 }
               ],
               "answerConfidence": "key"
@@ -83,19 +91,23 @@
               "id": "catalog-reading-pet-b1-test19-part-1-q3",
               "number": 3,
               "type": "multiple-choice",
-              "prompt": "What must visitors do?",
+              "prompt": "When is the safety briefing held?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Take the tools home."
+                  "label": "Before every outdoor session."
                 },
                 {
                   "id": "B",
-                  "label": "Use the tools only outdoors."
+                  "label": "Every Monday at 5.30 p.m."
                 },
                 {
                   "id": "C",
-                  "label": "Return the tools after use."
+                  "label": "On the first Saturday of the month."
+                },
+                {
+                  "id": "D",
+                  "label": "After the volunteer’s first session."
                 }
               ],
               "answerConfidence": "key"
@@ -104,19 +116,23 @@
               "id": "catalog-reading-pet-b1-test19-part-1-q4",
               "number": 4,
               "type": "multiple-choice",
-              "prompt": "Why has the meeting moved?",
+              "prompt": "What restriction applies?",
               "options": [
                 {
                   "id": "A",
-                  "label": "The original room is unavailable."
+                  "label": "Children cannot attend."
                 },
                 {
                   "id": "B",
-                  "label": "The meeting has finished early."
+                  "label": "Dogs are not allowed."
                 },
                 {
                   "id": "C",
-                  "label": "More people have joined the group."
+                  "label": "Binoculars are compulsory."
+                },
+                {
+                  "id": "D",
+                  "label": "The path is steep."
                 }
               ],
               "answerConfidence": "key"
@@ -125,19 +141,23 @@
               "id": "catalog-reading-pet-b1-test19-part-1-q5",
               "number": 5,
               "type": "multiple-choice",
-              "prompt": "What is the rule about guides?",
+              "prompt": "What must students avoid?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Members may keep one for a week."
+                  "label": "Emptying bins after lunch."
                 },
                 {
                   "id": "B",
-                  "label": "Only visitors may borrow one."
+                  "label": "Using the green container."
                 },
                 {
                   "id": "C",
-                  "label": "All copies must be returned that day."
+                  "label": "Mixing paper with plastic."
+                },
+                {
+                  "id": "D",
+                  "label": "Tying the bags."
                 }
               ],
               "answerConfidence": "key"
@@ -153,53 +173,53 @@
       "passageTitle": "Part 2 – Matching",
       "passage": [
         {
-          "text": "The people below all want to take part in wildlife walks. Decide which option would be most suitable."
+          "text": "The people below want to choose from environmental volunteering and conservation. Decide which option is most suitable."
         },
         {
           "label": "A",
-          "text": "A morning course about woodland trails, with equipment supplied.",
+          "text": "Evening litter pick with a hot drink after — Collecting rubbish in small teams around the town centre, this weekday evening group makes a visible difference in just one hour. All equipment including gloves, grabbers and hi-vis vests is supplied. No experience is needed, and volunteers finish together over a hot drink at the nearby café. The group meets every Wednesday.",
           "imageSlotId": "catalog-reading-pet-b1-test19-part-2-option-a-image",
           "imageRequired": false
         },
         {
           "label": "B",
-          "text": "An evening club for people who prefer meeting local experts.",
+          "text": "Hillside tree planting on Saturdays — On a windswept hillside overlooking the valley, volunteers dig holes and plant young saplings under expert guidance every Saturday morning. The work is physical and boots are essential. Transport to the site is self-arranged, as no bus route reaches the planting area. Each volunteer can name their tree and return to watch it grow.",
           "imageSlotId": "catalog-reading-pet-b1-test19-part-2-option-b-image",
           "imageRequired": false
         },
         {
           "label": "C",
-          "text": "A weekend event offering practical activities in small groups.",
+          "text": "Lunchtime composting demo, walk in — This forty-minute lunchtime composting demonstration in the college garden needs no booking, fee or gardening experience. Participants learn to build a compost heap from scratch and receive a printed guide to take home. Sessions run every Thursday, and latecomers are welcome to join mid-demonstration.",
           "imageSlotId": "catalog-reading-pet-b1-test19-part-2-option-c-image",
           "imageRequired": false
         },
         {
           "label": "D",
-          "text": "A low-cost programme near the town centre, open to beginners.",
+          "text": "Wildlife survey qualification course — Qualify for national monitoring programmes by completing this advanced weekend wildlife survey training. Volunteers learn to identify species, record field data accurately and operate specialist survey equipment. The certificate is recognised by conservation bodies across the country. The fee is high but includes all equipment hire and field materials.",
           "imageSlotId": "catalog-reading-pet-b1-test19-part-2-option-d-image",
           "imageRequired": false
         },
         {
           "label": "E",
-          "text": "A quiet project where members can work independently.",
+          "text": "Garden rewilding for insect support — Supporting local insects need not mean a long weekly commitment, as this short accessible introduction shows. The tutor demonstrates rewilding techniques in a step-free community garden, and each participant receives a seed pack to take home. Sessions last ninety minutes and focus on practical, low-effort changes.",
           "imageSlotId": "catalog-reading-pet-b1-test19-part-2-option-e-image",
           "imageRequired": false
         },
         {
           "label": "F",
-          "text": "A short course that includes advice from experienced young naturalists.",
+          "text": "Family beach clean on first Sundays — Once a month, on the first Sunday, a morning beach clean welcomes helpers of every age. Gloves and bags are supplied, and the session ends with a short talk about ocean plastic. Parking is free and the meeting point is clearly signposted. The work is light enough for young helpers.",
           "imageSlotId": "catalog-reading-pet-b1-test19-part-2-option-f-image",
           "imageRequired": false
         },
         {
           "label": "G",
-          "text": "A family activity held outdoors when the weather is suitable.",
+          "text": "Repair café, bring your broken items — Bring your torn jacket or wobbly toaster and learn to mend it at this free monthly repair-and-reuse workshop. Skilled volunteers guide members through clothing repairs and small fixes instead of discarding items. The atmosphere is informal and social, with tea always brewing. The hall is outside town and buses are infrequent.",
           "imageSlotId": "catalog-reading-pet-b1-test19-part-2-option-g-image",
           "imageRequired": false
         },
         {
           "label": "H",
-          "text": "A longer programme combining study with social events.",
+          "text": "Conservation challenge with physical tasks — Pond clearing, fence building and path laying under time pressure define this competitive weekend conservation challenge. Teams complete practical outdoor tasks while judges assess speed and quality. Everyone who finishes earns a medal, and the entry fee covers tools, insurance and lunch. It suits people who enjoy physical teamwork outdoors.",
           "imageSlotId": "catalog-reading-pet-b1-test19-part-2-option-h-image",
           "imageRequired": false
         }
@@ -213,35 +233,35 @@
           "features": [
             {
               "id": "a",
-              "name": "A morning course about woodland trails, with equipment supplied."
+              "name": "Evening litter pick with a hot drink after — Collecting rubbish in small teams around the town centre, this weekday evening group makes a visible difference in just one hour. All equipment including gloves, grabbers and hi-vis vests is supplied. No experience is needed, and volunteers finish together over a hot drink at the nearby café. The group meets every Wednesday."
             },
             {
               "id": "b",
-              "name": "An evening club for people who prefer meeting local experts."
+              "name": "Hillside tree planting on Saturdays — On a windswept hillside overlooking the valley, volunteers dig holes and plant young saplings under expert guidance every Saturday morning. The work is physical and boots are essential. Transport to the site is self-arranged, as no bus route reaches the planting area. Each volunteer can name their tree and return to watch it grow."
             },
             {
               "id": "c",
-              "name": "A weekend event offering practical activities in small groups."
+              "name": "Lunchtime composting demo, walk in — This forty-minute lunchtime composting demonstration in the college garden needs no booking, fee or gardening experience. Participants learn to build a compost heap from scratch and receive a printed guide to take home. Sessions run every Thursday, and latecomers are welcome to join mid-demonstration."
             },
             {
               "id": "d",
-              "name": "A low-cost programme near the town centre, open to beginners."
+              "name": "Wildlife survey qualification course — Qualify for national monitoring programmes by completing this advanced weekend wildlife survey training. Volunteers learn to identify species, record field data accurately and operate specialist survey equipment. The certificate is recognised by conservation bodies across the country. The fee is high but includes all equipment hire and field materials."
             },
             {
               "id": "e",
-              "name": "A quiet project where members can work independently."
+              "name": "Garden rewilding for insect support — Supporting local insects need not mean a long weekly commitment, as this short accessible introduction shows. The tutor demonstrates rewilding techniques in a step-free community garden, and each participant receives a seed pack to take home. Sessions last ninety minutes and focus on practical, low-effort changes."
             },
             {
               "id": "f",
-              "name": "A short course that includes advice from experienced young naturalists."
+              "name": "Family beach clean on first Sundays — Once a month, on the first Sunday, a morning beach clean welcomes helpers of every age. Gloves and bags are supplied, and the session ends with a short talk about ocean plastic. Parking is free and the meeting point is clearly signposted. The work is light enough for young helpers."
             },
             {
               "id": "g",
-              "name": "A family activity held outdoors when the weather is suitable."
+              "name": "Repair café, bring your broken items — Bring your torn jacket or wobbly toaster and learn to mend it at this free monthly repair-and-reuse workshop. Skilled volunteers guide members through clothing repairs and small fixes instead of discarding items. The atmosphere is informal and social, with tea always brewing. The hall is outside town and buses are infrequent."
             },
             {
               "id": "h",
-              "name": "A longer programme combining study with social events."
+              "name": "Conservation challenge with physical tasks — Pond clearing, fence building and path laying under time pressure define this competitive weekend conservation challenge. Teams complete practical outdoor tasks while judges assess speed and quality. Everyone who finishes earns a medal, and the entry fee covers tools, insurance and lunch. It suits people who enjoy physical teamwork outdoors."
             }
           ],
           "questions": [
@@ -249,7 +269,7 @@
               "id": "catalog-reading-pet-b1-test19-part-2-q6",
               "number": 6,
               "type": "matching-features",
-              "prompt": "Mia has only one free morning and wants to learn about woodland trails.",
+              "prompt": "Kai wants a short evening activity after work, needs equipment supplied and enjoys finishing with a social drink nearby.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -257,7 +277,7 @@
               "id": "catalog-reading-pet-b1-test19-part-2-q7",
               "number": 7,
               "type": "matching-features",
-              "prompt": "Noah works late, so he needs an activity that starts in the evening.",
+              "prompt": "Mia has young children, is free Sunday mornings and wants an environmental activity where gloves are supplied and parking is easy.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -265,7 +285,7 @@
               "id": "catalog-reading-pet-b1-test19-part-2-q8",
               "number": 8,
               "type": "matching-features",
-              "prompt": "Aisha is new to wildlife walks and wants friendly expert advice.",
+              "prompt": "Leo has a free lunchtime hour, wants a free demonstration with printed notes and prefers no booking or commitment.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -273,7 +293,7 @@
               "id": "catalog-reading-pet-b1-test19-part-2-q9",
               "number": 9,
               "type": "matching-features",
-              "prompt": "Leo has little money and would like somewhere easy to reach.",
+              "prompt": "Zara uses a wheelchair, wants a step-free garden activity with seeds to take home and prefers a short gentle introduction.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -281,7 +301,7 @@
               "id": "catalog-reading-pet-b1-test19-part-2-q10",
               "number": 10,
               "type": "matching-features",
-              "prompt": "Sara dislikes crowds and would rather work quietly on her own.",
+              "prompt": "Omar wants a recognised qualification for conservation work, can pay a high fee and is happy with weekend fieldwork and data recording.",
               "options": [],
               "answerConfidence": "key"
             }
@@ -293,16 +313,19 @@
       "id": "catalog-reading-pet-b1-test19-part-3",
       "partNumber": 3,
       "rangeLabel": "Questions 11–15",
-      "passageTitle": "Part 3 – wildlife walks",
+      "passageTitle": "Part 3 – A river clean-up day",
       "passage": [
         {
-          "text": "When the young naturalists in our town started a wildlife walks project, few residents expected it to grow so quickly. At first, the organisers met in a small room and planned one simple activity involving woodland trails. They soon discovered that people were more willing to join when they could see a clear benefit for the neighbourhood. The organisers therefore published a short timetable and invited local businesses to offer practical help."
+          "text": "On a grey Saturday in March, twenty of us gathered beside the footbridge with rubber gloves and black bags. The river had flooded twice during winter, and when the water receded, it left plastic bottles, food wrappers and even a shopping trolley tangled in the reeds. Our group leader, a retired teacher called Margaret, divided us into pairs and assigned each pair a fifty-metre stretch of bank."
         },
         {
-          "text": "The project was not completely easy. Some volunteers were worried that the work would take too much time, while others wanted to change the plan every week. The team solved this by giving each person one small responsibility and reviewing the results together. This made the project feel manageable, and it also meant that new volunteers could contribute without special experience."
+          "text": "The work was messier than I had imagined. Some items were easy to reach, but others had sunk into the mud and required pulling with both hands. My partner, a teenager named Elliot, found a plastic bag full of old batteries and had to carry it carefully to the hazardous-waste container Margaret had brought. We filled three bags in the first hour, and the stretch of bank behind us looked noticeably cleaner."
         },
         {
-          "text": "Looking back, the organiser says the most important lesson was not the final result but the way people learned to cooperate. The group still has problems, especially when the weather affects outdoor work, yet members now discuss solutions rather than blaming one another. For this reason, the project has become a useful example of how a modest local idea can create lasting connections."
+          "text": "By midday, the group had collected fourteen bags of rubbish and several larger items, including a bicycle wheel and a broken garden chair. Margaret photographed the pile so the council could see the scale of the problem. She explained that most of the waste arrived during floods, not from local littering, which surprised several of us. The river, she said, carried other people’s carelessness into our town. Several volunteers who had never met before exchanged numbers and formed a small group that meets monthly to monitor the river’s condition. They photograph wildlife, record water levels and report illegal dumping to the council. Margaret says this ongoing attention matters more than any single clean-up, because it makes the river visible to people who might otherwise walk past without noticing. I have joined the monitoring group too, and last month I spotted a kingfisher from the footbridge. The sight confirmed what Margaret had told us: that caring for a place changes how you see it."
+        },
+        {
+          "text": "Walking home with muddy boots and aching shoulders, I felt a satisfaction that was difficult to explain. The river would flood again next winter, and more rubbish would arrive. But for now, the reeds were visible, and a heron stood where plastic bags had hung that morning. Margaret has already announced the next clean-up for June, and I have said I will return."
         }
       ],
       "questionGroups": [
@@ -316,23 +339,23 @@
               "id": "catalog-reading-pet-b1-test19-part-3-q11",
               "number": 11,
               "type": "multiple-choice",
-              "prompt": "What was one reason more residents joined the project?",
+              "prompt": "Why was there so much rubbish by the river?",
               "options": [
                 {
                   "id": "A",
-                  "label": "They could understand its practical value."
+                  "label": "Local residents had dumped it deliberately."
                 },
                 {
                   "id": "B",
-                  "label": "They were promised paid work."
+                  "label": "Winter floods had carried it there."
                 },
                 {
                   "id": "C",
-                  "label": "They wanted to compete with local businesses."
+                  "label": "A factory had leaked waste."
                 },
                 {
                   "id": "D",
-                  "label": "They were required to attend."
+                  "label": "The council had failed to collect bins."
                 }
               ],
               "answerConfidence": "key"
@@ -341,23 +364,23 @@
               "id": "catalog-reading-pet-b1-test19-part-3-q12",
               "number": 12,
               "type": "multiple-choice",
-              "prompt": "What problem did some volunteers have at the beginning?",
+              "prompt": "What made the work harder than expected?",
               "options": [
                 {
                   "id": "A",
-                  "label": "They disagreed about how often to change the plan."
+                  "label": "The group was too small."
                 },
                 {
                   "id": "B",
-                  "label": "They could not find a suitable meeting room."
+                  "label": "Some items were stuck in the mud."
                 },
                 {
                   "id": "C",
-                  "label": "They lacked permission to contact businesses."
+                  "label": "The bags kept tearing."
                 },
                 {
                   "id": "D",
-                  "label": "They had no interest in outdoor work."
+                  "label": "Margaret gave unclear instructions."
                 }
               ],
               "answerConfidence": "key"
@@ -366,23 +389,23 @@
               "id": "catalog-reading-pet-b1-test19-part-3-q13",
               "number": 13,
               "type": "multiple-choice",
-              "prompt": "How did the team make participation easier?",
+              "prompt": "Why did Margaret photograph the rubbish pile?",
               "options": [
                 {
                   "id": "A",
-                  "label": "It divided the work into smaller responsibilities."
+                  "label": "To share on social media for publicity."
                 },
                 {
                   "id": "B",
-                  "label": "It removed the timetable completely."
+                  "label": "To show the council how much was collected."
                 },
                 {
                   "id": "C",
-                  "label": "It asked only experienced people to help."
+                  "label": "To prove the group had worked hard."
                 },
                 {
                   "id": "D",
-                  "label": "It stopped reviewing the results."
+                  "label": "To compare with previous clean-ups."
                 }
               ],
               "answerConfidence": "key"
@@ -391,23 +414,23 @@
               "id": "catalog-reading-pet-b1-test19-part-3-q14",
               "number": 14,
               "type": "multiple-choice",
-              "prompt": "What does the organiser value most about the project?",
+              "prompt": "What surprised the writer about the waste?",
               "options": [
                 {
                   "id": "A",
-                  "label": "The cooperation that developed among residents."
+                  "label": "It was mainly from local households."
                 },
                 {
                   "id": "B",
-                  "label": "The money earned by local businesses."
+                  "label": "Most of it had arrived from elsewhere."
                 },
                 {
                   "id": "C",
-                  "label": "The speed at which the first activity finished."
+                  "label": "It included very few plastic items."
                 },
                 {
                   "id": "D",
-                  "label": "The number of changes made to the timetable."
+                  "label": "It was older than expected."
                 }
               ],
               "answerConfidence": "key"
@@ -416,23 +439,23 @@
               "id": "catalog-reading-pet-b1-test19-part-3-q15",
               "number": 15,
               "type": "multiple-choice",
-              "prompt": "What is the writer’s main point?",
+              "prompt": "What is the writer’s main feeling at the end?",
               "options": [
                 {
                   "id": "A",
-                  "label": "A small local project can strengthen a community."
+                  "label": "Anger at the people who littered."
                 },
                 {
                   "id": "B",
-                  "label": "Outdoor projects are always more successful than indoor ones."
+                  "label": "Satisfaction despite knowing the problem will return."
                 },
                 {
                   "id": "C",
-                  "label": "Volunteers should avoid changing their plans."
+                  "label": "Disappointment that the work was unfinished."
                 },
                 {
                   "id": "D",
-                  "label": "Businesses should organise neighbourhood activities."
+                  "label": "Worry about the next flood."
                 }
               ],
               "answerConfidence": "key"
@@ -445,42 +468,70 @@
       "id": "catalog-reading-pet-b1-test19-part-4",
       "partNumber": 4,
       "rangeLabel": "Questions 16–20",
-      "passageTitle": "Part 4 – wildlife walks",
+      "passageTitle": "Part 4 – Starting a tree-planting project",
       "passage": [
         {
-          "text": "The young naturalists began their wildlife walks plan with one short meeting. (16) ..... The next week, more residents arrived than expected. (17) ..... They wanted to keep the activity useful rather than simply make it larger. (18) ..... The organisers therefore asked members to choose one task each. (19) ..... The work became easier to manage, and new volunteers quickly understood what to do. (20) ..... The project now meets regularly and welcomes anyone who wants to take part."
+          "text": "When the farmer offered a strip of unused land beside the village, a group of residents saw a chance to create a small woodland. They had discussed the idea for years, but never had a suitable site. (16) ..... The first step was to check whether the soil could support young trees. The offer transformed a vague ambition into a practical plan. The farmer said he was happy the land would serve a long-term purpose."
+        },
+        {
+          "text": "A local ecologist visited the site and confirmed that native species such as oak and birch would grow well. She also warned that the first two years would require regular watering and protection from rabbits. (17) ..... The volunteers agreed to share these tasks on a rota basis. This advice meant the volunteers had to commit beyond a single weekend. Several volunteers bought watering cans and stored them in their sheds."
+        },
+        {
+          "text": "Funding came from a council grant and a sponsored walk organised by the primary school. The money covered saplings, tree guards and basic tools. (18) ..... Without this support, the project would have remained a discussion rather than becoming a reality. The grant arrived quickly because the school’s walk had raised public interest. A local newspaper printed a photograph of the schoolchildren on the walk."
+        },
+        {
+          "text": "On the first planting day, thirty people turned up despite cold wind. Children carried saplings while adults dug holes, and the ecologist checked each tree before soil was replaced. (19) ..... By lunchtime, forty trees stood in neat rows along the boundary. The shared effort made the work feel achievable despite the weather. Everyone agreed that the cold made the hot soup afterwards taste better."
+        },
+        {
+          "text": "Two years later, most of the trees had survived, and the first birds were nesting in the taller saplings. The volunteers still meet monthly to clear weeds and check guards. (20) ..... The strip of land that once grew only nettles now has a name: the Millennium Wood. The project had become part of the village’s identity. Residents who had never volunteered before now ask when the next session is."
         },
         {
           "label": "A",
-          "text": "This was the first sign that the idea might work."
+          "text": "What began as an idea had grown into a shared local landmark.",
+          "key": "test19-part4-option-4",
+          "correctForGap": 20
         },
         {
           "label": "B",
-          "text": "For that reason, the group changed its meeting place."
+          "text": "Every sapling died within the first month.",
+          "key": "test19-part4-option-6",
+          "correctForGap": null
         },
         {
           "label": "C",
-          "text": "As a result, several people offered to help."
+          "text": "The volunteers understood that planting was only the beginning.",
+          "key": "test19-part4-option-1",
+          "correctForGap": 17
         },
         {
           "label": "D",
-          "text": "The organisers had not expected such a quick response."
+          "text": "The farmer changed his mind and sold the land to a developer.",
+          "key": "test19-part4-option-7",
+          "correctForGap": null
         },
         {
           "label": "E",
-          "text": "Even so, the original aim remained the same."
+          "text": "The teamwork meant that forty trees were planted in a single morning.",
+          "key": "test19-part4-option-3",
+          "correctForGap": 19
         },
         {
           "label": "F",
-          "text": "They later used the same method in another area."
+          "text": "The council refused to support any environmental project.",
+          "key": "test19-part4-option-5",
+          "correctForGap": null
         },
         {
           "label": "G",
-          "text": "This made the final decision much easier."
+          "text": "The offer gave the group the site they had been waiting for.",
+          "key": "test19-part4-option-0",
+          "correctForGap": 16
         },
         {
           "label": "H",
-          "text": "In the end, everyone agreed to continue."
+          "text": "This combination of funding made the project financially possible.",
+          "key": "test19-part4-option-2",
+          "correctForGap": 18
         }
       ],
       "questionGroups": [
@@ -492,35 +543,51 @@
           "features": [
             {
               "id": "a",
-              "name": "This was the first sign that the idea might work."
+              "name": "What began as an idea had grown into a shared local landmark.",
+              "key": "test19-part4-option-4",
+              "correctForGap": 20
             },
             {
               "id": "b",
-              "name": "For that reason, the group changed its meeting place."
+              "name": "Every sapling died within the first month.",
+              "key": "test19-part4-option-6",
+              "correctForGap": null
             },
             {
               "id": "c",
-              "name": "As a result, several people offered to help."
+              "name": "The volunteers understood that planting was only the beginning.",
+              "key": "test19-part4-option-1",
+              "correctForGap": 17
             },
             {
               "id": "d",
-              "name": "The organisers had not expected such a quick response."
+              "name": "The farmer changed his mind and sold the land to a developer.",
+              "key": "test19-part4-option-7",
+              "correctForGap": null
             },
             {
               "id": "e",
-              "name": "Even so, the original aim remained the same."
+              "name": "The teamwork meant that forty trees were planted in a single morning.",
+              "key": "test19-part4-option-3",
+              "correctForGap": 19
             },
             {
               "id": "f",
-              "name": "They later used the same method in another area."
+              "name": "The council refused to support any environmental project.",
+              "key": "test19-part4-option-5",
+              "correctForGap": null
             },
             {
               "id": "g",
-              "name": "This made the final decision much easier."
+              "name": "The offer gave the group the site they had been waiting for.",
+              "key": "test19-part4-option-0",
+              "correctForGap": 16
             },
             {
               "id": "h",
-              "name": "In the end, everyone agreed to continue."
+              "name": "This combination of funding made the project financially possible.",
+              "key": "test19-part4-option-2",
+              "correctForGap": 18
             }
           ],
           "questions": [
@@ -572,10 +639,10 @@
       "id": "catalog-reading-pet-b1-test19-part-5",
       "partNumber": 5,
       "rangeLabel": "Questions 21–26",
-      "passageTitle": "Part 5 – wildlife walks",
+      "passageTitle": "Part 5 – Multiple-choice cloze",
       "passage": [
         {
-          "text": "The young naturalists usually meet (21) ........ Saturday. New members are shown how to (22) ........ the equipment. They can ask for advice if they are (23) ........ about a task. The group works together (24) ........ everyone can learn. Members often share ideas (25) ........ the session. The project has become a popular way to meet (26) ........ people."
+          "text": "Protecting local wildlife requires effort, and residents have discovered that change (21) ..... consistent actions rather than grand gestures. Last spring, a group of neighbours decided (22) ..... of wasteland beside the railway and plant wildflowers. At first, the soil was poor and the results were slow, but (23) ..... because the council had agreed to let them use the space for three years. By summer, bees and (24) ..... even the most optimistic volunteers. A local school adopted the patch, and children (25) ..... which flowers attracted the most insects. The project has since inspired two other streets to create similar (26) ..... now looks noticeably greener than it did five years ago.  The group meets monthly to plan seasonal planting and share seeds. New volunteers are always welcome, and no gardening experience is required."
         }
       ],
       "questionGroups": [
@@ -593,19 +660,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "every"
+                  "label": "on"
                 },
                 {
                   "id": "B",
-                  "label": "each"
+                  "label": "in"
                 },
                 {
                   "id": "C",
-                  "label": "whole"
+                  "label": "at"
                 },
                 {
                   "id": "D",
-                  "label": "all"
+                  "label": "for"
                 }
               ],
               "answerConfidence": "key"
@@ -618,19 +685,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "use"
+                  "label": "clear"
                 },
                 {
                   "id": "B",
-                  "label": "make"
+                  "label": "put"
                 },
                 {
                   "id": "C",
-                  "label": "bring"
+                  "label": "take"
                 },
                 {
                   "id": "D",
-                  "label": "hold"
+                  "label": "give"
                 }
               ],
               "answerConfidence": "key"
@@ -643,19 +710,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "uncertain"
+                  "label": "kept"
                 },
                 {
                   "id": "B",
-                  "label": "narrow"
+                  "label": "hold"
                 },
                 {
                   "id": "C",
-                  "label": "single"
+                  "label": "carried"
                 },
                 {
                   "id": "D",
-                  "label": "empty"
+                  "label": "went"
                 }
               ],
               "answerConfidence": "key"
@@ -668,19 +735,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "so that"
+                  "label": "which"
                 },
                 {
                   "id": "B",
-                  "label": "unless"
+                  "label": "what"
                 },
                 {
                   "id": "C",
-                  "label": "although"
+                  "label": "who"
                 },
                 {
                   "id": "D",
-                  "label": "before"
+                  "label": "where"
                 }
               ],
               "answerConfidence": "key"
@@ -693,19 +760,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "during"
+                  "label": "find"
                 },
                 {
                   "id": "B",
-                  "label": "between"
+                  "label": "work"
                 },
                 {
                   "id": "C",
-                  "label": "inside"
+                  "label": "look"
                 },
                 {
                   "id": "D",
-                  "label": "through"
+                  "label": "turn"
                 }
               ],
               "answerConfidence": "key"
@@ -718,19 +785,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "local"
+                  "label": "so"
                 },
                 {
                   "id": "B",
-                  "label": "private"
+                  "label": "but"
                 },
                 {
                   "id": "C",
-                  "label": "silent"
+                  "label": "or"
                 },
                 {
                   "id": "D",
-                  "label": "rare"
+                  "label": "nor"
                 }
               ],
               "answerConfidence": "key"
@@ -743,10 +810,10 @@
       "id": "catalog-reading-pet-b1-test19-part-6",
       "partNumber": 6,
       "rangeLabel": "Questions 27–32",
-      "passageTitle": "Part 6 – wildlife walks",
+      "passageTitle": "Part 6 – Open cloze",
       "passage": [
         {
-          "text": "The young naturalists meet (27) ........ week to plan activities. New members learn (28) ........ to use the woodland trails safely. They can join the work, (29) ........ they should follow the group’s instructions. The project has kept useful materials (30) ........ being thrown away. It is a place (31) ........ people can exchange ideas. Remember (32) ........ ask for help when you need it."
+          "text": "The recycling scheme started with (27) ........ simple idea: each classroom would collect paper separately. A teacher (28) ........ had attended an environmental course suggested the plan, (29) ........ the head teacher agreed to trial it for one term. Bins were placed (30) ........ every corridor, and students took turns emptying them. The scheme showed (31) ........ small changes could make a measurable difference, (32) ........ other schools have since asked for advice.  The head teacher now includes recycling data in the annual report, and students present the figures to parents during open evenings. This visibility has encouraged families to adopt similar habits at home.  The scheme will expand to include plastic bottles next term, following a student vote."
         }
       ],
       "questionGroups": [
@@ -760,7 +827,7 @@
               "id": "catalog-reading-pet-b1-test19-part-6-q27",
               "number": 27,
               "type": "gap-fill",
-              "prompt": "Gap (27)",
+              "prompt": "Gap 27",
               "options": [],
               "answerConfidence": "key"
             },
@@ -768,7 +835,7 @@
               "id": "catalog-reading-pet-b1-test19-part-6-q28",
               "number": 28,
               "type": "gap-fill",
-              "prompt": "Gap (28)",
+              "prompt": "Gap 28",
               "options": [],
               "answerConfidence": "key"
             },
@@ -776,7 +843,7 @@
               "id": "catalog-reading-pet-b1-test19-part-6-q29",
               "number": 29,
               "type": "gap-fill",
-              "prompt": "Gap (29)",
+              "prompt": "Gap 29",
               "options": [],
               "answerConfidence": "key"
             },
@@ -784,7 +851,7 @@
               "id": "catalog-reading-pet-b1-test19-part-6-q30",
               "number": 30,
               "type": "gap-fill",
-              "prompt": "Gap (30)",
+              "prompt": "Gap 30",
               "options": [],
               "answerConfidence": "key"
             },
@@ -792,7 +859,7 @@
               "id": "catalog-reading-pet-b1-test19-part-6-q31",
               "number": 31,
               "type": "gap-fill",
-              "prompt": "Gap (31)",
+              "prompt": "Gap 31",
               "options": [],
               "answerConfidence": "key"
             },
@@ -800,7 +867,7 @@
               "id": "catalog-reading-pet-b1-test19-part-6-q32",
               "number": 32,
               "type": "gap-fill",
-              "prompt": "Gap (32)",
+              "prompt": "Gap 32",
               "options": [],
               "answerConfidence": "key"
             }

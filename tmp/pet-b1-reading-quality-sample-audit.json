@@ -1,0 +1,283 @@
+{
+  "status": "PASS",
+  "tests": [
+    14,
+    30,
+    51
+  ],
+  "audit": [
+    {
+      "test": 14,
+      "parts": {
+        "3": {
+          "oldWordCount": null,
+          "newWordCount": 344,
+          "targetRange": "300–380",
+          "topic": "Part 3 – A garden that belongs to everyone",
+          "questionSkillDistribution": [
+            "inference",
+            "detail",
+            "reason",
+            "main-idea"
+          ]
+        },
+        "4": {
+          "oldWordCount": null,
+          "newWordCount": 253,
+          "targetRange": "250–330",
+          "topic": "Part 4 – A new use for an empty shop",
+          "cohesionChecks": [
+            "reference",
+            "sequence",
+            "cause-effect",
+            "contrast"
+          ],
+          "optionOrder": [
+            "a:the residents decided to sell the building instead",
+            "b:people hurried past it without paying much attention",
+            "c:nobody knew who had owned the shop before",
+            "d:this condition was important because the building was old",
+            "e:the bus company offered to run extra services",
+            "f:the idea was unusual but it solved two local problems",
+            "g:most of the equipment arrived from people s homes",
+            "h:in this way the project could begin without a large budget"
+          ],
+          "answerLabels": [
+            "b",
+            "f",
+            "d",
+            "h",
+            "g"
+          ],
+          "correctPositions": [
+            1,
+            5,
+            3,
+            7,
+            6
+          ],
+          "unusedOptions": [
+            "a",
+            "c",
+            "e"
+          ]
+        },
+        "5": {
+          "oldWordCount": null,
+          "newWordCount": 151,
+          "targetRange": "150–200",
+          "topic": "Part 5 – Multiple-choice cloze",
+          "languageTargetDistribution": [
+            "collocation",
+            "phrasal-verb",
+            "linking-word",
+            "dependent-preposition",
+            "adjective/adverb",
+            "meaning-distinction"
+          ]
+        },
+        "6": {
+          "oldWordCount": null,
+          "newWordCount": 136,
+          "targetRange": "130–180",
+          "topic": "Part 6 – Open cloze",
+          "grammarTargetDistribution": [
+            "article",
+            "preposition",
+            "conjunction",
+            "relative-word",
+            "quantifier",
+            "auxiliary"
+          ]
+        }
+      },
+      "exactDuplicates": [],
+      "repeatedSentences": [],
+      "paddingFragments": []
+    },
+    {
+      "test": 30,
+      "parts": {
+        "3": {
+          "oldWordCount": null,
+          "newWordCount": 319,
+          "targetRange": "300–380",
+          "topic": "Part 3 – Learning to fix a difficult device",
+          "questionSkillDistribution": [
+            "detail",
+            "reason",
+            "inference",
+            "main-idea"
+          ]
+        },
+        "4": {
+          "oldWordCount": null,
+          "newWordCount": 255,
+          "targetRange": "250–330",
+          "topic": "Part 4 – A useful mistake",
+          "cohesionChecks": [
+            "reference",
+            "sequence",
+            "cause-effect",
+            "contrast"
+          ],
+          "optionOrder": [
+            "a:the students decided not to test the program again",
+            "b:this showed that the problem was in the instructions not the questions",
+            "c:for this reason the teacher cancelled the project",
+            "d:the pupils found a few unclear questions as well",
+            "e:everyone assumed the task would take only one afternoon",
+            "f:a new computer room was opened nearby",
+            "g:they wanted visitors to receive different feedback",
+            "h:the club had never used a website before"
+          ],
+          "answerLabels": [
+            "g",
+            "b",
+            "e",
+            "d",
+            "h"
+          ],
+          "correctPositions": [
+            6,
+            1,
+            4,
+            3,
+            7
+          ],
+          "unusedOptions": [
+            "a",
+            "c",
+            "f"
+          ]
+        },
+        "5": {
+          "oldWordCount": null,
+          "newWordCount": 153,
+          "targetRange": "150–200",
+          "topic": "Part 5 – Multiple-choice cloze",
+          "languageTargetDistribution": [
+            "collocation",
+            "phrasal-verb",
+            "linking-word",
+            "dependent-preposition",
+            "adjective/adverb",
+            "meaning-distinction"
+          ]
+        },
+        "6": {
+          "oldWordCount": null,
+          "newWordCount": 130,
+          "targetRange": "130–180",
+          "topic": "Part 6 – Open cloze",
+          "grammarTargetDistribution": [
+            "article",
+            "preposition",
+            "conjunction",
+            "relative-word",
+            "quantifier",
+            "auxiliary"
+          ]
+        }
+      },
+      "exactDuplicates": [],
+      "repeatedSentences": [],
+      "paddingFragments": []
+    },
+    {
+      "test": 51,
+      "parts": {
+        "3": {
+          "oldWordCount": null,
+          "newWordCount": 342,
+          "targetRange": "300–380",
+          "topic": "Part 3 – The journey that changed our plans",
+          "questionSkillDistribution": [
+            "reason",
+            "inference",
+            "detail",
+            "attitude"
+          ]
+        },
+        "4": {
+          "oldWordCount": null,
+          "newWordCount": 255,
+          "targetRange": "250–330",
+          "topic": "Part 4 – A cleaner way to travel",
+          "cohesionChecks": [
+            "reference",
+            "sequence",
+            "cause-effect",
+            "contrast"
+          ],
+          "optionOrder": [
+            "a:this was the first time maya had used a train",
+            "b:the market was closed because of a public holiday",
+            "c:her plan began with choosing what not to take",
+            "d:the shopkeeper had never met a visitor before",
+            "e:the journey was longer than she had first expected",
+            "f:this friendly service made the next part of the journey easier",
+            "g:she decided that travelling lightly was only possible by plane",
+            "h:that choice also meant she could avoid several disposable packets"
+          ],
+          "answerLabels": [
+            "c",
+            "f",
+            "h",
+            "e",
+            "b"
+          ],
+          "correctPositions": [
+            2,
+            5,
+            7,
+            4,
+            1
+          ],
+          "unusedOptions": [
+            "a",
+            "d",
+            "g"
+          ]
+        },
+        "5": {
+          "oldWordCount": null,
+          "newWordCount": 150,
+          "targetRange": "150–200",
+          "topic": "Part 5 – Multiple-choice cloze",
+          "languageTargetDistribution": [
+            "collocation",
+            "phrasal-verb",
+            "linking-word",
+            "dependent-preposition",
+            "adjective/adverb",
+            "meaning-distinction"
+          ]
+        },
+        "6": {
+          "oldWordCount": null,
+          "newWordCount": 132,
+          "targetRange": "130–180",
+          "topic": "Part 6 – Open cloze",
+          "grammarTargetDistribution": [
+            "article",
+            "preposition",
+            "conjunction",
+            "relative-word",
+            "quantifier",
+            "auxiliary"
+          ]
+        }
+      },
+      "exactDuplicates": [],
+      "repeatedSentences": [],
+      "paddingFragments": []
+    }
+  ],
+  "exactDuplicates": [],
+  "repeatedSentences": [],
+  "paddingFragments": [],
+  "highestSimilarityPair": "14-51",
+  "highestSimilarityScore": 0.2192429022082019,
+  "failures": []
+}

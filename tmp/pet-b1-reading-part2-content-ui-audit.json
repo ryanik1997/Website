@@ -1,0 +1,52 @@
+{
+  "task": "PET B1 Part 2 Content Monotony + Compact Drop-Zone UI Fix",
+  "date": "2026-07-27",
+  "testsReviewed": [14, 15, 16, 17, 18, 19, 30, 51],
+  "sharedScaffoldRemoved": true,
+  "scaffoldLocation": "scripts/reading/pet-b1/compile/compile-exam.mjs (OPTION_DETAILS + PROFILE_DETAILS arrays, deleted)",
+  "repeatedPhrasesBefore": [
+    "Sessions include a clear introduction, a practical task and time to ask questions",
+    "The organiser confirms places in advance and explains the meeting point",
+    "The activity is designed for people who value a manageable commitment",
+    "Participants receive simple guidance at the start",
+    "The leader checks everyone's needs beforehand",
+    "Visitors should contact the organiser first",
+    "Members receive the reading or learning material before meeting",
+    "The tutor explains the practical requirements clearly",
+    "The organiser provides a concise safety reminder"
+  ],
+  "repeatedPhrasesAfter": "NONE — all 9 scaffold suffixes removed from compiler",
+  "openingStyleDistribution": {
+    "test14": ["schedule-led", "audience-led", "condition-led", "feature-led", "need-led", "invitation-led", "location-led", "outcome-led"],
+    "test15": ["schedule-led", "audience-led", "condition-led", "feature-led", "need-led", "location-led", "invitation-led", "outcome-led"],
+    "test16": ["activity-led", "audience-led", "condition-led", "feature-led", "need-led", "outcome-led", "invitation-led", "problem-solution-led"],
+    "test17": ["outcome-led", "audience-led", "condition-led", "feature-led", "need-led", "schedule-led", "invitation-led", "location-led"],
+    "test18": ["schedule-led", "audience-led", "condition-led", "outcome-led", "need-led", "activity-led", "invitation-led", "problem-solution-led"],
+    "test19": ["activity-led", "location-led", "condition-led", "outcome-led", "need-led", "audience-led", "invitation-led", "feature-led"],
+    "test30": ["schedule-led", "condition-led", "feature-led", "need-led", "audience-led", "activity-led", "outcome-led", "invitation-led"],
+    "test51": ["activity-led", "condition-led", "feature-led", "location-led", "need-led", "audience-led", "outcome-led", "invitation-led"]
+  },
+  "articleLedCount": {
+    "test14": 0,
+    "test15": 0,
+    "test16": 0,
+    "test17": 0,
+    "test18": 0,
+    "test19": 0,
+    "test30": 0,
+    "test51": 0
+  },
+  "explicitTitlePresence": "ALL tests 14-19, 30, 51 have explicit title field",
+  "selectedUICompact": "Em-dash format activates runtime splitReferenceText() → title shown in gap, not full description",
+  "fullDescriptionInGap": false,
+  "uniqueAssignment": "MOVE behavior (existing, unchanged)",
+  "legacyFallback": "Runtime fallback chain: title → shortTitle → first sentence ≤60 chars → 'Option A' (existing code, unchanged)",
+  "assetPreservation": "Generator merges assetId/alt/imageKey/imageUrl by imageSlotId from previous JSON (existing logic, unchanged)",
+  "validation": {
+    "idempotency": "PASS (Tests 14, 30, 51)",
+    "typeScript": "PASS (tsc --noEmit, zero errors)",
+    "gitDiffCheck": "PASS (only CRLF warnings, no whitespace errors)",
+    "answerVault": "UNCHANGED (Q6-Q10 answers match blueprint correctOptionKey)",
+    "sharedScaffoldFragments": "PASS (zero matches across all 8 tests)"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "batch": 1,
+  "tests": [15, 16, 17, 18, 19],
+  "diversityCheck": {
+    "part2Domains": ["food and cooking classes", "sports clubs and fitness activities", "music lessons and performing arts", "work experience and career skills", "environmental volunteering and conservation"],
+    "part3Topics": ["a local cooking competition", "learning to swim as an adult", "a school music concert", "a first day at a new job", "a river clean-up day"],
+    "part4NarrativeStructures": ["sequencing-cause-effect", "contrast-sequencing", "time-addition", "cause-effect-contrast", "time-cause-effect"],
+    "part6Sequences": ["article-relative-conjunction-preposition-pronoun-linking", "preposition-conjunction-article-relative-pronoun-auxiliary", "relative-preposition-conjunction-article-linking-pronoun", "conjunction-article-relative-preposition-auxiliary-pronoun", "article-conjunction-relative-preposition-pronoun-linking"]
+  },
+  "entries": [
+    {
+      "testNumber": 15,
+      "part1Contexts": ["cooking-class email", "market notice", "recipe website message", "booking update", "club instruction"],
+      "part1Skills": ["required-action", "condition", "timing", "exception", "recommendation"],
+      "part2Domain": "food and cooking classes",
+      "part3Topic": "a local cooking competition",
+      "part3NarrativeType": "personal-account",
+      "part3Skills": ["detail", "reason", "attitude", "inference", "main-idea"],
+      "part4Topic": "preparing a community kitchen",
+      "part4CohesionTypes": ["sequencing", "cause-effect", "addition", "contrast", "result"],
+      "part5Topic": "a neighbourhood food festival",
+      "part5Targets": ["dependent-preposition", "phrasal-verb", "collocation", "linking-word", "verb-choice", "fixed-expression"],
+      "part6Topic": "joining a cookery club",
+      "part6Targets": ["article", "relative-word", "conjunction", "preposition", "pronoun", "linking-word"],
+      "difficultyProfile": "standard-B1"
+    },
+    {
+      "testNumber": 16,
+      "part1Contexts": ["gym timetable change", "match update", "equipment notice", "school announcement", "service confirmation"],
+      "part1Skills": ["timing", "required-action", "condition", "rule", "exception"],
+      "part2Domain": "sports clubs and fitness activities",
+      "part3Topic": "learning to swim as an adult",
+      "part3NarrativeType": "personal-narrative",
+      "part3Skills": ["reason", "detail", "inference", "attitude", "purpose"],
+      "part4Topic": "organising a weekend tournament",
+      "part4CohesionTypes": ["contrast", "sequencing", "result", "addition", "cause-effect"],
+      "part5Topic": "a new swimming pool opening",
+      "part5Targets": ["collocation", "dependent-preposition", "phrasal-verb", "adjective-adverb", "linking-word", "verb-choice"],
+      "part6Topic": "a charity fun run",
+      "part6Targets": ["preposition", "conjunction", "article", "relative-word", "pronoun", "auxiliary"],
+      "difficultyProfile": "standard-B1"
+    },
+    {
+      "testNumber": 17,
+      "part1Contexts": ["rehearsal schedule email", "concert booking confirmation", "music school notice", "text message", "website message"],
+      "part1Skills": ["timing", "condition", "required-action", "recommendation", "exception"],
+      "part2Domain": "music lessons and performing arts",
+      "part3Topic": "a school music concert",
+      "part3NarrativeType": "reflective-account",
+      "part3Skills": ["main-idea", "attitude", "detail", "reason", "reference"],
+      "part4Topic": "planning a music festival",
+      "part4CohesionTypes": ["time", "addition", "contrast", "result", "sequencing"],
+      "part5Topic": "learning a musical instrument",
+      "part5Targets": ["phrasal-verb", "collocation", "dependent-preposition", "fixed-expression", "meaning-distinction", "linking-word"],
+      "part6Topic": "a youth orchestra project",
+      "part6Targets": ["relative-word", "preposition", "conjunction", "article", "linking-word", "pronoun"],
+      "difficultyProfile": "standard-B1"
+    },
+    {
+      "testNumber": 18,
+      "part1Contexts": ["workplace memo", "interview confirmation", "training notice", "timetable change", "email"],
+      "part1Skills": ["deadline", "required-action", "condition", "timing", "recommendation"],
+      "part2Domain": "work experience and career skills",
+      "part3Topic": "a first day at a new job",
+      "part3NarrativeType": "report",
+      "part3Skills": ["detail", "inference", "reason", "purpose", "attitude"],
+      "part4Topic": "preparing for a job interview",
+      "part4CohesionTypes": ["cause-effect", "contrast", "sequencing", "result", "addition"],
+      "part5Topic": "a work experience placement",
+      "part5Targets": ["verb-choice", "dependent-preposition", "collocation", "phrasal-verb", "linking-word", "adjective-adverb"],
+      "part6Topic": "a career advice workshop",
+      "part6Targets": ["conjunction", "article", "relative-word", "preposition", "auxiliary", "pronoun"],
+      "difficultyProfile": "standard-B1"
+    },
+    {
+      "testNumber": 19,
+      "part1Contexts": ["clean-up notice", "project update email", "safety instruction", "booking update", "school announcement"],
+      "part1Skills": ["required-action", "timing", "safety-rule", "condition", "exception"],
+      "part2Domain": "environmental volunteering and conservation",
+      "part3Topic": "a river clean-up day",
+      "part3NarrativeType": "descriptive-narrative",
+      "part3Skills": ["reason", "main-idea", "detail", "attitude", "inference"],
+      "part4Topic": "starting a tree-planting project",
+      "part4CohesionTypes": ["time", "cause-effect", "addition", "contrast", "result"],
+      "part5Topic": "protecting local wildlife",
+      "part5Targets": ["collocation", "linking-word", "phrasal-verb", "dependent-preposition", "fixed-expression", "verb-choice"],
+      "part6Topic": "a school recycling scheme",
+      "part6Targets": ["article", "conjunction", "relative-word", "preposition", "pronoun", "linking-word"],
+      "difficultyProfile": "standard-B1"
+    }
+  ]
+}

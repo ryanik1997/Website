@@ -15,45 +15,49 @@
       "passageTitle": "Part 1 – Short texts",
       "passage": [
         {
-          "text": "Community gardens notice\nThe community gardens team needs helpers on Saturday. Bring gloves and arrive before nine."
+          "text": "Community-centre notice\nThe Riverside Centre moved its Saturday cooking session upstairs. Bring an apron, arrive ten minutes early and tell reception if you need the accessible lift."
         },
         {
-          "text": "Message from a friend\nI have booked the shared plots session for Tuesday, but I may arrive late. Please start without me and save a place."
+          "text": "Message between neighbours\nHi Ben, I am away on Thursday. Could you put my recycling box outside after seven? Collection has changed this week. I will bring your newspaper in on Friday."
         },
         {
-          "text": "Information sign\nVisitors to the community gardens may use the tools, but they must return them before leaving."
+          "text": "Volunteer email\nWe have enough food-bank drivers, but still need someone to label donated tins before the afternoon delivery. Please reply by noon if you can take this job."
         },
         {
-          "text": "Short announcement\nThe local gardeners meeting has moved from Room 2 to Room 4 because the first room is being painted."
+          "text": "Library update\nRoof repairs finish Monday, but the study room stays closed until Wednesday while paint dries. Books can be returned through the side door during opening hours."
         },
         {
-          "text": "Notice for members\nMembers can borrow one shared plots guide for a week. Ask at the desk if you need another copy."
+          "text": "Class booking confirmation\nYour pottery class is confirmed for 18 March at 6 p.m. The fee includes clay, not a storage box. Cancel by Tuesday evening for a refund."
         }
       ],
       "questionGroups": [
         {
           "id": "catalog-reading-pet-b1-test14-part-1-g0",
           "range": "Questions 1–5",
-          "instruction": "For each question, choose the correct answer A, B or C.",
+          "instruction": "For each question, choose the correct answer A, B, C or D.",
           "type": "multiple-choice",
           "questions": [
             {
               "id": "catalog-reading-pet-b1-test14-part-1-q1",
               "number": 1,
               "type": "multiple-choice",
-              "prompt": "What should volunteers do?",
+              "prompt": "What should participants do?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Bring gloves and arrive early."
+                  "label": "Bring an apron and arrive early."
                 },
                 {
                   "id": "B",
-                  "label": "Pay for equipment at the gate."
+                  "label": "Collect a kitchen key."
                 },
                 {
                   "id": "C",
-                  "label": "Work there every morning."
+                  "label": "Book another Saturday."
+                },
+                {
+                  "id": "D",
+                  "label": "Use stairs instead of the lift."
                 }
               ],
               "answerConfidence": "key"
@@ -62,19 +66,23 @@
               "id": "catalog-reading-pet-b1-test14-part-1-q2",
               "number": 2,
               "type": "multiple-choice",
-              "prompt": "What does the writer ask the friend to do?",
+              "prompt": "What is Ben asked to do?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Wait until Tuesday evening."
+                  "label": "Leave a newspaper Friday."
                 },
                 {
                   "id": "B",
-                  "label": "Begin the session if necessary."
+                  "label": "Put the recycling box out Thursday."
                 },
                 {
                   "id": "C",
-                  "label": "Cancel the booking."
+                  "label": "Change collection day."
+                },
+                {
+                  "id": "D",
+                  "label": "Visit before seven."
                 }
               ],
               "answerConfidence": "key"
@@ -83,19 +91,23 @@
               "id": "catalog-reading-pet-b1-test14-part-1-q3",
               "number": 3,
               "type": "multiple-choice",
-              "prompt": "What must visitors do?",
+              "prompt": "What is still needed?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Take the tools home."
+                  "label": "Someone to label tins."
                 },
                 {
                   "id": "B",
-                  "label": "Use the tools only outdoors."
+                  "label": "More drivers."
                 },
                 {
                   "id": "C",
-                  "label": "Return the tools after use."
+                  "label": "Donations before noon."
+                },
+                {
+                  "id": "D",
+                  "label": "Someone to collect food."
                 }
               ],
               "answerConfidence": "key"
@@ -104,19 +116,23 @@
               "id": "catalog-reading-pet-b1-test14-part-1-q4",
               "number": 4,
               "type": "multiple-choice",
-              "prompt": "Why has the meeting moved?",
+              "prompt": "What can users do before Wednesday?",
               "options": [
                 {
                   "id": "A",
-                  "label": "The original room is unavailable."
+                  "label": "Study in the room."
                 },
                 {
                   "id": "B",
-                  "label": "The meeting has finished early."
+                  "label": "Return books at the side door."
                 },
                 {
                   "id": "C",
-                  "label": "More people have joined the group."
+                  "label": "Enter through the roof area."
+                },
+                {
+                  "id": "D",
+                  "label": "Collect paint."
                 }
               ],
               "answerConfidence": "key"
@@ -125,19 +141,23 @@
               "id": "catalog-reading-pet-b1-test14-part-1-q5",
               "number": 5,
               "type": "multiple-choice",
-              "prompt": "What is the rule about guides?",
+              "prompt": "What condition applies?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Members may keep one for a week."
+                  "label": "A box is included."
                 },
                 {
                   "id": "B",
-                  "label": "Only visitors may borrow one."
+                  "label": "It starts Tuesday."
                 },
                 {
                   "id": "C",
-                  "label": "All copies must be returned that day."
+                  "label": "Cancellation by Tuesday is needed for a refund."
+                },
+                {
+                  "id": "D",
+                  "label": "It can move to April."
                 }
               ],
               "answerConfidence": "key"
@@ -153,55 +173,53 @@
       "passageTitle": "Part 2 – Matching",
       "passage": [
         {
-          "text": "The people below all want to take part in community gardens. Decide which option would be most suitable."
+          "text": "The people below want to choose from local clubs, courses and community activities. Decide which option is most suitable."
         },
         {
           "label": "A",
-          "text": "A morning course about shared plots, with equipment supplied.",
+          "text": "Evening beginner pottery at the arts centre — An evening beginner pottery course at the arts centre. Clay and tools are supplied, and finished work can be collected later. The moderate fee is paid per course; sessions end at nine.",
           "imageSlotId": "catalog-reading-pet-b1-test14-part-2-option-a-image",
-          "imageRequired": false,
-          "assetId": "asset-test-preserve-14-a",
-          "alt": "Community garden tools"
+          "imageRequired": false
         },
         {
           "label": "B",
-          "text": "An evening club for people who prefer meeting local experts.",
+          "text": "Saturday gardening club, shared plots — A Saturday morning gardening club beside the community centre. Members work outdoors in shared plots, bring gloves and learn from experienced growers. It is inexpensive and social.",
           "imageSlotId": "catalog-reading-pet-b1-test14-part-2-option-b-image",
           "imageRequired": false
         },
         {
           "label": "C",
-          "text": "A weekend event offering practical activities in small groups.",
+          "text": "Free lunchtime language exchange — A free weekday lunchtime language exchange in a quiet library room. Adults practise conversation with changing partners, without formal teaching or homework.",
           "imageSlotId": "catalog-reading-pet-b1-test14-part-2-option-c-image",
           "imageRequired": false
         },
         {
           "label": "D",
-          "text": "A low-cost programme near the town centre, open to beginners.",
+          "text": "Monthly family craft at the museum — A monthly family craft afternoon at the museum. Materials are included and activities are indoors, but children need an accompanying adult.",
           "imageSlotId": "catalog-reading-pet-b1-test14-part-2-option-d-image",
           "imageRequired": false
         },
         {
           "label": "E",
-          "text": "A quiet project where members can work independently.",
+          "text": "Accessible photography walk, step-free — An accessible photography walk for adults. The leader chooses a short step-free route and pauses often; participants need a phone or camera.",
           "imageSlotId": "catalog-reading-pet-b1-test14-part-2-option-e-image",
           "imageRequired": false
         },
         {
           "label": "F",
-          "text": "A short course that includes advice from experienced local gardeners.",
+          "text": "Tuesday repair workshop, bring items — A free Tuesday repair workshop. Skilled members help mend small household items, but visitors bring the broken item and cannot book appointments.",
           "imageSlotId": "catalog-reading-pet-b1-test14-part-2-option-f-image",
           "imageRequired": false
         },
         {
           "label": "G",
-          "text": "A family activity held outdoors when the weather is suitable.",
+          "text": "Quiet monthly book group, village hall — A quiet monthly book group at a village hall. Members read one agreed novel, but the hall is outside town and transport is self-arranged.",
           "imageSlotId": "catalog-reading-pet-b1-test14-part-2-option-g-image",
           "imageRequired": false
         },
         {
           "label": "H",
-          "text": "A longer programme combining study with social events.",
+          "text": "Weekend first-aid course with certificate — A weekend first-aid course with a certificate and practical pair work. It costs more than clubs but suits future event volunteers.",
           "imageSlotId": "catalog-reading-pet-b1-test14-part-2-option-h-image",
           "imageRequired": false
         }
@@ -215,35 +233,35 @@
           "features": [
             {
               "id": "a",
-              "name": "A morning course about shared plots, with equipment supplied."
+              "name": "Evening beginner pottery at the arts centre — An evening beginner pottery course at the arts centre. Clay and tools are supplied, and finished work can be collected later. The moderate fee is paid per course; sessions end at nine."
             },
             {
               "id": "b",
-              "name": "An evening club for people who prefer meeting local experts."
+              "name": "Saturday gardening club, shared plots — A Saturday morning gardening club beside the community centre. Members work outdoors in shared plots, bring gloves and learn from experienced growers. It is inexpensive and social."
             },
             {
               "id": "c",
-              "name": "A weekend event offering practical activities in small groups."
+              "name": "Free lunchtime language exchange — A free weekday lunchtime language exchange in a quiet library room. Adults practise conversation with changing partners, without formal teaching or homework."
             },
             {
               "id": "d",
-              "name": "A low-cost programme near the town centre, open to beginners."
+              "name": "Monthly family craft at the museum — A monthly family craft afternoon at the museum. Materials are included and activities are indoors, but children need an accompanying adult."
             },
             {
               "id": "e",
-              "name": "A quiet project where members can work independently."
+              "name": "Accessible photography walk, step-free — An accessible photography walk for adults. The leader chooses a short step-free route and pauses often; participants need a phone or camera."
             },
             {
               "id": "f",
-              "name": "A short course that includes advice from experienced local gardeners."
+              "name": "Tuesday repair workshop, bring items — A free Tuesday repair workshop. Skilled members help mend small household items, but visitors bring the broken item and cannot book appointments."
             },
             {
               "id": "g",
-              "name": "A family activity held outdoors when the weather is suitable."
+              "name": "Quiet monthly book group, village hall — A quiet monthly book group at a village hall. Members read one agreed novel, but the hall is outside town and transport is self-arranged."
             },
             {
               "id": "h",
-              "name": "A longer programme combining study with social events."
+              "name": "Weekend first-aid course with certificate — A weekend first-aid course with a certificate and practical pair work. It costs more than clubs but suits future event volunteers."
             }
           ],
           "questions": [
@@ -251,7 +269,7 @@
               "id": "catalog-reading-pet-b1-test14-part-2-q6",
               "number": 6,
               "type": "matching-features",
-              "prompt": "Mia has only one free morning and wants to learn about shared plots.",
+              "prompt": "Elliot works late and wants an indoor practical beginner course, with a medium budget and something to take home.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -259,7 +277,7 @@
               "id": "catalog-reading-pet-b1-test14-part-2-q7",
               "number": 7,
               "type": "matching-features",
-              "prompt": "Noah works late, so he needs an activity that starts in the evening.",
+              "prompt": "Farah is free Saturday mornings, owns gloves, likes outdoor group work and needs a cheap activity near the centre.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -267,7 +285,7 @@
               "id": "catalog-reading-pet-b1-test14-part-2-q8",
               "number": 8,
               "type": "matching-features",
-              "prompt": "Aisha is new to community gardens and wants friendly expert advice.",
+              "prompt": "Grace has one free lunchtime hour and wants free indoor conversation practice without homework or formal teaching.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -275,7 +293,7 @@
               "id": "catalog-reading-pet-b1-test14-part-2-q9",
               "number": 9,
               "type": "matching-features",
-              "prompt": "Leo has little money and would like somewhere easy to reach.",
+              "prompt": "Hugo uses a wheelchair, owns a phone and wants a small-group photography activity with a step-free route.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -283,7 +301,7 @@
               "id": "catalog-reading-pet-b1-test14-part-2-q10",
               "number": 10,
               "type": "matching-features",
-              "prompt": "Sara dislikes crowds and would rather work quietly on her own.",
+              "prompt": "Isla wants a recognised qualification before volunteering at festivals, can pay and is happy with practical pair work.",
               "options": [],
               "answerConfidence": "key"
             }
@@ -295,16 +313,16 @@
       "id": "catalog-reading-pet-b1-test14-part-3",
       "partNumber": 3,
       "rangeLabel": "Questions 11–15",
-      "passageTitle": "Part 3 – community gardens",
+      "passageTitle": "Part 3 – A garden that belongs to everyone",
       "passage": [
         {
-          "text": "When the local gardeners in our town started a community gardens project, few residents expected it to grow so quickly. At first, the organisers met in a small room and planned one simple activity involving shared plots. They soon discovered that people were more willing to join when they could see a clear benefit for the neighbourhood. The organisers therefore published a short timetable and invited local businesses to offer practical help."
+          "text": "When the old railway land behind our library became available, residents had different ideas about what should happen to it. Some wanted a playground, while others imagined a car park. A small group of neighbours suggested community gardens instead. They argued that the space could provide food, teach children useful skills and give people a reason to meet. The council agreed to a one-year trial, but the volunteers had to organise almost everything themselves."
         },
         {
-          "text": "The project was not completely easy. Some volunteers were worried that the work would take too much time, while others wanted to change the plan every week. The team solved this by giving each person one small responsibility and reviewing the results together. This made the project feel manageable, and it also meant that new volunteers could contribute without special experience."
+          "text": "The first months were harder than expected. The soil was dry, and several young plants died during a hot spell. Rather than asking for more money, the gardeners collected rainwater from nearby roofs and shared a weekly watering rota. A local café gave them empty containers for seedlings, and a retired science teacher showed children how to test the soil. These small contributions mattered because no single volunteer had enough time or experience to do the whole job."
         },
         {
-          "text": "Looking back, the organiser says the most important lesson was not the final result but the way people learned to cooperate. The group still has problems, especially when the weather affects outdoor work, yet members now discuss solutions rather than blaming one another. For this reason, the project has become a useful example of how a modest local idea can create lasting connections."
+          "text": "By autumn, the garden was producing vegetables, but its greatest success was less visible. People who had rarely spoken before were now exchanging advice and checking on one another's plots. The organisers still disagree about some choices, such as which plants to grow next year. Even so, they have learned that a shared place does not need everyone to think alike. It needs people to take responsibility for keeping it useful. The organisers initially measured success by the number of vegetables collected, but the weekly meetings changed their view. They noticed that new volunteers asked questions that improved the planting plan, and that older residents enjoyed passing on knowledge they had once kept to themselves. A disagreement about a locked tool shed was solved when the group wrote simple rules together. The rules did not remove every problem, but they made responsibility visible and fair. By the end of the season, the garden had become a place where people could contribute in different ways. Some planted, some repaired fences, and some simply welcomed visitors. The writer believes this variety made the project stronger than a scheme led by only one confident organiser."
         }
       ],
       "questionGroups": [
@@ -318,23 +336,23 @@
               "id": "catalog-reading-pet-b1-test14-part-3-q11",
               "number": 11,
               "type": "multiple-choice",
-              "prompt": "What was one reason more residents joined the project?",
+              "prompt": "Why did the neighbours suggest community gardens?",
               "options": [
                 {
                   "id": "A",
-                  "label": "They could understand its practical value."
+                  "label": "The space could serve several local purposes."
                 },
                 {
                   "id": "B",
-                  "label": "They were promised paid work."
+                  "label": "The council had already bought gardening tools."
                 },
                 {
                   "id": "C",
-                  "label": "They wanted to compete with local businesses."
+                  "label": "They wanted to prevent children using the library."
                 },
                 {
                   "id": "D",
-                  "label": "They were required to attend."
+                  "label": "A café promised to sell their vegetables."
                 }
               ],
               "answerConfidence": "key"
@@ -343,23 +361,23 @@
               "id": "catalog-reading-pet-b1-test14-part-3-q12",
               "number": 12,
               "type": "multiple-choice",
-              "prompt": "What problem did some volunteers have at the beginning?",
+              "prompt": "What did the watering rota help the volunteers deal with?",
               "options": [
                 {
                   "id": "A",
-                  "label": "They disagreed about how often to change the plan."
+                  "label": "A period when the plants received too little rain."
                 },
                 {
                   "id": "B",
-                  "label": "They could not find a suitable meeting room."
+                  "label": "A shortage of containers at the local café."
                 },
                 {
                   "id": "C",
-                  "label": "They lacked permission to contact businesses."
+                  "label": "A disagreement about the next year’s crops."
                 },
                 {
                   "id": "D",
-                  "label": "They had no interest in outdoor work."
+                  "label": "A decision to move the garden behind the library."
                 }
               ],
               "answerConfidence": "key"
@@ -368,23 +386,23 @@
               "id": "catalog-reading-pet-b1-test14-part-3-q13",
               "number": 13,
               "type": "multiple-choice",
-              "prompt": "How did the team make participation easier?",
+              "prompt": "Why does the writer mention the science teacher?",
               "options": [
                 {
                   "id": "A",
-                  "label": "It divided the work into smaller responsibilities."
+                  "label": "To show how one person’s knowledge supported the project."
                 },
                 {
                   "id": "B",
-                  "label": "It removed the timetable completely."
+                  "label": "To explain why the council changed its rules."
                 },
                 {
                   "id": "C",
-                  "label": "It asked only experienced people to help."
+                  "label": "To prove that gardening is mainly a school activity."
                 },
                 {
                   "id": "D",
-                  "label": "It stopped reviewing the results."
+                  "label": "To describe the most successful crop in the garden."
                 }
               ],
               "answerConfidence": "key"
@@ -393,23 +411,23 @@
               "id": "catalog-reading-pet-b1-test14-part-3-q14",
               "number": 14,
               "type": "multiple-choice",
-              "prompt": "What does the organiser value most about the project?",
+              "prompt": "What does the writer suggest about the people using the garden?",
               "options": [
                 {
                   "id": "A",
-                  "label": "The cooperation that developed among residents."
+                  "label": "They have built connections while working on a practical task."
                 },
                 {
                   "id": "B",
-                  "label": "The money earned by local businesses."
+                  "label": "They now agree about every decision concerning the garden."
                 },
                 {
                   "id": "C",
-                  "label": "The speed at which the first activity finished."
+                  "label": "They prefer receiving help to taking responsibility themselves."
                 },
                 {
                   "id": "D",
-                  "label": "The number of changes made to the timetable."
+                  "label": "They joined mainly because the vegetables were free."
                 }
               ],
               "answerConfidence": "key"
@@ -422,19 +440,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "A small local project can strengthen a community."
+                  "label": "A shared project can improve a place and its community."
                 },
                 {
                   "id": "B",
-                  "label": "Outdoor projects are always more successful than indoor ones."
+                  "label": "Local councils should always replace empty land with gardens."
                 },
                 {
                   "id": "C",
-                  "label": "Volunteers should avoid changing their plans."
+                  "label": "Successful gardens depend on having expert volunteers."
                 },
                 {
                   "id": "D",
-                  "label": "Businesses should organise neighbourhood activities."
+                  "label": "People should avoid disagreement when planning activities."
                 }
               ],
               "answerConfidence": "key"
@@ -447,42 +465,70 @@
       "id": "catalog-reading-pet-b1-test14-part-4",
       "partNumber": 4,
       "rangeLabel": "Questions 16–20",
-      "passageTitle": "Part 4 – community gardens",
+      "passageTitle": "Part 4 – A new use for an empty shop",
       "passage": [
         {
-          "text": "The local gardeners began their community gardens plan with one short meeting. (16) ..... The next week, more residents arrived than expected. (17) ..... They wanted to keep the activity useful rather than simply make it larger. (18) ..... The organisers therefore asked members to choose one task each. (19) ..... The work became easier to manage, and new volunteers quickly understood what to do. (20) ..... The project now meets regularly and welcomes anyone who wants to take part."
+          "text": "For years, the corner shop beside the bus stop stood empty. People in the area had grown used to walking past its dusty windows. (16) ..... One spring, residents began discussing whether the room could serve a useful purpose. The change gave neighbours a reason to discuss the building again. The empty windows no longer made the street feel forgotten."
+        },
+        {
+          "text": "A shared workshop seemed unusual, but it could help people repair objects instead of throwing them away. The owner agreed to lend the room for three months, provided visitors kept it clean. (17) ..... The residents then wrote a simple timetable. They wanted the first trial to be practical rather than expensive. The timetable left room for people with different working hours."
+        },
+        {
+          "text": "The owner asked visitors to keep the room clean because the building was old. (18) ..... This allowed them to work safely while they decided which activities beginners could try first. Everyone agreed that safety mattered more than completing many repairs. The careful check reassured visitors who had never used tools before."
+        },
+        {
+          "text": "During the first Saturday, neighbours brought lamps, bicycles and small pieces of furniture. Most of the equipment arrived from people’s homes. (19) ..... Visitors could therefore see which tools were available without asking each time. The arrangement also meant new volunteers could work independently. A labelled shelf made the shared equipment easier to return."
+        },
+        {
+          "text": "After several sessions, the organisers reviewed their notes and invited more residents to join. The workshop had started with very little money. (20) ..... It became a regular meeting place because people understood how to take part. The project was small, but it gave the street a useful shared space. The organisers hoped the owner would continue lending the room."
         },
         {
           "label": "A",
-          "text": "This was the first sign that the idea might work."
+          "text": "The residents decided to sell the building instead.",
+          "key": "test14-part4-option-5",
+          "correctForGap": null
         },
         {
           "label": "B",
-          "text": "For that reason, the group changed its meeting place."
+          "text": "People hurried past it without paying much attention.",
+          "key": "test14-part4-option-0",
+          "correctForGap": 16
         },
         {
           "label": "C",
-          "text": "As a result, several people offered to help."
+          "text": "Nobody knew who had owned the shop before.",
+          "key": "test14-part4-option-6",
+          "correctForGap": null
         },
         {
           "label": "D",
-          "text": "The organisers had not expected such a quick response."
+          "text": "This condition was important because the building was old.",
+          "key": "test14-part4-option-2",
+          "correctForGap": 18
         },
         {
           "label": "E",
-          "text": "Even so, the original aim remained the same."
+          "text": "The bus company offered to run extra services.",
+          "key": "test14-part4-option-7",
+          "correctForGap": null
         },
         {
           "label": "F",
-          "text": "They later used the same method in another area."
+          "text": "The idea was unusual, but it solved two local problems.",
+          "key": "test14-part4-option-1",
+          "correctForGap": 17
         },
         {
           "label": "G",
-          "text": "This made the final decision much easier."
+          "text": "Most of the equipment arrived from people’s homes.",
+          "key": "test14-part4-option-3",
+          "correctForGap": 20
         },
         {
           "label": "H",
-          "text": "In the end, everyone agreed to continue."
+          "text": "In this way, the project could begin without a large budget.",
+          "key": "test14-part4-option-4",
+          "correctForGap": 19
         }
       ],
       "questionGroups": [
@@ -494,35 +540,51 @@
           "features": [
             {
               "id": "a",
-              "name": "This was the first sign that the idea might work."
+              "name": "The residents decided to sell the building instead.",
+              "key": "test14-part4-option-5",
+              "correctForGap": null
             },
             {
               "id": "b",
-              "name": "For that reason, the group changed its meeting place."
+              "name": "People hurried past it without paying much attention.",
+              "key": "test14-part4-option-0",
+              "correctForGap": 16
             },
             {
               "id": "c",
-              "name": "As a result, several people offered to help."
+              "name": "Nobody knew who had owned the shop before.",
+              "key": "test14-part4-option-6",
+              "correctForGap": null
             },
             {
               "id": "d",
-              "name": "The organisers had not expected such a quick response."
+              "name": "This condition was important because the building was old.",
+              "key": "test14-part4-option-2",
+              "correctForGap": 18
             },
             {
               "id": "e",
-              "name": "Even so, the original aim remained the same."
+              "name": "The bus company offered to run extra services.",
+              "key": "test14-part4-option-7",
+              "correctForGap": null
             },
             {
               "id": "f",
-              "name": "They later used the same method in another area."
+              "name": "The idea was unusual, but it solved two local problems.",
+              "key": "test14-part4-option-1",
+              "correctForGap": 17
             },
             {
               "id": "g",
-              "name": "This made the final decision much easier."
+              "name": "Most of the equipment arrived from people’s homes.",
+              "key": "test14-part4-option-3",
+              "correctForGap": 20
             },
             {
               "id": "h",
-              "name": "In the end, everyone agreed to continue."
+              "name": "In this way, the project could begin without a large budget.",
+              "key": "test14-part4-option-4",
+              "correctForGap": 19
             }
           ],
           "questions": [
@@ -574,10 +636,10 @@
       "id": "catalog-reading-pet-b1-test14-part-5",
       "partNumber": 5,
       "rangeLabel": "Questions 21–26",
-      "passageTitle": "Part 5 – community gardens",
+      "passageTitle": "Part 5 – Multiple-choice cloze",
       "passage": [
         {
-          "text": "The local gardeners usually meet (21) ........ Saturday. New members are shown how to (22) ........ the equipment. They can ask for advice if they are (23) ........ about a task. The group works together (24) ........ everyone can learn. Members often share ideas (25) ........ the session. The project has become a popular way to meet (26) ........ people."
+          "text": "The community garden started with a simple idea, but its success depended on (21) ...... Each volunteer chose a task that suited their experience, and the organisers (22) ..... of tools and seeds. A retired teacher explained how to (23) ....., while children learned to recognise insects that help crops grow. When summer became unusually dry, the group collected rainwater and changed the watering schedule. They also (24) ..... with the food bank, which made the project feel connected to the wider neighbourhood. New members are welcome during the (25) ....., although they should contact the coordinator first. The garden is not only a place to grow food; it is also a practical way for neighbours to learn from one another and (26) ..... for a shared space.  The coordinator also checks the visitor book after each session and records suggestions for the following month. This record helps the team decide which tasks should be offered next and welcomes suggestions from regular visitors."
         }
       ],
       "questionGroups": [
@@ -595,19 +657,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "every"
+                  "label": "careful"
                 },
                 {
                   "id": "B",
-                  "label": "each"
+                  "label": "carefully"
                 },
                 {
                   "id": "C",
-                  "label": "whole"
+                  "label": "care"
                 },
                 {
                   "id": "D",
-                  "label": "all"
+                  "label": "caring"
                 }
               ],
               "answerConfidence": "key"
@@ -620,19 +682,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "use"
+                  "label": "kept"
                 },
                 {
                   "id": "B",
-                  "label": "make"
+                  "label": "made"
                 },
                 {
                   "id": "C",
-                  "label": "bring"
+                  "label": "did"
                 },
                 {
                   "id": "D",
-                  "label": "hold"
+                  "label": "gave"
                 }
               ],
               "answerConfidence": "key"
@@ -645,19 +707,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "uncertain"
+                  "label": "protect"
                 },
                 {
                   "id": "B",
-                  "label": "narrow"
+                  "label": "protection"
                 },
                 {
                   "id": "C",
-                  "label": "single"
+                  "label": "protective"
                 },
                 {
                   "id": "D",
-                  "label": "empty"
+                  "label": "protecting"
                 }
               ],
               "answerConfidence": "key"
@@ -670,19 +732,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "so that"
+                  "label": "shared"
                 },
                 {
                   "id": "B",
-                  "label": "unless"
+                  "label": "sharing"
                 },
                 {
                   "id": "C",
-                  "label": "although"
+                  "label": "share"
                 },
                 {
                   "id": "D",
-                  "label": "before"
+                  "label": "shares"
                 }
               ],
               "answerConfidence": "key"
@@ -695,19 +757,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "during"
+                  "label": "Saturday"
                 },
                 {
                   "id": "B",
-                  "label": "between"
+                  "label": "Saturdays"
                 },
                 {
                   "id": "C",
-                  "label": "inside"
+                  "label": "saturday"
                 },
                 {
                   "id": "D",
-                  "label": "through"
+                  "label": "weekend"
                 }
               ],
               "answerConfidence": "key"
@@ -720,19 +782,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "local"
+                  "label": "take"
                 },
                 {
                   "id": "B",
-                  "label": "private"
+                  "label": "make"
                 },
                 {
                   "id": "C",
-                  "label": "silent"
+                  "label": "do"
                 },
                 {
                   "id": "D",
-                  "label": "rare"
+                  "label": "give"
                 }
               ],
               "answerConfidence": "key"
@@ -745,10 +807,10 @@
       "id": "catalog-reading-pet-b1-test14-part-6",
       "partNumber": 6,
       "rangeLabel": "Questions 27–32",
-      "passageTitle": "Part 6 – community gardens",
+      "passageTitle": "Part 6 – Open cloze",
       "passage": [
         {
-          "text": "The local gardeners meet (27) ........ week to plan activities. New members learn (28) ........ to use the shared plots safely. They can join the work, (29) ........ they should follow the group’s instructions. The project has kept useful materials (30) ........ being thrown away. It is a place (31) ........ people can exchange ideas. Remember (32) ........ ask for help when you need it."
+          "text": "Before the garden opened, the organisers checked (27) ........ the ground could drain properly. They invited residents to help, (28) ........ nobody needed previous experience. A notice explained (29) ........ tools were stored and asked visitors to return them after use. The team decided (30) ........ collect rainwater from the centre roof. This meant (31) ........ plants could survive a dry week without using drinking water. Volunteers recorded (32) ........ had watered each plot, so the next person knew what remained to be done.  The coordinator updates the notice whenever a tool changes location, and members check the list before they leave. This routine helps visitors work independently while keeping the shared room ready for the next group. It also means that a missing screwdriver is reported before it becomes a larger problem. The list is checked weekly.  The notice is updated whenever the group changes its routine."
         }
       ],
       "questionGroups": [
@@ -762,7 +824,7 @@
               "id": "catalog-reading-pet-b1-test14-part-6-q27",
               "number": 27,
               "type": "gap-fill",
-              "prompt": "Gap (27)",
+              "prompt": "Gap 27",
               "options": [],
               "answerConfidence": "key"
             },
@@ -770,7 +832,7 @@
               "id": "catalog-reading-pet-b1-test14-part-6-q28",
               "number": 28,
               "type": "gap-fill",
-              "prompt": "Gap (28)",
+              "prompt": "Gap 28",
               "options": [],
               "answerConfidence": "key"
             },
@@ -778,7 +840,7 @@
               "id": "catalog-reading-pet-b1-test14-part-6-q29",
               "number": 29,
               "type": "gap-fill",
-              "prompt": "Gap (29)",
+              "prompt": "Gap 29",
               "options": [],
               "answerConfidence": "key"
             },
@@ -786,7 +848,7 @@
               "id": "catalog-reading-pet-b1-test14-part-6-q30",
               "number": 30,
               "type": "gap-fill",
-              "prompt": "Gap (30)",
+              "prompt": "Gap 30",
               "options": [],
               "answerConfidence": "key"
             },
@@ -794,7 +856,7 @@
               "id": "catalog-reading-pet-b1-test14-part-6-q31",
               "number": 31,
               "type": "gap-fill",
-              "prompt": "Gap (31)",
+              "prompt": "Gap 31",
               "options": [],
               "answerConfidence": "key"
             },
@@ -802,7 +864,7 @@
               "id": "catalog-reading-pet-b1-test14-part-6-q32",
               "number": 32,
               "type": "gap-fill",
-              "prompt": "Gap (32)",
+              "prompt": "Gap 32",
               "options": [],
               "answerConfidence": "key"
             }

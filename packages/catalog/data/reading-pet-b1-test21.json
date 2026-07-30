@@ -15,45 +15,49 @@
       "passageTitle": "Part 1 – Short texts",
       "passage": [
         {
-          "text": "Weekend workshops notice\nThe weekend workshops team needs helpers on Saturday. Bring gloves and arrive before nine."
+          "text": "Workshop reminder\nYour carpentry workshop starts at nine on Sunday. Please wear closed shoes and tie back long hair. We provide wood and tools; you only need to bring a notebook for measurements."
         },
         {
-          "text": "Message from a friend\nI have booked the practical skills session for Tuesday, but I may arrive late. Please start without me and save a place."
+          "text": "Notice on the door\nThe Saturday bread-making class is full. A second session has been added on Sunday at two. Sign up at reception or online. Ingredients are included in the price."
         },
         {
-          "text": "Information sign\nVisitors to the weekend workshops may use the tools, but they must return them before leaving."
+          "text": "Email from the tutor\nHi everyone, the sewing workshop has moved to Room 3 because the heating in Room 1 is broken. Same time, same day. Bring the fabric you chose last week. Machines are provided."
         },
         {
-          "text": "Short announcement\nThe new learners meeting has moved from Room 2 to Room 4 because the first room is being painted."
+          "text": "Library poster\nFree introductory first-aid session this Saturday, ten to twelve. No experience needed. Places are limited to twenty, so register by Thursday. Certificates are not included but notes will be emailed."
         },
         {
-          "text": "Notice for members\nMembers can borrow one practical skills guide for a week. Ask at the desk if you need another copy."
+          "text": "Text from Anna\nThe gardening workshop is cancelled this weekend because of frost. The tutor says we should wait until next Saturday when the soil is warmer. Same place, same time. Bring gloves if you have them."
         }
       ],
       "questionGroups": [
         {
           "id": "catalog-reading-pet-b1-test21-part-1-g0",
           "range": "Questions 1–5",
-          "instruction": "For each question, choose the correct answer A, B or C.",
+          "instruction": "For each question, choose the correct answer A, B, C or D.",
           "type": "multiple-choice",
           "questions": [
             {
               "id": "catalog-reading-pet-b1-test21-part-1-q1",
               "number": 1,
               "type": "multiple-choice",
-              "prompt": "What should volunteers do?",
+              "prompt": "What must participants bring?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Bring gloves and arrive early."
+                  "label": "A notebook."
                 },
                 {
                   "id": "B",
-                  "label": "Pay for equipment at the gate."
+                  "label": "Wood and tools."
                 },
                 {
                   "id": "C",
-                  "label": "Work there every morning."
+                  "label": "Open shoes."
+                },
+                {
+                  "id": "D",
+                  "label": "A hairdryer."
                 }
               ],
               "answerConfidence": "key"
@@ -62,19 +66,23 @@
               "id": "catalog-reading-pet-b1-test21-part-1-q2",
               "number": 2,
               "type": "multiple-choice",
-              "prompt": "What does the writer ask the friend to do?",
+              "prompt": "What can people do?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Wait until Tuesday evening."
+                  "label": "Join the Sunday session."
                 },
                 {
                   "id": "B",
-                  "label": "Begin the session if necessary."
+                  "label": "Buy ingredients separately."
                 },
                 {
                   "id": "C",
-                  "label": "Cancel the booking."
+                  "label": "Attend Saturday anyway."
+                },
+                {
+                  "id": "D",
+                  "label": "Get a refund."
                 }
               ],
               "answerConfidence": "key"
@@ -83,19 +91,23 @@
               "id": "catalog-reading-pet-b1-test21-part-1-q3",
               "number": 3,
               "type": "multiple-choice",
-              "prompt": "What must visitors do?",
+              "prompt": "What has changed?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Take the tools home."
+                  "label": "The room number."
                 },
                 {
                   "id": "B",
-                  "label": "Use the tools only outdoors."
+                  "label": "The day."
                 },
                 {
                   "id": "C",
-                  "label": "Return the tools after use."
+                  "label": "The time."
+                },
+                {
+                  "id": "D",
+                  "label": "The machine type."
                 }
               ],
               "answerConfidence": "key"
@@ -104,19 +116,23 @@
               "id": "catalog-reading-pet-b1-test21-part-1-q4",
               "number": 4,
               "type": "multiple-choice",
-              "prompt": "Why has the meeting moved?",
+              "prompt": "What must people do by Thursday?",
               "options": [
                 {
                   "id": "A",
-                  "label": "The original room is unavailable."
+                  "label": "Register for a place."
                 },
                 {
                   "id": "B",
-                  "label": "The meeting has finished early."
+                  "label": "Collect a certificate."
                 },
                 {
                   "id": "C",
-                  "label": "More people have joined the group."
+                  "label": "Email their notes."
+                },
+                {
+                  "id": "D",
+                  "label": "Pay a fee."
                 }
               ],
               "answerConfidence": "key"
@@ -125,19 +141,23 @@
               "id": "catalog-reading-pet-b1-test21-part-1-q5",
               "number": 5,
               "type": "multiple-choice",
-              "prompt": "What is the rule about guides?",
+              "prompt": "When is the workshop now?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Members may keep one for a week."
+                  "label": "Next Saturday."
                 },
                 {
                   "id": "B",
-                  "label": "Only visitors may borrow one."
+                  "label": "This Sunday."
                 },
                 {
                   "id": "C",
-                  "label": "All copies must be returned that day."
+                  "label": "Tomorrow."
+                },
+                {
+                  "id": "D",
+                  "label": "This Saturday."
                 }
               ],
               "answerConfidence": "key"
@@ -153,53 +173,53 @@
       "passageTitle": "Part 2 – Matching",
       "passage": [
         {
-          "text": "The people below all want to take part in weekend workshops. Decide which option would be most suitable."
+          "text": "The people below want to choose from practical weekend workshops and short courses. Decide which option is most suitable."
         },
         {
           "label": "A",
-          "text": "A morning course about practical skills, with equipment supplied.",
+          "text": "Beginner bread baking in a village kitchen — By Sunday afternoon, participants will have baked two loaves and a batch of rolls to take home. A professional baker explains kneading, proving and shaping in a warm kitchen beside the village hall. Flour and equipment are supplied; learners bring an apron and a bag for leftovers. The class runs from ten to three with a lunch break.",
           "imageSlotId": "catalog-reading-pet-b1-test21-part-2-option-a-image",
           "imageRequired": false
         },
         {
           "label": "B",
-          "text": "An evening club for people who prefer meeting local experts.",
+          "text": "Saturday bike maintenance for nervous cyclists — Worried about fixing a puncture on a quiet road? This hands-on session covers tyre changes, brake adjustments and chain care. A patient mechanic guides groups of six in a covered yard near the station. Bring your own bike; tools and spare parts are provided. The workshop lasts two hours and costs very little.",
           "imageSlotId": "catalog-reading-pet-b1-test21-part-2-option-b-image",
           "imageRequired": false
         },
         {
           "label": "C",
-          "text": "A weekend event offering practical activities in small groups.",
+          "text": "Weekend furniture restoration at the makerspace — If you have an old chair or table gathering dust, bring it along and learn to sand, repair and refinish it. The makerspace supplies sandpaper, clamps and stains; participants bring the item and old clothes. Sessions run both Saturday and Sunday from ten to four. Some experience with hand tools helps but is not essential.",
           "imageSlotId": "catalog-reading-pet-b1-test21-part-2-option-c-image",
           "imageRequired": false
         },
         {
           "label": "D",
-          "text": "A low-cost programme near the town centre, open to beginners.",
+          "text": "Introduction to home electrics for new homeowners — People who have recently bought a property often feel unsure about changing a plug or fitting a light. This Saturday course covers safe basics in a training flat downtown. A certified electrician supervises groups of eight. Materials and practice boards are included; no tools needed. The fee is moderate and includes a safety handbook.",
           "imageSlotId": "catalog-reading-pet-b1-test21-part-2-option-d-image",
           "imageRequired": false
         },
         {
           "label": "E",
-          "text": "A quiet project where members can work independently.",
+          "text": "Sunday morning vegetable gardening for flat dwellers — On the rooftop terrace above the community centre, participants learn to grow herbs, salad leaves and tomatoes in containers. A gardener demonstrates potting, watering and seasonal planning. Compost and seedlings are provided; attendees take their planted pots home. The session is free and runs from nine to eleven.",
           "imageSlotId": "catalog-reading-pet-b1-test21-part-2-option-e-image",
           "imageRequired": false
         },
         {
           "label": "F",
-          "text": "A short course that includes advice from experienced new learners.",
+          "text": "Drop-in phone photography tips at the park — Just arrive at the bandstand at ten on Saturday with any phone — no booking, fees or experience needed. A photographer shares five quick techniques for better outdoor shots, then the group walks the park practising together. The session ends at twelve; participants keep all photos on their own devices.",
           "imageSlotId": "catalog-reading-pet-b1-test21-part-2-option-f-image",
           "imageRequired": false
         },
         {
           "label": "G",
-          "text": "A family activity held outdoors when the weather is suitable.",
+          "text": "Two-day beginner sewing and alterations course — Over one full weekend, learners master hemming, button replacement and simple pattern reading. The tutor provides machines and thread; participants bring fabric or an item to alter. Classes run ten to four both days in a bright studio near the market. The course fee covers all consumables and a takeaway repair kit.",
           "imageSlotId": "catalog-reading-pet-b1-test21-part-2-option-g-image",
           "imageRequired": false
         },
         {
           "label": "H",
-          "text": "A longer programme combining study with social events.",
+          "text": "Evening candle making with natural ingredients — Come and discover how to pour soy candles scented with essential oils. This relaxed Friday-evening workshop suits anyone wanting a creative gift or a new hobby. All materials are supplied and each participant leaves with two finished candles. The studio is upstairs, so step-free access is not available.",
           "imageSlotId": "catalog-reading-pet-b1-test21-part-2-option-h-image",
           "imageRequired": false
         }
@@ -213,35 +233,35 @@
           "features": [
             {
               "id": "a",
-              "name": "A morning course about practical skills, with equipment supplied."
+              "name": "Beginner bread baking in a village kitchen — By Sunday afternoon, participants will have baked two loaves and a batch of rolls to take home. A professional baker explains kneading, proving and shaping in a warm kitchen beside the village hall. Flour and equipment are supplied; learners bring an apron and a bag for leftovers. The class runs from ten to three with a lunch break."
             },
             {
               "id": "b",
-              "name": "An evening club for people who prefer meeting local experts."
+              "name": "Saturday bike maintenance for nervous cyclists — Worried about fixing a puncture on a quiet road? This hands-on session covers tyre changes, brake adjustments and chain care. A patient mechanic guides groups of six in a covered yard near the station. Bring your own bike; tools and spare parts are provided. The workshop lasts two hours and costs very little."
             },
             {
               "id": "c",
-              "name": "A weekend event offering practical activities in small groups."
+              "name": "Weekend furniture restoration at the makerspace — If you have an old chair or table gathering dust, bring it along and learn to sand, repair and refinish it. The makerspace supplies sandpaper, clamps and stains; participants bring the item and old clothes. Sessions run both Saturday and Sunday from ten to four. Some experience with hand tools helps but is not essential."
             },
             {
               "id": "d",
-              "name": "A low-cost programme near the town centre, open to beginners."
+              "name": "Introduction to home electrics for new homeowners — People who have recently bought a property often feel unsure about changing a plug or fitting a light. This Saturday course covers safe basics in a training flat downtown. A certified electrician supervises groups of eight. Materials and practice boards are included; no tools needed. The fee is moderate and includes a safety handbook."
             },
             {
               "id": "e",
-              "name": "A quiet project where members can work independently."
+              "name": "Sunday morning vegetable gardening for flat dwellers — On the rooftop terrace above the community centre, participants learn to grow herbs, salad leaves and tomatoes in containers. A gardener demonstrates potting, watering and seasonal planning. Compost and seedlings are provided; attendees take their planted pots home. The session is free and runs from nine to eleven."
             },
             {
               "id": "f",
-              "name": "A short course that includes advice from experienced new learners."
+              "name": "Drop-in phone photography tips at the park — Just arrive at the bandstand at ten on Saturday with any phone — no booking, fees or experience needed. A photographer shares five quick techniques for better outdoor shots, then the group walks the park practising together. The session ends at twelve; participants keep all photos on their own devices."
             },
             {
               "id": "g",
-              "name": "A family activity held outdoors when the weather is suitable."
+              "name": "Two-day beginner sewing and alterations course — Over one full weekend, learners master hemming, button replacement and simple pattern reading. The tutor provides machines and thread; participants bring fabric or an item to alter. Classes run ten to four both days in a bright studio near the market. The course fee covers all consumables and a takeaway repair kit."
             },
             {
               "id": "h",
-              "name": "A longer programme combining study with social events."
+              "name": "Evening candle making with natural ingredients — Come and discover how to pour soy candles scented with essential oils. This relaxed Friday-evening workshop suits anyone wanting a creative gift or a new hobby. All materials are supplied and each participant leaves with two finished candles. The studio is upstairs, so step-free access is not available."
             }
           ],
           "questions": [
@@ -249,7 +269,7 @@
               "id": "catalog-reading-pet-b1-test21-part-2-q6",
               "number": 6,
               "type": "matching-features",
-              "prompt": "Mia has only one free morning and wants to learn about practical skills.",
+              "prompt": "Maya lives in a flat with no garden but wants to grow her own food. She is free Sunday mornings and would like to take plants home without paying a fee.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -257,7 +277,7 @@
               "id": "catalog-reading-pet-b1-test21-part-2-q7",
               "number": 7,
               "type": "matching-features",
-              "prompt": "Noah works late, so he needs an activity that starts in the evening.",
+              "prompt": "Tom has just bought his first house and feels nervous about basic electrical jobs. He can attend on Saturday and prefers a course with a certified instructor and included materials.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -265,7 +285,7 @@
               "id": "catalog-reading-pet-b1-test21-part-2-q8",
               "number": 8,
               "type": "matching-features",
-              "prompt": "Aisha is new to weekend workshops and wants friendly expert advice.",
+              "prompt": "Sofia has an old wooden chair she wants to restore. She is free all weekend, does not mind wearing messy clothes and has used hand tools before.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -273,7 +293,7 @@
               "id": "catalog-reading-pet-b1-test21-part-2-q9",
               "number": 9,
               "type": "matching-features",
-              "prompt": "Leo has little money and would like somewhere easy to reach.",
+              "prompt": "Ben cycles to work but panics when something goes wrong. He wants a short, cheap session where he can practise on his own bike with expert guidance nearby.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -281,7 +301,7 @@
               "id": "catalog-reading-pet-b1-test21-part-2-q10",
               "number": 10,
               "type": "matching-features",
-              "prompt": "Sara dislikes crowds and would rather work quietly on her own.",
+              "prompt": "Clara wants a full weekend of sewing to learn proper alterations. She can bring fabric from home and wants a studio close to the market where she shops.",
               "options": [],
               "answerConfidence": "key"
             }
@@ -293,16 +313,16 @@
       "id": "catalog-reading-pet-b1-test21-part-3",
       "partNumber": 3,
       "rangeLabel": "Questions 11–15",
-      "passageTitle": "Part 3 – weekend workshops",
+      "passageTitle": "Part 3 – Learning to build with my hands",
       "passage": [
         {
-          "text": "When the new learners in our town started a weekend workshops project, few residents expected it to grow so quickly. At first, the organisers met in a small room and planned one simple activity involving practical skills. They soon discovered that people were more willing to join when they could see a clear benefit for the neighbourhood. The organisers therefore published a short timetable and invited local businesses to offer practical help."
+          "text": "I signed up for a weekend carpentry course almost by accident. A friend mentioned it over lunch, and I thought it would be a pleasant way to spend a Saturday. I had never held a proper saw before, and I assumed everyone else would be experienced. When I arrived, though, I discovered that most of the twelve participants were complete beginners like me, and our tutor, a cheerful woman named Helen, made us feel welcome immediately."
         },
         {
-          "text": "The project was not completely easy. Some volunteers were worried that the work would take too much time, while others wanted to change the plan every week. The team solved this by giving each person one small responsibility and reviewing the results together. This made the project feel manageable, and it also meant that new volunteers could contribute without special experience."
+          "text": "The first morning was surprisingly difficult. Helen showed us how to measure and cut a simple joint, but my hands shook and the wood split twice. She laughed kindly and said that every carpenter ruins timber at the start. By the afternoon, I had managed a clean cut, and the small shelf I was building began to look like something real. The other learners offered tips and encouragement, and the atmosphere felt more like a group of friends than a classroom."
         },
         {
-          "text": "Looking back, the organiser says the most important lesson was not the final result but the way people learned to cooperate. The group still has problems, especially when the weather affects outdoor work, yet members now discuss solutions rather than blaming one another. For this reason, the project has become a useful example of how a modest local idea can create lasting connections."
+          "text": "I left on Sunday evening with a rough but functional shelf and a new respect for people who work with their hands daily. The course did not make me a carpenter, but it taught me that patience matters more than talent. I have since built two more shelves at home, and each one is slightly better than the last. Helen was right: everyone ruins timber at the start."
         }
       ],
       "questionGroups": [
@@ -316,23 +336,23 @@
               "id": "catalog-reading-pet-b1-test21-part-3-q11",
               "number": 11,
               "type": "multiple-choice",
-              "prompt": "What was one reason more residents joined the project?",
+              "prompt": "Why did the writer join the course?",
               "options": [
                 {
                   "id": "A",
-                  "label": "They could understand its practical value."
+                  "label": "A friend mentioned it casually."
                 },
                 {
                   "id": "B",
-                  "label": "They were promised paid work."
+                  "label": "They needed a shelf for work."
                 },
                 {
                   "id": "C",
-                  "label": "They wanted to compete with local businesses."
+                  "label": "They had carpentry experience."
                 },
                 {
                   "id": "D",
-                  "label": "They were required to attend."
+                  "label": "They wanted to become a carpenter."
                 }
               ],
               "answerConfidence": "key"
@@ -341,23 +361,23 @@
               "id": "catalog-reading-pet-b1-test21-part-3-q12",
               "number": 12,
               "type": "multiple-choice",
-              "prompt": "What problem did some volunteers have at the beginning?",
+              "prompt": "What surprised the writer on arrival?",
               "options": [
                 {
                   "id": "A",
-                  "label": "They disagreed about how often to change the plan."
+                  "label": "Most participants were also beginners."
                 },
                 {
                   "id": "B",
-                  "label": "They could not find a suitable meeting room."
+                  "label": "The tutor was unfriendly."
                 },
                 {
                   "id": "C",
-                  "label": "They lacked permission to contact businesses."
+                  "label": "Everyone had brought their own tools."
                 },
                 {
                   "id": "D",
-                  "label": "They had no interest in outdoor work."
+                  "label": "The class was very small."
                 }
               ],
               "answerConfidence": "key"
@@ -366,23 +386,23 @@
               "id": "catalog-reading-pet-b1-test21-part-3-q13",
               "number": 13,
               "type": "multiple-choice",
-              "prompt": "How did the team make participation easier?",
+              "prompt": "What happened during the first morning?",
               "options": [
                 {
                   "id": "A",
-                  "label": "It divided the work into smaller responsibilities."
+                  "label": "The writer made mistakes with the wood."
                 },
                 {
                   "id": "B",
-                  "label": "It removed the timetable completely."
+                  "label": "The writer finished the shelf quickly."
                 },
                 {
                   "id": "C",
-                  "label": "It asked only experienced people to help."
+                  "label": "Helen refused to help."
                 },
                 {
                   "id": "D",
-                  "label": "It stopped reviewing the results."
+                  "label": "The other learners were unkind."
                 }
               ],
               "answerConfidence": "key"
@@ -391,23 +411,23 @@
               "id": "catalog-reading-pet-b1-test21-part-3-q14",
               "number": 14,
               "type": "multiple-choice",
-              "prompt": "What does the organiser value most about the project?",
+              "prompt": "How does the writer describe the group atmosphere?",
               "options": [
                 {
                   "id": "A",
-                  "label": "The cooperation that developed among residents."
+                  "label": "Friendly and supportive."
                 },
                 {
                   "id": "B",
-                  "label": "The money earned by local businesses."
+                  "label": "Competitive and stressful."
                 },
                 {
                   "id": "C",
-                  "label": "The speed at which the first activity finished."
+                  "label": "Quiet and formal."
                 },
                 {
                   "id": "D",
-                  "label": "The number of changes made to the timetable."
+                  "label": "Disorganised and confusing."
                 }
               ],
               "answerConfidence": "key"
@@ -416,23 +436,23 @@
               "id": "catalog-reading-pet-b1-test21-part-3-q15",
               "number": 15,
               "type": "multiple-choice",
-              "prompt": "What is the writer’s main point?",
+              "prompt": "What lesson did the writer take from the course?",
               "options": [
                 {
                   "id": "A",
-                  "label": "A small local project can strengthen a community."
+                  "label": "Patience matters more than natural talent."
                 },
                 {
                   "id": "B",
-                  "label": "Outdoor projects are always more successful than indoor ones."
+                  "label": "Carpentry is easier than expected."
                 },
                 {
                   "id": "C",
-                  "label": "Volunteers should avoid changing their plans."
+                  "label": "Professional training is essential."
                 },
                 {
                   "id": "D",
-                  "label": "Businesses should organise neighbourhood activities."
+                  "label": "Working alone produces better results."
                 }
               ],
               "answerConfidence": "key"
@@ -445,42 +465,42 @@
       "id": "catalog-reading-pet-b1-test21-part-4",
       "partNumber": 4,
       "rangeLabel": "Questions 16–20",
-      "passageTitle": "Part 4 – weekend workshops",
+      "passageTitle": "Part 4 – My first repair café visit",
       "passage": [
         {
-          "text": "The new learners began their weekend workshops plan with one short meeting. (16) ..... The next week, more residents arrived than expected. (17) ..... They wanted to keep the activity useful rather than simply make it larger. (18) ..... The organisers therefore asked members to choose one task each. (19) ..... The work became easier to manage, and new volunteers quickly understood what to do. (20) ..... The project now meets regularly and welcomes anyone who wants to take part."
+          "text": "Last month, I took a broken lamp to the community repair café. (16) ..... A volunteer examined the cable and found a loose connection. (17) ..... While he worked, he explained what had gone wrong so I could spot the problem next time. (18) ..... The repair took only twenty minutes, and I paid nothing. (19) ..... I also watched other volunteers fixing bicycles and mending torn jackets. (20) ..... By the end of the morning, I felt more confident about trying simple repairs myself."
         },
         {
           "label": "A",
-          "text": "This was the first sign that the idea might work."
+          "text": "I was nervous because I had never asked a stranger for help like this."
         },
         {
           "label": "B",
-          "text": "For that reason, the group changed its meeting place."
+          "text": "He used a small tool to tighten the wire inside the plug."
         },
         {
           "label": "C",
-          "text": "As a result, several people offered to help."
+          "text": "This made the whole process feel less mysterious."
         },
         {
           "label": "D",
-          "text": "The organisers had not expected such a quick response."
+          "text": "Several other visitors were waiting with their own broken items."
         },
         {
           "label": "E",
-          "text": "Even so, the original aim remained the same."
+          "text": "The experience convinced me to attend again next month."
         },
         {
           "label": "F",
-          "text": "They later used the same method in another area."
+          "text": "The volunteer refused to fix the lamp."
         },
         {
           "label": "G",
-          "text": "This made the final decision much easier."
+          "text": "I had to buy expensive replacement parts."
         },
         {
           "label": "H",
-          "text": "In the end, everyone agreed to continue."
+          "text": "Nobody else was interested in repairing things."
         }
       ],
       "questionGroups": [
@@ -492,35 +512,35 @@
           "features": [
             {
               "id": "a",
-              "name": "This was the first sign that the idea might work."
+              "name": "I was nervous because I had never asked a stranger for help like this."
             },
             {
               "id": "b",
-              "name": "For that reason, the group changed its meeting place."
+              "name": "He used a small tool to tighten the wire inside the plug."
             },
             {
               "id": "c",
-              "name": "As a result, several people offered to help."
+              "name": "This made the whole process feel less mysterious."
             },
             {
               "id": "d",
-              "name": "The organisers had not expected such a quick response."
+              "name": "Several other visitors were waiting with their own broken items."
             },
             {
               "id": "e",
-              "name": "Even so, the original aim remained the same."
+              "name": "The experience convinced me to attend again next month."
             },
             {
               "id": "f",
-              "name": "They later used the same method in another area."
+              "name": "The volunteer refused to fix the lamp."
             },
             {
               "id": "g",
-              "name": "This made the final decision much easier."
+              "name": "I had to buy expensive replacement parts."
             },
             {
               "id": "h",
-              "name": "In the end, everyone agreed to continue."
+              "name": "Nobody else was interested in repairing things."
             }
           ],
           "questions": [
@@ -572,10 +592,10 @@
       "id": "catalog-reading-pet-b1-test21-part-5",
       "partNumber": 5,
       "rangeLabel": "Questions 21–26",
-      "passageTitle": "Part 5 – weekend workshops",
+      "passageTitle": "Part 5 – Multiple-choice cloze",
       "passage": [
         {
-          "text": "The new learners usually meet (21) ........ Saturday. New members are shown how to (22) ........ the equipment. They can ask for advice if they are (23) ........ about a task. The group works together (24) ........ everyone can learn. Members often share ideas (25) ........ the session. The project has become a popular way to meet (26) ........ people."
+          "text": "I had never tried making anything (21) ..... my hands before the workshop. The tutor told us (22) ..... worry about mistakes because everyone learns differently. She explained (23) ..... measure the wood carefully before cutting. Most of us found (24) ..... harder than we expected, but nobody gave up. By Sunday, I had made a shelf (25) ..... I am still proud of. The experience was more enjoyable (26) ..... I had imagined."
         }
       ],
       "questionGroups": [
@@ -593,19 +613,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "every"
+                  "label": "with"
                 },
                 {
                   "id": "B",
-                  "label": "each"
+                  "label": "by"
                 },
                 {
                   "id": "C",
-                  "label": "whole"
+                  "label": "from"
                 },
                 {
                   "id": "D",
-                  "label": "all"
+                  "label": "on"
                 }
               ],
               "answerConfidence": "key"
@@ -618,19 +638,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "use"
+                  "label": "not to"
                 },
                 {
                   "id": "B",
-                  "label": "make"
+                  "label": "to not"
                 },
                 {
                   "id": "C",
-                  "label": "bring"
+                  "label": "don’t"
                 },
                 {
                   "id": "D",
-                  "label": "hold"
+                  "label": "no"
                 }
               ],
               "answerConfidence": "key"
@@ -643,19 +663,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "uncertain"
+                  "label": "how to"
                 },
                 {
                   "id": "B",
-                  "label": "narrow"
+                  "label": "what"
                 },
                 {
                   "id": "C",
-                  "label": "single"
+                  "label": "that"
                 },
                 {
                   "id": "D",
-                  "label": "empty"
+                  "label": "for"
                 }
               ],
               "answerConfidence": "key"
@@ -668,19 +688,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "so that"
+                  "label": "it"
                 },
                 {
                   "id": "B",
-                  "label": "unless"
+                  "label": "that"
                 },
                 {
                   "id": "C",
-                  "label": "although"
+                  "label": "them"
                 },
                 {
                   "id": "D",
-                  "label": "before"
+                  "label": "this"
                 }
               ],
               "answerConfidence": "key"
@@ -693,19 +713,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "during"
+                  "label": "that"
                 },
                 {
                   "id": "B",
-                  "label": "between"
+                  "label": "which"
                 },
                 {
                   "id": "C",
-                  "label": "inside"
+                  "label": "what"
                 },
                 {
                   "id": "D",
-                  "label": "through"
+                  "label": "where"
                 }
               ],
               "answerConfidence": "key"
@@ -718,19 +738,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "local"
+                  "label": "than"
                 },
                 {
                   "id": "B",
-                  "label": "private"
+                  "label": "that"
                 },
                 {
                   "id": "C",
-                  "label": "silent"
+                  "label": "as"
                 },
                 {
                   "id": "D",
-                  "label": "rare"
+                  "label": "from"
                 }
               ],
               "answerConfidence": "key"
@@ -743,10 +763,10 @@
       "id": "catalog-reading-pet-b1-test21-part-6",
       "partNumber": 6,
       "rangeLabel": "Questions 27–32",
-      "passageTitle": "Part 6 – weekend workshops",
+      "passageTitle": "Part 6 – Open cloze",
       "passage": [
         {
-          "text": "The new learners meet (27) ........ week to plan activities. New members learn (28) ........ to use the practical skills safely. They can join the work, (29) ........ they should follow the group’s instructions. The project has kept useful materials (30) ........ being thrown away. It is a place (31) ........ people can exchange ideas. Remember (32) ........ ask for help when you need it."
+          "text": "The repair café was started (27) ........ a group of neighbours who hated throwing things away. Volunteers meet (28) ........ the first Saturday of every month. Visitors bring (29) ........ broken items they can carry, and someone tries to fix them. Nobody has to pay, (30) ........ donations are welcome. The organisers say (31) ........ the café has saved hundreds of objects (32) ........ being sent to landfill."
         }
       ],
       "questionGroups": [
@@ -760,7 +780,7 @@
               "id": "catalog-reading-pet-b1-test21-part-6-q27",
               "number": 27,
               "type": "gap-fill",
-              "prompt": "Gap (27)",
+              "prompt": "Gap 27",
               "options": [],
               "answerConfidence": "key"
             },
@@ -768,7 +788,7 @@
               "id": "catalog-reading-pet-b1-test21-part-6-q28",
               "number": 28,
               "type": "gap-fill",
-              "prompt": "Gap (28)",
+              "prompt": "Gap 28",
               "options": [],
               "answerConfidence": "key"
             },
@@ -776,7 +796,7 @@
               "id": "catalog-reading-pet-b1-test21-part-6-q29",
               "number": 29,
               "type": "gap-fill",
-              "prompt": "Gap (29)",
+              "prompt": "Gap 29",
               "options": [],
               "answerConfidence": "key"
             },
@@ -784,7 +804,7 @@
               "id": "catalog-reading-pet-b1-test21-part-6-q30",
               "number": 30,
               "type": "gap-fill",
-              "prompt": "Gap (30)",
+              "prompt": "Gap 30",
               "options": [],
               "answerConfidence": "key"
             },
@@ -792,7 +812,7 @@
               "id": "catalog-reading-pet-b1-test21-part-6-q31",
               "number": 31,
               "type": "gap-fill",
-              "prompt": "Gap (31)",
+              "prompt": "Gap 31",
               "options": [],
               "answerConfidence": "key"
             },
@@ -800,7 +820,7 @@
               "id": "catalog-reading-pet-b1-test21-part-6-q32",
               "number": 32,
               "type": "gap-fill",
-              "prompt": "Gap (32)",
+              "prompt": "Gap 32",
               "options": [],
               "answerConfidence": "key"
             }

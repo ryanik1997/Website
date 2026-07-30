@@ -15,45 +15,49 @@
       "passageTitle": "Part 1 – Short texts",
       "passage": [
         {
-          "text": "School libraries notice\nThe school libraries team needs helpers on Saturday. Bring gloves and arrive before nine."
+          "text": "Workplace memo\nAll staff must complete the new safety training module by Friday. The module takes about forty minutes and can be done on any office computer. Print your certificate afterwards and leave it in your team leader’s tray. Late completion will be noted in your annual review."
         },
         {
-          "text": "Message from a friend\nI have booked the reading corners session for Tuesday, but I may arrive late. Please start without me and save a place."
+          "text": "Interview confirmation\nYour interview for the junior designer role is confirmed for Tuesday 14 June at 10 a.m. Please bring two copies of your portfolio and a form of ID. The interview lasts approximately forty-five minutes. Parking is available in the rear car park; enter from Mill Lane."
         },
         {
-          "text": "Information sign\nVisitors to the school libraries may use the tools, but they must return them before leaving."
+          "text": "Training notice\nThe induction session for new starters has moved from Room 4 to the ground-floor conference room. The date and time are unchanged. Please arrive five minutes early to collect your building pass from reception. The pass must be visible at all times during your first week."
         },
         {
-          "text": "Short announcement\nThe students meeting has moved from Room 2 to Room 4 because the first room is being painted."
+          "text": "Timetable change\nThe weekly team meeting will now take place on Mondays at 9.30 instead of Fridays at 4 p.m. This change allows us to plan the week ahead rather than review it afterwards. The meeting room is the same. Please update your calendars and set a reminder."
         },
         {
-          "text": "Notice for members\nMembers can borrow one reading corners guide for a week. Ask at the desk if you need another copy."
+          "text": "Email\nHi team, a reminder that expense claims for March must be submitted by the 10th. Claims received after this date will be processed in the following month’s payroll. Attach scanned receipts to the online form; paper copies are no longer accepted."
         }
       ],
       "questionGroups": [
         {
           "id": "catalog-reading-pet-b1-test18-part-1-g0",
           "range": "Questions 1–5",
-          "instruction": "For each question, choose the correct answer A, B or C.",
+          "instruction": "For each question, choose the correct answer A, B, C or D.",
           "type": "multiple-choice",
           "questions": [
             {
               "id": "catalog-reading-pet-b1-test18-part-1-q1",
               "number": 1,
               "type": "multiple-choice",
-              "prompt": "What should volunteers do?",
+              "prompt": "What must staff do after finishing the module?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Bring gloves and arrive early."
+                  "label": "Email the certificate to HR."
                 },
                 {
                   "id": "B",
-                  "label": "Pay for equipment at the gate."
+                  "label": "Print it and leave it with their team leader."
                 },
                 {
                   "id": "C",
-                  "label": "Work there every morning."
+                  "label": "Attend a follow-up meeting."
+                },
+                {
+                  "id": "D",
+                  "label": "Complete a second module."
                 }
               ],
               "answerConfidence": "key"
@@ -62,19 +66,23 @@
               "id": "catalog-reading-pet-b1-test18-part-1-q2",
               "number": 2,
               "type": "multiple-choice",
-              "prompt": "What does the writer ask the friend to do?",
+              "prompt": "What should the candidate bring?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Wait until Tuesday evening."
+                  "label": "A laptop with design software."
                 },
                 {
                   "id": "B",
-                  "label": "Begin the session if necessary."
+                  "label": "Two portfolio copies and ID."
                 },
                 {
                   "id": "C",
-                  "label": "Cancel the booking."
+                  "label": "A parking permit."
+                },
+                {
+                  "id": "D",
+                  "label": "References from previous employers."
                 }
               ],
               "answerConfidence": "key"
@@ -83,19 +91,23 @@
               "id": "catalog-reading-pet-b1-test18-part-1-q3",
               "number": 3,
               "type": "multiple-choice",
-              "prompt": "What must visitors do?",
+              "prompt": "What has changed?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Take the tools home."
+                  "label": "The date of the induction."
                 },
                 {
                   "id": "B",
-                  "label": "Use the tools only outdoors."
+                  "label": "The room where induction is held."
                 },
                 {
                   "id": "C",
-                  "label": "Return the tools after use."
+                  "label": "The requirement to bring ID."
+                },
+                {
+                  "id": "D",
+                  "label": "The length of the first week."
                 }
               ],
               "answerConfidence": "key"
@@ -104,19 +116,23 @@
               "id": "catalog-reading-pet-b1-test18-part-1-q4",
               "number": 4,
               "type": "multiple-choice",
-              "prompt": "Why has the meeting moved?",
+              "prompt": "Why was the meeting moved?",
               "options": [
                 {
                   "id": "A",
-                  "label": "The original room is unavailable."
+                  "label": "The Friday room was too small."
                 },
                 {
                   "id": "B",
-                  "label": "The meeting has finished early."
+                  "label": "To help the team plan the week ahead."
                 },
                 {
                   "id": "C",
-                  "label": "More people have joined the group."
+                  "label": "Staff complained about Friday meetings."
+                },
+                {
+                  "id": "D",
+                  "label": "The manager is unavailable on Fridays."
                 }
               ],
               "answerConfidence": "key"
@@ -125,19 +141,23 @@
               "id": "catalog-reading-pet-b1-test18-part-1-q5",
               "number": 5,
               "type": "multiple-choice",
-              "prompt": "What is the rule about guides?",
+              "prompt": "What is the deadline rule?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Members may keep one for a week."
+                  "label": "Paper receipts must be posted by the 10th."
                 },
                 {
                   "id": "B",
-                  "label": "Only visitors may borrow one."
+                  "label": "Late claims are rejected completely."
                 },
                 {
                   "id": "C",
-                  "label": "All copies must be returned that day."
+                  "label": "Claims after the 10th are paid next month."
+                },
+                {
+                  "id": "D",
+                  "label": "The form must be printed and signed."
                 }
               ],
               "answerConfidence": "key"
@@ -153,53 +173,53 @@
       "passageTitle": "Part 2 – Matching",
       "passage": [
         {
-          "text": "The people below all want to take part in school libraries. Decide which option would be most suitable."
+          "text": "The people below want to choose from work experience and career skills. Decide which option is most suitable."
         },
         {
           "label": "A",
-          "text": "A morning course about reading corners, with equipment supplied.",
+          "text": "Evening CV workshop with adviser feedback — Every Tuesday evening, a careers adviser at the job centre reviews each participant’s CV draft and suggests targeted improvements. The two-hour session includes a printed guide with formatting tips and action verbs. The group is small enough for one-to-one attention. The moderate fee covers both the workshop and the take-home materials.",
           "imageSlotId": "catalog-reading-pet-b1-test18-part-2-option-a-image",
           "imageRequired": false
         },
         {
           "label": "B",
-          "text": "An evening club for people who prefer meeting local experts.",
+          "text": "Mock interviews for young job seekers — Young people preparing for their first job interviews can practise with volunteers from local businesses every Saturday morning. The interviewers ask realistic questions and give immediate spoken feedback on body language and answers. Sessions are free, but places must be booked two weeks ahead because demand is high.",
           "imageSlotId": "catalog-reading-pet-b1-test18-part-2-option-b-image",
           "imageRequired": false
         },
         {
           "label": "C",
-          "text": "A weekend event offering practical activities in small groups.",
+          "text": "Self-paced online networking course — No live tutor, no fixed schedule and no travel are required for this free online networking skills course. Learners watch short video lessons and complete practical tasks at their own pace. A digital badge is awarded on completion. A peer forum allows questions, though responses may take a day or two.",
           "imageSlotId": "catalog-reading-pet-b1-test18-part-2-option-c-image",
           "imageRequired": false
         },
         {
           "label": "D",
-          "text": "A low-cost programme near the town centre, open to beginners.",
+          "text": "Presentation skills with filmed feedback — Walk away with a certificate recognised by several regional employers after completing this advanced presentation-skills masterclass. Participants deliver a talk to the group and receive filmed playback with detailed commentary. The weekday schedule suits working professionals. The cost is high, reflecting the specialist coaching and video equipment.",
           "imageSlotId": "catalog-reading-pet-b1-test18-part-2-option-d-image",
           "imageRequired": false
         },
         {
           "label": "E",
-          "text": "A quiet project where members can work independently.",
+          "text": "Workplace communication for returners — People returning to work after a long break often feel rusty about emails and phone calls. This short accessible course rebuilds confidence in a ground-floor room with adapted seating. The tutor demonstrates practical communication skills, and each participant receives a printed checklist. The pace is gentle and non-judgemental.",
           "imageSlotId": "catalog-reading-pet-b1-test18-part-2-option-e-image",
           "imageRequired": false
         },
         {
           "label": "F",
-          "text": "A short course that includes advice from experienced students.",
+          "text": "Two-day engineering work placement — Shadowing employees on real projects gives students a genuine taste of engineering work over this weekend placement. Participants complete a short practical task and observe daily routines at a local firm. Lunch is provided, and a reference letter is offered on request. Travel to the site is self-arranged.",
           "imageSlotId": "catalog-reading-pet-b1-test18-part-2-option-f-image",
           "imageRequired": false
         },
         {
           "label": "G",
-          "text": "A family activity held outdoors when the weather is suitable.",
+          "text": "Monthly careers café, drop in anytime — Drop in for an informal chat with professionals from various industries at this free monthly careers café. No preparation, CV or booking is needed; just arrive and start a conversation. The venue is relaxed, with coffee and pastries provided. It is slightly outside the town centre, so transport options are limited.",
           "imageSlotId": "catalog-reading-pet-b1-test18-part-2-option-g-image",
           "imageRequired": false
         },
         {
           "label": "H",
-          "text": "A longer programme combining study with social events.",
+          "text": "Weekend business challenge for managers — Wondering whether you have what it takes to lead a team? This competitive weekend business challenge puts that question to the test. Teams solve a real company problem under time pressure and present their solution to a panel of judges. Finishers receive a certificate. The fee is higher than casual clubs.",
           "imageSlotId": "catalog-reading-pet-b1-test18-part-2-option-h-image",
           "imageRequired": false
         }
@@ -213,35 +233,35 @@
           "features": [
             {
               "id": "a",
-              "name": "A morning course about reading corners, with equipment supplied."
+              "name": "Evening CV workshop with adviser feedback — Every Tuesday evening, a careers adviser at the job centre reviews each participant’s CV draft and suggests targeted improvements. The two-hour session includes a printed guide with formatting tips and action verbs. The group is small enough for one-to-one attention. The moderate fee covers both the workshop and the take-home materials."
             },
             {
               "id": "b",
-              "name": "An evening club for people who prefer meeting local experts."
+              "name": "Mock interviews for young job seekers — Young people preparing for their first job interviews can practise with volunteers from local businesses every Saturday morning. The interviewers ask realistic questions and give immediate spoken feedback on body language and answers. Sessions are free, but places must be booked two weeks ahead because demand is high."
             },
             {
               "id": "c",
-              "name": "A weekend event offering practical activities in small groups."
+              "name": "Self-paced online networking course — No live tutor, no fixed schedule and no travel are required for this free online networking skills course. Learners watch short video lessons and complete practical tasks at their own pace. A digital badge is awarded on completion. A peer forum allows questions, though responses may take a day or two."
             },
             {
               "id": "d",
-              "name": "A low-cost programme near the town centre, open to beginners."
+              "name": "Presentation skills with filmed feedback — Walk away with a certificate recognised by several regional employers after completing this advanced presentation-skills masterclass. Participants deliver a talk to the group and receive filmed playback with detailed commentary. The weekday schedule suits working professionals. The cost is high, reflecting the specialist coaching and video equipment."
             },
             {
               "id": "e",
-              "name": "A quiet project where members can work independently."
+              "name": "Workplace communication for returners — People returning to work after a long break often feel rusty about emails and phone calls. This short accessible course rebuilds confidence in a ground-floor room with adapted seating. The tutor demonstrates practical communication skills, and each participant receives a printed checklist. The pace is gentle and non-judgemental."
             },
             {
               "id": "f",
-              "name": "A short course that includes advice from experienced students."
+              "name": "Two-day engineering work placement — Shadowing employees on real projects gives students a genuine taste of engineering work over this weekend placement. Participants complete a short practical task and observe daily routines at a local firm. Lunch is provided, and a reference letter is offered on request. Travel to the site is self-arranged."
             },
             {
               "id": "g",
-              "name": "A family activity held outdoors when the weather is suitable."
+              "name": "Monthly careers café, drop in anytime — Drop in for an informal chat with professionals from various industries at this free monthly careers café. No preparation, CV or booking is needed; just arrive and start a conversation. The venue is relaxed, with coffee and pastries provided. It is slightly outside the town centre, so transport options are limited."
             },
             {
               "id": "h",
-              "name": "A longer programme combining study with social events."
+              "name": "Weekend business challenge for managers — Wondering whether you have what it takes to lead a team? This competitive weekend business challenge puts that question to the test. Teams solve a real company problem under time pressure and present their solution to a panel of judges. Finishers receive a certificate. The fee is higher than casual clubs."
             }
           ],
           "questions": [
@@ -249,7 +269,7 @@
               "id": "catalog-reading-pet-b1-test18-part-2-q6",
               "number": 6,
               "type": "matching-features",
-              "prompt": "Mia has only one free morning and wants to learn about reading corners.",
+              "prompt": "Ravi wants evening help with his CV, prefers a printed guide and values one-to-one feedback from a careers adviser.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -257,7 +277,7 @@
               "id": "catalog-reading-pet-b1-test18-part-2-q7",
               "number": 7,
               "type": "matching-features",
-              "prompt": "Noah works late, so he needs an activity that starts in the evening.",
+              "prompt": "Sofia is a student who wants free interview practice with realistic questions and can book two weeks in advance.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -265,7 +285,7 @@
               "id": "catalog-reading-pet-b1-test18-part-2-q8",
               "number": 8,
               "type": "matching-features",
-              "prompt": "Aisha is new to school libraries and wants friendly expert advice.",
+              "prompt": "Wei is returning to work after five years at home, wants a ground-floor accessible class with a checklist and prefers a short gentle course.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -273,7 +293,7 @@
               "id": "catalog-reading-pet-b1-test18-part-2-q9",
               "number": 9,
               "type": "matching-features",
-              "prompt": "Leo has little money and would like somewhere easy to reach.",
+              "prompt": "Amara is an experienced professional who wants filmed feedback on presentations and values a certificate recognised by employers.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -281,7 +301,7 @@
               "id": "catalog-reading-pet-b1-test18-part-2-q10",
               "number": 10,
               "type": "matching-features",
-              "prompt": "Sara dislikes crowds and would rather work quietly on her own.",
+              "prompt": "Jon wants to test his management potential, enjoys pressure and would like a certificate to strengthen future applications.",
               "options": [],
               "answerConfidence": "key"
             }
@@ -293,16 +313,19 @@
       "id": "catalog-reading-pet-b1-test18-part-3",
       "partNumber": 3,
       "rangeLabel": "Questions 11–15",
-      "passageTitle": "Part 3 – school libraries",
+      "passageTitle": "Part 3 – A first day at a new job",
       "passage": [
         {
-          "text": "When the students in our town started a school libraries project, few residents expected it to grow so quickly. At first, the organisers met in a small room and planned one simple activity involving reading corners. They soon discovered that people were more willing to join when they could see a clear benefit for the neighbourhood. The organisers therefore published a short timetable and invited local businesses to offer practical help."
+          "text": "My first day at the marketing office began with a mistake: I arrived at the wrong entrance and stood outside a locked door for ten minutes before a security guard directed me to reception. By the time I collected my pass, the induction had already started. I slipped into the back of the room, aware that several people glanced at me. The HR manager smiled and handed me a folder without pausing her presentation."
         },
         {
-          "text": "The project was not completely easy. Some volunteers were worried that the work would take too much time, while others wanted to change the plan every week. The team solved this by giving each person one small responsibility and reviewing the results together. This made the project feel manageable, and it also meant that new volunteers could contribute without special experience."
+          "text": "The induction covered practical details such as fire exits, lunch arrangements and the computer system. Most of it was straightforward, but the software login took three attempts because I kept typing my old employee number. The person beside me, a woman called Janet, whispered the correct format and later showed me where the kitchen was. Small kindnesses like that made the morning feel less overwhelming."
         },
         {
-          "text": "Looking back, the organiser says the most important lesson was not the final result but the way people learned to cooperate. The group still has problems, especially when the weather affects outdoor work, yet members now discuss solutions rather than blaming one another. For this reason, the project has become a useful example of how a modest local idea can create lasting connections."
+          "text": "After lunch, I met my team leader, who gave me a desk near the window and a list of tasks for the first week. The list looked long, but he explained that nobody expected me to finish everything immediately. He introduced me to four colleagues, and I immediately forgot two of their names. This embarrassed me, but Janet later admitted she had done the same thing on her first day. During the following week, I made a habit of writing down names and procedures in a small notebook. This simple act reduced my anxiety considerably, because I no longer feared asking the same question twice. Janet became an unofficial mentor, answering my emails within minutes and flagging which requests were urgent. By Friday, I had learned the printer code, the coffee machine routine and the unspoken rule that the team left promptly at half past five. None of this appeared in the induction folder, yet it was the knowledge that made the office feel like a place I could belong."
+        },
+        {
+          "text": "By five o’clock, I had sent two emails, attended one meeting and eaten a biscuit I did not remember taking. The day had been tiring in a way that physical work is not, because everything required concentration and politeness simultaneously. Walking to the bus stop, I felt cautiously optimistic. The job was not yet familiar, but the people seemed willing to help, and that mattered more than knowing where everything was."
         }
       ],
       "questionGroups": [
@@ -316,23 +339,23 @@
               "id": "catalog-reading-pet-b1-test18-part-3-q11",
               "number": 11,
               "type": "multiple-choice",
-              "prompt": "What was one reason more residents joined the project?",
+              "prompt": "What happened when the writer first arrived?",
               "options": [
                 {
                   "id": "A",
-                  "label": "They could understand its practical value."
+                  "label": "They were late for a meeting."
                 },
                 {
                   "id": "B",
-                  "label": "They were promised paid work."
+                  "label": "They went to the wrong entrance."
                 },
                 {
                   "id": "C",
-                  "label": "They wanted to compete with local businesses."
+                  "label": "They forgot their ID."
                 },
                 {
                   "id": "D",
-                  "label": "They were required to attend."
+                  "label": "The induction had been cancelled."
                 }
               ],
               "answerConfidence": "key"
@@ -341,23 +364,23 @@
               "id": "catalog-reading-pet-b1-test18-part-3-q12",
               "number": 12,
               "type": "multiple-choice",
-              "prompt": "What problem did some volunteers have at the beginning?",
+              "prompt": "How did Janet help during the induction?",
               "options": [
                 {
                   "id": "A",
-                  "label": "They disagreed about how often to change the plan."
+                  "label": "She introduced the writer to the manager."
                 },
                 {
                   "id": "B",
-                  "label": "They could not find a suitable meeting room."
+                  "label": "She explained the login format quietly."
                 },
                 {
                   "id": "C",
-                  "label": "They lacked permission to contact businesses."
+                  "label": "She gave the writer a spare folder."
                 },
                 {
                   "id": "D",
-                  "label": "They had no interest in outdoor work."
+                  "label": "She saved a seat at the front."
                 }
               ],
               "answerConfidence": "key"
@@ -366,23 +389,23 @@
               "id": "catalog-reading-pet-b1-test18-part-3-q13",
               "number": 13,
               "type": "multiple-choice",
-              "prompt": "How did the team make participation easier?",
+              "prompt": "Why does the writer mention forgetting names?",
               "options": [
                 {
                   "id": "A",
-                  "label": "It divided the work into smaller responsibilities."
+                  "label": "To criticise the team leader’s introduction."
                 },
                 {
                   "id": "B",
-                  "label": "It removed the timetable completely."
+                  "label": "To show that the experience felt normal and human."
                 },
                 {
                   "id": "C",
-                  "label": "It asked only experienced people to help."
+                  "label": "To explain why the writer left early."
                 },
                 {
                   "id": "D",
-                  "label": "It stopped reviewing the results."
+                  "label": "To suggest the colleagues were unfriendly."
                 }
               ],
               "answerConfidence": "key"
@@ -391,23 +414,23 @@
               "id": "catalog-reading-pet-b1-test18-part-3-q14",
               "number": 14,
               "type": "multiple-choice",
-              "prompt": "What does the organiser value most about the project?",
+              "prompt": "What does the writer suggest about the first day’s tiredness?",
               "options": [
                 {
                   "id": "A",
-                  "label": "The cooperation that developed among residents."
+                  "label": "It was caused by physical labour."
                 },
                 {
                   "id": "B",
-                  "label": "The money earned by local businesses."
+                  "label": "It came from constant mental effort."
                 },
                 {
                   "id": "C",
-                  "label": "The speed at which the first activity finished."
+                  "label": "It was worse than expected."
                 },
                 {
                   "id": "D",
-                  "label": "The number of changes made to the timetable."
+                  "label": "It made the writer want to quit."
                 }
               ],
               "answerConfidence": "key"
@@ -416,23 +439,23 @@
               "id": "catalog-reading-pet-b1-test18-part-3-q15",
               "number": 15,
               "type": "multiple-choice",
-              "prompt": "What is the writer’s main point?",
+              "prompt": "What made the writer feel optimistic?",
               "options": [
                 {
                   "id": "A",
-                  "label": "A small local project can strengthen a community."
+                  "label": "The salary was higher than expected."
                 },
                 {
                   "id": "B",
-                  "label": "Outdoor projects are always more successful than indoor ones."
+                  "label": "The people seemed willing to help."
                 },
                 {
                   "id": "C",
-                  "label": "Volunteers should avoid changing their plans."
+                  "label": "The tasks were easier than feared."
                 },
                 {
                   "id": "D",
-                  "label": "Businesses should organise neighbourhood activities."
+                  "label": "The office was close to home."
                 }
               ],
               "answerConfidence": "key"
@@ -445,42 +468,70 @@
       "id": "catalog-reading-pet-b1-test18-part-4",
       "partNumber": 4,
       "rangeLabel": "Questions 16–20",
-      "passageTitle": "Part 4 – school libraries",
+      "passageTitle": "Part 4 – Preparing for a job interview",
       "passage": [
         {
-          "text": "The students began their school libraries plan with one short meeting. (16) ..... The next week, more residents arrived than expected. (17) ..... They wanted to keep the activity useful rather than simply make it larger. (18) ..... The organisers therefore asked members to choose one task each. (19) ..... The work became easier to manage, and new volunteers quickly understood what to do. (20) ..... The project now meets regularly and welcomes anyone who wants to take part."
+          "text": "When Leila received an invitation to interview for a trainee accountant role, she felt excited and nervous in equal measure. She had applied for several positions without success, so this opportunity felt important. (16) ..... She decided to prepare thoroughly rather than rely on improvisation. Rather than panicking, she chose to treat the interview as a learning experience. This mindset shift took the pressure off perfection and let her focus on communication."
+        },
+        {
+          "text": "First, Leila researched the company online and read recent news articles about its expansion. She noted three facts she could mention naturally during conversation. (17) ..... This preparation gave her confidence that she would not fall silent when asked what she knew about the firm. She practised saying the facts aloud so they would sound natural rather than rehearsed. Her friend said the facts sounded impressive without being showy."
+        },
+        {
+          "text": "The night before, Leila chose her outfit and packed a folder with spare copies of her CV. She also planned her journey and checked the bus times in case of delays. (18) ..... She set two alarms and went to bed early, knowing that punctuality would create a good first impression. These practical steps reduced the number of things that could go wrong on the morning. The bus arrived on time, and she reached the building with ten minutes to spare."
+        },
+        {
+          "text": "During the interview, one question caught her off guard: she was asked to describe a failure. Leila paused, then explained a group project at college where poor planning had caused a missed deadline. (19) ..... The interviewers nodded and moved on, and Leila felt she had answered honestly without making excuses. She focused on what she had learned from the experience rather than blaming others. The honesty seemed to matter more than giving a polished answer."
+        },
+        {
+          "text": "Two days later, Leila received an email offering her the position. She accepted immediately and called her mother, who had encouraged her throughout the process. (20) ..... The preparation had not removed every uncertainty, but it had given her a framework to follow when nerves threatened to take over. The offer confirmed that careful preparation had made a visible difference. She planned to use the same approach for any future interviews."
         },
         {
           "label": "A",
-          "text": "This was the first sign that the idea might work."
+          "text": "Her mother advised her to refuse the interview.",
+          "key": "test18-part4-option-7",
+          "correctForGap": null
         },
         {
           "label": "B",
-          "text": "For that reason, the group changed its meeting place."
+          "text": "The preparation had clearly made a positive impression.",
+          "key": "test18-part4-option-4",
+          "correctForGap": 20
         },
         {
           "label": "C",
-          "text": "As a result, several people offered to help."
+          "text": "The company had already offered the role to another candidate.",
+          "key": "test18-part4-option-6",
+          "correctForGap": null
         },
         {
           "label": "D",
-          "text": "The organisers had not expected such a quick response."
+          "text": "She rehearsed these points until they felt natural.",
+          "key": "test18-part4-option-1",
+          "correctForGap": 17
         },
         {
           "label": "E",
-          "text": "Even so, the original aim remained the same."
+          "text": "She decided to withdraw her application immediately.",
+          "key": "test18-part4-option-5",
+          "correctForGap": null
         },
         {
           "label": "F",
-          "text": "They later used the same method in another area."
+          "text": "These practical steps reduced the risk of a stressful morning.",
+          "key": "test18-part4-option-2",
+          "correctForGap": 18
         },
         {
           "label": "G",
-          "text": "This made the final decision much easier."
+          "text": "She therefore decided to treat the interview as a chance to learn.",
+          "key": "test18-part4-option-0",
+          "correctForGap": 16
         },
         {
           "label": "H",
-          "text": "In the end, everyone agreed to continue."
+          "text": "She explained what the failure had taught her about planning.",
+          "key": "test18-part4-option-3",
+          "correctForGap": 19
         }
       ],
       "questionGroups": [
@@ -492,35 +543,51 @@
           "features": [
             {
               "id": "a",
-              "name": "This was the first sign that the idea might work."
+              "name": "Her mother advised her to refuse the interview.",
+              "key": "test18-part4-option-7",
+              "correctForGap": null
             },
             {
               "id": "b",
-              "name": "For that reason, the group changed its meeting place."
+              "name": "The preparation had clearly made a positive impression.",
+              "key": "test18-part4-option-4",
+              "correctForGap": 20
             },
             {
               "id": "c",
-              "name": "As a result, several people offered to help."
+              "name": "The company had already offered the role to another candidate.",
+              "key": "test18-part4-option-6",
+              "correctForGap": null
             },
             {
               "id": "d",
-              "name": "The organisers had not expected such a quick response."
+              "name": "She rehearsed these points until they felt natural.",
+              "key": "test18-part4-option-1",
+              "correctForGap": 17
             },
             {
               "id": "e",
-              "name": "Even so, the original aim remained the same."
+              "name": "She decided to withdraw her application immediately.",
+              "key": "test18-part4-option-5",
+              "correctForGap": null
             },
             {
               "id": "f",
-              "name": "They later used the same method in another area."
+              "name": "These practical steps reduced the risk of a stressful morning.",
+              "key": "test18-part4-option-2",
+              "correctForGap": 18
             },
             {
               "id": "g",
-              "name": "This made the final decision much easier."
+              "name": "She therefore decided to treat the interview as a chance to learn.",
+              "key": "test18-part4-option-0",
+              "correctForGap": 16
             },
             {
               "id": "h",
-              "name": "In the end, everyone agreed to continue."
+              "name": "She explained what the failure had taught her about planning.",
+              "key": "test18-part4-option-3",
+              "correctForGap": 19
             }
           ],
           "questions": [
@@ -572,10 +639,10 @@
       "id": "catalog-reading-pet-b1-test18-part-5",
       "partNumber": 5,
       "rangeLabel": "Questions 21–26",
-      "passageTitle": "Part 5 – school libraries",
+      "passageTitle": "Part 5 – Multiple-choice cloze",
       "passage": [
         {
-          "text": "The students usually meet (21) ........ Saturday. New members are shown how to (22) ........ the equipment. They can ask for advice if they are (23) ........ about a task. The group works together (24) ........ everyone can learn. Members often share ideas (25) ........ the session. The project has become a popular way to meet (26) ........ people."
+          "text": "During my work experience placement at a local shop, I learned that customer service (21) ..... more than product knowledge. On the first morning, the manager asked me (22) ..... of new arrivals near the entrance. I arranged the items carefully, but a colleague pointed out that customers respond better to colour than to size. This feedback (23) ..... a better system by the afternoon. By the second day, I could answer most (24) ....., although some requests still caught me off guard. The manager said I (25) ..... for someone with no retail experience. On the final day, I thanked the team, and they told me I (26) ..... any time I needed a reference.  The placement confirmed that I enjoy working with people, even when the tasks are repetitive. I have since applied for a weekend position at the same shop."
         }
       ],
       "questionGroups": [
@@ -593,19 +660,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "every"
+                  "label": "on"
                 },
                 {
                   "id": "B",
-                  "label": "each"
+                  "label": "in"
                 },
                 {
                   "id": "C",
-                  "label": "whole"
+                  "label": "at"
                 },
                 {
                   "id": "D",
-                  "label": "all"
+                  "label": "for"
                 }
               ],
               "answerConfidence": "key"
@@ -618,19 +685,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "use"
+                  "label": "set"
                 },
                 {
                   "id": "B",
-                  "label": "make"
+                  "label": "put"
                 },
                 {
                   "id": "C",
-                  "label": "bring"
+                  "label": "take"
                 },
                 {
                   "id": "D",
-                  "label": "hold"
+                  "label": "give"
                 }
               ],
               "answerConfidence": "key"
@@ -643,19 +710,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "uncertain"
+                  "label": "work"
                 },
                 {
                   "id": "B",
-                  "label": "narrow"
+                  "label": "find"
                 },
                 {
                   "id": "C",
-                  "label": "single"
+                  "label": "look"
                 },
                 {
                   "id": "D",
-                  "label": "empty"
+                  "label": "turn"
                 }
               ],
               "answerConfidence": "key"
@@ -668,19 +735,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "so that"
+                  "label": "without"
                 },
                 {
                   "id": "B",
-                  "label": "unless"
+                  "label": "within"
                 },
                 {
                   "id": "C",
-                  "label": "although"
+                  "label": "beside"
                 },
                 {
                   "id": "D",
-                  "label": "before"
+                  "label": "against"
                 }
               ],
               "answerConfidence": "key"
@@ -693,19 +760,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "during"
+                  "label": "in"
                 },
                 {
                   "id": "B",
-                  "label": "between"
+                  "label": "on"
                 },
                 {
                   "id": "C",
-                  "label": "inside"
+                  "label": "at"
                 },
                 {
                   "id": "D",
-                  "label": "through"
+                  "label": "up"
                 }
               ],
               "answerConfidence": "key"
@@ -718,19 +785,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "local"
+                  "label": "come"
                 },
                 {
                   "id": "B",
-                  "label": "private"
+                  "label": "go"
                 },
                 {
                   "id": "C",
-                  "label": "silent"
+                  "label": "turn"
                 },
                 {
                   "id": "D",
-                  "label": "rare"
+                  "label": "fall"
                 }
               ],
               "answerConfidence": "key"
@@ -743,10 +810,10 @@
       "id": "catalog-reading-pet-b1-test18-part-6",
       "partNumber": 6,
       "rangeLabel": "Questions 27–32",
-      "passageTitle": "Part 6 – school libraries",
+      "passageTitle": "Part 6 – Open cloze",
       "passage": [
         {
-          "text": "The students meet (27) ........ week to plan activities. New members learn (28) ........ to use the reading corners safely. They can join the work, (29) ........ they should follow the group’s instructions. The project has kept useful materials (30) ........ being thrown away. It is a place (31) ........ people can exchange ideas. Remember (32) ........ ask for help when you need it."
+          "text": "The career workshop was useful, (27) ........ I had expected it to be boring. A speaker (28) ........ worked in human resources explained what employers look for in (29) ........ application form. She said that candidates should arrive (30) ........ least ten minutes early for interviews. I (31) ........ not have attended if my tutor had not recommended it. Afterwards, several students agreed that (32) ........ had all felt uncertain before the talk.  The organiser sent a follow-up email with links to free CV templates and a list of local employers offering placements. Several students replied with questions, and the speaker answered each one personally.  The next workshop is scheduled for November, and places can be reserved through the college reception."
         }
       ],
       "questionGroups": [
@@ -760,7 +827,7 @@
               "id": "catalog-reading-pet-b1-test18-part-6-q27",
               "number": 27,
               "type": "gap-fill",
-              "prompt": "Gap (27)",
+              "prompt": "Gap 27",
               "options": [],
               "answerConfidence": "key"
             },
@@ -768,7 +835,7 @@
               "id": "catalog-reading-pet-b1-test18-part-6-q28",
               "number": 28,
               "type": "gap-fill",
-              "prompt": "Gap (28)",
+              "prompt": "Gap 28",
               "options": [],
               "answerConfidence": "key"
             },
@@ -776,7 +843,7 @@
               "id": "catalog-reading-pet-b1-test18-part-6-q29",
               "number": 29,
               "type": "gap-fill",
-              "prompt": "Gap (29)",
+              "prompt": "Gap 29",
               "options": [],
               "answerConfidence": "key"
             },
@@ -784,7 +851,7 @@
               "id": "catalog-reading-pet-b1-test18-part-6-q30",
               "number": 30,
               "type": "gap-fill",
-              "prompt": "Gap (30)",
+              "prompt": "Gap 30",
               "options": [],
               "answerConfidence": "key"
             },
@@ -792,7 +859,7 @@
               "id": "catalog-reading-pet-b1-test18-part-6-q31",
               "number": 31,
               "type": "gap-fill",
-              "prompt": "Gap (31)",
+              "prompt": "Gap 31",
               "options": [],
               "answerConfidence": "key"
             },
@@ -800,7 +867,7 @@
               "id": "catalog-reading-pet-b1-test18-part-6-q32",
               "number": 32,
               "type": "gap-fill",
-              "prompt": "Gap (32)",
+              "prompt": "Gap 32",
               "options": [],
               "answerConfidence": "key"
             }

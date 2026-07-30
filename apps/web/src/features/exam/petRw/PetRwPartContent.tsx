@@ -12,6 +12,8 @@ import { useBlobMediaUrl } from '../useBlobMediaUrl'
 import KetRwSplitPane from '../ketRw/KetRwSplitPane'
 import { ensureGapDots, questionByNumber, splitKetGapText } from '../ketRw/ketRwGapUtils'
 import PetRwDragMatch from './PetRwDragMatch'
+import { readPetRwDragPayload, writePetRwDragPayload, PET_RW_GAP_MIME, PET_RW_DND_MIME } from './dnd/petRwDndTypes'
+import type { PetRwDragPayload } from './dnd/petRwDndTypes'
 import {
   getBodyTextBlocks,
   optionBankFromPassage,
@@ -87,42 +89,14 @@ function InlineMcGap({
   )
 }
 
-// ── Part 4 two-way drag helpers ──
-
-type Part4DragPayload =
-  | { source: 'bank'; optionId: string }
-  | { source: 'gap'; optionId: string; sourceQuestionId: string }
-
-const PART4_DND_MIME = 'application/x-pet-reading-part4-option'
-const PART4_GAP_MIME = 'application/x-pet-part4-gap'
-
-function writePart4DragPayload(dataTransfer: DataTransfer, payload: Part4DragPayload) {
-  dataTransfer.setData(PART4_DND_MIME, JSON.stringify(payload))
-  dataTransfer.setData('text/plain', payload.optionId)
-  if (payload.source === 'gap') {
-    dataTransfer.setData(PART4_GAP_MIME, '1')
-  }
-  dataTransfer.effectAllowed = 'move'
-}
-
-function readPart4DragPayload(dataTransfer: DataTransfer): Part4DragPayload | null {
-  const raw = dataTransfer.getData(PART4_DND_MIME)
-  if (raw) {
-    try {
-      const v = JSON.parse(raw) as Partial<Part4DragPayload>
-      if (v.source === 'bank' && typeof v.optionId === 'string') {
-        return { source: 'bank', optionId: v.optionId }
-      }
-      if (v.source === 'gap' && typeof v.optionId === 'string' && typeof v.sourceQuestionId === 'string') {
-        return { source: 'gap', optionId: v.optionId, sourceQuestionId: v.sourceQuestionId }
-      }
-    } catch {
-      /* invalid JSON */
-    }
-  }
-  const legacy = dataTransfer.getData('text/plain')
-  return legacy ? { source: 'bank', optionId: legacy } : null
-}
+// ── Drag helpers — shared via dnd/petRwDndTypes ──
+// Part4DragPayload, writePart4DragPayload, readPart4DragPayload now imported from ./dnd/petRwDndTypes
+// Aliases for backward compatibility within this file
+type Part4DragPayload = PetRwDragPayload
+const PART4_GAP_MIME = PET_RW_GAP_MIME
+const PART4_DND_MIME = PET_RW_DND_MIME
+const writePart4DragPayload = writePetRwDragPayload
+const readPart4DragPayload = readPetRwDragPayload
 
 type InlineGapTextVariant = 'default' | 'cambridge-box'
 
@@ -512,6 +486,7 @@ export default function PetRwPartContent({
                 bank={bank}
                 answers={answers}
                 activeQuestionId={activeQuestionId}
+                reviewMode={reviewMode}
                 slotImageKey={q => readingExamMediaKey(examId, personImageFileForQuestion(q.number))}
                 slotPhotoPreviewUrl={q => personPhotoPreviewUrl?.(q.number)}
                 allowPhotoUpload={allowPersonPhotoUpload}
@@ -532,6 +507,7 @@ export default function PetRwPartContent({
             activeQuestionId={activeQuestionId}
             bankOnRight
             showBankLetters={false}
+            reviewMode={reviewMode}
             slotImageKey={q => readingExamMediaKey(examId, personImageFileForQuestion(q.number))}
             slotPhotoPreviewUrl={q => personPhotoPreviewUrl?.(q.number)}
             allowPhotoUpload={allowPersonPhotoUpload}

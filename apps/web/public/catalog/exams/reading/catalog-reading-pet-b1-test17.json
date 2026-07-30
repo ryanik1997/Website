@@ -15,45 +15,49 @@
       "passageTitle": "Part 1 – Short texts",
       "passage": [
         {
-          "text": "Cycle routes notice\nThe cycle routes team needs helpers on Saturday. Bring gloves and arrive before nine."
+          "text": "Rehearsal schedule email\nThe choir rehearsal has moved to Wednesday this week because the hall is booked for a conference on Thursday. Please arrive at 6.15 p.m. so we can start promptly. Bring your folder and a pencil for marking the music."
         },
         {
-          "text": "Message from a friend\nI have booked the safe paths session for Tuesday, but I may arrive late. Please start without me and save a place."
+          "text": "Concert booking confirmation\nYour two tickets for the spring recital on 12 May are confirmed. Doors open at 7 p.m. and the performance begins at 7.30. Latecomers cannot enter until the interval. Photography is not permitted during the performance."
         },
         {
-          "text": "Information sign\nVisitors to the cycle routes may use the tools, but they must return them before leaving."
+          "text": "Music school notice\nPiano students may use practice room B between 4 and 6 p.m. on weekdays. Book a slot at reception no more than two days ahead. The room holds one upright piano and one keyboard; drum kits are not permitted."
         },
         {
-          "text": "Short announcement\nThe commuters meeting has moved from Room 2 to Room 4 because the first room is being painted."
+          "text": "Text message\nHey Sam, the band practice is still on Saturday but we’ve moved it to my garage because the studio is being painted. Can you bring the spare guitar cable? The one I have keeps cutting out. See you at 3!"
         },
         {
-          "text": "Notice for members\nMembers can borrow one safe paths guide for a week. Ask at the desk if you need another copy."
+          "text": "Website message\nThank you for enrolling in the guitar video course. Your first module is available now. We recommend practising fifteen minutes daily rather than two hours once a week. You can download the chord charts from the resources tab and print them at home."
         }
       ],
       "questionGroups": [
         {
           "id": "catalog-reading-pet-b1-test17-part-1-g0",
           "range": "Questions 1–5",
-          "instruction": "For each question, choose the correct answer A, B or C.",
+          "instruction": "For each question, choose the correct answer A, B, C or D.",
           "type": "multiple-choice",
           "questions": [
             {
               "id": "catalog-reading-pet-b1-test17-part-1-q1",
               "number": 1,
               "type": "multiple-choice",
-              "prompt": "What should volunteers do?",
+              "prompt": "Why has the rehearsal day changed?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Bring gloves and arrive early."
+                  "label": "The conductor is away on Thursday."
                 },
                 {
                   "id": "B",
-                  "label": "Pay for equipment at the gate."
+                  "label": "The hall is unavailable on Thursday."
                 },
                 {
                   "id": "C",
-                  "label": "Work there every morning."
+                  "label": "Members requested an earlier day."
+                },
+                {
+                  "id": "D",
+                  "label": "The concert has been postponed."
                 }
               ],
               "answerConfidence": "key"
@@ -62,19 +66,23 @@
               "id": "catalog-reading-pet-b1-test17-part-1-q2",
               "number": 2,
               "type": "multiple-choice",
-              "prompt": "What does the writer ask the friend to do?",
+              "prompt": "What should ticket holders know?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Wait until Tuesday evening."
+                  "label": "They can take photos during the show."
                 },
                 {
                   "id": "B",
-                  "label": "Begin the session if necessary."
+                  "label": "Latecomers must wait for the interval."
                 },
                 {
                   "id": "C",
-                  "label": "Cancel the booking."
+                  "label": "The concert starts at 7 p.m."
+                },
+                {
+                  "id": "D",
+                  "label": "Tickets can be refunded."
                 }
               ],
               "answerConfidence": "key"
@@ -83,19 +91,23 @@
               "id": "catalog-reading-pet-b1-test17-part-1-q3",
               "number": 3,
               "type": "multiple-choice",
-              "prompt": "What must visitors do?",
+              "prompt": "What is the booking rule?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Take the tools home."
+                  "label": "Book at least a week in advance."
                 },
                 {
                   "id": "B",
-                  "label": "Use the tools only outdoors."
+                  "label": "Book no more than two days ahead."
                 },
                 {
                   "id": "C",
-                  "label": "Return the tools after use."
+                  "label": "Book online before 4 p.m."
+                },
+                {
+                  "id": "D",
+                  "label": "Book directly with the piano teacher."
                 }
               ],
               "answerConfidence": "key"
@@ -104,19 +116,23 @@
               "id": "catalog-reading-pet-b1-test17-part-1-q4",
               "number": 4,
               "type": "multiple-choice",
-              "prompt": "Why has the meeting moved?",
+              "prompt": "What does the writer need?",
               "options": [
                 {
                   "id": "A",
-                  "label": "The original room is unavailable."
+                  "label": "A replacement studio key."
                 },
                 {
                   "id": "B",
-                  "label": "The meeting has finished early."
+                  "label": "A guitar cable that works."
                 },
                 {
                   "id": "C",
-                  "label": "More people have joined the group."
+                  "label": "Help painting the studio."
+                },
+                {
+                  "id": "D",
+                  "label": "A different practice day."
                 }
               ],
               "answerConfidence": "key"
@@ -125,19 +141,23 @@
               "id": "catalog-reading-pet-b1-test17-part-1-q5",
               "number": 5,
               "type": "multiple-choice",
-              "prompt": "What is the rule about guides?",
+              "prompt": "What study habit is recommended?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Members may keep one for a week."
+                  "label": "Two hours of practice every weekend."
                 },
                 {
                   "id": "B",
-                  "label": "Only visitors may borrow one."
+                  "label": "Fifteen minutes of daily practice."
                 },
                 {
                   "id": "C",
-                  "label": "All copies must be returned that day."
+                  "label": "Watching all videos before practising."
+                },
+                {
+                  "id": "D",
+                  "label": "Printing every resource immediately."
                 }
               ],
               "answerConfidence": "key"
@@ -153,53 +173,53 @@
       "passageTitle": "Part 2 – Matching",
       "passage": [
         {
-          "text": "The people below all want to take part in cycle routes. Decide which option would be most suitable."
+          "text": "The people below want to choose from music lessons and performing arts. Decide which option is most suitable."
         },
         {
           "label": "A",
-          "text": "A morning course about safe paths, with equipment supplied.",
+          "text": "Beginner guitar, play a song by week three — By the third week, most participants can strum a complete song. This weekday evening guitar course at the music centre supplies instruments for the first term, so beginners need not buy anything. The tutor teaches chords through simple melodies in a small guided group. The fee is moderate and covers ten weekly sessions.",
           "imageSlotId": "catalog-reading-pet-b1-test17-part-2-option-a-image",
           "imageRequired": false
         },
         {
           "label": "B",
-          "text": "An evening club for people who prefer meeting local experts.",
+          "text": "Family drumming, loud and energetic — Children and adults play together in this noisy Saturday morning drumming workshop. All instruments are provided, and ear protection is supplied for younger participants. The sessions are energetic and physical, with no prior rhythm experience expected. Families leave buzzing and often return the following week.",
           "imageSlotId": "catalog-reading-pet-b1-test17-part-2-option-b-image",
           "imageRequired": false
         },
         {
           "label": "C",
-          "text": "A weekend event offering practical activities in small groups.",
+          "text": "Lunchtime singing, no audition needed — No audition, no sheet music and no homework are required for this free lunchtime singing group in the library hall. Members learn one song per week purely by ear, following the leader’s phrase-by-phrase demonstration. The atmosphere is relaxed and welcoming to hesitant singers. Sessions last forty minutes.",
           "imageSlotId": "catalog-reading-pet-b1-test17-part-2-option-c-image",
           "imageRequired": false
         },
         {
           "label": "D",
-          "text": "A low-cost programme near the town centre, open to beginners.",
+          "text": "Composition masterclass with studio recording — Detailed critique from a published composer is the centrepiece of this advanced weekend masterclass. Participants bring their own compositions and receive line-by-line feedback during group sessions. The high fee includes a professional recording of each participant’s best piece. This suits experienced musicians seeking expert guidance.",
           "imageSlotId": "catalog-reading-pet-b1-test17-part-2-option-d-image",
           "imageRequired": false
         },
         {
           "label": "E",
-          "text": "A quiet project where members can work independently.",
+          "text": "Gentle keyboard skills, adapted equipment — Gentle progress without pressure is the promise of this short accessible keyboard introduction. The tutor demonstrates in a ground-floor room with adapted equipment, and each participant receives a printed chord guide. Sessions focus on simple melodies rather than graded exams. There is no expectation of practice between meetings.",
           "imageSlotId": "catalog-reading-pet-b1-test17-part-2-option-e-image",
           "imageRequired": false
         },
         {
           "label": "F",
-          "text": "A short course that includes advice from experienced commuters.",
+          "text": "Weekday afternoon violin for children — Every Wednesday afternoon, children aged eight to twelve gather for a structured violin course following a graded syllabus. Instruments can be borrowed for the term, and parents are welcome to observe from the back of the room. The teacher offers a term-end concert where students perform. The fee covers twelve lessons.",
           "imageSlotId": "catalog-reading-pet-b1-test17-part-2-option-f-image",
           "imageRequired": false
         },
         {
           "label": "G",
-          "text": "A family activity held outdoors when the weather is suitable.",
+          "text": "Monthly open-mic, sign up on the night — Come and play one song at this free monthly open-mic evening in a small café. Performers sign up on the night, so there is no advance booking or audition. The audience is supportive and applause is generous. The venue is intimate, and members arrange their own transport home afterwards.",
           "imageSlotId": "catalog-reading-pet-b1-test17-part-2-option-g-image",
           "imageRequired": false
         },
         {
           "label": "H",
-          "text": "A longer programme combining study with social events.",
+          "text": "Music production challenge in a studio — Inside a professional recording studio, teams race against the clock to produce a short track using industry software. This competitive weekend challenge awards a certificate to finishing teams. The entry fee covers studio time, software licences and refreshments. It suits people interested in production careers who thrive under pressure.",
           "imageSlotId": "catalog-reading-pet-b1-test17-part-2-option-h-image",
           "imageRequired": false
         }
@@ -213,35 +233,35 @@
           "features": [
             {
               "id": "a",
-              "name": "A morning course about safe paths, with equipment supplied."
+              "name": "Beginner guitar, play a song by week three — By the third week, most participants can strum a complete song. This weekday evening guitar course at the music centre supplies instruments for the first term, so beginners need not buy anything. The tutor teaches chords through simple melodies in a small guided group. The fee is moderate and covers ten weekly sessions."
             },
             {
               "id": "b",
-              "name": "An evening club for people who prefer meeting local experts."
+              "name": "Family drumming, loud and energetic — Children and adults play together in this noisy Saturday morning drumming workshop. All instruments are provided, and ear protection is supplied for younger participants. The sessions are energetic and physical, with no prior rhythm experience expected. Families leave buzzing and often return the following week."
             },
             {
               "id": "c",
-              "name": "A weekend event offering practical activities in small groups."
+              "name": "Lunchtime singing, no audition needed — No audition, no sheet music and no homework are required for this free lunchtime singing group in the library hall. Members learn one song per week purely by ear, following the leader’s phrase-by-phrase demonstration. The atmosphere is relaxed and welcoming to hesitant singers. Sessions last forty minutes."
             },
             {
               "id": "d",
-              "name": "A low-cost programme near the town centre, open to beginners."
+              "name": "Composition masterclass with studio recording — Detailed critique from a published composer is the centrepiece of this advanced weekend masterclass. Participants bring their own compositions and receive line-by-line feedback during group sessions. The high fee includes a professional recording of each participant’s best piece. This suits experienced musicians seeking expert guidance."
             },
             {
               "id": "e",
-              "name": "A quiet project where members can work independently."
+              "name": "Gentle keyboard skills, adapted equipment — Gentle progress without pressure is the promise of this short accessible keyboard introduction. The tutor demonstrates in a ground-floor room with adapted equipment, and each participant receives a printed chord guide. Sessions focus on simple melodies rather than graded exams. There is no expectation of practice between meetings."
             },
             {
               "id": "f",
-              "name": "A short course that includes advice from experienced commuters."
+              "name": "Weekday afternoon violin for children — Every Wednesday afternoon, children aged eight to twelve gather for a structured violin course following a graded syllabus. Instruments can be borrowed for the term, and parents are welcome to observe from the back of the room. The teacher offers a term-end concert where students perform. The fee covers twelve lessons."
             },
             {
               "id": "g",
-              "name": "A family activity held outdoors when the weather is suitable."
+              "name": "Monthly open-mic, sign up on the night — Come and play one song at this free monthly open-mic evening in a small café. Performers sign up on the night, so there is no advance booking or audition. The audience is supportive and applause is generous. The venue is intimate, and members arrange their own transport home afterwards."
             },
             {
               "id": "h",
-              "name": "A longer programme combining study with social events."
+              "name": "Music production challenge in a studio — Inside a professional recording studio, teams race against the clock to produce a short track using industry software. This competitive weekend challenge awards a certificate to finishing teams. The entry fee covers studio time, software licences and refreshments. It suits people interested in production careers who thrive under pressure."
             }
           ],
           "questions": [
@@ -249,7 +269,7 @@
               "id": "catalog-reading-pet-b1-test17-part-2-q6",
               "number": 6,
               "type": "matching-features",
-              "prompt": "Mia has only one free morning and wants to learn about safe paths.",
+              "prompt": "Nadia is a complete beginner who wants evening guitar lessons, has no instrument and prefers a small guided group with a moderate fee.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -257,7 +277,7 @@
               "id": "catalog-reading-pet-b1-test17-part-2-q7",
               "number": 7,
               "type": "matching-features",
-              "prompt": "Noah works late, so he needs an activity that starts in the evening.",
+              "prompt": "Felix has a free lunchtime hour, wants to sing without reading music or practising at home, and enjoys a relaxed informal atmosphere.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -265,7 +285,7 @@
               "id": "catalog-reading-pet-b1-test17-part-2-q8",
               "number": 8,
               "type": "matching-features",
-              "prompt": "Aisha is new to cycle routes and wants friendly expert advice.",
+              "prompt": "Grace uses a wheelchair, wants a ground-floor keyboard class with printed materials and prefers gentle progress over a long commitment.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -273,7 +293,7 @@
               "id": "catalog-reading-pet-b1-test17-part-2-q9",
               "number": 9,
               "type": "matching-features",
-              "prompt": "Leo has little money and would like somewhere easy to reach.",
+              "prompt": "Hugo is an experienced musician who wants expert feedback on his compositions, can pay a high fee and would value a studio recording.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -281,7 +301,7 @@
               "id": "catalog-reading-pet-b1-test17-part-2-q10",
               "number": 10,
               "type": "matching-features",
-              "prompt": "Sara dislikes crowds and would rather work quietly on her own.",
+              "prompt": "Isla wants to build production skills for a future career, enjoys working under pressure and would like a certificate to show employers.",
               "options": [],
               "answerConfidence": "key"
             }
@@ -293,16 +313,19 @@
       "id": "catalog-reading-pet-b1-test17-part-3",
       "partNumber": 3,
       "rangeLabel": "Questions 11–15",
-      "passageTitle": "Part 3 – cycle routes",
+      "passageTitle": "Part 3 – A school music concert",
       "passage": [
         {
-          "text": "When the commuters in our town started a cycle routes project, few residents expected it to grow so quickly. At first, the organisers met in a small room and planned one simple activity involving safe paths. They soon discovered that people were more willing to join when they could see a clear benefit for the neighbourhood. The organisers therefore published a short timetable and invited local businesses to offer practical help."
+          "text": "Every December, our school holds a music concert in the main hall, and this year I was asked to play the piano in front of the whole year group. I had performed in small classes before, but never in front of three hundred people. When the head teacher announced my name, my hands felt cold and I almost pretended to be ill. Then I remembered what my teacher had said: the audience wants you to succeed."
         },
         {
-          "text": "The project was not completely easy. Some volunteers were worried that the work would take too much time, while others wanted to change the plan every week. The team solved this by giving each person one small responsibility and reviewing the results together. This made the project feel manageable, and it also meant that new volunteers could contribute without special experience."
+          "text": "I walked to the piano and adjusted the stool, which took longer than I expected because my fingers were shaking. The first few notes sounded thin, and I could hear a chair creak somewhere in the audience. But by the second page, something shifted. I stopped thinking about the people watching and focused on the melody. The music I had practised for weeks began to feel natural, almost automatic."
         },
         {
-          "text": "Looking back, the organiser says the most important lesson was not the final result but the way people learned to cooperate. The group still has problems, especially when the weather affects outdoor work, yet members now discuss solutions rather than blaming one another. For this reason, the project has become a useful example of how a modest local idea can create lasting connections."
+          "text": "When I finished, there was a pause that felt enormous, and then applause. It was not the loudest applause of the evening, but it was enough. My friend Maya, who played the violin later, said she had been more nervous watching me than performing herself. We laughed about it afterwards, but I understood what she meant. Waiting to perform is often harder than performing. Several classmates told me afterwards that they had no idea I played the piano, which made me realise how little we know about each other outside the classroom. The head teacher suggested starting a lunchtime music club so that students could perform informally without the pressure of a large audience. I signed up immediately. The first meeting had only four people, but by the end of term there were fifteen, and the shyest member played a guitar solo that made everyone cheer."
+        },
+        {
+          "text": "The concert reminded me why I had started learning the piano three years ago. It was not to impress anyone or to win a competition. It was because my grandmother used to play, and I wanted to understand what she heard when she closed her eyes. I still play her favourite piece at home, but now I can also play it in front of others. That difference, between private enjoyment and shared performance, is something I did not expect to value so much."
         }
       ],
       "questionGroups": [
@@ -316,23 +339,23 @@
               "id": "catalog-reading-pet-b1-test17-part-3-q11",
               "number": 11,
               "type": "multiple-choice",
-              "prompt": "What was one reason more residents joined the project?",
+              "prompt": "What was the writer’s main worry before performing?",
               "options": [
                 {
                   "id": "A",
-                  "label": "They could understand its practical value."
+                  "label": "Forgetting the music completely."
                 },
                 {
                   "id": "B",
-                  "label": "They were promised paid work."
+                  "label": "Playing in front of a large audience."
                 },
                 {
                   "id": "C",
-                  "label": "They wanted to compete with local businesses."
+                  "label": "The piano being out of tune."
                 },
                 {
                   "id": "D",
-                  "label": "They were required to attend."
+                  "label": "Arriving late to the concert."
                 }
               ],
               "answerConfidence": "key"
@@ -341,23 +364,23 @@
               "id": "catalog-reading-pet-b1-test17-part-3-q12",
               "number": 12,
               "type": "multiple-choice",
-              "prompt": "What problem did some volunteers have at the beginning?",
+              "prompt": "What changed during the second page of music?",
               "options": [
                 {
                   "id": "A",
-                  "label": "They disagreed about how often to change the plan."
+                  "label": "The audience started singing along."
                 },
                 {
                   "id": "B",
-                  "label": "They could not find a suitable meeting room."
+                  "label": "The writer stopped feeling self-conscious."
                 },
                 {
                   "id": "C",
-                  "label": "They lacked permission to contact businesses."
+                  "label": "The teacher came to help."
                 },
                 {
                   "id": "D",
-                  "label": "They had no interest in outdoor work."
+                  "label": "The piano sounded better."
                 }
               ],
               "answerConfidence": "key"
@@ -366,23 +389,23 @@
               "id": "catalog-reading-pet-b1-test17-part-3-q13",
               "number": 13,
               "type": "multiple-choice",
-              "prompt": "How did the team make participation easier?",
+              "prompt": "Why does the writer mention Maya?",
               "options": [
                 {
                   "id": "A",
-                  "label": "It divided the work into smaller responsibilities."
+                  "label": "To show that watching can be as nerve-wracking as performing."
                 },
                 {
                   "id": "B",
-                  "label": "It removed the timetable completely."
+                  "label": "To explain why the concert was delayed."
                 },
                 {
                   "id": "C",
-                  "label": "It asked only experienced people to help."
+                  "label": "To criticise Maya’s violin performance."
                 },
                 {
                   "id": "D",
-                  "label": "It stopped reviewing the results."
+                  "label": "To suggest Maya should have played first."
                 }
               ],
               "answerConfidence": "key"
@@ -391,23 +414,23 @@
               "id": "catalog-reading-pet-b1-test17-part-3-q14",
               "number": 14,
               "type": "multiple-choice",
-              "prompt": "What does the organiser value most about the project?",
+              "prompt": "Why did the writer originally start learning piano?",
               "options": [
                 {
                   "id": "A",
-                  "label": "The cooperation that developed among residents."
+                  "label": "To win a school competition."
                 },
                 {
                   "id": "B",
-                  "label": "The money earned by local businesses."
+                  "label": "To impress classmates."
                 },
                 {
                   "id": "C",
-                  "label": "The speed at which the first activity finished."
+                  "label": "To connect with a family memory."
                 },
                 {
                   "id": "D",
-                  "label": "The number of changes made to the timetable."
+                  "label": "To prepare for a music career."
                 }
               ],
               "answerConfidence": "key"
@@ -416,23 +439,23 @@
               "id": "catalog-reading-pet-b1-test17-part-3-q15",
               "number": 15,
               "type": "multiple-choice",
-              "prompt": "What is the writer’s main point?",
+              "prompt": "What is the writer’s main point about the concert?",
               "options": [
                 {
                   "id": "A",
-                  "label": "A small local project can strengthen a community."
+                  "label": "Large audiences make performances better."
                 },
                 {
                   "id": "B",
-                  "label": "Outdoor projects are always more successful than indoor ones."
+                  "label": "School concerts should be compulsory."
                 },
                 {
                   "id": "C",
-                  "label": "Volunteers should avoid changing their plans."
+                  "label": "Performing revealed a new value in a private skill."
                 },
                 {
                   "id": "D",
-                  "label": "Businesses should organise neighbourhood activities."
+                  "label": "Music is more important than academic subjects."
                 }
               ],
               "answerConfidence": "key"
@@ -445,42 +468,70 @@
       "id": "catalog-reading-pet-b1-test17-part-4",
       "partNumber": 4,
       "rangeLabel": "Questions 16–20",
-      "passageTitle": "Part 4 – cycle routes",
+      "passageTitle": "Part 4 – Planning a music festival",
       "passage": [
         {
-          "text": "The commuters began their cycle routes plan with one short meeting. (16) ..... The next week, more residents arrived than expected. (17) ..... They wanted to keep the activity useful rather than simply make it larger. (18) ..... The organisers therefore asked members to choose one task each. (19) ..... The work became easier to manage, and new volunteers quickly understood what to do. (20) ..... The project now meets regularly and welcomes anyone who wants to take part."
+          "text": "A group of students at the college wanted to organise a small music festival in the courtyard. They had attended similar events in other towns and believed their college could host one too. (16) ..... The first task was to choose a date that did not clash with exams. They formed a committee of six and divided the tasks between them. Each member took responsibility for one area such as sound, posters or refreshments."
+        },
+        {
+          "text": "The college principal agreed to support the event, but only if the students handled the organisation themselves. She offered the courtyard and electricity, but not a budget for performers. (17) ..... They decided to invite student bands who would play for free in exchange for publicity. This condition meant the students had to be creative about finding performers. One student suggested buskers from the town centre might also be interested."
+        },
+        {
+          "text": "Posters went up three weeks before the event, and the students created a social media page to share updates. Several local cafés agreed to display flyers near their tills. (18) ..... By the week before, over two hundred people had said they would attend. The publicity effort reached people beyond the college community. A local radio station even mentioned the event during its morning show."
+        },
+        {
+          "text": "On the day, one band cancelled at short notice because their drummer was ill. The organisers quickly asked a solo guitarist from the audience to fill the gap. (19) ..... The audience barely noticed the change because the music continued without a long pause. Their quick thinking kept the programme running smoothly. The guitarist later thanked them for the unexpected opportunity."
+        },
+        {
+          "text": "After the last performance, the students collected feedback on paper forms. Most comments were positive, and several people asked when the next festival would happen. (20) ..... The planning committee had already begun discussing a larger venue for the following year. The success gave the group confidence to aim higher next time. The principal said she would consider a bigger space if attendance continued to grow."
         },
         {
           "label": "A",
-          "text": "This was the first sign that the idea might work."
+          "text": "The principal cancelled the event because of noise complaints.",
+          "key": "test17-part4-option-5",
+          "correctForGap": null
         },
         {
           "label": "B",
-          "text": "For that reason, the group changed its meeting place."
+          "text": "This solution kept the schedule intact without disappointing the crowd.",
+          "key": "test17-part4-option-3",
+          "correctForGap": 19
         },
         {
           "label": "C",
-          "text": "As a result, several people offered to help."
+          "text": "The students hired a professional events company to take over.",
+          "key": "test17-part4-option-7",
+          "correctForGap": null
         },
         {
           "label": "D",
-          "text": "The organisers had not expected such a quick response."
+          "text": "The students needed to find musicians willing to perform without payment.",
+          "key": "test17-part4-option-1",
+          "correctForGap": 17
         },
         {
           "label": "E",
-          "text": "Even so, the original aim remained the same."
+          "text": "Every band demanded a large fee before agreeing to play.",
+          "key": "test17-part4-option-6",
+          "correctForGap": null
         },
         {
           "label": "F",
-          "text": "They later used the same method in another area."
+          "text": "They therefore set up a small planning group with clear roles.",
+          "key": "test17-part4-option-0",
+          "correctForGap": 16
         },
         {
           "label": "G",
-          "text": "This made the final decision much easier."
+          "text": "The festival had proved that students could deliver a popular event independently.",
+          "key": "test17-part4-option-4",
+          "correctForGap": 20
         },
         {
           "label": "H",
-          "text": "In the end, everyone agreed to continue."
+          "text": "The response was stronger than the committee had predicted.",
+          "key": "test17-part4-option-2",
+          "correctForGap": 18
         }
       ],
       "questionGroups": [
@@ -492,35 +543,51 @@
           "features": [
             {
               "id": "a",
-              "name": "This was the first sign that the idea might work."
+              "name": "The principal cancelled the event because of noise complaints.",
+              "key": "test17-part4-option-5",
+              "correctForGap": null
             },
             {
               "id": "b",
-              "name": "For that reason, the group changed its meeting place."
+              "name": "This solution kept the schedule intact without disappointing the crowd.",
+              "key": "test17-part4-option-3",
+              "correctForGap": 19
             },
             {
               "id": "c",
-              "name": "As a result, several people offered to help."
+              "name": "The students hired a professional events company to take over.",
+              "key": "test17-part4-option-7",
+              "correctForGap": null
             },
             {
               "id": "d",
-              "name": "The organisers had not expected such a quick response."
+              "name": "The students needed to find musicians willing to perform without payment.",
+              "key": "test17-part4-option-1",
+              "correctForGap": 17
             },
             {
               "id": "e",
-              "name": "Even so, the original aim remained the same."
+              "name": "Every band demanded a large fee before agreeing to play.",
+              "key": "test17-part4-option-6",
+              "correctForGap": null
             },
             {
               "id": "f",
-              "name": "They later used the same method in another area."
+              "name": "They therefore set up a small planning group with clear roles.",
+              "key": "test17-part4-option-0",
+              "correctForGap": 16
             },
             {
               "id": "g",
-              "name": "This made the final decision much easier."
+              "name": "The festival had proved that students could deliver a popular event independently.",
+              "key": "test17-part4-option-4",
+              "correctForGap": 20
             },
             {
               "id": "h",
-              "name": "In the end, everyone agreed to continue."
+              "name": "The response was stronger than the committee had predicted.",
+              "key": "test17-part4-option-2",
+              "correctForGap": 18
             }
           ],
           "questions": [
@@ -572,10 +639,10 @@
       "id": "catalog-reading-pet-b1-test17-part-5",
       "partNumber": 5,
       "rangeLabel": "Questions 21–26",
-      "passageTitle": "Part 5 – cycle routes",
+      "passageTitle": "Part 5 – Multiple-choice cloze",
       "passage": [
         {
-          "text": "The commuters usually meet (21) ........ Saturday. New members are shown how to (22) ........ the equipment. They can ask for advice if they are (23) ........ about a task. The group works together (24) ........ everyone can learn. Members often share ideas (25) ........ the session. The project has become a popular way to meet (26) ........ people."
+          "text": "Learning a musical instrument requires patience, and most beginners discover that progress (21) ..... practice rather than natural talent. When I started the guitar, my teacher told me (22) ..... routine each morning instead of playing for hours at the weekend. At first, my fingers hurt and the chords sounded unclear, (23) ..... because I enjoyed the feeling of improvement. After three months, I could play a simple (24) ....., which gave me the confidence to join a practice group. The other members were supportive, and their feedback (25) ..... which notes to emphasise. Looking back, the most important lesson was not technical; it was learning that small daily (26) ..... results over time.  My teacher now recommends the same approach to all her students. She keeps a chart on the wall showing how many consecutive days each person has practised, which creates a friendly sense of motivation."
         }
       ],
       "questionGroups": [
@@ -593,19 +660,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "every"
+                  "label": "on"
                 },
                 {
                   "id": "B",
-                  "label": "each"
+                  "label": "in"
                 },
                 {
                   "id": "C",
-                  "label": "whole"
+                  "label": "at"
                 },
                 {
                   "id": "D",
-                  "label": "all"
+                  "label": "for"
                 }
               ],
               "answerConfidence": "key"
@@ -618,19 +685,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "use"
+                  "label": "set"
                 },
                 {
                   "id": "B",
-                  "label": "make"
+                  "label": "put"
                 },
                 {
                   "id": "C",
-                  "label": "bring"
+                  "label": "take"
                 },
                 {
                   "id": "D",
-                  "label": "hold"
+                  "label": "give"
                 }
               ],
               "answerConfidence": "key"
@@ -643,19 +710,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "uncertain"
+                  "label": "kept"
                 },
                 {
                   "id": "B",
-                  "label": "narrow"
+                  "label": "hold"
                 },
                 {
                   "id": "C",
-                  "label": "single"
+                  "label": "carried"
                 },
                 {
                   "id": "D",
-                  "label": "empty"
+                  "label": "went"
                 }
               ],
               "answerConfidence": "key"
@@ -668,19 +735,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "so that"
+                  "label": "without"
                 },
                 {
                   "id": "B",
-                  "label": "unless"
+                  "label": "within"
                 },
                 {
                   "id": "C",
-                  "label": "although"
+                  "label": "beside"
                 },
                 {
                   "id": "D",
-                  "label": "before"
+                  "label": "against"
                 }
               ],
               "answerConfidence": "key"
@@ -693,19 +760,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "during"
+                  "label": "work"
                 },
                 {
                   "id": "B",
-                  "label": "between"
+                  "label": "find"
                 },
                 {
                   "id": "C",
-                  "label": "inside"
+                  "label": "look"
                 },
                 {
                   "id": "D",
-                  "label": "through"
+                  "label": "turn"
                 }
               ],
               "answerConfidence": "key"
@@ -718,19 +785,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "local"
+                  "label": "lead"
                 },
                 {
                   "id": "B",
-                  "label": "private"
+                  "label": "leads"
                 },
                 {
                   "id": "C",
-                  "label": "silent"
+                  "label": "leading"
                 },
                 {
                   "id": "D",
-                  "label": "rare"
+                  "label": "led"
                 }
               ],
               "answerConfidence": "key"
@@ -743,10 +810,10 @@
       "id": "catalog-reading-pet-b1-test17-part-6",
       "partNumber": 6,
       "rangeLabel": "Questions 27–32",
-      "passageTitle": "Part 6 – cycle routes",
+      "passageTitle": "Part 6 – Open cloze",
       "passage": [
         {
-          "text": "The commuters meet (27) ........ week to plan activities. New members learn (28) ........ to use the safe paths safely. They can join the work, (29) ........ they should follow the group’s instructions. The project has kept useful materials (30) ........ being thrown away. It is a place (31) ........ people can exchange ideas. Remember (32) ........ ask for help when you need it."
+          "text": "The youth orchestra (27) ........ I joined last September meets every Wednesday evening. We practise (28) ........ the school hall, which has good acoustics. I was nervous at first, (29) ........ the other members welcomed me quickly. Our conductor chose (30) ........ pieces carefully so that beginners could play alongside experienced musicians. I made several friends, (31) ........ we often walk to the bus stop together after rehearsal. By the winter concert, I no longer felt afraid because (32) ........ had become a familiar routine.  The orchestra performs three times a year, and families are always invited. New members can attend two trial sessions before deciding whether to commit to the full term.  The conductor publishes the next term’s music list online so that players can practise difficult sections in advance."
         }
       ],
       "questionGroups": [
@@ -760,7 +827,7 @@
               "id": "catalog-reading-pet-b1-test17-part-6-q27",
               "number": 27,
               "type": "gap-fill",
-              "prompt": "Gap (27)",
+              "prompt": "Gap 27",
               "options": [],
               "answerConfidence": "key"
             },
@@ -768,7 +835,7 @@
               "id": "catalog-reading-pet-b1-test17-part-6-q28",
               "number": 28,
               "type": "gap-fill",
-              "prompt": "Gap (28)",
+              "prompt": "Gap 28",
               "options": [],
               "answerConfidence": "key"
             },
@@ -776,7 +843,7 @@
               "id": "catalog-reading-pet-b1-test17-part-6-q29",
               "number": 29,
               "type": "gap-fill",
-              "prompt": "Gap (29)",
+              "prompt": "Gap 29",
               "options": [],
               "answerConfidence": "key"
             },
@@ -784,7 +851,7 @@
               "id": "catalog-reading-pet-b1-test17-part-6-q30",
               "number": 30,
               "type": "gap-fill",
-              "prompt": "Gap (30)",
+              "prompt": "Gap 30",
               "options": [],
               "answerConfidence": "key"
             },
@@ -792,7 +859,7 @@
               "id": "catalog-reading-pet-b1-test17-part-6-q31",
               "number": 31,
               "type": "gap-fill",
-              "prompt": "Gap (31)",
+              "prompt": "Gap 31",
               "options": [],
               "answerConfidence": "key"
             },
@@ -800,7 +867,7 @@
               "id": "catalog-reading-pet-b1-test17-part-6-q32",
               "number": 32,
               "type": "gap-fill",
-              "prompt": "Gap (32)",
+              "prompt": "Gap 32",
               "options": [],
               "answerConfidence": "key"
             }

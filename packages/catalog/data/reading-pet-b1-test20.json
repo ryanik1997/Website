@@ -15,45 +15,49 @@
       "passageTitle": "Part 1 – Short texts",
       "passage": [
         {
-          "text": "Street murals notice\nThe street murals team needs helpers on Saturday. Bring gloves and arrive before nine."
+          "text": "Mural festival notice\nThe High Street mural festival begins Saturday at ten. Artists will paint four walls along the old market row. Visitors may watch but must stay behind the barriers. Free maps are available at the library entrance."
         },
         {
-          "text": "Message from a friend\nI have booked the public walls session for Tuesday, but I may arrive late. Please start without me and save a place."
+          "text": "Text from Jake\nHey, the wall behind the sports hall is being repainted tomorrow. If you want to add your name to the design, send it to me before midnight. The artist chooses five names only."
         },
         {
-          "text": "Information sign\nVisitors to the street murals may use the tools, but they must return them before leaving."
+          "text": "Community board\nThe council has approved a new mural on the bridge wall. Work starts next month and the road stays open. Residents who live nearest the bridge will receive a letter about noise during the first week."
         },
         {
-          "text": "Short announcement\nThe artists meeting has moved from Room 2 to Room 4 because the first room is being painted."
+          "text": "Art class email\nYour place on the mural design course is confirmed. Bring pencils and a ruler to the first session. You do not need paint — we provide everything for the practical wall work on day two."
         },
         {
-          "text": "Notice for members\nMembers can borrow one public walls guide for a week. Ask at the desk if you need another copy."
+          "text": "Shop window sign\nSorry — our front wall is being cleaned this week, so the entrance is around the side. The shop is open as usual. Please watch for wet paint near the back door until Friday."
         }
       ],
       "questionGroups": [
         {
           "id": "catalog-reading-pet-b1-test20-part-1-g0",
           "range": "Questions 1–5",
-          "instruction": "For each question, choose the correct answer A, B or C.",
+          "instruction": "For each question, choose the correct answer A, B, C or D.",
           "type": "multiple-choice",
           "questions": [
             {
               "id": "catalog-reading-pet-b1-test20-part-1-q1",
               "number": 1,
               "type": "multiple-choice",
-              "prompt": "What should volunteers do?",
+              "prompt": "What should visitors do?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Bring gloves and arrive early."
+                  "label": "Stay behind the barriers."
                 },
                 {
                   "id": "B",
-                  "label": "Pay for equipment at the gate."
+                  "label": "Help the artists paint."
                 },
                 {
                   "id": "C",
-                  "label": "Work there every morning."
+                  "label": "Collect maps from the market."
+                },
+                {
+                  "id": "D",
+                  "label": "Arrive before ten."
                 }
               ],
               "answerConfidence": "key"
@@ -62,19 +66,23 @@
               "id": "catalog-reading-pet-b1-test20-part-1-q2",
               "number": 2,
               "type": "multiple-choice",
-              "prompt": "What does the writer ask the friend to do?",
+              "prompt": "What does Jake want?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Wait until Tuesday evening."
+                  "label": "Names before midnight."
                 },
                 {
                   "id": "B",
-                  "label": "Begin the session if necessary."
+                  "label": "Help painting tomorrow."
                 },
                 {
                   "id": "C",
-                  "label": "Cancel the booking."
+                  "label": "A new sports hall."
+                },
+                {
+                  "id": "D",
+                  "label": "Five volunteers."
                 }
               ],
               "answerConfidence": "key"
@@ -83,19 +91,23 @@
               "id": "catalog-reading-pet-b1-test20-part-1-q3",
               "number": 3,
               "type": "multiple-choice",
-              "prompt": "What must visitors do?",
+              "prompt": "What will nearby residents get?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Take the tools home."
+                  "label": "A letter about noise."
                 },
                 {
                   "id": "B",
-                  "label": "Use the tools only outdoors."
+                  "label": "A closed road notice."
                 },
                 {
                   "id": "C",
-                  "label": "Return the tools after use."
+                  "label": "Free paint."
+                },
+                {
+                  "id": "D",
+                  "label": "A new bridge."
                 }
               ],
               "answerConfidence": "key"
@@ -104,19 +116,23 @@
               "id": "catalog-reading-pet-b1-test20-part-1-q4",
               "number": 4,
               "type": "multiple-choice",
-              "prompt": "Why has the meeting moved?",
+              "prompt": "What should students bring?",
               "options": [
                 {
                   "id": "A",
-                  "label": "The original room is unavailable."
+                  "label": "Pencils and a ruler."
                 },
                 {
                   "id": "B",
-                  "label": "The meeting has finished early."
+                  "label": "Paint and brushes."
                 },
                 {
                   "id": "C",
-                  "label": "More people have joined the group."
+                  "label": "Nothing at all."
+                },
+                {
+                  "id": "D",
+                  "label": "A ladder."
                 }
               ],
               "answerConfidence": "key"
@@ -125,19 +141,23 @@
               "id": "catalog-reading-pet-b1-test20-part-1-q5",
               "number": 5,
               "type": "multiple-choice",
-              "prompt": "What is the rule about guides?",
+              "prompt": "How do customers enter?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Members may keep one for a week."
+                  "label": "Around the side."
                 },
                 {
                   "id": "B",
-                  "label": "Only visitors may borrow one."
+                  "label": "Through the back door."
                 },
                 {
                   "id": "C",
-                  "label": "All copies must be returned that day."
+                  "label": "After Friday only."
+                },
+                {
+                  "id": "D",
+                  "label": "Through the front wall."
                 }
               ],
               "answerConfidence": "key"
@@ -153,53 +173,59 @@
       "passageTitle": "Part 2 – Matching",
       "passage": [
         {
-          "text": "The people below all want to take part in street murals. Decide which option would be most suitable."
+          "text": "The people below want to choose from art classes, creative workshops and cultural activities. Decide which option is most suitable."
         },
         {
           "label": "A",
-          "text": "A morning course about public walls, with equipment supplied.",
-          "imageSlotId": "catalog-reading-pet-b1-test20-part-2-option-a-image",
-          "imageRequired": false
+          "text": "Weekend mural painting for confident beginners — Every Saturday morning, a local artist leads a small group on a public wall project near the bus station. Participants mix colours, learn brush techniques and contribute to a permanent neighbourhood design. All materials are provided and the session ends at one. The four-week course suits people who can commit to regular attendance.",
+          "imageSlotId": "pet-b1-test20-part2-option-a-image",
+          "imageRequired": false,
+          "assetId": "asset-pet-b1-test20-option-a",
+          "alt": "A heron mural painted on a brick wall beside the bus station",
+          "media": {
+            "kind": "image",
+            "src": "/media/pet-b1/test20/option-a-mural.jpg"
+          }
         },
         {
           "label": "B",
-          "text": "An evening club for people who prefer meeting local experts.",
+          "text": "Evening life drawing at the community studio — People who enjoy working after work gather every Thursday at the studio on Mill Road. A professional model poses for two hours while the tutor circulates with individual feedback. Bring your own pencils and paper; easels are available to borrow. The group welcomes all levels but is popular with those who have drawn before.",
           "imageSlotId": "catalog-reading-pet-b1-test20-part-2-option-b-image",
           "imageRequired": false
         },
         {
           "label": "C",
-          "text": "A weekend event offering practical activities in small groups.",
+          "text": "Free photography walk through the old quarter — Starting from the market square, this guided walk takes participants past hidden courtyards and decorated doorways. A photographer explains composition and light while the group captures images on phones or cameras. The route is flat and takes about ninety minutes. No booking is needed; just arrive at ten on Sunday.",
           "imageSlotId": "catalog-reading-pet-b1-test20-part-2-option-c-image",
           "imageRequired": false
         },
         {
           "label": "D",
-          "text": "A low-cost programme near the town centre, open to beginners.",
+          "text": "Intensive weekend ceramics for experienced makers — For makers who have already worked with clay, this two-day workshop pushes your skills further. A visiting potter demonstrates glazing and kiln techniques on Saturday, and participants fire their own pieces on Sunday. The studio is outside town, so transport is essential. Materials cost extra but the kiln fee is included.",
           "imageSlotId": "catalog-reading-pet-b1-test20-part-2-option-d-image",
           "imageRequired": false
         },
         {
           "label": "E",
-          "text": "A quiet project where members can work independently.",
+          "text": "After-school drama club for under-fourteens — Young people aged ten to fourteen meet every Wednesday after school in the church hall. A drama leader runs games, improvisation and short scene work that builds confidence for shy performers. Parents collect children at five. The term fee is modest and covers a final showing for families.",
           "imageSlotId": "catalog-reading-pet-b1-test20-part-2-option-e-image",
           "imageRequired": false
         },
         {
           "label": "F",
-          "text": "A short course that includes advice from experienced artists.",
+          "text": "Online creative writing course with weekly feedback — Flexible and self-paced, this six-week course sends a new writing prompt every Monday by email. Participants submit up to five hundred words and receive detailed tutor comments within three days. A live group chat on Friday evenings is optional. Only a computer and internet connection are required.",
           "imageSlotId": "catalog-reading-pet-b1-test20-part-2-option-f-image",
           "imageRequired": false
         },
         {
           "label": "G",
-          "text": "A family activity held outdoors when the weather is suitable.",
+          "text": "Monthly heritage storytelling evening at the museum — Join us on the first Friday of each month for an evening of local stories told by residents and historians. The museum provides tea and seating; attendees simply listen or share a tale of their own. Entry is free, though donations help fund the next exhibition. The hall is step-free and near the tram stop.",
           "imageSlotId": "catalog-reading-pet-b1-test20-part-2-option-g-image",
           "imageRequired": false
         },
         {
           "label": "H",
-          "text": "A longer programme combining study with social events.",
+          "text": "Daytime watercolour course for complete beginners — By the end of this five-session course, participants will have completed three small paintings suitable for framing. A patient tutor covers washes, colour mixing and simple landscapes in a bright room above the bookshop. Paper and paints are included; learners bring an apron only. Sessions run Tuesday mornings.",
           "imageSlotId": "catalog-reading-pet-b1-test20-part-2-option-h-image",
           "imageRequired": false
         }
@@ -213,35 +239,35 @@
           "features": [
             {
               "id": "a",
-              "name": "A morning course about public walls, with equipment supplied."
+              "name": "Weekend mural painting for confident beginners — Every Saturday morning, a local artist leads a small group on a public wall project near the bus station. Participants mix colours, learn brush techniques and contribute to a permanent neighbourhood design. All materials are provided and the session ends at one. The four-week course suits people who can commit to regular attendance."
             },
             {
               "id": "b",
-              "name": "An evening club for people who prefer meeting local experts."
+              "name": "Evening life drawing at the community studio — People who enjoy working after work gather every Thursday at the studio on Mill Road. A professional model poses for two hours while the tutor circulates with individual feedback. Bring your own pencils and paper; easels are available to borrow. The group welcomes all levels but is popular with those who have drawn before."
             },
             {
               "id": "c",
-              "name": "A weekend event offering practical activities in small groups."
+              "name": "Free photography walk through the old quarter — Starting from the market square, this guided walk takes participants past hidden courtyards and decorated doorways. A photographer explains composition and light while the group captures images on phones or cameras. The route is flat and takes about ninety minutes. No booking is needed; just arrive at ten on Sunday."
             },
             {
               "id": "d",
-              "name": "A low-cost programme near the town centre, open to beginners."
+              "name": "Intensive weekend ceramics for experienced makers — For makers who have already worked with clay, this two-day workshop pushes your skills further. A visiting potter demonstrates glazing and kiln techniques on Saturday, and participants fire their own pieces on Sunday. The studio is outside town, so transport is essential. Materials cost extra but the kiln fee is included."
             },
             {
               "id": "e",
-              "name": "A quiet project where members can work independently."
+              "name": "After-school drama club for under-fourteens — Young people aged ten to fourteen meet every Wednesday after school in the church hall. A drama leader runs games, improvisation and short scene work that builds confidence for shy performers. Parents collect children at five. The term fee is modest and covers a final showing for families."
             },
             {
               "id": "f",
-              "name": "A short course that includes advice from experienced artists."
+              "name": "Online creative writing course with weekly feedback — Flexible and self-paced, this six-week course sends a new writing prompt every Monday by email. Participants submit up to five hundred words and receive detailed tutor comments within three days. A live group chat on Friday evenings is optional. Only a computer and internet connection are required."
             },
             {
               "id": "g",
-              "name": "A family activity held outdoors when the weather is suitable."
+              "name": "Monthly heritage storytelling evening at the museum — Join us on the first Friday of each month for an evening of local stories told by residents and historians. The museum provides tea and seating; attendees simply listen or share a tale of their own. Entry is free, though donations help fund the next exhibition. The hall is step-free and near the tram stop."
             },
             {
               "id": "h",
-              "name": "A longer programme combining study with social events."
+              "name": "Daytime watercolour course for complete beginners — By the end of this five-session course, participants will have completed three small paintings suitable for framing. A patient tutor covers washes, colour mixing and simple landscapes in a bright room above the bookshop. Paper and paints are included; learners bring an apron only. Sessions run Tuesday mornings."
             }
           ],
           "questions": [
@@ -249,7 +275,7 @@
               "id": "catalog-reading-pet-b1-test20-part-2-q6",
               "number": 6,
               "type": "matching-features",
-              "prompt": "Mia has only one free morning and wants to learn about public walls.",
+              "prompt": "Lena has never painted before and wants a patient morning course where everything is supplied. She hopes to take finished work home and can attend every Tuesday.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -257,7 +283,7 @@
               "id": "catalog-reading-pet-b1-test20-part-2-q7",
               "number": 7,
               "type": "matching-features",
-              "prompt": "Noah works late, so he needs an activity that starts in the evening.",
+              "prompt": "Omar is free on Saturdays, enjoys working outdoors on real walls and can commit to four weeks. He has no brushes but wants materials provided.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -265,7 +291,7 @@
               "id": "catalog-reading-pet-b1-test20-part-2-q8",
               "number": 8,
               "type": "matching-features",
-              "prompt": "Aisha is new to street murals and wants friendly expert advice.",
+              "prompt": "Priya is thirteen and quite shy. Her parents want her to try performance activities in a supportive group that meets after school and ends with a family event.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -273,7 +299,7 @@
               "id": "catalog-reading-pet-b1-test20-part-2-q9",
               "number": 9,
               "type": "matching-features",
-              "prompt": "Leo has little money and would like somewhere easy to reach.",
+              "prompt": "George works full-time and prefers to study from home at his own pace. He wants regular written feedback on short creative pieces and has a reliable computer.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -281,7 +307,7 @@
               "id": "catalog-reading-pet-b1-test20-part-2-q10",
               "number": 10,
               "type": "matching-features",
-              "prompt": "Sara dislikes crowds and would rather work quietly on her own.",
+              "prompt": "Rosa uses a walking frame and enjoys listening to local history. She wants a free monthly event that is easy to reach by tram and does not require booking weeks ahead.",
               "options": [],
               "answerConfidence": "key"
             }
@@ -293,16 +319,16 @@
       "id": "catalog-reading-pet-b1-test20-part-3",
       "partNumber": 3,
       "rangeLabel": "Questions 11–15",
-      "passageTitle": "Part 3 – street murals",
+      "passageTitle": "Part 3 – The wall that changed our street",
       "passage": [
         {
-          "text": "When the artists in our town started a street murals project, few residents expected it to grow so quickly. At first, the organisers met in a small room and planned one simple activity involving public walls. They soon discovered that people were more willing to join when they could see a clear benefit for the neighbourhood. The organisers therefore published a short timetable and invited local businesses to offer practical help."
+          "text": "When the council announced plans to paint the old factory wall, most residents expected another boring grey cover-up. Instead, a young artist named Dana proposed a mural showing the street's history: the bakery that once stood on the corner, the children who played hopscotch in the 1960s, and the market traders who still sell fruit on Saturdays. The council agreed, and Dana spent three weeks talking to neighbours before picking up a brush."
         },
         {
-          "text": "The project was not completely easy. Some volunteers were worried that the work would take too much time, while others wanted to change the plan every week. The team solved this by giving each person one small responsibility and reviewing the results together. This made the project feel manageable, and it also meant that new volunteers could contribute without special experience."
+          "text": "The painting took two months. Dana worked from a scaffold each morning while residents brought tea and watched the wall come alive. Some older neighbours corrected details — the bakery door was blue, not green — and Dana happily repainted sections. Children from the primary school added small tiles along the bottom, each showing their own dream for the street. The whole process felt more like a conversation than a construction project."
         },
         {
-          "text": "Looking back, the organiser says the most important lesson was not the final result but the way people learned to cooperate. The group still has problems, especially when the weather affects outdoor work, yet members now discuss solutions rather than blaming one another. For this reason, the project has become a useful example of how a modest local idea can create lasting connections."
+          "text": "Since the mural was finished, the street has changed in ways nobody predicted. Tourists stop to photograph it, and a nearby café now opens on Sundays to serve visitors. More importantly, residents say they talk to each other more often. The wall gave them a shared story, and that story is still growing: Dana returns each summer to add a new panel based on recent neighbourhood events."
         }
       ],
       "questionGroups": [
@@ -316,23 +342,23 @@
               "id": "catalog-reading-pet-b1-test20-part-3-q11",
               "number": 11,
               "type": "multiple-choice",
-              "prompt": "What was one reason more residents joined the project?",
+              "prompt": "What did Dana do before starting to paint?",
               "options": [
                 {
                   "id": "A",
-                  "label": "They could understand its practical value."
+                  "label": "She spoke to local people about the street's past."
                 },
                 {
                   "id": "B",
-                  "label": "They were promised paid work."
+                  "label": "She copied an old photograph."
                 },
                 {
                   "id": "C",
-                  "label": "They wanted to compete with local businesses."
+                  "label": "She asked the council for more money."
                 },
                 {
                   "id": "D",
-                  "label": "They were required to attend."
+                  "label": "She visited another city's mural."
                 }
               ],
               "answerConfidence": "key"
@@ -341,23 +367,23 @@
               "id": "catalog-reading-pet-b1-test20-part-3-q12",
               "number": 12,
               "type": "multiple-choice",
-              "prompt": "What problem did some volunteers have at the beginning?",
+              "prompt": "How did older neighbours help during the painting?",
               "options": [
                 {
                   "id": "A",
-                  "label": "They disagreed about how often to change the plan."
+                  "label": "They corrected historical details."
                 },
                 {
                   "id": "B",
-                  "label": "They could not find a suitable meeting room."
+                  "label": "They built the scaffold."
                 },
                 {
                   "id": "C",
-                  "label": "They lacked permission to contact businesses."
+                  "label": "They organised the school tiles."
                 },
                 {
                   "id": "D",
-                  "label": "They had no interest in outdoor work."
+                  "label": "They opened a café nearby."
                 }
               ],
               "answerConfidence": "key"
@@ -366,23 +392,23 @@
               "id": "catalog-reading-pet-b1-test20-part-3-q13",
               "number": 13,
               "type": "multiple-choice",
-              "prompt": "How did the team make participation easier?",
+              "prompt": "What did the school children contribute?",
               "options": [
                 {
                   "id": "A",
-                  "label": "It divided the work into smaller responsibilities."
+                  "label": "Small tiles showing their dreams."
                 },
                 {
                   "id": "B",
-                  "label": "It removed the timetable completely."
+                  "label": "Paint for the scaffold."
                 },
                 {
                   "id": "C",
-                  "label": "It asked only experienced people to help."
+                  "label": "A written history of the street."
                 },
                 {
                   "id": "D",
-                  "label": "It stopped reviewing the results."
+                  "label": "Photographs of the bakery."
                 }
               ],
               "answerConfidence": "key"
@@ -391,23 +417,23 @@
               "id": "catalog-reading-pet-b1-test20-part-3-q14",
               "number": 14,
               "type": "multiple-choice",
-              "prompt": "What does the organiser value most about the project?",
+              "prompt": "What unexpected change happened after the mural was finished?",
               "options": [
                 {
                   "id": "A",
-                  "label": "The cooperation that developed among residents."
+                  "label": "Residents began talking to each other more."
                 },
                 {
                   "id": "B",
-                  "label": "The money earned by local businesses."
+                  "label": "The factory reopened."
                 },
                 {
                   "id": "C",
-                  "label": "The speed at which the first activity finished."
+                  "label": "The market moved to another street."
                 },
                 {
                   "id": "D",
-                  "label": "The number of changes made to the timetable."
+                  "label": "The council painted more walls grey."
                 }
               ],
               "answerConfidence": "key"
@@ -416,23 +442,23 @@
               "id": "catalog-reading-pet-b1-test20-part-3-q15",
               "number": 15,
               "type": "multiple-choice",
-              "prompt": "What is the writer’s main point?",
+              "prompt": "What does Dana plan to do each summer?",
               "options": [
                 {
                   "id": "A",
-                  "label": "A small local project can strengthen a community."
+                  "label": "Add a new panel about recent events."
                 },
                 {
                   "id": "B",
-                  "label": "Outdoor projects are always more successful than indoor ones."
+                  "label": "Repaint the whole wall."
                 },
                 {
                   "id": "C",
-                  "label": "Volunteers should avoid changing their plans."
+                  "label": "Teach children to paint."
                 },
                 {
                   "id": "D",
-                  "label": "Businesses should organise neighbourhood activities."
+                  "label": "Move the mural to a new location."
                 }
               ],
               "answerConfidence": "key"
@@ -445,42 +471,42 @@
       "id": "catalog-reading-pet-b1-test20-part-4",
       "partNumber": 4,
       "rangeLabel": "Questions 16–20",
-      "passageTitle": "Part 4 – street murals",
+      "passageTitle": "Part 4 – A community art project",
       "passage": [
         {
-          "text": "The artists began their street murals plan with one short meeting. (16) ..... The next week, more residents arrived than expected. (17) ..... They wanted to keep the activity useful rather than simply make it larger. (18) ..... The organisers therefore asked members to choose one task each. (19) ..... The work became easier to manage, and new volunteers quickly understood what to do. (20) ..... The project now meets regularly and welcomes anyone who wants to take part."
+          "text": "Last spring, our neighbourhood decided to turn an empty wall into a public artwork. (16) ..... A local artist was chosen to lead the project, and she began by interviewing long-term residents. (17) ..... Their memories became the basis for the design. (18) ..... Over the following weeks, volunteers prepared the surface and mixed paints. (19) ..... Even children from the nearby school added small contributions along the bottom edge. (20) ..... When the mural was finally revealed, the whole street gathered for a small celebration."
         },
         {
           "label": "A",
-          "text": "This was the first sign that the idea might work."
+          "text": "First, the council asked people what images mattered to them."
         },
         {
           "label": "B",
-          "text": "For that reason, the group changed its meeting place."
+          "text": "These stories gave the artist real material to work with."
         },
         {
           "label": "C",
-          "text": "As a result, several people offered to help."
+          "text": "Some residents were unsure at first but soon offered help."
         },
         {
           "label": "D",
-          "text": "The organisers had not expected such a quick response."
+          "text": "The artist then drew the outline in chalk so everyone could see the plan."
         },
         {
           "label": "E",
-          "text": "Even so, the original aim remained the same."
+          "text": "The finished wall now attracts visitors from other parts of town."
         },
         {
           "label": "F",
-          "text": "They later used the same method in another area."
+          "text": "Nobody wanted to be involved in the project."
         },
         {
           "label": "G",
-          "text": "This made the final decision much easier."
+          "text": "The wall was demolished the following month."
         },
         {
           "label": "H",
-          "text": "In the end, everyone agreed to continue."
+          "text": "The artist refused to speak to any residents."
         }
       ],
       "questionGroups": [
@@ -492,35 +518,35 @@
           "features": [
             {
               "id": "a",
-              "name": "This was the first sign that the idea might work."
+              "name": "First, the council asked people what images mattered to them."
             },
             {
               "id": "b",
-              "name": "For that reason, the group changed its meeting place."
+              "name": "These stories gave the artist real material to work with."
             },
             {
               "id": "c",
-              "name": "As a result, several people offered to help."
+              "name": "Some residents were unsure at first but soon offered help."
             },
             {
               "id": "d",
-              "name": "The organisers had not expected such a quick response."
+              "name": "The artist then drew the outline in chalk so everyone could see the plan."
             },
             {
               "id": "e",
-              "name": "Even so, the original aim remained the same."
+              "name": "The finished wall now attracts visitors from other parts of town."
             },
             {
               "id": "f",
-              "name": "They later used the same method in another area."
+              "name": "Nobody wanted to be involved in the project."
             },
             {
               "id": "g",
-              "name": "This made the final decision much easier."
+              "name": "The wall was demolished the following month."
             },
             {
               "id": "h",
-              "name": "In the end, everyone agreed to continue."
+              "name": "The artist refused to speak to any residents."
             }
           ],
           "questions": [
@@ -572,10 +598,10 @@
       "id": "catalog-reading-pet-b1-test20-part-5",
       "partNumber": 5,
       "rangeLabel": "Questions 21–26",
-      "passageTitle": "Part 5 – street murals",
+      "passageTitle": "Part 5 – Multiple-choice cloze",
       "passage": [
         {
-          "text": "The artists usually meet (21) ........ Saturday. New members are shown how to (22) ........ the equipment. They can ask for advice if they are (23) ........ about a task. The group works together (24) ........ everyone can learn. Members often share ideas (25) ........ the session. The project has become a popular way to meet (26) ........ people."
+          "text": "The idea of painting a large wall in our street began (21) ..... a simple conversation between neighbours. Nobody expected it to become (22) ..... popular that tourists would visit. The artist worked carefully (23) ..... she was satisfied with every colour. Residents were invited (24) ..... share their memories, and many did so enthusiastically. The project proved (25) ..... art can bring a community closer (26) ..... anyone had imagined."
         }
       ],
       "questionGroups": [
@@ -593,19 +619,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "every"
+                  "label": "from"
                 },
                 {
                   "id": "B",
-                  "label": "each"
+                  "label": "with"
                 },
                 {
                   "id": "C",
-                  "label": "whole"
+                  "label": "by"
                 },
                 {
                   "id": "D",
-                  "label": "all"
+                  "label": "for"
                 }
               ],
               "answerConfidence": "key"
@@ -618,19 +644,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "use"
+                  "label": "so"
                 },
                 {
                   "id": "B",
-                  "label": "make"
+                  "label": "very"
                 },
                 {
                   "id": "C",
-                  "label": "bring"
+                  "label": "too"
                 },
                 {
                   "id": "D",
-                  "label": "hold"
+                  "label": "such"
                 }
               ],
               "answerConfidence": "key"
@@ -643,19 +669,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "uncertain"
+                  "label": "until"
                 },
                 {
                   "id": "B",
-                  "label": "narrow"
+                  "label": "when"
                 },
                 {
                   "id": "C",
-                  "label": "single"
+                  "label": "while"
                 },
                 {
                   "id": "D",
-                  "label": "empty"
+                  "label": "because"
                 }
               ],
               "answerConfidence": "key"
@@ -668,19 +694,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "so that"
+                  "label": "to"
                 },
                 {
                   "id": "B",
-                  "label": "unless"
+                  "label": "for"
                 },
                 {
                   "id": "C",
-                  "label": "although"
+                  "label": "that"
                 },
                 {
                   "id": "D",
-                  "label": "before"
+                  "label": "so"
                 }
               ],
               "answerConfidence": "key"
@@ -693,19 +719,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "during"
+                  "label": "that"
                 },
                 {
                   "id": "B",
-                  "label": "between"
+                  "label": "what"
                 },
                 {
                   "id": "C",
-                  "label": "inside"
+                  "label": "which"
                 },
                 {
                   "id": "D",
-                  "label": "through"
+                  "label": "how"
                 }
               ],
               "answerConfidence": "key"
@@ -718,19 +744,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "local"
+                  "label": "than"
                 },
                 {
                   "id": "B",
-                  "label": "private"
+                  "label": "that"
                 },
                 {
                   "id": "C",
-                  "label": "silent"
+                  "label": "as"
                 },
                 {
                   "id": "D",
-                  "label": "rare"
+                  "label": "from"
                 }
               ],
               "answerConfidence": "key"
@@ -743,10 +769,10 @@
       "id": "catalog-reading-pet-b1-test20-part-6",
       "partNumber": 6,
       "rangeLabel": "Questions 27–32",
-      "passageTitle": "Part 6 – street murals",
+      "passageTitle": "Part 6 – Open cloze",
       "passage": [
         {
-          "text": "The artists meet (27) ........ week to plan activities. New members learn (28) ........ to use the public walls safely. They can join the work, (29) ........ they should follow the group’s instructions. The project has kept useful materials (30) ........ being thrown away. It is a place (31) ........ people can exchange ideas. Remember (32) ........ ask for help when you need it."
+          "text": "The mural project started (27) ........ the council agreed to fund the paint. A young artist (28) ........ had grown up nearby was chosen to lead the work. She asked residents (29) ........ they remembered about the old street. Many people said (30) ........ the bakery on the corner was their favourite memory. The children's tiles were added (31) ........ the bottom of the wall so that visitors could see them easily. The whole project took longer (32) ........ expected, but everyone agreed the result was worth the wait."
         }
       ],
       "questionGroups": [
@@ -760,7 +786,7 @@
               "id": "catalog-reading-pet-b1-test20-part-6-q27",
               "number": 27,
               "type": "gap-fill",
-              "prompt": "Gap (27)",
+              "prompt": "Gap 27",
               "options": [],
               "answerConfidence": "key"
             },
@@ -768,7 +794,7 @@
               "id": "catalog-reading-pet-b1-test20-part-6-q28",
               "number": 28,
               "type": "gap-fill",
-              "prompt": "Gap (28)",
+              "prompt": "Gap 28",
               "options": [],
               "answerConfidence": "key"
             },
@@ -776,7 +802,7 @@
               "id": "catalog-reading-pet-b1-test20-part-6-q29",
               "number": 29,
               "type": "gap-fill",
-              "prompt": "Gap (29)",
+              "prompt": "Gap 29",
               "options": [],
               "answerConfidence": "key"
             },
@@ -784,7 +810,7 @@
               "id": "catalog-reading-pet-b1-test20-part-6-q30",
               "number": 30,
               "type": "gap-fill",
-              "prompt": "Gap (30)",
+              "prompt": "Gap 30",
               "options": [],
               "answerConfidence": "key"
             },
@@ -792,7 +818,7 @@
               "id": "catalog-reading-pet-b1-test20-part-6-q31",
               "number": 31,
               "type": "gap-fill",
-              "prompt": "Gap (31)",
+              "prompt": "Gap 31",
               "options": [],
               "answerConfidence": "key"
             },
@@ -800,7 +826,7 @@
               "id": "catalog-reading-pet-b1-test20-part-6-q32",
               "number": 32,
               "type": "gap-fill",
-              "prompt": "Gap (32)",
+              "prompt": "Gap 32",
               "options": [],
               "answerConfidence": "key"
             }

@@ -15,45 +15,49 @@
       "passageTitle": "Part 1 – Short texts",
       "passage": [
         {
-          "text": "Repair cafés notice\nThe repair cafés team needs helpers on Saturday. Bring gloves and arrive before nine."
+          "text": "Cycle path notice\nThe towpath between the bridge and the lock is closed for resurfacing until 12 March. Cyclists should use the road via King Street. The alternative route adds ten minutes but avoids the hill. Pedestrians can still use the narrow side path."
         },
         {
-          "text": "Message from a friend\nI have booked the broken appliances session for Tuesday, but I may arrive late. Please start without me and save a place."
+          "text": "Weather warning\nStrong winds expected Thursday afternoon. The coastal cycle route will be exposed and dangerous between two and six. Consider the inland route via the old railway line instead. Friday looks calm and sunny."
         },
         {
-          "text": "Information sign\nVisitors to the repair cafés may use the tools, but they must return them before leaving."
+          "text": "Bike shop message\nYour repair is ready. The new brake pads are fitted, but we noticed your rear tyre is worn. We recommend replacing it before winter. Collection is free; we can deliver for five pounds within the town centre."
         },
         {
-          "text": "Short announcement\nThe volunteers meeting has moved from Room 2 to Room 4 because the first room is being painted."
+          "text": "Commuter group email\nNext month we start the \"Bike Buddy\" scheme. New cyclists are paired with experienced riders for their first week of commuting. Sign up by Friday if you want a buddy for the school run or the station route. Helmets and lights are essential."
         },
         {
-          "text": "Notice for members\nMembers can borrow one broken appliances guide for a week. Ask at the desk if you need another copy."
+          "text": "Council update\nThe new cycle lane on Park Avenue opens Monday. It is separated from traffic by a low kerb and painted blue. Parking in the lane will result in a fine. The lane connects to the existing route at the roundabout near the hospital."
         }
       ],
       "questionGroups": [
         {
           "id": "catalog-reading-pet-b1-test23-part-1-g0",
           "range": "Questions 1–5",
-          "instruction": "For each question, choose the correct answer A, B or C.",
+          "instruction": "For each question, choose the correct answer A, B, C or D.",
           "type": "multiple-choice",
           "questions": [
             {
               "id": "catalog-reading-pet-b1-test23-part-1-q1",
               "number": 1,
               "type": "multiple-choice",
-              "prompt": "What should volunteers do?",
+              "prompt": "What should cyclists do?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Bring gloves and arrive early."
+                  "label": "Use King Street."
                 },
                 {
                   "id": "B",
-                  "label": "Pay for equipment at the gate."
+                  "label": "Wait until March."
                 },
                 {
                   "id": "C",
-                  "label": "Work there every morning."
+                  "label": "Use the side path."
+                },
+                {
+                  "id": "D",
+                  "label": "Cross the hill."
                 }
               ],
               "answerConfidence": "key"
@@ -62,19 +66,23 @@
               "id": "catalog-reading-pet-b1-test23-part-1-q2",
               "number": 2,
               "type": "multiple-choice",
-              "prompt": "What does the writer ask the friend to do?",
+              "prompt": "What is advised for Thursday?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Wait until Tuesday evening."
+                  "label": "Take the inland route."
                 },
                 {
                   "id": "B",
-                  "label": "Begin the session if necessary."
+                  "label": "Cycle faster."
                 },
                 {
                   "id": "C",
-                  "label": "Cancel the booking."
+                  "label": "Use the coastal path early."
+                },
+                {
+                  "id": "D",
+                  "label": "Walk instead."
                 }
               ],
               "answerConfidence": "key"
@@ -83,19 +91,23 @@
               "id": "catalog-reading-pet-b1-test23-part-1-q3",
               "number": 3,
               "type": "multiple-choice",
-              "prompt": "What must visitors do?",
+              "prompt": "What does the shop suggest?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Take the tools home."
+                  "label": "Replacing the rear tyre."
                 },
                 {
                   "id": "B",
-                  "label": "Use the tools only outdoors."
+                  "label": "Buying new brakes."
                 },
                 {
                   "id": "C",
-                  "label": "Return the tools after use."
+                  "label": "Waiting until winter."
+                },
+                {
+                  "id": "D",
+                  "label": "Collecting it tomorrow."
                 }
               ],
               "answerConfidence": "key"
@@ -104,19 +116,23 @@
               "id": "catalog-reading-pet-b1-test23-part-1-q4",
               "number": 4,
               "type": "multiple-choice",
-              "prompt": "Why has the meeting moved?",
+              "prompt": "Who is the scheme for?",
               "options": [
                 {
                   "id": "A",
-                  "label": "The original room is unavailable."
+                  "label": "New cyclists."
                 },
                 {
                   "id": "B",
-                  "label": "The meeting has finished early."
+                  "label": "Experienced riders only."
                 },
                 {
                   "id": "C",
-                  "label": "More people have joined the group."
+                  "label": "Children."
+                },
+                {
+                  "id": "D",
+                  "label": "Mechanics."
                 }
               ],
               "answerConfidence": "key"
@@ -125,19 +141,23 @@
               "id": "catalog-reading-pet-b1-test23-part-1-q5",
               "number": 5,
               "type": "multiple-choice",
-              "prompt": "What is the rule about guides?",
+              "prompt": "What is special about the lane?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Members may keep one for a week."
+                  "label": "It is separated from traffic."
                 },
                 {
                   "id": "B",
-                  "label": "Only visitors may borrow one."
+                  "label": "It is only for buses."
                 },
                 {
                   "id": "C",
-                  "label": "All copies must be returned that day."
+                  "label": "It closes at night."
+                },
+                {
+                  "id": "D",
+                  "label": "It has no connection."
                 }
               ],
               "answerConfidence": "key"
@@ -153,53 +173,53 @@
       "passageTitle": "Part 2 – Matching",
       "passage": [
         {
-          "text": "The people below all want to take part in repair cafés. Decide which option would be most suitable."
+          "text": "The people below want to choose from cycling groups, bike services and outdoor transport options. Decide which option is most suitable."
         },
         {
           "label": "A",
-          "text": "A morning course about broken appliances, with equipment supplied.",
+          "text": "Weekday commuter cycling group with route support — Every weekday at seven-fifteen, a group of cyclists meets at the station car park and rides together into the city centre. A lead rider sets a steady pace suitable for people returning to cycling after a break. The route uses quiet back streets and takes twenty-five minutes. No membership fee; just arrive with a roadworthy bike and lights.",
           "imageSlotId": "catalog-reading-pet-b1-test23-part-2-option-a-image",
           "imageRequired": false
         },
         {
           "label": "B",
-          "text": "An evening club for people who prefer meeting local experts.",
+          "text": "Mobile bike repair service for workplaces — Convenient and fast, this service sends a mechanic directly to your office car park. Employees book a slot online and leave their bike at work; repairs are done during the day. Common jobs include puncture fixes, gear tuning and safety checks. Parts cost extra, but labour is included in the flat service fee.",
           "imageSlotId": "catalog-reading-pet-b1-test23-part-2-option-b-image",
           "imageRequired": false
         },
         {
           "label": "C",
-          "text": "A weekend event offering practical activities in small groups.",
+          "text": "Family cycling club with Sunday trail rides — Traffic-free trails make this Sunday morning ride safe for young cyclists aged six and above. A trained leader chooses routes of five to fifteen kilometres depending on the group. Helmets are compulsory and the club lends bikes to children who have outgrown theirs. A café stop halfway keeps energy levels up.",
           "imageSlotId": "catalog-reading-pet-b1-test23-part-2-option-c-image",
           "imageRequired": false
         },
         {
           "label": "D",
-          "text": "A low-cost programme near the town centre, open to beginners.",
+          "text": "Evening mountain biking for intermediate riders — If you can already handle rough terrain and want to improve your downhill technique, this Thursday-evening group suits you. Riders meet at the forest car park at six and tackle graded trails until dark. Full-suspension bikes are recommended but not required. A small fee covers trail maintenance and first-aid cover.",
           "imageSlotId": "catalog-reading-pet-b1-test23-part-2-option-d-image",
           "imageRequired": false
         },
         {
           "label": "E",
-          "text": "A quiet project where members can work independently.",
+          "text": "Free bike safety workshop for new city cyclists — Nervous about cycling in traffic? This free two-hour workshop covers road positioning, signalling and junction handling in a safe playground environment. A qualified instructor runs sessions on the first Saturday of each month. Participants bring any bike; helmets are provided. The workshop suits adults who have not cycled in years.",
           "imageSlotId": "catalog-reading-pet-b1-test23-part-2-option-e-image",
           "imageRequired": false
         },
         {
           "label": "F",
-          "text": "A short course that includes advice from experienced volunteers.",
+          "text": "Guided coastal cycle tour with picnic lunch — Along the quiet sea road between the two harbours, this full-day guided tour covers thirty kilometres of stunning coastline. The guide shares local history at each stop while the group enjoys a packed lunch on the beach. Bikes and helmets are included in the price. Riders need moderate fitness but no racing experience.",
           "imageSlotId": "catalog-reading-pet-b1-test23-part-2-option-f-image",
           "imageRequired": false
         },
         {
           "label": "G",
-          "text": "A family activity held outdoors when the weather is suitable.",
+          "text": "Bike hire and self-guided canal route package — Pick up a bike, follow the map and explore at your own pace — this flexible package suits visitors who dislike fixed schedules. The hire shop beside the canal provides hybrid bikes, waterproof bags and a printed route guide. Routes range from ten to forty kilometres. Return by five; no booking needed outside summer.",
           "imageSlotId": "catalog-reading-pet-b1-test23-part-2-option-g-image",
           "imageRequired": false
         },
         {
           "label": "H",
-          "text": "A longer programme combining study with social events.",
+          "text": "Winter indoor cycling fitness classes — By spring, regular attendees will have built the stamina for long outdoor rides. These Tuesday and Thursday evening spin classes use stationary bikes in a heated studio. An instructor varies intensity with music and interval training. Towels and water are included; cycling shoes are optional. The monthly pass is cheaper than a gym membership.",
           "imageSlotId": "catalog-reading-pet-b1-test23-part-2-option-h-image",
           "imageRequired": false
         }
@@ -213,35 +233,35 @@
           "features": [
             {
               "id": "a",
-              "name": "A morning course about broken appliances, with equipment supplied."
+              "name": "Weekday commuter cycling group with route support — Every weekday at seven-fifteen, a group of cyclists meets at the station car park and rides together into the city centre. A lead rider sets a steady pace suitable for people returning to cycling after a break. The route uses quiet back streets and takes twenty-five minutes. No membership fee; just arrive with a roadworthy bike and lights."
             },
             {
               "id": "b",
-              "name": "An evening club for people who prefer meeting local experts."
+              "name": "Mobile bike repair service for workplaces — Convenient and fast, this service sends a mechanic directly to your office car park. Employees book a slot online and leave their bike at work; repairs are done during the day. Common jobs include puncture fixes, gear tuning and safety checks. Parts cost extra, but labour is included in the flat service fee."
             },
             {
               "id": "c",
-              "name": "A weekend event offering practical activities in small groups."
+              "name": "Family cycling club with Sunday trail rides — Traffic-free trails make this Sunday morning ride safe for young cyclists aged six and above. A trained leader chooses routes of five to fifteen kilometres depending on the group. Helmets are compulsory and the club lends bikes to children who have outgrown theirs. A café stop halfway keeps energy levels up."
             },
             {
               "id": "d",
-              "name": "A low-cost programme near the town centre, open to beginners."
+              "name": "Evening mountain biking for intermediate riders — If you can already handle rough terrain and want to improve your downhill technique, this Thursday-evening group suits you. Riders meet at the forest car park at six and tackle graded trails until dark. Full-suspension bikes are recommended but not required. A small fee covers trail maintenance and first-aid cover."
             },
             {
               "id": "e",
-              "name": "A quiet project where members can work independently."
+              "name": "Free bike safety workshop for new city cyclists — Nervous about cycling in traffic? This free two-hour workshop covers road positioning, signalling and junction handling in a safe playground environment. A qualified instructor runs sessions on the first Saturday of each month. Participants bring any bike; helmets are provided. The workshop suits adults who have not cycled in years."
             },
             {
               "id": "f",
-              "name": "A short course that includes advice from experienced volunteers."
+              "name": "Guided coastal cycle tour with picnic lunch — Along the quiet sea road between the two harbours, this full-day guided tour covers thirty kilometres of stunning coastline. The guide shares local history at each stop while the group enjoys a packed lunch on the beach. Bikes and helmets are included in the price. Riders need moderate fitness but no racing experience."
             },
             {
               "id": "g",
-              "name": "A family activity held outdoors when the weather is suitable."
+              "name": "Bike hire and self-guided canal route package — Pick up a bike, follow the map and explore at your own pace — this flexible package suits visitors who dislike fixed schedules. The hire shop beside the canal provides hybrid bikes, waterproof bags and a printed route guide. Routes range from ten to forty kilometres. Return by five; no booking needed outside summer."
             },
             {
               "id": "h",
-              "name": "A longer programme combining study with social events."
+              "name": "Winter indoor cycling fitness classes — By spring, regular attendees will have built the stamina for long outdoor rides. These Tuesday and Thursday evening spin classes use stationary bikes in a heated studio. An instructor varies intensity with music and interval training. Towels and water are included; cycling shoes are optional. The monthly pass is cheaper than a gym membership."
             }
           ],
           "questions": [
@@ -249,7 +269,7 @@
               "id": "catalog-reading-pet-b1-test23-part-2-q6",
               "number": 6,
               "type": "matching-features",
-              "prompt": "Mia has only one free morning and wants to learn about broken appliances.",
+              "prompt": "Nadia is nervous about cycling to work in traffic. She wants a free session in a safe environment where she can rebuild confidence before joining the road. She has a bike but no helmet.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -257,7 +277,7 @@
               "id": "catalog-reading-pet-b1-test23-part-2-q7",
               "number": 7,
               "type": "matching-features",
-              "prompt": "Noah works late, so he needs an activity that starts in the evening.",
+              "prompt": "James wants to cycle to the station with others each morning. He prefers quiet streets, a steady pace and no membership costs. He already has lights and a working bike.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -265,7 +285,7 @@
               "id": "catalog-reading-pet-b1-test23-part-2-q8",
               "number": 8,
               "type": "matching-features",
-              "prompt": "Aisha is new to repair cafés and wants friendly expert advice.",
+              "prompt": "Elena has two children aged seven and nine. She wants a Sunday activity on safe paths where the kids can borrow bikes and the family can stop for a snack.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -273,7 +293,7 @@
               "id": "catalog-reading-pet-b1-test23-part-2-q9",
               "number": 9,
               "type": "matching-features",
-              "prompt": "Leo has little money and would like somewhere easy to reach.",
+              "prompt": "Hugo is visiting the coast for a day and wants a full guided experience. He does not own a bike and would like lunch included. He is reasonably fit but not a racer.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -281,7 +301,7 @@
               "id": "catalog-reading-pet-b1-test23-part-2-q10",
               "number": 10,
               "type": "matching-features",
-              "prompt": "Sara dislikes crowds and would rather work quietly on her own.",
+              "prompt": "Sara wants to build fitness over winter before attempting long rides in spring. She prefers indoor classes with music and can attend two evenings a week.",
               "options": [],
               "answerConfidence": "key"
             }
@@ -293,16 +313,16 @@
       "id": "catalog-reading-pet-b1-test23-part-3",
       "partNumber": 3,
       "rangeLabel": "Questions 11–15",
-      "passageTitle": "Part 3 – repair cafés",
+      "passageTitle": "Part 3 – How cycling changed my daily life",
       "passage": [
         {
-          "text": "When the volunteers in our town started a repair cafés project, few residents expected it to grow so quickly. At first, the organisers met in a small room and planned one simple activity involving broken appliances. They soon discovered that people were more willing to join when they could see a clear benefit for the neighbourhood. The organisers therefore published a short timetable and invited local businesses to offer practical help."
+          "text": "Two years ago, I drove to work every day and complained about the traffic. The journey took forty-five minutes each way, and I arrived stressed and tired. A colleague suggested cycling, and I laughed — the idea of riding eight kilometres in rain and wind seemed absurd. But when roadworks doubled my driving time, I borrowed her spare bike and tried it once. That single ride changed everything."
         },
         {
-          "text": "The project was not completely easy. Some volunteers were worried that the work would take too much time, while others wanted to change the plan every week. The team solved this by giving each person one small responsibility and reviewing the results together. This made the project feel manageable, and it also meant that new volunteers could contribute without special experience."
+          "text": "The first week was hard. My legs ached, and I arrived sweaty because I had not planned a route with fewer hills. A friend in the cycling group helped me find a flatter path along the canal, and the journey became genuinely enjoyable. I bought proper lights, a waterproof jacket and a small bag for my laptop. The council had recently added a separated lane on the busiest section, which made me feel much safer."
         },
         {
-          "text": "Looking back, the organiser says the most important lesson was not the final result but the way people learned to cooperate. The group still has problems, especially when the weather affects outdoor work, yet members now discuss solutions rather than blaming one another. For this reason, the project has become a useful example of how a modest local idea can create lasting connections."
+          "text": "Now I cycle four days a week and drive only when the weather is truly terrible. I save money on fuel, sleep better and no longer dread Monday mornings. The canal route has become my favourite part of the day: I see herons, meet other cyclists and arrive at work feeling awake. My colleague laughs that she created a monster, but I simply wish I had started sooner."
         }
       ],
       "questionGroups": [
@@ -316,23 +336,23 @@
               "id": "catalog-reading-pet-b1-test23-part-3-q11",
               "number": 11,
               "type": "multiple-choice",
-              "prompt": "What was one reason more residents joined the project?",
+              "prompt": "Why did the writer first try cycling?",
               "options": [
                 {
                   "id": "A",
-                  "label": "They could understand its practical value."
+                  "label": "Roadworks made driving much slower."
                 },
                 {
                   "id": "B",
-                  "label": "They were promised paid work."
+                  "label": "They wanted to save money."
                 },
                 {
                   "id": "C",
-                  "label": "They wanted to compete with local businesses."
+                  "label": "Their car broke down."
                 },
                 {
                   "id": "D",
-                  "label": "They were required to attend."
+                  "label": "A doctor recommended exercise."
                 }
               ],
               "answerConfidence": "key"
@@ -341,23 +361,23 @@
               "id": "catalog-reading-pet-b1-test23-part-3-q12",
               "number": 12,
               "type": "multiple-choice",
-              "prompt": "What problem did some volunteers have at the beginning?",
+              "prompt": "What problem did the writer face in the first week?",
               "options": [
                 {
                   "id": "A",
-                  "label": "They disagreed about how often to change the plan."
+                  "label": "The route had too many hills."
                 },
                 {
                   "id": "B",
-                  "label": "They could not find a suitable meeting room."
+                  "label": "The bike was broken."
                 },
                 {
                   "id": "C",
-                  "label": "They lacked permission to contact businesses."
+                  "label": "It rained every day."
                 },
                 {
                   "id": "D",
-                  "label": "They had no interest in outdoor work."
+                  "label": "Colleagues were unhelpful."
                 }
               ],
               "answerConfidence": "key"
@@ -366,23 +386,23 @@
               "id": "catalog-reading-pet-b1-test23-part-3-q13",
               "number": 13,
               "type": "multiple-choice",
-              "prompt": "How did the team make participation easier?",
+              "prompt": "What made the writer feel safer?",
               "options": [
                 {
                   "id": "A",
-                  "label": "It divided the work into smaller responsibilities."
+                  "label": "A new separated cycle lane."
                 },
                 {
                   "id": "B",
-                  "label": "It removed the timetable completely."
+                  "label": "Wearing a helmet."
                 },
                 {
                   "id": "C",
-                  "label": "It asked only experienced people to help."
+                  "label": "Cycling with a group."
                 },
                 {
                   "id": "D",
-                  "label": "It stopped reviewing the results."
+                  "label": "Avoiding the canal path."
                 }
               ],
               "answerConfidence": "key"
@@ -391,23 +411,23 @@
               "id": "catalog-reading-pet-b1-test23-part-3-q14",
               "number": 14,
               "type": "multiple-choice",
-              "prompt": "What does the organiser value most about the project?",
+              "prompt": "How does the writer feel about cycling now?",
               "options": [
                 {
                   "id": "A",
-                  "label": "The cooperation that developed among residents."
+                  "label": "It is the best part of their day."
                 },
                 {
                   "id": "B",
-                  "label": "The money earned by local businesses."
+                  "label": "They still prefer driving."
                 },
                 {
                   "id": "C",
-                  "label": "The speed at which the first activity finished."
+                  "label": "They find it boring."
                 },
                 {
                   "id": "D",
-                  "label": "The number of changes made to the timetable."
+                  "label": "They want to stop."
                 }
               ],
               "answerConfidence": "key"
@@ -416,23 +436,23 @@
               "id": "catalog-reading-pet-b1-test23-part-3-q15",
               "number": 15,
               "type": "multiple-choice",
-              "prompt": "What is the writer’s main point?",
+              "prompt": "What does the writer regret?",
               "options": [
                 {
                   "id": "A",
-                  "label": "A small local project can strengthen a community."
+                  "label": "Not starting sooner."
                 },
                 {
                   "id": "B",
-                  "label": "Outdoor projects are always more successful than indoor ones."
+                  "label": "Buying an expensive bike."
                 },
                 {
                   "id": "C",
-                  "label": "Volunteers should avoid changing their plans."
+                  "label": "Not driving more."
                 },
                 {
                   "id": "D",
-                  "label": "Businesses should organise neighbourhood activities."
+                  "label": "Joining the cycling group."
                 }
               ],
               "answerConfidence": "key"
@@ -445,42 +465,42 @@
       "id": "catalog-reading-pet-b1-test23-part-4",
       "partNumber": 4,
       "rangeLabel": "Questions 16–20",
-      "passageTitle": "Part 4 – repair cafés",
+      "passageTitle": "Part 4 – A safer route to school",
       "passage": [
         {
-          "text": "The volunteers began their repair cafés plan with one short meeting. (16) ..... The next week, more residents arrived than expected. (17) ..... They wanted to keep the activity useful rather than simply make it larger. (18) ..... The organisers therefore asked members to choose one task each. (19) ..... The work became easier to manage, and new volunteers quickly understood what to do. (20) ..... The project now meets regularly and welcomes anyone who wants to take part."
+          "text": "When parents at our school complained about dangerous traffic, a group of us proposed a \"bike train\". (16) ..... We chose a quiet route that avoided the main road completely. (17) ..... Two adults rode at the front and back, and children followed in a line. (18) ..... At first, only five families joined, but numbers grew quickly. (19) ..... The council then painted a small crossing to make one junction safer. (20) ..... Now over thirty children cycle to school together each morning."
         },
         {
           "label": "A",
-          "text": "This was the first sign that the idea might work."
+          "text": "The idea was simple: children would ride together with adult supervision."
         },
         {
           "label": "B",
-          "text": "For that reason, the group changed its meeting place."
+          "text": "We tested it on a Sunday to check for any dangerous spots."
         },
         {
           "label": "C",
-          "text": "As a result, several people offered to help."
+          "text": "The children wore bright vests so drivers could see them easily."
         },
         {
           "label": "D",
-          "text": "The organisers had not expected such a quick response."
+          "text": "Word spread, and parents who had been nervous began to join."
         },
         {
           "label": "E",
-          "text": "Even so, the original aim remained the same."
+          "text": "This small change gave everyone much more confidence."
         },
         {
           "label": "F",
-          "text": "They later used the same method in another area."
+          "text": "The school banned cycling on the premises."
         },
         {
           "label": "G",
-          "text": "This made the final decision much easier."
+          "text": "Parents refused to let children participate."
         },
         {
           "label": "H",
-          "text": "In the end, everyone agreed to continue."
+          "text": "The council ignored all requests for help."
         }
       ],
       "questionGroups": [
@@ -492,35 +512,35 @@
           "features": [
             {
               "id": "a",
-              "name": "This was the first sign that the idea might work."
+              "name": "The idea was simple: children would ride together with adult supervision."
             },
             {
               "id": "b",
-              "name": "For that reason, the group changed its meeting place."
+              "name": "We tested it on a Sunday to check for any dangerous spots."
             },
             {
               "id": "c",
-              "name": "As a result, several people offered to help."
+              "name": "The children wore bright vests so drivers could see them easily."
             },
             {
               "id": "d",
-              "name": "The organisers had not expected such a quick response."
+              "name": "Word spread, and parents who had been nervous began to join."
             },
             {
               "id": "e",
-              "name": "Even so, the original aim remained the same."
+              "name": "This small change gave everyone much more confidence."
             },
             {
               "id": "f",
-              "name": "They later used the same method in another area."
+              "name": "The school banned cycling on the premises."
             },
             {
               "id": "g",
-              "name": "This made the final decision much easier."
+              "name": "Parents refused to let children participate."
             },
             {
               "id": "h",
-              "name": "In the end, everyone agreed to continue."
+              "name": "The council ignored all requests for help."
             }
           ],
           "questions": [
@@ -572,10 +592,10 @@
       "id": "catalog-reading-pet-b1-test23-part-5",
       "partNumber": 5,
       "rangeLabel": "Questions 21–26",
-      "passageTitle": "Part 5 – repair cafés",
+      "passageTitle": "Part 5 – Multiple-choice cloze",
       "passage": [
         {
-          "text": "The volunteers usually meet (21) ........ Saturday. New members are shown how to (22) ........ the equipment. They can ask for advice if they are (23) ........ about a task. The group works together (24) ........ everyone can learn. Members often share ideas (25) ........ the session. The project has become a popular way to meet (26) ........ people."
+          "text": "I started cycling to work (21) ..... my colleague suggested it. At first, I found (22) ..... much harder than driving. The route had too many hills, (23) ..... a friend helped me find a flatter path. I bought lights and a waterproof jacket (24) ..... I could ride in any weather. The new cycle lane made me feel (25) ..... safer than before. I now wish I had started (26) ..... I did."
         }
       ],
       "questionGroups": [
@@ -593,19 +613,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "every"
+                  "label": "after"
                 },
                 {
                   "id": "B",
-                  "label": "each"
+                  "label": "during"
                 },
                 {
                   "id": "C",
-                  "label": "whole"
+                  "label": "for"
                 },
                 {
                   "id": "D",
-                  "label": "all"
+                  "label": "since"
                 }
               ],
               "answerConfidence": "key"
@@ -618,19 +638,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "use"
+                  "label": "it"
                 },
                 {
                   "id": "B",
-                  "label": "make"
+                  "label": "that"
                 },
                 {
                   "id": "C",
-                  "label": "bring"
+                  "label": "this"
                 },
                 {
                   "id": "D",
-                  "label": "hold"
+                  "label": "them"
                 }
               ],
               "answerConfidence": "key"
@@ -643,19 +663,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "uncertain"
+                  "label": "but"
                 },
                 {
                   "id": "B",
-                  "label": "narrow"
+                  "label": "because"
                 },
                 {
                   "id": "C",
-                  "label": "single"
+                  "label": "although"
                 },
                 {
                   "id": "D",
-                  "label": "empty"
+                  "label": "so"
                 }
               ],
               "answerConfidence": "key"
@@ -672,15 +692,15 @@
                 },
                 {
                   "id": "B",
-                  "label": "unless"
+                  "label": "such that"
                 },
                 {
                   "id": "C",
-                  "label": "although"
+                  "label": "for"
                 },
                 {
                   "id": "D",
-                  "label": "before"
+                  "label": "as to"
                 }
               ],
               "answerConfidence": "key"
@@ -693,19 +713,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "during"
+                  "label": "much"
                 },
                 {
                   "id": "B",
-                  "label": "between"
+                  "label": "very"
                 },
                 {
                   "id": "C",
-                  "label": "inside"
+                  "label": "more"
                 },
                 {
                   "id": "D",
-                  "label": "through"
+                  "label": "too"
                 }
               ],
               "answerConfidence": "key"
@@ -718,19 +738,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "local"
+                  "label": "earlier than"
                 },
                 {
                   "id": "B",
-                  "label": "private"
+                  "label": "as"
                 },
                 {
                   "id": "C",
-                  "label": "silent"
+                  "label": "from"
                 },
                 {
                   "id": "D",
-                  "label": "rare"
+                  "label": "that"
                 }
               ],
               "answerConfidence": "key"
@@ -743,10 +763,10 @@
       "id": "catalog-reading-pet-b1-test23-part-6",
       "partNumber": 6,
       "rangeLabel": "Questions 27–32",
-      "passageTitle": "Part 6 – repair cafés",
+      "passageTitle": "Part 6 – Open cloze",
       "passage": [
         {
-          "text": "The volunteers meet (27) ........ week to plan activities. New members learn (28) ........ to use the broken appliances safely. They can join the work, (29) ........ they should follow the group’s instructions. The project has kept useful materials (30) ........ being thrown away. It is a place (31) ........ people can exchange ideas. Remember (32) ........ ask for help when you need it."
+          "text": "The bike train was started (27) ........ a group of parents who worried about traffic. Children meet (28) ........ the park gate at eight each morning. They ride (29) ........ a quiet route that avoids the main road. The council painted a crossing (30) ........ drivers could see cyclists more easily. Parents say the children are (31) ........ more confident than before. The school hopes (32) ........ other neighbourhoods will copy the idea."
         }
       ],
       "questionGroups": [
@@ -760,7 +780,7 @@
               "id": "catalog-reading-pet-b1-test23-part-6-q27",
               "number": 27,
               "type": "gap-fill",
-              "prompt": "Gap (27)",
+              "prompt": "Gap 27",
               "options": [],
               "answerConfidence": "key"
             },
@@ -768,7 +788,7 @@
               "id": "catalog-reading-pet-b1-test23-part-6-q28",
               "number": 28,
               "type": "gap-fill",
-              "prompt": "Gap (28)",
+              "prompt": "Gap 28",
               "options": [],
               "answerConfidence": "key"
             },
@@ -776,7 +796,7 @@
               "id": "catalog-reading-pet-b1-test23-part-6-q29",
               "number": 29,
               "type": "gap-fill",
-              "prompt": "Gap (29)",
+              "prompt": "Gap 29",
               "options": [],
               "answerConfidence": "key"
             },
@@ -784,7 +804,7 @@
               "id": "catalog-reading-pet-b1-test23-part-6-q30",
               "number": 30,
               "type": "gap-fill",
-              "prompt": "Gap (30)",
+              "prompt": "Gap 30",
               "options": [],
               "answerConfidence": "key"
             },
@@ -792,7 +812,7 @@
               "id": "catalog-reading-pet-b1-test23-part-6-q31",
               "number": 31,
               "type": "gap-fill",
-              "prompt": "Gap (31)",
+              "prompt": "Gap 31",
               "options": [],
               "answerConfidence": "key"
             },
@@ -800,7 +820,7 @@
               "id": "catalog-reading-pet-b1-test23-part-6-q32",
               "number": 32,
               "type": "gap-fill",
-              "prompt": "Gap (32)",
+              "prompt": "Gap 32",
               "options": [],
               "answerConfidence": "key"
             }

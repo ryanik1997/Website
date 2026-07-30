@@ -15,45 +15,49 @@
       "passageTitle": "Part 1 – Short texts",
       "passage": [
         {
-          "text": "Community gardens notice\nThe community gardens team needs helpers on Saturday. Bring gloves and arrive before nine."
+          "text": "Market announcement\nThe Friday night market will close early this week at ten instead of midnight because of a road closure. Food stalls remain open until ten. The car park on Bridge Street is unavailable; use the station car park instead."
         },
         {
-          "text": "Message from a friend\nI have booked the shared plots session for Tuesday, but I may arrive late. Please start without me and save a place."
+          "text": "Stall application form\nApplications for a December market stall close on 15 November. You must sell handmade or locally produced goods. Reselling imported items is not permitted. A deposit of twenty pounds is required with your application."
         },
         {
-          "text": "Information sign\nVisitors to the community gardens may use the tools, but they must return them before leaving."
+          "text": "Text from Dad\nThe night market is on tonight. Shall we meet at the entrance near the clock tower at seven? I heard there is a new Thai stall and a dessert van. Bring cash — the card machine was broken last time."
         },
         {
-          "text": "Short announcement\nThe local gardeners meeting has moved from Room 2 to Room 4 because the first room is being painted."
+          "text": "Visitor information board\nThe harbour night market runs every Saturday from six until eleven. Entry is free. Dogs are welcome on leads but not inside the food hall. Live music starts at eight near the fountain."
         },
         {
-          "text": "Notice for members\nMembers can borrow one shared plots guide for a week. Ask at the desk if you need another copy."
+          "text": "Trader email\nYour pitch number for Saturday is B14. Set-up begins at four; all vehicles must leave the market square by five. You may collect unsold goods after eleven. The organisers are not responsible for damage to equipment overnight."
         }
       ],
       "questionGroups": [
         {
           "id": "catalog-reading-pet-b1-test22-part-1-g0",
           "range": "Questions 1–5",
-          "instruction": "For each question, choose the correct answer A, B or C.",
+          "instruction": "For each question, choose the correct answer A, B, C or D.",
           "type": "multiple-choice",
           "questions": [
             {
               "id": "catalog-reading-pet-b1-test22-part-1-q1",
               "number": 1,
               "type": "multiple-choice",
-              "prompt": "What should volunteers do?",
+              "prompt": "What has changed?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Bring gloves and arrive early."
+                  "label": "The closing time."
                 },
                 {
                   "id": "B",
-                  "label": "Pay for equipment at the gate."
+                  "label": "The market day."
                 },
                 {
                   "id": "C",
-                  "label": "Work there every morning."
+                  "label": "The food prices."
+                },
+                {
+                  "id": "D",
+                  "label": "The stall locations."
                 }
               ],
               "answerConfidence": "key"
@@ -62,19 +66,23 @@
               "id": "catalog-reading-pet-b1-test22-part-1-q2",
               "number": 2,
               "type": "multiple-choice",
-              "prompt": "What does the writer ask the friend to do?",
+              "prompt": "Who can apply?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Wait until Tuesday evening."
+                  "label": "Sellers of handmade or local goods."
                 },
                 {
                   "id": "B",
-                  "label": "Begin the session if necessary."
+                  "label": "Anyone who imports products."
                 },
                 {
                   "id": "C",
-                  "label": "Cancel the booking."
+                  "label": "Only food sellers."
+                },
+                {
+                  "id": "D",
+                  "label": "People who pay fifty pounds."
                 }
               ],
               "answerConfidence": "key"
@@ -83,19 +91,23 @@
               "id": "catalog-reading-pet-b1-test22-part-1-q3",
               "number": 3,
               "type": "multiple-choice",
-              "prompt": "What must visitors do?",
+              "prompt": "What does Dad suggest?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Take the tools home."
+                  "label": "Bringing cash."
                 },
                 {
                   "id": "B",
-                  "label": "Use the tools only outdoors."
+                  "label": "Meeting at eight."
                 },
                 {
                   "id": "C",
-                  "label": "Return the tools after use."
+                  "label": "Going to a restaurant."
+                },
+                {
+                  "id": "D",
+                  "label": "Using a card."
                 }
               ],
               "answerConfidence": "key"
@@ -104,19 +116,23 @@
               "id": "catalog-reading-pet-b1-test22-part-1-q4",
               "number": 4,
               "type": "multiple-choice",
-              "prompt": "Why has the meeting moved?",
+              "prompt": "Where is the music?",
               "options": [
                 {
                   "id": "A",
-                  "label": "The original room is unavailable."
+                  "label": "Near the fountain."
                 },
                 {
                   "id": "B",
-                  "label": "The meeting has finished early."
+                  "label": "Inside the food hall."
                 },
                 {
                   "id": "C",
-                  "label": "More people have joined the group."
+                  "label": "At the harbour entrance."
+                },
+                {
+                  "id": "D",
+                  "label": "On the beach."
                 }
               ],
               "answerConfidence": "key"
@@ -125,19 +141,23 @@
               "id": "catalog-reading-pet-b1-test22-part-1-q5",
               "number": 5,
               "type": "multiple-choice",
-              "prompt": "What is the rule about guides?",
+              "prompt": "When must vehicles leave?",
               "options": [
                 {
                   "id": "A",
-                  "label": "Members may keep one for a week."
+                  "label": "By five."
                 },
                 {
                   "id": "B",
-                  "label": "Only visitors may borrow one."
+                  "label": "After eleven."
                 },
                 {
                   "id": "C",
-                  "label": "All copies must be returned that day."
+                  "label": "At four."
+                },
+                {
+                  "id": "D",
+                  "label": "At six."
                 }
               ],
               "answerConfidence": "key"
@@ -153,53 +173,53 @@
       "passageTitle": "Part 2 – Matching",
       "passage": [
         {
-          "text": "The people below all want to take part in community gardens. Decide which option would be most suitable."
+          "text": "The people below want to choose from evening food events, markets and social dining experiences. Decide which option is most suitable."
         },
         {
           "label": "A",
-          "text": "A morning course about shared plots, with equipment supplied.",
+          "text": "Riverside street food market every Friday night — From six until eleven every Friday, the riverside walk fills with food vans serving dishes from twelve countries. Visitors eat at shared wooden tables while musicians play nearby. Entry is free and no booking is needed. The nearest car park is a five-minute walk away, and buses run until midnight.",
           "imageSlotId": "catalog-reading-pet-b1-test22-part-2-option-a-image",
           "imageRequired": false
         },
         {
           "label": "B",
-          "text": "An evening club for people who prefer meeting local experts.",
+          "text": "Guided night market food tour for small groups — Tasting eight dishes across two hours, this guided walk suits visitors who want to understand local food culture. A knowledgeable guide explains each stall's history while the group samples specialities. Groups are limited to ten people. The tour costs more than eating alone but includes every tasting and a recipe booklet.",
           "imageSlotId": "catalog-reading-pet-b1-test22-part-2-option-b-image",
           "imageRequired": false
         },
         {
           "label": "C",
-          "text": "A weekend event offering practical activities in small groups.",
+          "text": "Family-friendly weekend market with cooking demos — Children love watching chefs prepare dishes on the open stage at this Saturday market. Parents browse craft stalls while kids join free biscuit-decorating sessions at two and four. The market is fully step-free, has baby-changing facilities and closes at eight so younger visitors are not out too late.",
           "imageSlotId": "catalog-reading-pet-b1-test22-part-2-option-c-image",
           "imageRequired": false
         },
         {
           "label": "D",
-          "text": "A low-cost programme near the town centre, open to beginners.",
+          "text": "Late-night artisan cheese and wine tasting — If you prefer a quieter evening away from crowds, this monthly tasting in a cellar bar suits you. A sommelier pairs five regional cheeses with local wines while explaining production methods. Places are limited to sixteen and must be booked online. The event runs from eight to ten and costs a moderate fee.",
           "imageSlotId": "catalog-reading-pet-b1-test22-part-2-option-d-image",
           "imageRequired": false
         },
         {
           "label": "E",
-          "text": "A quiet project where members can work independently.",
+          "text": "Budget lunchtime market near the university — Between the library and the science block, this weekday market serves students cheap hot meals from eleven to two. Stalls change daily, so regulars never eat the same thing twice. Payment is by card or app only. Seating is limited to standing counters, but the food is freshly cooked and under five pounds.",
           "imageSlotId": "catalog-reading-pet-b1-test22-part-2-option-e-image",
           "imageRequired": false
         },
         {
           "label": "F",
-          "text": "A short course that includes advice from experienced local gardeners.",
+          "text": "Monthly vegan night market with live DJs — Come hungry and leave inspired — this plant-based market takes over the old warehouse on the last Saturday of each month. Over twenty stalls serve creative vegan dishes while DJs play until midnight. Entry costs five pounds including a welcome drink. The venue has step-free access and a covered outdoor area.",
           "imageSlotId": "catalog-reading-pet-b1-test22-part-2-option-f-image",
           "imageRequired": false
         },
         {
           "label": "G",
-          "text": "A family activity held outdoors when the weather is suitable.",
+          "text": "Traditional farmers market with morning workshops — Visitors leave this Saturday-morning market knowing exactly where their food comes from. Farmers explain growing methods while shoppers taste seasonal produce. A short workshop at eleven teaches preserving or bread making. The market is outdoors, so waterproof clothing is sensible. Parking is free in the adjacent field.",
           "imageSlotId": "catalog-reading-pet-b1-test22-part-2-option-g-image",
           "imageRequired": false
         },
         {
           "label": "H",
-          "text": "A longer programme combining study with social events.",
+          "text": "Harbour seafood evening with cook-along sessions — Want to learn how professionals grill fish? This summer evening event on the harbour lets visitors watch and then try cooking mussels and prawns themselves. An experienced chef guides each group of twelve. Ingredients and aprons are provided; the session ends with everyone eating together at nine. Booking is essential.",
           "imageSlotId": "catalog-reading-pet-b1-test22-part-2-option-h-image",
           "imageRequired": false
         }
@@ -213,35 +233,35 @@
           "features": [
             {
               "id": "a",
-              "name": "A morning course about shared plots, with equipment supplied."
+              "name": "Riverside street food market every Friday night — From six until eleven every Friday, the riverside walk fills with food vans serving dishes from twelve countries. Visitors eat at shared wooden tables while musicians play nearby. Entry is free and no booking is needed. The nearest car park is a five-minute walk away, and buses run until midnight."
             },
             {
               "id": "b",
-              "name": "An evening club for people who prefer meeting local experts."
+              "name": "Guided night market food tour for small groups — Tasting eight dishes across two hours, this guided walk suits visitors who want to understand local food culture. A knowledgeable guide explains each stall's history while the group samples specialities. Groups are limited to ten people. The tour costs more than eating alone but includes every tasting and a recipe booklet."
             },
             {
               "id": "c",
-              "name": "A weekend event offering practical activities in small groups."
+              "name": "Family-friendly weekend market with cooking demos — Children love watching chefs prepare dishes on the open stage at this Saturday market. Parents browse craft stalls while kids join free biscuit-decorating sessions at two and four. The market is fully step-free, has baby-changing facilities and closes at eight so younger visitors are not out too late."
             },
             {
               "id": "d",
-              "name": "A low-cost programme near the town centre, open to beginners."
+              "name": "Late-night artisan cheese and wine tasting — If you prefer a quieter evening away from crowds, this monthly tasting in a cellar bar suits you. A sommelier pairs five regional cheeses with local wines while explaining production methods. Places are limited to sixteen and must be booked online. The event runs from eight to ten and costs a moderate fee."
             },
             {
               "id": "e",
-              "name": "A quiet project where members can work independently."
+              "name": "Budget lunchtime market near the university — Between the library and the science block, this weekday market serves students cheap hot meals from eleven to two. Stalls change daily, so regulars never eat the same thing twice. Payment is by card or app only. Seating is limited to standing counters, but the food is freshly cooked and under five pounds."
             },
             {
               "id": "f",
-              "name": "A short course that includes advice from experienced local gardeners."
+              "name": "Monthly vegan night market with live DJs — Come hungry and leave inspired — this plant-based market takes over the old warehouse on the last Saturday of each month. Over twenty stalls serve creative vegan dishes while DJs play until midnight. Entry costs five pounds including a welcome drink. The venue has step-free access and a covered outdoor area."
             },
             {
               "id": "g",
-              "name": "A family activity held outdoors when the weather is suitable."
+              "name": "Traditional farmers market with morning workshops — Visitors leave this Saturday-morning market knowing exactly where their food comes from. Farmers explain growing methods while shoppers taste seasonal produce. A short workshop at eleven teaches preserving or bread making. The market is outdoors, so waterproof clothing is sensible. Parking is free in the adjacent field."
             },
             {
               "id": "h",
-              "name": "A longer programme combining study with social events."
+              "name": "Harbour seafood evening with cook-along sessions — Want to learn how professionals grill fish? This summer evening event on the harbour lets visitors watch and then try cooking mussels and prawns themselves. An experienced chef guides each group of twelve. Ingredients and aprons are provided; the session ends with everyone eating together at nine. Booking is essential."
             }
           ],
           "questions": [
@@ -249,7 +269,7 @@
               "id": "catalog-reading-pet-b1-test22-part-2-q6",
               "number": 6,
               "type": "matching-features",
-              "prompt": "Mia has only one free morning and wants to learn about shared plots.",
+              "prompt": "Aisha wants a lively Friday-night meal outdoors with friends. She needs free entry, no advance booking and late public transport home. She enjoys trying dishes from many countries.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -257,7 +277,7 @@
               "id": "catalog-reading-pet-b1-test22-part-2-q7",
               "number": 7,
               "type": "matching-features",
-              "prompt": "Noah works late, so he needs an activity that starts in the evening.",
+              "prompt": "Marco is visiting for one weekend and wants an expert to show him the best local food. He is happy to pay more for a small guided group and would like something to take home as a souvenir.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -265,7 +285,7 @@
               "id": "catalog-reading-pet-b1-test22-part-2-q8",
               "number": 8,
               "type": "matching-features",
-              "prompt": "Aisha is new to community gardens and wants friendly expert advice.",
+              "prompt": "Jen has two young children and needs a step-free venue that closes before bedtime. She wants the kids to have their own activity while she browses stalls on Saturday.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -273,7 +293,7 @@
               "id": "catalog-reading-pet-b1-test22-part-2-q9",
               "number": 9,
               "type": "matching-features",
-              "prompt": "Leo has little money and would like somewhere easy to reach.",
+              "prompt": "David and his partner prefer quiet evenings without crowds. They enjoy wine, want to learn about production and are happy to book online for a limited-place event.",
               "options": [],
               "answerConfidence": "key"
             },
@@ -281,7 +301,7 @@
               "id": "catalog-reading-pet-b1-test22-part-2-q10",
               "number": 10,
               "type": "matching-features",
-              "prompt": "Sara dislikes crowds and would rather work quietly on her own.",
+              "prompt": "Yuki loves plant-based food and wants a monthly event with music. She does not mind paying entry and values a covered area in case of rain.",
               "options": [],
               "answerConfidence": "key"
             }
@@ -293,16 +313,16 @@
       "id": "catalog-reading-pet-b1-test22-part-3",
       "partNumber": 3,
       "rangeLabel": "Questions 11–15",
-      "passageTitle": "Part 3 – community gardens",
+      "passageTitle": "Part 3 – The night market that saved our high street",
       "passage": [
         {
-          "text": "When the local gardeners in our town started a community gardens project, few residents expected it to grow so quickly. At first, the organisers met in a small room and planned one simple activity involving shared plots. They soon discovered that people were more willing to join when they could see a clear benefit for the neighbourhood. The organisers therefore published a short timetable and invited local businesses to offer practical help."
+          "text": "Three years ago, Millbrook's high street was dying. Half the shops were empty, and residents drove to the out-of-town centre for everything. Then a group of traders proposed a simple idea: open the street on Friday evenings with food stalls, music and lights. The council was sceptical, but agreed to a three-month trial. On the first night, only six stalls appeared and perhaps fifty visitors came. Nobody expected what happened next."
         },
         {
-          "text": "The project was not completely easy. Some volunteers were worried that the work would take too much time, while others wanted to change the plan every week. The team solved this by giving each person one small responsibility and reviewing the results together. This made the project feel manageable, and it also meant that new volunteers could contribute without special experience."
+          "text": "Word spread quickly. By the fourth week, three hundred people filled the street. Local restaurants stayed open later to serve the crowds, and two empty shops became permanent cafés. The traders organised themselves into an association, sharing costs for lighting, music and advertising. Regulars began arriving early to get the best food before queues formed. The market became a weekly ritual, not just a shopping trip."
         },
         {
-          "text": "Looking back, the organiser says the most important lesson was not the final result but the way people learned to cooperate. The group still has problems, especially when the weather affects outdoor work, yet members now discuss solutions rather than blaming one another. For this reason, the project has become a useful example of how a modest local idea can create lasting connections."
+          "text": "Today, the Millbrook night market attracts over a thousand visitors each Friday. Property values on the street have risen, and four new businesses opened this year alone. The original traders admit it was not always smooth — noise complaints, bad weather and disagreements about stall positions all caused problems. But the community that grew around those first six stalls proved stronger than any difficulty. The high street is alive again."
         }
       ],
       "questionGroups": [
@@ -316,23 +336,23 @@
               "id": "catalog-reading-pet-b1-test22-part-3-q11",
               "number": 11,
               "type": "multiple-choice",
-              "prompt": "What was one reason more residents joined the project?",
+              "prompt": "What was the council's initial reaction?",
               "options": [
                 {
                   "id": "A",
-                  "label": "They could understand its practical value."
+                  "label": "They doubted it would work."
                 },
                 {
                   "id": "B",
-                  "label": "They were promised paid work."
+                  "label": "They refused completely."
                 },
                 {
                   "id": "C",
-                  "label": "They wanted to compete with local businesses."
+                  "label": "They offered extra funding."
                 },
                 {
                   "id": "D",
-                  "label": "They were required to attend."
+                  "label": "They moved it to another street."
                 }
               ],
               "answerConfidence": "key"
@@ -341,23 +361,23 @@
               "id": "catalog-reading-pet-b1-test22-part-3-q12",
               "number": 12,
               "type": "multiple-choice",
-              "prompt": "What problem did some volunteers have at the beginning?",
+              "prompt": "What happened by the fourth week?",
               "options": [
                 {
                   "id": "A",
-                  "label": "They disagreed about how often to change the plan."
+                  "label": "Visitor numbers grew significantly."
                 },
                 {
                   "id": "B",
-                  "label": "They could not find a suitable meeting room."
+                  "label": "The market was cancelled."
                 },
                 {
                   "id": "C",
-                  "label": "They lacked permission to contact businesses."
+                  "label": "Traders left the association."
                 },
                 {
                   "id": "D",
-                  "label": "They had no interest in outdoor work."
+                  "label": "The council ended the trial."
                 }
               ],
               "answerConfidence": "key"
@@ -366,23 +386,23 @@
               "id": "catalog-reading-pet-b1-test22-part-3-q13",
               "number": 13,
               "type": "multiple-choice",
-              "prompt": "How did the team make participation easier?",
+              "prompt": "How did existing restaurants benefit?",
               "options": [
                 {
                   "id": "A",
-                  "label": "It divided the work into smaller responsibilities."
+                  "label": "They stayed open later for market visitors."
                 },
                 {
                   "id": "B",
-                  "label": "It removed the timetable completely."
+                  "label": "They moved to the out-of-town centre."
                 },
                 {
                   "id": "C",
-                  "label": "It asked only experienced people to help."
+                  "label": "They became food stalls."
                 },
                 {
                   "id": "D",
-                  "label": "It stopped reviewing the results."
+                  "label": "They reduced their prices."
                 }
               ],
               "answerConfidence": "key"
@@ -391,23 +411,23 @@
               "id": "catalog-reading-pet-b1-test22-part-3-q14",
               "number": 14,
               "type": "multiple-choice",
-              "prompt": "What does the organiser value most about the project?",
+              "prompt": "What problems does the writer mention?",
               "options": [
                 {
                   "id": "A",
-                  "label": "The cooperation that developed among residents."
+                  "label": "Noise complaints and weather."
                 },
                 {
                   "id": "B",
-                  "label": "The money earned by local businesses."
+                  "label": "Lack of food variety."
                 },
                 {
                   "id": "C",
-                  "label": "The speed at which the first activity finished."
+                  "label": "Too few visitors."
                 },
                 {
                   "id": "D",
-                  "label": "The number of changes made to the timetable."
+                  "label": "High council taxes."
                 }
               ],
               "answerConfidence": "key"
@@ -416,23 +436,23 @@
               "id": "catalog-reading-pet-b1-test22-part-3-q15",
               "number": 15,
               "type": "multiple-choice",
-              "prompt": "What is the writer’s main point?",
+              "prompt": "What is the writer's main point?",
               "options": [
                 {
                   "id": "A",
-                  "label": "A small local project can strengthen a community."
+                  "label": "A simple idea revived a struggling street."
                 },
                 {
                   "id": "B",
-                  "label": "Outdoor projects are always more successful than indoor ones."
+                  "label": "Night markets are always profitable."
                 },
                 {
                   "id": "C",
-                  "label": "Volunteers should avoid changing their plans."
+                  "label": "Councils should fund all markets."
                 },
                 {
                   "id": "D",
-                  "label": "Businesses should organise neighbourhood activities."
+                  "label": "Out-of-town centres are closing."
                 }
               ],
               "answerConfidence": "key"
@@ -445,42 +465,42 @@
       "id": "catalog-reading-pet-b1-test22-part-4",
       "partNumber": 4,
       "rangeLabel": "Questions 16–20",
-      "passageTitle": "Part 4 – community gardens",
+      "passageTitle": "Part 4 – Starting a food stall",
       "passage": [
         {
-          "text": "The local gardeners began their community gardens plan with one short meeting. (16) ..... The next week, more residents arrived than expected. (17) ..... They wanted to keep the activity useful rather than simply make it larger. (18) ..... The organisers therefore asked members to choose one task each. (19) ..... The work became easier to manage, and new volunteers quickly understood what to do. (20) ..... The project now meets regularly and welcomes anyone who wants to take part."
+          "text": "When I lost my office job, I decided to turn my love of cooking into a business. (16) ..... I applied for a pitch at the Saturday market and was surprised to get one immediately. (17) ..... My first morning was terrifying — I had made too much food and nobody stopped. (18) ..... Then a woman tasted my soup and told her friends. (19) ..... By lunchtime, I had sold almost everything. (20) ..... That first day taught me that persistence matters more than perfection."
         },
         {
           "label": "A",
-          "text": "This was the first sign that the idea might work."
+          "text": "I had spent months perfecting my soup recipes at home."
         },
         {
           "label": "B",
-          "text": "For that reason, the group changed its meeting place."
+          "text": "The market organiser showed me where to set up my table."
         },
         {
           "label": "C",
-          "text": "As a result, several people offered to help."
+          "text": "I nearly packed up and went home before ten."
         },
         {
           "label": "D",
-          "text": "The organisers had not expected such a quick response."
+          "text": "Within minutes, a small queue had formed."
         },
         {
           "label": "E",
-          "text": "Even so, the original aim remained the same."
+          "text": "I now attend three markets every week."
         },
         {
           "label": "F",
-          "text": "They later used the same method in another area."
+          "text": "The council refused my application."
         },
         {
           "label": "G",
-          "text": "This made the final decision much easier."
+          "text": "I had no recipes to offer customers."
         },
         {
           "label": "H",
-          "text": "In the end, everyone agreed to continue."
+          "text": "Nobody at the market liked soup."
         }
       ],
       "questionGroups": [
@@ -492,35 +512,35 @@
           "features": [
             {
               "id": "a",
-              "name": "This was the first sign that the idea might work."
+              "name": "I had spent months perfecting my soup recipes at home."
             },
             {
               "id": "b",
-              "name": "For that reason, the group changed its meeting place."
+              "name": "The market organiser showed me where to set up my table."
             },
             {
               "id": "c",
-              "name": "As a result, several people offered to help."
+              "name": "I nearly packed up and went home before ten."
             },
             {
               "id": "d",
-              "name": "The organisers had not expected such a quick response."
+              "name": "Within minutes, a small queue had formed."
             },
             {
               "id": "e",
-              "name": "Even so, the original aim remained the same."
+              "name": "I now attend three markets every week."
             },
             {
               "id": "f",
-              "name": "They later used the same method in another area."
+              "name": "The council refused my application."
             },
             {
               "id": "g",
-              "name": "This made the final decision much easier."
+              "name": "I had no recipes to offer customers."
             },
             {
               "id": "h",
-              "name": "In the end, everyone agreed to continue."
+              "name": "Nobody at the market liked soup."
             }
           ],
           "questions": [
@@ -572,10 +592,10 @@
       "id": "catalog-reading-pet-b1-test22-part-5",
       "partNumber": 5,
       "rangeLabel": "Questions 21–26",
-      "passageTitle": "Part 5 – community gardens",
+      "passageTitle": "Part 5 – Multiple-choice cloze",
       "passage": [
         {
-          "text": "The local gardeners usually meet (21) ........ Saturday. New members are shown how to (22) ........ the equipment. They can ask for advice if they are (23) ........ about a task. The group works together (24) ........ everyone can learn. Members often share ideas (25) ........ the session. The project has become a popular way to meet (26) ........ people."
+          "text": "The night market began (21) ..... a small experiment by local traders. Nobody knew (22) ..... it would attract so many visitors. The council agreed (23) ..... let them try for three months. Each Friday, more people arrived (24) ..... the week before. Traders learned (25) ..... cooperate rather than compete. The street is now livelier (26) ..... it has been for decades."
         }
       ],
       "questionGroups": [
@@ -593,19 +613,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "every"
+                  "label": "as"
                 },
                 {
                   "id": "B",
-                  "label": "each"
+                  "label": "from"
                 },
                 {
                   "id": "C",
-                  "label": "whole"
+                  "label": "for"
                 },
                 {
                   "id": "D",
-                  "label": "all"
+                  "label": "like"
                 }
               ],
               "answerConfidence": "key"
@@ -618,19 +638,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "use"
+                  "label": "that"
                 },
                 {
                   "id": "B",
-                  "label": "make"
+                  "label": "what"
                 },
                 {
                   "id": "C",
-                  "label": "bring"
+                  "label": "which"
                 },
                 {
                   "id": "D",
-                  "label": "hold"
+                  "label": "when"
                 }
               ],
               "answerConfidence": "key"
@@ -643,19 +663,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "uncertain"
+                  "label": "to"
                 },
                 {
                   "id": "B",
-                  "label": "narrow"
+                  "label": "that"
                 },
                 {
                   "id": "C",
-                  "label": "single"
+                  "label": "for"
                 },
                 {
                   "id": "D",
-                  "label": "empty"
+                  "label": "letting"
                 }
               ],
               "answerConfidence": "key"
@@ -668,19 +688,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "so that"
+                  "label": "than"
                 },
                 {
                   "id": "B",
-                  "label": "unless"
+                  "label": "that"
                 },
                 {
                   "id": "C",
-                  "label": "although"
+                  "label": "as"
                 },
                 {
                   "id": "D",
-                  "label": "before"
+                  "label": "from"
                 }
               ],
               "answerConfidence": "key"
@@ -693,19 +713,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "during"
+                  "label": "to"
                 },
                 {
                   "id": "B",
-                  "label": "between"
+                  "label": "how"
                 },
                 {
                   "id": "C",
-                  "label": "inside"
+                  "label": "that"
                 },
                 {
                   "id": "D",
-                  "label": "through"
+                  "label": "for"
                 }
               ],
               "answerConfidence": "key"
@@ -718,19 +738,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "local"
+                  "label": "than"
                 },
                 {
                   "id": "B",
-                  "label": "private"
+                  "label": "that"
                 },
                 {
                   "id": "C",
-                  "label": "silent"
+                  "label": "as"
                 },
                 {
                   "id": "D",
-                  "label": "rare"
+                  "label": "from"
                 }
               ],
               "answerConfidence": "key"
@@ -743,10 +763,10 @@
       "id": "catalog-reading-pet-b1-test22-part-6",
       "partNumber": 6,
       "rangeLabel": "Questions 27–32",
-      "passageTitle": "Part 6 – community gardens",
+      "passageTitle": "Part 6 – Open cloze",
       "passage": [
         {
-          "text": "The local gardeners meet (27) ........ week to plan activities. New members learn (28) ........ to use the shared plots safely. They can join the work, (29) ........ they should follow the group’s instructions. The project has kept useful materials (30) ........ being thrown away. It is a place (31) ........ people can exchange ideas. Remember (32) ........ ask for help when you need it."
+          "text": "The market was organised (27) ........ a group of local traders who wanted to save their street. It takes place (28) ........ Friday evenings throughout the year. Visitors can try food (29) ........ many different countries. The traders say (30) ........ the community spirit is the best part. Some stalls have been there (31) ........ the very first night. The council now hopes (32) ........ other streets will copy the idea."
         }
       ],
       "questionGroups": [
@@ -760,7 +780,7 @@
               "id": "catalog-reading-pet-b1-test22-part-6-q27",
               "number": 27,
               "type": "gap-fill",
-              "prompt": "Gap (27)",
+              "prompt": "Gap 27",
               "options": [],
               "answerConfidence": "key"
             },
@@ -768,7 +788,7 @@
               "id": "catalog-reading-pet-b1-test22-part-6-q28",
               "number": 28,
               "type": "gap-fill",
-              "prompt": "Gap (28)",
+              "prompt": "Gap 28",
               "options": [],
               "answerConfidence": "key"
             },
@@ -776,7 +796,7 @@
               "id": "catalog-reading-pet-b1-test22-part-6-q29",
               "number": 29,
               "type": "gap-fill",
-              "prompt": "Gap (29)",
+              "prompt": "Gap 29",
               "options": [],
               "answerConfidence": "key"
             },
@@ -784,7 +804,7 @@
               "id": "catalog-reading-pet-b1-test22-part-6-q30",
               "number": 30,
               "type": "gap-fill",
-              "prompt": "Gap (30)",
+              "prompt": "Gap 30",
               "options": [],
               "answerConfidence": "key"
             },
@@ -792,7 +812,7 @@
               "id": "catalog-reading-pet-b1-test22-part-6-q31",
               "number": 31,
               "type": "gap-fill",
-              "prompt": "Gap (31)",
+              "prompt": "Gap 31",
               "options": [],
               "answerConfidence": "key"
             },
@@ -800,7 +820,7 @@
               "id": "catalog-reading-pet-b1-test22-part-6-q32",
               "number": 32,
               "type": "gap-fill",
-              "prompt": "Gap (32)",
+              "prompt": "Gap 32",
               "options": [],
               "answerConfidence": "key"
             }
