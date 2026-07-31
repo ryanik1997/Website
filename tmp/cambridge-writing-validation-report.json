@@ -1,9 +1,9 @@
 {
-  "generatedAt": 1785318628035,
+  "generatedAt": 1785474743904,
   "source": "catalog",
   "candidateRange": {
     "from": 2,
-    "to": 36
+    "to": 9007199254740991
   },
   "files": 140,
   "tests": 140,
@@ -30,54 +30,2259 @@
     "tests": 0,
     "tasks": 0
   },
-  "pilotFailures": [],
+  "pilotFailures": [
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-07.json",
+      "testId": "b1-test-07",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-08.json",
+      "testId": "b1-test-08",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-09.json",
+      "testId": "b1-test-09",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-07.json",
+      "testId": "b2-test-07",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-08.json",
+      "testId": "b2-test-08",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-09.json",
+      "testId": "b2-test-09",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-07.json",
+      "testId": "c1-test-07",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-08.json",
+      "testId": "c1-test-08",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-09.json",
+      "testId": "c1-test-09",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-07.json",
+      "testId": "c2-test-07",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-08.json",
+      "testId": "c2-test-08",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-09.json",
+      "testId": "c2-test-09",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    }
+  ],
   "legacyFailures": [
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-02.json",
+      "testId": "b1-test-02",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-03.json",
+      "testId": "b1-test-03",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-04.json",
+      "testId": "b1-test-04",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
     {
       "file": "packages/catalog/data/cambridge-writing/b1/b1-test-05.json",
       "testId": "b1-test-05",
       "errors": [
-        "B1 Q2 needs at least two questions and final instruction"
+        "B1 Q2 needs at least two questions and final instruction",
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-06.json",
+      "testId": "b1-test-06",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-10.json",
+      "testId": "b1-test-10",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-11.json",
+      "testId": "b1-test-11",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-12.json",
+      "testId": "b1-test-12",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-13.json",
+      "testId": "b1-test-13",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-14.json",
+      "testId": "b1-test-14",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-15.json",
+      "testId": "b1-test-15",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-16.json",
+      "testId": "b1-test-16",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-17.json",
+      "testId": "b1-test-17",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-18.json",
+      "testId": "b1-test-18",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-19.json",
+      "testId": "b1-test-19",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-20.json",
+      "testId": "b1-test-20",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-21.json",
+      "testId": "b1-test-21",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-22.json",
+      "testId": "b1-test-22",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-23.json",
+      "testId": "b1-test-23",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-24.json",
+      "testId": "b1-test-24",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-25.json",
+      "testId": "b1-test-25",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-26.json",
+      "testId": "b1-test-26",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-27.json",
+      "testId": "b1-test-27",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-28.json",
+      "testId": "b1-test-28",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-29.json",
+      "testId": "b1-test-29",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-30.json",
+      "testId": "b1-test-30",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-31.json",
+      "testId": "b1-test-31",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-32.json",
+      "testId": "b1-test-32",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-33.json",
+      "testId": "b1-test-33",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-34.json",
+      "testId": "b1-test-34",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-35.json",
+      "testId": "b1-test-35",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-36.json",
+      "testId": "b1-test-36",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
       ]
     },
     {
       "file": "packages/catalog/data/cambridge-writing/b2/b2-test-02.json",
       "testId": "b2-test-02",
       "errors": [
-        "B2 Q1 notes invalid"
+        "B2 Q1 notes invalid",
+        "provenance is not verified",
+        "quality score below 88"
       ]
     },
     {
       "file": "packages/catalog/data/cambridge-writing/b2/b2-test-03.json",
       "testId": "b2-test-03",
       "errors": [
-        "B2 Q1 notes invalid"
+        "B2 Q1 notes invalid",
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-04.json",
+      "testId": "b2-test-04",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-05.json",
+      "testId": "b2-test-05",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-06.json",
+      "testId": "b2-test-06",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-10.json",
+      "testId": "b2-test-10",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-11.json",
+      "testId": "b2-test-11",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-12.json",
+      "testId": "b2-test-12",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-13.json",
+      "testId": "b2-test-13",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-14.json",
+      "testId": "b2-test-14",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-15.json",
+      "testId": "b2-test-15",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-16.json",
+      "testId": "b2-test-16",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-17.json",
+      "testId": "b2-test-17",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-18.json",
+      "testId": "b2-test-18",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-19.json",
+      "testId": "b2-test-19",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-20.json",
+      "testId": "b2-test-20",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-21.json",
+      "testId": "b2-test-21",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-22.json",
+      "testId": "b2-test-22",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-23.json",
+      "testId": "b2-test-23",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-24.json",
+      "testId": "b2-test-24",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-25.json",
+      "testId": "b2-test-25",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-26.json",
+      "testId": "b2-test-26",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-27.json",
+      "testId": "b2-test-27",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-28.json",
+      "testId": "b2-test-28",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-29.json",
+      "testId": "b2-test-29",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-30.json",
+      "testId": "b2-test-30",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-31.json",
+      "testId": "b2-test-31",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-32.json",
+      "testId": "b2-test-32",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-33.json",
+      "testId": "b2-test-33",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-34.json",
+      "testId": "b2-test-34",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-35.json",
+      "testId": "b2-test-35",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-36.json",
+      "testId": "b2-test-36",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-02.json",
+      "testId": "c1-test-02",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-03.json",
+      "testId": "c1-test-03",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-04.json",
+      "testId": "c1-test-04",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-05.json",
+      "testId": "c1-test-05",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-06.json",
+      "testId": "c1-test-06",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-10.json",
+      "testId": "c1-test-10",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-11.json",
+      "testId": "c1-test-11",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-12.json",
+      "testId": "c1-test-12",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-13.json",
+      "testId": "c1-test-13",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-14.json",
+      "testId": "c1-test-14",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-15.json",
+      "testId": "c1-test-15",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-16.json",
+      "testId": "c1-test-16",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-17.json",
+      "testId": "c1-test-17",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-18.json",
+      "testId": "c1-test-18",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-19.json",
+      "testId": "c1-test-19",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-20.json",
+      "testId": "c1-test-20",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-21.json",
+      "testId": "c1-test-21",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-22.json",
+      "testId": "c1-test-22",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-23.json",
+      "testId": "c1-test-23",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-24.json",
+      "testId": "c1-test-24",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-25.json",
+      "testId": "c1-test-25",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-26.json",
+      "testId": "c1-test-26",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-27.json",
+      "testId": "c1-test-27",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-28.json",
+      "testId": "c1-test-28",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-29.json",
+      "testId": "c1-test-29",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-30.json",
+      "testId": "c1-test-30",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-31.json",
+      "testId": "c1-test-31",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-32.json",
+      "testId": "c1-test-32",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-33.json",
+      "testId": "c1-test-33",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-34.json",
+      "testId": "c1-test-34",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-35.json",
+      "testId": "c1-test-35",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-36.json",
+      "testId": "c1-test-36",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-02.json",
+      "testId": "c2-test-02",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-03.json",
+      "testId": "c2-test-03",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-04.json",
+      "testId": "c2-test-04",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-05.json",
+      "testId": "c2-test-05",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-06.json",
+      "testId": "c2-test-06",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-10.json",
+      "testId": "c2-test-10",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-11.json",
+      "testId": "c2-test-11",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-12.json",
+      "testId": "c2-test-12",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-13.json",
+      "testId": "c2-test-13",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-14.json",
+      "testId": "c2-test-14",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-15.json",
+      "testId": "c2-test-15",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-16.json",
+      "testId": "c2-test-16",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-17.json",
+      "testId": "c2-test-17",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-18.json",
+      "testId": "c2-test-18",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-19.json",
+      "testId": "c2-test-19",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-20.json",
+      "testId": "c2-test-20",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-21.json",
+      "testId": "c2-test-21",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-22.json",
+      "testId": "c2-test-22",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-23.json",
+      "testId": "c2-test-23",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-24.json",
+      "testId": "c2-test-24",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-25.json",
+      "testId": "c2-test-25",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-26.json",
+      "testId": "c2-test-26",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-27.json",
+      "testId": "c2-test-27",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-28.json",
+      "testId": "c2-test-28",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-29.json",
+      "testId": "c2-test-29",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-30.json",
+      "testId": "c2-test-30",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-31.json",
+      "testId": "c2-test-31",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-32.json",
+      "testId": "c2-test-32",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-33.json",
+      "testId": "c2-test-33",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-34.json",
+      "testId": "c2-test-34",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-35.json",
+      "testId": "c2-test-35",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-36.json",
+      "testId": "c2-test-36",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
       ]
     }
   ],
   "failures": [
     {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-02.json",
+      "testId": "b1-test-02",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-03.json",
+      "testId": "b1-test-03",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-04.json",
+      "testId": "b1-test-04",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
       "file": "packages/catalog/data/cambridge-writing/b1/b1-test-05.json",
       "testId": "b1-test-05",
       "errors": [
-        "B1 Q2 needs at least two questions and final instruction"
+        "B1 Q2 needs at least two questions and final instruction",
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-06.json",
+      "testId": "b1-test-06",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-07.json",
+      "testId": "b1-test-07",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-08.json",
+      "testId": "b1-test-08",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-09.json",
+      "testId": "b1-test-09",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-10.json",
+      "testId": "b1-test-10",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-11.json",
+      "testId": "b1-test-11",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-12.json",
+      "testId": "b1-test-12",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-13.json",
+      "testId": "b1-test-13",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-14.json",
+      "testId": "b1-test-14",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-15.json",
+      "testId": "b1-test-15",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-16.json",
+      "testId": "b1-test-16",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-17.json",
+      "testId": "b1-test-17",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-18.json",
+      "testId": "b1-test-18",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-19.json",
+      "testId": "b1-test-19",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-20.json",
+      "testId": "b1-test-20",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-21.json",
+      "testId": "b1-test-21",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-22.json",
+      "testId": "b1-test-22",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-23.json",
+      "testId": "b1-test-23",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-24.json",
+      "testId": "b1-test-24",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-25.json",
+      "testId": "b1-test-25",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-26.json",
+      "testId": "b1-test-26",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-27.json",
+      "testId": "b1-test-27",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-28.json",
+      "testId": "b1-test-28",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-29.json",
+      "testId": "b1-test-29",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-30.json",
+      "testId": "b1-test-30",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-31.json",
+      "testId": "b1-test-31",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-32.json",
+      "testId": "b1-test-32",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-33.json",
+      "testId": "b1-test-33",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-34.json",
+      "testId": "b1-test-34",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-35.json",
+      "testId": "b1-test-35",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b1/b1-test-36.json",
+      "testId": "b1-test-36",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
       ]
     },
     {
       "file": "packages/catalog/data/cambridge-writing/b2/b2-test-02.json",
       "testId": "b2-test-02",
       "errors": [
-        "B2 Q1 notes invalid"
+        "B2 Q1 notes invalid",
+        "provenance is not verified",
+        "quality score below 88"
       ]
     },
     {
       "file": "packages/catalog/data/cambridge-writing/b2/b2-test-03.json",
       "testId": "b2-test-03",
       "errors": [
-        "B2 Q1 notes invalid"
+        "B2 Q1 notes invalid",
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-04.json",
+      "testId": "b2-test-04",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-05.json",
+      "testId": "b2-test-05",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-06.json",
+      "testId": "b2-test-06",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-07.json",
+      "testId": "b2-test-07",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-08.json",
+      "testId": "b2-test-08",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-09.json",
+      "testId": "b2-test-09",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-10.json",
+      "testId": "b2-test-10",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-11.json",
+      "testId": "b2-test-11",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-12.json",
+      "testId": "b2-test-12",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-13.json",
+      "testId": "b2-test-13",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-14.json",
+      "testId": "b2-test-14",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-15.json",
+      "testId": "b2-test-15",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-16.json",
+      "testId": "b2-test-16",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-17.json",
+      "testId": "b2-test-17",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-18.json",
+      "testId": "b2-test-18",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-19.json",
+      "testId": "b2-test-19",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-20.json",
+      "testId": "b2-test-20",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-21.json",
+      "testId": "b2-test-21",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-22.json",
+      "testId": "b2-test-22",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-23.json",
+      "testId": "b2-test-23",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-24.json",
+      "testId": "b2-test-24",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-25.json",
+      "testId": "b2-test-25",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-26.json",
+      "testId": "b2-test-26",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-27.json",
+      "testId": "b2-test-27",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-28.json",
+      "testId": "b2-test-28",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-29.json",
+      "testId": "b2-test-29",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-30.json",
+      "testId": "b2-test-30",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-31.json",
+      "testId": "b2-test-31",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-32.json",
+      "testId": "b2-test-32",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-33.json",
+      "testId": "b2-test-33",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-34.json",
+      "testId": "b2-test-34",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-35.json",
+      "testId": "b2-test-35",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/b2/b2-test-36.json",
+      "testId": "b2-test-36",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-02.json",
+      "testId": "c1-test-02",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-03.json",
+      "testId": "c1-test-03",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-04.json",
+      "testId": "c1-test-04",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-05.json",
+      "testId": "c1-test-05",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-06.json",
+      "testId": "c1-test-06",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-07.json",
+      "testId": "c1-test-07",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-08.json",
+      "testId": "c1-test-08",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-09.json",
+      "testId": "c1-test-09",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-10.json",
+      "testId": "c1-test-10",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-11.json",
+      "testId": "c1-test-11",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-12.json",
+      "testId": "c1-test-12",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-13.json",
+      "testId": "c1-test-13",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-14.json",
+      "testId": "c1-test-14",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-15.json",
+      "testId": "c1-test-15",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-16.json",
+      "testId": "c1-test-16",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-17.json",
+      "testId": "c1-test-17",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-18.json",
+      "testId": "c1-test-18",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-19.json",
+      "testId": "c1-test-19",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-20.json",
+      "testId": "c1-test-20",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-21.json",
+      "testId": "c1-test-21",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-22.json",
+      "testId": "c1-test-22",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-23.json",
+      "testId": "c1-test-23",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-24.json",
+      "testId": "c1-test-24",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-25.json",
+      "testId": "c1-test-25",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-26.json",
+      "testId": "c1-test-26",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-27.json",
+      "testId": "c1-test-27",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-28.json",
+      "testId": "c1-test-28",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-29.json",
+      "testId": "c1-test-29",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-30.json",
+      "testId": "c1-test-30",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-31.json",
+      "testId": "c1-test-31",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-32.json",
+      "testId": "c1-test-32",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-33.json",
+      "testId": "c1-test-33",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-34.json",
+      "testId": "c1-test-34",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-35.json",
+      "testId": "c1-test-35",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c1/c1-test-36.json",
+      "testId": "c1-test-36",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-02.json",
+      "testId": "c2-test-02",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-03.json",
+      "testId": "c2-test-03",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-04.json",
+      "testId": "c2-test-04",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-05.json",
+      "testId": "c2-test-05",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-06.json",
+      "testId": "c2-test-06",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-07.json",
+      "testId": "c2-test-07",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-08.json",
+      "testId": "c2-test-08",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-09.json",
+      "testId": "c2-test-09",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-10.json",
+      "testId": "c2-test-10",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-11.json",
+      "testId": "c2-test-11",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-12.json",
+      "testId": "c2-test-12",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-13.json",
+      "testId": "c2-test-13",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-14.json",
+      "testId": "c2-test-14",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-15.json",
+      "testId": "c2-test-15",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-16.json",
+      "testId": "c2-test-16",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-17.json",
+      "testId": "c2-test-17",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-18.json",
+      "testId": "c2-test-18",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-19.json",
+      "testId": "c2-test-19",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-20.json",
+      "testId": "c2-test-20",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-21.json",
+      "testId": "c2-test-21",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-22.json",
+      "testId": "c2-test-22",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-23.json",
+      "testId": "c2-test-23",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-24.json",
+      "testId": "c2-test-24",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-25.json",
+      "testId": "c2-test-25",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-26.json",
+      "testId": "c2-test-26",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-27.json",
+      "testId": "c2-test-27",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-28.json",
+      "testId": "c2-test-28",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-29.json",
+      "testId": "c2-test-29",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-30.json",
+      "testId": "c2-test-30",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-31.json",
+      "testId": "c2-test-31",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-32.json",
+      "testId": "c2-test-32",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-33.json",
+      "testId": "c2-test-33",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-34.json",
+      "testId": "c2-test-34",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-35.json",
+      "testId": "c2-test-35",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
+      ]
+    },
+    {
+      "file": "packages/catalog/data/cambridge-writing/c2/c2-test-36.json",
+      "testId": "c2-test-36",
+      "errors": [
+        "provenance is not verified",
+        "quality score below 88"
       ]
     }
   ],
-  "aiVerificationSkipped": true,
+  "aiVerificationSkipped": false,
   "similarity": {
     "comparisons": [
       {

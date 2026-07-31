@@ -461,7 +461,7 @@ function convertPart2(page, answerMap, appTestNumber) {
 
 function convertPart3(page, answerMap, appTestNumber) {
   const base = buildPartBase(page, appTestNumber, answerMap)
-  const html = String(page.passageTextHtml ?? '')
+  const html = String(page.passageTextHtml ?? page.passageHtml ?? '')
   const wordStems = new Map()
   for (const match of html.matchAll(/(\d+)\.\s*([A-Z]+)/g)) {
     wordStems.set(Number(match[1]), match[2])
@@ -538,7 +538,7 @@ function parseTransformationItems(html, sourceQuestions) {
 
 function convertPart4(page, answerMap, appTestNumber) {
   const base = buildPartBase(page, appTestNumber, answerMap)
-  const html = String(page.passageTextHtml || page.entryContentHtml || page.rawHtmlSample || '')
+  const html = String(page.fullHtml ?? '')
   const parsedItems = parseTransformationItems(html, page.questions ?? [])
   const byNumber = new Map(parsedItems.map(item => [item.number, item]))
   const questions = base.questions.map(({ rawQuestion: _q, ...question }) => {

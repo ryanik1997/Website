@@ -148,7 +148,7 @@ const report = {
   missingAnswers: [],
   unknownPages: [],
   emptyPassages: converted.flatMap(item =>
-    item.body.parts.filter(part => !part.passage?.some(block => String(block.text ?? '').trim())).map(part => ({
+    item.body.parts.filter(part => part.partNumber !== 4 && !part.passage?.some(block => String(block.text ?? '').trim())).map(part => ({
       testNumber: item.body.id,
       partNumber: part.partNumber,
     })),

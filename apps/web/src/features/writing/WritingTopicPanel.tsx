@@ -104,10 +104,11 @@ export default function WritingTopicPanel({
   }
 
   return (
-    <div className="writing-topic-card">
-      <span className="writing-type-badge">{badge}</span>
+    <div className={`writing-topic-card${doc.promptImage ? ' has-image' : ''}`}>
+      <div className="writing-media-section">
+        <span className="writing-type-badge">{badge}</span>
 
-      <div className="writing-image-zone">
+        <div className={`writing-image-zone${doc.promptImage ? ' has-image' : ' is-empty'}`}>
         {doc.promptImage ? (
           <>
             <img
@@ -163,11 +164,14 @@ export default function WritingTopicPanel({
             if (f) void handleFile(f)
           }}
         />
+        </div>
       </div>
 
-      {err && (
-        <p className="text-xs" style={{ color: 'var(--wr-danger)', margin: 0 }}>{err}</p>
-      )}
+      <div className="writing-content-section">
+        <div className="writing-content-scroll">
+          {err && (
+            <p className="text-xs" style={{ color: 'var(--wr-danger)', margin: 0 }}>{err}</p>
+          )}
 
       {doc.promptImage && onDescribeChart && (doc.type === 'ielts_task1' || doc.type === 'master') && (
         <div className="wr-chart-ocr">
@@ -225,7 +229,7 @@ export default function WritingTopicPanel({
         </div>
       )}
 
-      <div>
+          <div>
         <div className="flex items-center gap-1.5 mb-1">
           <p className="writing-prompt-label" style={{ margin: 0 }}>Đề bài</p>
           <button
@@ -244,9 +248,10 @@ export default function WritingTopicPanel({
             <p>{body}</p>
           </div>
         )}
-      </div>
+          </div>
+        </div>
 
-      <button
+        <button
         type="button"
         className="writing-guide-btn"
         disabled={guideLoading}
@@ -288,16 +293,17 @@ export default function WritingTopicPanel({
             }}
           />
         </span>
-      </button>
+        </button>
 
-      <WritingGuidePanel
+        <WritingGuidePanel
         guide={guide}
         loading={guideLoading}
         error={guideError}
         open={guideOpen}
         onClose={onCloseGuide}
         onRegenerate={onRegenerateGuide}
-      />
+        />
+      </div>
 
       {lightbox && doc.promptImage && (
         <div className="wr-lightbox-overlay" onClick={closeLightbox}>

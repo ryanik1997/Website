@@ -239,6 +239,8 @@ export default {
   },
 
   part5: {
+    title: "Planting Wildflowers for Wildlife",
+    title: "Planting Wildflowers for Wildlife",
     text: 'Protecting local wildlife requires effort, and residents have discovered that change depends (21) ..... small consistent actions rather than grand gestures. Last spring, a group of neighbours decided to (22) ..... up a patch of wasteland beside the railway and plant wildflowers. At first, the soil was poor and the results were slow, but they (23) ..... on because the council had agreed to let them use the space for three years. By summer, bees and butterflies appeared, (24) ..... surprised even the most optimistic volunteers. A local school adopted the patch, and children helped (25) ..... out which flowers attracted the most insects. The project has since inspired two other streets to create similar spaces, (26) ..... the neighbourhood now looks noticeably greener than it did five years ago.',
     extra: ' The group meets monthly to plan seasonal planting and share seeds. New volunteers are always welcome, and no gardening experience is required.',
     specs: [
@@ -252,6 +254,8 @@ export default {
   },
 
   part6: {
+    title: "A School Recycling Scheme",
+    title: "A School Recycling Scheme",
     text: 'The recycling scheme started with (27) ........ simple idea: each classroom would collect paper separately. A teacher (28) ........ had attended an environmental course suggested the plan, (29) ........ the head teacher agreed to trial it for one term. Bins were placed (30) ........ every corridor, and students took turns emptying them. The scheme showed (31) ........ small changes could make a measurable difference, (32) ........ other schools have since asked for advice.',
     extra: ' The head teacher now includes recycling data in the annual report, and students present the figures to parents during open evenings. This visibility has encouraged families to adopt similar habits at home.',
     tail: ' The scheme will expand to include plastic bottles next term, following a student vote.',

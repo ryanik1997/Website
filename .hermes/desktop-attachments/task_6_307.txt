@@ -1,0 +1,412 @@
+Tiếp tục **Task 5 — PET B1 Reading quality repair**.
+
+## Phạm vi duy nhất của lượt này
+
+Viết lại hoàn chỉnh:
+
+```text
+Test 14 — Part 1, Part 2
+Test 30 — Part 1, Part 2
+Test 51 — Part 1, Part 2
+```
+
+Không sửa Part 3–6.
+
+Không sửa Test 15–29 hoặc 31–50.
+
+Không commit hoặc push.
+
+---
+
+## 1. Tạo blueprint nội dung riêng
+
+Trong generator, tạo nội dung độc lập:
+
+```text
+QUALITY_BLUEPRINTS[14].part1
+QUALITY_BLUEPRINTS[14].part2
+
+QUALITY_BLUEPRINTS[30].part1
+QUALITY_BLUEPRINTS[30].part2
+
+QUALITY_BLUEPRINTS[51].part1
+QUALITY_BLUEPRINTS[51].part2
+```
+
+Có thể dùng tên khác phù hợp code hiện tại.
+
+Nguyên tắc:
+
+```text
+Tái sử dụng renderer/compiler: CÓ
+Tái sử dụng content/template câu chữ: KHÔNG
+```
+
+Không tạo nội dung bằng loop thay:
+
+* tên người;
+* địa điểm;
+* ngày giờ;
+* danh từ;
+* option letters.
+
+---
+
+# 2. Part 1
+
+Mỗi test có:
+
+```text
+5 semantic HTML/CSS text cards
+5 questions
+3 options mỗi câu
+```
+
+Mỗi text:
+
+```text
+25–70 từ
+```
+
+Giữ nguyên:
+
+```text
+renderMode: "html-css"
+IDs
+question numbering
+answer-vault schema
+```
+
+Không có:
+
+```text
+image
+imageUrl
+assetId
+<img>
+```
+
+## Test 14
+
+Dùng 5 ngữ cảnh khác nhau:
+
+```text
+community-centre notice
+message between neighbours
+volunteer email
+library update
+class booking confirmation
+```
+
+## Test 30
+
+Dùng 5 ngữ cảnh khác nhau:
+
+```text
+app notification
+school technology notice
+repair-service message
+online-course email
+equipment instructions
+```
+
+## Test 51
+
+Dùng 5 ngữ cảnh khác nhau:
+
+```text
+transport update
+hostel notice
+eco-tour message
+travel booking email
+visitor-centre announcement
+```
+
+Có thể điều chỉnh tình huống, nhưng ba test phải khác nhau rõ rệt.
+
+## Question skills
+
+Mỗi test phải bao phủ ít nhất 4 kỹ năng:
+
+```text
+required action
+changed arrangement
+purpose
+request
+important condition
+writer intention
+```
+
+Không lặp cùng một question stem.
+
+Không tạo 15 câu hỏi theo mẫu:
+
+```text
+What should the reader do?
+```
+
+## Distractors
+
+Mỗi câu phải có:
+
+* Một đáp án đúng rõ ràng.
+* Hai distractor liên quan trực tiếp tới text.
+* Distractor sai vì một chi tiết cụ thể.
+* Không có option vô lý hoặc khác chủ đề.
+
+---
+
+# 3. Part 2
+
+Mỗi test có:
+
+```text
+5 profiles
+8 options A–H
+5 unique answers
+3 unused distractors
+```
+
+## Độ dài
+
+```text
+Mỗi profile: 25–45 từ
+Mỗi option: 45–75 từ
+```
+
+## Matching domains
+
+### Test 14
+
+```text
+Local clubs, courses and community activities
+```
+
+### Test 30
+
+```text
+Technology workshops, learning tools and repair services
+```
+
+### Test 51
+
+```text
+Trips, outdoor activities and responsible travel
+```
+
+Ba test không được dùng chung domain.
+
+## Điều kiện matching
+
+Mỗi profile phải có ít nhất 3 constraints, ví dụ:
+
+```text
+available time
+experience level
+budget
+location
+equipment
+transport
+group preference
+indoor/outdoor preference
+accessibility
+desired outcome
+```
+
+Option đúng phải thỏa đầy đủ.
+
+Distractor phải thỏa một phần nhưng sai ở ít nhất một điều kiện quan trọng.
+
+Không cho matching bằng một keyword duy nhất.
+
+## Unique answers
+
+Validator phải xác nhận:
+
+```text
+5 correct options khác nhau
+3 unused options
+không profile nào có 2 đáp án ngang nhau
+không correct option nào được dùng hai lần
+```
+
+---
+
+# 4. Bảo toàn media Part 2
+
+Không thay đổi:
+
+```text
+imageSlotId
+assetId
+alt
+media metadata do admin quản lý
+```
+
+Khi regenerate:
+
+* Merge generated text với media hiện tại.
+* Không reset media field.
+* Không đổi stable slot ID.
+* Không tạo duplicate slot.
+
+Chạy lại asset-preservation test.
+
+---
+
+# 5. Validator cho Part 1–2
+
+Mở rộng:
+
+```text
+scripts/reading/validate-pet-b1-reading-quality-samples.mjs
+```
+
+## Part 1 checks
+
+```text
+5 cards
+5 questions
+3 options mỗi câu
+25–70 từ mỗi card
+0 image references
+0 duplicate text
+0 duplicate question stem
+0 repeated opening phrase dài hơn 8 từ
+ít nhất 4 question skills mỗi test
+```
+
+## Part 2 checks
+
+```text
+5 profiles
+8 options
+25–45 từ mỗi profile
+45–75 từ mỗi option
+5 unique answers
+3 unused distractors
+0 duplicate profile
+0 duplicate option
+0 repeated opening phrase dài hơn 8 từ
+```
+
+## Cross-test similarity
+
+So sánh Test 14, 30, 51 sau khi loại bỏ:
+
+```text
+IDs
+test numbers
+option letters
+person names
+place names
+```
+
+Nếu content vẫn gần giống nhau, validator phải FAIL.
+
+Không dùng AI, embedding hoặc API.
+
+---
+
+# 6. Tạo review file riêng cho Part 1–2
+
+Tạo:
+
+```text
+tmp/pet-b1-reading-part12-quality-review.md
+```
+
+File phải chứa learner-facing content của:
+
+```text
+Test 14 Part 1
+Test 14 Part 2
+Test 30 Part 1
+Test 30 Part 2
+Test 51 Part 1
+Test 51 Part 2
+```
+
+Hiển thị:
+
+* Text cards.
+* Profiles.
+* Options.
+* Questions.
+* Answer choices.
+
+Cuối mỗi part thêm riêng:
+
+```text
+Reviewer answer key
+Evidence
+Why distractors are wrong
+```
+
+Không đặt đáp án ngay cạnh câu hỏi.
+
+---
+
+# 7. Validation bắt buộc
+
+Chạy:
+
+```text
+Targeted generation Test 14, 30, 51
+Part 1–2 quality validator
+Structural validator
+Runtime catalog validator
+Answer-vault consistency
+Asset-preservation test
+Targeted Vitest
+TypeScript
+Idempotency
+git diff --check
+```
+
+Expected:
+
+```text
+Part 1 quality: PASS
+Part 2 quality: PASS
+Cross-test similarity: PASS
+Asset preservation: PASS
+Structural validation: PASS
+TypeScript: PASS
+Idempotency: PASS
+```
+
+Quality audit tổng vẫn có thể FAIL vì Part 4–6 chưa hoàn tất.
+
+Không sửa validator để che lỗi Part 4–6.
+
+---
+
+# 8. Báo cáo cuối
+
+```text
+Part 1 blueprints added:
+Part 2 blueprints added:
+Tests rewritten:
+Part 1 word counts:
+Part 1 question skills:
+Part 2 profile word counts:
+Part 2 option word counts:
+Part 2 matching domains:
+Part 2 unique matching:
+Cross-test highest similarity:
+Asset preservation:
+Structural validation:
+Targeted tests:
+TypeScript:
+Idempotency:
+git diff --check:
+Review file:
+Remaining Task 5 failures:
+```
+
+Không báo Task 5 hoàn tất.
+
+Không commit hoặc push.
+
+Dừng sau khi Part 1 và Part 2 của ba test mẫu PASS.

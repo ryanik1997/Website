@@ -1,0 +1,266 @@
+{
+  "45": {
+    "domain": "weekend workshops and practical skills",
+    "options": [
+      {
+        "key": "option-a",
+        "title": "Beginner bird box workshop",
+        "description": "A Saturday morning workshop where beginners build a wooden bird box to take home. All tools, screws and pre-cut panels are provided, and a tutor demonstrates each step. The group is limited to ten people, so book early. Participants only need to bring a pair of gloves.",
+        "openingStyle": "activity-led",
+        "constraints": ["all tools supplied", "small group of ten", "beginners welcome", "take home a finished box", "book in advance"]
+      },
+      {
+        "key": "option-b",
+        "title": "Evening clothes mending club",
+        "description": "A relaxed evening club where members repair their own clothes instead of throwing them away. An experienced seamstress is always available to explain stitches and give advice. You bring a garment that needs mending; the club supplies thread, needles and spare buttons. Tea and biscuits are free.",
+        "openingStyle": "audience-led",
+        "constraints": ["evening sessions", "bring your own garment", "thread and needles provided", "expert on hand", "free refreshments"]
+      },
+      {
+        "key": "option-c",
+        "title": "Budget home plumbing basics",
+        "description": "A low-cost Sunday course that teaches simple plumbing repairs you can manage at home, such as replacing a tap washer or unblocking a sink. A plumber guides small groups through each job. The fee is small and includes a printed guide to take away. No previous experience is necessary.",
+        "openingStyle": "feature-led",
+        "constraints": ["low-cost", "Sunday only", "small guided groups", "takeaway guide", "no experience needed"]
+      },
+      {
+        "key": "option-d",
+        "title": "Quiet plant potting bench",
+        "description": "A calm workshop held in a glasshouse at the edge of town, where participants pot seedlings for the community garden. Each person works at their own bench and at their own pace, with a gardener checking progress. Music is kept low, and the room stays peaceful even when full.",
+        "openingStyle": "location-led",
+        "constraints": ["quiet setting", "individual benches", "work at own pace", "outer town location", "gardener supervision"]
+      },
+      {
+        "key": "option-e",
+        "title": "Family banner painting day",
+        "description": "An outdoor workshop for families where children and adults paint a large banner together for the town summer fair. Paints, brushes and aprons are supplied, and the activity only runs when the weather stays dry. Parents must stay with children under twelve throughout the morning.",
+        "openingStyle": "condition-led",
+        "constraints": ["outdoor", "family activity", "weather dependent", "parents must accompany children", "materials supplied"]
+      },
+      {
+        "key": "option-f",
+        "title": "Bicycle puncture repair hour",
+        "description": "A short lunchtime session that teaches you to fix a puncture so you can carry your own repair kit. Each participant brings a bicycle wheel and completes a full repair under supervision. You leave with a patch kit and the confidence to help a friend on the road.",
+        "openingStyle": "outcome-led",
+        "constraints": ["lunchtime only", "bring a wheel", "practical outcome", "take home a patch kit", "beginner friendly"]
+      },
+      {
+        "key": "option-g",
+        "title": "Introduction to woodcarving",
+        "description": "A two-day introduction to woodcarving for people who already enjoy crafts and want a new challenge. Tools and seasoned wood are provided, and a skilled carver works alongside every participant. Places are limited to six so that each person receives individual attention throughout both days.",
+        "openingStyle": "need-led",
+        "constraints": ["two-day commitment", "limited to six people", "tools provided", "individual tuition", "for existing craft lovers"]
+      },
+      {
+        "key": "option-h",
+        "title": "Weekend furniture upcycling",
+        "description": "An invitation to join a weekend group that turns second-hand furniture into useful pieces. A carpenter explains sanding, painting and new handles, while members decide on simple projects for the community room. Everyone is welcome, but you must book a place at least a week in advance.",
+        "openingStyle": "invitation-led",
+        "constraints": ["weekend commitment", "community projects", "carpenter guidance", "book one week ahead", "all welcome"]
+      }
+    ],
+    "profiles": [
+      {
+        "key": "profile-1",
+        "text": "Nina has an old jacket with a torn sleeve that she cannot bear to throw away. She is free only on weekday evenings and would like an expert to show her how to mend it properly while she works.",
+        "correctOptionKey": "option-b"
+      },
+      {
+        "key": "profile-2",
+        "text": "Marco and his two young children want a shared outdoor activity where they can paint together. He needs the session to depend on fine weather, and he is happy to stay with the children for the whole activity.",
+        "correctOptionKey": "option-e"
+      },
+      {
+        "key": "profile-3",
+        "text": "Priya finds busy classes stressful and wants to learn a new practical skill somewhere calm. She has no experience, would like individual benches, and prefers a venue away from the noisy town centre where she can work at her own speed.",
+        "correctOptionKey": "option-d"
+      },
+      {
+        "key": "profile-4",
+        "text": "Jonah cycles to work every day and wants a practical skill he can use immediately on his own bike. He can only attend during his short lunch break and hopes to finish with a repair kit he can carry in his bag.",
+        "correctOptionKey": "option-f"
+      },
+      {
+        "key": "profile-5",
+        "text": "Alina has been doing crafts for years and now wants a more demanding skill that needs care and practice. She can give up a whole weekend and wants close personal coaching in a very small group with tools included.",
+        "correctOptionKey": "option-g"
+      }
+    ]
+  },
+  "46": {
+    "domain": "community gardens",
+    "options": [
+      {
+        "key": "option-a",
+        "title": "Morning plot digging party",
+        "description": "A Saturday morning gathering where new volunteers help prepare the shared vegetable plots for spring planting. Spades, forks and compost are all provided, and experienced members explain each job as you go. Wear sturdy shoes and bring a water bottle. The work finishes by noon.",
+        "openingStyle": "activity-led",
+        "constraints": ["morning only", "tools and compost supplied", "beginner volunteers welcome", "outdoor work", "sturdy shoes"]
+      },
+      {
+        "key": "option-b",
+        "title": "Evening plant swap gathering",
+        "description": "A friendly evening event where gardeners bring spare seedlings and cuttings to exchange with neighbours. No money changes hands, and a table is set for beginners to ask questions. Plants without labels are welcome if the owner can name them. Hot drinks are served until closing.",
+        "openingStyle": "audience-led",
+        "constraints": ["evening event", "bring plants to swap", "free of charge", "beginner questions welcome", "hot drinks"]
+      },
+      {
+        "key": "option-c",
+        "title": "Rooftop herb growing course",
+        "description": "A practical course held on a sunny rooftop where participants plant basil, mint and parsley in window boxes to keep at home. Pots, soil and seeds are included in the small fee, and a horticulturist demonstrates watering and picking. The course lasts two weekday evenings.",
+        "openingStyle": "location-led",
+        "constraints": ["rooftop venue", "take home a window box", "small fee", "two weekday evenings", "all materials included"]
+      },
+      {
+        "key": "option-d",
+        "title": "Quiet flower arranging bench",
+        "description": "A peaceful afternoon session for anyone who wants to slow down and arrange flowers from the garden. Each person receives a private workspace, scissors and a vase, and may spend as long as they like. A florist stays nearby to offer gentle help when requested.",
+        "openingStyle": "need-led",
+        "constraints": ["calm setting", "private workspace", "afternoon only", "materials provided", "help on request"]
+      },
+      {
+        "key": "option-e",
+        "title": "Community orchard planting day",
+        "description": "A one-day event where volunteers plant fruit trees in the community orchard and learn how to support them. The orchard team supplies saplings, stakes and mulch, and a head gardener explains planting depth. Each participant leaves with a tree-guard kit and a map of the new orchard.",
+        "openingStyle": "outcome-led",
+        "constraints": ["one-day event", "planting fruit trees", "equipment supplied", "take home a tree-guard kit", "outdoor"]
+      },
+      {
+        "key": "option-f",
+        "title": "Family bug hotel workshop",
+        "description": "An outdoor family workshop where children and grown-ups build wooden bug hotels for the garden. All materials are provided, and the activity goes ahead only if the forecast is dry. Children must stay with an adult, and each family completes one hotel to take home and hang.",
+        "openingStyle": "condition-led",
+        "constraints": ["family activity", "weather dependent", "materials supplied", "adult supervision", "take home a bug hotel"]
+      },
+      {
+        "key": "option-g",
+        "title": "Beginner allotment course",
+        "description": "A six-week beginners course at the allotment site covering soil, planting and watering. Each learner is given a small starter plot, basic tools and seeds for the season. The course is very affordable and repeats every term, so missed sessions can be made up later.",
+        "openingStyle": "feature-led",
+        "constraints": ["six-week course", "starter plot included", "very affordable", "beginners only", "catch-up sessions"]
+      },
+      {
+        "key": "option-h",
+        "title": "Night gardener social circle",
+        "description": "Everyone is invited to join a relaxed circle that meets on summer evenings to water, weed and chat among the raised beds. Members take turns choosing a task, and beginners are paired with friendly regulars. Torches and watering cans are stored on site, so no one carries heavy equipment home.",
+        "openingStyle": "invitation-led",
+        "constraints": ["summer evenings", "beginner pairing", "tasks shared", "equipment stored on site", "relaxed pace"]
+      }
+    ],
+    "profiles": [
+      {
+        "key": "profile-1",
+        "text": "Tomas has two small children who love bugs and building things. He wants an outdoor family activity for the weekend that is cancelled if it rains, where everyone stays together and the family finishes with something to hang in their own garden.",
+        "correctOptionKey": "option-f"
+      },
+      {
+        "key": "profile-2",
+        "text": "Ingrid works a demanding office job and wants a slow, calming gardening activity after lunch. She prefers to work alone at her own table without being rushed, and she would like materials such as scissors and a vase provided for her.",
+        "correctOptionKey": "option-d"
+      },
+      {
+        "key": "profile-3",
+        "text": "Omar has just joined the community garden and wants to help prepare the shared vegetable plots for spring. He is free only on Saturday mornings, has no tools of his own and would like experienced members to explain each job as he works.",
+        "correctOptionKey": "option-a"
+      },
+      {
+        "key": "profile-4",
+        "text": "Hana is a complete beginner who wants to learn gardening properly over several weeks rather than in one session. She can afford only a small fee, and she needs the course to give her a plot of her own and basic tools to practise with.",
+        "correctOptionKey": "option-g"
+      },
+      {
+        "key": "profile-5",
+        "text": "Petra lives in a flat with no garden but has a sunny balcony. She wants to grow herbs at home and can attend two evenings a week, and she would like pots, soil and seeds included so she does not have to buy anything extra.",
+        "correctOptionKey": "option-c"
+      }
+    ]
+  },
+  "47": {
+    "domain": "repair cafés",
+    "options": [
+      {
+        "key": "option-a",
+        "title": "Kettle and toaster fix morning",
+        "description": "A Saturday morning clinic where volunteers bring small household appliances that no longer work. Trained electricians test each item with you and guide simple repairs such as loose wires or worn switches. Screwdrivers, meters and spare parts are available on the benches. Repairs are free of charge.",
+        "openingStyle": "activity-led",
+        "constraints": ["small appliances only", "morning clinic", "expert guidance", "tools and parts available", "free of charge"]
+      },
+      {
+        "key": "option-b",
+        "title": "Evening bicycle service bench",
+        "description": "An evening bench where you bring your bicycle and service it with help from a mechanic. You learn to adjust brakes, oil the chain and inflate tyres correctly. The mechanic checks your work at the end, and you leave with a checklist for future care of the bike.",
+        "openingStyle": "outcome-led",
+        "constraints": ["evening sessions", "bring your own bicycle", "mechanic supervision", "learn basic maintenance", "take home a checklist"]
+      },
+      {
+        "key": "option-c",
+        "title": "Repair cafe starter volunteer shift",
+        "description": "A half-day shift for new volunteers who want to help at a repair café without knowing how to fix things. You greet visitors, take notes on broken items and keep tools tidy, while experienced repairers answer technical questions. Shifts run every Saturday afternoon and a mentor stays with you.",
+        "openingStyle": "feature-led",
+        "constraints": ["no repair experience needed", "Saturday afternoons", "mentor support", "half-day commitment", "front desk tasks"]
+      },
+      {
+        "key": "option-d",
+        "title": "Quiet soldering practice table",
+        "description": "A calm corner of the repair café reserved for people who prefer to practise quietly. Each person gets a soldering iron, board and small kit to reassemble, and may work alone until they ask for help. A technician checks every finished board. Earplugs are available at the door.",
+        "openingStyle": "need-led",
+        "constraints": ["quiet environment", "soldering practice", "work alone", "materials provided", "technician checks work"]
+      },
+      {
+        "key": "option-e",
+        "title": "Family toy rescue afternoon",
+        "description": "An afternoon when families bring broken toys and work together to give them a second life. Glue, paint and small replacement wheels are supplied, and helpers show children how to use each tool safely. The session runs only on dry afternoons and finishes before early evening.",
+        "openingStyle": "condition-led",
+        "constraints": ["family activity", "afternoon session", "materials supplied", "safe tool use", "dry weather only"]
+      },
+      {
+        "key": "option-f",
+        "title": "Zips and buttons masterclass",
+        "description": "A focused session for people who already sew a little and struggle with zips, buttons and hems. A tailor demonstrates each fastening on a full-size model, and every participant repairs a garment they have brought. The class is limited to eight so that questions are answered at once.",
+        "openingStyle": "audience-led",
+        "constraints": ["existing sewing skill", "limited to eight", "bring a garment", "tailor led", "garment fastenings"]
+      },
+      {
+        "key": "option-g",
+        "title": "Secondhand furniture fixing day",
+        "description": "A workshop in the café's basement workshop where volunteers restore donated furniture for families in need. Sanding, glueing and replacing handles are the main jobs, and woodworking tools are shared at each bench. The day lasts from morning until late afternoon with a shared lunch.",
+        "openingStyle": "location-led",
+        "constraints": ["basement workshop", "all-day commitment", "furniture restoration", "shared tools", "free lunch"]
+      },
+      {
+        "key": "option-h",
+        "title": "One hour taster session",
+        "description": "An invitation to spend one hour trying any repair task you like with no booking and no pressure. Coaches stand by to suggest easy first jobs such as tap washers, lamp plugs or curtain rails. Tools and refreshments are included, and you are welcome to bring one small item from home.",
+        "openingStyle": "invitation-led",
+        "constraints": ["no booking needed", "one hour only", "easy first jobs", "tools and refreshments included", "bring one small item"]
+      }
+    ],
+    "profiles": [
+      {
+        "key": "profile-1",
+        "text": "Lena has a broken kettle and a lamp with a worn switch. She is free on Saturday mornings and has never opened an appliance before, so she wants a trained electrician to guide her through testing and fixing both items free of charge.",
+        "correctOptionKey": "option-a"
+      },
+      {
+        "key": "profile-2",
+        "text": "Daniel wants to volunteer at a repair café but cannot fix anything yet. He is available on Saturday afternoons, prefers helping at the desk rather than using tools, and would like an experienced mentor to stay with him during his first shifts.",
+        "correctOptionKey": "option-c"
+      },
+      {
+        "key": "profile-3",
+        "text": "Chloe commutes by bicycle and wants to learn to maintain it herself. She works every weekday and is only free in the evenings, and she would like a mechanic to check her work so she leaves confident she has done each task correctly.",
+        "correctOptionKey": "option-b"
+      },
+      {
+        "key": "profile-4",
+        "text": "Ravi is shy in busy groups and wants to repair small electronics without people around him. He would like to work on his own kit at his own pace until he asks for help, and he needs someone to check the finished result.",
+        "correctOptionKey": "option-d"
+      },
+      {
+        "key": "profile-5",
+        "text": "Elena sews her own clothes and wants to improve her skills with zips and buttons, which often frustrate her. She can bring a jacket that needs a new zip, and she wants close attention from a tailor in a small class.",
+        "correctOptionKey": "option-f"
+      }
+    ]
+  }
+}

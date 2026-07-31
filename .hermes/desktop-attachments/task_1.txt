@@ -1,0 +1,869 @@
+NHIỆM VỤ: RESUME VÀ FINALIZE PET B1 BATCH 5 — TESTS 36–40
+
+## Baseline đã chốt
+
+Checkpoint Batch 4:
+
+Commit:
+25e253161b50291a0ea0a9f0db7b2d2ca7ac5021
+
+Message:
+fix(reading): finalize PET B1 tests 31-35 backfill
+
+Push:
+NOT PUSHED
+
+Branch hiện ahead 4 commits.
+
+Batch 4 Tests 31–35 đã final và không được sửa lại.
+
+## Phạm vi batch chính xác
+
+Batch 5 chỉ gồm:
+
+- Test 36
+- Test 37
+- Test 38
+- Test 39
+- Test 40
+
+Không mở rộng sang Test 41–51.
+
+Các batch sau:
+
+- Batch 6: Test 41–45
+- Batch 7: Test 46–50
+- Test 51: golden sample
+
+Không commit hoặc push trong lượt này.
+
+---
+
+# 1. Bảo vệ workspace hiện tại
+
+Working tree đang có nhiều thay đổi ngoài scope:
+
+- Test 14 assetId change
+- Test 20–30 previous work
+- Test 36–40 Batch 5
+- FCE B2
+- KET A2
+- Writing redesign
+- Theme work
+- `.claude`
+- `CLAUDE.md`
+- `launch.json`
+
+Không dùng:
+
+git add .
+git checkout .
+git reset --hard
+git clean -fd
+
+Không được làm mất thay đổi của task khác.
+
+Trước khi sửa chạy:
+
+git rev-parse --show-toplevel
+git status --short
+git diff --name-only
+git diff --stat
+
+Repository root phải là:
+
+D:\App-English-Ryan\Website
+
+Tạo danh sách scope allowlist cho Batch 5.
+
+---
+
+# 2. Snapshot bảo vệ ngoài phạm vi
+
+Trước khi sửa, snapshot/hash:
+
+- Test 31–35 blueprints/package/public/answers
+- Test 41–51 blueprints/package/public/answers
+- Test 14
+- Test 20–30
+- Part 2 media fields của Test 36–40
+- IDs và question counts Test 36–40
+
+Sau task xác nhận:
+
+- Test 31–35 byte hoặc semantic unchanged
+- Test 41–51 unchanged
+- Test 14 assetId change không bị ghi đè
+- Test 20–30 không bị ghi đè
+- FCE/KET/Listening/Writing/Theme không bị chạm
+
+---
+
+# 3. Hiện trạng Batch 5
+
+Canonical blueprints đã tồn tại:
+
+scripts/reading/pet-b1/blueprints/test-36.mjs
+scripts/reading/pet-b1/blueprints/test-37.mjs
+scripts/reading/pet-b1/blueprints/test-38.mjs
+scripts/reading/pet-b1/blueprints/test-39.mjs
+scripts/reading/pet-b1/blueprints/test-40.mjs
+
+Generator đã wire và đã tạo:
+
+- 5 tests
+- 30 parts
+- 160 questions
+
+Các targeted checks trước đây PASS:
+
+- package/public generation
+- runtime catalog validator
+- structural validator
+- package/public parity
+- TypeScript
+- strict word validator
+- git diff --check
+
+Blockers còn lại:
+
+1. Shared openings/scaffold giữa Parts 3–6.
+2. Passage lengths bám sát minimum:
+   - Part 4 khoảng 301–303
+   - Part 5 khoảng 180–181
+   - Part 6 khoảng 160–163
+3. Manual browser smoke Test 36/40 chưa hoàn tất.
+
+Không báo PASS nếu chỉ structure/runtime đạt.
+
+---
+
+# 4. Discovery similarity trước khi sửa
+
+Chạy similarity audit trên snapshot hiện tại.
+
+Mỗi finding phải in:
+
+- Test A
+- Part A
+- Text A
+- Test B
+- Part B
+- Text B
+- Repeated fragment
+- Normalized overlap
+- Similarity score
+- Rule triggered
+
+Phân loại:
+
+- repeated opening
+- repeated closing
+- repeated clause
+- shared paragraph skeleton
+- shared discourse sequence
+- near-duplicate prose
+- same Part 5 target sequence
+- same Part 6 grammar sequence
+- same Part 4 cohesion sequence
+
+Không chỉ ghi:
+
+shared scaffold detected
+
+Validator mới phải FAIL dữ liệu cũ trước khi rewrite.
+
+---
+
+# 5. Content architecture riêng cho từng test
+
+Tạo matrix:
+
+Test | Part 3 text type | Part 4 structure | Part 5 text type | Part 6 text type | Opening type | Closing type
+
+Năm test phải khác nhau rõ ràng.
+
+Ví dụ cấu trúc hợp lệ:
+
+## Test 36
+
+- Part 3: explanatory feature
+- Part 4: personal problem and adjustment
+- Part 5: factual local report
+- Part 6: practical email
+
+## Test 37
+
+- Part 3: interview/profile
+- Part 4: chronological event account
+- Part 5: advice article
+- Part 6: public announcement
+
+## Test 38
+
+- Part 3: opinion feature
+- Part 4: process explanation
+- Part 5: short news story
+- Part 6: travel blog
+
+## Test 39
+
+- Part 3: biography/profile
+- Part 4: comparison of approaches
+- Part 5: reflective account
+- Part 6: information page
+
+## Test 40
+
+- Part 3: experience report
+- Part 4: community project development
+- Part 5: event review
+- Part 6: informal message
+
+Không bắt buộc dùng đúng ví dụ trên, nhưng không được để cả năm test cùng skeleton.
+
+---
+
+# 6. Part 1 và Part 2
+
+Không rewrite nếu đã đúng.
+
+Chỉ chạy regression.
+
+## Part 1
+
+Xác nhận:
+
+- 5 questions
+- 3 options/question
+- cards đúng semantic HTML
+- không broken layout
+- answers đúng
+
+## Part 2
+
+Xác nhận:
+
+- 5 profiles
+- 8 options
+- canonical titles/descriptions
+- không shared scaffold
+- full-card drag/drop
+- move/reassign/remove
+- unique assignment
+- navigation persistence
+- spacing giữa option cards
+- stable imageSlotId
+- asset preservation
+
+Không sửa Part 2 content/UI trừ khi regression thật sự được chứng minh.
+
+---
+
+# 7. Part 3 — sửa shared scaffold
+
+Mỗi Test 36–40:
+
+- 325–365 learner-facing words
+- hard range 300–380
+- ít nhất 4 paragraphs
+- ít nhất 12 sentences
+- 5 questions
+- 4 options/question
+- ít nhất 4 reading skills
+
+Skills:
+
+- main idea
+- detail
+- reason
+- attitude
+- inference
+- purpose
+- reference
+
+Không có hai test cùng:
+
+- opening structure
+- paragraph progression
+- final reflection
+- question-skill order hoàn toàn giống nhau
+
+Mỗi question cần:
+
+- correctOptionKey
+- evidence
+- why correct
+- why each distractor fails
+
+Nếu passage thay đổi evidence, phải cập nhật rationale và answer semantics.
+
+---
+
+# 8. Part 4 — tăng độ dài tự nhiên và bỏ scaffold
+
+## Length
+
+Hard accepted range:
+
+- 300–360 words
+
+Preferred Batch 5 range:
+
+- 320–345 words
+
+Không để toàn bộ test nằm sát 300.
+
+Target variation ví dụ:
+
+- Test 36: 322–328
+- Test 37: 330–336
+- Test 38: 338–344
+- Test 39: 324–332
+- Test 40: 334–342
+
+Không cần đúng chính xác các khoảng trên, nhưng counts phải có variation tự nhiên.
+
+## Structure
+
+Mỗi test:
+
+- đúng 5 paragraphs
+- mỗi paragraph đúng 1 gap
+- Q16 → Q20 theo reading order
+- 8 sentence options
+- 5 correct
+- 3 distractors
+- ít nhất 14 sentences
+- mỗi paragraph khoảng 55–75 words
+- ít nhất 35 words trước Q16
+- ít nhất 35 words giữa gaps
+- ít nhất 35 words sau Q20
+
+## Semantic mapping
+
+Mỗi option:
+
+{
+  key,
+  correctForGap,
+  text
+}
+
+Flow:
+
+semantic key
+→ deterministic shuffle
+→ displayed A–H
+→ answer vault
+
+Không derive answer từ array index.
+
+## Structure diversity
+
+Không để cả năm passage dùng:
+
+background
+problem
+attempt
+difficulty
+success
+
+Ít nhất:
+
+- một narrative
+- một process/explanatory
+- một comparison
+- một event account
+- một project-development structure
+
+## Cohesion diversity
+
+Correct sentences phải kiểm tra các dạng khác nhau:
+
+- pronoun reference
+- chronology
+- contrast
+- cause/effect
+- lexical cohesion
+- consequence
+- change of plan
+- paragraph development
+
+Distractors phải plausible và cùng domain.
+
+---
+
+# 9. Part 5 — không bám minimum
+
+## Length
+
+Hard range:
+
+- 180–220 words
+
+Preferred:
+
+- 190–210 words
+
+Target counts phải khác nhau tự nhiên.
+
+Không để toàn bộ nằm 180–181.
+
+## Contract
+
+Mỗi test:
+
+- structured text/gap segments
+- đúng Q21–Q26
+- 6 question objects
+- 4 options A–D/question
+- ít nhất 8 sentences
+- ít nhất 4 language-target categories
+- gaps phân bố xuyên passage
+- ít nhất 20 words sau Q26
+
+Language targets:
+
+- collocation
+- phrasal verb
+- dependent preposition
+- linking word
+- fixed expression
+- verb choice
+- adjective/adverb
+- noun choice
+- meaning distinction
+- context-sensitive grammar
+
+Không để năm test cùng target sequence.
+
+Mỗi gap có reviewer metadata:
+
+- languageTarget
+- correctOptionKey
+- why correct
+- why each distractor fails
+
+---
+
+# 10. Part 6 — không bám minimum
+
+## Length
+
+Hard range:
+
+- 160–200 words
+
+Preferred:
+
+- 172–192 words
+
+Không để toàn bộ nằm 160–163.
+
+## Contract
+
+Mỗi test:
+
+- structured segments
+- đúng Q27–Q32
+- no options
+- mỗi answer đúng 1 lowercase word
+- ít nhất 7 sentences
+- ít nhất 5 grammar categories
+- không category nào quá 2 lần
+- ít nhất 20 words sau Q32
+
+Grammar categories:
+
+- article
+- preposition
+- auxiliary
+- pronoun
+- relative word
+- conjunction
+- determiner
+- quantifier
+- linking word
+- fixed grammatical expression
+
+Không dùng cùng grammar sequence giữa các test.
+
+Không có alternative answer phổ biến.
+
+---
+
+# 11. Không padding
+
+Cấm:
+
+- QUALITY_PADDING
+- generic suffix
+- shared conclusion
+- filler paragraph
+- repeated idea
+- loop-generated prose
+- copy passage rồi đổi domain noun
+- synonym swapping để qua similarity
+- thêm adjective/adverb chỉ để tăng count
+
+Mọi nội dung bổ sung phải thêm:
+
+- context
+- supporting detail
+- evidence
+- consequence
+- example
+- transition
+- result
+
+---
+
+# 12. Opening và closing diversity
+
+## Openings
+
+Không có hai passages Parts 3–6 cùng:
+
+- first 5 normalized tokens
+- sentence skeleton
+- discourse opening
+
+Không để lạm dụng:
+
+- Last year...
+- When I first...
+- Many people...
+- A local...
+- The project began...
+
+## Closings
+
+Không có hai passages cùng:
+
+- final 8 normalized tokens
+- generic lesson learned
+- everyone was pleased
+- worthwhile experience
+- hope to do it again
+
+Dùng variation:
+
+- measured result
+- practical recommendation
+- changed opinion
+- future plan
+- factual consequence
+- open question
+- contrast with opening
+
+---
+
+# 13. Similarity acceptance
+
+So sánh Test 36–40 với:
+
+- Test 01
+- Test 13
+- Test 14–35
+- Test 41–51
+- lẫn nhau
+
+FAIL khi:
+
+- exact repeated sentence >10 words
+- repeated clause >8 words
+- same opening 5 normalized tokens
+- same closing 8 normalized tokens
+- shared paragraph skeleton
+- near-duplicate vượt threshold
+- same Part 5 target sequence
+- same Part 6 grammar sequence
+- same Part 4 cohesion sequence
+
+Report 20 similarity pairs cao nhất.
+
+Mỗi pair phải có text thật và reviewer decision.
+
+Không hạ threshold để tạo PASS.
+
+---
+
+# 14. Package/public parity
+
+Sau generation Test 36–40:
+
+So sánh:
+
+packages/catalog/data
+
+với:
+
+apps/web/public/catalog/exams/reading
+
+Kiểm tra:
+
+- passage hash
+- learner-facing word counts
+- question counts
+- answer vault
+- Part 4 option order
+- Part 5 options
+- Part 6 answers
+- Part 2 title/description/media
+
+Nếu package PASS nhưng public runtime khác:
+
+Task FAIL.
+
+---
+
+# 15. Review artifacts
+
+Cập nhật:
+
+tmp/pet-b1-reading-quality-batch-36-40-audit.json
+tmp/pet-b1-reading-quality-batch-36-40-audit.md
+tmp/pet-b1-reading-quality-batch-36-40-review.md
+
+Review file phải chứa learner-facing Part 1–6.
+
+Với Parts 3–6 ghi:
+
+- word count
+- paragraph count
+- sentence count
+- structure type
+- opening type
+- closing type
+- gap distribution
+- skills/targets
+- answer key
+- rationale section riêng
+- nearest similar passage
+- similarity score
+
+Không đặt đáp án ngay cạnh learner-facing question.
+
+---
+
+# 16. Automated validation
+
+Chạy:
+
+- targeted generation Test 36–40
+- strict word-count validator
+- similarity validator
+- old-snapshot similarity failure check
+- package/public parity
+- runtime catalog validator
+- structural validator
+- answer-vault consistency
+- Part 2 regression tests
+- Part 2 DnD tests
+- Part 4 layout validator
+- Part 4 distribution validator
+- Part 4 semantic mapping tests
+- Part 5 contract tests
+- Part 6 contract tests
+- asset preservation
+- targeted PET Vitest
+- TypeScript
+- idempotency Test 36–40
+- outside-range preservation
+- git diff --check
+
+Không chạy full:
+
+pnpm run test
+pnpm run build
+
+Global blockers đã được ghi nhận.
+
+---
+
+# 17. Manual browser smoke
+
+Kiểm tra bắt buộc:
+
+- Test 36
+- Test 40
+
+Khuyến nghị thêm test có highest similarity trước rewrite.
+
+## Part 1
+
+- cards/options render đúng
+- selection/persistence
+
+## Part 2
+
+- full-card drag/drop
+- option spacing
+- move/reassign/remove
+- unique assignment
+- persistence
+
+## Part 3
+
+- passage đủ dài
+- 5 questions
+- options hoạt động
+- không thấy shared opening/scaffold
+
+## Part 4
+
+- 5 balanced paragraphs
+- 1 gap/paragraph
+- passage 320–345 preferred
+- shuffled options
+- drag/drop
+- answer checking đúng
+
+## Part 5
+
+- passage 190–210 preferred
+- Q21–Q26
+- 4 options/gap
+- selection/persistence
+
+## Part 6
+
+- passage 172–192 preferred
+- Q27–Q32
+- no options
+- input/persistence
+
+Đo DOM words Parts 3–6.
+
+DOM/public validator lệch tối đa:
+
+±2 words
+
+Viewport:
+
+- 1440×900
+- 1024×768
+- 768×1024
+
+Console:
+
+0 JavaScript errors.
+
+---
+
+# 18. Outside-range guard
+
+Sau task chạy:
+
+git diff --name-only
+
+Batch 5 product diff chỉ được chạm:
+
+- Test 36–40 blueprints
+- Test 36–40 package JSON
+- Test 36–40 public JSON
+- Test 36–40 answer vault
+- content matrix nếu cần
+- Batch 5 validators/tests/audits
+- session summary nếu cập nhật
+
+Không được chạm hoặc overwrite:
+
+- Test 14
+- Test 20–35
+- Test 41–51
+- theme
+- FCE/KET
+- Listening/Writing
+- unrelated working-tree files
+
+Do workspace vốn đã dirty, phải dùng baseline snapshot/path classification; không được coi mọi dirty file là do task này.
+
+---
+
+# 19. Acceptance criteria
+
+Chỉ PASS khi:
+
+[ ] Tests 36–40 canonical blueprints hoàn chỉnh
+[ ] Parts 1–2 không regression
+[ ] Part 3 đạt 325–365 preferred
+[ ] Part 4 đạt 300–360, phần lớn 320–345
+[ ] Part 4 có 5 balanced paragraphs
+[ ] Part 4 semantic mapping đúng
+[ ] Part 5 đạt 180–220, phần lớn 190–210
+[ ] Part 6 đạt 160–200, phần lớn 172–192
+
+[ ] Shared openings = 0
+[ ] Shared closings = 0
+[ ] Repeated clauses >8 words = 0
+[ ] Shared scaffold = 0
+[ ] Near-duplicate vượt threshold = 0
+
+[ ] Part 5 target sequences đa dạng
+[ ] Part 6 grammar sequences đa dạng
+[ ] Package/public parity PASS
+[ ] DOM parity PASS
+[ ] Manual Test 36 PASS
+[ ] Manual Test 40 PASS
+[ ] Outside-range preserved
+[ ] TypeScript PASS
+[ ] Idempotency PASS
+[ ] git diff --check PASS
+
+---
+
+# 20. Báo cáo cuối
+
+Baseline commit:
+25e253161b50291a0ea0a9f0db7b2d2ca7ac5021
+
+Batch:
+Tests completed:
+
+Old similarity findings:
+New similarity findings:
+Repeated openings:
+Repeated closings:
+Repeated clauses:
+Top similarity pairs:
+
+Final counts:
+
+Test | Part 3 | Part 4 | Part 5 | Part 6
+
+Structures:
+
+Test 36:
+Test 37:
+Test 38:
+Test 39:
+Test 40:
+
+Part 4 mappings:
+Part 5 target sequences:
+Part 6 grammar sequences:
+
+Package/public parity:
+DOM parity:
+Asset preservation:
+
+Manual Test 36:
+Manual Test 40:
+
+Outside-range changed by this task:
+Pre-existing dirty files preserved:
+
+Runtime validator:
+Structural:
+Targeted tests:
+TypeScript:
+Idempotency:
+git diff --check:
+
+Files changed:
+Remaining issues:
+Ready to checkpoint Batch 5:
+
+Không commit hoặc push.

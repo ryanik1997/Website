@@ -183,6 +183,8 @@ export default {
   },
 
   part5: {
+    title: "A Low-Waste Trip to the Coast",
+    title: "A Low-Waste Trip to the Coast",
     text: 'Our coastal trip changed when a storm closed the cliff path. At first we wanted to wait, but a local guide suggested a bus to a small museum inland. The museum showed how families had travelled before the new road was built, and we helped prepare a display for visitors. Later, the rain stopped and we took the bus to a quiet beach. There were few people there, while cars waited in a long queue at the famous viewpoint. We had planned to see more sights, yet the slower day made us notice how much travel depends on local advice. Since then, we have carried reusable containers, used public transport when possible and left space in our plans for places that are not in every guidebook.',
     extra: ' We now choose local services more often, because their advice makes a journey both lighter and more interesting. The choice also supports small businesses that understand the route and helped us understand the area better in many practical ways today.',
     specs: [
@@ -196,6 +198,8 @@ export default {
   },
 
   part6: {
+    title: "Recording Notes for Greener Travel",
+    title: "Recording Notes for Greener Travel",
     text: 'The storm arrived (27) ........ we reached the cliff path, so the guide suggested a safer route. We travelled (28) ........ bus and spent the morning in a museum. The exhibition explained (29) ........ coastal families had once moved between villages. We stayed there (30) ........ the rain stopped. In the afternoon, we chose a beach (31) ........ was outside the busiest resort. The experience taught us (32) ........ to travel with less waste and more curiosity.',
     extra: ' We kept the tickets and route notes, but the most useful record was a list of refill points. On our next visit, we will use it before buying anything in disposable packaging. Writing the information down made the environmental choice easier to repeat. It also gave us a practical way to compare responsible choices on future journeys.',
     tail: ' The notes will guide our choices when we travel again.',

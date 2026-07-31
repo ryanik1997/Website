@@ -1,0 +1,266 @@
+{
+  "42": {
+    "domain": "school libraries and reading spaces",
+    "options": [
+      {
+        "key": "option-a",
+        "title": "Buddy reading scheme for new readers",
+        "description": "Older pupils read aloud once a week with younger children who are just starting to read. The free sessions take place straight after school in the library, and every child is matched with one regular reading buddy, so even shy learners feel comfortable and quickly gain confidence with short picture books.",
+        "openingStyle": "activity-led",
+        "constraints": ["after-school", "weekly", "free", "one-to-one", "new readers"]
+      },
+      {
+        "key": "option-b",
+        "title": "Book mending and repair workshop",
+        "description": "A hands-on workshop where volunteers repair damaged books using glue, tape and cloth. Tools and materials are supplied, small groups work at tables on Saturday mornings, and a librarian demonstrates simple mending methods that anyone can learn quickly. There is no cost and no need to bring anything, though volunteers should have patience for fiddly tasks.",
+        "openingStyle": "skill-led",
+        "constraints": ["hands-on", "Saturday mornings", "tools supplied", "free", "beginner-friendly"]
+      },
+      {
+        "key": "option-c",
+        "title": "Story corner volunteer mornings",
+        "description": "Volunteers run cheerful picture-book sessions for young children every Saturday in the library's story corner. You read aloud, lead a simple song and help with a craft activity. No experience is needed, and the librarian stays to supervise the whole session. Families arrive at ten, so the morning finishes by lunchtime, which suits volunteers who cannot commit to weekday duties.",
+        "openingStyle": "audience-led",
+        "constraints": ["young children", "Saturdays", "no experience", "storytelling", "morning"]
+      },
+      {
+        "key": "option-d",
+        "title": "Exam revision with practice tests",
+        "description": "A structured revision programme for students facing school exams. Each weekday evening, participants complete timed practice papers under exam conditions, then receive their scores and personal feedback from a teacher. Places are low-cost and include printed answer guides. The course runs for six weeks before the main test season, so it suits pupils who want steady preparation rather than a one-off workshop.",
+        "openingStyle": "outcome-led",
+        "constraints": ["exam practice", "weekday evenings", "timed", "feedback", "low-cost"]
+      },
+      {
+        "key": "option-e",
+        "title": "Reading challenge with prizes",
+        "description": "A term-long reading challenge open to every pupil. Participants follow themed book lists, record what they finish and earn badges and small prizes at regular checkpoints. The challenge is self-paced, so busy students can read when it suits them. Teachers post new recommendations each month, and the final celebration in June recognises every reader who reaches the target.",
+        "openingStyle": "incentive-led",
+        "constraints": ["term-long", "prizes", "book lists", "self-paced", "all ages"]
+      },
+      {
+        "key": "option-f",
+        "title": "Library card outreach at school gates",
+        "description": "Volunteers meet families at the school gates for twenty minutes after the afternoon bell, helping parents register for library cards and handing out starter packs. The stand runs every weekday, no training is required, and everything needed is provided each day. It suits people who can spare a short regular slot but cannot join indoor sessions.",
+        "openingStyle": "location-led",
+        "constraints": ["school gates", "weekday afternoons", "short sessions", "no training", "outdoors"]
+      },
+      {
+        "key": "option-g",
+        "title": "Library stories podcast",
+        "description": "A small weekly group records short interviews about favourite books and library memories. Microphones and editing software are supplied, members meet after class in the library, and episodes appear on the school channel for the whole community to hear. No previous recording experience is expected, though participants should feel comfortable speaking into a microphone.",
+        "openingStyle": "creative-led",
+        "constraints": ["recording", "weekly", "after school", "equipment supplied", "small group"]
+      },
+      {
+        "key": "option-h",
+        "title": "Teen manga and comics collection",
+        "description": "Monthly sessions where teenage readers choose, order and organise graphic novels for the library shelves. Members suggest new titles, vote on the next purchases and help display the books. A small budget is available for each month's selection. The group meets on the first Sunday of the month, so it fits readers with packed weekday timetables, and joining costs nothing.",
+        "openingStyle": "interest-led",
+        "constraints": ["graphic novels", "teens", "monthly Sundays", "purchasing", "free"]
+      }
+    ],
+    "profiles": [
+      {
+        "key": "profile-1",
+        "text": "Hugo loves reading to his young niece and has Saturday mornings free. He wants to volunteer with small children in the library but has no training, and he prefers an indoor role.",
+        "correctOptionKey": "option-c"
+      },
+      {
+        "key": "profile-2",
+        "text": "Priya is starting to read English and gets nervous in big groups. She wants to practise aloud after school with a patient partner, and her family cannot pay any fees this term.",
+        "correctOptionKey": "option-a"
+      },
+      {
+        "key": "profile-3",
+        "text": "Omar faces his final exams soon and needs timed practice under real conditions. He is free on weekday evenings, wants clear scores and personal feedback, and can only afford a low-cost course.",
+        "correctOptionKey": "option-d"
+      },
+      {
+        "key": "profile-4",
+        "text": "Ines only reads comics and graphic novels, which she says the school never stocks. She can attend one monthly meeting, has no money to spend, and wants to help choose new titles.",
+        "correctOptionKey": "option-h"
+      },
+      {
+        "key": "profile-5",
+        "text": "Daniel collects his younger sister from school each weekday and wants library cards for the whole family. He is free by the gates for only a short time and needs a helper to finish the forms on the spot because his English is limited.",
+        "correctOptionKey": "option-f"
+      }
+    ]
+  },
+  "43": {
+    "domain": "wildlife walks",
+    "options": [
+      {
+        "key": "option-a",
+        "title": "Dawn bird-spotting at the reservoir",
+        "description": "Guided birdwatching walks begin before sunrise at the town reservoir. A volunteer identifies species by call, and participants record sightings on shared sheets. The walk finishes by nine, so early risers can still reach work on time, and well-fitting boots are recommended. Entry is free, but places are limited to keep the group quiet and the birds undisturbed.",
+        "openingStyle": "schedule-led",
+        "constraints": ["early morning", "birdwatching", "free", "limited places", "finishes by 9"]
+      },
+      {
+        "key": "option-b",
+        "title": "Mammal tracking with a ranger",
+        "description": "A ranger-led afternoon walk where participants learn to recognise footprints, scratch marks and resting places of deer and foxes. The trail is muddy in places, lasts about two hours and welcomes complete beginners who want practical field skills. Small groups keep the experience personal, and the meeting point is reachable by the midday bus.",
+        "openingStyle": "skill-led",
+        "constraints": ["ranger-guided", "afternoon", "field skills", "muddy trail", "small group"]
+      },
+      {
+        "key": "option-c",
+        "title": "Sensory night walk for beginners",
+        "description": "A slow evening walk that explores the woods through sound, smell and touch. Torches are discouraged, the pace is gentle and a leader keeps the group together. It suits nervous newcomers who want to meet night animals safely. Warm layers help, and the route stays close to the car park so anyone can leave early.",
+        "openingStyle": "sensory-led",
+        "constraints": ["evening", "no torch", "gentle pace", "guided", "beginner-friendly"]
+      },
+      {
+        "key": "option-d",
+        "title": "Wildflower identification ramble",
+        "description": "A relaxed Sunday walk across the open meadow, naming common wildflowers and their uses. A botanist answers questions and hands out simple identification cards. The ground is firm, so the route suits comfortable walking shoes rather than heavy boots. It finishes at a village café, where participants can compare notes over lunch.",
+        "openingStyle": "interest-led",
+        "constraints": ["Sunday", "wildflowers", "botanist", "easy terrain", "social finish"]
+      },
+      {
+        "key": "option-e",
+        "title": "Photography hide session",
+        "description": "Book a fixed hide above a busy feeding area and photograph birds and small mammals through a viewing window. Cameras are not supplied, so bring your own, and sessions last three hours in complete silence with only your lens for company. Booking ahead is essential because the hide has only eight seats.",
+        "openingStyle": "feature-led",
+        "constraints": ["own camera", "3-hour session", "silent", "advance booking", "small capacity"]
+      },
+      {
+        "key": "option-f",
+        "title": "Family pond dipping morning",
+        "description": "Children and adults explore pond life together with nets, trays and identification charts, all provided. A warden supervises the water's edge, so parents can relax while youngsters scoop up insects and frogspawn. Sessions end before lunch. Wellies are essential, and each family group is given a clean tray to inspect their finds.",
+        "openingStyle": "audience-led",
+        "constraints": ["children welcome", "morning", "equipment provided", "supervised", "wellies"]
+      },
+      {
+        "key": "option-g",
+        "title": "Long-distance trail with overnight camping",
+        "description": "A demanding two-day trek across open moorland, camping overnight at a bothy. Participants carry their own food, water and camping gear, read the route themselves and must be fit enough for steep climbs in changeable weather. The group is limited to twelve and starts from a remote car park reached by early bus.",
+        "openingStyle": "condition-led",
+        "constraints": ["two-day", "camping", "self-sufficient", "remote start", "experienced fit hikers"]
+      },
+      {
+        "key": "option-h",
+        "title": "Accessible guided stroll with wheels",
+        "description": "A flat one-hour stroll on smooth paths where wheelchairs and buggies move easily. A guide points out wildlife along the route and stops at benches for resting and questions. It is fully free, but booking is needed for the accessible minibus. The route loops back to the visitor centre, so there is no need for a return lift.",
+        "openingStyle": "need-led",
+        "constraints": ["flat paths", "wheelchair friendly", "guided", "free", "short"]
+      }
+    ],
+    "profiles": [
+      {
+        "key": "profile-1",
+        "text": "Chloe is keen to see bats and moths but is nervous about walking in the dark. She wants a guided evening stroll, close to a car park, with no need to manage a torch while she looks around.",
+        "correctOptionKey": "option-c"
+      },
+      {
+        "key": "profile-2",
+        "text": "Felix uses a wheelchair and wants to watch wildlife from a smooth path that loops back to the centre. He prefers a short guided outing and needs to book the accessible minibus to reach the start.",
+        "correctOptionKey": "option-h"
+      },
+      {
+        "key": "profile-3",
+        "text": "Nina works from nine and is free only before that. She wants to learn bird calls, hopes to see several species and needs a cheap outing near town that finishes in good time for her shift.",
+        "correctOptionKey": "option-a"
+      },
+      {
+        "key": "profile-4",
+        "text": "Marcus has two young daughters who love catching insects. He wants a supervised morning activity where nets and trays are supplied, and he needs to leave by midday for another commitment.",
+        "correctOptionKey": "option-f"
+      },
+      {
+        "key": "profile-5",
+        "text": "Lena is an experienced hiker with camping gear and a strong map-reading habit. She wants a demanding multi-day route with overnight stops and is happy to start from a remote car park early.",
+        "correctOptionKey": "option-g"
+      }
+    ]
+  },
+  "44": {
+    "domain": "street murals",
+    "options": [
+      {
+        "key": "option-a",
+        "title": "Beginner spray-paint taster wall",
+        "description": "A supervised two-hour session where newcomers spray simple shapes onto practice boards before trying a shared community wall. Overspray masks and paint are supplied, the teacher works with six people at most, and no artistic background is expected. Sessions run on Saturday afternoons and finish with everyone's piece photographed for the wall's digital gallery.",
+        "openingStyle": "skill-led",
+        "constraints": ["beginner", "spray paint", "equipment supplied", "small group", "Saturday afternoons"]
+      },
+      {
+        "key": "option-b",
+        "title": "Community design jam",
+        "description": "A full-day gathering where residents brainstorm and sketch designs for a blank city-centre wall. Artists guide the drawing tables, colour proposals are voted on together, and the winning idea is painted the following week by the whole group. Lunch is shared, materials arrive free, and no one needs to bring anything except ideas.",
+        "openingStyle": "collaboration-led",
+        "constraints": ["full-day", "designing", "community voting", "materials free", "all welcome"]
+      },
+      {
+        "key": "option-c",
+        "title": "Murals for schoolyards",
+        "description": "Teams paint cheerful murals on primary-school walls during weekday mornings while children are in class. Volunteers work in small crews with a lead artist, all brushes and ladders are provided, and the finished scenes decorate playgrounds across the district. No painting skill is needed, but volunteers must be comfortable on low ladders.",
+        "openingStyle": "location-led",
+        "constraints": ["school playgrounds", "weekday mornings", "lead artist", "equipment provided", "no skill needed"]
+      },
+      {
+        "key": "option-d",
+        "title": "Portrait mural workshop",
+        "description": "A technical workshop focused on painting human faces at large scale. Students draw from photographs, practise mixing skin tones and study proportion under an experienced muralist. The course spans three weekend mornings and requires basic drawing ability. Canvas and paint are included, and each student completes a small practice head by the final session.",
+        "openingStyle": "technique-led",
+        "constraints": ["portraits", "3 mornings", "basic drawing required", "materials included", "small class"]
+      },
+      {
+        "key": "option-e",
+        "title": "Recycled paint drive and mix",
+        "description": "Volunteers collect leftover household paint, sort it by colour and mix usable batches for community murals. Shifts run at a warehouse on weekend mornings, aprons are provided, and no artistic skill is needed because the task is about care and organisation. Households can also drop off half-full tins, which keeps thousands of litres out of landfill.",
+        "openingStyle": "eco-led",
+        "constraints": ["weekend mornings", "no art skill", "paint recycling", "organising", "drop-offs"]
+      },
+      {
+        "key": "option-f",
+        "title": "Night-time wall lighting tour",
+        "description": "An evening walking tour that visits the district's murals after dark, when spotlights reveal details lost in daylight. A guide explains each artist's style and the stories behind the walls. The route is flat, lasts about ninety minutes and ends at a café. Comfortable shoes are enough, and bookings cover a small number to keep groups friendly.",
+        "openingStyle": "schedule-led",
+        "constraints": ["evening", "viewing only", "guided", "flat route", "social finish"]
+      },
+      {
+        "key": "option-g",
+        "title": "Legal wall directory project",
+        "description": "A research team walks the streets recording every approved mural wall, checking addresses, taking photos and updating the public map online. Shifts are flexible and can be done alone or in pairs, with a simple app provided for the records. No painting is involved, but volunteers should enjoy walking distances and using a phone.",
+        "openingStyle": "research-led",
+        "constraints": ["walking", "recording data", "flexible shifts", "app provided", "no painting"]
+      },
+      {
+        "key": "option-h",
+        "title": "Mural restoration with historians",
+        "description": "A weekend project that carefully cleans and repaints faded murals from the 1990s. Local historians supply photographs and explain the original colours, while conservators show volunteers safe techniques. Work stops in rain, so dates may shift to dry weekends. Open to beginners, though patience and steady hands matter more than speed.",
+        "openingStyle": "preservation-led",
+        "constraints": ["weekends", "restoration", "expert guidance", "rain-dependent", "beginner ok"]
+      }
+    ],
+    "profiles": [
+      {
+        "key": "profile-1",
+        "text": "Jonas has never held a spray can and wants a safe first try with close supervision. He is free on Saturday afternoons, owns no equipment and would rather not commit to a long course.",
+        "correctOptionKey": "option-a"
+      },
+      {
+        "key": "profile-2",
+        "text": "Zara works every day until six and only wants to look at finished murals rather than paint them. She loves stories about local art and hopes to meet other residents during a relaxed evening.",
+        "correctOptionKey": "option-f"
+      },
+      {
+        "key": "profile-3",
+        "text": "Ethan is a retired teacher who wants to brighten primary school playgrounds. He is free on weekday mornings, likes working in small teams and does not mind low ladders if all the equipment is provided.",
+        "correctOptionKey": "option-c"
+      },
+      {
+        "key": "profile-4",
+        "text": "Yasmin has several half-empty paint tins in her garage and wants to keep them out of landfill. She is free on weekend mornings, prefers practical sorting to painting and wants a role that needs no art skill.",
+        "correctOptionKey": "option-e"
+      },
+      {
+        "key": "profile-5",
+        "text": "Tom is fascinated by the history of local murals and wants to help preserve old ones. He can volunteer on weekends, likes learning from experts and accepts that outdoor work depends on dry weather.",
+        "correctOptionKey": "option-h"
+      }
+    ]
+  }
+}

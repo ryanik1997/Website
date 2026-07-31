@@ -275,6 +275,15 @@
   background: transparent !important;
 }
 
+/* Exam players own their full viewport surface; do not expose the backdrop
+   behind Reading/Listening/Writing content. */
+.app-shell--backdrop .app-shell__main:has(.reading-test-shell),
+.app-shell--backdrop .app-shell__main:has([class*="exam-shell"]),
+.app-shell--backdrop .app-shell__main:has(.writing-shell) {
+  background: var(--exam-bg) !important;
+  color: var(--exam-text-primary);
+}
+
 .app-shell--grid .vocab-card-panel {
   background: transparent !important;
 }

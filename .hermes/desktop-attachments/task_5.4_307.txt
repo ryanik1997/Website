@@ -1,0 +1,310 @@
+Sửa lỗi phân bố options của **PET B1 Reading Part 4** cho:
+
+```text
+Test 14
+Test 30
+Test 51
+```
+
+## Hiện tượng
+
+Part 4 hiện có 8 sentence options nhưng các câu đúng được sắp gần theo thứ tự gap Q16→Q20.
+
+Điều này tạo pattern dễ đoán và không giống cấu trúc Test 12:
+
+* Test 12 trộn 5 câu đúng với 3 distractor trong A–H.
+* Test 14/30/51 đang để option order quá thuận theo diễn tiến passage.
+
+## Phạm vi
+
+Chỉ sửa Part 4 của Test 14, 30 và 51.
+
+Không sửa nội dung passage, sentence options hoặc rationale nếu chúng đã đúng.
+
+Không sửa Part 1–3, Part 5–6.
+
+Không sửa Test khác.
+
+Không commit hoặc push.
+
+---
+
+## 1. Điều tra schema chuẩn
+
+Dùng Test 12 làm working reference.
+
+Kiểm tra:
+
+```text
+Part 4 options array
+option id
+option label A–H
+question answer reference
+answer vault
+renderer
+```
+
+Xác định answer vault đang lưu:
+
+* option label;
+* option ID;
+* hay array index.
+
+Không được reorder options trước khi hiểu mapping này.
+
+---
+
+## 2. Shuffle tại generator, không shuffle runtime
+
+Thực hiện shuffle khi generate catalog.
+
+Không dùng:
+
+```js
+Math.random()
+```
+
+trong React component hoặc runtime.
+
+Không shuffle mỗi lần:
+
+* render;
+* reload;
+* chuyển Part;
+* mở lại câu hỏi.
+
+Dùng deterministic seeded shuffle, ví dụ seed dựa trên:
+
+```text
+examId + "-part-4"
+```
+
+Có thể dùng thuật toán local nhỏ như seeded Fisher–Yates.
+
+Không thêm dependency.
+
+Kết quả phải:
+
+* Giống nhau qua mọi lần generate.
+* Idempotent.
+* Không gây hydration mismatch.
+* Không làm đáp án đổi sau reload.
+
+---
+
+## 3. Quy tắc phân bố bắt buộc
+
+Mỗi test có:
+
+```text
+8 options A–H
+5 correct sentences
+3 unused distractors
+```
+
+Sau shuffle phải đảm bảo:
+
+1. Ba distractor được xen giữa các câu đúng.
+2. Không để cả ba distractor nằm cuối danh sách.
+3. Không để năm câu đúng nằm thành một block liên tiếp.
+4. Correct-option positions của Q16–Q20 không được tăng tuần tự.
+5. Không dùng cùng một permutation cho Test 14, 30 và 51.
+6. Không tạo pattern rõ như:
+
+```text
+A B C D E
+A C E G H
+```
+
+7. Mỗi gap vẫn chỉ có một câu phù hợp nhất.
+
+Nếu seeded shuffle tạo permutation không đạt các rule trên, tăng deterministic attempt counter và shuffle lại:
+
+```text
+seed = examId + "-part-4-" + attempt
+```
+
+Giới hạn số attempt và fail rõ nếu không tìm được permutation hợp lệ.
+
+---
+
+## 4. Cập nhật answer mapping
+
+Sau khi reorder:
+
+* Gán lại labels A–H theo vị trí mới.
+* Cập nhật answer vault cho Q16–Q20.
+* Không thay đổi question IDs.
+* Không thay đổi passage hoặc gap markers.
+* Không thay đổi sentence text.
+* Không để answer vault trỏ theo array index cũ.
+
+Ví dụ logic:
+
+```text
+Sentence đúng cho Q16 được chuyển từ vị trí A sang F
+→ answer vault Q16 phải đổi thành "f"
+```
+
+Không thay đổi đáp án semantic, chỉ thay vị trí/letter.
+
+---
+
+## 5. Bảo toàn option identity
+
+Ưu tiên giữ semantic identity riêng cho mỗi sentence, ví dụ:
+
+```text
+sentenceKey
+sourceOptionId
+```
+
+Sau đó mới derive:
+
+```text
+displayIndex
+displayLabel
+```
+
+Không dùng label A–H làm identity lâu dài nếu generator cần reorder.
+
+Nếu schema hiện tại chỉ có labels, thực hiện mapping rõ ràng:
+
+```text
+original sentence
+→ shuffled position
+→ new label
+→ question answer
+```
+
+---
+
+## 6. Automated validator
+
+Mở rộng quality validator để kiểm tra Part 4 của Test 14, 30, 51:
+
+```text
+8 options
+5 unique correct answers
+3 unused options
+correct answers map đúng sentence
+không correct block liên tiếp
+distractors không nằm hết cuối danh sách
+correct positions không monotonic
+permutation khác nhau giữa ba test
+```
+
+Report:
+
+```text
+Test 14:
+- option order:
+- Q16–Q20 answer labels:
+- correct positions:
+- unused labels:
+
+Test 30:
+...
+
+Test 51:
+...
+```
+
+Validator phải FAIL nếu option array bị reorder nhưng answer vault chưa cập nhật.
+
+---
+
+## 7. Regression test
+
+Thêm targeted test:
+
+1. Generate Test 14, 30, 51.
+2. Đọc Part 4 options.
+3. Đọc answer vault Q16–Q20.
+4. Chèn từng sentence đúng vào gap tương ứng.
+5. Xác nhận passage logic vẫn đúng.
+6. Generate lần hai.
+7. Xác nhận permutation và answer vault không đổi.
+
+Kiểm tra thêm:
+
+```text
+5 answers unique
+3 options unused
+không duplicate sentence
+không mất gap
+không thay đổi Part 4 word count
+```
+
+---
+
+## 8. Manual smoke
+
+Mở:
+
+```text
+Test 14 Part 4
+Test 30 Part 4
+Test 51 Part 4
+```
+
+Xác nhận:
+
+* 8 options được trộn.
+* Distractors xuất hiện xen kẽ.
+* Chọn option cho từng gap hoạt động.
+* Một option không thể dùng hai lần nếu UI đang áp rule đó.
+* Answer checking vẫn đúng.
+* Reload không thay đổi option order.
+* Không có console error.
+
+So sánh trực quan với Test 12.
+
+---
+
+## 9. Validation cuối
+
+Chạy:
+
+```text
+Targeted generation Test 14, 30, 51
+Part 4 distribution validator
+Part 4 semantic validator
+Answer-vault consistency
+Structural validator
+Runtime catalog validator
+Targeted PET tests
+TypeScript
+Idempotency
+git diff --check
+```
+
+## Báo cáo
+
+```text
+Root cause:
+Working reference:
+Shuffle location:
+Shuffle algorithm:
+Runtime random used: NO
+Test 14 option order:
+Test 14 Q16–Q20 answers:
+Test 14 unused options:
+Test 30 option order:
+Test 30 Q16–Q20 answers:
+Test 30 unused options:
+Test 51 option order:
+Test 51 Q16–Q20 answers:
+Test 51 unused options:
+Semantic validation:
+Answer-vault consistency:
+Manual smoke:
+Idempotency:
+TypeScript:
+git diff --check:
+Files changed:
+```
+
+Không báo PASS chỉ vì option order thay đổi. Phải chứng minh answer vault và semantic mapping vẫn đúng.
+
+Không commit hoặc push.

@@ -1,0 +1,199 @@
+Task 5.4 vẫn CHƯA PASS theo kiểm tra thực tế của người dùng.
+
+Không sửa shuffle thêm.
+Trước tiên phải chứng minh browser của người dùng đang kết nối đúng process và đúng file runtime.
+
+PHẠM VI
+- Test 14 Part 4
+- Test 30 Part 4
+- Test 51 Part 4
+- Dev server localhost:5173
+
+Không commit/push.
+Không báo PASS dựa trên file local.
+
+1. XÁC MINH DEV SERVER PROCESS
+
+Tìm process đang listen port 5173.
+
+Trên Windows, chạy tương đương:
+
+netstat -ano | findstr :5173
+Get-Process -Id <PID>
+
+Xác định:
+
+- PID
+- command line
+- working directory
+- Node executable
+- thời điểm process khởi động
+
+Bắt buộc chứng minh process chạy từ:
+
+D:\App-English-Ryan\Website\apps\web
+
+hoặc đúng workspace root theo cấu hình thực tế.
+
+Kiểm tra có nhiều process Vite/Node cùng chạy không.
+
+Nếu có:
+- dừng toàn bộ process dev server cũ;
+- không chỉ đóng terminal hiện tại;
+- xác nhận port 5173 đã giải phóng;
+- sau đó khởi động lại đúng một process.
+
+2. XÁC MINH WORKTREE VÀ COMMIT
+
+Trong terminal dùng để chạy dev server, in:
+
+cd
+git rev-parse --show-toplevel
+git rev-parse HEAD
+git status --short
+
+Báo absolute repo path.
+
+Kiểm tra có clone/worktree khác như:
+
+D:\App-English-Ryan\Website
+D:\...\Website-copy
+D:\...\project_...
+C:\...\Website
+
+Không được giả định browser đang dùng đúng repo.
+
+3. XÁC MINH FILE ĐƯỢC SERVE
+
+Tính SHA256 của:
+
+apps/web/public/catalog/exams/reading/catalog-reading-pet-b1-test30.json
+
+Sau đó tải chính HTTP response:
+
+http://localhost:5173/catalog/exams/reading/catalog-reading-pet-b1-test30.json
+
+Lưu response xuống file tạm và tính SHA256.
+
+Hai hash bắt buộc giống nhau.
+
+Report:
+
+Local file absolute path:
+Local SHA256:
+HTTP URL:
+HTTP SHA256:
+Hashes equal:
+
+Nếu khác:
+- tìm root static directory thật của Vite;
+- xác định server đang serve repo/path nào;
+- không sửa generator để che lỗi.
+
+4. KIỂM TRA TEXT THẬT TRONG HTTP RESPONSE
+
+HTTP response Test 30 Part 4 phải có order:
+
+A. The students decided not to test the program again.
+B. This showed that the problem was in the instructions, not the questions.
+C. For this reason, the teacher cancelled the project.
+D. The pupils found a few unclear questions as well.
+E. Everyone assumed the task would take only one afternoon.
+F. A new computer room was opened nearby.
+G. They wanted visitors to receive different feedback.
+H. The club had never used a website before.
+
+Nếu HTTP vẫn trả source order cũ thì task FAIL.
+
+5. KIỂM TRA NETWORK CỦA CHÍNH TRÌNH DUYỆT
+
+Trong browser của người dùng:
+
+- mở DevTools → Network;
+- bật Disable cache;
+- reload;
+- tìm request:
+  catalog-reading-pet-b1-test30.json
+- mở Response;
+- copy thứ tự 8 câu;
+- ghi Request URL, Status, Remote Address, ETag và Response.
+
+Không dùng một request riêng từ script để thay thế bước này.
+
+Phải xác nhận browser request URL đúng:
+
+http://localhost:5173/catalog/exams/reading/catalog-reading-pet-b1-test30.json
+
+6. KIỂM TRA DOM
+
+Sau khi response đúng, đọc text trực tiếp từ DOM theo thứ tự hiển thị.
+
+So sánh:
+
+local JSON order
+=
+browser Network response order
+=
+DOM order
+
+Nếu Network đúng nhưng DOM sai:
+- truy PetRwPartContent props;
+- kiểm tra có sort/reorder trong renderer;
+- kiểm tra state cũ;
+- kiểm tra React key;
+- kiểm tra options có bị derive lại từ question answers.
+
+Nếu Network sai:
+- lỗi nằm ở server/path/process, không phải renderer.
+
+7. DỌN PROCESS ĐÚNG CÁCH
+
+Thực hiện:
+
+1. Stop toàn bộ Node/Vite process dùng port 5173.
+2. Xác nhận port trống.
+3. Chạy targeted generator Test 14, 30, 51.
+4. Khởi động dev server từ đúng repo.
+5. Xác nhận PID mới.
+6. Mở browser bằng tab mới hoặc cửa sổ Incognito.
+7. Bật Disable cache.
+8. Kiểm tra Network response và DOM.
+
+Không chỉ Hard Refresh tab cũ.
+
+8. THÊM TEMPORARY DEVELOPMENT LOG
+
+Chỉ trong development, log một lần:
+
+- examId
+- Part 4 option text fingerprints theo thứ tự
+- catalog response URL
+
+Sau khi tìm ra lỗi phải xóa log trước khi kết thúc.
+
+Không thêm production cache-busting.
+
+9. BÁO CÁO
+
+Port 5173 PID:
+Process command:
+Process working directory:
+Git root:
+Git HEAD:
+Duplicate dev servers found:
+Local runtime JSON path:
+Local SHA256:
+Browser HTTP SHA256:
+Hashes equal:
+
+Browser Network Test 30 order:
+DOM Test 30 order:
+
+First mismatching layer:
+Root cause:
+Fix applied:
+Manual verification by actual browser session:
+Temporary logs removed:
+git diff --check:
+
+Không báo PASS nếu chưa lấy Response trực tiếp từ Network tab của browser mà người dùng đang dùng.

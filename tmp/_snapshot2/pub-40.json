@@ -1,0 +1,859 @@
+{
+  "id": "catalog-reading-pet-b1-test40",
+  "title": "PET B1 Reading – Test 40",
+  "durationMinutes": 45,
+  "bandHint": "B1 Preliminary Reading – 6 parts",
+  "examTrack": "cambridge",
+  "cambridgeLevel": "b1",
+  "catalogCanonical": true,
+  "parts": [
+    {
+      "id": "catalog-reading-pet-b1-test40-part-1",
+      "partNumber": 1,
+      "renderMode": "html-css",
+      "rangeLabel": "Questions 1–5",
+      "passageTitle": "Part 1 – Short texts",
+      "passage": [
+        {
+          "text": "Garden work notice\nThe gardening session moves from Saturday morning to Friday evening because the market hall is being cleaned. Collect your gloves and trowel from the store room, and sign the book at the entrance. Only members with a signed safety form may join the work."
+        },
+        {
+          "text": "Planting slot confirmed\nYour place in Thursday's planting team is confirmed. Reply before Tuesday noon if you need a pair of knee pads, because the team has only twelve pairs. Wear boots and bring a water bottle. The engineer will check the railings before the team starts."
+        },
+        {
+          "text": "Roof garden open day\nThe community roof garden opens to visitors on Sunday from ten until four. Children must stay with an adult near the planters, and everyone should use the marked walkway so that the herbs stay safe. Seedlings are free for the first forty families."
+        },
+        {
+          "text": "Waiting list message\nThe Saturday digging group is full, but a waiting list has opened at the market office. If a place frees, the organiser will call you. Keep your phone on during the morning, and bring your gloves to the office when you sign up."
+        },
+        {
+          "text": "Planting day update\nThe herb planting moves from Friday to the following Wednesday because the engineer needs more time to check the water tank. The soil will be delivered on Tuesday, and the team should meet at the lift by nine. Bring a trowel if you have one."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test40-part-1-g0",
+          "range": "Questions 1–5",
+          "instruction": "For each question, choose the correct answer A, B or C.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test40-part-1-q1",
+              "number": 1,
+              "type": "multiple-choice",
+              "prompt": "What should members do first?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Sign the book and collect their tools."
+                },
+                {
+                  "id": "B",
+                  "label": "Arrive on Saturday as planned."
+                },
+                {
+                  "id": "C",
+                  "label": "Bring a cleaning cloth from home."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test40-part-1-q2",
+              "number": 2,
+              "type": "multiple-choice",
+              "prompt": "What should the reader do before Tuesday?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Buy a new pair of boots."
+                },
+                {
+                  "id": "B",
+                  "label": "Reply if knee pads are needed."
+                },
+                {
+                  "id": "C",
+                  "label": "Confirm the railing check."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test40-part-1-q3",
+              "number": 3,
+              "type": "multiple-choice",
+              "prompt": "What must visitors do?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Bring a seedling from home."
+                },
+                {
+                  "id": "B",
+                  "label": "Arrive before ten o'clock."
+                },
+                {
+                  "id": "C",
+                  "label": "Keep to the marked walkway."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test40-part-1-q4",
+              "number": 4,
+              "type": "multiple-choice",
+              "prompt": "What can the reader do?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Join the waiting list at the office."
+                },
+                {
+                  "id": "B",
+                  "label": "Take a place on Saturday."
+                },
+                {
+                  "id": "C",
+                  "label": "Leave a message for the organiser."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test40-part-1-q5",
+              "number": 5,
+              "type": "multiple-choice",
+              "prompt": "When will the planting happen?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "On the coming Friday."
+                },
+                {
+                  "id": "B",
+                  "label": "On the following Wednesday."
+                },
+                {
+                  "id": "C",
+                  "label": "On the Tuesday."
+                }
+              ],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-pet-b1-test40-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 6–10",
+      "passageTitle": "Part 2 – Matching",
+      "passage": [
+        {
+          "text": "The people below want to choose from plants, buildings and cooperation. Decide which option is most suitable."
+        },
+        {
+          "label": "A",
+          "text": "Beginner potting session on the market roof — A guided beginner session where you plant herbs in recycled containers on the market roof. Gloves, soil and seeds are supplied, the group is small, and a volunteer explains each step while you work. You can ask questions and take your finished pot home. No previous gardening experience is needed.",
+          "imageSlotId": "catalog-reading-pet-b1-test40-part-2-option-a-image",
+          "imageRequired": false
+        },
+        {
+          "label": "B",
+          "text": "Saturday watering rota beside the rain tank — A short weekly slot on the watering rota beside the big rain tank. Each volunteer looks after one corner of the roof garden for half an hour, checks the soil with a finger, and records what they watered. The times are fixed each week, so you can plan around them, and the group shares one notebook.",
+          "imageSlotId": "catalog-reading-pet-b1-test40-part-2-option-b-image",
+          "imageRequired": false
+        },
+        {
+          "label": "C",
+          "text": "Compost workshop using market waste — A practical workshop that turns vegetable peelings from the market stalls into compost for the roof beds. The tutor demonstrates the layers, you build a bin with a small team, and every participant leaves with a printed guide. It suits people who want to reduce waste and see a clear result by the end of the session.",
+          "imageSlotId": "catalog-reading-pet-b1-test40-part-2-option-c-image",
+          "imageRequired": false
+        },
+        {
+          "label": "D",
+          "text": "Roof tour and herb tasting for beginners — A relaxed walking tour of the roof garden designed for people who have never grown anything. You smell and taste the herbs, hear how the plants survive the wind, and finish with a cup of mint tea. There are benches at every stop, so no one needs to stand for long.",
+          "imageSlotId": "catalog-reading-pet-b1-test40-part-2-option-d-image",
+          "imageRequired": false
+        },
+        {
+          "label": "E",
+          "text": "Weekend fruit-picking team in the planters — A weekend team that harvests tomatoes, strawberries and beans from the tall planters and shares the crop among the helpers. The work is physical but straightforward, each shift lasts two hours, and you go home with a bag of produce. Families are welcome, and tools are provided on arrival.",
+          "imageSlotId": "catalog-reading-pet-b1-test40-part-2-option-e-image",
+          "imageRequired": false
+        },
+        {
+          "label": "F",
+          "text": "Evening green-gym session to fix the beds — An evening session for adults who like practical exercise in the fresh air. You rebuild wooden bed edges, hammer loose panels and move sacks of compost under the engineer's direction. It is open to all fitness levels, the pace is steady, and a cool drink is waiting at the end.",
+          "imageSlotId": "catalog-reading-pet-b1-test40-part-2-option-f-image",
+          "imageRequired": false
+        },
+        {
+          "label": "G",
+          "text": "Family seed-painting morning by the lift — A family morning that combines planting and art beside the market lift. Children decorate small pots with coloured seeds, then fill them with soil and choose a herb to grow at home. All materials are included, an adult must stay, and the session finishes before lunch.",
+          "imageSlotId": "catalog-reading-pet-b1-test40-part-2-option-g-image",
+          "imageRequired": false
+        },
+        {
+          "label": "H",
+          "text": "Self-guided plant care with a phone guide — A free self-guided activity where you borrow a phone guide and wander the roof paths alone. The recording explains each plant's name and needs, but there is no staff member with you, so you set your own pace. It is flexible, though you must return the phone before the market closes.",
+          "imageSlotId": "catalog-reading-pet-b1-test40-part-2-option-h-image",
+          "imageRequired": false
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test40-part-2-g0",
+          "range": "Questions 6–10",
+          "instruction": "For each question, choose the most suitable option.",
+          "type": "matching-features",
+          "features": [
+            {
+              "id": "a",
+              "name": "Beginner potting session on the market roof — A guided beginner session where you plant herbs in recycled containers on the market roof. Gloves, soil and seeds are supplied, the group is small, and a volunteer explains each step while you work. You can ask questions and take your finished pot home. No previous gardening experience is needed."
+            },
+            {
+              "id": "b",
+              "name": "Saturday watering rota beside the rain tank — A short weekly slot on the watering rota beside the big rain tank. Each volunteer looks after one corner of the roof garden for half an hour, checks the soil with a finger, and records what they watered. The times are fixed each week, so you can plan around them, and the group shares one notebook."
+            },
+            {
+              "id": "c",
+              "name": "Compost workshop using market waste — A practical workshop that turns vegetable peelings from the market stalls into compost for the roof beds. The tutor demonstrates the layers, you build a bin with a small team, and every participant leaves with a printed guide. It suits people who want to reduce waste and see a clear result by the end of the session."
+            },
+            {
+              "id": "d",
+              "name": "Roof tour and herb tasting for beginners — A relaxed walking tour of the roof garden designed for people who have never grown anything. You smell and taste the herbs, hear how the plants survive the wind, and finish with a cup of mint tea. There are benches at every stop, so no one needs to stand for long."
+            },
+            {
+              "id": "e",
+              "name": "Weekend fruit-picking team in the planters — A weekend team that harvests tomatoes, strawberries and beans from the tall planters and shares the crop among the helpers. The work is physical but straightforward, each shift lasts two hours, and you go home with a bag of produce. Families are welcome, and tools are provided on arrival."
+            },
+            {
+              "id": "f",
+              "name": "Evening green-gym session to fix the beds — An evening session for adults who like practical exercise in the fresh air. You rebuild wooden bed edges, hammer loose panels and move sacks of compost under the engineer's direction. It is open to all fitness levels, the pace is steady, and a cool drink is waiting at the end."
+            },
+            {
+              "id": "g",
+              "name": "Family seed-painting morning by the lift — A family morning that combines planting and art beside the market lift. Children decorate small pots with coloured seeds, then fill them with soil and choose a herb to grow at home. All materials are included, an adult must stay, and the session finishes before lunch."
+            },
+            {
+              "id": "h",
+              "name": "Self-guided plant care with a phone guide — A free self-guided activity where you borrow a phone guide and wander the roof paths alone. The recording explains each plant's name and needs, but there is no staff member with you, so you set your own pace. It is flexible, though you must return the phone before the market closes."
+            }
+          ],
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test40-part-2-q6",
+              "number": 6,
+              "type": "matching-features",
+              "prompt": "Rosa is a complete beginner who wants to grow her first herbs, needs gloves and soil provided, prefers a small guided group, and can only attend during a weekday morning.",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test40-part-2-q7",
+              "number": 7,
+              "type": "matching-features",
+              "prompt": "Marco works in a market café and can only help after his shift ends at seven. He wants simple physical work in the fresh air and a cool drink when he finishes.",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test40-part-2-q8",
+              "number": 8,
+              "type": "matching-features",
+              "prompt": "Anita has two young children and wants a short activity before lunch with all materials included and no special equipment to book.",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test40-part-2-q9",
+              "number": 9,
+              "type": "matching-features",
+              "prompt": "Chen runs a fruit shop and wants to learn how to turn his unsold waste into something useful, leaving with clear written instructions.",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test40-part-2-q10",
+              "number": 10,
+              "type": "matching-features",
+              "prompt": "Iris has limited mobility and wants to see the garden slowly with somewhere to sit at each stop, tasting the herbs without doing heavy work.",
+              "options": [],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-pet-b1-test40-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 11–15",
+      "passageTitle": "Part 3 – A roof garden built on evidence",
+      "passage": [
+        {
+          "text": "People who live in the flats above the market wanted an empty roof turned into a small community garden, but first they had to prove the space was safe. The residents walked the roof route, marked the narrow points and checked which signs could be moved to make room for planters without blocking the emergency exit. Because the roof was old, the group measured the distance to the edge carefully and recorded every section that needed extra support before asking the engineer for advice."
+        },
+        {
+          "text": "The first plan changed after the engineer's safety advice. A walk along the proposed route showed that it would force visitors too close to the edge, where the ground sloped towards the street below. Residents measured a safer route, compared the two options and adjusted the position of the planters so that people could walk around them without stepping near the danger. They recorded the revised figures for the engineer."
+        },
+        {
+          "text": "The residents did not accept the new route simply because the engineer had asked for it. They measured the revised route, asked visitors to describe its weak points and recorded the result for the engineer to review. They discovered that a slightly less attractive arrangement was much easier to use safely in wet weather, and they agreed to accept the practical choice. The extra metres cost little, yet the safety walk had shown exactly why the old route worried everyone. Once the planters were installed, the roof garden quickly became a popular place for residents to meet, and the market committee agreed to fund a small water tank for the plants. The group kept their measurements so future changes could be checked against the same evidence."
+        },
+        {
+          "text": "Several residents preferred a prettier route that wound close to the edge, but the engineer's measurements showed clearly why it was unsafe in wet weather. The final decision rested on access and safety rather than on looks, and the group presented the evidence to the market committee to win their support for the garden. The engineer also asked the group to re-measure the route after heavy rain, so the garden stayed safe all year."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test40-part-3-g0",
+          "range": "Questions 11–15",
+          "instruction": "Read the text and choose the correct answer A, B, C or D.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test40-part-3-q11",
+              "number": 11,
+              "type": "multiple-choice",
+              "prompt": "What did the residents need to prove first?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "That the roof was safe to use."
+                },
+                {
+                  "id": "B",
+                  "label": "That the market should close."
+                },
+                {
+                  "id": "C",
+                  "label": "That they could grow expensive plants."
+                },
+                {
+                  "id": "D",
+                  "label": "That the roof was the prettiest option."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test40-part-3-q12",
+              "number": 12,
+              "type": "multiple-choice",
+              "prompt": "Why did the first route have to change?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "It brought visitors too close to the edge."
+                },
+                {
+                  "id": "B",
+                  "label": "It was too expensive to build."
+                },
+                {
+                  "id": "C",
+                  "label": "It blocked the market entrance."
+                },
+                {
+                  "id": "D",
+                  "label": "It faced the wrong direction."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test40-part-3-q13",
+              "number": 13,
+              "type": "multiple-choice",
+              "prompt": "How did the residents choose the new route?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "They measured both routes and compared them."
+                },
+                {
+                  "id": "B",
+                  "label": "They guessed which one looked nicer."
+                },
+                {
+                  "id": "C",
+                  "label": "They followed the engineer without checking."
+                },
+                {
+                  "id": "D",
+                  "label": "They asked visitors to vote immediately."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test40-part-3-q14",
+              "number": 14,
+              "type": "multiple-choice",
+              "prompt": "Why did the residents accept the less attractive option?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Because it was much safer to use."
+                },
+                {
+                  "id": "B",
+                  "label": "Because they had no other choice."
+                },
+                {
+                  "id": "C",
+                  "label": "Because the engineer refused to help."
+                },
+                {
+                  "id": "D",
+                  "label": "Because the market committee insisted."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test40-part-3-q15",
+              "number": 15,
+              "type": "multiple-choice",
+              "prompt": "What is the main idea of the text?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Evidence and safety should guide community decisions."
+                },
+                {
+                  "id": "B",
+                  "label": "Appearance matters more than safety."
+                },
+                {
+                  "id": "C",
+                  "label": "Engineers always make the wrong choices."
+                },
+                {
+                  "id": "D",
+                  "label": "Community projects are never successful."
+                }
+              ],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-pet-b1-test40-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 16–20",
+      "passageTitle": "Part 4 – The roof garden plan is tested for safety",
+      "passage": [
+        {
+          "text": "People living in the flats above the market wanted a community garden on the roof, but they first had to prove that the space was safe. They walked the route, marked the narrow sections and measured the distance from the edge at every point. (16) ..... These figures were written into a simple table, so the engineer could check every number against the plan before giving advice.  The engineer later confirmed every figure on the spot. "
+        },
+        {
+          "text": "The first route looked attractive because it passed the sunniest corner, but the safety walk showed that it led visitors too near the edge. (17) ..... That alternative added a few extra metres, yet it kept people well away from the steep edge even in heavy rain.  The longer route cost only a little extra time, and nobody minded the change once the figures were shown on the engineer's table. "
+        },
+        {
+          "text": "The group had expected the original plan to be approved without changes, so the engineer's report came as a surprise. (18) ..... Comparing the two designs on paper made the choice easier, because the numbers showed the difference clearly. They measured the alternative route, compared the two options carefully and agreed to accept the safer design.  The report also explained why the first route would become dangerous after rain, which removed the last doubts about the change. "
+        },
+        {
+          "text": "Some residents still preferred the prettier path and argued that the risk was small, especially on dry days. (19) ..... The group pinned it to the notice board and used it to answer every question about the change, which finally convinced the doubters.   A copy of the drawing was also left at the market office, so residents could inspect it in their own time."
+        },
+        {
+          "text": "Once the planters were installed, the roof garden quickly became a popular meeting place. (20) ..... The residents kept their records so that any future extension could be checked against the same evidence that had guided the original design.   The stored records meant that the next improvement could be designed with the same care, rather than starting from memory alone."
+        },
+        {
+          "label": "A",
+          "text": "The engineer's report forced the group to rethink the design.",
+          "key": "test40-part4-option-2",
+          "correctForGap": 18
+        },
+        {
+          "label": "B",
+          "text": "The residents built the garden without any checks.",
+          "key": "test40-part4-option-6",
+          "correctForGap": null
+        },
+        {
+          "label": "C",
+          "text": "The careful measurements gave the engineer the evidence he needed.",
+          "key": "test40-part4-option-0",
+          "correctForGap": 16
+        },
+        {
+          "label": "D",
+          "text": "The market committee closed the roof permanently.",
+          "key": "test40-part4-option-5",
+          "correctForGap": null
+        },
+        {
+          "label": "E",
+          "text": "The safer route kept visitors well away from the steep edge.",
+          "key": "test40-part4-option-1",
+          "correctForGap": 17
+        },
+        {
+          "label": "F",
+          "text": "The engineer refused to visit the roof at all.",
+          "key": "test40-part4-option-7",
+          "correctForGap": null
+        },
+        {
+          "label": "G",
+          "text": "A simple drawing from the engineer made the danger obvious to everyone.",
+          "key": "test40-part4-option-3",
+          "correctForGap": 19
+        },
+        {
+          "label": "H",
+          "text": "The recorded measurements would guide any future changes to the garden.",
+          "key": "test40-part4-option-4",
+          "correctForGap": 20
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test40-part-4-g0",
+          "range": "Questions 16–20",
+          "instruction": "Choose the sentence which fits each gap.",
+          "type": "matching-features",
+          "features": [
+            {
+              "id": "a",
+              "name": "The engineer's report forced the group to rethink the design.",
+              "key": "test40-part4-option-2",
+              "correctForGap": 18
+            },
+            {
+              "id": "b",
+              "name": "The residents built the garden without any checks.",
+              "key": "test40-part4-option-6",
+              "correctForGap": null
+            },
+            {
+              "id": "c",
+              "name": "The careful measurements gave the engineer the evidence he needed.",
+              "key": "test40-part4-option-0",
+              "correctForGap": 16
+            },
+            {
+              "id": "d",
+              "name": "The market committee closed the roof permanently.",
+              "key": "test40-part4-option-5",
+              "correctForGap": null
+            },
+            {
+              "id": "e",
+              "name": "The safer route kept visitors well away from the steep edge.",
+              "key": "test40-part4-option-1",
+              "correctForGap": 17
+            },
+            {
+              "id": "f",
+              "name": "The engineer refused to visit the roof at all.",
+              "key": "test40-part4-option-7",
+              "correctForGap": null
+            },
+            {
+              "id": "g",
+              "name": "A simple drawing from the engineer made the danger obvious to everyone.",
+              "key": "test40-part4-option-3",
+              "correctForGap": 19
+            },
+            {
+              "id": "h",
+              "name": "The recorded measurements would guide any future changes to the garden.",
+              "key": "test40-part4-option-4",
+              "correctForGap": 20
+            }
+          ],
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test40-part-4-q16",
+              "number": 16,
+              "type": "gap-fill",
+              "prompt": "Gap 16",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test40-part-4-q17",
+              "number": 17,
+              "type": "gap-fill",
+              "prompt": "Gap 17",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test40-part-4-q18",
+              "number": 18,
+              "type": "gap-fill",
+              "prompt": "Gap 18",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test40-part-4-q19",
+              "number": 19,
+              "type": "gap-fill",
+              "prompt": "Gap 19",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test40-part-4-q20",
+              "number": 20,
+              "type": "gap-fill",
+              "prompt": "Gap 20",
+              "options": [],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-pet-b1-test40-part-5",
+      "partNumber": 5,
+      "rangeLabel": "Questions 21–26",
+      "passageTitle": "Part 5 – Multiple-choice cloze",
+      "passage": [
+        {
+          "text": "My friend and I opened a small stall at the weekend market to sell (21) ..... cards. We spent two weeks (22) ..... them, choosing bright colours and simple messages that would appeal to different customers. On the first morning, we sold (23) ..... until noon, and we began to worry that our idea had failed. Then a grandmother (24) ..... three cards and asked if we could make more with her grandchildren's names on them. Word spread (25) ....., and by closing time we had sold almost every card. We learned that a small idea could succeed if we listened to what customers wanted, and we are already planning a bigger stall for next month with a wider range of designs.  The stall cost more than we expected, but the profit (26) ..... the second weekend covered our costs and left enough for new materials. We now keep a notebook of customer suggestions and use them to design the next batch of cards. Several regular customers come back every week, and we have started taking special orders for birthdays and family events. Our regulars also bring photos of the cards they have sent, which gives us ideas. We now sell a few cards at the flower stall next door."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test40-part-5-g0",
+          "range": "Questions 21–26",
+          "instruction": "For each question, choose the correct answer A, B, C or D.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test40-part-5-q21",
+              "number": 21,
+              "type": "multiple-choice",
+              "prompt": "Gap (21)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "handmade"
+                },
+                {
+                  "id": "B",
+                  "label": "printed"
+                },
+                {
+                  "id": "C",
+                  "label": "knitted"
+                },
+                {
+                  "id": "D",
+                  "label": "baked"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test40-part-5-q22",
+              "number": 22,
+              "type": "multiple-choice",
+              "prompt": "Gap (22)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "design"
+                },
+                {
+                  "id": "B",
+                  "label": "designing"
+                },
+                {
+                  "id": "C",
+                  "label": "designed"
+                },
+                {
+                  "id": "D",
+                  "label": "designs"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test40-part-5-q23",
+              "number": 23,
+              "type": "multiple-choice",
+              "prompt": "Gap (23)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "anything"
+                },
+                {
+                  "id": "B",
+                  "label": "something"
+                },
+                {
+                  "id": "C",
+                  "label": "nothing"
+                },
+                {
+                  "id": "D",
+                  "label": "everything"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test40-part-5-q24",
+              "number": 24,
+              "type": "multiple-choice",
+              "prompt": "Gap (24)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "brought"
+                },
+                {
+                  "id": "B",
+                  "label": "borrowed"
+                },
+                {
+                  "id": "C",
+                  "label": "rented"
+                },
+                {
+                  "id": "D",
+                  "label": "bought"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test40-part-5-q25",
+              "number": 25,
+              "type": "multiple-choice",
+              "prompt": "Gap (25)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "quickly"
+                },
+                {
+                  "id": "B",
+                  "label": "quietly"
+                },
+                {
+                  "id": "C",
+                  "label": "loudly"
+                },
+                {
+                  "id": "D",
+                  "label": "gently"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test40-part-5-q26",
+              "number": 26,
+              "type": "multiple-choice",
+              "prompt": "Gap (26)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "of"
+                },
+                {
+                  "id": "B",
+                  "label": "from"
+                },
+                {
+                  "id": "C",
+                  "label": "by"
+                },
+                {
+                  "id": "D",
+                  "label": "with"
+                }
+              ],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-pet-b1-test40-part-6",
+      "partNumber": 6,
+      "rangeLabel": "Questions 27–32",
+      "passageTitle": "Part 6 – Open cloze",
+      "passage": [
+        {
+          "text": "A group of residents decided to turn an unused car park into a small community garden. They applied for permission, and the council agreed (27) ........ they kept the entrance clear for deliveries. The first weekend, dozens of neighbours arrived to help dig and plant, (28) ........ surprised the organisers. Each family was given a small plot, and the garden soon became a place (29) ........ neighbours could relax while watering their vegetables. The project was so successful that the council offered funding for a second garden nearby, and the residents planned to work (30) ........ one team, sharing tools and advice between the two sites. By autumn, the first vegetables were ready to harvest, and the neighbours held a meal where (31) ........ dish came from their own plots. The garden had grown into something much bigger than anyone had imagined, and it became (32) ........ most popular meeting place in the neighbourhood.  The second garden opened the following spring, and the two sites now share a small shed and a compost bin near the main entrance.  The garden gave neighbours a shared reason to meet and turned an empty space into a source of fresh food."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test40-part-6-g0",
+          "range": "Questions 27–32",
+          "instruction": "Write one word for each gap.",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test40-part-6-q27",
+              "number": 27,
+              "type": "gap-fill",
+              "prompt": "Gap 27",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test40-part-6-q28",
+              "number": 28,
+              "type": "gap-fill",
+              "prompt": "Gap 28",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test40-part-6-q29",
+              "number": 29,
+              "type": "gap-fill",
+              "prompt": "Gap 29",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test40-part-6-q30",
+              "number": 30,
+              "type": "gap-fill",
+              "prompt": "Gap 30",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test40-part-6-q31",
+              "number": 31,
+              "type": "gap-fill",
+              "prompt": "Gap 31",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test40-part-6-q32",
+              "number": 32,
+              "type": "gap-fill",
+              "prompt": "Gap 32",
+              "options": [],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

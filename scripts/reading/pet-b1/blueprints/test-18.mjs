@@ -239,6 +239,8 @@ export default {
   },
 
   part5: {
+    title: "Work Experience in a Local Shop",
+    title: "Work Experience in a Local Shop",
     text: 'During my work experience placement at a local shop, I learned that customer service depends (21) ..... patience more than product knowledge. On the first morning, the manager asked me to (22) ..... up a display of new arrivals near the entrance. I arranged the items carefully, but a colleague pointed out that customers respond better to colour than to size. This feedback helped me (23) ..... out a better system by the afternoon. By the second day, I could answer most questions (24) ..... hesitation, although some requests still caught me off guard. The manager said I had settled (25) ..... well for someone with no retail experience. On the final day, I thanked the team, and they told me I could (26) ..... back any time I needed a reference.',
     extra: ' The placement confirmed that I enjoy working with people, even when the tasks are repetitive. I have since applied for a weekend position at the same shop.',
     specs: [
@@ -252,6 +254,8 @@ export default {
   },
 
   part6: {
+    title: "A Career Advice Workshop",
+    title: "A Career Advice Workshop",
     text: 'The career workshop was useful, (27) ........ I had expected it to be boring. A speaker (28) ........ worked in human resources explained what employers look for in (29) ........ application form. She said that candidates should arrive (30) ........ least ten minutes early for interviews. I (31) ........ not have attended if my tutor had not recommended it. Afterwards, several students agreed that (32) ........ had all felt uncertain before the talk.',
     extra: ' The organiser sent a follow-up email with links to free CV templates and a list of local employers offering placements. Several students replied with questions, and the speaker answered each one personally.',
     tail: ' The next workshop is scheduled for November, and places can be reserved through the college reception.',

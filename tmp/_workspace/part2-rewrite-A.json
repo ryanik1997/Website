@@ -1,0 +1,266 @@
+{
+  "31": {
+    "domain": "repair cafés and fixing household items",
+    "options": [
+      {
+        "key": "option-a",
+        "title": "Fix it Saturday workshop",
+        "description": "A morning workshop where volunteers repair lamps, radios and small chairs brought from home; tables are set up for one object per visitor, tools and replacement fuses are provided free, and every finished repair is tested before it leaves. Beginners receive step-by-step coaching from the bench leader.",
+        "openingStyle": "activity-led",
+        "constraints": ["Saturday morning", "one object per visitor", "tools and fuses free", "beginner coaching", "repairs tested"]
+      },
+      {
+        "key": "option-b",
+        "title": "Weeknight drop in repair bench",
+        "description": "An open evening bench that runs every Tuesday and Thursday until late, so people who finish work after six can still bring a broken item. No booking is needed, the first half hour is free of charge, and volunteers will assess any household object you carry through the door; return visits are welcome.",
+        "openingStyle": "schedule-led",
+        "constraints": ["Tuesday and Thursday", "evening hours", "no booking needed", "free first assessment"]
+      },
+      {
+        "key": "option-c",
+        "title": "Appliance diagnosis clinic",
+        "description": "A clinic focused on finding out why an appliance has stopped working before anyone buys a single part. Visitors describe the fault, watch a safe inspection, and leave with a written list of likely causes and the cheapest honest next steps, since no repair is attempted during the first visit.",
+        "openingStyle": "need-led",
+        "constraints": ["diagnosis only", "no parts needed yet", "written advice", "safe inspection"]
+      },
+      {
+        "key": "option-d",
+        "title": "Mobile repair van",
+        "description": "A van that visits three neighbourhoods each week, parking near the community centre and the local market so no one travels far with a heavy item. Two technicians take small electrical goods, lamps and folding chairs with minor damage, and a simple repair is often finished while you shop.",
+        "openingStyle": "location-led",
+        "constraints": ["comes to your street", "weekly visits", "light items only", "fast simple repairs"]
+      },
+      {
+        "key": "option-e",
+        "title": "Tool library with mentor corner",
+        "description": "A lending library where members borrow drills, sewing machines and soldering irons for a week, plus a corner staffed by retired engineers who answer questions on the spot. The membership is shared between two nearby buildings, and any household task, from re-gluing a chair leg to tightening a mixer tap, can be discussed there.",
+        "openingStyle": "feature-led",
+        "constraints": ["borrow tools", "expert advice on site", "weekly loan", "clothes and taps"]
+      },
+      {
+        "key": "option-f",
+        "title": "Teen repair skills club",
+        "description": "A Saturday club for fourteen-to-seventeen-year-olds who want to build confidence with real tools. Each session starts with one simple project, such as repairing a bicycle pump or restringing a chair, finishes with the finished item going home, and is always supervised by a trained tutor with a fixed age limit.",
+        "openingStyle": "audience-led",
+        "constraints": ["ages 14 to 17", "tutor supervised", "one project per session", "take it home"]
+      },
+      {
+        "key": "option-g",
+        "title": "Make it last course",
+        "description": "A four-week course that teaches basic skills so graduates can keep household items going for years instead of replacing them. Participants practise rewiring a plug, patching fabric, oiling hinges and descaling a kettle, and those who finish receive a certificate that opens the way to volunteering at any local repair bench.",
+        "openingStyle": "outcome-led",
+        "constraints": ["four weeks", "no experience needed", "certificate", "leads to volunteering"]
+      },
+      {
+        "key": "option-h",
+        "title": "Fair cost repair fund",
+        "description": "A scheme where residents on a limited income can have one household item repaired each month for a small donation instead of the usual price. Eligibility depends on a short check of circumstances, the work happens at partner workshops, and spare parts are covered when they cost under a set amount.",
+        "openingStyle": "condition-led",
+        "constraints": ["limited income", "one item per month", "small donation", "parts covered"]
+      }
+    ],
+    "profiles": [
+      {
+        "key": "profile-1",
+        "text": "Holly is a recent graduate who rents a flat and knows nothing about repairs. She wants a short structured course where she can learn to keep her kettle, lamp and bicycle working, and she hopes to volunteer at the local repair bench once she finishes.",
+        "correctOptionKey": "option-g"
+      },
+      {
+        "key": "profile-2",
+        "text": "Neil works in a restaurant and never finishes before eight, but his blender stopped working last week. He wants a place where he can simply turn up with the machine late in the evening, without booking, and get honest advice at little cost.",
+        "correctOptionKey": "option-b"
+      },
+      {
+        "key": "profile-3",
+        "text": "Sonia cannot carry her vacuum cleaner across town because of a back problem, and her sewing machine also makes a strange noise. She needs a service that comes close to her street during the week and can finish a small repair quickly.",
+        "correctOptionKey": "option-d"
+      },
+      {
+        "key": "profile-4",
+        "text": "Yusuf is fifteen and his school offers no practical subjects, but he loves taking things apart at home. His parents want him to join a supervised group where he learns with other teenagers and can bring a finished project home each session.",
+        "correctOptionKey": "option-f"
+      },
+      {
+        "key": "profile-5",
+        "text": "Mrs Ford lives on her pension and her radio, floor lamp and door lock all need attention. She cannot pay the usual workshop prices, so she wants a scheme where she pays a small donation and qualifies through a simple check of her income.",
+        "correctOptionKey": "option-h"
+      }
+    ]
+  },
+  "32": {
+    "domain": "night markets",
+    "options": [
+      {
+        "key": "option-a",
+        "title": "Cooking demo tent",
+        "description": "An open tent where chefs from three local restaurants cook a single dish twice each evening, so visitors can watch, taste small samples and then copy the recipe at home. The schedule is printed on boards at every entrance, seats are first come first served, and the tent stays open until the market closes.",
+        "openingStyle": "activity-led",
+        "constraints": ["free cooking demos", "taste samples", "recipes to take home", "until closing"]
+      },
+      {
+        "key": "option-b",
+        "title": "Midnight food court",
+        "description": "A covered food court that opens at nine and serves until the last bus leaves at half past midnight, aimed at workers and students who finish their shifts late. Twelve kitchens rotate their menus weekly, seating is shared and free, and hot meals stay available right through to closing without any time limit on sitting.",
+        "openingStyle": "schedule-led",
+        "constraints": ["opens at nine", "until last bus", "free shared seating", "no time limit"]
+      },
+      {
+        "key": "option-c",
+        "title": "Allergy safe stall row",
+        "description": "A row of stalls where every dish is clearly labelled for allergies, with dedicated dairy free, gluten free and nut free sections prepared on separate tables. The row was created because many visitors could not eat at ordinary markets, and the organisers check the labels with each seller before the gates open.",
+        "openingStyle": "need-led",
+        "constraints": ["clear allergy labels", "nut free cooking", "dairy free options", "checked by organisers"]
+      },
+      {
+        "key": "option-d",
+        "title": "Family play and eat zone",
+        "description": "A safe zone for families with children under ten, combining a low playground, a buggy parking area and stalls selling small portions that are easy to hold. The zone closes an hour earlier than the rest of the market, and a loud speaker announces the last ten minutes so parents can leave calmly.",
+        "openingStyle": "audience-led",
+        "constraints": ["children under ten", "fenced playground", "buggy parking", "early closing"]
+      },
+      {
+        "key": "option-e",
+        "title": "Riverside craft stalls",
+        "description": "Wooden stalls lined along the river path, where local makers sell pottery, candles, printed scarves and jewellery lit by warm lamps. The setting is quieter than the main square, there are benches between the stalls, and a footbridge at the far end leads directly to the car park and the night bus stop.",
+        "openingStyle": "location-led",
+        "constraints": ["riverside setting", "quiet and calm", "benches", "near car park and bus stop"]
+      },
+      {
+        "key": "option-f",
+        "title": "Music stage with seating",
+        "description": "A small stage beside the food stalls where local bands play short acoustic sets all evening, with benches and standing space that are free to everyone. The music finishes at ten so it never disturbs nearby residents, and the programme is fixed so visitors can plan when to sit down and listen.",
+        "openingStyle": "feature-led",
+        "constraints": ["live acoustic music", "free benches", "ends at ten", "fixed programme"]
+      },
+      {
+        "key": "option-g",
+        "title": "Sell your own craft table",
+        "description": "A programme that gives beginners a free table on two evenings to try selling their own handmade goods, with mentors on hand to help with prices and signs. Tables must be booked two weeks ahead, and successful sellers are invited to return with a regular pitch the following month.",
+        "openingStyle": "outcome-led",
+        "constraints": ["sell your own goods", "free starter table", "book two weeks ahead", "mentor help"]
+      },
+      {
+        "key": "option-h",
+        "title": "Covered arcade backup",
+        "description": "A glass arcade that hosts the same stalls indoors whenever rain is forecast, so a visit is never ruined by bad weather. The arcade has its own lights and sockets, a notice at the main gate says which sellers have moved, and the covered opening times match the outdoor market exactly.",
+        "openingStyle": "condition-led",
+        "constraints": ["indoor when it rains", "same stalls", "lights and sockets", "same opening times"]
+      }
+    ],
+    "profiles": [
+      {
+        "key": "profile-1",
+        "text": "Iris collects handmade pottery and printed scarves, and she finds the noisy main square stressful. She wants to browse at a quiet spot beside the water, with somewhere to sit and an easy route back to her car after the market.",
+        "correctOptionKey": "option-e"
+      },
+      {
+        "key": "profile-2",
+        "text": "Callum has a serious nut allergy and usually avoids food markets altogether. He wants a night out where he can try hot street food safely, with clear labelling and dishes that are prepared away from nuts, so he can relax while he eats.",
+        "correctOptionKey": "option-c"
+      },
+      {
+        "key": "profile-3",
+        "text": "Paula knits small toys in the evenings and dreams of selling them, but she has never had a table at any market. She wants a few evenings to test her prices with guidance, and hopes to earn a regular pitch if her goods do well.",
+        "correctOptionKey": "option-g"
+      },
+      {
+        "key": "profile-4",
+        "text": "Nico is a hospital porter who finishes work at ten, hungry and tired. He wants somewhere open after his shift where he can sit freely with colleagues, choose a hot meal without worrying about a closing time, and still catch the last bus home.",
+        "correctOptionKey": "option-b"
+      },
+      {
+        "key": "profile-5",
+        "text": "Mrs Goma comes with her five-year-old twins and wants them to be safe near the stalls. She needs a fenced play area, a place to leave the buggy, food that little hands can manage, and a chance to leave before the evening gets too crowded.",
+        "correctOptionKey": "option-d"
+      }
+    ]
+  },
+  "33": {
+    "domain": "cycle routes",
+    "options": [
+      {
+        "key": "option-a",
+        "title": "Saturday family ride",
+        "description": "A guided ride every Saturday morning that follows a flat, traffic free route of about ten kilometres, with a leader at the front and another at the back. Children ride with an adult, stops are planned at two parks, and the pace stays slow enough for beginners on any kind of bicycle.",
+        "openingStyle": "activity-led",
+        "constraints": ["Saturday mornings", "guided ride", "flat traffic free route", "children welcome", "slow pace"]
+      },
+      {
+        "key": "option-b",
+        "title": "Commuter route advice desk",
+        "description": "A desk at the station hall open on weekday mornings before nine, where council officers suggest the safest streets for riding to work and hand out printed route cards. Each person receives a personal plan, the service is free, and the desk moves to the library entrance on Tuesday evenings.",
+        "openingStyle": "schedule-led",
+        "constraints": ["weekday mornings", "station hall", "free", "personal route plan"]
+      },
+      {
+        "key": "option-c",
+        "title": "Off road woodland loop",
+        "description": "A gravel and dirt loop through the woodland that stays completely away from cars, built for riders who feel nervous sharing roads with traffic. The loop is eleven kilometres, climbs gently, and has two gates that close at dusk, so it is best attempted in daylight with lights fitted.",
+        "openingStyle": "need-led",
+        "constraints": ["completely car free", "woodland loop", "daylight only", "gentle climb"]
+      },
+      {
+        "key": "option-d",
+        "title": "Riverside leisure trail",
+        "description": "A flat sealed trail that follows the river for eight kilometres between the boathouse and the old mill, passing benches, cafés and a water fountain. The trail is shared with walkers at a polite pace, is open from sunrise until ten at night, and has a hard surface that suits any road bike or hybrid.",
+        "openingStyle": "location-led",
+        "constraints": ["riverside", "flat sealed surface", "open until ten", "benches and cafés"]
+      },
+      {
+        "key": "option-e",
+        "title": "Bike repair stations trail",
+        "description": "A five kilometre loop of quiet lanes with four free repair stations where riders can pump tyres, fix a chain or tighten brakes using the tools bolted to the stands. Simple guidance panels explain each fix, and the loop links three village shops and two bus stops for easy access.",
+        "openingStyle": "feature-led",
+        "constraints": ["free repair stands", "tools provided", "quiet lanes", "near bus stops"]
+      },
+      {
+        "key": "option-f",
+        "title": "Seniors slow ride",
+        "description": "A gentle midweek ride for people over sixty who want to keep cycling without pressure, riding six kilometres along easy paths with a leader who waits at every corner. The group meets at the community hall, stops for tea halfway, and rides only in dry weather with no hills on the chosen route.",
+        "openingStyle": "audience-led",
+        "constraints": ["over sixty", "midweek", "no hills", "dry weather only"]
+      },
+      {
+        "key": "option-g",
+        "title": "Cycle confidence course",
+        "description": "A six session course for adults returning to cycling who want to ride on roads again, ending with a short assessment and a certificate. Learners practise signalling, roundabouts and busy junctions in a quiet yard first, and the course finishes with a real journey to the town centre with an instructor.",
+        "openingStyle": "outcome-led",
+        "constraints": ["six sessions", "road skills", "instructor led", "certificate"]
+      },
+      {
+        "key": "option-h",
+        "title": "Weather checked evening rides",
+        "description": "A summer programme of evening group rides that are confirmed two hours before starting, only when the forecast stays dry and the wind stays low. Riders receive a message by phone on the afternoon of each ride, lights are compulsory, and the group always returns to the start before dark.",
+        "openingStyle": "condition-led",
+        "constraints": ["summer evenings", "weather confirmed", "phone message", "lights compulsory"]
+      }
+    ],
+    "profiles": [
+      {
+        "key": "profile-1",
+        "text": "Lucas and his wife have twin children aged seven, and their bikes have not been used for years. They want a relaxed Saturday ride on a flat route where a leader looks after the group, with planned stops and room for the children.",
+        "correctOptionKey": "option-a"
+      },
+      {
+        "key": "profile-2",
+        "text": "Marta returned to cycling recently but still panics whenever a lorry passes her on a main road. She wants a car free route where she can climb gently at her own speed, ride during daylight hours, and take her time without pressure.",
+        "correctOptionKey": "option-c"
+      },
+      {
+        "key": "profile-3",
+        "text": "Bo has a new hybrid bike and a job interview that requires riding across the centre of town. He has not cycled on roads for years and wants structured lessons in signalling and junctions, plus proof of his skills before he tries the journey alone.",
+        "correctOptionKey": "option-g"
+      },
+      {
+        "key": "profile-4",
+        "text": "Devi rides an older bike that often loses tyre pressure and she has no tools at home. She wants a short route on quiet lanes with free stands where she can pump and adjust her bike using the tools provided and guidance panels.",
+        "correctOptionKey": "option-e"
+      },
+      {
+        "key": "profile-5",
+        "text": "Owen works all day in an office and is only free after six, but he refuses to ride in heavy rain or strong wind. He wants summer evening group rides confirmed only when the weather is good, with phone confirmation and compulsory lights.",
+        "correctOptionKey": "option-h"
+      }
+    ]
+  }
+}

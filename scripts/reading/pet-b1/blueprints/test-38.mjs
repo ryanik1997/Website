@@ -1,0 +1,466 @@
+export default {
+  "testNumber": 38,
+  "id": "catalog-reading-pet-b1-test38",
+  "title": "PET B1 Reading – Test 38",
+  "level": "B1",
+  "examType": "cambridge",
+  "timeLimitMinutes": 45,
+  "totalQuestions": 32,
+  "parts": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "part1": {
+    "cards": [
+      {
+        "key": "p1-1",
+        "template": "notice",
+        "title": "Café weighing notice",
+        "text": "The kitchen staff will weigh the leftover food after every lunch service this week. Students should leave plates on the trolley as usual; a volunteer will collect the leftovers behind the counter.",
+        "question": {
+          "stem": "What is happening this week?",
+          "options": [
+            { "key": "a1", "text": "Staff will measure the food left on plates." },
+            { "key": "a2", "text": "Students must weigh their own plates." },
+            { "key": "a3", "text": "Lunch will be cancelled this week." }
+          ],
+          "correctOptionKey": "a1"
+        }
+      },
+      {
+        "key": "p1-2",
+        "template": "email",
+        "title": "Portion trial email",
+        "text": "Your lunch is being served in smaller portions this Thursday as part of the food waste trial. If you are still hungry, you may return for a free extra serving at the side counter.",
+        "question": {
+          "stem": "What should hungry students do?",
+          "options": [
+            { "key": "b1", "text": "Bring food from home instead." },
+            { "key": "b2", "text": "Skip lunch until Friday." },
+            { "key": "b3", "text": "Take another serving without paying." }
+          ],
+          "correctOptionKey": "b3"
+        }
+      },
+      {
+        "key": "p1-3",
+        "template": "poster",
+        "title": "Leftover records poster",
+        "text": "Please put any food you have not eaten on the weighing tray near the exit. Do not pour drinks into the tray. The class needs these measurements to see which dishes waste the most.",
+        "question": {
+          "stem": "What does the poster ask students to do?",
+          "options": [
+            { "key": "c1", "text": "Add their drinks to the tray." },
+            { "key": "c2", "text": "Place uneaten food on the tray." },
+            { "key": "c3", "text": "Empty the tray into the bin." }
+          ],
+          "correctOptionKey": "c2"
+        }
+      },
+      {
+        "key": "p1-4",
+        "template": "message",
+        "title": "Menu change message",
+        "text": "The baked potato option has been removed from Tuesday's menu because too many were left uneaten. It returns in a smaller size the following week. Choose the pasta if you need a filling meal.",
+        "question": {
+          "stem": "Why was the baked potato removed?",
+          "options": [
+            { "key": "d1", "text": "Too many potatoes were wasted." },
+            { "key": "d2", "text": "The kitchen ran out of potatoes." },
+            { "key": "d3", "text": "Students refused to eat pasta." }
+          ],
+          "correctOptionKey": "d1"
+        }
+      },
+      {
+        "key": "p1-5",
+        "template": "update",
+        "title": "Waste report update",
+        "text": "Last week's weighing showed that soup waste fell by a third when the serving ladle was made smaller. The class will share the full results at the assembly on Friday.",
+        "question": {
+          "stem": "What does the update report?",
+          "options": [
+            { "key": "e1", "text": "The assembly was cancelled." },
+            { "key": "e2", "text": "Soup was removed from the menu." },
+            { "key": "e3", "text": "The smaller ladle reduced waste." }
+          ],
+          "correctOptionKey": "e3"
+        }
+      }
+    ]
+  },
+  "part2": {
+    "domain": "cooking, shopping and sustainability",
+    "options": [
+      {
+        "key": "option-a",
+        "title": "Kitchen portion workshop",
+        "openingStyle": "activity-led",
+        "description": "A hands-on workshop where school cooks show how portion sizes affect the amount of food thrown away. Participants weigh sample servings, record the leftovers and practise adjusting a recipe to feed a group without waste. The session includes a short visit to the school kitchen and ends with a group discussion of the results.",
+        "constraints": [
+          "portions",
+          "weighing",
+          "recipe adjustments",
+          "kitchen visit",
+          "small group"
+        ],
+        "imageSlotKey": "option-a"
+      },
+      {
+        "key": "option-b",
+        "title": "Leftover rescuing class",
+        "openingStyle": "condition-led",
+        "description": "A cooking class that turns unsold café food into new meals for the next day. Participants bring whatever remains after lunch, examine what is still safe to eat and learn simple ways to store and reheat it safely. No previous cooking experience is needed, and recipes are kept short.",
+        "constraints": [
+          "cooking basics",
+          "no experience needed",
+          "safe storage",
+          "short recipes"
+        ],
+        "imageSlotKey": "option-b"
+      },
+      {
+        "key": "option-c",
+        "title": "Shopping list challenge",
+        "openingStyle": "feature-led",
+        "description": "A team activity that helps students plan a weekly shopping list so that nothing is bought twice or left unused. Teams compare real receipts, spot items that were thrown away and rewrite the list using smaller, cheaper amounts. The winning team explains its choices to the whole group.",
+        "constraints": [
+          "team work",
+          "receipts",
+          "planning",
+          "cheaper amounts"
+        ],
+        "imageSlotKey": "option-c"
+      },
+      {
+        "key": "option-d",
+        "title": "Fridge audit morning",
+        "openingStyle": "need-led",
+        "description": "A guided session at the school café where participants sort through the fridge and decide which items can be used today. Volunteers check dates, separate food that will not last and suggest quick meals that use up several ingredients. The morning finishes with a simple shared snack.",
+        "constraints": [
+          "sorting",
+          "checking dates",
+          "quick meals",
+          "shared snack"
+        ],
+        "imageSlotKey": "option-d"
+      },
+      {
+        "key": "option-e",
+        "title": "Plate waste clinic",
+        "openingStyle": "audience-led",
+        "description": "An open clinic where anyone can bring a photo of a wasted plate and talk through what went wrong. Staff explain which measurements matter, such as the size of the serving spoon or the amount left uneaten, and suggest small changes to try. Drop-in visits last twenty minutes.",
+        "constraints": [
+          "drop-in",
+          "photos",
+          "measurements",
+          "twenty minutes"
+        ],
+        "imageSlotKey": "option-e"
+      },
+      {
+        "key": "option-f",
+        "title": "Compost tour and talk",
+        "openingStyle": "schedule-led",
+        "description": "A short tour of the school's compost bins followed by a talk about which food can go in and which must stay out. Visitors see the finished compost being used on the garden beds and receive a printed guide with the rules. The tour follows a fixed timetable.",
+        "constraints": [
+          "short tour",
+          "fixed timetable",
+          "printed guide",
+          "garden beds"
+        ],
+        "imageSlotKey": "option-f"
+      },
+      {
+        "key": "option-g",
+        "title": "Menu planning forum",
+        "openingStyle": "result-led",
+        "description": "A lunchtime forum where students redesign next week's menu using the latest leftover records. Small groups compare the numbers, remove the dishes that waste the most and agree on portion sizes before presenting their menu to the kitchen. The chosen menu is printed and tested.",
+        "constraints": [
+          "lunchtime",
+          "leftover records",
+          "menu redesign",
+          "presentation"
+        ],
+        "imageSlotKey": "option-g"
+      },
+      {
+        "key": "option-h",
+        "title": "Starter recipe swap",
+        "openingStyle": "invitation-led",
+        "description": "A friendly evening where families bring one recipe that uses up odd ingredients already in their kitchen. Everyone tries a sample, shares tips about storing vegetables and leaves with a set of recipe cards. The event is free and no one is expected to cook on the spot.",
+        "constraints": [
+          "families",
+          "recipe cards",
+          "samples",
+          "free event"
+        ],
+        "imageSlotKey": "option-h"
+      }
+    ],
+    "profiles": [
+      {
+        "key": "profile-1",
+        "text": "Amir wants to reduce the food his family buys that never gets eaten. He needs to compare shopping receipts, spot items thrown away untouched and rewrite a weekly list with smaller amounts, and he prefers working with a team of classmates.",
+        "correctOptionKey": "option-c"
+      },
+      {
+        "key": "profile-2",
+        "text": "Sara helps in the school kitchen and wants to understand why some dishes are always half-eaten. She needs to weigh sample servings, record what comes back and practise adjusting a recipe with clear guidance from the cooks.",
+        "correctOptionKey": "option-a"
+      },
+      {
+        "key": "profile-3",
+        "text": "Tomas has several half-used bags of vegetables at home and wants friendly ideas for using them. He prefers an informal evening with other families where he can share a recipe, taste samples and collect recipe cards to try later.",
+        "correctOptionKey": "option-h"
+      },
+      {
+        "key": "profile-4",
+        "text": "Elena wants to know which food can be put in the school compost bin and would like to see the finished compost being used. She needs a short visit that follows a set schedule and a printed guide she can keep.",
+        "correctOptionKey": "option-f"
+      },
+      {
+        "key": "profile-5",
+        "text": "Priya works in the café and sees good food thrown away after lunch. She wants to learn how to turn leftover meals into safe food for the next day, and she has no cooking experience yet.",
+        "correctOptionKey": "option-b"
+      }
+    ]
+  },
+  "part3": {
+    "title": "Cutting food waste at the school café",
+    "paragraphs": [
+      "Our class wanted to reduce food waste at the school café, because large amounts of food were being thrown away every week. The group weighed the leftovers after lunch, recorded which dishes came back half-eaten and noted the portions that students most often left untouched. Because the café served the same menu each week, the class could gather reliable figures over several days and see which dishes produced the most waste. They shared these numbers with the kitchen staff, who agreed to continue weighing the leftovers at the end of each lunch service and report back to the class.",
+      "The measurements pointed to a larger habit behind the waste. A trial lunch showed that the recipe encouraged unnecessary leftovers, because the portions were simply too large for most students and the vegetables were cooked separately from the main dish. The class weighed the remaining food, compared the results with the earlier figures and identified which part of the meal students were leaving on their plates most often.",
+      "Rather than guessing at the size of the problem, the class decided to measure it. They weighed the new portions, collected comments from students and spotted which instructions still encouraged people to take more food than they could eat. They then presented the numbers to the kitchen staff and suggested a clear change to the serving size.",
+      "Some students wanted larger portions, while others pointed to the leftover figures as proof that the current size was already too generous. Looking at the numbers together made the final serving choice easier, because the group could agree on a size that reduced waste without leaving anyone hungry at the end of lunch. The debate showed that measuring did not remove disagreement; it simply gave everyone the same facts to argue with."
+    ],
+    "buildExtension": " After a week of testing the new portion size, the café reported that the amount of food thrown away had fallen by almost half. The class recorded the results and planned to repeat the measurement later in the term to make sure the improvement lasted.",
+    "questions": [
+      {
+        "stem": "What did the class want to find out?",
+        "options": [
+          "How much food was wasted and why.",
+          "How to make the café more expensive.",
+          "Which students ate the most.",
+          "Whether the kitchen should close."
+        ],
+        "correctIndex": 0
+      },
+      {
+        "stem": "What did the trial lunch show?",
+        "options": [
+          "The portions were too large for most students.",
+          "The recipe produced no waste at all.",
+          "Students disliked all vegetables.",
+          "The kitchen had no food to serve."
+        ],
+        "correctIndex": 0
+      },
+      {
+        "stem": "How did the class gather evidence?",
+        "options": [
+          "By weighing leftovers and collecting comments.",
+          "By guessing the amount of waste.",
+          "By ignoring the kitchen staff.",
+          "By closing the café for a week."
+        ],
+        "correctIndex": 0
+      },
+      {
+        "stem": "Why was the disagreement about portion size useful?",
+        "options": [
+          "It made the group examine the evidence together.",
+          "It stopped any change from happening.",
+          "It meant no one had to make a decision.",
+          "It increased the amount of waste."
+        ],
+        "correctIndex": 0
+      },
+      {
+        "stem": "What is the main message of the text?",
+        "options": [
+          "Measuring a problem can lead to a practical solution.",
+          "Waste is impossible to reduce.",
+          "Only adults can change the menu.",
+          "Leftover food is not a real problem."
+        ],
+        "correctIndex": 0
+      }
+    ]
+  },
+  "part4": {
+    "title": "The food project measures its own success",
+    "layoutParagraphs": [
+      "The school food project began by measuring how much cooked food was thrown away at the end of lunch. The class weighed the leftovers for a week and noticed that the same dish appeared on the list every day. (16) ..... The daily record made it easy to spot which dishes were returned half-eaten most often. The students wanted to see whether a smaller portion would reduce the waste without leaving anyone hungry.",
+      "During the trial, the kitchen served the new portion size and weighed what came back at the end of the meal. (17) ..... Students who usually asked for more food said the new size was fine, which confirmed that the change had not left anyone hungry. The result surprised the class, because the amount of leftover food fell sharply while students reported feeling satisfied with the smaller portions.",
+      "The first idea was simply to reduce every portion by the same amount, but the numbers showed that some dishes needed a larger change than others. (18) ..... Comparing the results dish by dish let the class avoid a single broad change that might have upset the menu. The group therefore adjusted one dish at a time and weighed the result before moving to the next. Each small success encouraged the group to keep weighing.",
+      "A few students complained that the new portions were too small, especially the boys who played sport during lunch. (19) ..... The salad bowl was refilled several times each lunch, yet the amount of food thrown away still fell, which satisfied the class that the change was working. The kitchen paid for the extra salad by buying fewer potatoes.",
+      "By the end of the term, the café reported that food waste had fallen by almost half. (20) ..... The class wrote the method as a simple step-by-step guide, which another school could follow without extra training, and they shared it at a regional meeting. The experience proved that a straightforward measurement could solve a problem most people had assumed was too difficult to change. The guide also reminded the team to record the numbers."
+    ],
+    "layoutExtensions": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "layoutClosers": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "options": [
+      {
+        "key": "option-0",
+        "text": "This daily pattern gave the project a clear starting point.",
+        "correctForGap": 16
+      },
+      {
+        "key": "option-1",
+        "text": "The smaller portions produced far less waste than before.",
+        "correctForGap": 17
+      },
+      {
+        "key": "option-2",
+        "text": "The figures revealed which dishes needed the biggest change.",
+        "correctForGap": 18
+      },
+      {
+        "key": "option-3",
+        "text": "The extra option satisfied them without creating new waste.",
+        "correctForGap": 19
+      },
+      {
+        "key": "option-4",
+        "text": "The recorded method could be copied by other cafeterias.",
+        "correctForGap": 20
+      },
+      {
+        "key": "option-5",
+        "text": "The café stopped serving lunch altogether.",
+        "correctForGap": null
+      },
+      {
+        "key": "option-6",
+        "text": "The students refused to eat any vegetables at all.",
+        "correctForGap": null
+      },
+      {
+        "key": "option-7",
+        "text": "The kitchen burned all the leftover food.",
+        "correctForGap": null
+      }
+    ],
+    "displayOrder": [
+      1,
+      5,
+      3,
+      6,
+      0,
+      2,
+      7,
+      4
+    ]
+  },
+  "part5": {
+    "title": "A School Paper Recycling Project",
+    "text": "Every classroom at our school was throwing away used paper, so a group of students started a recycling project. They cut the amount of paper that went to the bins each week by placing a special box in each room and asking pupils to put their used sheets inside instead of throwing them away. At first, some people forgot, so the team made bright posters to remind them. Within a month, the boxes were so full that the school had to empty them twice a day.",
+    "extra": " The office counted the collected paper and reported that almost a hundred kilograms had been gathered in a single term, which encouraged the team. The visit to the recycling centre showed how the paper was cleaned, pressed and turned into new sheets for artwork. The project has also begun collecting plastic bottles in a second box, because the first idea saved the school real money on waste collection. Seeing the whole process made pupils more careful about what they put in the box, since a single dirty sheet could spoil an entire bundle. The school now plans to run the project every year and share the method with other schools, so that the whole region can benefit and every school can start its own collection next term.",
+    "specs": [
+      {
+        "phrase": "throwing",
+        "languageTarget": "phrasal verb",
+        "options": [
+          "holding",
+          "throwing",
+          "hiding",
+          "lifting"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "phrase": "amount",
+        "languageTarget": "noun choice",
+        "options": [
+          "number",
+          "size",
+          "amount",
+          "weight"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "phrase": "empty",
+        "languageTarget": "verb choice",
+        "options": [
+          "empty",
+          "fill",
+          "cover",
+          "close"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "phrase": "saved",
+        "languageTarget": "collocation",
+        "options": [
+          "paid",
+          "saved",
+          "lost",
+          "earned"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "phrase": "about",
+        "languageTarget": "dependent preposition",
+        "options": [
+          "at",
+          "on",
+          "for",
+          "about"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "phrase": "entire",
+        "languageTarget": "adjective/adverb",
+        "options": [
+          "single",
+          "extra",
+          "entire",
+          "new"
+        ],
+        "correctIndex": 2
+      }
+    ]
+  },
+  "part6": {
+    "title": "A Local Recipe Competition",
+    "text": "The market held a competition to find the best local recipe, and home cooks entered dishes from their family traditions. A panel of judges tasted each dish (27) ........ turn, so no single meal received special attention. The winner was a simple soup that reminded (28) ........ of their own grandmothers' cooking. The market printed the recipe on free cards, (29) ........ shoppers could try it at home. Demand was so high that a second print run was ordered, and the recipe even appeared in (30) ........ local newspaper. The organisers were so pleased that they decided to hold (31) ........ every summer, and local shops reported that sales of the winning ingredients had risen, (32) ........ was an unexpected bonus.",
+    "extra": " The success of the competition encouraged other markets in the region to start similar events, and a national food website asked to publish the winning recipe. The organisers collected feedback from the cooks and planned to add a junior category the following year.",
+    "tail": " The recipe competition turned a simple market event into a tradition that the whole town looked forward to each summer.",
+    "answers": [
+      "in",
+      "them",
+      "so",
+      "the",
+      "it",
+      "which"
+    ],
+    "targets": [
+      "preposition",
+      "pronoun",
+      "conjunction",
+      "article",
+      "pronoun",
+      "relative-word"
+    ]
+  }
+}

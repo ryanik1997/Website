@@ -12,6 +12,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 4px;
   width: 144px;
   min-width: 144px;
   height: 22px;
@@ -29,11 +30,15 @@
 }
 
 .pet-rw-part5-gap__number {
+  flex: 0 0 auto;
+  min-width: 22px;
+  text-align: center;
   font-weight: 700;
 }
 
 .pet-rw-part5-gap__value {
-  width: 100%;
+  flex: 0 1 auto;
+  min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

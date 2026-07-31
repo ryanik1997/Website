@@ -239,6 +239,8 @@ export default {
   },
 
   part5: {
+    title: "A Neighbourhood Food Festival",
+    title: "A Neighbourhood Food Festival",
     text: 'The neighbourhood food festival began as a small idea, but it quickly became an annual event that everyone (21) ..... forward to. On the morning of the festival, volunteers arrived early to (22) ..... tents and tables in the park. Local families prepared dishes from their own cultures, and the smell of spices (23) ..... the air by midday. Children helped by carrying plates and (24) ..... out lemonade to visitors. A local shop owner agreed to (25) ..... the ingredients at a reduced price, which made the event possible without a large budget. Although rain arrived in the afternoon, nobody left early, and the atmosphere (26) ..... cheerful until the music stopped. The organisers later said the festival succeeded because people cared more about sharing than about perfection.',
     extra: ' Since then, the committee has added a recipe exchange board where visitors pin their favourite dishes. This small addition has helped neighbours discover common interests beyond the festival itself.',
     specs: [
@@ -252,6 +254,8 @@ export default {
   },
 
   part6: {
+    title: "Joining a Cookery Club",
+    title: "Joining a Cookery Club",
     text: 'When I joined (27) ........ cookery club, I was not sure what to expect. A member (28) ........ had been attending for two years welcomed me at the door. I wanted to leave early, (29) ........ she persuaded me to stay for the main dish. The group meets (30) ........ seven every Thursday evening. Members share tasks, and (31) ........ all contribute something to the meal. I learned to chop vegetables properly, (32) ........ I also discovered how to make a simple sauce from scratch.',
     extra: ' The club keeps a notebook where members write down useful tips. Newcomers are encouraged to add their own suggestions after the first month, which makes the record feel shared rather than fixed.',
     tail: ' The organiser updates the list each term so that recipes stay seasonal.',

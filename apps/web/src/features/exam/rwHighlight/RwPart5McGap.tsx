@@ -31,6 +31,10 @@ export default function RwPart5McGap({
   disabled,
   alignRight = false,
 }: Props) {
+  const selectedLabel = value
+    ? question.options.find(o => o.id.toLowerCase() === value.toLowerCase())?.label ?? value
+    : ''
+
   useEffect(() => {
     if (!open) return
     const onPointerDown = (event: PointerEvent) => {
@@ -93,16 +97,15 @@ export default function RwPart5McGap({
         data-highlight-skip
         disabled={disabled}
         aria-expanded={open}
-        aria-label={`Question ${number}, choose answer`}
+        aria-label={value
+          ? `Question ${number}, selected answer ${selectedLabel}`
+          : `Question ${number}, choose answer`}
         onClick={onToggle}
       >
+        <span className="pet-rw-part5-gap__number">{number}</span>
         {value ? (
-          <span className="pet-rw-part5-gap__value">
-            {question.options.find(o => o.id.toLowerCase() === value.toLowerCase())?.label}
-          </span>
-        ) : (
-          <span className="pet-rw-part5-gap__number">{number}</span>
-        )}
+          <span className="pet-rw-part5-gap__value">{selectedLabel}</span>
+        ) : null}
       </button>
     </span>
   )

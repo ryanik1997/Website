@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { PenLine } from 'lucide-react'
@@ -37,14 +37,22 @@ export default function WritingIeltsPracticePage() {
     return filtered.filter(d => docMatchesIeltsGenre(d, track, genre))
   }, [track?.slug, genre])
 
-  const { setActiveDoc } = useWritingStore()
+  const { activeDocId, setActiveDoc } = useWritingStore()
   const [showCreate, setShowCreate] = useState(false)
+
+  useEffect(() => {
+    if (!docs?.length) return
+    if (!activeDocId || !docs.some(doc => doc.id === activeDocId)) {
+      setActiveDoc(docs[0].id)
+    }
+  }, [docs, activeDocId, setActiveDoc])
 
   if (!track || !genreDef || !isValidGenreForTrack(track.slug as IeltsTrackSlug, genre)) {
     return <Navigate to="/app/writing/practice" replace />
   }
 
   const isEmpty = docs !== undefined && docs.length === 0
+  const focusMode = true
   const typeOption = IELTS_DOC_TYPE_OPTIONS.find(o => o.id === track.type)
   const allowedTypes = typesForTrack(track)
 
@@ -71,7 +79,7 @@ export default function WritingIeltsPracticePage() {
       <PromptSuggestPanel track={track.slug} genre={genre} />
 
       <div className="flex flex-1 min-h-0 overflow-hidden">
-        {!isEmpty && (
+        {!isEmpty && !focusMode && (
           <DocListPanel
             filterTypes={allowedTypes}
             filterDoc={d => docMatchesIeltsGenre(d, track, genre)}

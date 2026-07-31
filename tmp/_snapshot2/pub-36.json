@@ -1,0 +1,859 @@
+{
+  "id": "catalog-reading-pet-b1-test36",
+  "title": "PET B1 Reading – Test 36",
+  "durationMinutes": 45,
+  "bandHint": "B1 Preliminary Reading – 6 parts",
+  "examTrack": "cambridge",
+  "cambridgeLevel": "b1",
+  "catalogCanonical": true,
+  "parts": [
+    {
+      "id": "catalog-reading-pet-b1-test36-part-1",
+      "partNumber": 1,
+      "renderMode": "html-css",
+      "rangeLabel": "Questions 1–5",
+      "passageTitle": "Part 1 – Short texts",
+      "passage": [
+        {
+          "text": "Science fair notice\nThe team meeting moves to the library at four o’clock on Friday because the hall is needed for an assembly. Bring your insect records and a ruler. Anyone arriving late should collect the minutes from the desk."
+        },
+        {
+          "text": "Display email\nYour insect display is booked for the library entrance from Monday. The stand is narrow, so only three jars fit on the shelf. Reply by Friday if you need an extra table, or your current layout will be kept."
+        },
+        {
+          "text": "Fair poster\nThe insect fair runs from nine to four in the library. Visitors may take photographs without a flash, and children must be with an adult near the live hives. Please do not lean on the display stands."
+        },
+        {
+          "text": "Volunteer message\nSaturday’s label-writing session is cancelled because the printer is being repaired. We have moved it to Monday after school in the same room. Please tell any volunteers who do not check their messages often."
+        },
+        {
+          "text": "Fair update\nThe insect display opens next week instead of this Friday so that the team can add the visitor evidence to the labels. The library will stay open until six on the opening day, and entry remains free."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test36-part-1-g0",
+          "range": "Questions 1–5",
+          "instruction": "For each question, choose the correct answer A, B or C.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test36-part-1-q1",
+              "number": 1,
+              "type": "multiple-choice",
+              "prompt": "What should team members do if they cannot arrive on time?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Contact the assembly organiser."
+                },
+                {
+                  "id": "B",
+                  "label": "Collect the meeting notes from the desk."
+                },
+                {
+                  "id": "C",
+                  "label": "Skip the meeting this week."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test36-part-1-q2",
+              "number": 2,
+              "type": "multiple-choice",
+              "prompt": "What must the reader decide by Friday?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Whether to request an additional table."
+                },
+                {
+                  "id": "B",
+                  "label": "How many jars the shelf can hold."
+                },
+                {
+                  "id": "C",
+                  "label": "Which insects to photograph first."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test36-part-1-q3",
+              "number": 3,
+              "type": "multiple-choice",
+              "prompt": "What are visitors allowed to do?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Touch the insects in the hives."
+                },
+                {
+                  "id": "B",
+                  "label": "Move the stands to another wall."
+                },
+                {
+                  "id": "C",
+                  "label": "Photograph the displays without a flash."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test36-part-1-q4",
+              "number": 4,
+              "type": "multiple-choice",
+              "prompt": "What should readers do about the session?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Repair the printer themselves."
+                },
+                {
+                  "id": "B",
+                  "label": "Tell other volunteers about the new date."
+                },
+                {
+                  "id": "C",
+                  "label": "Cancel all the remaining sessions."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test36-part-1-q5",
+              "number": 5,
+              "type": "multiple-choice",
+              "prompt": "Why was the opening changed?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "The team needs time to add visitor feedback."
+                },
+                {
+                  "id": "B",
+                  "label": "The library closes early on Friday."
+                },
+                {
+                  "id": "C",
+                  "label": "Entry will cost more on Friday."
+                }
+              ],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-pet-b1-test36-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 6–10",
+      "passageTitle": "Part 2 – Matching",
+      "passage": [
+        {
+          "text": "The people below want to choose from community science and local projects. Decide which option is most suitable."
+        },
+        {
+          "label": "A",
+          "text": "Beginner insect trail with a small group — A guided early-morning insect trail around the school grounds. Participants photograph and count insects with a clipboard guide, small groups leave every fifteen minutes and all equipment is supplied. Comfortable shoes help, and the walk ends beside the library where results are added to the fair’s display.",
+          "imageSlotId": "catalog-reading-pet-b1-test36-part-2-option-a-image",
+          "imageRequired": false
+        },
+        {
+          "label": "B",
+          "text": "Library water testing with a wall chart — A hands-on testing session held in a corner of the library. Participants compare tap water from different classrooms using simple kits, record the results on a wall chart and discuss what the numbers mean. Seats are limited to twelve, so arriving early is sensible; no prior experience is needed.",
+          "imageSlotId": "catalog-reading-pet-b1-test36-part-2-option-b-image",
+          "imageRequired": false
+        },
+        {
+          "label": "C",
+          "text": "Family bird counting in the park — A friendly bird-counting morning for families with young children. Groups stand in the park, record every bird they see on a simple form and add the totals to a large map that will be shown at the fair. Warm clothing and a spare pencil are useful; binoculars are provided for the first hour.",
+          "imageSlotId": "catalog-reading-pet-b1-test36-part-2-option-c-image",
+          "imageRequired": false
+        },
+        {
+          "label": "D",
+          "text": "Kitchen science with everyday foods — Simple experiments using everyday foods, led in the school kitchen. Visitors mix vinegar with baking soda, measure the bubbles and compare the strength of different leavening agents while an adult supervises each table. Aprons and ingredients are supplied, and the results appear on the fair’s display board.",
+          "imageSlotId": "catalog-reading-pet-b1-test36-part-2-option-d-image",
+          "imageRequired": false
+        },
+        {
+          "label": "E",
+          "text": "Build a weather station for your class — A workshop where teams build a rain gauge and a simple thermometer stand. All tools and materials are provided, clear picture instructions are followed step by step, and each team takes its instruments home at the end. The session suits classes preparing a weather project for the fair.",
+          "imageSlotId": "catalog-reading-pet-b1-test36-part-2-option-e-image",
+          "imageRequired": false
+        },
+        {
+          "label": "F",
+          "text": "Improve labels for the insect display — A fixed afternoon session for fair volunteers who want to improve the display’s labels and photographs. Workers sort specimen photos, rewrite captions in clearer language and check every card against the evidence collected during the week. The session starts at two and finishes at five.",
+          "imageSlotId": "catalog-reading-pet-b1-test36-part-2-option-f-image",
+          "imageRequired": false
+        },
+        {
+          "label": "G",
+          "text": "Recycling race with garden prizes — A competitive recycling challenge in which teams sort a mixed bag of waste into the correct containers as quickly as they can. Judges check each bin for mistakes, and the winning methods are demonstrated to visitors during the fair. Prizes include gardening vouchers donated by a local shop.",
+          "imageSlotId": "catalog-reading-pet-b1-test36-part-2-option-g-image",
+          "imageRequired": false
+        },
+        {
+          "label": "H",
+          "text": "Free insect trail at your own pace — A free self-guided trail through the insect display in the library. Visitors collect a printed sheet, move at their own pace and answer simple questions that lead them around the cabinets. No booking is needed, and families may start whenever they arrive. A helper stands by the desk in case a question is unclear.",
+          "imageSlotId": "catalog-reading-pet-b1-test36-part-2-option-h-image",
+          "imageRequired": false
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test36-part-2-g0",
+          "range": "Questions 6–10",
+          "instruction": "For each question, choose the most suitable option.",
+          "type": "matching-features",
+          "features": [
+            {
+              "id": "a",
+              "name": "Beginner insect trail with a small group — A guided early-morning insect trail around the school grounds. Participants photograph and count insects with a clipboard guide, small groups leave every fifteen minutes and all equipment is supplied. Comfortable shoes help, and the walk ends beside the library where results are added to the fair’s display."
+            },
+            {
+              "id": "b",
+              "name": "Library water testing with a wall chart — A hands-on testing session held in a corner of the library. Participants compare tap water from different classrooms using simple kits, record the results on a wall chart and discuss what the numbers mean. Seats are limited to twelve, so arriving early is sensible; no prior experience is needed."
+            },
+            {
+              "id": "c",
+              "name": "Family bird counting in the park — A friendly bird-counting morning for families with young children. Groups stand in the park, record every bird they see on a simple form and add the totals to a large map that will be shown at the fair. Warm clothing and a spare pencil are useful; binoculars are provided for the first hour."
+            },
+            {
+              "id": "d",
+              "name": "Kitchen science with everyday foods — Simple experiments using everyday foods, led in the school kitchen. Visitors mix vinegar with baking soda, measure the bubbles and compare the strength of different leavening agents while an adult supervises each table. Aprons and ingredients are supplied, and the results appear on the fair’s display board."
+            },
+            {
+              "id": "e",
+              "name": "Build a weather station for your class — A workshop where teams build a rain gauge and a simple thermometer stand. All tools and materials are provided, clear picture instructions are followed step by step, and each team takes its instruments home at the end. The session suits classes preparing a weather project for the fair."
+            },
+            {
+              "id": "f",
+              "name": "Improve labels for the insect display — A fixed afternoon session for fair volunteers who want to improve the display’s labels and photographs. Workers sort specimen photos, rewrite captions in clearer language and check every card against the evidence collected during the week. The session starts at two and finishes at five."
+            },
+            {
+              "id": "g",
+              "name": "Recycling race with garden prizes — A competitive recycling challenge in which teams sort a mixed bag of waste into the correct containers as quickly as they can. Judges check each bin for mistakes, and the winning methods are demonstrated to visitors during the fair. Prizes include gardening vouchers donated by a local shop."
+            },
+            {
+              "id": "h",
+              "name": "Free insect trail at your own pace — A free self-guided trail through the insect display in the library. Visitors collect a printed sheet, move at their own pace and answer simple questions that lead them around the cabinets. No booking is needed, and families may start whenever they arrive. A helper stands by the desk in case a question is unclear."
+            }
+          ],
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test36-part-2-q6",
+              "number": 6,
+              "type": "matching-features",
+              "prompt": "An adult beginner wants a short morning activity with a guide and all equipment provided, and would like to help count insects for the fair’s display.",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test36-part-2-q7",
+              "number": 7,
+              "type": "matching-features",
+              "prompt": "A grandparent brings two small grandchildren and wants a friendly activity before lunch where they can record wildlife together for a shared map.",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test36-part-2-q8",
+              "number": 8,
+              "type": "matching-features",
+              "prompt": "A teacher wants a workshop where a class can build simple weather instruments, with tools and materials provided, and take them back to school.",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test36-part-2-q9",
+              "number": 9,
+              "type": "matching-features",
+              "prompt": "A fair volunteer who already knows the project wants to improve its labels and photos, but can only attend a fixed afternoon session.",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test36-part-2-q10",
+              "number": 10,
+              "type": "matching-features",
+              "prompt": "A visitor prefers to explore the insect display alone at their own pace, without booking or a group.",
+              "options": [],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-pet-b1-test36-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 11–15",
+      "passageTitle": "Part 3 – A science fair that changed direction",
+      "passage": [
+        {
+          "text": "A school team planned a small science fair about insects and wanted to make the display interesting without spending a lot of money. The team interviewed classmates about which insects they found fascinating, listed possible specimens and checked which jars and labels were already available in the science cupboard. Because the fair had to remain inexpensive, the first meeting tested a modest plan rather than promising a spectacular display. Every student accepted a small role and described how the evidence they gathered would support the finished display. This arrangement kept the fair genuinely collaborative instead of depending on one enthusiastic organiser to make every decision on their own."
+        },
+        {
+          "text": "The fair moved from the hall to the library after heavy rain damaged part of the corridor. After the move, the original display plan no longer fitted the library entrance, where shelves blocked the view from the door. Rather than abandon the fair completely, the team compared careful measurements of the new space, consulted the caretaker about which walls could be used and redesigned one section of the display to fit the available area. The caretaker approved the new arrangement, although the team had to explain clearly why their first idea had been unsuitable for the new location."
+        },
+        {
+          "text": "Revision became the heart of the project. Pupils compared their insect counts, listened to what visitors said and identified which labels still caused hesitation among younger viewers. They then explained the reasons for each revision to the fair committee, showing how the measurements supported their decisions rather than simply defending their original choices. The committee received the final display and recorded the measurements for next year’s fair. The pupils left with a practical method for testing ideas before presenting them to an audience, and they agreed to use the same approach for future science projects."
+        },
+        {
+          "text": "The committee questioned one label that seemed unclear, but the pupils defended it with measurements and visitor comments collected during the first session. Writing down that evidence helped them distinguish a useful challenge from a personal preference, and they revised the label in a way that satisfied both the committee and the visitors who had found it confusing."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test36-part-3-g0",
+          "range": "Questions 11–15",
+          "instruction": "Read the text and choose the correct answer A, B, C or D.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test36-part-3-q11",
+              "number": 11,
+              "type": "multiple-choice",
+              "prompt": "What is the main point of the community science fair project?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "The project succeeded without planning."
+                },
+                {
+                  "id": "B",
+                  "label": "Only experts could take part."
+                },
+                {
+                  "id": "C",
+                  "label": "The original plan never changed."
+                },
+                {
+                  "id": "D",
+                  "label": "The group learned by testing and revising an idea."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test36-part-3-q12",
+              "number": 12,
+              "type": "multiple-choice",
+              "prompt": "Why did the group redesign part of the display?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "The fair committee asked for more insects."
+                },
+                {
+                  "id": "B",
+                  "label": "The new location made the first design unsuitable."
+                },
+                {
+                  "id": "C",
+                  "label": "The hall was booked for the whole week."
+                },
+                {
+                  "id": "D",
+                  "label": "The visitors complained about the labels."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test36-part-3-q13",
+              "number": 13,
+              "type": "multiple-choice",
+              "prompt": "What helped the members work together?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "They divided responsibilities and explained decisions."
+                },
+                {
+                  "id": "B",
+                  "label": "They avoided recording their work."
+                },
+                {
+                  "id": "C",
+                  "label": "They let one person make every choice."
+                },
+                {
+                  "id": "D",
+                  "label": "They ignored advice from the caretaker."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test36-part-3-q14",
+              "number": 14,
+              "type": "multiple-choice",
+              "prompt": "How did feedback help the group?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "It proved that no improvement was needed."
+                },
+                {
+                  "id": "B",
+                  "label": "It replaced the practical trial."
+                },
+                {
+                  "id": "C",
+                  "label": "It showed which details confused visitors."
+                },
+                {
+                  "id": "D",
+                  "label": "It made the project shorter immediately."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test36-part-3-q15",
+              "number": 15,
+              "type": "multiple-choice",
+              "prompt": "What does the writer value most?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Finishing before anyone else."
+                },
+                {
+                  "id": "B",
+                  "label": "Using expensive materials."
+                },
+                {
+                  "id": "C",
+                  "label": "Avoiding disagreement."
+                },
+                {
+                  "id": "D",
+                  "label": "Patient revision based on useful evidence."
+                }
+              ],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-pet-b1-test36-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 16–20",
+      "passageTitle": "Part 4 – Community Science Fair develops through experience",
+      "passage": [
+        {
+          "text": "The science fair took shape around a measurement problem rather than a timetable. Its first visitors asked questions the organisers had not prepared for, and several asked whether the results could be repeated at home. (16) ..... The team also prepared simple answer sheets so that families could test their own observations at home, keeping the activity welcoming without losing its original purpose.  "
+        },
+        {
+          "text": "During the opening demonstration, the science team found a practical problem. Some materials were missing, and one instruction was unclear to new participants who had never handled the equipment before. (17) ..... New helpers were given a printed guide that showed each step, which reduced the number of questions during the busy opening hours. The change made the next attempt slower, but everyone understood what to do.  "
+        },
+        {
+          "text": "At first, the organisers thought the project would be finished in one afternoon, but the evidence they collected kept raising new questions. (18) ..... A shared checklist let every volunteer see what had already been finished and what still needed attention. They divided the work into smaller tasks and checked progress at the end of each session, which gave volunteers time to notice details instead of rushing towards a result.  "
+        },
+        {
+          "text": "When visitors saw the early version, they asked questions that the team had not expected, particularly about the reliability of the measurements. (19) ..... One visitor even suggested showing the results as a simple graph, which the team added to the display the next day. The organisers used these comments to improve the explanation and test the activity with another group.  "
+        },
+        {
+          "text": "The final event was modest, but people left with a clearer idea of what the project offered. The team kept its notes for the next organisers and marked which explanations had worked best. (20) ..... The notes also included a list of the questions visitors asked most often, so future organisers could answer them quickly. The experience showed that a shared project becomes stronger when its plans can change for good reasons.  "
+        },
+        {
+          "label": "A",
+          "text": "Keeping a record would make future sessions easier to organise.",
+          "key": "test36-part4-option-4",
+          "correctForGap": 20
+        },
+        {
+          "label": "B",
+          "text": "The team replaced the missing materials and rewrote the instruction.",
+          "key": "test36-part4-option-1",
+          "correctForGap": 17
+        },
+        {
+          "label": "C",
+          "text": "Nobody recorded the visitor questions during the first session.",
+          "key": "test36-part4-option-6",
+          "correctForGap": null
+        },
+        {
+          "label": "D",
+          "text": "Their questions showed that families wanted to try the measurements themselves.",
+          "key": "test36-part4-option-0",
+          "correctForGap": 16
+        },
+        {
+          "label": "E",
+          "text": "Those questions showed that the explanation needed a practical example.",
+          "key": "test36-part4-option-3",
+          "correctForGap": 19
+        },
+        {
+          "label": "F",
+          "text": "The volunteers were given their own copies of every label.",
+          "key": "test36-part4-option-7",
+          "correctForGap": null
+        },
+        {
+          "label": "G",
+          "text": "There was much more preparation than anyone had first imagined.",
+          "key": "test36-part4-option-2",
+          "correctForGap": 18
+        },
+        {
+          "label": "H",
+          "text": "The first attempt was cancelled because the hall stayed locked.",
+          "key": "test36-part4-option-5",
+          "correctForGap": null
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test36-part-4-g0",
+          "range": "Questions 16–20",
+          "instruction": "Choose the sentence which fits each gap.",
+          "type": "matching-features",
+          "features": [
+            {
+              "id": "a",
+              "name": "Keeping a record would make future sessions easier to organise.",
+              "key": "test36-part4-option-4",
+              "correctForGap": 20
+            },
+            {
+              "id": "b",
+              "name": "The team replaced the missing materials and rewrote the instruction.",
+              "key": "test36-part4-option-1",
+              "correctForGap": 17
+            },
+            {
+              "id": "c",
+              "name": "Nobody recorded the visitor questions during the first session.",
+              "key": "test36-part4-option-6",
+              "correctForGap": null
+            },
+            {
+              "id": "d",
+              "name": "Their questions showed that families wanted to try the measurements themselves.",
+              "key": "test36-part4-option-0",
+              "correctForGap": 16
+            },
+            {
+              "id": "e",
+              "name": "Those questions showed that the explanation needed a practical example.",
+              "key": "test36-part4-option-3",
+              "correctForGap": 19
+            },
+            {
+              "id": "f",
+              "name": "The volunteers were given their own copies of every label.",
+              "key": "test36-part4-option-7",
+              "correctForGap": null
+            },
+            {
+              "id": "g",
+              "name": "There was much more preparation than anyone had first imagined.",
+              "key": "test36-part4-option-2",
+              "correctForGap": 18
+            },
+            {
+              "id": "h",
+              "name": "The first attempt was cancelled because the hall stayed locked.",
+              "key": "test36-part4-option-5",
+              "correctForGap": null
+            }
+          ],
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test36-part-4-q16",
+              "number": 16,
+              "type": "gap-fill",
+              "prompt": "Gap 16",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test36-part-4-q17",
+              "number": 17,
+              "type": "gap-fill",
+              "prompt": "Gap 17",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test36-part-4-q18",
+              "number": 18,
+              "type": "gap-fill",
+              "prompt": "Gap 18",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test36-part-4-q19",
+              "number": 19,
+              "type": "gap-fill",
+              "prompt": "Gap 19",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test36-part-4-q20",
+              "number": 20,
+              "type": "gap-fill",
+              "prompt": "Gap 20",
+              "options": [],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-pet-b1-test36-part-5",
+      "partNumber": 5,
+      "rangeLabel": "Questions 21–26",
+      "passageTitle": "Part 5 – Multiple-choice cloze",
+      "passage": [
+        {
+          "text": "Last month, students at a local school (21) ..... a survey of their reading habits. Each student chose three books and explained what made a story (22) ..... to finish. The class compared the answers and noticed that short chapters helped most readers (23) ..... going. They then asked the librarian to display the most popular titles, (24) ..... other students could find a book without searching for hours. By the end of the week, almost every shelf had been borrowed at (25) ..... once, which pleased the librarian. The project showed that a simple question about taste could change the way a school used its library.  The students recorded the results in a colourful chart and hung it beside the entrance. A teacher asked them to (26) ..... the survey each term, so the library could keep offering books that readers enjoyed. Several parents also asked for a copy of the list to help their children choose books. The survey also revealed that many students preferred books with a picture on every page, so the librarian added a small display of illustrated novels. A group of younger readers drew a short review card for each recommended book, which made the display feel personal. A student council member offered to copy the chart for the newspaper."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test36-part-5-g0",
+          "range": "Questions 21–26",
+          "instruction": "For each question, choose the correct answer A, B, C or D.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test36-part-5-q21",
+              "number": 21,
+              "type": "multiple-choice",
+              "prompt": "Gap (21)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "created"
+                },
+                {
+                  "id": "B",
+                  "label": "built"
+                },
+                {
+                  "id": "C",
+                  "label": "conducted"
+                },
+                {
+                  "id": "D",
+                  "label": "produced"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test36-part-5-q22",
+              "number": 22,
+              "type": "multiple-choice",
+              "prompt": "Gap (22)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "easy"
+                },
+                {
+                  "id": "B",
+                  "label": "hard"
+                },
+                {
+                  "id": "C",
+                  "label": "slow"
+                },
+                {
+                  "id": "D",
+                  "label": "long"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test36-part-5-q23",
+              "number": 23,
+              "type": "multiple-choice",
+              "prompt": "Gap (23)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "stop"
+                },
+                {
+                  "id": "B",
+                  "label": "keep"
+                },
+                {
+                  "id": "C",
+                  "label": "start"
+                },
+                {
+                  "id": "D",
+                  "label": "avoid"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test36-part-5-q24",
+              "number": 24,
+              "type": "multiple-choice",
+              "prompt": "Gap (24)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "because"
+                },
+                {
+                  "id": "B",
+                  "label": "unless"
+                },
+                {
+                  "id": "C",
+                  "label": "although"
+                },
+                {
+                  "id": "D",
+                  "label": "so"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test36-part-5-q25",
+              "number": 25,
+              "type": "multiple-choice",
+              "prompt": "Gap (25)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "last"
+                },
+                {
+                  "id": "B",
+                  "label": "enough"
+                },
+                {
+                  "id": "C",
+                  "label": "least"
+                },
+                {
+                  "id": "D",
+                  "label": "fewer"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test36-part-5-q26",
+              "number": 26,
+              "type": "multiple-choice",
+              "prompt": "Gap (26)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "shorten"
+                },
+                {
+                  "id": "B",
+                  "label": "repeat"
+                },
+                {
+                  "id": "C",
+                  "label": "cancel"
+                },
+                {
+                  "id": "D",
+                  "label": "delay"
+                }
+              ],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-pet-b1-test36-part-6",
+      "partNumber": 6,
+      "rangeLabel": "Questions 27–32",
+      "passageTitle": "Part 6 – Open cloze",
+      "passage": [
+        {
+          "text": "The library team decided to run a short course on safe internet use. A volunteer explained that most people only asked (27) ........ help when something went wrong. Learners were asked to bring (28) ........ own laptops to every session. The course started with the basics and built up slowly. By the final week, several learners had bought a computer, (29) ........ showed how much confidence they had gained. Every session ended with a short quiz, (30) ........ nobody left feeling confused. The course was repeated twice (31) ........ year because the demand never seemed to fall. Learners could attend (32) ........ the morning and the afternoon sessions.  The library kept a simple record of attendance and used the notes to improve each new course. A follow-up survey showed that learners remembered the key steps even months later, which encouraged the team to plan an advanced course for the following year. Attendance grew every month, which surprised even the library staff.  The success of the course changed the way the library thought about its role in the community, moving beyond books and offering practical digital skills that people needed in everyday life."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test36-part-6-g0",
+          "range": "Questions 27–32",
+          "instruction": "Write one word for each gap.",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test36-part-6-q27",
+              "number": 27,
+              "type": "gap-fill",
+              "prompt": "Gap 27",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test36-part-6-q28",
+              "number": 28,
+              "type": "gap-fill",
+              "prompt": "Gap 28",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test36-part-6-q29",
+              "number": 29,
+              "type": "gap-fill",
+              "prompt": "Gap 29",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test36-part-6-q30",
+              "number": 30,
+              "type": "gap-fill",
+              "prompt": "Gap 30",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test36-part-6-q31",
+              "number": 31,
+              "type": "gap-fill",
+              "prompt": "Gap 31",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test36-part-6-q32",
+              "number": 32,
+              "type": "gap-fill",
+              "prompt": "Gap 32",
+              "options": [],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,204 @@
+Sửa regression **PET B1 Reading Part 5** trên:
+
+```text
+Test 14
+Test 30
+Test 51
+```
+
+## Hiện tượng
+
+Runtime hiển thị tiêu đề và passage Part 5 nhưng:
+
+```text
+Không có gap Q21–26 trong passage
+Không có cơ chế chọn đáp án A–D
+Passage bị render thành một đoạn văn hoàn chỉnh
+```
+
+Không tiếp tục quality rollout sang test khác trước khi lỗi này PASS.
+
+## 1. Điều tra root cause
+
+So sánh Part 5 của Test 14/30/51 với một PET test đang hoạt động đúng, ưu tiên Test 01 hoặc Test 13.
+
+Kiểm tra theo chuỗi:
+
+```text
+QUALITY_BLUEPRINTS
+→ generator output package catalog
+→ runtime catalog JSON
+→ PetRwPartContent renderer
+→ question navigation/activeQuestion
+```
+
+Xác định chính xác lỗi thuộc một hay nhiều trường hợp:
+
+1. Blueprint passage không chứa gap markers.
+2. Generator đã thay gap bằng đáp án hoặc xóa marker.
+3. Question objects Q21–26 không còn `options`.
+4. Gap marker không map tới question IDs.
+5. `part.type`/`renderMode` không đi vào renderer multiple-choice cloze.
+6. Renderer chỉ hiển thị passage nhưng bỏ question controls.
+7. Quality rewrite đã ghi đè cấu trúc Part 5 bằng plain text.
+
+Không phỏng đoán. Báo dữ liệu thực tế của một câu, ví dụ Q21, ở từng tầng.
+
+## 2. Cấu trúc bắt buộc
+
+Mỗi Part 5 phải có:
+
+```text
+1 passage
+6 inline gaps
+Q21–Q26
+4 options A–D mỗi câu
+1 correct answer mỗi câu
+```
+
+Passage learner-facing phải chứa marker ổn định theo schema hiện tại, ví dụ cấu trúc tương đương:
+
+```text
+... depended (21) ______ careful planning ...
+```
+
+Không hardcode HTML nếu hệ thống hiện tại dùng structured tokens.
+
+Mỗi gap phải map đúng:
+
+```text
+Q21 → question ID ...-q21
+...
+Q26 → question ID ...-q26
+```
+
+Mỗi question phải có đúng 4 options.
+
+Answer vault phải giữ lowercase:
+
+```text
+a
+b
+c
+d
+```
+
+## 3. Ưu tiên sửa dữ liệu, không vá UI sai chỗ
+
+Nếu Test 01/13 render đúng với cùng component:
+
+* Không sửa renderer chung.
+* Sửa blueprint/generator/output của Test 14/30/51.
+
+Chỉ sửa `PetRwPartContent.tsx` khi chứng minh renderer không hỗ trợ schema hợp lệ hiện tại.
+
+Không tạo một renderer riêng chỉ cho Test 14/30/51.
+
+Không hardcode test number trong component.
+
+## 4. Không làm mất chất lượng nội dung
+
+Giữ Part 5:
+
+```text
+150–200 từ
+6 gaps
+4 options mỗi gap
+ít nhất 4 language targets
+```
+
+Không đưa đáp án trực tiếp vào passage.
+
+Nếu đoạn hiện tại đã được viết thành văn bản hoàn chỉnh, phải thay đúng 6 từ/cụm mục tiêu bằng gap markers và giữ câu tự nhiên.
+
+## 5. Automated regression test
+
+Thêm test bắt buộc cho Test 14, 30 và 51:
+
+```text
+Part 5 có đúng 6 markers
+Markers là 21–26
+Có đúng 6 question objects
+Mỗi question có đúng 4 options
+Mỗi marker map tới đúng question ID
+Answer vault có đủ 6 answers
+Passage không chứa đáp án bị lộ tại vị trí gap
+```
+
+Thêm renderer/component test xác nhận:
+
+```text
+Mở Part 5
+Thấy gap Q21
+Chọn Q21
+Thấy 4 options A–D
+Chọn một option
+Selection state được cập nhật
+Chuyển Q22 rồi quay lại Q21 vẫn giữ lựa chọn
+```
+
+Nếu component test hiện tại khó chạy, ít nhất phải có data-contract test và targeted PET navigation test.
+
+## 6. Manual smoke bắt buộc
+
+Dùng browser hiện đang mở để kiểm tra:
+
+```text
+Test 14 Part 5
+Test 30 Part 5
+Test 51 Part 5
+```
+
+Xác nhận:
+
+```text
+6 gap hiển thị trong passage
+Q21–26 có thể click
+Mỗi câu có 4 lựa chọn
+Chọn đáp án hoạt động
+Không có console error
+Không ảnh hưởng Part 1–4 hoặc Part 6
+```
+
+## 7. Validation
+
+Chạy:
+
+```text
+Targeted generation Test 14, 30, 51
+Part 5 contract test
+PET quality validator
+Structural validator
+Runtime catalog validator
+Answer-vault consistency
+Targeted PET Vitest
+TypeScript
+Idempotency
+git diff --check
+```
+
+## 8. Báo cáo cuối
+
+```text
+Root cause:
+Working reference test:
+Broken field before:
+Correct field after:
+Files changed:
+Test 14 markers/options:
+Test 30 markers/options:
+Test 51 markers/options:
+Answer-vault consistency:
+Renderer test:
+Manual smoke Test 14:
+Manual smoke Test 30:
+Manual smoke Test 51:
+TypeScript:
+Idempotency:
+git diff --check:
+Remaining regressions:
+```
+
+Không sửa Test 15–29 hoặc 31–50.
+
+Không commit hoặc push.

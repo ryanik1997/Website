@@ -1,0 +1,561 @@
+NHIỆM VỤ: SỬA FALSE-PASS WORD COUNT — PET B1 TEST 20–29 PART 4–6
+
+## Vấn đề thực tế
+
+Người dùng đã kiểm tra trực tiếp trên browser và xác nhận:
+
+- Test 20–29 Part 4 vẫn ngắn.
+- Test 20–29 Part 5 vẫn ngắn.
+- Test 20–29 Part 6 vẫn ngắn.
+- Passage nhìn thưa, phát triển ý chưa đủ.
+- Targeted validators đang PASS nhưng không phản ánh đúng learner-facing runtime.
+
+Vì vậy trạng thái hiện tại là:
+
+QUALITY VALIDATION: FALSE PASS
+
+Không dùng kết quả PASS cũ để kết luận hoàn thành.
+
+Không commit hoặc push.
+
+Không chạy lại `pnpm run test` hoặc `pnpm run build`; các blocker global đã được ghi nhận và không liên quan task này.
+
+---
+
+# 1. Phạm vi
+
+Chỉ xử lý:
+
+- Test 20–29 Part 4
+- Test 20–29 Part 5
+- Test 20–29 Part 6
+
+Không sửa:
+
+- Part 1–3
+- Test 01, 13, 14–19
+- Test 30–51
+- Part 2 UI/DnD
+- Renderer nếu runtime data contract đang đúng
+- IDs
+- numbering
+- catalog schema
+- FCE/KET/listening
+
+Batch 4 và các test ngoài 20–29 phải giữ nguyên.
+
+---
+
+# 2. Không tin word count hiện tại
+
+Trước khi sửa nội dung, chứng minh validator đang đếm gì.
+
+Với từng Test 20–29 Part 4–6, xuất:
+
+- Blueprint raw text
+- Compiled package JSON text
+- Public runtime JSON text
+- HTTP response text
+- DOM-visible learner text
+- Word count ở từng tầng
+
+Tạo bảng:
+
+Test | Part | Blueprint | Package | Public JSON | HTTP | DOM visible
+
+Nếu các số khác nhau, dừng tại tầng đầu tiên bị lệch và sửa word-count extraction trước.
+
+Không dùng:
+
+- title
+- instructions
+- question labels
+- option texts
+- answer choices
+- answer rationale
+- metadata
+- IDs
+- gap numbers
+
+để tăng passage word count.
+
+Chỉ tính phần prose người học thực sự đọc trong passage.
+
+---
+
+# 3. Benchmark bằng đề reference trong app
+
+Dùng các đề đang được người dùng xem là đạt hơn:
+
+- Test 12
+- Test 14
+- Test 30
+- Test 51
+
+Đo learner-facing DOM word count thật của Part 4–6.
+
+Tạo bảng:
+
+Reference test | Part 4 | Part 5 | Part 6
+
+Sau đó lấy:
+
+- median
+- minimum
+- maximum
+
+Target Test 20–29 không được thấp hơn đáng kể so với reference median.
+
+Không tuyên bố đây là word count chính thức Cambridge. Đây là project quality target dựa trên reference trong app.
+
+Nếu reference data không đủ hoặc khác schema, dùng fallback target sau.
+
+---
+
+# 4. Target mới bắt buộc
+
+## Part 4
+
+Project target:
+
+- 300–360 learner-facing words
+- ưu tiên 315–345 từ
+- đúng 5 paragraphs
+- mỗi paragraph 55–75 từ
+- mỗi paragraph đúng 1 gap
+- Q16–Q20 theo thứ tự đọc
+- ít nhất 35 từ giữa hai gaps
+- ít nhất 35 từ trước Q16
+- ít nhất 35 từ sau Q20
+- tối thiểu 14 câu toàn passage
+
+Không để:
+
+- paragraph 20–35 từ
+- passage đạt count nhờ một paragraph quá dài
+- 5 paragraph nhưng mỗi đoạn chỉ 2 câu ngắn
+- toàn bộ nội dung chính nằm ở một đoạn
+
+## Part 5
+
+Project target:
+
+- 180–220 learner-facing words
+- ưu tiên 190–210 từ
+- tối thiểu 8 câu
+- đúng 6 gaps Q21–Q26
+- đúng 4 options mỗi gap
+- ít nhất 4 language targets
+- passage có opening, development và closing
+
+Không tính options vào word count.
+
+## Part 6
+
+Project target:
+
+- 160–200 learner-facing words
+- ưu tiên 170–190 từ
+- tối thiểu 7 câu
+- đúng 6 gaps Q27–Q32
+- không options
+- mọi answer đúng 1 lowercase word
+- ít nhất 5 grammar categories
+
+Không tính answer words hoặc gap labels vào word count.
+
+---
+
+# 5. Đo cả độ dài thị giác
+
+Word count một mình chưa đủ.
+
+Validator phải report thêm:
+
+- paragraphCount
+- sentenceCount
+- averageSentenceLength
+- shortestParagraphWords
+- longestParagraphWords
+- paragraphBalanceRatio
+- wordsBeforeFirstGap
+- wordsBetweenGaps
+- wordsAfterLastGap
+
+## Part 4 fail khi
+
+- paragraph nào dưới 50 từ
+- paragraph nào trên 85 từ
+- ít hơn 5 paragraphs
+- ít hơn 14 câu
+- gap spacing dưới 35 từ
+- hơn 30% passage nằm trong một paragraph
+- wordsAfterQ20 dưới 35
+- wordsBeforeQ16 dưới 35
+
+## Part 5 fail khi
+
+- dưới 180 từ
+- ít hơn 8 câu
+- một câu dài hơn 35 từ mà không có lý do rõ
+- opening dưới 25 từ
+- closing dưới 20 từ
+- 6 gaps tập trung trong nửa đầu passage
+
+## Part 6 fail khi
+
+- dưới 160 từ
+- ít hơn 7 câu
+- 6 gaps tập trung trong cùng 2 câu
+- dưới 20 từ sau Q32
+- passage chỉ là chuỗi câu độc lập
+
+---
+
+# 6. Viết lại thực sự, không padding
+
+Không được:
+
+- nối generic suffix
+- dùng filler
+- lặp ý
+- thêm câu chung chung
+- dùng cùng conclusion cho nhiều test
+- thêm adjective/adverb chỉ để tăng count
+- copy passage khác rồi đổi tên
+- tạo paragraph bằng loop
+- dùng `QUALITY_PADDING`
+- giữ nguyên passage ngắn rồi chèn vài câu rời rạc
+
+Mỗi passage phải được viết lại như một bài hoàn chỉnh.
+
+---
+
+# 7. Part 4 content quality
+
+Mỗi Test 20–29 Part 4 phải có:
+
+- một topic riêng
+- một narrative/expository structure riêng
+- 5 paragraphs phát triển logic
+- 5 sentence gaps phân bố đều
+- 8 options
+- 5 correctForGap
+- 3 distractors
+
+Mỗi correct sentence phải nối được cả:
+
+- câu trước gap
+- câu sau gap
+
+Rationale phải ghi:
+
+- cohesion type
+- evidence before
+- evidence after
+- why distractors fail
+
+Không thay answer bằng array index.
+
+Giữ:
+
+semantic key
+→ deterministic shuffle
+→ display label
+→ answer vault từ correctForGap
+
+---
+
+# 8. Part 5 content quality
+
+Mỗi passage phải có:
+
+1. Introduction
+2. Development
+3. Supporting detail/example
+4. Final result/conclusion
+
+Sáu gaps phải phân bố xuyên passage.
+
+Không đặt cả Q21–Q26 trong một đoạn ngắn.
+
+Mỗi gap phải có:
+
+- languageTarget
+- correctOptionKey
+- correct rationale
+- distractor rationale
+
+Ít nhất 4 target categories mỗi test.
+
+---
+
+# 9. Part 6 content quality
+
+Mỗi passage phải có:
+
+- context rõ
+- progression
+- conclusion tự nhiên
+- 6 gaps phân bố đều
+
+Ít nhất 5 grammar categories:
+
+- article
+- preposition
+- auxiliary
+- pronoun
+- relative word
+- conjunction
+- determiner
+- quantifier
+- linking word
+
+Không có category nào quá 2 lần.
+
+Không có answer 2 từ.
+
+Không có alternative answer phổ biến.
+
+---
+
+# 10. Tạo review file bắt buộc
+
+Tạo:
+
+tmp/pet-b1-reading-backfill-20-29-part456-review.md
+
+File phải chứa nguyên văn learner-facing content:
+
+- Test 20 Part 4–6
+- Test 21 Part 4–6
+- ...
+- Test 29 Part 4–6
+
+Với mỗi part, hiển thị:
+
+- title
+- passage
+- gaps
+- options nếu có
+- learner-facing word count
+- paragraph word counts
+- sentence count
+
+Sau learner section mới thêm:
+
+- answer key
+- rationale
+- target distribution
+
+Không đặt answer ngay cạnh gap learner-facing.
+
+---
+
+# 11. DOM/runtime verification
+
+Không chỉ đọc blueprint.
+
+Với Test 20, 24, 25, 29:
+
+1. Start đúng dev server.
+2. Mở route thật.
+3. Lấy learner-facing DOM text.
+4. Copy passage DOM.
+5. Đếm word count từ DOM.
+6. So sánh với validator.
+7. Chụp screenshot đầy đủ Part 4–6.
+
+Acceptance:
+
+DOM count = runtime validator count
+
+Sai lệch tối đa:
+
+±2 từ do punctuation/tokenization
+
+Nếu lệch nhiều hơn, validator vẫn sai.
+
+---
+
+# 12. Browser visual review
+
+Kiểm tra:
+
+- Test 20
+- Test 24
+- Test 25
+- Test 29
+
+## Part 4
+
+- passage chiếm chiều cao tương đương reference
+- 5 đoạn rõ
+- không thưa bất thường
+- gap phân bố đều
+- không có khoảng trắng lớn do thiếu nội dung
+
+## Part 5
+
+- passage đủ dài
+- 6 gaps nằm xuyên bài
+- dropdown/options hoạt động
+
+## Part 6
+
+- passage đủ dài
+- 6 inputs phân bố tự nhiên
+- không có đoạn cực ngắn
+
+Viewport:
+
+- 1440px
+- 1024px
+
+Console:
+
+- 0 errors
+
+---
+
+# 13. Validator phải fail dữ liệu cũ
+
+Đây là yêu cầu bắt buộc.
+
+Trước khi thay content:
+
+- chạy validator mới trên snapshot dữ liệu cũ
+- xác nhận Test 20–29 Part 4–6 FAIL
+
+Sau khi thay content:
+
+- xác nhận PASS
+
+Nếu validator mới vẫn PASS dữ liệu cũ, validator chưa đúng.
+
+Report:
+
+Old snapshot failures:
+New output results:
+
+---
+
+# 14. Regression protection cho test tương lai
+
+Áp dụng validator mới cho toàn bộ generated PET Test 14–51.
+
+Không bắt buộc sửa ngay test ngoài 20–29 trong lượt này.
+
+Nhưng validator phải report những test khác đang dưới target mới.
+
+Tạo hai mode:
+
+--strict-target
+--hard-minimum
+
+`--hard-minimum`:
+- Part 4: 250
+- Part 5: 150
+- Part 6: 130
+
+`--strict-target`:
+- Part 4: 300
+- Part 5: 180
+- Part 6: 160
+
+Mass production batch chỉ được PASS khi chạy strict-target.
+
+Không hạ strict target để làm PASS.
+
+---
+
+# 15. Bảo vệ Batch 4
+
+Snapshot Batch 4 trước khi chạy.
+
+Sau remediation:
+
+- không có Batch 4 blueprint trong diff
+- không có Batch 4 package/runtime JSON trong diff
+- không có Batch 4 answer vault trong diff
+- hash/semantic snapshot không đổi
+
+Nếu targeted generator làm đổi Batch 4:
+
+task FAIL
+
+---
+
+# 16. Validation cuối
+
+Chạy:
+
+- strict learner-facing word-count validator
+- old-snapshot failure test
+- targeted generation Test 20–29
+- production-loader runtime contract
+- DOM count parity check
+- Part 4 layout validator
+- Part 4 semantic mapping
+- Part 5 contract
+- Part 6 contract
+- similarity validator
+- structural validator
+- runtime catalog validator
+- answer-vault consistency
+- TypeScript
+- idempotency
+- Batch 4 preservation
+- git diff --check
+
+Không cần chạy full repository test/build.
+
+---
+
+# 17. Báo cáo cuối
+
+Why previous validator false-passed:
+Reference word counts:
+Strict targets:
+
+Old word counts:
+Test | Part 4 | Part 5 | Part 6
+
+New word counts:
+Test | Part 4 | Part 5 | Part 6
+
+Paragraph/sentence metrics:
+Test | Part | Paragraphs | Sentences | Shortest paragraph | Longest paragraph
+
+DOM parity:
+Test 20:
+Test 24:
+Test 25:
+Test 29:
+
+Old snapshot validator:
+New output validator:
+
+Padding fragments:
+Repeated clauses:
+Highest similarity pairs:
+
+Part 4 semantic mapping:
+Part 5 targets:
+Part 6 targets:
+
+Manual browser Test 20:
+Manual browser Test 24:
+Manual browser Test 25:
+Manual browser Test 29:
+
+Batch 4 changed:
+Runtime contract:
+TypeScript:
+Idempotency:
+git diff --check:
+Files changed:
+Remaining issues:
+
+Không báo PASS nếu người dùng vẫn nhìn thấy passage ngắn trên browser.
+Không commit hoặc push.

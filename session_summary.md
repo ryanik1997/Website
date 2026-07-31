@@ -1,5 +1,62 @@
 # Consolidated Session Summary — Ryan English Website
 
+## 2026-07-31 — Task 4: KET A2 Writing Part 7 images Test 2-51 (IN PROGRESS, handed off)
+
+**Status:** Discovery done, implementation NOT started. Handing off to next agent.
+
+### Discovery findings (verified by tool calls)
+
+1. **Assets already copied:** `apps/web/public/catalog/writing/ket-a2/test-02/` → `test-52/` all exist, each contains `part7-page.jpg`. Source: `D:\App-English-Ryan\Tainguyen\Import Cambridge\KET_A2\Writing_Part7\testN\part7-page.jpg` (N=2..52).
+2. **JSON data files exist:** `packages/catalog/data/cambridge-writing/a2/ket-a2-writing-test-02.json` → `test-51.json` (50 files).
+3. **Task 32 JSON currently has NO image field.** Only has `metadata.ketImageRequired: true` and `metadata.ketImageBrief` (text description). No `image`, `imageUrl`, `promptImage`, `images`, `media` field.
+4. **Test 1 does NOT exist** in `packages/catalog/data/cambridge-writing/a2/`. No `ket-a2-writing-test-1.json` or `ket-a2-writing-test-01.json`. Test 1 may be hardcoded elsewhere or missing entirely.
+5. **Dry-run report exists:** `tmp/ket-a2-part7-import-01-51-dry-run.json` shows mapping `testN` → `test-NN` (zero-padded) → `apps/web/public/catalog/writing/ket-a2/test-NN/part7-page.jpg` → URL `/catalog/writing/ket-a2/test-NN/part7-page.jpg`.
+6. **Renderer component NOT yet found.** Need to search `apps/web/src/pages/WritingCambridgeTaskPage.tsx` and related components for how Task 32 image is rendered.
+
+### What still needs to be done
+
+1. Find the renderer component that displays Task 32 image (likely `WritingCambridgeTaskPage.tsx` or a child component).
+2. Determine the exact field name the renderer expects (e.g. `imageUrl`, `image`, `promptImage`, `media`).
+3. Add that field to all 50 JSON files (`ket-a2-writing-test-02.json` → `test-51.json`) pointing to `/catalog/writing/ket-a2/test-NN/part7-page.jpg`.
+4. Verify Test 1 architecture if it exists elsewhere (maybe in `packages/catalog/src/cambridge/writing/seedData.ts` or hardcoded).
+5. Run dev server and verify one URL displays the image correctly.
+6. Run production build to confirm assets are included.
+
+### Files to modify
+
+- `packages/catalog/data/cambridge-writing/a2/ket-a2-writing-test-02.json` → `test-51.json` (50 files)
+- Possibly `packages/catalog/src/cambridge/writing/generatedA2Data.ts` if it generates these JSONs
+- Possibly renderer component if field name needs to be added to schema
+
+### Next session start prompt
+
+Continue Task 4: KET A2 Writing Part 7 images Test 2-51. Assets already copied to `apps/web/public/catalog/writing/ket-a2/test-NN/part7-page.jpg`. JSON files exist but lack image field. Find renderer component, determine expected field name, add field to all 50 JSONs, verify in browser. Do NOT commit or push.
+
+---
+
+## 2026-07-31 — PET B1 Batch 4 checkpoint: Tests 31-35 backfill finalized
+
+- Final learner-facing counts verified: T31 347/187/152, T32 337/195/157, T33 332/191/166, T34 340/168(WARN)/155, T35 355/174/154.
+- Part 4 all in 300-360, Part 5 4 PASS + 1 PASS_WITH_WARNING (T34 at 168), Part 6 all ≥150.
+- Fixed gap-split bug in runtime Part 4 (gap markers were split across paragraphs — `(16)` at end of block, `.....` at start of next).
+- Only Tests 32-35 content tuned in final pass; Test 31, 20-29, 36-40 untouched.
+- Canonical topics preserved: 31 repair-cafes, 32 night-markets, 33 cycle-routes, 34 school-libraries, 35 wildlife-walks.
+- Scripts: `scripts/reading/pet-b1-backfill-31-35.mjs` (generator), plus tune/fix/seed/surgical/synth-runtime helpers.
+- Committed: `25e2531` `fix(reading): finalize PET B1 tests 31-35 backfill` (19 files, +1517/-38). NOT pushed.
+- **Not done:** full test/build run (explicitly skipped), browser smoke, Batch 5 (tests 36-51), global blockers.
+
+## 2026-07-30 — IELTS Writing fullscreen question panel 2:1 layout
+
+- Tách `WritingTopicPanel` thành media section và content section.
+- Desktop có ảnh dùng grid nội bộ `minmax(0, 2fr) minmax(0, 1fr)`, giữ nguyên chiều cao card/equal-height với editor; ảnh `width/height: 100%` + `object-fit: contain`, không crop/méo.
+- OCR, đề bài và guide nằm trong content section; phần nội dung cuộn độc lập, guide giữ ở đáy section.
+- Đề không có ảnh không bật modifier 2:1; vùng upload giữ compact để không chiếm 2/3 card.
+- TypeScript pass. Chưa chạy browser smoke/full build; cần kiểm tra desktop 1366×768/1440, Task 1 có ảnh, Task 2 có ảnh, không ảnh và mobile.
+- Giảm nhẹ font tiêu đề và nội dung đề bài để tăng khả năng đọc trong content section 1/3.
+- Hạ thêm font prompt vì một số đề IELTS được lưu một dòng và render toàn bộ vào `writing-prompt-title`.
+- Sửa reload IELTS Writing: route track/genre không chứa doc ID, nên sau hard reload tự khôi phục doc đầu tiên hợp lệ vào Zustand store.
+
+
 ## 2026-07-30 — Task 9 FINAL GATE: PET B1 Part 2 → Batch 3 checkpoint
 
 ### Việc đã hoàn thành
@@ -66,6 +123,17 @@ Batch 3 ready. Context: commit `42592953` on `main` (ahead 2, not pushed). PET B
 - `git diff --check`: exit 0 (line-ending warnings only).
 - PET backfill targeted verification is fresh and passing; full repository verification remains blocked by the pre-existing global test/build failures above.
 
+## 2026-07-30 — Task 15 Batch 5 checkpoint
+
+- Task 14 checkpoint committed as `fix(reading): expand PET B1 tests 20-29 passages`; commit SHA is in git history. No push.
+- Batch 5 canonical blueprints created for Tests 36–40 and wired into the PET generator.
+- Generated package/public runtime and answer vault for Tests 36–40: 5 tests, 30 parts, 160 questions.
+- Runtime structural validator and catalog runtime validator pass; package/public parity passes for Batch 5.
+- Strict Batch 5 metrics now pass target ranges: Part 4 = 320–321 words with 5 paragraphs (paragraphs 57–75); Part 5 = 191–192 words; Part 6 = 173–175 words.
+- Added `scripts/reading/validate-pet-b1-batch-36-40-similarity.mjs` with full text fragments/rules; old snapshot fails as expected. Similarity still needs final cleanup because Parts 3–4 retain repeated sentence patterns.
+- Browser smoke reached real routes for Tests 36 and 40. Parts 3–6 render, Part 4 has 5 gaps/options, Part 5 has 6 chooser questions, Part 6 has 6 textboxes. Console had 0 JS errors (only React Router warnings). Found and patched Part 3 paragraph/buildExtension spacing in canonical blueprints; rerun browser verification after latest regeneration is still needed.
+- Latest targeted run: generation, structural validator, runtime catalog validator, package/public parity, TypeScript and `git diff --check` pass. Current Part 4 counts are Test 36=319, 37=321, 38=321, 39=319, 40=320; Tests 36/39 need +1 word. Similarity remains FAIL (`110` findings) after removing Part 3 shared clauses; remaining Part 4 paragraph scaffold requires another rewrite. Full `pnpm run test` fails on 8 unrelated/global files (70 passed, 404/406 tests); full `pnpm run build` fails at `scripts/build-catalog.mjs:1011` with undefined path. Batch 5 remains NOT complete and uncommitted; no push.
+
 ## 2026-07-30 — Task 14 false-pass remediation
 
 - Root cause confirmed from browser: old validator counted `packages/catalog/data`, while the browser served stale `apps/web/public/catalog/exams/reading/catalog-reading-pet-b1-test20.json` (and equivalent stale public files for part of 20–29). Test 20 DOM Part 4 was visibly the short old passage despite package counts passing.
@@ -126,6 +194,34 @@ Batch 3 ready. Context: commit `42592953` on `main` (ahead 2, not pushed). PET B
 - Next session start prompt: browser-smoke one IELTS and one Cambridge Listening exam on localhost, then deploy and repeat on production if requested.
 - Fixed the FCE B2 Part 7 runtime fallback regression that returned from inside the passage loop and reduced Test 2-27 to the first section. The repair now preserves every section plus its label/heading, with a regression test covering all 26 catalog exams.
 - Next session start prompt: smoke one FCE B2 Part 7 URL after deployment and confirm all A-D/A-E sections plus questions 43-52 render from a browser with existing IndexedDB data.
+
+## 2026-07-31 — Task 8 PET B1 Reading Tests 46–50 Part 4 completed
+
+### Việc đã hoàn thành
+
+- Root cause: committed generator had no canonical Test 46–50 blueprints, so fallback emitted one learner passage block containing Q16–Q20 and labelled source-order sentence options. The partial structured compiler also used parallel `layoutParagraphs/layoutExtensions/layoutClosers`, which copied each correct option sentence back into the passage and exceeded the word contract.
+- Added canonical Test 46–50 Part 4 blueprints using structured `paragraphs[].segments[]`: exactly five paragraphs, one semantic gap per paragraph in Q16→Q20 reading order, text before/after every gap, eight keyed options with five `correctForGap` mappings and three distractors.
+- Hardened `compilePart4`: validates the structured schema, performs deterministic shuffle with seed `catalog-reading-pet-b1-testN:part4`, labels displayed options after shuffle, and derives answer vault labels from `correctForGap`. Legacy blueprints outside Task 8 retain their previous compile path.
+- Regenerated only Part 4 package/public/vault records for Tests 46–50 using `scripts/reading/fix-pet-b1-part4-46-50.mjs`.
+- Added/updated `scripts/reading/test-pet-b1-part4-distribution.mjs` as the red-capable contract gate: 300–360 words, five 55–75-word paragraphs, one ordered gap per paragraph, spacing around gaps, 14+ sentences, no option sentence copied into passage, shuffled semantic answers, three distractors, and package/public parity.
+
+### Verification
+
+- `node scripts/reading/test-pet-b1-part4-distribution.mjs` PASS: Test 46–50 totals 316/325/316/304/313 words; answers DBAHG / ACEBG / EGFBH / CGDAB / BCGHD.
+- `node scripts/reading/test-pet-b1-part4-semantic-mapping.mjs` PASS for golden Tests 14/30/51.
+- `node scripts/reading/validate-pet-b1-reading-tests-14-51.mjs` PASS: 38 tests, 228 parts, 1216 questions/answers.
+- Part 4 renderer Vitest PASS 9/9.
+- Browser DOM/text smoke PASS 5/5 on localhost, no screenshots: every Test 46–50 route rendered the explicit title, five paragraph nodes with gap order 16,17,18,19,20, eight option-bank cards, and no page errors.
+- Package/public Part 4 parity PASS for all five tests; `git diff --check` PASS.
+
+### Lỗi còn tồn tại
+
+- Workspace still contains many pre-existing unrelated modifications. Task 8 did not reset or commit them.
+- The direct web TypeScript command was unusually slow/no-output in this session, so Task 8 does not claim a fresh typecheck PASS; no TypeScript renderer source was changed.
+
+### Next session start prompt
+
+Task 8 is complete. If continuing PET B1 work, preserve the structured Part 4 contract in `scripts/reading/test-pet-b1-part4-distribution.mjs`; do not revert Test 46–50 to flat text or source-order answers. No commit or push was made.
 
 ## 2026-07-28 — Git branch consolidation (partial, manual review required)
 
@@ -11203,6 +11299,52 @@ Kiểm tra trực quan Light/Mid/Dark tại `/app/vocab`, `/app/listening`, `/ap
 - Added `scripts/reading/test-pet-b1-part4-semantic-mapping.mjs`. Semantic mapping, structural validation, runtime catalog validation, asset preservation, targeted Part 4/navigation tests (12/12), TypeScript, idempotency, and diff checks passed. No commit or push.
 - User-provided Test 51 screenshot confirmed HTTP/runtime option order equals DOM order. The old screenshot predates the later layout repair.
 
+## 2026-07-30 — Task 16 IELTS Writing practice immersive layout
+
+- IELTS practice route `/app/writing/practice/:track/:genre` uses route-specific immersive mode in `AppShell`, hiding the main sidebar without Browser Fullscreen API.
+- `WritingLayout` keeps the Writing Library back link; the workspace remains full-height with the existing desktop prompt/editor split.
+- The practice page suppresses its draft/topic list column while a topic is open. Visible Vietnamese mojibake in Writing editor controls and error states was corrected.
+- Validation: TypeScript PASS; related Vitest PASS (66/66); `git diff --check` PASS. No dependency/content/schema changes; no commit or push.
+- Manual browser smoke remains pending: verify no sidebar/list, full-height editor, correct Vietnamese text, and no console errors.
+
+### Next session start prompt — Task 16 handoff
+
+Run manual browser smoke on an IELTS Writing practice topic with `pnpm --filter web dev`; check desktop/narrow layout, back navigation, timer, autosave, AI, grading, delete/model-answer actions, and empty-state creation. Review only the Task 16 diff; do not commit or push.
+
+## 2026-07-30 — Task 17 IELTS Writing equal-height columns
+
+- Root cause: desktop `.writing-workspace` used `align-items: start`; the editor's parent was an unclassified flex column, and the editor card had only a content-driven minimum height.
+- Fixed with CSS Grid/Flex only: desktop grid stretches both columns; topic panel and right column use `height: 100%` with `min-height: 0`; editor card grows with `flex: 1`; textarea region consumes remaining height; topic panel scrolls independently.
+- No JavaScript measurement, hardcoded viewport height, content, schema, dependency, timer, word-count, or draft changes.
+- Validation: TypeScript PASS; writing Vitest PASS (33/33); `git diff --check` PASS. Manual browser checks at the requested viewport sizes remain pending.
+
+### Next session start prompt — Task 17 handoff
+
+Run browser smoke at 1920×1080, 1440×900, 1366×768, and 1024×768. Verify equal top/bottom edges, editor textarea expansion, action bar at card bottom, Model Answer below editor, independent left-panel scrolling, and no body/horizontal overflow. Do not commit or push.
+
+## 2026-07-30 — Task 18 exam player theme tokens
+
+- Added shared semantic `--exam-*` tokens for light, mid/dim, and dark themes in `globals.css`.
+- Added shared exam-shell theme propagation for exam/test roots, themed form controls, placeholders, caret, and dark native control rendering.
+- The mid theme now has a distinct dark-but-readable exam palette; no test IDs, catalog content, answer data, scoring, timer, or dependencies changed.
+- Validation: TypeScript PASS; theme + reading + writing targeted Vitest PASS (44/44); `git diff --check` PASS.
+- Manual visual matrix and hardcoded-color audit remain pending; do not claim the whole exam player dark-theme acceptance gate until browser smoke covers Reading, Listening, Writing, portals/dropdowns, fullscreen, and mobile.
+- Follow-up diagnosis from PET Reading screenshot: `appShellBackdrop.css` was making `.app-shell__main` transparent with `!important`, exposing the light backdrop behind the exam shell. Added a shared `:has()` override so any Reading/Listening/Writing exam player owns `var(--exam-bg)` across the viewport.
+- Follow-up validation: TypeScript PASS; AppShell backdrop + theme + reading tests PASS (76/76); `git diff --check` PASS. Browser recheck is still required before marking Task 18 complete.
+- Harness browser diagnosis on `/app/exam/reading/catalog-reading-pet-b1-test41`: this route uses legacy `pet-rw-shell`/`ket-rw-*`, not `.reading-test-shell`; the first theme fix therefore missed it. Added shared PET/KET token mapping and dark/mid overrides for shell, header, instructions, radio rows, and footer.
+- Browser computed-style smoke now resolves Mid shell/header/instruction/footer to dark-mid surfaces and Dark shell/header/instruction/footer to dark surfaces; Part 1 radio rows were also corrected. Light remains unchanged. Automated validation: 76/76 targeted tests, TypeScript, and `git diff --check` PASS.
+- Task 18 remains NOT COMPLETE until the full required Reading/Listening/Writing, mobile, fullscreen, dropdown, persistence, and console-error matrix is browser-verified.
+- Follow-up browser diagnosis from user screenshots and Playwright computed styles: PET Part 2/3/5 retained legacy `.is-part-*` hardcoded light surfaces, white radio/drag/input controls, and dark text. Added scoped Mid/Dark overrides for PET/KET main panes, instructions, split panes, radio rows, drag slots, Part 5 fields/content, and Part 2/3 shell backgrounds.
+- Task 2 browser smoke then covered PET Reading Test 28 Parts 1–6 in Dark and Mid. Remaining legacy light leaks were found in Part 1 image/radio containers, Part 2 bank text/cards, Part 3 text/current tab, Part 4 body/bank cards, Part 5 main/passage, and Part 6 open-cloze inputs; scoped shared overrides were added in `globals.css`.
+- Automated validation: TypeScript PASS; AppShell/theme/Reading targeted tests 76/76 PASS; `git diff --check` PASS. Task 2 remains pending user hard-refresh confirmation and representative non-PET Reading checks.
+- Follow-up diagnostic loop after the user reported runtime failure: Playwright drove the real route, switched through PET Reading Parts 1–6, and scanned computed background/text styles. After the scoped overrides, Dark/Mid no longer produced the targeted white/light surfaces or black-text leaks; Dark root resolved to `rgb(15, 17, 21)`, six parts rendered, and console errors were empty.
+- Automated validation rerun: TypeScript PASS; targeted tests 76/76 PASS; `git diff --check` PASS. Task 2 still awaits the user's hard-refresh visual confirmation and non-PET renderer checks.
+- Automated validation remains PASS: TypeScript, targeted theme/backdrop/reading tests 76/76, and `git diff --check`. Full Task 18 acceptance is still pending until the required cross-skill browser matrix is completed.
+
+### Next session start prompt — Task 18 handoff
+
+Run browser smoke in Light, Mid, and Dark at desktop/mobile viewports for representative Reading, Listening, and Writing routes. Check no white panels/strips, readable selected/disabled/focus states, native audio/input controls, bottom navigation, dialogs/dropdowns, fullscreen, route persistence, and light-mode regression. Do not commit or push.
+
 ## 2026-07-30 — Task 5.5 PET B1 Reading Part 4 paragraph layout
 
 - Rewrote only Part 4 passage layout for Tests 14, 30, and 51 in the generator. Each now has exactly five learner-facing paragraphs, one gap per paragraph, and reading order Q16 → Q17 → Q18 → Q19 → Q20.
@@ -11212,4 +11354,53 @@ Kiểm tra trực quan Light/Mid/Dark tại `/app/vocab`, `/app/listening`, `/ap
 
 ### Next session start prompt — Task 5.5 handoff
 
+### Next session start prompt — Task 5.5 handoff
+
 Run browser smoke on the current generated Test 14, Test 30, and Test 51 Part 4 outputs. Confirm five visible paragraphs, one gap per paragraph, option bank placement, answer checking, and no console errors. Then run the targeted Part 4/navigation Vitest and review `git diff` for unrelated changes. Do not commit or push unless explicitly requested.
+
+## 2026-07-30 — Task 15.2 PET B1 Batch 4 quality backfill
+
+- Added targeted idempotent script: `scripts/reading/pet-b1-backfill-31-35.mjs`.
+- Current counts after generation: Part 4 `342–353`, Part 5 `187–193`, Part 6 `158–169`.
+- Runtime catalog validator, broad structural validator, TypeScript, package/public parity, preservation snapshot, idempotency and `git diff --check` passed.
+- Browser Test 31 and Test 35 opened with zero JavaScript errors; learner-facing prose rendered in DOM.
+- **BLOCKED / NOT READY:** browser review exposed incorrect topic mapping in the new prose. Test 35 is `wildlife walks` but received `school libraries` prose; Tests 32–34 also need domain-specific remapping before acceptance. No commit or push.
+
+## 2026-07-31 — Task 5.6 PET B1 Reading Part 4/5/6 title audit + backfill (task_5)
+
+- **Discovery:** Renderer reads `part.passageTitle` (Parts 4/5 strip the "Part N –" prefix; Part 6 shows it verbatim; `passageSubtitle` overrides heading for P3/4/5). Compiler `compile-exam.mjs` preserved `part4.title` but DROPPED `part5.title`/`part6.title` (hardcoded "Multiple-choice cloze"/"Open cloze"). Package (`packages/catalog/data/`) and public (`apps/web/public/catalog/exams/reading/`) are byte-identical copies. Main generator `generate-pet-b1-reading-tests-14-51.mjs` only regenerates blueprint-backed tests (14–30, 36–40, 51); 31–35 and 41–50 are committed JSON (backfill-sourced) — no live generator.
+- **Compiler fix:** `compile-exam.mjs` Part 5/6 (both `compilePart5/6` and `simplePart5/6`) now emit `Part N – {bp.title}` when `bp.part5/6.title` present, with backward-compatible generic fallback.
+- **Blueprints:** Added `part5.title`/`part6.title` to 13 blueprints (14–19, 30, 36–40, 51) and regenerated via the generator. Verified byte-identical except `passageTitle`; answers untouched.
+- **Non-blueprint tests (31–35, 41–50):** Edited `passageTitle` directly in package + public JSON for Parts 4/5/6. Test 23 Part 6 title improved ("Learning photography" → "Learning Photography as a Hobby") — test 23 content is backfill-sourced, so JSON edited directly, NOT regenerated.
+- **Titles authored (71 total, 3–8 words, topic-accurate, distinct per test):** 26 ADDED (generic type → topic, e.g. "A Student Reading Survey", "Why the Tablets Stopped Working"), 46 NORMALIZED (domain word → specific, e.g. "repair cafés" → "Running a Repair Café"). Verified titles never contain gap answers/option words.
+- **Validator:** new `scripts/reading/validate-pet-b1-reading-titles.mjs` — 126 parts checked: 125 PASS + 1 LEGACY_FALLBACK (Test 03 Part 5 "The Watch"), 0 FAILURES. Parity enforced for generated 14–51; legacy package/public drift (Test 01 package titles differ from public) reported as informational.
+- **Regression PASS:** runtime catalog validator (petB1ReadingEntryCount=40), structural validator (1216 Q/1216 A), Part 4 semantic mapping, Part 5 contract, Part 5 one-word, TypeScript (`tsc --noEmit`), golden-sample idempotency (14/30/51), `git diff --check`. Outside-range confirmed title-only vs pre-edit snapshots; meta/manifest unchanged.
+- **Browser text evidence (no screenshots):** Tests 31, 36, 40, 51 Parts 4–6 all render the topic title as primary h2 in the DOM (served JSON over HTTP confirms payload). Test 31 Part 5 dropdown Q21 opens (options every/each/whole/all) and selection "each" persists. Zero console errors. Evidence: `tmp/pet-b1-reading-part456-title-browser-check.md`.
+- **Audit reports:** `tmp/pet-b1-reading-part456-title-audit.json` + `.md` (126 rows; 72 changed: 26 ADDED_TITLE, 46 NORMALIZED_GENERIC, 54 KEPT_EXISTING).
+- No commit or push. Remaining: legacy Test 01 package/public title drift (pre-existing, out of scope); Task 15.2 batch-4 topic-mapping (32–34) BLOCKED note from earlier session still open.
+
+## 2026-07-31 — Task 6 PET B1 Part 5 — selected answer replaced question number (task_6)
+
+- **Root cause:** `RwPart5McGap.tsx` rendered the gap trigger as a ternary — `<span number>` when empty, `<span value>` when filled. Selecting an answer removed the question-number span entirely (browser confirmed: trigger text was only `north`).
+- **Fix:** trigger now always renders `<span class="pet-rw-part5-gap__number">{number}</span>` plus an optional `<span class="pet-rw-part5-gap__value">{label}</span>`. CSS: number `flex: 0 0 auto; min-width: 22px`, value `flex: 0 1 auto; min-width: 0; ellipsis`, field `gap: 4px`. Aria-label now includes selected answer (`Question 23, selected answer keep`).
+- **Files changed (UI only):** `apps/web/src/features/exam/rwHighlight/RwPart5McGap.tsx`, `rwPart5McGap.css`, `__tests__/petRwPart5Layout.test.tsx` (6 new tests: empty gaps show 21–26, filled gap keeps number+answer, open keeps number, per-gap independence, single-word options, pre-filled persistence).
+- **Validation PASS:** Part 5 component tests 14/14, targeted PET/FCE suites 37/37, Part 5 contract, runtime catalog validator, structural validator, TypeScript (`tsc --noEmit`), `git diff --check`. No content/answer/JSON changes.
+- **Browser text evidence (no screenshots):** Tests 31, 36, 40, 51 Part 5 — Q23 trigger shows both number and answer (e.g. `23 keep`), dropdown open keeps number, 4 single-word options, Part 6 → Part 5 navigation persistence holds, 0 console errors. Evidence: `tmp/pet-b1-part5-gap-number-browser-check.md`.
+- No commit or push. Component is shared with KET A2 P4 / FCE B2 P1; behavior is backward-compatible (empty renders number as before).
+
+## Task 5 follow-up — PET B1 Parts 4–6 passage length
+
+- Expanded Tests 46–50 Parts 4–6 in both package and public JSON while preserving gaps, options, answer vaults, IDs, and titles.
+- Final passage word counts: Test 46 `265/153/141`, 47 `254/161/145`, 48 `251/163/154`, 49 `256/153/149`, 50 `259/159/147` for Parts 4/5/6.
+- Targeted title validator remains PASS: 126 checked, 125 PASS, 1 documented legacy fallback, 0 failures. TypeScript and `git diff --check` pass.
+
+## 2026-07-31 — Task 4 KET A2 Writing Task 32 image restoration
+
+- **Root cause:** source images and public asset files for Tests 2–51 already existed, but the corresponding Task 32 JSON records had no `imageAssets`; the Writing renderer therefore computed no image URLs. Test 52 already had the expected field and was left unchanged.
+- **Mapping audit:** `Tainguyen/Import Cambridge/KET_A2/Writing_Part7/test2` … `test51`, each with exactly one `part7-page.jpg`; 50/50 matched, no ambiguous folders, invalid files, duplicate hashes, or missing tests. Mapping is Test N → `testN/part7-page.jpg` → `/catalog/writing/ket-a2/test-NN/part7-page.jpg`.
+- **Fix:** populated exactly one `imageAssets` entry in `packages/catalog/data/cambridge-writing/a2/ket-a2-writing-test-02.json` through `...-51.json`. Prompts, briefs, answers, IDs, numbering, and renderer logic were not changed; Test 1 was untouched.
+- **Validation:** targeted JSON/URL audit 50/50 PASS; HTTP smoke for all 50 image URLs returned 200 `image/jpeg`; TypeScript PASS; `git diff --check` PASS; importer dry-run/apply PASS. General `writing:ai:validate` remains a pre-existing corpus baseline failure (140 tests / 140 failures, provenance/content-hash/similarity), outside this asset-only scope. No commit or push.
+
+### Next session start prompt — Task 4 handoff
+
+Run a fresh dev-server/browser smoke on Test 2 and Test 51 Task 32 after restart, then optionally production build. Review only the 50 Task 32 JSON diffs and confirm no unrelated files are staged. Do not repair the pre-existing whole-corpus Writing validator failures in this task.

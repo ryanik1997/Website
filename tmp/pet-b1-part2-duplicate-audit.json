@@ -1,0 +1,3140 @@
+{
+  "classified": [
+    {
+      "test": 25,
+      "source": "blueprint",
+      "code": "KEEP_UNIQUE",
+      "reason": "most distinct (nearest T26 prof 0.122, opt 0.097)",
+      "nearest": 26,
+      "openingStyles": [
+        "invitation-led",
+        "feature-led",
+        "need-led",
+        "outcome-led",
+        "audience-led",
+        "condition-led",
+        "schedule-led",
+        "location-led"
+      ]
+    },
+    {
+      "test": 26,
+      "source": "blueprint",
+      "code": "KEEP_UNIQUE",
+      "reason": "most distinct (nearest T50 prof 0.149, opt 0.08)",
+      "nearest": 50,
+      "openingStyles": [
+        "outcome-led",
+        "audience-led",
+        "schedule-led",
+        "invitation-led",
+        "condition-led",
+        "need-led",
+        "location-led",
+        "feature-led"
+      ]
+    },
+    {
+      "test": 27,
+      "source": "blueprint",
+      "code": "KEEP_UNIQUE",
+      "reason": "most distinct (nearest T28 prof 0.154, opt 0.089)",
+      "nearest": 28,
+      "openingStyles": [
+        "condition-led",
+        "schedule-led",
+        "feature-led",
+        "location-led",
+        "outcome-led",
+        "invitation-led",
+        "need-led",
+        "audience-led"
+      ]
+    },
+    {
+      "test": 28,
+      "source": "blueprint",
+      "code": "KEEP_UNIQUE",
+      "reason": "most distinct (nearest T27 prof 0.154, opt 0.089)",
+      "nearest": 27,
+      "openingStyles": [
+        "feature-led",
+        "location-led",
+        "audience-led",
+        "schedule-led",
+        "invitation-led",
+        "outcome-led",
+        "condition-led",
+        "need-led"
+      ]
+    },
+    {
+      "test": 29,
+      "source": "blueprint",
+      "code": "KEEP_UNIQUE",
+      "reason": "most distinct (nearest T37 prof 0.137, opt 0.075)",
+      "nearest": 37,
+      "openingStyles": [
+        "audience-led",
+        "need-led",
+        "outcome-led",
+        "condition-led",
+        "invitation-led",
+        "schedule-led",
+        "location-led",
+        "feature-led"
+      ]
+    },
+    {
+      "test": 30,
+      "source": "blueprint",
+      "code": "KEEP_GOLDEN",
+      "reason": "golden/protected",
+      "openingStyles": [
+        "schedule-led",
+        "condition-led",
+        "feature-led",
+        "need-led",
+        "audience-led",
+        "activity-led",
+        "outcome-led",
+        "invitation-led"
+      ]
+    },
+    {
+      "test": 31,
+      "source": "runtime",
+      "code": "KEEP_UNIQUE",
+      "reason": "most distinct (nearest T32 prof 0.121, opt 0.102)",
+      "nearest": 32,
+      "openingStyles": []
+    },
+    {
+      "test": 32,
+      "source": "runtime",
+      "code": "KEEP_UNIQUE",
+      "reason": "most distinct (nearest T31 prof 0.121, opt 0.102)",
+      "nearest": 31,
+      "openingStyles": []
+    },
+    {
+      "test": 33,
+      "source": "runtime",
+      "code": "KEEP_UNIQUE",
+      "reason": "most distinct (nearest T49 prof 0.119, opt 0.121)",
+      "nearest": 49,
+      "openingStyles": []
+    },
+    {
+      "test": 34,
+      "source": "runtime",
+      "code": "KEEP_UNIQUE",
+      "reason": "most distinct (nearest T42 prof 0.158, opt 0.141)",
+      "nearest": 42,
+      "openingStyles": []
+    },
+    {
+      "test": 35,
+      "source": "runtime",
+      "code": "KEEP_UNIQUE",
+      "reason": "most distinct (nearest T45 prof 0.156, opt 0.092)",
+      "nearest": 45,
+      "openingStyles": []
+    },
+    {
+      "test": 36,
+      "source": "blueprint",
+      "code": "KEEP_UNIQUE",
+      "reason": "most distinct (nearest T45 prof 0.135, opt 0.101)",
+      "nearest": 45,
+      "openingStyles": [
+        "activity-led",
+        "location-led",
+        "audience-led",
+        "feature-led",
+        "need-led",
+        "schedule-led",
+        "result-led",
+        "invitation-led"
+      ]
+    },
+    {
+      "test": 37,
+      "source": "blueprint",
+      "code": "KEEP_UNIQUE",
+      "reason": "most distinct (nearest T45 prof 0.164, opt 0.08)",
+      "nearest": 45,
+      "openingStyles": [
+        "schedule-led",
+        "skill-led",
+        "outcome-led",
+        "activity-led",
+        "process-led",
+        "audience-led",
+        "need-led",
+        "condition-led"
+      ]
+    },
+    {
+      "test": 38,
+      "source": "blueprint",
+      "code": "KEEP_UNIQUE",
+      "reason": "most distinct (nearest T42 prof 0.122, opt 0.091)",
+      "nearest": 42,
+      "openingStyles": [
+        "activity-led",
+        "condition-led",
+        "feature-led",
+        "need-led",
+        "audience-led",
+        "schedule-led",
+        "result-led",
+        "invitation-led"
+      ]
+    },
+    {
+      "test": 39,
+      "source": "blueprint",
+      "code": "KEEP_UNIQUE",
+      "reason": "most distinct (nearest T37 prof 0.105, opt 0.097)",
+      "nearest": 37,
+      "openingStyles": [
+        "activity-led",
+        "resource-led",
+        "skills-led",
+        "task-led",
+        "outcome-led",
+        "equipment-led",
+        "location-led",
+        "audience-led"
+      ]
+    },
+    {
+      "test": 40,
+      "source": "blueprint",
+      "code": "KEEP_UNIQUE",
+      "reason": "most distinct (nearest T36 prof 0.124, opt 0.112)",
+      "nearest": 36,
+      "openingStyles": [
+        "activity-led",
+        "schedule-led",
+        "feature-led",
+        "need-led",
+        "outcome-led",
+        "audience-led",
+        "location-led",
+        "invitation-led"
+      ]
+    },
+    {
+      "test": 41,
+      "source": "runtime",
+      "code": "KEEP_UNIQUE",
+      "reason": "most distinct (nearest T33 prof 0.118, opt 0.121)",
+      "nearest": 33,
+      "openingStyles": []
+    },
+    {
+      "test": 42,
+      "source": "runtime",
+      "code": "KEEP_UNIQUE",
+      "reason": "most distinct (nearest T34 prof 0.158, opt 0.141)",
+      "nearest": 34,
+      "openingStyles": []
+    },
+    {
+      "test": 43,
+      "source": "runtime",
+      "code": "KEEP_UNIQUE",
+      "reason": "most distinct (nearest T35 prof 0.113, opt 0.121)",
+      "nearest": 35,
+      "openingStyles": []
+    },
+    {
+      "test": 44,
+      "source": "runtime",
+      "code": "KEEP_UNIQUE",
+      "reason": "most distinct (nearest T42 prof 0.137, opt 0.103)",
+      "nearest": 42,
+      "openingStyles": []
+    },
+    {
+      "test": 45,
+      "source": "runtime",
+      "code": "KEEP_UNIQUE",
+      "reason": "most distinct (nearest T47 prof 0.187, opt 0.127)",
+      "nearest": 47,
+      "openingStyles": []
+    },
+    {
+      "test": 46,
+      "source": "runtime",
+      "code": "KEEP_UNIQUE",
+      "reason": "most distinct (nearest T47 prof 0.137, opt 0.114)",
+      "nearest": 47,
+      "openingStyles": []
+    },
+    {
+      "test": 47,
+      "source": "runtime",
+      "code": "KEEP_UNIQUE",
+      "reason": "most distinct (nearest T45 prof 0.187, opt 0.127)",
+      "nearest": 45,
+      "openingStyles": []
+    },
+    {
+      "test": 48,
+      "source": "runtime",
+      "code": "KEEP_UNIQUE",
+      "reason": "most distinct (nearest T45 prof 0.147, opt 0.089)",
+      "nearest": 45,
+      "openingStyles": []
+    },
+    {
+      "test": 49,
+      "source": "runtime",
+      "code": "KEEP_UNIQUE",
+      "reason": "most distinct (nearest T33 prof 0.119, opt 0.121)",
+      "nearest": 33,
+      "openingStyles": []
+    },
+    {
+      "test": 50,
+      "source": "runtime",
+      "code": "KEEP_UNIQUE",
+      "reason": "most distinct (nearest T47 prof 0.142, opt 0.101)",
+      "nearest": 47,
+      "openingStyles": []
+    },
+    {
+      "test": 51,
+      "source": "blueprint",
+      "code": "KEEP_GOLDEN",
+      "reason": "golden/protected",
+      "openingStyles": [
+        "activity-led",
+        "condition-led",
+        "feature-led",
+        "location-led",
+        "need-led",
+        "audience-led",
+        "outcome-led",
+        "invitation-led"
+      ]
+    }
+  ],
+  "pairs": [
+    {
+      "a": 25,
+      "b": 26,
+      "profileSimilarity": 0.122,
+      "optionSimilarity": 0.097,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 25,
+      "b": 27,
+      "profileSimilarity": 0.09,
+      "optionSimilarity": 0.074,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 25,
+      "b": 28,
+      "profileSimilarity": 0.111,
+      "optionSimilarity": 0.09,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 25,
+      "b": 29,
+      "profileSimilarity": 0.115,
+      "optionSimilarity": 0.093,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 25,
+      "b": 30,
+      "profileSimilarity": 0.079,
+      "optionSimilarity": 0.066,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 25,
+      "b": 31,
+      "profileSimilarity": 0.105,
+      "optionSimilarity": 0.077,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 25,
+      "b": 32,
+      "profileSimilarity": 0.097,
+      "optionSimilarity": 0.09,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 25,
+      "b": 33,
+      "profileSimilarity": 0.082,
+      "optionSimilarity": 0.088,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 25,
+      "b": 34,
+      "profileSimilarity": 0.112,
+      "optionSimilarity": 0.071,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 25,
+      "b": 35,
+      "profileSimilarity": 0.097,
+      "optionSimilarity": 0.088,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 25,
+      "b": 36,
+      "profileSimilarity": 0.102,
+      "optionSimilarity": 0.081,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 25,
+      "b": 37,
+      "profileSimilarity": 0.125,
+      "optionSimilarity": 0.075,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 25,
+      "b": 38,
+      "profileSimilarity": 0.105,
+      "optionSimilarity": 0.072,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 25,
+      "b": 39,
+      "profileSimilarity": 0.087,
+      "optionSimilarity": 0.082,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 25,
+      "b": 40,
+      "profileSimilarity": 0.089,
+      "optionSimilarity": 0.076,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 25,
+      "b": 41,
+      "profileSimilarity": 0.075,
+      "optionSimilarity": 0.075,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 25,
+      "b": 42,
+      "profileSimilarity": 0.082,
+      "optionSimilarity": 0.079,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 25,
+      "b": 43,
+      "profileSimilarity": 0.131,
+      "optionSimilarity": 0.083,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 25,
+      "b": 44,
+      "profileSimilarity": 0.1,
+      "optionSimilarity": 0.082,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 25,
+      "b": 45,
+      "profileSimilarity": 0.119,
+      "optionSimilarity": 0.086,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 25,
+      "b": 46,
+      "profileSimilarity": 0.093,
+      "optionSimilarity": 0.072,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 25,
+      "b": 47,
+      "profileSimilarity": 0.106,
+      "optionSimilarity": 0.09,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 25,
+      "b": 48,
+      "profileSimilarity": 0.106,
+      "optionSimilarity": 0.093,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 25,
+      "b": 49,
+      "profileSimilarity": 0.078,
+      "optionSimilarity": 0.071,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 25,
+      "b": 50,
+      "profileSimilarity": 0.116,
+      "optionSimilarity": 0.077,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 25,
+      "b": 51,
+      "profileSimilarity": 0.09,
+      "optionSimilarity": 0.069,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 26,
+      "b": 27,
+      "profileSimilarity": 0.111,
+      "optionSimilarity": 0.075,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 26,
+      "b": 28,
+      "profileSimilarity": 0.107,
+      "optionSimilarity": 0.093,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 26,
+      "b": 29,
+      "profileSimilarity": 0.108,
+      "optionSimilarity": 0.084,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 26,
+      "b": 30,
+      "profileSimilarity": 0.124,
+      "optionSimilarity": 0.054,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 26,
+      "b": 31,
+      "profileSimilarity": 0.106,
+      "optionSimilarity": 0.072,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 26,
+      "b": 32,
+      "profileSimilarity": 0.094,
+      "optionSimilarity": 0.062,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 26,
+      "b": 33,
+      "profileSimilarity": 0.084,
+      "optionSimilarity": 0.065,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 26,
+      "b": 34,
+      "profileSimilarity": 0.106,
+      "optionSimilarity": 0.062,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 26,
+      "b": 35,
+      "profileSimilarity": 0.1,
+      "optionSimilarity": 0.081,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 26,
+      "b": 36,
+      "profileSimilarity": 0.093,
+      "optionSimilarity": 0.073,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 26,
+      "b": 37,
+      "profileSimilarity": 0.153,
+      "optionSimilarity": 0.071,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 26,
+      "b": 38,
+      "profileSimilarity": 0.089,
+      "optionSimilarity": 0.062,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 26,
+      "b": 39,
+      "profileSimilarity": 0.096,
+      "optionSimilarity": 0.075,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 26,
+      "b": 40,
+      "profileSimilarity": 0.101,
+      "optionSimilarity": 0.09,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 26,
+      "b": 41,
+      "profileSimilarity": 0.077,
+      "optionSimilarity": 0.073,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 26,
+      "b": 42,
+      "profileSimilarity": 0.098,
+      "optionSimilarity": 0.088,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 26,
+      "b": 43,
+      "profileSimilarity": 0.135,
+      "optionSimilarity": 0.074,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 26,
+      "b": 44,
+      "profileSimilarity": 0.099,
+      "optionSimilarity": 0.078,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 26,
+      "b": 45,
+      "profileSimilarity": 0.141,
+      "optionSimilarity": 0.07,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 26,
+      "b": 46,
+      "profileSimilarity": 0.107,
+      "optionSimilarity": 0.077,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 26,
+      "b": 47,
+      "profileSimilarity": 0.137,
+      "optionSimilarity": 0.067,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 26,
+      "b": 48,
+      "profileSimilarity": 0.121,
+      "optionSimilarity": 0.085,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 26,
+      "b": 49,
+      "profileSimilarity": 0.107,
+      "optionSimilarity": 0.071,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 26,
+      "b": 50,
+      "profileSimilarity": 0.149,
+      "optionSimilarity": 0.08,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 26,
+      "b": 51,
+      "profileSimilarity": 0.12,
+      "optionSimilarity": 0.053,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 27,
+      "b": 28,
+      "profileSimilarity": 0.154,
+      "optionSimilarity": 0.089,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 27,
+      "b": 29,
+      "profileSimilarity": 0.103,
+      "optionSimilarity": 0.07,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 27,
+      "b": 30,
+      "profileSimilarity": 0.109,
+      "optionSimilarity": 0.065,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 27,
+      "b": 31,
+      "profileSimilarity": 0.081,
+      "optionSimilarity": 0.069,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 27,
+      "b": 32,
+      "profileSimilarity": 0.108,
+      "optionSimilarity": 0.063,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 27,
+      "b": 33,
+      "profileSimilarity": 0.132,
+      "optionSimilarity": 0.078,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 27,
+      "b": 34,
+      "profileSimilarity": 0.108,
+      "optionSimilarity": 0.074,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 27,
+      "b": 35,
+      "profileSimilarity": 0.148,
+      "optionSimilarity": 0.073,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 27,
+      "b": 36,
+      "profileSimilarity": 0.095,
+      "optionSimilarity": 0.084,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 27,
+      "b": 37,
+      "profileSimilarity": 0.102,
+      "optionSimilarity": 0.075,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 27,
+      "b": 38,
+      "profileSimilarity": 0.105,
+      "optionSimilarity": 0.077,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 27,
+      "b": 39,
+      "profileSimilarity": 0.077,
+      "optionSimilarity": 0.073,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 27,
+      "b": 40,
+      "profileSimilarity": 0.098,
+      "optionSimilarity": 0.085,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 27,
+      "b": 41,
+      "profileSimilarity": 0.136,
+      "optionSimilarity": 0.072,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 27,
+      "b": 42,
+      "profileSimilarity": 0.14,
+      "optionSimilarity": 0.087,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 27,
+      "b": 43,
+      "profileSimilarity": 0.1,
+      "optionSimilarity": 0.085,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 27,
+      "b": 44,
+      "profileSimilarity": 0.163,
+      "optionSimilarity": 0.075,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 27,
+      "b": 45,
+      "profileSimilarity": 0.111,
+      "optionSimilarity": 0.074,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 27,
+      "b": 46,
+      "profileSimilarity": 0.144,
+      "optionSimilarity": 0.077,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 27,
+      "b": 47,
+      "profileSimilarity": 0.114,
+      "optionSimilarity": 0.086,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 27,
+      "b": 48,
+      "profileSimilarity": 0.105,
+      "optionSimilarity": 0.091,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 27,
+      "b": 49,
+      "profileSimilarity": 0.127,
+      "optionSimilarity": 0.089,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 27,
+      "b": 50,
+      "profileSimilarity": 0.112,
+      "optionSimilarity": 0.089,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 27,
+      "b": 51,
+      "profileSimilarity": 0.078,
+      "optionSimilarity": 0.07,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 28,
+      "b": 29,
+      "profileSimilarity": 0.106,
+      "optionSimilarity": 0.079,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 28,
+      "b": 30,
+      "profileSimilarity": 0.077,
+      "optionSimilarity": 0.052,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 28,
+      "b": 31,
+      "profileSimilarity": 0.09,
+      "optionSimilarity": 0.074,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 28,
+      "b": 32,
+      "profileSimilarity": 0.1,
+      "optionSimilarity": 0.058,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 28,
+      "b": 33,
+      "profileSimilarity": 0.089,
+      "optionSimilarity": 0.08,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 28,
+      "b": 34,
+      "profileSimilarity": 0.089,
+      "optionSimilarity": 0.064,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 28,
+      "b": 35,
+      "profileSimilarity": 0.115,
+      "optionSimilarity": 0.075,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 28,
+      "b": 36,
+      "profileSimilarity": 0.091,
+      "optionSimilarity": 0.076,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 28,
+      "b": 37,
+      "profileSimilarity": 0.122,
+      "optionSimilarity": 0.084,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 28,
+      "b": 38,
+      "profileSimilarity": 0.094,
+      "optionSimilarity": 0.071,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 28,
+      "b": 39,
+      "profileSimilarity": 0.07,
+      "optionSimilarity": 0.071,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 28,
+      "b": 40,
+      "profileSimilarity": 0.134,
+      "optionSimilarity": 0.084,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 28,
+      "b": 41,
+      "profileSimilarity": 0.106,
+      "optionSimilarity": 0.087,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 28,
+      "b": 42,
+      "profileSimilarity": 0.106,
+      "optionSimilarity": 0.096,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 28,
+      "b": 43,
+      "profileSimilarity": 0.111,
+      "optionSimilarity": 0.077,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 28,
+      "b": 44,
+      "profileSimilarity": 0.107,
+      "optionSimilarity": 0.082,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 28,
+      "b": 45,
+      "profileSimilarity": 0.121,
+      "optionSimilarity": 0.087,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 28,
+      "b": 46,
+      "profileSimilarity": 0.07,
+      "optionSimilarity": 0.074,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 28,
+      "b": 47,
+      "profileSimilarity": 0.126,
+      "optionSimilarity": 0.077,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 28,
+      "b": 48,
+      "profileSimilarity": 0.098,
+      "optionSimilarity": 0.074,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 28,
+      "b": 49,
+      "profileSimilarity": 0.1,
+      "optionSimilarity": 0.083,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 28,
+      "b": 50,
+      "profileSimilarity": 0.137,
+      "optionSimilarity": 0.087,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 28,
+      "b": 51,
+      "profileSimilarity": 0.079,
+      "optionSimilarity": 0.056,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 29,
+      "b": 30,
+      "profileSimilarity": 0.094,
+      "optionSimilarity": 0.055,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 29,
+      "b": 31,
+      "profileSimilarity": 0.106,
+      "optionSimilarity": 0.091,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 29,
+      "b": 32,
+      "profileSimilarity": 0.092,
+      "optionSimilarity": 0.079,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 29,
+      "b": 33,
+      "profileSimilarity": 0.081,
+      "optionSimilarity": 0.08,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 29,
+      "b": 34,
+      "profileSimilarity": 0.08,
+      "optionSimilarity": 0.085,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 29,
+      "b": 35,
+      "profileSimilarity": 0.093,
+      "optionSimilarity": 0.076,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 29,
+      "b": 36,
+      "profileSimilarity": 0.086,
+      "optionSimilarity": 0.073,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 29,
+      "b": 37,
+      "profileSimilarity": 0.137,
+      "optionSimilarity": 0.075,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 29,
+      "b": 38,
+      "profileSimilarity": 0.094,
+      "optionSimilarity": 0.062,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 29,
+      "b": 39,
+      "profileSimilarity": 0.081,
+      "optionSimilarity": 0.075,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 29,
+      "b": 40,
+      "profileSimilarity": 0.124,
+      "optionSimilarity": 0.086,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 29,
+      "b": 41,
+      "profileSimilarity": 0.093,
+      "optionSimilarity": 0.07,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 29,
+      "b": 42,
+      "profileSimilarity": 0.077,
+      "optionSimilarity": 0.077,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 29,
+      "b": 43,
+      "profileSimilarity": 0.115,
+      "optionSimilarity": 0.067,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 29,
+      "b": 44,
+      "profileSimilarity": 0.11,
+      "optionSimilarity": 0.07,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 29,
+      "b": 45,
+      "profileSimilarity": 0.091,
+      "optionSimilarity": 0.071,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 29,
+      "b": 46,
+      "profileSimilarity": 0.1,
+      "optionSimilarity": 0.075,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 29,
+      "b": 47,
+      "profileSimilarity": 0.108,
+      "optionSimilarity": 0.065,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 29,
+      "b": 48,
+      "profileSimilarity": 0.12,
+      "optionSimilarity": 0.073,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 29,
+      "b": 49,
+      "profileSimilarity": 0.079,
+      "optionSimilarity": 0.074,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 29,
+      "b": 50,
+      "profileSimilarity": 0.127,
+      "optionSimilarity": 0.079,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 29,
+      "b": 51,
+      "profileSimilarity": 0.09,
+      "optionSimilarity": 0.049,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 30,
+      "b": 31,
+      "profileSimilarity": 0.066,
+      "optionSimilarity": 0.072,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 30,
+      "b": 32,
+      "profileSimilarity": 0.074,
+      "optionSimilarity": 0.062,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 30,
+      "b": 33,
+      "profileSimilarity": 0.066,
+      "optionSimilarity": 0.062,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 30,
+      "b": 34,
+      "profileSimilarity": 0.068,
+      "optionSimilarity": 0.061,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 30,
+      "b": 35,
+      "profileSimilarity": 0.069,
+      "optionSimilarity": 0.053,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 30,
+      "b": 36,
+      "profileSimilarity": 0.089,
+      "optionSimilarity": 0.06,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 30,
+      "b": 37,
+      "profileSimilarity": 0.09,
+      "optionSimilarity": 0.052,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 30,
+      "b": 38,
+      "profileSimilarity": 0.056,
+      "optionSimilarity": 0.057,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 30,
+      "b": 39,
+      "profileSimilarity": 0.054,
+      "optionSimilarity": 0.059,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 30,
+      "b": 40,
+      "profileSimilarity": 0.111,
+      "optionSimilarity": 0.072,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 30,
+      "b": 41,
+      "profileSimilarity": 0.078,
+      "optionSimilarity": 0.067,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 30,
+      "b": 42,
+      "profileSimilarity": 0.116,
+      "optionSimilarity": 0.057,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 30,
+      "b": 43,
+      "profileSimilarity": 0.1,
+      "optionSimilarity": 0.068,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 30,
+      "b": 44,
+      "profileSimilarity": 0.098,
+      "optionSimilarity": 0.067,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 30,
+      "b": 45,
+      "profileSimilarity": 0.083,
+      "optionSimilarity": 0.073,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 30,
+      "b": 46,
+      "profileSimilarity": 0.078,
+      "optionSimilarity": 0.057,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 30,
+      "b": 47,
+      "profileSimilarity": 0.094,
+      "optionSimilarity": 0.058,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 30,
+      "b": 48,
+      "profileSimilarity": 0.128,
+      "optionSimilarity": 0.07,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 30,
+      "b": 49,
+      "profileSimilarity": 0.095,
+      "optionSimilarity": 0.07,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 30,
+      "b": 50,
+      "profileSimilarity": 0.113,
+      "optionSimilarity": 0.065,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 30,
+      "b": 51,
+      "profileSimilarity": 0.123,
+      "optionSimilarity": 0.09,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 31,
+      "b": 32,
+      "profileSimilarity": 0.121,
+      "optionSimilarity": 0.102,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 31,
+      "b": 33,
+      "profileSimilarity": 0.095,
+      "optionSimilarity": 0.099,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 31,
+      "b": 34,
+      "profileSimilarity": 0.099,
+      "optionSimilarity": 0.089,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 31,
+      "b": 35,
+      "profileSimilarity": 0.102,
+      "optionSimilarity": 0.084,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 31,
+      "b": 36,
+      "profileSimilarity": 0.098,
+      "optionSimilarity": 0.091,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 31,
+      "b": 37,
+      "profileSimilarity": 0.114,
+      "optionSimilarity": 0.091,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 31,
+      "b": 38,
+      "profileSimilarity": 0.082,
+      "optionSimilarity": 0.08,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 31,
+      "b": 39,
+      "profileSimilarity": 0.096,
+      "optionSimilarity": 0.096,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 31,
+      "b": 40,
+      "profileSimilarity": 0.109,
+      "optionSimilarity": 0.093,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 31,
+      "b": 41,
+      "profileSimilarity": 0.088,
+      "optionSimilarity": 0.078,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 31,
+      "b": 42,
+      "profileSimilarity": 0.077,
+      "optionSimilarity": 0.085,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 31,
+      "b": 43,
+      "profileSimilarity": 0.102,
+      "optionSimilarity": 0.077,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 31,
+      "b": 44,
+      "profileSimilarity": 0.091,
+      "optionSimilarity": 0.076,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 31,
+      "b": 45,
+      "profileSimilarity": 0.11,
+      "optionSimilarity": 0.105,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 31,
+      "b": 46,
+      "profileSimilarity": 0.091,
+      "optionSimilarity": 0.094,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 31,
+      "b": 47,
+      "profileSimilarity": 0.12,
+      "optionSimilarity": 0.094,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 31,
+      "b": 48,
+      "profileSimilarity": 0.106,
+      "optionSimilarity": 0.073,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 31,
+      "b": 49,
+      "profileSimilarity": 0.062,
+      "optionSimilarity": 0.081,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 31,
+      "b": 50,
+      "profileSimilarity": 0.115,
+      "optionSimilarity": 0.086,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 31,
+      "b": 51,
+      "profileSimilarity": 0.077,
+      "optionSimilarity": 0.068,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 32,
+      "b": 33,
+      "profileSimilarity": 0.097,
+      "optionSimilarity": 0.089,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 32,
+      "b": 34,
+      "profileSimilarity": 0.093,
+      "optionSimilarity": 0.089,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 32,
+      "b": 35,
+      "profileSimilarity": 0.099,
+      "optionSimilarity": 0.091,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 32,
+      "b": 36,
+      "profileSimilarity": 0.102,
+      "optionSimilarity": 0.089,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 32,
+      "b": 37,
+      "profileSimilarity": 0.114,
+      "optionSimilarity": 0.072,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 32,
+      "b": 38,
+      "profileSimilarity": 0.112,
+      "optionSimilarity": 0.078,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 32,
+      "b": 39,
+      "profileSimilarity": 0.098,
+      "optionSimilarity": 0.088,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 32,
+      "b": 40,
+      "profileSimilarity": 0.093,
+      "optionSimilarity": 0.096,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 32,
+      "b": 41,
+      "profileSimilarity": 0.11,
+      "optionSimilarity": 0.088,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 32,
+      "b": 42,
+      "profileSimilarity": 0.08,
+      "optionSimilarity": 0.076,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 32,
+      "b": 43,
+      "profileSimilarity": 0.112,
+      "optionSimilarity": 0.081,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 32,
+      "b": 44,
+      "profileSimilarity": 0.084,
+      "optionSimilarity": 0.084,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 32,
+      "b": 45,
+      "profileSimilarity": 0.119,
+      "optionSimilarity": 0.088,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 32,
+      "b": 46,
+      "profileSimilarity": 0.087,
+      "optionSimilarity": 0.076,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 32,
+      "b": 47,
+      "profileSimilarity": 0.131,
+      "optionSimilarity": 0.076,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 32,
+      "b": 48,
+      "profileSimilarity": 0.119,
+      "optionSimilarity": 0.102,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 32,
+      "b": 49,
+      "profileSimilarity": 0.082,
+      "optionSimilarity": 0.091,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 32,
+      "b": 50,
+      "profileSimilarity": 0.117,
+      "optionSimilarity": 0.086,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 32,
+      "b": 51,
+      "profileSimilarity": 0.097,
+      "optionSimilarity": 0.076,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 33,
+      "b": 34,
+      "profileSimilarity": 0.102,
+      "optionSimilarity": 0.088,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 33,
+      "b": 35,
+      "profileSimilarity": 0.122,
+      "optionSimilarity": 0.088,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 33,
+      "b": 36,
+      "profileSimilarity": 0.082,
+      "optionSimilarity": 0.09,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 33,
+      "b": 37,
+      "profileSimilarity": 0.09,
+      "optionSimilarity": 0.097,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 33,
+      "b": 38,
+      "profileSimilarity": 0.106,
+      "optionSimilarity": 0.086,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 33,
+      "b": 39,
+      "profileSimilarity": 0.069,
+      "optionSimilarity": 0.088,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 33,
+      "b": 40,
+      "profileSimilarity": 0.082,
+      "optionSimilarity": 0.089,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 33,
+      "b": 41,
+      "profileSimilarity": 0.118,
+      "optionSimilarity": 0.121,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 33,
+      "b": 42,
+      "profileSimilarity": 0.108,
+      "optionSimilarity": 0.096,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 33,
+      "b": 43,
+      "profileSimilarity": 0.098,
+      "optionSimilarity": 0.087,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 33,
+      "b": 44,
+      "profileSimilarity": 0.122,
+      "optionSimilarity": 0.081,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 33,
+      "b": 45,
+      "profileSimilarity": 0.096,
+      "optionSimilarity": 0.093,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 33,
+      "b": 46,
+      "profileSimilarity": 0.124,
+      "optionSimilarity": 0.085,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 33,
+      "b": 47,
+      "profileSimilarity": 0.086,
+      "optionSimilarity": 0.094,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 33,
+      "b": 48,
+      "profileSimilarity": 0.072,
+      "optionSimilarity": 0.104,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 33,
+      "b": 49,
+      "profileSimilarity": 0.119,
+      "optionSimilarity": 0.121,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 33,
+      "b": 50,
+      "profileSimilarity": 0.103,
+      "optionSimilarity": 0.085,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 33,
+      "b": 51,
+      "profileSimilarity": 0.074,
+      "optionSimilarity": 0.068,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 34,
+      "b": 35,
+      "profileSimilarity": 0.118,
+      "optionSimilarity": 0.081,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 34,
+      "b": 36,
+      "profileSimilarity": 0.081,
+      "optionSimilarity": 0.092,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 34,
+      "b": 37,
+      "profileSimilarity": 0.125,
+      "optionSimilarity": 0.089,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 34,
+      "b": 38,
+      "profileSimilarity": 0.116,
+      "optionSimilarity": 0.091,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 34,
+      "b": 39,
+      "profileSimilarity": 0.081,
+      "optionSimilarity": 0.079,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 34,
+      "b": 40,
+      "profileSimilarity": 0.088,
+      "optionSimilarity": 0.091,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 34,
+      "b": 41,
+      "profileSimilarity": 0.111,
+      "optionSimilarity": 0.084,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 34,
+      "b": 42,
+      "profileSimilarity": 0.158,
+      "optionSimilarity": 0.141,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 34,
+      "b": 43,
+      "profileSimilarity": 0.119,
+      "optionSimilarity": 0.078,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 34,
+      "b": 44,
+      "profileSimilarity": 0.13,
+      "optionSimilarity": 0.087,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 34,
+      "b": 45,
+      "profileSimilarity": 0.124,
+      "optionSimilarity": 0.099,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 34,
+      "b": 46,
+      "profileSimilarity": 0.137,
+      "optionSimilarity": 0.081,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 34,
+      "b": 47,
+      "profileSimilarity": 0.11,
+      "optionSimilarity": 0.069,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 34,
+      "b": 48,
+      "profileSimilarity": 0.104,
+      "optionSimilarity": 0.086,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 34,
+      "b": 49,
+      "profileSimilarity": 0.115,
+      "optionSimilarity": 0.089,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 34,
+      "b": 50,
+      "profileSimilarity": 0.114,
+      "optionSimilarity": 0.105,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 34,
+      "b": 51,
+      "profileSimilarity": 0.075,
+      "optionSimilarity": 0.061,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 35,
+      "b": 36,
+      "profileSimilarity": 0.079,
+      "optionSimilarity": 0.091,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 35,
+      "b": 37,
+      "profileSimilarity": 0.125,
+      "optionSimilarity": 0.077,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 35,
+      "b": 38,
+      "profileSimilarity": 0.117,
+      "optionSimilarity": 0.082,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 35,
+      "b": 39,
+      "profileSimilarity": 0.085,
+      "optionSimilarity": 0.098,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 35,
+      "b": 40,
+      "profileSimilarity": 0.109,
+      "optionSimilarity": 0.09,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 35,
+      "b": 41,
+      "profileSimilarity": 0.128,
+      "optionSimilarity": 0.076,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 35,
+      "b": 42,
+      "profileSimilarity": 0.108,
+      "optionSimilarity": 0.085,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 35,
+      "b": 43,
+      "profileSimilarity": 0.113,
+      "optionSimilarity": 0.121,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 35,
+      "b": 44,
+      "profileSimilarity": 0.12,
+      "optionSimilarity": 0.079,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 35,
+      "b": 45,
+      "profileSimilarity": 0.156,
+      "optionSimilarity": 0.092,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 35,
+      "b": 46,
+      "profileSimilarity": 0.129,
+      "optionSimilarity": 0.084,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 35,
+      "b": 47,
+      "profileSimilarity": 0.135,
+      "optionSimilarity": 0.084,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 35,
+      "b": 48,
+      "profileSimilarity": 0.117,
+      "optionSimilarity": 0.083,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 35,
+      "b": 49,
+      "profileSimilarity": 0.12,
+      "optionSimilarity": 0.107,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 35,
+      "b": 50,
+      "profileSimilarity": 0.111,
+      "optionSimilarity": 0.092,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 35,
+      "b": 51,
+      "profileSimilarity": 0.086,
+      "optionSimilarity": 0.086,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 36,
+      "b": 37,
+      "profileSimilarity": 0.12,
+      "optionSimilarity": 0.088,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 36,
+      "b": 38,
+      "profileSimilarity": 0.102,
+      "optionSimilarity": 0.094,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 36,
+      "b": 39,
+      "profileSimilarity": 0.084,
+      "optionSimilarity": 0.102,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 36,
+      "b": 40,
+      "profileSimilarity": 0.124,
+      "optionSimilarity": 0.112,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 36,
+      "b": 41,
+      "profileSimilarity": 0.11,
+      "optionSimilarity": 0.091,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 36,
+      "b": 42,
+      "profileSimilarity": 0.099,
+      "optionSimilarity": 0.101,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 36,
+      "b": 43,
+      "profileSimilarity": 0.088,
+      "optionSimilarity": 0.096,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 36,
+      "b": 44,
+      "profileSimilarity": 0.094,
+      "optionSimilarity": 0.093,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 36,
+      "b": 45,
+      "profileSimilarity": 0.135,
+      "optionSimilarity": 0.101,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 36,
+      "b": 46,
+      "profileSimilarity": 0.114,
+      "optionSimilarity": 0.08,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 36,
+      "b": 47,
+      "profileSimilarity": 0.08,
+      "optionSimilarity": 0.092,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 36,
+      "b": 48,
+      "profileSimilarity": 0.095,
+      "optionSimilarity": 0.085,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 36,
+      "b": 49,
+      "profileSimilarity": 0.072,
+      "optionSimilarity": 0.092,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 36,
+      "b": 50,
+      "profileSimilarity": 0.114,
+      "optionSimilarity": 0.098,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 36,
+      "b": 51,
+      "profileSimilarity": 0.096,
+      "optionSimilarity": 0.082,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 37,
+      "b": 38,
+      "profileSimilarity": 0.116,
+      "optionSimilarity": 0.081,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 37,
+      "b": 39,
+      "profileSimilarity": 0.105,
+      "optionSimilarity": 0.097,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 37,
+      "b": 40,
+      "profileSimilarity": 0.125,
+      "optionSimilarity": 0.078,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 37,
+      "b": 41,
+      "profileSimilarity": 0.106,
+      "optionSimilarity": 0.093,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 37,
+      "b": 42,
+      "profileSimilarity": 0.123,
+      "optionSimilarity": 0.098,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 37,
+      "b": 43,
+      "profileSimilarity": 0.137,
+      "optionSimilarity": 0.084,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 37,
+      "b": 44,
+      "profileSimilarity": 0.112,
+      "optionSimilarity": 0.076,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 37,
+      "b": 45,
+      "profileSimilarity": 0.164,
+      "optionSimilarity": 0.08,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 37,
+      "b": 46,
+      "profileSimilarity": 0.094,
+      "optionSimilarity": 0.081,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 37,
+      "b": 47,
+      "profileSimilarity": 0.137,
+      "optionSimilarity": 0.077,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 37,
+      "b": 48,
+      "profileSimilarity": 0.128,
+      "optionSimilarity": 0.064,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 37,
+      "b": 49,
+      "profileSimilarity": 0.11,
+      "optionSimilarity": 0.081,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 37,
+      "b": 50,
+      "profileSimilarity": 0.146,
+      "optionSimilarity": 0.084,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 37,
+      "b": 51,
+      "profileSimilarity": 0.107,
+      "optionSimilarity": 0.069,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 38,
+      "b": 39,
+      "profileSimilarity": 0.094,
+      "optionSimilarity": 0.081,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 38,
+      "b": 40,
+      "profileSimilarity": 0.097,
+      "optionSimilarity": 0.087,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 38,
+      "b": 41,
+      "profileSimilarity": 0.111,
+      "optionSimilarity": 0.084,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 38,
+      "b": 42,
+      "profileSimilarity": 0.122,
+      "optionSimilarity": 0.091,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 38,
+      "b": 43,
+      "profileSimilarity": 0.103,
+      "optionSimilarity": 0.096,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 38,
+      "b": 44,
+      "profileSimilarity": 0.099,
+      "optionSimilarity": 0.081,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 38,
+      "b": 45,
+      "profileSimilarity": 0.11,
+      "optionSimilarity": 0.092,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 38,
+      "b": 46,
+      "profileSimilarity": 0.111,
+      "optionSimilarity": 0.084,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 38,
+      "b": 47,
+      "profileSimilarity": 0.105,
+      "optionSimilarity": 0.074,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 38,
+      "b": 48,
+      "profileSimilarity": 0.092,
+      "optionSimilarity": 0.074,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 38,
+      "b": 49,
+      "profileSimilarity": 0.097,
+      "optionSimilarity": 0.086,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 38,
+      "b": 50,
+      "profileSimilarity": 0.113,
+      "optionSimilarity": 0.097,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 38,
+      "b": 51,
+      "profileSimilarity": 0.112,
+      "optionSimilarity": 0.08,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 39,
+      "b": 40,
+      "profileSimilarity": 0.076,
+      "optionSimilarity": 0.094,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 39,
+      "b": 41,
+      "profileSimilarity": 0.072,
+      "optionSimilarity": 0.076,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 39,
+      "b": 42,
+      "profileSimilarity": 0.076,
+      "optionSimilarity": 0.082,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 39,
+      "b": 43,
+      "profileSimilarity": 0.085,
+      "optionSimilarity": 0.086,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 39,
+      "b": 44,
+      "profileSimilarity": 0.066,
+      "optionSimilarity": 0.078,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 39,
+      "b": 45,
+      "profileSimilarity": 0.104,
+      "optionSimilarity": 0.087,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 39,
+      "b": 46,
+      "profileSimilarity": 0.097,
+      "optionSimilarity": 0.085,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 39,
+      "b": 47,
+      "profileSimilarity": 0.1,
+      "optionSimilarity": 0.1,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 39,
+      "b": 48,
+      "profileSimilarity": 0.095,
+      "optionSimilarity": 0.072,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 39,
+      "b": 49,
+      "profileSimilarity": 0.066,
+      "optionSimilarity": 0.079,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 39,
+      "b": 50,
+      "profileSimilarity": 0.109,
+      "optionSimilarity": 0.08,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 39,
+      "b": 51,
+      "profileSimilarity": 0.083,
+      "optionSimilarity": 0.062,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 40,
+      "b": 41,
+      "profileSimilarity": 0.101,
+      "optionSimilarity": 0.09,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 40,
+      "b": 42,
+      "profileSimilarity": 0.086,
+      "optionSimilarity": 0.09,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 40,
+      "b": 43,
+      "profileSimilarity": 0.096,
+      "optionSimilarity": 0.11,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 40,
+      "b": 44,
+      "profileSimilarity": 0.11,
+      "optionSimilarity": 0.087,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 40,
+      "b": 45,
+      "profileSimilarity": 0.119,
+      "optionSimilarity": 0.102,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 40,
+      "b": 46,
+      "profileSimilarity": 0.116,
+      "optionSimilarity": 0.099,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 40,
+      "b": 47,
+      "profileSimilarity": 0.098,
+      "optionSimilarity": 0.109,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 40,
+      "b": 48,
+      "profileSimilarity": 0.097,
+      "optionSimilarity": 0.083,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 40,
+      "b": 49,
+      "profileSimilarity": 0.093,
+      "optionSimilarity": 0.105,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 40,
+      "b": 50,
+      "profileSimilarity": 0.112,
+      "optionSimilarity": 0.1,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 40,
+      "b": 51,
+      "profileSimilarity": 0.136,
+      "optionSimilarity": 0.092,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 41,
+      "b": 42,
+      "profileSimilarity": 0.139,
+      "optionSimilarity": 0.091,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 41,
+      "b": 43,
+      "profileSimilarity": 0.131,
+      "optionSimilarity": 0.098,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 41,
+      "b": 44,
+      "profileSimilarity": 0.127,
+      "optionSimilarity": 0.075,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 41,
+      "b": 45,
+      "profileSimilarity": 0.104,
+      "optionSimilarity": 0.092,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 41,
+      "b": 46,
+      "profileSimilarity": 0.12,
+      "optionSimilarity": 0.086,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 41,
+      "b": 47,
+      "profileSimilarity": 0.101,
+      "optionSimilarity": 0.084,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 41,
+      "b": 48,
+      "profileSimilarity": 0.112,
+      "optionSimilarity": 0.08,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 41,
+      "b": 49,
+      "profileSimilarity": 0.127,
+      "optionSimilarity": 0.106,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 41,
+      "b": 50,
+      "profileSimilarity": 0.129,
+      "optionSimilarity": 0.089,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 41,
+      "b": 51,
+      "profileSimilarity": 0.102,
+      "optionSimilarity": 0.08,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 42,
+      "b": 43,
+      "profileSimilarity": 0.105,
+      "optionSimilarity": 0.099,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 42,
+      "b": 44,
+      "profileSimilarity": 0.137,
+      "optionSimilarity": 0.103,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 42,
+      "b": 45,
+      "profileSimilarity": 0.092,
+      "optionSimilarity": 0.089,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 42,
+      "b": 46,
+      "profileSimilarity": 0.132,
+      "optionSimilarity": 0.087,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 42,
+      "b": 47,
+      "profileSimilarity": 0.119,
+      "optionSimilarity": 0.094,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 42,
+      "b": 48,
+      "profileSimilarity": 0.112,
+      "optionSimilarity": 0.088,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 42,
+      "b": 49,
+      "profileSimilarity": 0.139,
+      "optionSimilarity": 0.099,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 42,
+      "b": 50,
+      "profileSimilarity": 0.133,
+      "optionSimilarity": 0.107,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 42,
+      "b": 51,
+      "profileSimilarity": 0.074,
+      "optionSimilarity": 0.059,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 43,
+      "b": 44,
+      "profileSimilarity": 0.105,
+      "optionSimilarity": 0.074,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 43,
+      "b": 45,
+      "profileSimilarity": 0.114,
+      "optionSimilarity": 0.099,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 43,
+      "b": 46,
+      "profileSimilarity": 0.104,
+      "optionSimilarity": 0.084,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 43,
+      "b": 47,
+      "profileSimilarity": 0.134,
+      "optionSimilarity": 0.09,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 43,
+      "b": 48,
+      "profileSimilarity": 0.114,
+      "optionSimilarity": 0.094,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 43,
+      "b": 49,
+      "profileSimilarity": 0.101,
+      "optionSimilarity": 0.107,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 43,
+      "b": 50,
+      "profileSimilarity": 0.124,
+      "optionSimilarity": 0.079,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 43,
+      "b": 51,
+      "profileSimilarity": 0.103,
+      "optionSimilarity": 0.098,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 44,
+      "b": 45,
+      "profileSimilarity": 0.1,
+      "optionSimilarity": 0.087,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 44,
+      "b": 46,
+      "profileSimilarity": 0.122,
+      "optionSimilarity": 0.091,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 44,
+      "b": 47,
+      "profileSimilarity": 0.138,
+      "optionSimilarity": 0.086,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 44,
+      "b": 48,
+      "profileSimilarity": 0.122,
+      "optionSimilarity": 0.08,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 44,
+      "b": 49,
+      "profileSimilarity": 0.147,
+      "optionSimilarity": 0.081,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 44,
+      "b": 50,
+      "profileSimilarity": 0.129,
+      "optionSimilarity": 0.091,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 44,
+      "b": 51,
+      "profileSimilarity": 0.08,
+      "optionSimilarity": 0.086,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 45,
+      "b": 46,
+      "profileSimilarity": 0.125,
+      "optionSimilarity": 0.123,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 45,
+      "b": 47,
+      "profileSimilarity": 0.187,
+      "optionSimilarity": 0.127,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 45,
+      "b": 48,
+      "profileSimilarity": 0.147,
+      "optionSimilarity": 0.089,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 45,
+      "b": 49,
+      "profileSimilarity": 0.095,
+      "optionSimilarity": 0.082,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 45,
+      "b": 50,
+      "profileSimilarity": 0.132,
+      "optionSimilarity": 0.104,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 45,
+      "b": 51,
+      "profileSimilarity": 0.096,
+      "optionSimilarity": 0.079,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 46,
+      "b": 47,
+      "profileSimilarity": 0.137,
+      "optionSimilarity": 0.114,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 46,
+      "b": 48,
+      "profileSimilarity": 0.094,
+      "optionSimilarity": 0.074,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 46,
+      "b": 49,
+      "profileSimilarity": 0.089,
+      "optionSimilarity": 0.086,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 46,
+      "b": 50,
+      "profileSimilarity": 0.106,
+      "optionSimilarity": 0.107,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 46,
+      "b": 51,
+      "profileSimilarity": 0.097,
+      "optionSimilarity": 0.071,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 47,
+      "b": 48,
+      "profileSimilarity": 0.145,
+      "optionSimilarity": 0.084,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 47,
+      "b": 49,
+      "profileSimilarity": 0.095,
+      "optionSimilarity": 0.091,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 47,
+      "b": 50,
+      "profileSimilarity": 0.142,
+      "optionSimilarity": 0.101,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 47,
+      "b": 51,
+      "profileSimilarity": 0.087,
+      "optionSimilarity": 0.07,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 48,
+      "b": 49,
+      "profileSimilarity": 0.119,
+      "optionSimilarity": 0.089,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 48,
+      "b": 50,
+      "profileSimilarity": 0.129,
+      "optionSimilarity": 0.086,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 48,
+      "b": 51,
+      "profileSimilarity": 0.098,
+      "optionSimilarity": 0.079,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 49,
+      "b": 50,
+      "profileSimilarity": 0.096,
+      "optionSimilarity": 0.098,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 49,
+      "b": 51,
+      "profileSimilarity": 0.122,
+      "optionSimilarity": 0.115,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    },
+    {
+      "a": 50,
+      "b": 51,
+      "profileSimilarity": 0.105,
+      "optionSimilarity": 0.067,
+      "profileSkeletons": false,
+      "optionSkeletons": false
+    }
+  ],
+  "byCode": {
+    "KEEP_UNIQUE": 25,
+    "KEEP_GOLDEN": 2
+  }
+}

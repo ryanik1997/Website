@@ -1,0 +1,774 @@
+NHIỆM VỤ: PET B1 QUALITY BACKFILL — TEST 20–29 PART 4, 5, 6
+
+## Bối cảnh
+
+Batch 4 đã hoàn tất.
+
+Sau kiểm tra thủ công, người dùng phát hiện một lỗi chất lượng tồn đọng ở:
+
+- Test 20–29 Part 4
+- Test 20–29 Part 5
+- Test 20–29 Part 6
+
+Các passage hiện quá ngắn, phát triển ý chưa đủ và chưa đạt chuẩn chất lượng PET B1 mong muốn.
+
+Đây là task remediation riêng.
+
+Không rollback Batch 4.
+Không regenerate hoặc sửa nội dung Batch 4.
+Không mở rộng sang batch tiếp theo.
+
+Không commit hoặc push.
+
+---
+
+# 1. Phạm vi chính xác
+
+Chỉ được sửa nội dung:
+
+Test 20 Part 4–6
+Test 21 Part 4–6
+Test 22 Part 4–6
+Test 23 Part 4–6
+Test 24 Part 4–6
+Test 25 Part 4–6
+Test 26 Part 4–6
+Test 27 Part 4–6
+Test 28 Part 4–6
+Test 29 Part 4–6
+
+Không chủ động sửa:
+
+- Test 01, 13
+- Test 14–19
+- Test 30
+- Test 31–51
+- Part 1–3 của Test 20–29
+- Part 2 DnD/UI
+- Exam IDs
+- Part IDs
+- Question IDs
+- Numbering
+- Renderer
+- Catalog schema
+- FCE/KET/listening
+- Workspace tooling
+
+Được cập nhật answer vault Part 4–6 khi nội dung được viết lại làm thay đổi đáp án semantic.
+
+---
+
+# 2. Bảo vệ Batch 4
+
+Trước khi sửa, tạo snapshot SHA256 hoặc semantic snapshot cho toàn bộ output Batch 4.
+
+Xác định chính xác Batch 4 gồm những test nào từ session summary/content matrix.
+
+Snapshot tối thiểu:
+
+- Blueprint files
+- Package catalog JSON
+- Runtime catalog JSON
+- Answer vault
+- IDs và question counts
+
+Sau remediation, xác nhận:
+
+- Batch 4 không đổi byte hoặc semantic.
+- Không có file Batch 4 trong git diff.
+- Không thay đổi answer vault Batch 4.
+- Không thay đổi metadata/manifest ngoài phạm vi cần thiết.
+
+Nếu generator chung làm Batch 4 thay đổi ngoài ý muốn, task FAIL và phải sửa compiler để targeted generation thực sự có scope.
+
+---
+
+# 3. Audit hiện trạng trước khi sửa
+
+Tạo bảng cho Test 20–29:
+
+Test | Part | Blueprint words | Runtime words | Target | Paragraphs | Generator path | Fallback/template used
+
+Word count phải đo từ learner-facing runtime output thật.
+
+Không dùng metadata khai báo sẵn.
+
+Phải xác định:
+
+- Part 4 có dùng blueprint riêng hay helper/template.
+- Part 5 có dùng `simplePart5`, fallback hoặc passage fragments dùng chung.
+- Part 6 có dùng template ngắn hoặc shared prose.
+- Generator có tự padding hay nối generic suffix không.
+- Audit hiện tại vì sao không bắt được passage quá ngắn.
+- Validator đang đếm passage hay đếm cả title/options/instructions.
+
+Không sửa content trước khi có bảng audit hiện trạng.
+
+---
+
+# 4. Word-count helper thống nhất
+
+Tạo hoặc tái sử dụng một helper duy nhất:
+
+countLearnerFacingWords(content)
+
+Helper phải:
+
+1. Parse đúng runtime representation.
+2. Ghép các structured text segments.
+3. Loại bỏ HTML tags.
+4. Loại bỏ gap markers.
+5. Loại bỏ question numbers.
+6. Loại bỏ title.
+7. Loại bỏ instructions.
+8. Loại bỏ answer options.
+9. Loại bỏ rationale và metadata.
+10. Collapse whitespace.
+11. Đếm từ learner thực sự phải đọc.
+
+Ví dụ không được tính:
+
+(21) .....
+A
+B
+C
+D
+Questions 21–26
+Choose the correct answer
+
+Audit và validator phải dùng cùng helper.
+
+Không có hai thuật toán word count khác nhau.
+
+---
+
+# 5. Target bắt buộc
+
+## Part 4 — Gapped text
+
+Mỗi Test 20–29:
+
+- 270–320 learner-facing words.
+- Hard range: 250–330.
+- Đúng 5 paragraphs.
+- Mỗi paragraph đúng 1 gap.
+- Q16 → Q20 theo thứ tự đọc.
+- Tối thiểu 30 learner-facing words giữa hai gaps.
+- Có ít nhất 25 từ trước Q16.
+- Có ít nhất 25 từ sau Q20.
+- 8 sentence options.
+- 5 correct sentences.
+- 3 distractors.
+- Passage phát triển thành một bài thống nhất.
+
+Không được viết mọi test sát 250 từ.
+
+Ưu tiên variation tự nhiên:
+
+- Một số test khoảng 275 từ.
+- Một số khoảng 290 từ.
+- Một số khoảng 305 từ.
+
+## Part 5 — Multiple-choice cloze
+
+Mỗi Test 20–29:
+
+- 165–190 learner-facing words.
+- Hard range: 150–200.
+- Đúng 6 inline gaps Q21–Q26.
+- 6 question objects.
+- 4 options A–D mỗi câu.
+- Ít nhất 4 language-target categories.
+- Không có hai options cùng tự nhiên.
+
+## Part 6 — Open cloze
+
+Mỗi Test 20–29:
+
+- 145–170 learner-facing words.
+- Hard range: 130–180.
+- Đúng 6 inline gaps Q27–Q32.
+- Không options.
+- Mỗi answer đúng chính xác 1 lowercase word.
+- Ít nhất 5 grammar-target categories.
+- Không category nào quá 2/6.
+- Không có alternative answer phổ biến.
+
+---
+
+# 6. Cấm padding và prose máy móc
+
+Không được dùng:
+
+- `QUALITY_PADDING`
+- filler paragraph
+- generic conclusion dùng lại
+- shared suffix
+- đoạn “This experience taught…”
+- đoạn “In the end, everyone learned…”
+- lặp lại thông tin vừa nói
+- loop nối sentence fragments
+- thay tên người/địa điểm trên cùng passage
+- copy Part 4 rồi biến thành Part 5 hoặc Part 6
+- kéo dài câu bằng adjective/adverb không cần thiết
+
+Nếu passage ngắn, viết lại passage thật sự.
+
+Validator phải tìm:
+
+- repeated exact sentence trên 10 từ
+- repeated exact clause trên 8 từ
+- repeated opening phrase trên 8 từ
+- repeated closing paragraph
+- near-duplicate passage
+- padding fragments
+
+---
+
+# 7. Viết lại Part 4
+
+Mỗi Test 20–29 phải có một blueprint Part 4 đầy đủ.
+
+Schema semantic bắt buộc:
+
+{
+  paragraphs: [
+    {
+      segments: [
+        { type: "text", value: "..." },
+        { type: "gap", questionNumber: 16 },
+        { type: "text", value: "..." }
+      ]
+    }
+  ],
+
+  options: [
+    {
+      key: "q16-correct",
+      correctForGap: 16,
+      text: "..."
+    },
+    {
+      key: "distractor-1",
+      correctForGap: null,
+      text: "..."
+    }
+  ]
+}
+
+Không lưu answer theo array position.
+
+Flow:
+
+semantic option
+→ deterministic shuffle
+→ display label A–H
+→ derive answer vault bằng correctForGap
+
+## Part 4 cohesion
+
+Năm gaps trong mỗi test phải kiểm tra đa dạng:
+
+- pronoun reference
+- lexical cohesion
+- chronology
+- contrast
+- cause/effect
+- paragraph development
+- reference tới hành động hoặc ý trước đó
+- consequence hoặc reflection
+
+Mỗi sentence đúng phải nối tự nhiên với cả:
+
+- text trước gap
+- text sau gap
+
+Ba distractor phải cùng chủ đề nhưng sai rõ bởi:
+
+- reference mismatch
+- chronology mismatch
+- logical contradiction
+- repetition
+- wrong paragraph focus
+
+Không tạo distractor vô nghĩa.
+
+---
+
+# 8. Part 4 layout bắt buộc
+
+Mỗi passage:
+
+Paragraph 1 → Q16
+Paragraph 2 → Q17
+Paragraph 3 → Q18
+Paragraph 4 → Q19
+Paragraph 5 → Q20
+
+Không để:
+
+- hai gaps trong cùng paragraph
+- gaps tập trung ở phần đầu
+- đoạn dài sau Q20 không có mục đích
+- paragraph chỉ 1–2 câu ngắn
+- 5 paragraph rời nhau không có narrative flow
+
+Validator report:
+
+Test
+Paragraph word counts
+Words before each gap
+Words after each gap
+Words between gaps
+Words after Q20
+Total words
+
+---
+
+# 9. Viết lại Part 5
+
+Part 5 phải dùng structured segments, không dùng plain-text passage đã điền đáp án.
+
+Ví dụ:
+
+[
+  { type: "text", value: "The project began " },
+  { type: "gap", questionNumber: 21 },
+  { type: "text", value: " a conversation between..." }
+]
+
+Compiler phải tạo đúng:
+
+(21) .....
+
+Mỗi Part 5 cần ít nhất 4 nhóm mục tiêu:
+
+- collocation
+- phrasal verb
+- dependent preposition
+- linking word
+- fixed expression
+- verb choice
+- adjective/adverb
+- meaning distinction
+- noun choice
+- context-sensitive grammar
+
+## Part 5 rationale
+
+Mỗi gap phải có internal reviewer data:
+
+- languageTarget
+- correctOptionKey
+- why correct
+- why each distractor fails
+
+Không đưa rationale vào runtime.
+
+## Part 5 quality
+
+Passage phải:
+
+- có chủ đề rõ
+- có mở đầu, phát triển và kết thúc
+- không chỉ là 6 câu độc lập nối nhau
+- có cohesive links
+- giữ độ khó B1
+- không dùng từ hiếm để tạo khó
+
+---
+
+# 10. Viết lại Part 6
+
+Part 6 cũng phải dùng structured segments.
+
+Mỗi question có:
+
+{
+  number: 27,
+  answer: "the",
+  grammarTarget: "article",
+  rationale: "..."
+}
+
+Grammar targets trong mỗi test phải bao phủ ít nhất 5 loại:
+
+- article
+- preposition
+- auxiliary
+- pronoun
+- relative word
+- conjunction
+- determiner
+- quantifier
+- linking word
+- fixed grammatical phrase
+
+Không được:
+
+- có answer nhiều hơn 1 từ
+- có slash alternatives
+- có punctuation
+- có uppercase
+- dùng một loại grammar 3 lần trở lên
+- tạo gap có 2 đáp án phổ biến đều đúng
+
+Nếu có alternative answer hợp lệ, viết lại câu.
+
+---
+
+# 11. Nội dung giữa Test 20–29 phải khác nhau
+
+Tạo content matrix riêng cho Part 4–6:
+
+Test | Part 4 topic/type | Part 5 topic | Part 5 targets | Part 6 topic | Part 6 targets
+
+Không để:
+
+- hai Part 4 cùng narrative structure liên tiếp
+- tất cả Part 4 đều là first-person experience
+- tất cả Part 5 đều là community project
+- tất cả Part 6 đều là joining a club
+- cùng opening phrase
+- cùng sequence grammar targets
+- cùng conclusion pattern
+
+Phải có variation như:
+
+- personal experience
+- local project
+- practical problem
+- learning a skill
+- travel situation
+- school/community event
+- environmental activity
+- workplace or volunteering
+- creative activity
+- technology in daily life
+
+Không bắt buộc dùng đúng các topic trên nhưng phải đa dạng.
+
+---
+
+# 12. Similarity validation
+
+So sánh Test 20–29 với:
+
+- Test 01
+- Test 13
+- Test 14–19
+- Test 30
+- Test 31–Batch 4
+- Test 51
+- lẫn nhau
+
+Normalization bỏ:
+
+- IDs
+- test numbers
+- names riêng
+- place names
+- gap numbers
+- option labels
+
+FAIL khi:
+
+- exact duplicate
+- repeated sentence >10 từ
+- repeated clause >8 từ
+- repeated opening phrase >8 từ
+- near-duplicate vượt threshold
+- chỉ đổi domain noun
+
+Report 15 similarity pairs cao nhất, kèm text thật.
+
+Không chỉ report score.
+
+---
+
+# 13. Không làm mất các fix trước
+
+Part 4:
+
+- deterministic shuffle vẫn hoạt động
+- correctForGap vẫn là source of truth
+- source order khác display order
+- answer vault semantic đúng
+
+Part 5:
+
+- Q21–Q26 markers vẫn hiển thị
+- 4 options mỗi câu
+- interaction vẫn hoạt động
+
+Part 6:
+
+- Q27–Q32 markers
+- text inputs
+- không options
+
+Part 2:
+
+- không thay đổi DnD UI
+- không thay đổi content
+- không mất media
+
+---
+
+# 14. Validator mới
+
+Mở rộng quality validator toàn range.
+
+Validator phải FAIL nếu:
+
+## Part 4
+
+- dưới 250 hoặc trên 330 từ
+- không đúng 5 paragraphs
+- không đúng 1 gap/paragraph
+- gaps không theo 16→20
+- dưới 30 từ giữa gaps
+- dưới 25 từ trước Q16 hoặc sau Q20
+- answer vault không trỏ đúng correctForGap
+
+## Part 5
+
+- dưới 150 hoặc trên 200 từ
+- không đủ markers 21–26
+- không đủ 6 question objects
+- câu nào không có đúng 4 options
+- thiếu ít nhất 4 language targets
+- answer vault không khớp semantic key
+
+## Part 6
+
+- dưới 130 hoặc trên 180 từ
+- không đủ markers 27–32
+- có options
+- answer không phải 1 lowercase word
+- dưới 5 grammar categories
+- một category quá 2 lần
+
+Validator phải chạy tự động cho các batch tương lai.
+
+---
+
+# 15. Audit output
+
+Tạo:
+
+tmp/pet-b1-reading-quality-backfill-20-29-audit.json
+tmp/pet-b1-reading-quality-backfill-20-29-audit.md
+tmp/pet-b1-reading-quality-backfill-20-29-review.md
+
+Audit table:
+
+Test
+Part
+Old word count
+New word count
+Target
+Paragraph count
+Gap count
+Skill/target distribution
+Highest similarity
+Validation
+
+Review file phải chứa đầy đủ learner-facing:
+
+- Part 4 passage + options
+- Part 5 passage + questions/options
+- Part 6 passage
+
+Sau mỗi part thêm section reviewer riêng:
+
+- answer key
+- evidence/rationale
+- distractor analysis
+- language target
+- grammar target
+
+Không đặt đáp án ngay cạnh learner question.
+
+---
+
+# 16. Runtime-contract tests
+
+Load Test 20–29 bằng production catalog loader.
+
+Xác nhận:
+
+Part 4:
+- runtime word count đúng
+- 5 paragraphs
+- 5 gaps
+- 8 options
+- answer → correctForGap
+
+Part 5:
+- runtime word count đúng
+- markers 21–26
+- mỗi câu 4 options
+- click gap tìm được question object
+
+Part 6:
+- runtime word count đúng
+- markers 27–32
+- no options
+- one-word answers
+
+Không chỉ test blueprint object.
+
+---
+
+# 17. Manual browser smoke
+
+Kiểm tra:
+
+- Test 20
+- Test 24
+- Test 25
+- Test 29
+
+Part 4:
+
+- passage đủ dài
+- 5 paragraphs
+- một gap/paragraph
+- option bank shuffled
+- answer checking đúng
+
+Part 5:
+
+- passage đủ dài
+- Q21–Q26 inline
+- mỗi gap có 4 choices
+- lựa chọn và persistence hoạt động
+
+Part 6:
+
+- passage đủ dài
+- Q27–Q32 input
+- không options
+- nhập đáp án được
+
+Console: không error.
+
+Chụp screenshot Part 4–6 của Test 20 và Test 29.
+
+---
+
+# 18. Regression Batch 4
+
+Sau targeted generation:
+
+- kiểm tra git diff không có Batch 4 blueprint/catalog/answers
+- kiểm tra Batch 4 SHA/semantic snapshot không đổi
+- chạy structural/runtime validation Batch 4
+- không regenerate Batch 4 nếu command hỗ trợ range
+
+Nếu Batch 4 output thay đổi ngoài ý muốn:
+
+Task FAIL.
+
+---
+
+# 19. Validation bắt buộc
+
+Chạy:
+
+- targeted generation Test 20–29
+- quality word-count validator
+- structural validator
+- runtime catalog validator
+- answer-vault consistency
+- Part 4 layout validator
+- Part 4 distribution validator
+- Part 4 semantic mapping test
+- Part 5 contract test
+- Part 6 contract test
+- similarity validator
+- production-loader runtime-contract tests
+- targeted PET Vitest
+- TypeScript
+- idempotency Test 20–29
+- Batch 4 preservation check
+- git diff --check
+
+Không chạy hoặc sửa workspace blocker ngoài PET.
+
+---
+
+# 20. Acceptance criteria
+
+Chỉ báo PASS khi:
+
+[ ] Test 20–29 Part 4 đều 250–330 từ
+[ ] Part 4 trung bình không nằm sát minimum
+[ ] Part 4 đúng 5 paragraphs, 1 gap/paragraph
+[ ] Part 4 semantic mapping đúng
+
+[ ] Test 20–29 Part 5 đều 150–200 từ
+[ ] Part 5 đúng 6 markers và 4 options/câu
+[ ] Part 5 có ít nhất 4 language targets
+
+[ ] Test 20–29 Part 6 đều 130–180 từ
+[ ] Part 6 đúng 6 markers, không options
+[ ] Mọi answer đúng 1 lowercase word
+[ ] Part 6 có ít nhất 5 grammar categories
+
+[ ] Padding fragments = 0
+[ ] Exact duplicates = 0
+[ ] Near-duplicates trên threshold = 0
+[ ] Runtime contract PASS
+[ ] Browser smoke PASS
+[ ] Batch 4 unchanged
+[ ] TypeScript PASS
+[ ] Idempotency PASS
+[ ] git diff --check PASS
+
+---
+
+# 21. Báo cáo cuối
+
+Root cause:
+Validator weakness before:
+Word-count helper:
+
+Old word counts:
+Test 20:
+...
+Test 29:
+
+New word counts:
+Test | Part 4 | Part 5 | Part 6
+
+Part 4 paragraph distribution:
+Part 4 semantic mappings:
+Part 5 language targets:
+Part 6 grammar targets:
+
+Padding fragments:
+Exact duplicates:
+Highest similarity pairs:
+
+Runtime contract:
+Manual Test 20:
+Manual Test 24:
+Manual Test 25:
+Manual Test 29:
+
+Batch 4 snapshot before:
+Batch 4 snapshot after:
+Batch 4 changed files:
+
+Structural:
+Targeted tests:
+TypeScript:
+Idempotency:
+git diff --check:
+Files changed:
+Remaining issues:
+Ready to continue:
+
+Không commit hoặc push.

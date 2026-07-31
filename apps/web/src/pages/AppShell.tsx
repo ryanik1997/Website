@@ -166,6 +166,7 @@ function AppShellInner() {
   const examPlayerMode =
     /^\/app\/exam\/(listening|reading)\//.test(location.pathname)
     || /^\/app\/writing\/cambridge\/[^/]+\/[^/]+\/[^/]+$/.test(location.pathname)
+    || /^\/app\/writing\/practice\/[^/]+\/[^/]+$/.test(location.pathname)
   const appBackdropMode = getAppShellBackdropMode(location.pathname)
   const appBackdropActive = appBackdropMode !== 'none'
   const showCornerSun = shouldShowCornerSun(location.pathname)

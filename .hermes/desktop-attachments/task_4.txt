@@ -1,0 +1,159 @@
+Bạn đang làm việc trong project Ryan English tại:
+
+D:\App-English-Ryan\Website
+
+NHIỆM VỤ
+
+Khôi phục toàn bộ ảnh bị mất của KET A2 Writing từ Test 2 đến Test 51, tại câu Task 32.
+
+Phạm vi URL:
+
+http://localhost:5173/app/writing/cambridge/a2/ket-a2-writing-test-2/ket-a2-writing-test-2-task-32
+
+đến:
+
+http://localhost:5173/app/writing/cambridge/a2/ket-a2-writing-test-51/ket-a2-writing-test-51-task-32
+
+Nguồn ảnh gốc:
+
+D:\App-English-Ryan\Tainguyen\Import Cambridge\KET_A2\Writing_Part7
+
+Tổng phạm vi:
+
+- Test 2–51.
+- 50 bài test.
+- Chỉ Task 32.
+- Dạng bài KET A2 Writing Part 7.
+- Phải import đúng ảnh tương ứng với từng test.
+
+Không được chỉ sửa một vài test đại diện. Phải audit và xử lý toàn bộ Test 2–51.
+
+==================================================
+I. MỤC TIÊU
+==================================================
+
+Sau khi hoàn thành:
+
+1. Mỗi URL từ Test 2 đến Test 51, Task 32, hiển thị đúng ảnh tương ứng.
+2. Ảnh phải được đưa vào project theo kiến trúc asset hiện tại.
+3. Không tham chiếu trực tiếp đến đường dẫn local:
+
+   D:\App-English-Ryan\Tainguyen\...
+
+4. Không dùng URL `file:///`.
+5. Không dùng absolute Windows path trong source code.
+6. Ảnh phải hoạt động sau:
+   - restart dev server;
+   - production build;
+   - deploy lên môi trường khác.
+7. Không thay đổi nội dung câu hỏi, đáp án, sample answer hoặc logic Writing.
+8. Không gán nhầm ảnh giữa các test.
+9. Không tạo ảnh giả hoặc dùng placeholder để che lỗi.
+
+==================================================
+II. PHÂN TÍCH TRƯỚC KHI SỬA
+==================================================
+
+Trước khi thay đổi code, kiểm tra và báo cáo ngắn:
+
+1. Test 1 Task 32 đang hiển thị ảnh đúng hay không.
+2. Test 1 đang import hoặc tham chiếu ảnh theo cách nào.
+3. Data của Writing Test 2–51 nằm ở file nào.
+4. Field ảnh thực tế tên gì, ví dụ:
+   - `image`;
+   - `imageUrl`;
+   - `promptImage`;
+   - `images`;
+   - `media`;
+   - tên khác.
+5. Component nào render ảnh Task 32.
+6. Ảnh đang bị mất vì:
+   - field ảnh trống;
+   - import bị xóa;
+   - file asset không tồn tại;
+   - đường dẫn sai;
+   - tên file sai chữ hoa/chữ thường;
+   - script import trước đây bỏ qua Test 2–51;
+   - dữ liệu vẫn có path local cũ;
+   - renderer không đọc đúng field.
+7. Liệt kê toàn bộ file dự kiến sửa.
+8. Đếm số file ảnh có trong thư mục nguồn.
+9. Xác định quy luật mapping giữa:
+   - test number;
+   - task number;
+   - tên file ảnh nguồn.
+
+Không bắt đầu copy hàng loạt khi chưa xác định được mapping chính xác.
+
+==================================================
+III. DÙNG TEST 1 LÀM MẪU KIẾN TRÚC
+==================================================
+
+Kiểm tra route:
+
+http://localhost:5173/app/writing/cambridge/a2/ket-a2-writing-test-1/ket-a2-writing-test-1-task-32
+
+Dùng Test 1 để hiểu:
+
+- asset được đặt trong thư mục nào;
+- tên file được chuẩn hóa ra sao;
+- data dùng public URL hay ES module import;
+- component nhận một ảnh hay nhiều ảnh;
+- ảnh Task 32 có phải là một bộ ba tranh hay một ảnh ghép;
+- thuộc tính alt/caption được xử lý thế nào.
+
+Chỉ dùng Test 1 làm mẫu về kiến trúc.
+
+Không tự động copy ảnh Test 1 sang Test 2–51.
+
+==================================================
+IV. AUDIT THƯ MỤC ẢNH NGUỒN
+==================================================
+
+Audit thư mục:
+
+D:\App-English-Ryan\Tainguyen\Import Cambridge\KET_A2\Writing_Part7
+
+Cần thu thập cho từng file:
+
+- tên file;
+- extension;
+- kích thước byte;
+- chiều rộng;
+- chiều cao;
+- test number suy ra từ tên file nếu có;
+- hash SHA-256 hoặc hash tương đương;
+- ảnh có trùng hoàn toàn với ảnh khác không;
+- ảnh có bị hỏng không.
+
+Các định dạng có thể chấp nhận tùy source thực tế:
+
+- `.png`;
+- `.jpg`;
+- `.jpeg`;
+- `.webp`.
+
+Không tự động đổi định dạng nếu không cần thiết.
+
+Nếu source có:
+
+- file thumbnail;
+- file answer;
+- file sample;
+- file OCR;
+- file duplicate;
+- file không thuộc Test 2–51;
+
+thì phải phân loại, không import nhầm.
+
+==================================================
+V. XÁC ĐỊNH MAPPING ẢNH → TEST
+==================================================
+
+Phải thiết lập mapping chính xác cho 50 test:
+
+```text
+Test 2  → ảnh nguồn tương ứng
+Test 3  → ảnh nguồn tương ứng
+...
+Test 51 → ảnh nguồn tương ứng

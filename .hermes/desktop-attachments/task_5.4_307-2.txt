@@ -1,0 +1,287 @@
+Task 5.4 chưa hoàn thành. Không tin kết quả validator hiện tại vì browser runtime vẫn hiển thị Part 4 theo thứ tự cũ sau Hard Refresh.
+
+PHẠM VI
+- Test 14 Part 4
+- Test 30 Part 4
+- Test 51 Part 4
+
+Không sửa nội dung đề.
+Không commit hoặc push.
+Không tiếp tục Test 15–19.
+
+VẤN ĐỀ THỰC TẾ
+
+Report nói Part 4 đã shuffle, ví dụ Test 30:
+
+Q16–Q20 = G, B, E, D, H
+Unused = A, C, F
+
+Nhưng browser tại:
+
+/app/exam/reading/catalog-reading-pet-b1-test30
+
+vẫn hiển thị sentence options theo thứ tự source cũ.
+
+Hard Refresh không giải quyết được.
+
+Điều này chứng minh có sự khác nhau giữa:
+- file validator đang đọc;
+- file runtime thực tế đang fetch;
+- hoặc dữ liệu renderer đang sử dụng.
+
+Không chạy lại validator rồi báo PASS. Phải truy vết dữ liệu end-to-end.
+
+1. IN DẤU VÂN TAY CÂU, KHÔNG CHỈ IN A–H
+
+Sai:
+Option positions: A B C D E F G H
+
+Dòng này vô nghĩa vì mọi danh sách đều có A–H.
+
+Phải report sentence fingerprint thật:
+
+Test 30 displayed options:
+A: "Everyone assumed the task..."
+B: "This showed that the problem..."
+C: "The club had never..."
+...
+
+Đồng thời report semantic key:
+
+A:
+- semanticKey:
+- originalPosition:
+- shuffledPosition:
+- correctForGap:
+
+Làm tương tự cho Test 14 và 51.
+
+2. TRUY VẾT 5 TẦNG DỮ LIỆU
+
+Với Test 30, lấy chính xác Part 4 ở từng tầng:
+
+A. QUALITY_BLUEPRINTS / canonical generator input
+B. packages/catalog/data output
+C. apps/web/public/catalog/exams/reading runtime JSON
+D. HTTP response thật mà localhost:5173 trả về
+E. option array thật được PetRwPartContent nhận
+
+Ở mỗi tầng, in:
+
+- absolute file path hoặc request URL;
+- option text A–H;
+- Q16–Q20 answer labels;
+- file hash hoặc content hash;
+- modified time nếu là file.
+
+Tạo bảng:
+
+Layer | Source/path | First option text | Option-order hash | Q16 answer
+Blueprint
+Package output
+Public runtime JSON
+HTTP response
+React props
+
+Dừng tại tầng đầu tiên có order khác nhau.
+
+3. XÁC ĐỊNH RUNTIME ĐỌC FILE NÀO
+
+Tìm chính xác code load exam:
+
+catalog-reading-pet-b1-test30
+
+Không suy đoán app đọc:
+
+apps/web/public/catalog/exams/reading/
+
+Phải chứng minh bằng:
+- loader/import code;
+- manifest entry;
+- network request;
+- response body thực tế.
+
+Kiểm tra có các bản trùng hay không:
+
+rg -l "catalog-reading-pet-b1-test30" .
+rg -l "Everyone assumed the task would take only one afternoon" .
+
+Liệt kê toàn bộ file chứa Test 30 hoặc sentence đó.
+
+Nếu có nhiều runtime copies, xác định copy nào đang được browser dùng.
+
+4. KIỂM TRA DEV-SERVER CACHE
+
+Hard Refresh chỉ reload browser; nó không bảo đảm:
+- generator đã chạy đúng output;
+- dev server đã reload catalog;
+- module-level catalog cache đã bị xoá;
+- service worker/IndexedDB/localStorage đã bị invalidated.
+
+Kiểm tra:
+
+- Vite dev-server module cache;
+- catalog loader cache;
+- fetch cache;
+- service worker;
+- Cache Storage;
+- IndexedDB;
+- localStorage/sessionStorage;
+- Zustand/React context persisted state;
+- imported JSON được bundle lúc server start.
+
+Nếu catalog được load/import lúc dev server start:
+- dừng dev server;
+- chạy targeted generator;
+- khởi động lại dev server;
+- mở route lại.
+
+Không dùng cache-busting hack làm production fix nếu root cause là sai output path.
+
+5. KIỂM TRA HTTP RESPONSE THẬT
+
+Từ Network tab hoặc command tương đương, lấy URL JSON mà route Test 30 fetch.
+
+Lưu response vào tmp và kiểm tra trực tiếp:
+
+- option order;
+- answer vault;
+- ETag/Last-Modified;
+- HTTP cache headers.
+
+Không dùng file local để đại diện cho browser response.
+
+Acceptance bắt buộc:
+
+HTTP response option order
+=
+React props option order
+=
+DOM displayed option order
+=
+generated runtime JSON option order
+
+6. KIỂM TRA SHUFFLE CÓ THẬT SỰ ĐỔI ARRAY KHÔNG
+
+Không chấp nhận implementation chỉ:
+
+- đổi answer vault;
+- đổi mapping;
+- đổi semanticKey;
+- report permutation;
+- nhưng giữ options array nguyên thứ tự.
+
+Sau generation, `options` array trong runtime body phải thực sự được reorder.
+
+Ví dụ:
+
+Trước:
+[
+  sentenceCorrectQ16,
+  sentenceCorrectQ17,
+  sentenceDistractor1,
+  ...
+]
+
+Sau:
+[
+  sentenceDistractor2,
+  sentenceCorrectQ18,
+  sentenceCorrectQ16,
+  ...
+]
+
+Labels A–H phải được derive lại từ vị trí array mới.
+
+7. KIỂM TRA SEMANTIC MAPPING
+
+Sau khi xác định array runtime thật:
+
+- Q16 answer label phải trỏ tới sentence đúng cho gap 16.
+- Q17 trỏ đúng sentence gap 17.
+- ...
+- Q20 trỏ đúng sentence gap 20.
+
+Không chỉ kiểm tra answer label unique.
+
+Test phải kiểm tra chính text sentence:
+
+answerVault[q16]
+→ option label
+→ option text
+→ expected semanticKey for gap 16
+
+Nếu sentence sai dù label hợp lệ, test FAIL.
+
+8. VIẾT RUNTIME-CONTRACT TEST
+
+Thêm test đọc đúng cùng loader mà production sử dụng.
+
+Không đọc trực tiếp generator object nếu production không dùng object đó.
+
+Test phải:
+
+1. Load Test 14/30/51 qua production catalog loader.
+2. Lấy Part 4 options theo thứ tự runtime.
+3. So sánh với expected shuffled sentence keys.
+4. Lấy answer vault.
+5. Map Q16–Q20 tới sentence keys.
+6. Xác nhận semantic mapping.
+7. Xác nhận order không phải source order.
+8. Xác nhận ba test có permutation khác nhau.
+
+Test phải FAIL với trạng thái browser hiện tại.
+
+9. MANUAL SMOKE SAU KHI RESTART DEV SERVER
+
+Thực hiện đúng thứ tự:
+
+1. Stop dev server.
+2. Generate Test 14, 30, 51.
+3. Start dev server lại.
+4. Mở Test 30 Part 4.
+5. Ghi lại 8 sentence đầu theo thứ tự DOM.
+6. So sánh với runtime JSON.
+7. Reload.
+8. Xác nhận order không đổi sau reload.
+9. Xác nhận order đã được trộn so với source.
+10. Lặp lại Test 14 và 51.
+
+Deterministic shuffle không được đổi mỗi lần refresh.
+
+10. BÁO CÁO CUỐI
+
+Root cause:
+Actual runtime source path:
+Duplicate catalog files found:
+Dev-server restart required:
+Cache layer involved:
+
+Test 14 source order:
+Test 14 generated order:
+Test 14 HTTP response order:
+Test 14 DOM order:
+Test 14 Q16–Q20 semantic mapping:
+
+Test 30 source order:
+Test 30 generated order:
+Test 30 HTTP response order:
+Test 30 DOM order:
+Test 30 Q16–Q20 semantic mapping:
+
+Test 51 source order:
+Test 51 generated order:
+Test 51 HTTP response order:
+Test 51 DOM order:
+Test 51 Q16–Q20 semantic mapping:
+
+Runtime-contract test:
+Manual smoke after server restart:
+Part 5 regression:
+TypeScript:
+Idempotency:
+git diff --check:
+Files changed:
+
+Không báo PASS nếu chỉ file generator đúng nhưng HTTP response hoặc DOM vẫn sai.
+Không commit hoặc push.

@@ -1,0 +1,732 @@
+NHIỆM VỤ: PET B1 BATCH 4 QUALITY BACKFILL — TEST 31–35 PART 4, 5, 6
+
+## Bối cảnh
+
+Batch 4 — Test 31–35 đã final.
+
+Tuy nhiên, kiểm tra trực tiếp trên browser cho thấy:
+
+- Part 4 passage còn ngắn.
+- Part 5 passage còn ngắn.
+- Part 6 passage còn ngắn.
+- Nội dung chưa đủ độ phát triển ý và chiều dài thị giác mong muốn ở PET B1.
+
+Đây là quality backfill sau khi Batch 4 đã final.
+
+Không rollback toàn Batch 4.
+Không làm lại Part 1–3.
+Không ảnh hưởng Batch 5 — Test 36–40.
+Không commit hoặc push.
+
+---
+
+# 1. Phạm vi chính xác
+
+Chỉ sửa:
+
+- Test 31 Part 4–6
+- Test 32 Part 4–6
+- Test 33 Part 4–6
+- Test 34 Part 4–6
+- Test 35 Part 4–6
+
+Không sửa:
+
+- Test 01–30
+- Test 36–51
+- Part 1–3 của Test 31–35
+- Part 2 content hoặc DnD UI
+- Exam IDs
+- Part IDs
+- Question IDs
+- Numbering
+- Runtime renderer
+- Catalog schema
+- FCE/KET/listening
+- Global test/build blockers
+
+Được cập nhật answer vault Part 4–6 nếu semantic answer thực sự thay đổi sau khi viết lại.
+
+---
+
+# 2. Snapshot bảo vệ trước khi sửa
+
+Trước khi thay đổi, snapshot:
+
+- Blueprints Test 31–35
+- Package catalog JSON
+- Public runtime JSON
+- Answer vault
+- IDs
+- Question counts
+- Part 1–3 hashes
+- Part 2 media fields
+
+Sau task phải xác nhận:
+
+- Part 1–3 không đổi.
+- Part 2 không đổi.
+- IDs không đổi.
+- Test 36–40 không đổi.
+- Test ngoài 31–35 không có trong git diff.
+
+---
+
+# 3. Audit hiện trạng thật
+
+Không tin metadata hoặc validator cũ.
+
+Với Test 31–35 Part 4–6, đo:
+
+- Blueprint learner-facing words
+- Package JSON learner-facing words
+- Public runtime JSON learner-facing words
+- Browser DOM learner-facing words
+
+Tạo bảng:
+
+Test | Part | Blueprint | Package | Public runtime | DOM | Preferred target | Accepted range
+
+Không tính:
+
+- title
+- instructions
+- gap numbers
+- question labels
+- sentence options
+- A/B/C/D choices
+- answers
+- rationale
+- metadata
+- HTML tags
+
+Chỉ tính passage prose người học thực sự đọc.
+
+Nếu package và public runtime khác nhau, sửa stale synchronization trước khi đánh giá content.
+
+---
+
+# 4. Chính sách độ dài mới — có tolerance 5–10 từ
+
+## Part 4
+
+### Preferred target
+
+- 300–360 learner-facing words
+- Mục tiêu tốt: 310–340 từ
+
+### Accepted tolerance
+
+- 290–299 từ: ACCEPTED WITH WARNING
+- 300–360 từ: PASS
+- Dưới 290 từ: FAIL
+- Trên 360 từ: FAIL hoặc cần manual review
+
+Không được để cả 5 tests đều nằm 290–299.
+
+Yêu cầu batch:
+
+- Ít nhất 3/5 tests đạt từ 300 từ trở lên.
+- Trung bình Part 4 của Test 31–35 phải đạt ít nhất 300 từ.
+- Không test nào dưới 290 từ.
+
+## Part 5
+
+### Preferred target
+
+- 180–220 learner-facing words
+- Mục tiêu tốt: 188–210 từ
+
+### Accepted tolerance
+
+- 170–179 từ: ACCEPTED WITH WARNING
+- 180–220 từ: PASS
+- Dưới 170 từ: FAIL
+- Trên 220 từ: manual review hoặc FAIL nếu passage lan man
+
+Yêu cầu batch:
+
+- Ít nhất 3/5 tests đạt từ 180 từ trở lên.
+- Trung bình Part 5 phải đạt ít nhất 180 từ.
+- Không test nào dưới 170 từ.
+
+## Part 6
+
+### Preferred target
+
+- 160–200 learner-facing words
+- Mục tiêu tốt: 168–190 từ
+
+### Accepted tolerance
+
+- 150–159 từ: ACCEPTED WITH WARNING
+- 160–200 từ: PASS
+- Dưới 150 từ: FAIL
+- Trên 200 từ: manual review hoặc FAIL nếu lan man
+
+Yêu cầu batch:
+
+- Ít nhất 3/5 tests đạt từ 160 từ trở lên.
+- Trung bình Part 6 phải đạt ít nhất 160 từ.
+- Không test nào dưới 150 từ.
+
+Tolerance chỉ dùng cho passage tự nhiên, không dùng làm mục tiêu sản xuất.
+
+---
+
+# 5. Không chỉ kéo dài bằng filler
+
+Không được:
+
+- thêm generic closing paragraph
+- dùng `QUALITY_PADDING`
+- lặp ý
+- thêm câu chung chung không phục vụ nội dung
+- dùng cùng suffix giữa các test
+- copy passage rồi đổi tên
+- nối sentence fragments bằng loop
+- thêm adjective/adverb chỉ để tăng word count
+- kéo dài câu quá 35 từ
+- chèn câu không liên quan tới câu hỏi hoặc cohesion
+
+Nếu passage ngắn, viết lại hoặc mở rộng nội dung thật sự:
+
+- thêm context
+- thêm supporting detail
+- thêm consequence
+- thêm example
+- thêm problem/solution
+- thêm transition tự nhiên
+- thêm result hoặc reflection cụ thể
+
+---
+
+# 6. Part 4 requirements
+
+Mỗi Test 31–35 Part 4:
+
+- 290–360 learner-facing words
+- Ưu tiên 300–340
+- Đúng 5 paragraphs
+- Mỗi paragraph đúng 1 gap
+- Q16 → Q20 theo reading order
+- 8 sentence options
+- 5 correct options
+- 3 distractors
+- Deterministic shuffle
+- Answer vault derive từ `correctForGap`
+- Không derive từ array index
+
+## Paragraph balance
+
+Preferred:
+
+- 55–75 words/paragraph
+
+Accepted:
+
+- 50–80 words/paragraph
+
+FAIL nếu:
+
+- paragraph dưới 45 từ
+- paragraph trên 85 từ
+- hơn 32% passage nằm trong một paragraph
+- hai gaps trong cùng paragraph
+- passage có ít hơn 12 sentences
+- dưới 30 words trước Q16
+- dưới 30 words giữa hai gaps
+- dưới 30 words sau Q20
+
+Preferred gap spacing:
+
+- ít nhất 35 words
+
+Accepted tolerance:
+
+- 30–34 words với warning
+
+## Cohesion
+
+Năm correct sentences phải kiểm tra đa dạng:
+
+- pronoun reference
+- chronology
+- cause/effect
+- contrast
+- lexical cohesion
+- consequence
+- paragraph development
+- change of plan
+- reference to earlier detail
+
+Mỗi correct option phải nối tự nhiên với cả text trước và text sau gap.
+
+Distractors phải cùng chủ đề nhưng sai rõ bởi:
+
+- chronology
+- pronoun/reference
+- paragraph focus
+- contradiction
+- repetition
+- cause/effect mismatch
+
+---
+
+# 7. Part 5 requirements
+
+Mỗi Test 31–35 Part 5:
+
+- 170–220 learner-facing words
+- Ưu tiên 180–210
+- Tối thiểu 7 sentences
+- Preferred: ít nhất 8 sentences
+- Đúng 6 gaps Q21–Q26
+- Đúng 6 question objects
+- Đúng 4 options A–D mỗi gap
+- Structured text/gap segments
+- Ít nhất 4 language-target categories
+
+Language targets có thể gồm:
+
+- collocation
+- phrasal verb
+- dependent preposition
+- linking word
+- verb choice
+- fixed expression
+- adjective/adverb
+- noun choice
+- meaning distinction
+- context-sensitive grammar
+
+Không dùng cùng target sequence cho toàn Test 31–35.
+
+## Gap distribution
+
+- Q21 không nằm ngay câu đầu nếu không cần thiết.
+- Q21–Q26 phải phân bố xuyên passage.
+- Không có 4 gaps trong cùng một paragraph hoặc hai câu liền nhau.
+- Phải có tối thiểu 20 từ sau Q26.
+- Preferred: 25 từ sau Q26.
+- Passage phải có opening, development và closing.
+
+Mỗi gap cần reviewer metadata:
+
+- languageTarget
+- correctOptionKey
+- why correct
+- why từng distractor sai
+
+Không đưa rationale vào runtime.
+
+---
+
+# 8. Part 6 requirements
+
+Mỗi Test 31–35 Part 6:
+
+- 150–200 learner-facing words
+- Ưu tiên 160–190
+- Tối thiểu 6 sentences
+- Preferred: ít nhất 7 sentences
+- Đúng 6 gaps Q27–Q32
+- Không options
+- Mỗi answer đúng 1 lowercase word
+- Ít nhất 5 grammar categories
+- Không category nào quá 2 lần
+
+Grammar categories:
+
+- article
+- preposition
+- auxiliary
+- pronoun
+- relative word
+- conjunction
+- determiner
+- quantifier
+- linking word
+- fixed grammatical expression
+
+## Gap distribution
+
+- Không đặt 6 gaps trong 2–3 câu ngắn.
+- Không có hơn 2 gaps trong cùng một sentence.
+- Ít nhất 18 từ sau Q32.
+- Preferred: ít nhất 20 từ sau Q32.
+- Passage phải có progression và conclusion tự nhiên.
+
+Không chấp nhận:
+
+- multi-word answer
+- uppercase answer
+- punctuation trong answer
+- slash alternatives
+- hai đáp án phổ biến cùng đúng
+
+Nếu có alternative answer tự nhiên, viết lại sentence.
+
+---
+
+# 9. Content diversity giữa Test 31–35
+
+Tạo matrix:
+
+Test | Part 4 structure | Part 5 text type | Part 6 text type | Opening type | Closing type
+
+Không để:
+
+- cả 5 Part 4 đều là first-person experience
+- cùng problem → attempt → difficulty → success skeleton
+- cả 5 Part 5 đều là community project
+- cả 5 Part 6 đều là informal email
+- cùng opening phrase
+- cùng closing phrase
+- cùng language-target sequence
+- cùng grammar-target sequence
+
+Phải có variation giữa:
+
+- narrative
+- explanatory
+- process
+- comparison
+- factual account
+- personal report
+- advice
+- review
+- announcement
+- practical information
+- email/blog/article
+
+---
+
+# 10. Similarity validation
+
+So sánh Test 31–35 với:
+
+- Test 01
+- Test 13
+- Test 14–30
+- Test 36–51
+- lẫn nhau
+
+FAIL khi:
+
+- exact repeated sentence dài hơn 10 words
+- exact repeated clause dài hơn 8 words
+- cùng first 5 normalized tokens
+- cùng closing 8 normalized tokens
+- shared paragraph scaffold
+- near-duplicate vượt threshold
+- chỉ thay tên, địa điểm hoặc topic noun
+
+Report 15 similarity pairs cao nhất.
+
+Mỗi result gồm:
+
+Test A / Part
+Test B / Part
+Score
+Text A
+Text B
+Repeated fragment
+Reviewer decision
+
+Không chỉ in score.
+
+---
+
+# 11. Strict validator với warning tolerance
+
+Validator phải có 3 trạng thái:
+
+- PASS
+- PASS_WITH_WARNING
+- FAIL
+
+## Part 4
+
+- 300–360: PASS
+- 290–299: PASS_WITH_WARNING
+- ngoài 290–360: FAIL
+
+## Part 5
+
+- 180–220: PASS
+- 170–179: PASS_WITH_WARNING
+- ngoài 170–220: FAIL
+
+## Part 6
+
+- 160–200: PASS
+- 150–159: PASS_WITH_WARNING
+- ngoài 150–200: FAIL
+
+Batch final chỉ được ACCEPT khi:
+
+- không có FAIL
+- không quá 2 warnings trong cùng một Part
+- average đạt preferred minimum
+- manual browser review xác nhận passage không ngắn thị giác
+
+Không đổi global strict target của Test 20–29 hoặc Test 36–40 nếu chúng đang dùng quy tắc riêng đã PASS.
+
+Có thể thêm mode:
+
+--batch 31-35
+--allow-tolerance 10
+
+Không làm tolerance mặc định cho toàn bộ PET nếu chưa được yêu cầu.
+
+---
+
+# 12. Runtime/package/public parity
+
+Sau regenerate Test 31–35:
+
+Kiểm tra:
+
+- blueprint text
+- packages/catalog/data JSON
+- apps/web/public/catalog/exams/reading JSON
+- answer vault
+- browser DOM
+
+Phải đồng bộ:
+
+- passage hash
+- question count
+- answer count
+- word counts
+- Part 4 option order
+- Part 5 options
+- Part 6 answers
+
+Không lặp lại lỗi package PASS nhưng public runtime stale.
+
+Nếu public runtime khác package:
+
+Task FAIL.
+
+---
+
+# 13. Review files
+
+Tạo hoặc cập nhật:
+
+tmp/pet-b1-reading-quality-backfill-31-35-audit.json
+tmp/pet-b1-reading-quality-backfill-31-35-audit.md
+tmp/pet-b1-reading-quality-backfill-31-35-review.md
+
+Bảng bắt buộc:
+
+Test | Part | Old words | New words | Status | Warning | Paragraphs | Sentences | Gap distribution
+
+Review file phải chứa nguyên văn learner-facing:
+
+- Test 31 Part 4–6
+- Test 32 Part 4–6
+- Test 33 Part 4–6
+- Test 34 Part 4–6
+- Test 35 Part 4–6
+
+Sau learner-facing content mới thêm:
+
+- answer key
+- semantic mapping
+- rationale
+- target distribution
+- similarity notes
+
+Không đặt đáp án ngay cạnh learner gap.
+
+---
+
+# 14. Browser DOM verification
+
+Kiểm tra tối thiểu:
+
+- Test 31
+- Test 35
+
+Khuyến nghị thêm:
+
+- Test có warning thấp nhất
+- Test có passage dài nhất
+
+Với mỗi test:
+
+## Part 4
+
+- 5 paragraphs rõ
+- passage không còn ngắn thị giác
+- gaps phân bố đều
+- option bank hoạt động
+- drag/drop hoạt động
+- answer checking đúng
+
+## Part 5
+
+- passage đủ phát triển
+- Q21–Q26 inline
+- 4 options mỗi gap
+- selection và persistence hoạt động
+
+## Part 6
+
+- passage đủ phát triển
+- Q27–Q32 inputs
+- không options
+- input và persistence hoạt động
+
+Đo DOM word count và so validator.
+
+Sai lệch tối đa:
+
+±2 words
+
+Viewport:
+
+- 1440px
+- 1024px
+- 768px
+
+Console:
+
+- 0 JavaScript errors
+
+Chụp screenshot:
+
+- Test 31 Part 4–6
+- Test 35 Part 4–6
+- Test có PASS_WITH_WARNING nếu có
+
+---
+
+# 15. Bảo vệ phần đã final
+
+Sau task:
+
+- Part 1–3 Test 31–35 không đổi
+- Part 2 Test 31–35 không đổi
+- Test 20–30 không đổi
+- Test 36–40 không đổi
+- Test 41–51 không đổi
+- FCE/KET/listening không đổi
+
+Nếu generator targeted làm thay đổi ngoài range:
+
+Task FAIL.
+
+---
+
+# 16. Validation cuối
+
+Chạy:
+
+- targeted generation Test 31–35
+- tolerant strict word-count validator
+- package/public parity
+- runtime catalog validator
+- structural validator
+- answer-vault consistency
+- Part 4 layout validator
+- Part 4 semantic mapping test
+- Part 5 contract test
+- Part 6 contract test
+- similarity validator
+- targeted PET Vitest
+- TypeScript
+- idempotency Test 31–35
+- outside-range preservation check
+- git diff --check
+
+Không chạy full:
+
+pnpm run test
+pnpm run build
+
+Các blocker global đã biết không thuộc task này.
+
+---
+
+# 17. Acceptance criteria
+
+Chỉ báo hoàn tất khi:
+
+[ ] Test 31–35 Part 4 không test nào dưới 290 từ
+[ ] Part 4 average ít nhất 300 từ
+[ ] Ít nhất 3/5 Part 4 đạt 300 từ
+[ ] Part 4 đúng 5 paragraphs và 1 gap/paragraph
+
+[ ] Test 31–35 Part 5 không test nào dưới 170 từ
+[ ] Part 5 average ít nhất 180 từ
+[ ] Ít nhất 3/5 Part 5 đạt 180 từ
+[ ] Part 5 đúng 6 gaps và 4 options mỗi gap
+
+[ ] Test 31–35 Part 6 không test nào dưới 150 từ
+[ ] Part 6 average ít nhất 160 từ
+[ ] Ít nhất 3/5 Part 6 đạt 160 từ
+[ ] Part 6 có 6 gaps, no options, one-word answers
+
+[ ] Không có shared scaffold
+[ ] Không repeated clause >8 words
+[ ] Package/public parity PASS
+[ ] DOM parity PASS
+[ ] Browser smoke PASS
+[ ] Không thay đổi test ngoài 31–35
+[ ] TypeScript PASS
+[ ] Idempotency PASS
+[ ] git diff --check PASS
+
+---
+
+# 18. Báo cáo cuối
+
+Root cause:
+Old word counts:
+
+Test | Part 4 | Part 5 | Part 6
+
+New word counts:
+
+Test | Part 4 | Status | Part 5 | Status | Part 6 | Status
+
+Warnings used:
+Part 4 warning count:
+Part 5 warning count:
+Part 6 warning count:
+
+Batch averages:
+Part 4:
+Part 5:
+Part 6:
+
+Paragraph/sentence metrics:
+Part 4 semantic mappings:
+Part 5 language targets:
+Part 6 grammar targets:
+
+Repeated clauses:
+Shared scaffold:
+Highest similarity pairs:
+
+Package/public parity:
+DOM parity:
+Manual Test 31:
+Manual Test 35:
+
+Outside-range changed files:
+Runtime validator:
+Structural:
+TypeScript:
+Idempotency:
+git diff --check:
+
+Files changed:
+Remaining issues:
+Ready to checkpoint Batch 4 backfill:
+
+Không commit hoặc push.

@@ -1,0 +1,540 @@
+Tiếp tục **Task 5 — PET B1 Reading quality repair**.
+
+## Phạm vi duy nhất
+
+Hoàn thiện:
+
+```text
+Test 14 — Part 3, 4, 5, 6
+Test 30 — Part 3, 4, 5, 6
+Test 51 — Part 3, 4, 5, 6
+```
+
+Không sửa lại Part 1–2 trừ khi validator phát hiện regression.
+
+Không sửa Test 15–29 hoặc 31–50.
+
+Không xử lý các lỗi workspace ngoài PET:
+
+* Playwright bị Vitest collect.
+* `phase2Hardening.test.ts`.
+* Cambridge Writing admin test.
+* `scripts/build-catalog.mjs` với `bundle.sourceDir`.
+* Lint chưa được cấu hình.
+
+Không commit hoặc push.
+
+---
+
+# 1. Kiến trúc nội dung
+
+Mỗi test phải có blueprint độc lập:
+
+```text
+QUALITY_BLUEPRINTS[14].part3
+QUALITY_BLUEPRINTS[14].part4
+QUALITY_BLUEPRINTS[14].part5
+QUALITY_BLUEPRINTS[14].part6
+
+QUALITY_BLUEPRINTS[30].part3
+...
+QUALITY_BLUEPRINTS[51].part6
+```
+
+Nguyên tắc:
+
+```text
+Reusable renderer/compiler: CÓ
+Reusable learner-facing content: KHÔNG
+Padding/filler: KHÔNG
+```
+
+Không tạo passage bằng cách:
+
+* Nối fragments.
+* Lặp paragraph.
+* Thay tên riêng.
+* Thay địa điểm.
+* Đổi một vài danh từ.
+* Chèn câu chung chung để đủ word count.
+* Dùng cùng bố cục passage cho cả ba test.
+
+---
+
+# 2. Part 3 — Long text multiple choice
+
+Mỗi test phải có:
+
+```text
+1 continuous passage
+300–380 từ
+5 questions
+4 options A–D mỗi câu
+```
+
+## Test 14
+
+Chủ đề hiện tại:
+
+```text
+Community gardens
+```
+
+Viết thành một bài hoàn chỉnh về trải nghiệm hoặc dự án cộng đồng.
+
+Passage cần có:
+
+* Bối cảnh ban đầu.
+* Khó khăn.
+* Cách người tham gia giải quyết.
+* Kết quả.
+* Quan điểm hoặc bài học của người viết.
+
+## Test 30
+
+Chủ đề:
+
+```text
+Technology and practical problem-solving
+```
+
+Không viết như bài quảng cáo công nghệ.
+
+Nên có một người học cách giải quyết vấn đề thực tế bằng công nghệ, bao gồm cả khó khăn hoặc giới hạn.
+
+## Test 51
+
+Chủ đề:
+
+```text
+Travel and environment
+```
+
+Nên là trải nghiệm cá nhân hoặc chuyến đi có thay đổi trong suy nghĩ/hành vi của người viết.
+
+## Question skills
+
+Mỗi Part 3 phải có ít nhất 4 trong các kỹ năng:
+
+```text
+main idea
+specific detail
+writer’s reason
+attitude/opinion
+inference
+purpose
+reference
+```
+
+Không để cả 5 câu chỉ scan detail.
+
+Mỗi câu cần có reviewer rationale:
+
+```text
+Correct answer:
+Evidence:
+Why A is wrong:
+Why B is wrong:
+Why C is wrong:
+Why D is wrong:
+```
+
+Không đưa rationale vào learner runtime.
+
+---
+
+# 3. Part 4 — Gapped text
+
+Mỗi test phải có:
+
+```text
+1 coherent text
+250–330 từ, không tính options
+5 gaps
+8 sentence options A–H
+3 unused distractors
+```
+
+## Yêu cầu cohesion
+
+Các đáp án đúng phải dựa trên:
+
+* Pronoun reference.
+* Lexical cohesion.
+* Time sequence.
+* Cause and effect.
+* Contrast.
+* Paragraph development.
+* Reference tới ý trước hoặc sau.
+
+Mỗi gap phải chỉ có một đáp án tốt nhất.
+
+Ba distractor phải hợp chủ đề nhưng sai vì:
+
+* Reference không khớp.
+* Logic không khớp.
+* Sequence sai.
+* Repetition.
+* Connector sai.
+* Topic development không phù hợp.
+
+## Không được
+
+* Viết text như 5 paragraph độc lập.
+* Tạo option đúng bằng cách lặp nguyên văn câu trước.
+* Dùng distractor vô nghĩa.
+* Chèn filler để đạt 250 từ.
+
+Validator cần kiểm tra:
+
+```text
+5 gaps
+8 options
+5 unique correct options
+3 unused options
+mỗi correct sentence chỉ dùng một lần
+```
+
+---
+
+# 4. Part 5 — Multiple-choice cloze
+
+Mỗi test phải có:
+
+```text
+1 passage
+150–200 từ
+6 gaps
+4 options A–D mỗi câu
+```
+
+Sáu gap trong mỗi test phải kiểm tra ít nhất 4 loại:
+
+```text
+collocation
+phrasal verb
+preposition
+linking word
+fixed expression
+verb choice
+adjective/adverb choice
+meaning distinction
+dependent preposition
+```
+
+Không để nhiều câu chỉ là chọn synonym.
+
+Mỗi gap phải có đúng một lựa chọn tự nhiên nhất.
+
+Rationale bắt buộc:
+
+```text
+Language target:
+Correct answer:
+Why correct:
+Why each distractor fails:
+```
+
+Không đưa rationale vào runtime.
+
+---
+
+# 5. Part 6 — Open cloze
+
+Mỗi test phải có:
+
+```text
+1 passage
+130–180 từ
+6 gaps
+không options
+mỗi answer đúng 1 lowercase word
+```
+
+Trong mỗi test, sáu grammar targets phải đa dạng.
+
+Nên bao phủ ít nhất 5 loại:
+
+```text
+article
+preposition
+auxiliary
+pronoun
+relative word
+conjunction
+determiner
+quantifier
+linking word
+fixed grammatical phrase
+```
+
+Không để:
+
+* Hơn 2 đáp án cùng loại grammar target.
+* Nhiều đáp án đều là giới từ.
+* Nhiều đáp án hợp lệ cho cùng một gap.
+* Đáp án chứa khoảng trắng hoặc punctuation.
+
+Nếu có alternative answer tự nhiên, viết lại câu để loại ambiguity.
+
+---
+
+# 6. Word-count validator
+
+Mở rộng:
+
+```text
+scripts/reading/validate-pet-b1-reading-quality-samples.mjs
+```
+
+Expected ranges:
+
+```text
+Part 3: 300–380
+Part 4: 250–330
+Part 5: 150–200
+Part 6: 130–180
+```
+
+Word count phải tính learner-facing passage, bỏ:
+
+* IDs.
+* Instructions chung.
+* Option letters.
+* Answer vault.
+* HTML tags.
+* Gap markers.
+
+Không được sửa threshold chỉ để cho passage hiện tại PASS.
+
+---
+
+# 7. Duplicate và padding detection
+
+Validator phải FAIL khi có:
+
+```text
+exact duplicate paragraph
+exact duplicate sentence dài trên 10 từ
+opening phrase lặp trên 8 từ
+same closing paragraph
+padding/filler fragment
+near-duplicate passage vượt threshold
+```
+
+So sánh giữa:
+
+```text
+Test 14
+Test 30
+Test 51
+```
+
+và với Part tương ứng của Test 01/13 nếu source có sẵn.
+
+Normalization bỏ:
+
+* IDs.
+* Test numbers.
+* Person names.
+* Place names.
+* Gap numbers.
+* Option letters.
+
+Audit phải báo:
+
+```text
+Exact duplicates:
+Repeated sentences:
+Padding fragments:
+Highest similarity pair:
+Highest similarity score:
+```
+
+---
+
+# 8. Skill distribution validator
+
+## Part 3
+
+Report:
+
+```text
+questionSkillDistribution
+```
+
+FAIL nếu một test có ít hơn 4 skill types.
+
+## Part 5
+
+Report:
+
+```text
+languageTargetDistribution
+```
+
+FAIL nếu một loại chiếm quá 3/6 câu.
+
+## Part 6
+
+Report:
+
+```text
+grammarTargetDistribution
+```
+
+FAIL nếu một loại chiếm quá 2/6 gaps.
+
+---
+
+# 9. Review file
+
+Cập nhật hoặc tạo:
+
+```text
+tmp/pet-b1-reading-quality-samples-review.md
+```
+
+File phải chứa đầy đủ:
+
+```text
+Test 14 Part 1–6
+Test 30 Part 1–6
+Test 51 Part 1–6
+```
+
+Với mỗi part:
+
+1. Learner-facing passage/content.
+2. Questions.
+3. Options.
+4. Section riêng cuối part:
+
+```text
+Reviewer answer key
+Evidence
+Distractor rationale
+Skill/language target
+```
+
+Không đặt đáp án ngay cạnh câu hỏi learner-facing.
+
+---
+
+# 10. Audit
+
+Cập nhật:
+
+```text
+tmp/pet-b1-reading-quality-sample-audit.json
+tmp/pet-b1-reading-quality-sample-audit.md
+```
+
+Bảng bắt buộc:
+
+```text
+Test
+Part
+Old word count
+New word count
+Target range
+Topic
+Skill distribution
+Highest similarity
+Validation
+```
+
+Expected cuối lượt:
+
+```text
+Part 1: PASS
+Part 2: PASS
+Part 3: PASS
+Part 4: PASS
+Part 5: PASS
+Part 6: PASS
+Padding fragments: 0
+Exact duplicates: 0
+Near-duplicates above threshold: 0
+```
+
+---
+
+# 11. Bảo toàn dữ liệu
+
+Không thay đổi:
+
+```text
+IDs
+question numbering
+renderMode
+catalog registration
+answer-vault schema
+Part 2 imageSlotId
+assetId
+alt
+admin media metadata
+```
+
+Chạy lại asset-preservation test dù lượt này không chủ động sửa Part 2.
+
+Xác nhận Test 01/13 không đổi.
+
+---
+
+# 12. Validation bắt buộc
+
+Chạy đúng phạm vi PET:
+
+```text
+Targeted generation Test 14, 30, 51
+Quality validator
+Structural validator
+Runtime catalog validator
+Answer-vault consistency
+Asset-preservation test
+Targeted PET Vitest
+TypeScript
+Idempotency
+git diff --check
+```
+
+Không cần chạy lại `pnpm run test` hoặc `pnpm run build` trong lượt này vì blocker ngoài PET đã được ghi nhận đầy đủ.
+
+Không được báo PASS nếu quality audit còn FAIL.
+
+---
+
+# 13. Báo cáo cuối
+
+```text
+Tests completed:
+Part 3 word counts:
+Part 3 skill distributions:
+Part 4 word counts:
+Part 4 cohesion checks:
+Part 5 word counts:
+Part 5 language targets:
+Part 6 word counts:
+Part 6 grammar targets:
+Padding fragments:
+Exact duplicates:
+Highest similarity pair:
+Highest similarity score:
+Asset preservation:
+Structural validation:
+Runtime validation:
+Targeted tests:
+TypeScript:
+Idempotency:
+git diff --check:
+Review file:
+Remaining Task 5 failures:
+Ready for manual review:
+```
+
+Dừng sau khi ba test mẫu đạt toàn bộ Part 1–6.
+
+Không mở rộng sang 35 test còn lại.
+
+Không commit hoặc push.

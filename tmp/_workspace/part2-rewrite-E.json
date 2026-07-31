@@ -1,0 +1,266 @@
+{
+  "48": {
+    "domain": "night markets and street food",
+    "options": [
+      {
+        "key": "option-a",
+        "title": "Evening street food tasting walk",
+        "description": "A guided evening walk that stops at six popular stalls for a taste of local specialities. The group is kept under ten, booking opens one week ahead, and the route covers about two kilometres. Guests should bring small change because several stalls only accept cash.",
+        "openingStyle": "activity-led",
+        "constraints": ["guided walk", "evening 6-8", "small group", "cash only", "two kilometres"]
+      },
+      {
+        "key": "option-b",
+        "title": "Seated vegetarian tasting night",
+        "description": "A relaxed evening meal in a covered food hall where diners sit at shared tables and receive eight small vegetarian dishes served over two hours. Every plate lists its main ingredients, and staff describe each dish. Tables stand close to the entrance, so guests hardly walk at all, and students pay a reduced price.",
+        "openingStyle": "need-led",
+        "constraints": ["vegetarian menu", "seated", "student price", "little walking", "two hours"]
+      },
+      {
+        "key": "option-c",
+        "title": "Family lantern food evening",
+        "description": "An outdoor evening event in the park with lantern making, soft music and games for young children. A separate children's menu avoids spicy dishes, the fun ends at quarter to nine, and children under ten enter free. Parents stay together and each child receives a small lantern to keep.",
+        "openingStyle": "audience-led",
+        "constraints": ["outdoor park", "ends before nine", "children's menu", "free under tens", "lanterns"]
+      },
+      {
+        "key": "option-d",
+        "title": "Weekend market stall helper",
+        "description": "A Sunday volunteer shift at a busy market stall that teaches useful skills and finishes with a free hot meal for every helper. Newcomers are welcome, training takes ten minutes, and the work includes carrying some heavy boxes. Helpers must be at least sixteen years old.",
+        "openingStyle": "opportunity-led",
+        "constraints": ["Sunday shift", "no experience", "free meal", "heavy boxes", "age sixteen plus"]
+      },
+      {
+        "key": "option-e",
+        "title": "Midnight street food crawl",
+        "description": "Four cheap snack stops after eleven at night, served from standing counters by the river. Each stop offers a different unusual flavour, a student card takes money off every plate, and the last counter closes at one. Cash and cards are accepted, a drink is included, and portions are generous, so arrive hungry.",
+        "openingStyle": "budget-led",
+        "constraints": ["after eleven pm", "cheap plates", "standing counters", "unusual flavours", "student discount"]
+      },
+      {
+        "key": "option-f",
+        "title": "Early morning food photography",
+        "description": "A quiet weekday morning in the market before the crowds arrive, when the light is soft and stalls still stand half empty. A photographer shows you angles for every dish and answers questions; you need your own camera. The visit is unhurried and ends before nine.",
+        "openingStyle": "time-led",
+        "constraints": ["weekday mornings", "before crowds", "own camera", "expert tips", "quiet pace"]
+      },
+      {
+        "key": "option-g",
+        "title": "Two hour cooking masterclass",
+        "description": "An evening masterclass where a chef teaches you to prepare three dishes from scratch. All ingredients are supplied, the class is limited to eight people, and participants must be able to stand for the whole two hours. A course fee is charged, and an apron is provided.",
+        "openingStyle": "skill-led",
+        "constraints": ["evening class", "stand two hours", "course fee", "eight places", "ingredients supplied"]
+      },
+      {
+        "key": "option-h",
+        "title": "Meat only food truck corner",
+        "description": "An outdoor corner with three food trucks that serve only meat dishes, takeaway style, with no seating and no vegetarian choices. The trucks operate every evening but close at eight, and prices are moderate. Portions are large enough to share, and the menu changes each week.",
+        "openingStyle": "condition-led",
+        "constraints": ["meat only", "takeaway", "no seating", "closes at eight", "moderate prices"]
+      }
+    ],
+    "profiles": [
+      {
+        "key": "profile-1",
+        "text": "Nadia is vegetarian and cannot walk far because of a knee injury. She has one free evening this week, wants to taste many dishes without spending much, and prefers to sit rather than queue at stalls.",
+        "correctOptionKey": "option-b"
+      },
+      {
+        "key": "profile-2",
+        "text": "Tomas wants an outdoor evening with his two young children, who dislike spicy food and need to be home before nine. He hopes for something safe and lively near the park, with little walking.",
+        "correctOptionKey": "option-c"
+      },
+      {
+        "key": "profile-3",
+        "text": "Mei is a teenager with no cooking experience who wants weekend work where she can learn useful skills and receive a free meal. She is free on Sunday evenings and does not mind lifting heavy boxes.",
+        "correctOptionKey": "option-d"
+      },
+      {
+        "key": "profile-4",
+        "text": "Ravi is a student on a very small budget who finishes studying late and wants cheap midnight snacks. He is happy to eat standing up at a counter and enjoys trying unusual flavours.",
+        "correctOptionKey": "option-e"
+      },
+      {
+        "key": "profile-5",
+        "text": "Anja wants to photograph street food for her college portfolio and needs calm lighting before the crowds arrive. She is free on weekday mornings and would like a quiet, unhurried visit with expert tips on camera angles.",
+        "correctOptionKey": "option-f"
+      }
+    ]
+  },
+  "49": {
+    "domain": "cycle routes",
+    "options": [
+      {
+        "key": "option-a",
+        "title": "Flat riverside beginner loop",
+        "description": "A flat twelve kilometre loop that follows the river and is ideal for riders trying their first route. Bikes and helmets are hired at the start, the path is smooth with no hills, and groups leave every afternoon. A leader stays at the back so nobody is left behind.",
+        "openingStyle": "activity-led",
+        "constraints": ["flat route", "bike hire", "afternoon groups", "leader at back", "beginner friendly"]
+      },
+      {
+        "key": "option-b",
+        "title": "Weekend off road mountain trail",
+        "description": "A challenging off-road trail across rocky hills for experienced riders who own a mountain bike. The weekend route covers rough ground, steep climbs and river crossings, with no bicycle hire available. Riders carry their own water, food and repair tools. The start lies two hours from town, reached by an early train, so planning ahead is essential.",
+        "openingStyle": "condition-led",
+        "constraints": ["off-road", "own mountain bike", "steep climbs", "weekend", "early train"]
+      },
+      {
+        "key": "option-c",
+        "title": "Family tricycle mornings",
+        "description": "A short morning loop where tricycles and balance bikes are offered to young children who have never ridden. Parents ride free alongside, the distance is under three kilometres, and a playground stop breaks the route. Helmets and pads are included for every child, and a helper stays at the front, so sessions finish before noon.",
+        "openingStyle": "audience-led",
+        "constraints": ["child-sized cycles", "morning only", "under three km", "playground stop", "helmets included"]
+      },
+      {
+        "key": "option-d",
+        "title": "Night city loop with lights",
+        "description": "A ten kilometre evening loop through quiet streets, lit from start to finish with free lights and high-visibility vests. Riders sign up at the library, the ride leaves at seven and returns by ten, and there is no charge at all. The surface is smooth and even, which makes the loop suitable for commuter bikes.",
+        "openingStyle": "time-led",
+        "constraints": ["evening 7-10", "free of charge", "lights supplied", "quiet streets", "commuter bikes"]
+      },
+      {
+        "key": "option-e",
+        "title": "Free audio guided woodland ride",
+        "description": "A free self-guided route through the woodland with audio stories played from your phone. Riders must bring their own bicycle, there is no hire or repair service along the way, and phone signal disappears in the deepest trees. The path winds gently and takes about two hours to complete at a relaxed pace.",
+        "openingStyle": "feature-led",
+        "constraints": ["free", "own bike required", "self-guided", "audio stories", "limited signal"]
+      },
+      {
+        "key": "option-f",
+        "title": "Race training with weekly coach",
+        "description": "An eight week programme with a dedicated speed coach, aimed at riders preparing for a local race. Sessions run on weekday mornings, include timed laps and video feedback, and finish with entry to the race itself. Riders must already ride regularly. The cost covers coaching and a race number, but riders supply their own bicycles.",
+        "openingStyle": "goal-led",
+        "constraints": ["weekday mornings", "speed coach", "timed laps", "race entry", "own bike"]
+      },
+      {
+        "key": "option-g",
+        "title": "Scenic coast ride with support van",
+        "description": "A scenic forty kilometre coastal ride with a support van that carries bags and collects anyone who tires early. A lunch stop is included at a village café, and the ride follows the cliff road with wide sea views. Riders should have done a long ride before.",
+        "openingStyle": "logistics-led",
+        "constraints": ["forty kilometres", "support van", "lunch included", "coastal views", "long ride experience"]
+      },
+      {
+        "key": "option-h",
+        "title": "Budget route on your own bike",
+        "description": "A free weekday route where riders bring their own bicycle and receive no equipment or support. The path is flat and easy, but evenings are crowded with commuters, and there is no lighting after dark. It suits riders who simply want a quick ride after work on their own bicycles.",
+        "openingStyle": "budget-led",
+        "constraints": ["free", "own bike", "no support", "flat path", "crowded evenings"]
+      }
+    ],
+    "profiles": [
+      {
+        "key": "profile-1",
+        "text": "Liam has never cycled on a road and owns no bike. He wants a flat, safe path with hired equipment, has one free afternoon, and needs a leader close by in case he struggles.",
+        "correctOptionKey": "option-a"
+      },
+      {
+        "key": "profile-2",
+        "text": "Priya owns a mountain bike and rides every weekend. She wants a difficult off-road route with steep climbs and no bike hire needed, and she is willing to catch an early train to reach the start.",
+        "correctOptionKey": "option-b"
+      },
+      {
+        "key": "profile-3",
+        "text": "Oliver rides with his five-year-old daughter, who has never ridden a bike. He wants a short morning ride, child-sized cycles, a safe surface and a rest stop with play equipment.",
+        "correctOptionKey": "option-c"
+      },
+      {
+        "key": "profile-4",
+        "text": "Fatima works until six every evening and cannot pay extra fees. She wants a free ride after dark, with lights supplied, on quiet streets, returning home by ten.",
+        "correctOptionKey": "option-d"
+      },
+      {
+        "key": "profile-5",
+        "text": "Daniel is training for his first race and wants to get faster. He is free on weekday mornings, would value a coach and timed practice, and already cycles twice a week.",
+        "correctOptionKey": "option-f"
+      }
+    ]
+  },
+  "50": {
+    "domain": "school library activities",
+    "options": [
+      {
+        "key": "option-a",
+        "title": "After school reading buddy",
+        "description": "A weekday afternoon programme where adult volunteers read aloud with pupils in the second year, one child at a time. Training lasts one hour, no computer skills are needed, and sessions run between three and five. Volunteers meet the same child each week, which builds confidence quickly.",
+        "openingStyle": "activity-led",
+        "constraints": ["weekday afternoons", "one-to-one reading", "no computer skills", "training given", "same child each week"]
+      },
+      {
+        "key": "option-b",
+        "title": "Puppet story time for toddlers",
+        "description": "A free Friday morning session for children under five, with puppets, songs and picture books. No booking is needed, parents stay with their child, and the room grows noisy as children join in the stories. It ends with a sticker for every child, and older siblings are welcome too.",
+        "openingStyle": "audience-led",
+        "constraints": ["free", "Friday mornings", "no booking", "under fives", "noisy and lively"]
+      },
+      {
+        "key": "option-c",
+        "title": "Book mending workshop",
+        "description": "A weekend half-day class where you learn to repair torn books with new spines and clean pages. Groups stay small, every tool is supplied, and beginners finish with three techniques they can use at home. The teacher demonstrates each step, and you keep the books you practise on.",
+        "openingStyle": "skill-led",
+        "constraints": ["weekend half-day", "small groups", "tools supplied", "beginners welcome", "book repair"]
+      },
+      {
+        "key": "option-d",
+        "title": "Library app coaching",
+        "description": "A free drop-in session where staff help you use the school library app to borrow ebooks and renew loans. Bring your own device, join on weekday lunchtimes, and follow the steps at your own speed with a helper beside you. No appointment is needed, and the service is open to all ages.",
+        "openingStyle": "technology-led",
+        "constraints": ["free", "lunchtimes", "own device", "library app", "drop-in"]
+      },
+      {
+        "key": "option-e",
+        "title": "Multilingual book circle",
+        "description": "An evening club where members read a story in six different languages and take turns choosing the next book. Tea and biscuits are served, conversation is lively, and each member is expected to finish one novel a month. Newcomers are welcome, but regular attendance matters to the group.",
+        "openingStyle": "interest-led",
+        "constraints": ["evening club", "six languages", "monthly novel", "tea provided", "regular attendance"]
+      },
+      {
+        "key": "option-f",
+        "title": "Silent study room with exam desk",
+        "description": "A silent study room open until ten at night, with desks that students reserve in advance and revision guides kept on shelves inside. Only enrolled students may enter, and phones must stay switched off while inside. Late-evening demand is high, so desks often book out several days ahead.",
+        "openingStyle": "feature-led",
+        "constraints": ["open till ten", "reserved desks", "enrolled students", "silence required", "revision guides"]
+      },
+      {
+        "key": "option-g",
+        "title": "Holiday reading quest",
+        "description": "A six-week summer challenge for readers aged twelve to sixteen, where points are collected through an app and prizes go to the ten highest scorers. Each week offers a fresh reading list, and finishing any book earns double points. A celebration event at the end marks every reader who completes the quest.",
+        "openingStyle": "goal-led",
+        "constraints": ["ages 12-16", "six weeks", "app points", "prizes", "celebration event"]
+      },
+      {
+        "key": "option-h",
+        "title": "Early book sorting shift",
+        "description": "An early shift that shelves donated books before the school opens, with heavy boxes arriving on some mornings. No experience is needed, shifts run on weekdays from seven to nine, and volunteers work on their own or in pairs. A member of staff stays nearby to answer questions during the shift.",
+        "openingStyle": "time-led",
+        "constraints": ["early mornings", "weekdays", "shelving books", "no experience", "heavy boxes sometimes"]
+      }
+    ],
+    "profiles": [
+      {
+        "key": "profile-1",
+        "text": "Grace has just retired and wants to help young pupils with their reading on weekday afternoons. She prefers quiet one-to-one work, has no computer skills, and would like a little training first.",
+        "correctOptionKey": "option-a"
+      },
+      {
+        "key": "profile-2",
+        "text": "Hugo has a three-year-old daughter and wants a free morning activity they can attend without booking. She loves puppets and songs, and he does not mind a noisy, lively room.",
+        "correctOptionKey": "option-b"
+      },
+      {
+        "key": "profile-3",
+        "text": "Elena is studying for her final exams and needs a quiet place to work late in the evening. She wants to reserve a desk, keep her phone off, and have revision guides close by.",
+        "correctOptionKey": "option-f"
+      },
+      {
+        "key": "profile-4",
+        "text": "Marco is fourteen and wants a challenge for the school holidays that earns prizes. He enjoys using apps, reads quickly, and would like clear weekly goals with something to celebrate at the end.",
+        "correctOptionKey": "option-g"
+      },
+      {
+        "key": "profile-5",
+        "text": "Ivy wants to learn how to repair damaged library books as a weekend hobby. She is a complete beginner, would like small class sizes, and wants to use tools supplied by the library.",
+        "correctOptionKey": "option-c"
+      }
+    ]
+  }
+}

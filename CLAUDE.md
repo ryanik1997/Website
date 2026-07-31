@@ -67,3 +67,16 @@ Canonical five-role vocabulary (`needs-triage`, `needs-info`, `ready-for-agent`,
 ### Domain docs
 
 Single-context — `CONTEXT.md` + `docs/adr/` at repo root (created lazily by `/domain-modeling` when needed). See `docs/agents/domain.md`.
+
+---
+
+## Harness: PET Part 2 Fix
+
+**Goal:** Fix Part 2 content monotony + compact drop-zone UI across PET B1 Reading tests.
+
+**Trigger:** Part 2 fix / content monotony / drop-zone compact / opening style diversity → use `pet-part2-fix` skill. Simple questions can be answered directly.
+
+**Change log:**
+| Date | Change | Target | Reason |
+|------|--------|--------|--------|
+| 2026-07-30 | Initial setup | All | task_8 |

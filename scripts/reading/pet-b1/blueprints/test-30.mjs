@@ -183,6 +183,8 @@ export default {
   },
 
   part5: {
+    title: "Why the Tablets Stopped Working",
+    title: "Why the Tablets Stopped Working",
     text: 'When the evening class received old tablets, the learners expected an easy reading exercise. Instead, the tutor asked them to investigate why several devices failed after an update. Each pair wrote down one suggestion and tested it without changing several things at once. They discovered that the tablets with almost no free storage behaved differently. Deleting unused files solved some problems, but two devices still needed a technician. The class therefore learned an important lesson about evidence: a confident guess is not the same as a reliable explanation. The learners later made a checklist for future classes, including questions about power, storage and software versions. Their guide was short, but it gave beginners a sensible way to start when technology behaved unexpectedly.',
     extra: ' The learners keep their notes beside the devices so that another pair can follow the same test without guessing. The written trail makes the next investigation faster and prevents a successful test being mistaken for a general rule, while each result is recorded in a shared log.',
     specs: [
@@ -196,6 +198,8 @@ export default {
   },
 
   part6: {
+    title: "Testing Causes One at a Time",
+    title: "Testing Causes One at a Time",
     text: 'The learners began (27) ........ a list of possible causes. They tested one idea (28) ........ a time, because changing several settings together would hide the evidence. When a tablet worked again, they wrote (29) ........ the result before trying another device. The tutor asked (30) ........ they could explain the change in simple language. Two tablets were too damaged (31) ........ repair in class, but the group still learned (32) ........ to investigate a technical problem.',
     extra: ' At the end of the lesson, the tutor asked each learner to describe one limitation of the method. This final step made the class less likely to treat a single successful repair as a universal answer. The notes were stored with the equipment for later classes. They could then be consulted by a new group.',
     tail: ' This makes the method easier for another class to understand.',

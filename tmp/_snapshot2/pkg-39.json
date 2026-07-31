@@ -1,0 +1,859 @@
+{
+  "id": "catalog-reading-pet-b1-test39",
+  "title": "PET B1 Reading – Test 39",
+  "durationMinutes": 45,
+  "bandHint": "B1 Preliminary Reading – 6 parts",
+  "examTrack": "cambridge",
+  "cambridgeLevel": "b1",
+  "catalogCanonical": true,
+  "parts": [
+    {
+      "id": "catalog-reading-pet-b1-test39-part-1",
+      "partNumber": 1,
+      "renderMode": "html-css",
+      "rangeLabel": "Questions 1–5",
+      "passageTitle": "Part 1 – Short texts",
+      "passage": [
+        {
+          "text": "Archive scanning day\nThe archive scanning day moves from Saturday to Sunday because the library hall is booked. Bring up to ten photographs and arrive before ten; staff will return everything the same afternoon."
+        },
+        {
+          "text": "Volunteer confirmation\nThank you for joining the photograph sorting session. Bring your library card and wear gloves when handling the oldest boxes. Reply by Friday if you cannot come, so another volunteer can take your place."
+        },
+        {
+          "text": "Memory evening\nOn the first Thursday of next month, the archive hosts a memory evening. Bring one family photograph and share its story; local residents will try to name the place and the year it was taken."
+        },
+        {
+          "text": "Waiting list opening\nOne volunteer has cancelled for Wednesday morning. The first person to reply will take the place; the second name goes on the waiting list for next week."
+        },
+        {
+          "text": "Display opening\nThe display opens on Friday, not Monday as first planned. Each photograph carries a short label, and pictures with uncertain dates show both versions so visitors can follow the research."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test39-part-1-g0",
+          "range": "Questions 1–5",
+          "instruction": "For each question, choose the correct answer A, B or C.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test39-part-1-q1",
+              "number": 1,
+              "type": "multiple-choice",
+              "prompt": "What change should visitors expect?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Photos will be kept overnight."
+                },
+                {
+                  "id": "B",
+                  "label": "The event happens a day later."
+                },
+                {
+                  "id": "C",
+                  "label": "Arrive after the hall closes."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test39-part-1-q2",
+              "number": 2,
+              "type": "multiple-choice",
+              "prompt": "What should the volunteer do?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Bring their own storage boxes."
+                },
+                {
+                  "id": "B",
+                  "label": "Take the oldest boxes home."
+                },
+                {
+                  "id": "C",
+                  "label": "Tell the team if they are unavailable."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test39-part-1-q3",
+              "number": 3,
+              "type": "multiple-choice",
+              "prompt": "What does the poster invite people to do?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Bring a photo and talk about it."
+                },
+                {
+                  "id": "B",
+                  "label": "Buy copies of old pictures."
+                },
+                {
+                  "id": "C",
+                  "label": "Bring only written letters."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test39-part-1-q4",
+              "number": 4,
+              "type": "multiple-choice",
+              "prompt": "What should the reader do?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Wait until next week to respond."
+                },
+                {
+                  "id": "B",
+                  "label": "Reply quickly to claim the free place."
+                },
+                {
+                  "id": "C",
+                  "label": "Ask for a different day."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test39-part-1-q5",
+              "number": 5,
+              "type": "multiple-choice",
+              "prompt": "What has been confirmed?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Labels will hide the dates."
+                },
+                {
+                  "id": "B",
+                  "label": "Every photo has a certain date."
+                },
+                {
+                  "id": "C",
+                  "label": "The opening date is earlier."
+                }
+              ],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-pet-b1-test39-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 6–10",
+      "passageTitle": "Part 2 – Matching",
+      "passage": [
+        {
+          "text": "The people below want to choose from local history and family memories. Decide which option is most suitable."
+        },
+        {
+          "label": "A",
+          "text": "Beginner photo caption workshop — A practical morning sorting archive boxes of old photographs and writing short captions from clues on the back. Dates written by hand, shop stamps and names on envelopes all help build a first draft label. The organiser stays nearby to guide beginners, and every caption is checked with the whole group before it is added to a card.",
+          "imageSlotId": "catalog-reading-pet-b1-test39-part-2-option-a-image",
+          "imageRequired": false
+        },
+        {
+          "label": "B",
+          "text": "Council records study morning — A quiet study session at the council archive, where the group works through official files to find dates that match the photographs. Each volunteer receives one folder, a magnifying glass and a list of questions to answer. The session ends with a shared table where everyone compares what they discovered in the paperwork.",
+          "imageSlotId": "catalog-reading-pet-b1-test39-part-2-option-b-image",
+          "imageRequired": false
+        },
+        {
+          "label": "C",
+          "text": "Memory interview training — A session where teenagers learn to interview residents about old photographs without putting words into their mouths. Volunteers practise opening questions, take short notes and record each answer in a notebook. At the end, an experienced organiser explains how to check the memories against written records before anything is displayed.",
+          "imageSlotId": "catalog-reading-pet-b1-test39-part-2-option-c-image",
+          "imageRequired": false
+        },
+        {
+          "label": "D",
+          "text": "Date comparison challenge — A team challenge where two groups study the same photograph, one using memory and local stories, the other using council files and clothing styles. Each team writes down its answer, then the groups compare results and list the points where they disagree. The prize goes to the team that explains the disagreement most clearly.",
+          "imageSlotId": "catalog-reading-pet-b1-test39-part-2-option-d-image",
+          "imageRequired": false
+        },
+        {
+          "label": "E",
+          "text": "Public display design team — Teenagers work as a design team to create the labels that will appear beside the photographs. They decide how to show that a date is uncertain, for example by printing both versions side by side or adding a short note about the research. The finished labels are printed and placed in the library display at the end of the month.",
+          "imageSlotId": "catalog-reading-pet-b1-test39-part-2-option-e-image",
+          "imageRequired": false
+        },
+        {
+          "label": "F",
+          "text": "Family photo digitising day — A full day when residents bring photographs from home and teenagers scan them into the digital archive. Each volunteer runs one machine, checks the image quality and adds the family name to the file. Afternoon shifts clean and repack the original photographs, so nothing is returned in a damaged condition.",
+          "imageSlotId": "catalog-reading-pet-b1-test39-part-2-option-f-image",
+          "imageRequired": false
+        },
+        {
+          "label": "G",
+          "text": "Neighbourhood photo trail — A walking afternoon that matches old photographs to the buildings still standing in the town. Volunteers carry laminated copies, compare each picture with the street in front of them and note which buildings have changed. The walk finishes at the library, where the group marks uncertain matches on a large map.",
+          "imageSlotId": "catalog-reading-pet-b1-test39-part-2-option-g-image",
+          "imageRequired": false
+        },
+        {
+          "label": "H",
+          "text": "Archive guide writing session — Teenagers write a short guide for visitors who want to explore the archive alone. The session explains how to read a catalogue number, how to handle a fragile photograph and where to find the list of unanswered questions. Drafts are swapped between writers, edited for clarity and collected into a booklet by the end of the day.",
+          "imageSlotId": "catalog-reading-pet-b1-test39-part-2-option-h-image",
+          "imageRequired": false
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test39-part-2-g0",
+          "range": "Questions 6–10",
+          "instruction": "For each question, choose the most suitable option.",
+          "type": "matching-features",
+          "features": [
+            {
+              "id": "a",
+              "name": "Beginner photo caption workshop — A practical morning sorting archive boxes of old photographs and writing short captions from clues on the back. Dates written by hand, shop stamps and names on envelopes all help build a first draft label. The organiser stays nearby to guide beginners, and every caption is checked with the whole group before it is added to a card."
+            },
+            {
+              "id": "b",
+              "name": "Council records study morning — A quiet study session at the council archive, where the group works through official files to find dates that match the photographs. Each volunteer receives one folder, a magnifying glass and a list of questions to answer. The session ends with a shared table where everyone compares what they discovered in the paperwork."
+            },
+            {
+              "id": "c",
+              "name": "Memory interview training — A session where teenagers learn to interview residents about old photographs without putting words into their mouths. Volunteers practise opening questions, take short notes and record each answer in a notebook. At the end, an experienced organiser explains how to check the memories against written records before anything is displayed."
+            },
+            {
+              "id": "d",
+              "name": "Date comparison challenge — A team challenge where two groups study the same photograph, one using memory and local stories, the other using council files and clothing styles. Each team writes down its answer, then the groups compare results and list the points where they disagree. The prize goes to the team that explains the disagreement most clearly."
+            },
+            {
+              "id": "e",
+              "name": "Public display design team — Teenagers work as a design team to create the labels that will appear beside the photographs. They decide how to show that a date is uncertain, for example by printing both versions side by side or adding a short note about the research. The finished labels are printed and placed in the library display at the end of the month."
+            },
+            {
+              "id": "f",
+              "name": "Family photo digitising day — A full day when residents bring photographs from home and teenagers scan them into the digital archive. Each volunteer runs one machine, checks the image quality and adds the family name to the file. Afternoon shifts clean and repack the original photographs, so nothing is returned in a damaged condition."
+            },
+            {
+              "id": "g",
+              "name": "Neighbourhood photo trail — A walking afternoon that matches old photographs to the buildings still standing in the town. Volunteers carry laminated copies, compare each picture with the street in front of them and note which buildings have changed. The walk finishes at the library, where the group marks uncertain matches on a large map."
+            },
+            {
+              "id": "h",
+              "name": "Archive guide writing session — Teenagers write a short guide for visitors who want to explore the archive alone. The session explains how to read a catalogue number, how to handle a fragile photograph and where to find the list of unanswered questions. Drafts are swapped between writers, edited for clarity and collected into a booklet by the end of the day."
+            }
+          ],
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test39-part-2-q6",
+              "number": 6,
+              "type": "matching-features",
+              "prompt": "Marta wants to help shape how the archive looks to visitors. She enjoys careful design work and wants to create the printed labels that show uncertain dates honestly, without hiding the research behind them.",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test39-part-2-q7",
+              "number": 7,
+              "type": "matching-features",
+              "prompt": "Priya has never handled archive materials before and needs clear guidance. She would like to sort boxes of old photographs and write simple first-draft captions with an organiser nearby.",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test39-part-2-q8",
+              "number": 8,
+              "type": "matching-features",
+              "prompt": "Leo already understands official records and wants to work through council files to find dates that match the photographs, using a magnifying glass and a list of questions.",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test39-part-2-q9",
+              "number": 9,
+              "type": "matching-features",
+              "prompt": "Amir enjoys speaking with older residents and wants to practise interview skills so he can collect memories without adding his own words to their answers.",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test39-part-2-q10",
+              "number": 10,
+              "type": "matching-features",
+              "prompt": "Zoe likes competition and teamwork. She wants a challenge where two groups study the same photograph, compare their answers and explain where their conclusions differ.",
+              "options": [],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-pet-b1-test39-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 11–15",
+      "passageTitle": "Part 3 – Photographs that asked for proof",
+      "passage": [
+        {
+          "text": "The library invited teenagers to help organise a collection of old photographs that had been stored in boxes for many years. Volunteers searched through the old boxes, matched names with dates where possible and checked which photographs were damaged and needed careful handling. Because the collection belonged to the local community, the group wanted to make sure the information displayed beside each photograph was accurate and could be trusted by visitors."
+        },
+        {
+          "text": "One unclear image soon led to a wider investigation. A missing date turned the photograph display into a research question, because nobody could agree on when the scene had been taken, and the date mattered for the story the archive wanted to tell. Volunteers compared handwriting on the back of the photograph with records held by the council, looked at the style of clothing worn by the people in the image and invited a local resident who remembered the street to check the details."
+        },
+        {
+          "text": "The comparison did not produce a single answer, and the group began to see why. One volunteer remembered the street looking different in the 1960s, while the council file pointed to a later year, and neither source could prove the other wrong. Rather than pick the date that most people believed, the teenagers decided to treat the uncertainty as part of the photograph's story and to present it openly. When the display opened, visitors appreciated the honest notes that explained what was known and what was still uncertain. The library decided to continue the volunteer project each summer, and the teenagers learned that careful checking was more valuable than guessing quickly."
+        },
+        {
+          "text": "So that future visitors could follow the investigation, the volunteers placed both possible dates on the label and added a sentence explaining that the year was not certain. They also created a separate note, kept with the original photograph, which recorded the evidence for each date and the questions that remained unanswered. A short guide for the next volunteer team explained which records were reliable and how to check a memory without causing offence."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test39-part-3-g0",
+          "range": "Questions 11–15",
+          "instruction": "Read the text and choose the correct answer A, B, C or D.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test39-part-3-q11",
+              "number": 11,
+              "type": "multiple-choice",
+              "prompt": "Why were the teenagers asked to help?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "To organise and check the accuracy of old photographs."
+                },
+                {
+                  "id": "B",
+                  "label": "To throw away the oldest pictures."
+                },
+                {
+                  "id": "C",
+                  "label": "To sell the collection to visitors."
+                },
+                {
+                  "id": "D",
+                  "label": "To stop anyone seeing the library."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test39-part-3-q12",
+              "number": 12,
+              "type": "multiple-choice",
+              "prompt": "What caused the wider investigation?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A complaint from a visitor."
+                },
+                {
+                  "id": "B",
+                  "label": "A damaged picture that could not be repaired."
+                },
+                {
+                  "id": "C",
+                  "label": "A photograph with no clear date."
+                },
+                {
+                  "id": "D",
+                  "label": "A request to close the library."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test39-part-3-q13",
+              "number": 13,
+              "type": "multiple-choice",
+              "prompt": "How did the volunteers check the photograph?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "They compared it with records and spoke to a resident."
+                },
+                {
+                  "id": "B",
+                  "label": "They guessed the date without any evidence."
+                },
+                {
+                  "id": "C",
+                  "label": "They removed it from the display."
+                },
+                {
+                  "id": "D",
+                  "label": "They ignored what other people said."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test39-part-3-q14",
+              "number": 14,
+              "type": "multiple-choice",
+              "prompt": "Why did the group keep both dates visible?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "To make the display look fuller."
+                },
+                {
+                  "id": "B",
+                  "label": "To avoid checking the records at all."
+                },
+                {
+                  "id": "C",
+                  "label": "To confuse the visitors on purpose."
+                },
+                {
+                  "id": "D",
+                  "label": "To show that the information was still uncertain."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test39-part-3-q15",
+              "number": 15,
+              "type": "multiple-choice",
+              "prompt": "What does the project teach the volunteers?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "That memories are always completely reliable."
+                },
+                {
+                  "id": "B",
+                  "label": "The value of checking evidence carefully."
+                },
+                {
+                  "id": "C",
+                  "label": "That records should never be questioned."
+                },
+                {
+                  "id": "D",
+                  "label": "That guessing is faster than researching."
+                }
+              ],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-pet-b1-test39-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 16–20",
+      "passageTitle": "Part 4 – The archive project learns to keep honest records",
+      "passage": [
+        {
+          "text": "The library archive project began when volunteers found a photograph with no date written on the back. Nobody could agree on when the scene had been taken, and the group realised that guessing would not satisfy visitors who wanted reliable information. (16) ..... This choice set a standard that shaped everything the project did afterwards, and the volunteers recorded it at the top of their meeting notes.  "
+        },
+        {
+          "text": "The volunteers studied the photograph carefully, checking the handwriting on the back, the clothing in the scene and the building in the corner. Council records listed residents who had lived in that street during different years, and reading the list was slow work. (17) ..... The date still had to be presented with care, because memory and paperwork disagreed about the exact year.  Reading the names taught the group how slowly careful research moves. "
+        },
+        {
+          "text": "At first the group wanted to choose the date that most people remembered, because it was the most popular answer. (18) ..... Keeping both possibilities visible felt uncomfortable at first, yet it prevented the archive from stating a fact that might be wrong. They learned that a vivid memory could still be inaccurate, so they kept the uncertainty visible instead of hiding it.  "
+        },
+        {
+          "text": "One resident was absolutely certain the photograph showed the street in a different year from the one in the council file. She had grown up there and could name every shop in the picture. (19) ..... The separate note recorded the evidence for each version, so future researchers could investigate the difference without repeating the same work.  This was when the archive began to treat uncertainty as honest information. "
+        },
+        {
+          "text": "When the display opened, visitors appreciated the careful notes that explained what was certain and what was still unknown. (20) ..... The honest approach also helped other residents trust the project, because they could see that the volunteers were careful rather than careless. The project showed that a careful record is more valuable than a confident guess, even when the truth is difficult to discover.  "
+        },
+        {
+          "label": "A",
+          "text": "Yet the most popular memory did not match the dates in the council file.",
+          "key": "test39-part4-option-2",
+          "correctForGap": 18
+        },
+        {
+          "label": "B",
+          "text": "The volunteers photographed every visitor before they entered the library.",
+          "key": "test39-part4-option-5",
+          "correctForGap": null
+        },
+        {
+          "label": "C",
+          "text": "So the volunteers chose to look for evidence before making any claims.",
+          "key": "test39-part4-option-0",
+          "correctForGap": 16
+        },
+        {
+          "label": "D",
+          "text": "The original photograph was sold at the annual auction.",
+          "key": "test39-part4-option-7",
+          "correctForGap": null
+        },
+        {
+          "label": "E",
+          "text": "Rather than choose between them, the volunteers showed both years on the label.",
+          "key": "test39-part4-option-3",
+          "correctForGap": 19
+        },
+        {
+          "label": "F",
+          "text": "The council moved the records to a different town.",
+          "key": "test39-part4-option-6",
+          "correctForGap": null
+        },
+        {
+          "label": "G",
+          "text": "One entry in the file matched the family name on the back of the photograph.",
+          "key": "test39-part4-option-1",
+          "correctForGap": 17
+        },
+        {
+          "label": "H",
+          "text": "Those honest labels encouraged more residents to bring their own photographs.",
+          "key": "test39-part4-option-4",
+          "correctForGap": 20
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test39-part-4-g0",
+          "range": "Questions 16–20",
+          "instruction": "Choose the sentence which fits each gap.",
+          "type": "matching-features",
+          "features": [
+            {
+              "id": "a",
+              "name": "Yet the most popular memory did not match the dates in the council file.",
+              "key": "test39-part4-option-2",
+              "correctForGap": 18
+            },
+            {
+              "id": "b",
+              "name": "The volunteers photographed every visitor before they entered the library.",
+              "key": "test39-part4-option-5",
+              "correctForGap": null
+            },
+            {
+              "id": "c",
+              "name": "So the volunteers chose to look for evidence before making any claims.",
+              "key": "test39-part4-option-0",
+              "correctForGap": 16
+            },
+            {
+              "id": "d",
+              "name": "The original photograph was sold at the annual auction.",
+              "key": "test39-part4-option-7",
+              "correctForGap": null
+            },
+            {
+              "id": "e",
+              "name": "Rather than choose between them, the volunteers showed both years on the label.",
+              "key": "test39-part4-option-3",
+              "correctForGap": 19
+            },
+            {
+              "id": "f",
+              "name": "The council moved the records to a different town.",
+              "key": "test39-part4-option-6",
+              "correctForGap": null
+            },
+            {
+              "id": "g",
+              "name": "One entry in the file matched the family name on the back of the photograph.",
+              "key": "test39-part4-option-1",
+              "correctForGap": 17
+            },
+            {
+              "id": "h",
+              "name": "Those honest labels encouraged more residents to bring their own photographs.",
+              "key": "test39-part4-option-4",
+              "correctForGap": 20
+            }
+          ],
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test39-part-4-q16",
+              "number": 16,
+              "type": "gap-fill",
+              "prompt": "Gap 16",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test39-part-4-q17",
+              "number": 17,
+              "type": "gap-fill",
+              "prompt": "Gap 17",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test39-part-4-q18",
+              "number": 18,
+              "type": "gap-fill",
+              "prompt": "Gap 18",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test39-part-4-q19",
+              "number": 19,
+              "type": "gap-fill",
+              "prompt": "Gap 19",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test39-part-4-q20",
+              "number": 20,
+              "type": "gap-fill",
+              "prompt": "Gap 20",
+              "options": [],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-pet-b1-test39-part-5",
+      "partNumber": 5,
+      "rangeLabel": "Questions 21–26",
+      "passageTitle": "Part 5 – Multiple-choice cloze",
+      "passage": [
+        {
+          "text": "I learned to cook (21) ..... during the school holidays, when my parents were busy at work. My grandmother gave me a simple recipe book and told me to begin with a vegetable soup, because a soup forgives small mistakes. At first I chopped the carrots too slowly and burned the onions, and I almost (22) ..... after the first week. But I kept trying, and soon the soup tasted better than I expected. I was proud (23) ..... my first real meal, and after a month I could prepare a whole dinner without help. My family was impressed, and now I cook dinner (24) ..... a week so my parents can rest. Cooking has given me confidence and made me more (25) ......  I have started writing down my own recipes in a notebook, adding new ingredients when I try something different. My younger brother asked me to teach him, so we plan the weekly menu together and share the cooking at weekends. My grandmother phones every weekend to ask what I have cooked, and she always has a new tip to share. The notebook now covers soups, sauces and a few desserts, (26) ..... my favourite page is still the very first recipe, because it marks the day I stopped following instructions and started trusting my own cooking."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test39-part-5-g0",
+          "range": "Questions 21–26",
+          "instruction": "For each question, choose the correct answer A, B, C or D.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test39-part-5-q21",
+              "number": 21,
+              "type": "multiple-choice",
+              "prompt": "Gap (21)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "properly"
+                },
+                {
+                  "id": "B",
+                  "label": "correctly"
+                },
+                {
+                  "id": "C",
+                  "label": "neatly"
+                },
+                {
+                  "id": "D",
+                  "label": "slowly"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test39-part-5-q22",
+              "number": 22,
+              "type": "multiple-choice",
+              "prompt": "Gap (22)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "stopped"
+                },
+                {
+                  "id": "B",
+                  "label": "paused"
+                },
+                {
+                  "id": "C",
+                  "label": "waited"
+                },
+                {
+                  "id": "D",
+                  "label": "rested"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test39-part-5-q23",
+              "number": 23,
+              "type": "multiple-choice",
+              "prompt": "Gap (23)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "of"
+                },
+                {
+                  "id": "B",
+                  "label": "with"
+                },
+                {
+                  "id": "C",
+                  "label": "at"
+                },
+                {
+                  "id": "D",
+                  "label": "for"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test39-part-5-q24",
+              "number": 24,
+              "type": "multiple-choice",
+              "prompt": "Gap (24)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "twice"
+                },
+                {
+                  "id": "B",
+                  "label": "double"
+                },
+                {
+                  "id": "C",
+                  "label": "again"
+                },
+                {
+                  "id": "D",
+                  "label": "secondly"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test39-part-5-q25",
+              "number": 25,
+              "type": "multiple-choice",
+              "prompt": "Gap (25)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "independent"
+                },
+                {
+                  "id": "B",
+                  "label": "independence"
+                },
+                {
+                  "id": "C",
+                  "label": "independently"
+                },
+                {
+                  "id": "D",
+                  "label": "dependent"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test39-part-5-q26",
+              "number": 26,
+              "type": "multiple-choice",
+              "prompt": "Gap (26)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "although"
+                },
+                {
+                  "id": "B",
+                  "label": "however"
+                },
+                {
+                  "id": "C",
+                  "label": "because"
+                },
+                {
+                  "id": "D",
+                  "label": "therefore"
+                }
+              ],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-pet-b1-test39-part-6",
+      "partNumber": 6,
+      "rangeLabel": "Questions 27–32",
+      "passageTitle": "Part 6 – Open cloze",
+      "passage": [
+        {
+          "text": "The local museum opened a new room for old photographs and letters. Visitors were invited to bring items from home, (27) ........ the staff photographed them carefully. Each item was labelled with (28) ........ name of the person who had donated it, so the story could be traced back. A retired teacher, (29) ........ had grown up in the town, helped identify some of the people in the pictures, and her memory filled in details that no record contained. The museum displayed the stories beside the photographs, and visitors could understand (30) ........ without reading a long guide. School groups used the room, and many of the students (31) ........ already asked to return with their families. The project was so popular that the museum decided to keep (32) ........ open all year round.  The volunteers who ran the room enjoyed meeting visitors and hearing their own memories of the people in the photographs. The museum printed a small booklet with the best stories, and it sold out in a month.  The photograph room proved that a museum could be about ordinary people, not only famous events, and it gave the community a reason to feel proud."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test39-part-6-g0",
+          "range": "Questions 27–32",
+          "instruction": "Write one word for each gap.",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test39-part-6-q27",
+              "number": 27,
+              "type": "gap-fill",
+              "prompt": "Gap 27",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test39-part-6-q28",
+              "number": 28,
+              "type": "gap-fill",
+              "prompt": "Gap 28",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test39-part-6-q29",
+              "number": 29,
+              "type": "gap-fill",
+              "prompt": "Gap 29",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test39-part-6-q30",
+              "number": 30,
+              "type": "gap-fill",
+              "prompt": "Gap 30",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test39-part-6-q31",
+              "number": 31,
+              "type": "gap-fill",
+              "prompt": "Gap 31",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test39-part-6-q32",
+              "number": 32,
+              "type": "gap-fill",
+              "prompt": "Gap 32",
+              "options": [],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

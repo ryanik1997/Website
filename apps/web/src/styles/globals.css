@@ -27,6 +27,22 @@
   --exam-highlight-selection: color-mix(in srgb, #fff3a3 72%, transparent);
   /* Gạch sóng note (IELTS + Cambridge) — Light: vàng/cam cũ */
   --exam-note-color: #ff9800;
+  --exam-bg: #f5f7f9;
+  --exam-surface: #ffffff;
+  --exam-surface-raised: #ffffff;
+  --exam-surface-muted: #f3f5f7;
+  --exam-surface-hover: #eef2f5;
+  --exam-surface-selected: #e8f6f6;
+  --exam-text-primary: #111827;
+  --exam-text-secondary: #4b5563;
+  --exam-text-muted: #6b7280;
+  --exam-border: #d1d5db;
+  --exam-border-strong: #9ca3af;
+  --exam-input-bg: #ffffff;
+  --exam-input-text: #111827;
+  --exam-input-placeholder: #6b7280;
+  --exam-input-border: #9ca3af;
+  --exam-focus: #1687ff;
 }
 
 /* ── Theme tokens — Dark ── */
@@ -52,6 +68,22 @@
   --exam-highlight-selection: color-mix(in srgb, #fb923c 72%, transparent);
   /* Note: hồng (dễ đọc trên nền tối; trước là vàng #ff9800) */
   --exam-note-color: #f472b6;
+  --exam-bg: #0f1115;
+  --exam-surface: #171a20;
+  --exam-surface-raised: #1d2129;
+  --exam-surface-muted: #222730;
+  --exam-surface-hover: #292f39;
+  --exam-surface-selected: #153b3c;
+  --exam-text-primary: #f3f4f6;
+  --exam-text-secondary: #c9ced6;
+  --exam-text-muted: #9ca3af;
+  --exam-border: #3a404b;
+  --exam-border-strong: #596170;
+  --exam-input-bg: #111419;
+  --exam-input-text: #f3f4f6;
+  --exam-input-placeholder: #8b93a1;
+  --exam-input-border: #596170;
+  --exam-focus: #60a5fa;
 }
 
 /* ── Theme tokens — Mid ── */
@@ -77,6 +109,22 @@
   --exam-highlight-selection: color-mix(in srgb, #fb923c 72%, transparent);
   /* Note: hồng (theme tối vừa) */
   --exam-note-color: #f472b6;
+  --exam-bg: #1e1e2e;
+  --exam-surface: #24243a;
+  --exam-surface-raised: #2b2b45;
+  --exam-surface-muted: #30304a;
+  --exam-surface-hover: #383854;
+  --exam-surface-selected: #254b50;
+  --exam-text-primary: #f1f3ff;
+  --exam-text-secondary: #cdd6f4;
+  --exam-text-muted: #a6adc8;
+  --exam-border: #454563;
+  --exam-border-strong: #626282;
+  --exam-input-bg: #181825;
+  --exam-input-text: #f1f3ff;
+  --exam-input-placeholder: #9aa2c1;
+  --exam-input-border: #626282;
+  --exam-focus: #89b4fa;
 }
 
 html,
@@ -90,6 +138,205 @@ body,
 html,
 body {
   overflow: auto;
+}
+
+/* Shared exam theme layer: all exam families inherit from document[data-theme]. */
+[class*="exam-shell"],
+[class*="test-shell"],
+.reading-test-shell,
+.writing-shell,
+.pet-rw-shell,
+.ket-rw-shell {
+  background: var(--exam-bg);
+  color: var(--exam-text-primary);
+  color-scheme: inherit;
+}
+
+[data-theme="dark"] [class*="exam-shell"],
+[data-theme="dark"] [class*="test-shell"],
+[data-theme="dark"] .reading-test-shell,
+[data-theme="dark"] .writing-shell,
+[data-theme="dark"] .pet-rw-shell,
+[data-theme="dark"] .ket-rw-shell,
+[data-theme="mid"] [class*="exam-shell"],
+[data-theme="mid"] [class*="test-shell"],
+[data-theme="mid"] .reading-test-shell,
+[data-theme="mid"] .writing-shell,
+[data-theme="mid"] .pet-rw-shell,
+[data-theme="mid"] .ket-rw-shell {
+  color-scheme: dark;
+}
+
+[class*="exam-shell"] input,
+[class*="exam-shell"] textarea,
+[class*="exam-shell"] select,
+[class*="test-shell"] input,
+[class*="test-shell"] textarea,
+[class*="test-shell"] select,
+.reading-test-shell input,
+.reading-test-shell textarea,
+.reading-test-shell select {
+  background: var(--exam-input-bg);
+  color: var(--exam-input-text);
+  border-color: var(--exam-input-border);
+  caret-color: var(--exam-text-primary);
+}
+
+[data-theme="dark"] .pet-rw-shell,
+[data-theme="mid"] .pet-rw-shell,
+[data-theme="dark"] .ket-rw-shell,
+[data-theme="mid"] .ket-rw-shell {
+  --pet-bg: var(--exam-bg);
+  --pet-header-border: var(--exam-border);
+  --pet-text: var(--exam-text-primary);
+  --pet-muted: var(--exam-text-secondary);
+  --pet-footer-bg: var(--exam-surface);
+  --pet-footer-submit-bg: var(--exam-surface-raised);
+  --ket-header-bg: var(--exam-surface);
+  --ket-header-border: var(--exam-border);
+  --ket-body-bg: var(--exam-bg);
+  --ket-pane-border: var(--exam-border);
+  --ket-text: var(--exam-text-primary);
+  --ket-muted: var(--exam-text-secondary);
+  --ket-footer-bg: var(--exam-surface);
+}
+
+[data-theme="dark"] .pet-rw-shell .pet-rw-header,
+[data-theme="mid"] .pet-rw-shell .pet-rw-header,
+[data-theme="dark"] .pet-rw-shell .ket-rw-instruction,
+[data-theme="mid"] .pet-rw-shell .ket-rw-instruction,
+[data-theme="dark"] .pet-rw-shell .ket-rw-radio,
+[data-theme="mid"] .pet-rw-shell .ket-rw-radio,
+[data-theme="dark"] .pet-rw-shell .pet-rw-footer,
+[data-theme="mid"] .pet-rw-shell .pet-rw-footer,
+[data-theme="dark"] .pet-rw-shell .pet-rw-footer__part,
+[data-theme="mid"] .pet-rw-shell .pet-rw-footer__part {
+  background: var(--exam-surface);
+  color: var(--exam-text-primary);
+  border-color: var(--exam-border);
+}
+
+[data-theme="dark"] .pet-rw-shell.is-part-1 .ket-rw-radio,
+[data-theme="mid"] .pet-rw-shell.is-part-1 .ket-rw-radio,
+[data-theme="dark"] .pet-rw-shell.is-part-3 .ket-rw-radio,
+[data-theme="mid"] .pet-rw-shell.is-part-3 .ket-rw-radio {
+  background: var(--exam-surface);
+  color: var(--exam-text-primary);
+  border-color: var(--exam-border);
+}
+
+[data-theme="dark"] .pet-rw-shell .ket-rw-main,
+[data-theme="mid"] .pet-rw-shell .ket-rw-main,
+[data-theme="dark"] .pet-rw-shell .ket-rw-highlight-zone,
+[data-theme="mid"] .pet-rw-shell .ket-rw-highlight-zone,
+[data-theme="dark"] .pet-rw-shell .ket-rw-body,
+[data-theme="mid"] .pet-rw-shell .ket-rw-body,
+[data-theme="dark"] .pet-rw-shell .ket-rw-pane-left,
+[data-theme="mid"] .pet-rw-shell .ket-rw-pane-left,
+[data-theme="dark"] .pet-rw-shell .ket-rw-pane-right,
+[data-theme="mid"] .pet-rw-shell .ket-rw-pane-right,
+[data-theme="dark"] .pet-rw-shell .pet-rw-part5-body,
+[data-theme="mid"] .pet-rw-shell .pet-rw-part5-body {
+  background: var(--exam-bg) !important;
+  color: var(--exam-text-primary) !important;
+}
+
+[data-theme="dark"] .pet-rw-shell .ket-rw-radio,
+[data-theme="mid"] .pet-rw-shell .ket-rw-radio,
+[data-theme="dark"] .pet-rw-shell .pet-rw-drag__slot,
+[data-theme="mid"] .pet-rw-shell .pet-rw-drag__slot,
+[data-theme="dark"] .pet-rw-shell .pet-rw-part5-gap__field,
+[data-theme="mid"] .pet-rw-shell .pet-rw-part5-gap__field {
+  background: var(--exam-input-bg) !important;
+  color: var(--exam-input-text) !important;
+  border-color: var(--exam-input-border) !important;
+}
+
+[data-theme="dark"] .pet-rw-shell .pet-rw-part2-heading,
+[data-theme="mid"] .pet-rw-shell .pet-rw-part2-heading,
+[data-theme="dark"] .pet-rw-shell .pet-rw-part3-title,
+[data-theme="mid"] .pet-rw-shell .pet-rw-part3-title,
+[data-theme="dark"] .pet-rw-shell .pet-rw-part5-content,
+[data-theme="mid"] .pet-rw-shell .pet-rw-part5-content,
+[data-theme="dark"] .pet-rw-shell .pet-rw-part5-title,
+[data-theme="mid"] .pet-rw-shell .pet-rw-part5-title,
+[data-theme="dark"] .pet-rw-shell .pet-rw-part5-paragraph,
+[data-theme="mid"] .pet-rw-shell .pet-rw-part5-paragraph,
+[data-theme="dark"] .pet-rw-shell .pet-rw-part5-inline-passage,
+[data-theme="mid"] .pet-rw-shell .pet-rw-part5-inline-passage {
+  color: var(--exam-text-primary) !important;
+}
+
+[data-theme="dark"] .pet-rw-shell:is(.is-part-2, .is-part-3),
+[data-theme="mid"] .pet-rw-shell:is(.is-part-2, .is-part-3),
+[data-theme="dark"] .pet-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-instruction,
+[data-theme="mid"] .pet-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-instruction {
+  background: var(--exam-bg) !important;
+  color: var(--exam-text-primary) !important;
+}
+
+[data-theme="dark"] .pet-rw-shell .pet-rw-part1-image-frame,
+[data-theme="mid"] .pet-rw-shell .pet-rw-part1-image-frame,
+[data-theme="dark"] .pet-rw-shell .ket-rw-radio-list,
+[data-theme="mid"] .pet-rw-shell .ket-rw-radio-list,
+[data-theme="dark"] .pet-rw-shell .pet-rw-part4-body,
+[data-theme="mid"] .pet-rw-shell .pet-rw-part4-body {
+  background: var(--exam-bg) !important;
+}
+
+[data-theme="dark"] .pet-rw-shell .pet-rw-person__prompt,
+[data-theme="mid"] .pet-rw-shell .pet-rw-person__prompt,
+[data-theme="dark"] .pet-rw-shell .pet-rw-part4-title,
+[data-theme="mid"] .pet-rw-shell .pet-rw-part4-title,
+[data-theme="dark"] .pet-rw-shell .ket-rw-paragraph,
+[data-theme="mid"] .pet-rw-shell .ket-rw-paragraph,
+[data-theme="dark"] .pet-rw-shell .ket-rw-q-prompt,
+[data-theme="mid"] .pet-rw-shell .ket-rw-q-prompt,
+[data-theme="dark"] .pet-rw-shell .ket-rw-inline-passage,
+[data-theme="mid"] .pet-rw-shell .ket-rw-inline-passage {
+  color: var(--exam-text-primary) !important;
+}
+
+[data-theme="dark"] .pet-rw-shell .pet-rw-drag__bank-card,
+[data-theme="mid"] .pet-rw-shell .pet-rw-drag__bank-card,
+[data-theme="dark"] .pet-rw-shell .pet-rw-part4-bank-card,
+[data-theme="mid"] .pet-rw-shell .pet-rw-part4-bank-card,
+[data-theme="dark"] .pet-rw-shell .pet-rw-part6-gap__input,
+[data-theme="mid"] .pet-rw-shell .pet-rw-part6-gap__input {
+  background: var(--exam-input-bg) !important;
+  color: var(--exam-input-text) !important;
+  border-color: var(--exam-input-border) !important;
+}
+
+[data-theme="dark"] .pet-rw-shell .pet-rw-footer__part-tab,
+[data-theme="mid"] .pet-rw-shell .pet-rw-footer__part-tab,
+[data-theme="dark"] .pet-rw-shell .pet-rw-footer__part-count,
+[data-theme="mid"] .pet-rw-shell .pet-rw-footer__part-count {
+  color: var(--exam-text-primary) !important;
+}
+
+[data-theme="dark"] .pet-rw-shell .pet-rw-drag__bank-text,
+[data-theme="mid"] .pet-rw-shell .pet-rw-drag__bank-text,
+[data-theme="dark"] .pet-rw-shell.is-part-5 .pet-rw-main,
+[data-theme="mid"] .pet-rw-shell.is-part-5 .pet-rw-main {
+  color: var(--exam-text-primary) !important;
+  background: var(--exam-bg) !important;
+}
+
+[data-theme="dark"] .pet-rw-shell .pet-rw-footer__part.is-current,
+[data-theme="mid"] .pet-rw-shell .pet-rw-footer__part.is-current {
+  background: var(--exam-surface-raised) !important;
+  color: var(--exam-text-primary) !important;
+}
+
+[class*="exam-shell"] input::placeholder,
+[class*="exam-shell"] textarea::placeholder,
+[class*="test-shell"] input::placeholder,
+[class*="test-shell"] textarea::placeholder,
+.reading-test-shell input::placeholder,
+.reading-test-shell textarea::placeholder {
+  color: var(--exam-input-placeholder);
+  opacity: 1;
 }
 #root {
   overflow: hidden;

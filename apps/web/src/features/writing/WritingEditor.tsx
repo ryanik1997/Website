@@ -29,7 +29,7 @@ const TYPE_CONFIG: Record<string, { label: string; target: number; color: string
   ielts_task2: { label: 'IELTS Task 2', target: 250, color: '#6366f1' },
   ielts_task1: { label: 'IELTS Task 1', target: 150, color: '#8b5cf6' },
   ielts:       { label: 'IELTS',        target: 250, color: '#6366f1' },
-  master:      { label: 'Viáº¿t tá»± do',   target: 0,   color: '#10b981' },
+  master:      { label: 'Viết tự do',   target: 0,   color: '#10b981' },
   cambridge_a2: { label: 'Cambridge A2', target: 35, color: '#3b82f6' },
   cambridge_b1: { label: 'Cambridge B1', target: 100, color: '#2563eb' },
   cambridge_b2: { label: 'Cambridge B2', target: 140, color: '#1d4ed8' },
@@ -44,7 +44,7 @@ const RATE_LIMITS: Record<Plan, number> = {
 export default function WritingEditor({
   allowedTypes,
 }: {
-  /** Chá»‰ hiá»ƒn thá»‹ bÃ i thuá»™c track hiá»‡n táº¡i (IELTS vs Cambridge) */
+  /** Only show drafts from the active track (IELTS vs Cambridge). */
   allowedTypes?: WritingDoc['type'][]
 } = {}) {
   const {
@@ -156,14 +156,14 @@ export default function WritingEditor({
         })
         setGuideError(null)
       } else {
-        setGuideError('Äá» nÃ y chÆ°a cÃ³ hÆ°á»›ng dáº«n biÃªn soáº¡n sáºµn trong ngÃ¢n hÃ ng Ä‘á».')
+        setGuideError('Đề này chưa có hướng dẫn biên soạn sẵn trong ngân hàng đề.')
       }
       setGuideOpen(true)
       return
     }
 
     if (!canRequestGuide()) {
-      setGuideError('Cáº§n nháº­p Ä‘á» bÃ i (Task 2) hoáº·c import áº£nh (Task 1).')
+      setGuideError('Cần nhập đề bài (Task 2) hoặc import ảnh (Task 1).')
       setGuideOpen(true)
       return
     }
@@ -177,7 +177,7 @@ export default function WritingEditor({
 
     const plan = ((await writingRepo.getSetting('plan')) as Plan) ?? 'free'
     if (!canUse(plan, 'writing_ai')) {
-      setGuideError('TÃ­nh nÄƒng AI chá»‰ dÃ nh cho gÃ³i TRIAL, PRO hoáº·c LIFETIME.')
+      setGuideError('Tính năng AI chỉ dành cho gói TRIAL, PRO hoặc LIFETIME.')
       setGuideOpen(true)
       return
     }
@@ -186,7 +186,7 @@ export default function WritingEditor({
     if (limit !== Infinity) {
       const used = await writingRepo.getTodayUsage('writing_ai')
       if (used >= limit) {
-        setGuideError(`ÄÃ£ Ä‘áº¡t giá»›i háº¡n ${limit} láº§n AI/ngÃ y (gÃ³i ${plan.toUpperCase()}).`)
+      setGuideError(`Đã đạt giới hạn ${limit} lần AI/ngày (gói ${plan.toUpperCase()}).`)
         setGuideOpen(true)
         return
       }
@@ -208,13 +208,13 @@ export default function WritingEditor({
       const data = JSON.parse(result.content) as WritingGuide
 
       if (!data.outline?.length || !data.sampleEssay) {
-        throw new Error('AI tráº£ vá» dá»¯ liá»‡u khÃ´ng Ä‘áº§y Ä‘á»§.')
+        throw new Error('AI trả về dữ liệu không đầy đủ.')
       }
 
       setGuide(activeDocId, data)
       await writingRepo.recordUsage('writing_ai', result.inputTokens + result.outputTokens)
     } catch (e) {
-      const msg = e instanceof Error ? e.message : 'Lá»—i khÃ´ng xÃ¡c Ä‘á»‹nh'
+      const msg = e instanceof Error ? e.message : 'Lỗi không xác định'
       setGuideError(msg.slice(0, 200))
     } finally {
       setGuideLoading(false)
@@ -284,7 +284,7 @@ export default function WritingEditor({
       )
       const result = await callAI(messages, apiKey, provider)
       const data = JSON.parse(result.content) as WritingRewrite
-      if (!data.rewrittenText?.trim()) throw new Error('AI khÃ´ng tráº£ bÃ i rewrite.')
+      if (!data.rewrittenText?.trim()) throw new Error('AI không trả bài rewrite.')
       setRewrite(data)
       await writingRepo.recordUsage('writing_ai', result.inputTokens + result.outputTokens)
     } catch (e) {
@@ -308,7 +308,7 @@ export default function WritingEditor({
     const { provider, apiKey } = ready
 
     if (!providerSupportsVision(provider)) {
-      setChartDescribeError('Provider hiá»‡n táº¡i khÃ´ng há»— trá»£ vision. DÃ¹ng OpenAI hoáº·c Gemini Ä‘á»ƒ OCR/mÃ´ táº£ biá»ƒu Ä‘á»“.')
+      setChartDescribeError('Provider hiện tại không hỗ trợ vision. Dùng OpenAI hoặc Gemini để OCR/mô tả biểu đồ.')
       return
     }
 
@@ -320,7 +320,7 @@ export default function WritingEditor({
       const result = await callAI(messages, apiKey, provider)
       const data = JSON.parse(result.content) as ChartDescribeResult
       if (!data.descriptionVi?.trim() && !data.suggestedPromptEn?.trim()) {
-        throw new Error('AI khÃ´ng tráº£ mÃ´ táº£ biá»ƒu Ä‘á»“.')
+        throw new Error('AI không trả mô tả biểu đồ.')
       }
       setChartDescribe(data)
       if (data.suggestedPromptEn?.trim() && (!doc.prompt.trim() || doc.prompt.trim().length < 40)) {
@@ -328,7 +328,7 @@ export default function WritingEditor({
       }
       await writingRepo.recordUsage('writing_ai', result.inputTokens + result.outputTokens)
     } catch (e) {
-      setChartDescribeError(e instanceof Error ? e.message.slice(0, 200) : 'Lá»—i mÃ´ táº£ biá»ƒu Ä‘á»“.')
+      setChartDescribeError(e instanceof Error ? e.message.slice(0, 200) : 'Lỗi mô tả biểu đồ.')
     } finally {
       setChartDescribeLoading(false)
     }
@@ -336,7 +336,7 @@ export default function WritingEditor({
 
   function clearEssay() {
     if (!text.trim()) return
-    if (!confirm('XÃ³a toÃ n bá»™ ná»™i dung bÃ i viáº¿t?')) return
+    if (!confirm('Xóa toàn bộ nội dung bài viết?')) return
     setText('')
     clearScore()
   }
@@ -348,9 +348,9 @@ export default function WritingEditor({
       <div className="flex-1 flex items-center justify-center" style={{ background: 'var(--bg-primary)' }}>
         <div className="text-center">
           <PenLine size={44} className="mx-auto mb-4" style={{ color: 'var(--border-color)' }} />
-          <p className="font-medium mb-1" style={{ color: 'var(--text-primary)' }}>Chá»n bÃ i viáº¿t</p>
+          <p className="font-medium mb-1" style={{ color: 'var(--text-primary)' }}>Chọn bài viết</p>
           <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
-            Chá»n hoáº·c táº¡o bÃ i viáº¿t má»›i tá»« danh sÃ¡ch bÃªn trÃ¡i
+            Chọn hoặc tạo bài viết mới từ danh sách bên trái
           </p>
         </div>
       </div>
@@ -372,7 +372,7 @@ export default function WritingEditor({
           <span style={{ fontWeight: 600, color: 'var(--wr-text)' }}>{cfg.label}</span>
           {(isSaved && text.length > 0) || savedFlash ? (
             <span className="flex items-center gap-1 text-xs" style={{ color: 'var(--wr-success)' }}>
-              <CheckCircle2 size={12} /> ÄÃ£ lÆ°u
+              <CheckCircle2 size={12} /> Đã lưu
             </span>
           ) : null}
         </div>
@@ -381,7 +381,7 @@ export default function WritingEditor({
           <div className={`writing-timer-pill${timer.urgent ? ' wr-urgent' : ''}`}>
             <div className="flex items-center gap-2">
               <Clock size={14} />
-              <span>Thá»i gian lÃ m bÃ i</span>
+              <span>Thời gian làm bài</span>
               <span className="wr-time">{timer.label}</span>
             </div>
             <span style={{ width: 1, height: 16, background: 'var(--wr-border)' }} />
@@ -392,7 +392,7 @@ export default function WritingEditor({
               onClick={timer.togglePause}
             >
               {timer.paused ? <PlayCircle size={14} /> : <PauseCircle size={14} />}
-              {timer.paused ? 'Tiáº¿p tá»¥c' : 'Táº¡m dá»«ng'}
+              {timer.paused ? 'Tiếp tục' : 'Tạm dừng'}
             </button>
             <span style={{ width: 1, height: 16, background: 'var(--wr-border)' }} />
             <button
@@ -411,7 +411,7 @@ export default function WritingEditor({
           type="button"
           onClick={() => setShowAiSettings(true)}
           className="writing-icon-btn"
-          title="CÃ i Ä‘áº·t AI"
+          title="Cài đặt AI"
         >
           <Settings2 size={15} />
         </button>
@@ -436,7 +436,7 @@ export default function WritingEditor({
           chartDescribe={chartDescribe}
         />
 
-        <div className="flex flex-col gap-4 min-w-0">
+        <div className="writing-column">
           <div className="writing-editor-card">
             <div className="writing-editor-head">
               <div>
@@ -482,7 +482,7 @@ export default function WritingEditor({
             {gradingError && (
               <div className="writing-error-banner" style={{ marginTop: '0.75rem' }}>
                 <span>{gradingError}</span>
-                <button type="button" onClick={() => setGradingError(null)} className="text-xs underline">ÄÃ³ng</button>
+                <button type="button" onClick={() => setGradingError(null)} className="text-xs underline">Đóng</button>
               </div>
             )}
 
@@ -503,7 +503,7 @@ export default function WritingEditor({
                 disabled={isGrading || !text.trim()}
               >
                 <Send size={14} />
-                {isGrading ? 'Äang cháº¥mâ€¦' : ui.submitLabel}
+                {isGrading ? 'Đang chấm…' : ui.submitLabel}
               </button>
               <button
                 type="button"
@@ -512,15 +512,15 @@ export default function WritingEditor({
                 disabled={isGrading || !text.trim()}
               >
                 <Brain size={14} />
-                CHáº¤M Ká»¸ AI
+                CHẤM KỸ AI
               </button>
               <button type="button" className="writing-btn-secondary" onClick={() => void saveNow()}>
                 <Save size={14} />
-                LÆ¯U NHÃP
+                LƯU NHÁP
               </button>
               <button type="button" className="writing-btn-secondary wr-danger" onClick={clearEssay}>
                 <Trash2 size={14} />
-                XÃ“A
+                XÓA
               </button>
             </div>
           </div>

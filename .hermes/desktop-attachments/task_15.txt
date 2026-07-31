@@ -1,0 +1,597 @@
+NHIỆM VỤ: CHECKPOINT TASK 14 + BẮT ĐẦU PET B1 BATCH 5 — TESTS 36–40
+
+## Baseline
+
+Task 14 đã hoàn tất:
+
+- Test 20–29 Part 4–6 strict-length remediation PASS.
+- Public runtime stale issue đã được sửa.
+- Browser DOM parity PASS.
+- Strict validator PASS.
+- Structural/runtime/idempotency/TypeScript/git diff check PASS.
+- Full repository test/build vẫn bị blocker global ngoài PET.
+- Chưa commit hoặc push.
+
+Không chạy lại:
+
+pnpm run test
+pnpm run build
+
+Các blocker global đã được ghi nhận và không liên quan PET.
+
+---
+
+# PHASE A — COMMIT CHECKPOINT TASK 14
+
+## 1. Kiểm tra repository
+
+Chạy:
+
+git rev-parse --show-toplevel
+git status --short
+git diff --name-only
+git diff --stat
+
+Repository root phải là:
+
+D:\App-English-Ryan\Website
+
+## 2. Xác định đúng file Task 14
+
+Chỉ stage các thay đổi liên quan:
+
+- Test 20–29 Part 4–6 blueprints/content.
+- Generated runtime catalog Test 20–29.
+- Generated package catalog Test 20–29.
+- Answer vault Test 20–29 nếu semantic answers thay đổi.
+- Strict validator.
+- Strict remediation script.
+- Runtime/public synchronization fix.
+- Targeted backfill contract tests.
+- Audit/review files cần giữ.
+- session_summary.md entry Task 14.
+
+Không stage:
+
+- FCE/KET/listening.
+- CRLF-only noise.
+- Playwright logs.
+- `.claude`, `.hermes` hoặc agent tooling.
+- Excel lock files.
+- unrelated temp scripts.
+- global test/build fixes.
+- Batch 4 files nếu Task 14 không sửa chúng.
+
+## 3. Guard scan
+
+Trước commit, in staged paths:
+
+git diff --cached --name-only
+
+FAIL nếu staged paths có:
+
+- FCE
+- KET
+- listening
+- unrelated admin/security
+- Playwright logs
+- agent tooling
+- Batch 4 blueprint/catalog ngoài phạm vi
+
+## 4. Verification checkpoint
+
+Chạy lại targeted checks:
+
+node scripts/reading/validate-pet-b1-reading-strict.mjs
+
+Và các command chính xác hiện có cho:
+
+- Test 20–29 backfill contract.
+- Quality audit.
+- Runtime catalog validator.
+- Structural validator.
+- TypeScript.
+- Idempotency Test 20–29.
+- git diff --check.
+
+Không chạy full repository test/build.
+
+## 5. Commit
+
+Commit message:
+
+fix(reading): expand PET B1 tests 20-29 passages
+
+Không push.
+
+Sau commit, report:
+
+Commit SHA:
+Files committed:
+Uncommitted PET files:
+Unrelated dirty files:
+Push status: NOT PUSHED
+
+---
+
+# PHASE B — BATCH 5: TESTS 36–40
+
+Chỉ bắt đầu Phase B sau khi Phase A commit thành công.
+
+Không sửa lại Task 14.
+
+## 1. Phạm vi
+
+Quality-repair đầy đủ:
+
+- Test 36
+- Test 37
+- Test 38
+- Test 39
+- Test 40
+
+Không sửa:
+
+- Test 01, 13
+- Test 14–35
+- Test 41–51
+- FCE/KET/listening
+- global blockers
+- Part 2 shared UI trừ regression fix thật sự bắt buộc
+
+Không commit hoặc push Batch 5 trong lượt này.
+
+---
+
+# 2. Source of truth
+
+Tạo canonical blueprints:
+
+scripts/reading/pet-b1/blueprints/test-36.mjs
+scripts/reading/pet-b1/blueprints/test-37.mjs
+scripts/reading/pet-b1/blueprints/test-38.mjs
+scripts/reading/pet-b1/blueprints/test-39.mjs
+scripts/reading/pet-b1/blueprints/test-40.mjs
+
+Không dùng fallback prose.
+
+Không dùng shared learner-facing scaffold.
+
+Mở rộng:
+
+scripts/reading/pet-b1/content-matrix.json
+
+---
+
+# 3. Part 1
+
+Mỗi test:
+
+- 5 questions.
+- 3 options mỗi câu.
+- 25–70 learner-facing words/card.
+- Ít nhất 4 communication types.
+- Ít nhất 4 reading skills.
+- Semantic HTML/CSS.
+- Không image.
+- Không repeated opening/stem.
+- Không copy Test 14–35 rồi thay tên.
+
+---
+
+# 4. Part 2
+
+Mỗi test:
+
+- 5 profiles.
+- 8 options.
+- 25–45 words/profile.
+- 45–75 words/option description.
+- Explicit title.
+- Stable semantic key.
+- openingStyle.
+- constraints.
+- stable imageSlotId.
+- 5 unique correct options.
+- 3 unused distractors.
+
+Diversity:
+
+- ít nhất 5 opening styles.
+- max 2 article-led.
+- max 2 time-led.
+- không duplicate first 3 normalized tokens.
+- không repeated clause >8 words.
+- không shared sequence.
+- không shared scaffold.
+
+Runtime:
+
+- Full-card drag/drop.
+- Title + full description trong selected card.
+- Move/reassign/remove.
+- Unique assignment.
+- Navigation persistence.
+- Asset preservation.
+
+---
+
+# 5. Part 3
+
+Mỗi test:
+
+- 300–380 learner-facing words.
+- Ít nhất 4 paragraphs.
+- 5 questions.
+- 4 options mỗi câu.
+- Ít nhất 4 skills:
+  - main idea
+  - detail
+  - reason
+  - attitude
+  - inference
+  - purpose
+  - reference
+
+Mỗi câu cần:
+
+- semantic correct key.
+- evidence.
+- distractor rationale.
+
+---
+
+# 6. Part 4 — dùng strict target mới
+
+Mỗi test:
+
+- 300–360 learner-facing words.
+- Ưu tiên 315–345.
+- Đúng 5 paragraphs.
+- Mỗi paragraph đúng 1 gap.
+- Q16 → Q20 theo reading order.
+- Mỗi paragraph khoảng 55–75 words.
+- Ít nhất 35 words trước Q16.
+- Ít nhất 35 words giữa các gaps.
+- Ít nhất 35 words sau Q20.
+- Tối thiểu 14 sentences.
+- 8 sentence options.
+- 5 correct.
+- 3 distractors.
+
+Schema semantic:
+
+{
+  key,
+  correctForGap,
+  text
+}
+
+Answer derivation:
+
+semantic key
+→ deterministic shuffle
+→ displayed label
+→ answer vault
+
+Không derive từ array index.
+
+Passage phải cohesive, không padding.
+
+---
+
+# 7. Part 5 — dùng strict target mới
+
+Mỗi test:
+
+- 180–220 learner-facing words.
+- Ưu tiên 190–210.
+- Tối thiểu 8 sentences.
+- Đúng Q21–Q26.
+- 6 structured inline gaps.
+- 4 options A–D mỗi gap.
+- Ít nhất 4 language target categories.
+- Gaps phân bố xuyên passage.
+- Có opening, development, supporting detail và conclusion.
+
+Không tính options vào word count.
+
+Không dùng `simplePart5` nếu helper đó làm passage ngắn hoặc mất rationale.
+
+---
+
+# 8. Part 6 — dùng strict target mới
+
+Mỗi test:
+
+- 160–200 learner-facing words.
+- Ưu tiên 170–190.
+- Tối thiểu 7 sentences.
+- Đúng Q27–Q32.
+- Structured inline gaps.
+- Không options.
+- Mỗi answer đúng 1 lowercase word.
+- Ít nhất 5 grammar categories.
+- Không category nào quá 2 lần.
+- Ít nhất 20 words sau Q32.
+- Gaps phân bố tự nhiên.
+
+Không có alternative answer phổ biến.
+
+---
+
+# 9. Strict word counting
+
+Dùng đúng helper đã sửa trong Task 14.
+
+Word count phải đọc learner-facing runtime passage.
+
+Không tính:
+
+- title
+- instructions
+- option texts
+- answer choices
+- gap labels
+- question numbers
+- rationale
+- metadata
+
+Validator strict phải chạy trên:
+
+apps/web/public/catalog/exams/reading
+
+Không chỉ chạy trên:
+
+packages/catalog/data
+
+Package và public runtime phải được kiểm tra parity.
+
+---
+
+# 10. Public runtime synchronization
+
+Sau generation:
+
+- Package JSON và public runtime JSON phải đồng bộ.
+- Không để public runtime stale.
+- Thêm parity assertion:
+  - passage text hash
+  - question count
+  - answer vault
+  - word counts
+
+Nếu package PASS nhưng public runtime khác:
+
+Task FAIL.
+
+---
+
+# 11. Similarity
+
+So sánh Test 36–40 với:
+
+- Test 01
+- Test 13
+- Test 14–35
+- Test 41–51 hiện có
+- lẫn nhau
+
+FAIL khi:
+
+- exact duplicate.
+- repeated sentence >10 words.
+- repeated clause >8 words.
+- repeated opening phrase >8 words.
+- shared scaffold.
+- near-duplicate vượt threshold.
+- chỉ đổi tên, địa điểm hoặc domain noun.
+
+Report 15 similarity pairs cao nhất với text thật.
+
+---
+
+# 12. Audit files
+
+Tạo:
+
+tmp/pet-b1-reading-quality-batch-36-40-audit.json
+tmp/pet-b1-reading-quality-batch-36-40-audit.md
+tmp/pet-b1-reading-quality-batch-36-40-review.md
+
+Review file chứa đầy đủ learner-facing Part 1–6.
+
+Mỗi part report:
+
+- word count.
+- paragraph count.
+- sentence count.
+- gap count.
+- skills/targets.
+- semantic answer key.
+- rationale section riêng.
+
+---
+
+# 13. Runtime contract
+
+Load bằng production catalog loader.
+
+Mỗi test phải có:
+
+- 6 parts.
+- 32 questions.
+- 32 answers.
+
+Part 2:
+
+- title.
+- full description.
+- stable key.
+- imageSlotId.
+- DnD compatible.
+
+Part 4:
+
+- 5 paragraphs.
+- 5 gaps.
+- 8 options.
+- semantic answer mapping.
+
+Part 5:
+
+- 6 gaps.
+- 4 options mỗi gap.
+
+Part 6:
+
+- 6 gaps.
+- no options.
+- one-word answers.
+
+---
+
+# 14. Automated validation
+
+Chạy:
+
+- targeted generation Test 36–40.
+- strict learner-facing validator.
+- public/package runtime parity.
+- structural validator.
+- runtime catalog validator.
+- answer-vault consistency.
+- Part 2 diversity validator.
+- Part 2 runtime-contract tests.
+- Part 2 DnD component tests.
+- Part 4 layout validator.
+- Part 4 distribution validator.
+- Part 4 semantic mapping tests.
+- Part 5 contract tests.
+- Part 6 contract tests.
+- similarity validator.
+- asset-preservation test.
+- targeted PET Vitest.
+- TypeScript.
+- idempotency Test 36–40.
+- git diff --check.
+
+Không chạy full repository test/build.
+
+---
+
+# 15. Manual browser smoke
+
+Kiểm tra:
+
+- Test 36
+- Test 40
+
+Part 2:
+
+- full-card drag/drop.
+- move/reassign/remove.
+- spacing giữa option cards.
+- navigation persistence.
+
+Part 4:
+
+- 5 balanced paragraphs.
+- passage đủ dài.
+- một gap mỗi paragraph.
+- shuffled options.
+- answer checking đúng.
+
+Part 5:
+
+- passage đủ dài.
+- Q21–Q26.
+- 4 options mỗi gap.
+
+Part 6:
+
+- passage đủ dài.
+- Q27–Q32.
+- text input.
+- no options.
+
+Đo DOM word counts và so với strict validator.
+
+Sai lệch tối đa:
+
+±2 words
+
+Console:
+
+0 JavaScript errors.
+
+---
+
+# 16. Acceptance criteria
+
+Chỉ PASS khi:
+
+[ ] Test 36–40 có canonical blueprints
+[ ] Part 1 đạt content contract
+[ ] Part 2 không shared scaffold
+[ ] Part 2 DnD không regression
+[ ] Part 3 đạt 300–380 words
+[ ] Part 4 đạt 300–360 words
+[ ] Part 4 có 5 balanced paragraphs
+[ ] Part 4 semantic mapping đúng
+[ ] Part 5 đạt 180–220 words
+[ ] Part 5 có 6 gaps và 4 options
+[ ] Part 6 đạt 160–200 words
+[ ] Part 6 answers đều one-word
+[ ] Public/package parity PASS
+[ ] DOM parity PASS
+[ ] Similarity PASS
+[ ] TypeScript PASS
+[ ] Idempotency PASS
+[ ] git diff --check PASS
+[ ] Manual Test 36/40 PASS
+
+---
+
+# 17. Báo cáo cuối
+
+Task 14 checkpoint commit:
+Commit SHA:
+Push status:
+
+Batch:
+Tests completed:
+
+Part 1:
+Part 2:
+Part 3:
+Part 4 strict counts:
+Part 5 strict counts:
+Part 6 strict counts:
+
+Public/package parity:
+DOM parity:
+Part 4 semantic mappings:
+Part 5 language targets:
+Part 6 grammar targets:
+
+Exact duplicates:
+Repeated clauses:
+Highest similarity pairs:
+Asset preservation:
+
+Manual Test 36:
+Manual Test 40:
+Structural:
+Runtime contract:
+Targeted tests:
+TypeScript:
+Idempotency:
+git diff --check:
+
+Files changed:
+Remaining issues:
+Ready for Batch 6:
+
+Dừng sau Test 36–40.
+Không commit hoặc push Batch 5.

@@ -1,0 +1,812 @@
+{
+  "id": "catalog-reading-pet-b1-test31",
+  "title": "PET B1 Reading – Test 31",
+  "durationMinutes": 45,
+  "bandHint": "B1 Preliminary Reading – 6 parts",
+  "examTrack": "cambridge",
+  "cambridgeLevel": "b1",
+  "catalogCanonical": true,
+  "parts": [
+    {
+      "id": "catalog-reading-pet-b1-test31-part-1",
+      "partNumber": 1,
+      "renderMode": "html-css",
+      "rangeLabel": "Questions 1–5",
+      "passageTitle": "Part 1 – Short texts",
+      "passage": [
+        {
+          "text": "Repair cafés notice\nThe repair cafés team needs helpers on Saturday. Bring gloves and arrive before nine."
+        },
+        {
+          "text": "Message from a friend\nI have booked the broken appliances session for Tuesday, but I may arrive late. Please start without me and save a place."
+        },
+        {
+          "text": "Information sign\nVisitors to the repair cafés may use the tools, but they must return them before leaving."
+        },
+        {
+          "text": "Short announcement\nThe volunteers meeting has moved from Room 2 to Room 4 because the first room is being painted."
+        },
+        {
+          "text": "Notice for members\nMembers can borrow one broken appliances guide for a week. Ask at the desk if you need another copy."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test31-part-1-g0",
+          "range": "Questions 1–5",
+          "instruction": "For each question, choose the correct answer A, B or C.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test31-part-1-q1",
+              "number": 1,
+              "type": "multiple-choice",
+              "prompt": "What should volunteers do?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Bring gloves and arrive early."
+                },
+                {
+                  "id": "B",
+                  "label": "Pay for equipment at the gate."
+                },
+                {
+                  "id": "C",
+                  "label": "Work there every morning."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test31-part-1-q2",
+              "number": 2,
+              "type": "multiple-choice",
+              "prompt": "What does the writer ask the friend to do?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Wait until Tuesday evening."
+                },
+                {
+                  "id": "B",
+                  "label": "Begin the session if necessary."
+                },
+                {
+                  "id": "C",
+                  "label": "Cancel the booking."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test31-part-1-q3",
+              "number": 3,
+              "type": "multiple-choice",
+              "prompt": "What must visitors do?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Take the tools home."
+                },
+                {
+                  "id": "B",
+                  "label": "Use the tools only outdoors."
+                },
+                {
+                  "id": "C",
+                  "label": "Return the tools after use."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test31-part-1-q4",
+              "number": 4,
+              "type": "multiple-choice",
+              "prompt": "Why has the meeting moved?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "The original room is unavailable."
+                },
+                {
+                  "id": "B",
+                  "label": "The meeting has finished early."
+                },
+                {
+                  "id": "C",
+                  "label": "More people have joined the group."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test31-part-1-q5",
+              "number": 5,
+              "type": "multiple-choice",
+              "prompt": "What is the rule about guides?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Members may keep one for a week."
+                },
+                {
+                  "id": "B",
+                  "label": "Only visitors may borrow one."
+                },
+                {
+                  "id": "C",
+                  "label": "All copies must be returned that day."
+                }
+              ],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-pet-b1-test31-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 6–10",
+      "passageTitle": "Part 2 – Matching",
+      "passage": [
+        {
+          "text": "The people below want to choose from repair cafés and fixing household items. Decide which option is most suitable."
+        },
+        {
+          "label": "A",
+          "text": "Fix it Saturday workshop — A morning workshop where volunteers repair lamps, radios and small chairs brought from home; tables are set up for one object per visitor, tools and replacement fuses are provided free, and every finished repair is tested before it leaves. Beginners receive step-by-step coaching from the bench leader.",
+          "imageSlotId": "catalog-reading-pet-b1-test31-part-2-option-a-image",
+          "imageRequired": false
+        },
+        {
+          "label": "B",
+          "text": "Weeknight drop in repair bench — An open evening bench that runs every Tuesday and Thursday until late, so people who finish work after six can still bring a broken item. No booking is needed, the first half hour is free of charge, and volunteers will assess any household object you carry through the door; return visits are welcome.",
+          "imageSlotId": "catalog-reading-pet-b1-test31-part-2-option-b-image",
+          "imageRequired": false
+        },
+        {
+          "label": "C",
+          "text": "Appliance diagnosis clinic — A clinic focused on finding out why an appliance has stopped working before anyone buys a single part. Visitors describe the fault, watch a safe inspection, and leave with a written list of likely causes and the cheapest honest next steps, since no repair is attempted during the first visit.",
+          "imageSlotId": "catalog-reading-pet-b1-test31-part-2-option-c-image",
+          "imageRequired": false
+        },
+        {
+          "label": "D",
+          "text": "Mobile repair van — A van that visits three neighbourhoods each week, parking near the community centre and the local market so no one travels far with a heavy item. Two technicians take small electrical goods, lamps and folding chairs with minor damage, and a simple repair is often finished while you shop.",
+          "imageSlotId": "catalog-reading-pet-b1-test31-part-2-option-d-image",
+          "imageRequired": false
+        },
+        {
+          "label": "E",
+          "text": "Tool library with mentor corner — A lending library where members borrow drills, sewing machines and soldering irons for a week, plus a corner staffed by retired engineers who answer questions on the spot. The membership is shared between two nearby buildings, and any household task, from re-gluing a chair leg to tightening a mixer tap, can be discussed there.",
+          "imageSlotId": "catalog-reading-pet-b1-test31-part-2-option-e-image",
+          "imageRequired": false
+        },
+        {
+          "label": "F",
+          "text": "Teen repair skills club — A Saturday club for fourteen-to-seventeen-year-olds who want to build confidence with real tools. Each session starts with one simple project, such as repairing a bicycle pump or restringing a chair, finishes with the finished item going home, and is always supervised by a trained tutor with a fixed age limit.",
+          "imageSlotId": "catalog-reading-pet-b1-test31-part-2-option-f-image",
+          "imageRequired": false
+        },
+        {
+          "label": "G",
+          "text": "Make it last course — A four-week course that teaches basic skills so graduates can keep household items going for years instead of replacing them. Participants practise rewiring a plug, patching fabric, oiling hinges and descaling a kettle, and those who finish receive a certificate that opens the way to volunteering at any local repair bench.",
+          "imageSlotId": "catalog-reading-pet-b1-test31-part-2-option-g-image",
+          "imageRequired": false
+        },
+        {
+          "label": "H",
+          "text": "Fair cost repair fund — A scheme where residents on a limited income can have one household item repaired each month for a small donation instead of the usual price. Eligibility depends on a short check of circumstances, the work happens at partner workshops, and spare parts are covered when they cost under a set amount.",
+          "imageSlotId": "catalog-reading-pet-b1-test31-part-2-option-h-image",
+          "imageRequired": false
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test31-part-2-g0",
+          "range": "Questions 6–10",
+          "instruction": "For each question, choose the most suitable option.",
+          "type": "matching-features",
+          "features": [
+            {
+              "id": "a",
+              "name": "Fix it Saturday workshop — A morning workshop where volunteers repair lamps, radios and small chairs brought from home; tables are set up for one object per visitor, tools and replacement fuses are provided free, and every finished repair is tested before it leaves. Beginners receive step-by-step coaching from the bench leader."
+            },
+            {
+              "id": "b",
+              "name": "Weeknight drop in repair bench — An open evening bench that runs every Tuesday and Thursday until late, so people who finish work after six can still bring a broken item. No booking is needed, the first half hour is free of charge, and volunteers will assess any household object you carry through the door; return visits are welcome."
+            },
+            {
+              "id": "c",
+              "name": "Appliance diagnosis clinic — A clinic focused on finding out why an appliance has stopped working before anyone buys a single part. Visitors describe the fault, watch a safe inspection, and leave with a written list of likely causes and the cheapest honest next steps, since no repair is attempted during the first visit."
+            },
+            {
+              "id": "d",
+              "name": "Mobile repair van — A van that visits three neighbourhoods each week, parking near the community centre and the local market so no one travels far with a heavy item. Two technicians take small electrical goods, lamps and folding chairs with minor damage, and a simple repair is often finished while you shop."
+            },
+            {
+              "id": "e",
+              "name": "Tool library with mentor corner — A lending library where members borrow drills, sewing machines and soldering irons for a week, plus a corner staffed by retired engineers who answer questions on the spot. The membership is shared between two nearby buildings, and any household task, from re-gluing a chair leg to tightening a mixer tap, can be discussed there."
+            },
+            {
+              "id": "f",
+              "name": "Teen repair skills club — A Saturday club for fourteen-to-seventeen-year-olds who want to build confidence with real tools. Each session starts with one simple project, such as repairing a bicycle pump or restringing a chair, finishes with the finished item going home, and is always supervised by a trained tutor with a fixed age limit."
+            },
+            {
+              "id": "g",
+              "name": "Make it last course — A four-week course that teaches basic skills so graduates can keep household items going for years instead of replacing them. Participants practise rewiring a plug, patching fabric, oiling hinges and descaling a kettle, and those who finish receive a certificate that opens the way to volunteering at any local repair bench."
+            },
+            {
+              "id": "h",
+              "name": "Fair cost repair fund — A scheme where residents on a limited income can have one household item repaired each month for a small donation instead of the usual price. Eligibility depends on a short check of circumstances, the work happens at partner workshops, and spare parts are covered when they cost under a set amount."
+            }
+          ],
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test31-part-2-q6",
+              "number": 6,
+              "type": "matching-features",
+              "prompt": "Holly is a recent graduate who rents a flat and knows nothing about repairs. She wants a short structured course where she can learn to keep her kettle, lamp and bicycle working, and she hopes to volunteer at the local repair bench once she finishes.",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test31-part-2-q7",
+              "number": 7,
+              "type": "matching-features",
+              "prompt": "Neil works in a restaurant and never finishes before eight, but his blender stopped working last week. He wants a place where he can simply turn up with the machine late in the evening, without booking, and get honest advice at little cost.",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test31-part-2-q8",
+              "number": 8,
+              "type": "matching-features",
+              "prompt": "Sonia cannot carry her vacuum cleaner across town because of a back problem, and her sewing machine also makes a strange noise. She needs a service that comes close to her street during the week and can finish a small repair quickly.",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test31-part-2-q9",
+              "number": 9,
+              "type": "matching-features",
+              "prompt": "Yusuf is fifteen and his school offers no practical subjects, but he loves taking things apart at home. His parents want him to join a supervised group where he learns with other teenagers and can bring a finished project home each session.",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test31-part-2-q10",
+              "number": 10,
+              "type": "matching-features",
+              "prompt": "Mrs Ford lives on her pension and her radio, floor lamp and door lock all need attention. She cannot pay the usual workshop prices, so she wants a scheme where she pays a small donation and qualifies through a simple check of her income.",
+              "options": [],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-pet-b1-test31-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 11–15",
+      "passageTitle": "Part 3 – repair cafés",
+      "passage": [
+        {
+          "text": "When the volunteers in our town started a repair cafés project, few residents expected it to grow so quickly. At first, the organisers met in a small room and planned one simple activity involving broken appliances. They soon discovered that people were more willing to join when they could see a clear benefit for the neighbourhood. The organisers therefore published a short timetable and invited local businesses to offer practical help."
+        },
+        {
+          "text": "The project was not completely easy. Some volunteers were worried that the work would take too much time, while others wanted to change the plan every week. The team solved this by giving each person one small responsibility and reviewing the results together. This made the project feel manageable, and it also meant that new volunteers could contribute without special experience."
+        },
+        {
+          "text": "Looking back, the organiser says the most important lesson was not the final result but the way people learned to cooperate. The group still has problems, especially when the weather affects outdoor work, yet members now discuss solutions rather than blaming one another. For this reason, the project has become a useful example of how a modest local idea can create lasting connections."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test31-part-3-g0",
+          "range": "Questions 11–15",
+          "instruction": "Read the text and choose the correct answer A, B, C or D.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test31-part-3-q11",
+              "number": 11,
+              "type": "multiple-choice",
+              "prompt": "What was one reason more residents joined the project?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "They could understand its practical value."
+                },
+                {
+                  "id": "B",
+                  "label": "They were promised paid work."
+                },
+                {
+                  "id": "C",
+                  "label": "They wanted to compete with local businesses."
+                },
+                {
+                  "id": "D",
+                  "label": "They were required to attend."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test31-part-3-q12",
+              "number": 12,
+              "type": "multiple-choice",
+              "prompt": "What problem did some volunteers have at the beginning?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "They disagreed about how often to change the plan."
+                },
+                {
+                  "id": "B",
+                  "label": "They could not find a suitable meeting room."
+                },
+                {
+                  "id": "C",
+                  "label": "They lacked permission to contact businesses."
+                },
+                {
+                  "id": "D",
+                  "label": "They had no interest in outdoor work."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test31-part-3-q13",
+              "number": 13,
+              "type": "multiple-choice",
+              "prompt": "How did the team make participation easier?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "It divided the work into smaller responsibilities."
+                },
+                {
+                  "id": "B",
+                  "label": "It removed the timetable completely."
+                },
+                {
+                  "id": "C",
+                  "label": "It asked only experienced people to help."
+                },
+                {
+                  "id": "D",
+                  "label": "It stopped reviewing the results."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test31-part-3-q14",
+              "number": 14,
+              "type": "multiple-choice",
+              "prompt": "What does the organiser value most about the project?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "The cooperation that developed among residents."
+                },
+                {
+                  "id": "B",
+                  "label": "The money earned by local businesses."
+                },
+                {
+                  "id": "C",
+                  "label": "The speed at which the first activity finished."
+                },
+                {
+                  "id": "D",
+                  "label": "The number of changes made to the timetable."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test31-part-3-q15",
+              "number": 15,
+              "type": "multiple-choice",
+              "prompt": "What is the writer’s main point?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A small local project can strengthen a community."
+                },
+                {
+                  "id": "B",
+                  "label": "Outdoor projects are always more successful than indoor ones."
+                },
+                {
+                  "id": "C",
+                  "label": "Volunteers should avoid changing their plans."
+                },
+                {
+                  "id": "D",
+                  "label": "Businesses should organise neighbourhood activities."
+                }
+              ],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-pet-b1-test31-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 16–20",
+      "passageTitle": "Part 4 – repair cafés",
+      "passage": [
+        {
+          "text": "The volunteers began their repair cafés plan with one short meeting. (16) The organisers wrote down the tools that were most often requested. The table was arranged so visitors could see the repair clearly. They also displayed simple examples so visitors could compare a safe repair with an item that needed specialist help. The examples helped visitors understand why patience and careful checking mattered during a repair. ..... The next week, more residents arrived than expected. (17) A short welcome note explained that visitors could watch before trying a repair. A second volunteer checked the instructions before the next item was opened. The extra space allowed members to describe the problem before anyone touched the appliance or searched for a replacement part. Members could then decide whether the appliance was suitable for the café’s limited equipment. ..... They wanted to keep the activity useful rather than simply make it larger. (18) This division gave experienced members a clear way to support beginners. The coordinator welcomed questions and kept difficult jobs for trained members. A short checklist covered plugs, batteries and moving pieces, which gave beginners a clear order for their first attempt. The checklist was revised whenever a beginner asked a useful question about safety. ..... The organisers therefore asked members to choose one task each. (19) The rota also meant that nobody had to solve every problem alone. This made the session calmer when several people arrived at once. Members shared the jobs carefully, and the coordinator stayed available when a repair involved an unfamiliar material. This approach left enough time for explanations as well as practical work. ..... The work became easier to manage, and new volunteers quickly understood what to do. (20) ..... The project now meets regularly and welcomes anyone who wants to take part. By the following month, the café had a reliable timetable and a waiting list. The group also learned which spare parts were worth keeping. The organisers reviewed the results at the end and decided which advice should appear on the next notice. The next meeting would begin with the lessons recorded from these repairs."
+        },
+        {
+          "label": "A",
+          "text": "This was the first sign that the idea might work."
+        },
+        {
+          "label": "B",
+          "text": "For that reason, the group changed its meeting place."
+        },
+        {
+          "label": "C",
+          "text": "As a result, several people offered to help."
+        },
+        {
+          "label": "D",
+          "text": "The organisers had not expected such a quick response."
+        },
+        {
+          "label": "E",
+          "text": "Even so, the original aim remained the same."
+        },
+        {
+          "label": "F",
+          "text": "They later used the same method in another area."
+        },
+        {
+          "label": "G",
+          "text": "This made the final decision much easier."
+        },
+        {
+          "label": "H",
+          "text": "In the end, everyone agreed to continue."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test31-part-4-g0",
+          "range": "Questions 16–20",
+          "instruction": "Choose the sentence which fits each gap.",
+          "type": "matching-features",
+          "features": [
+            {
+              "id": "a",
+              "name": "This was the first sign that the idea might work."
+            },
+            {
+              "id": "b",
+              "name": "For that reason, the group changed its meeting place."
+            },
+            {
+              "id": "c",
+              "name": "As a result, several people offered to help."
+            },
+            {
+              "id": "d",
+              "name": "The organisers had not expected such a quick response."
+            },
+            {
+              "id": "e",
+              "name": "Even so, the original aim remained the same."
+            },
+            {
+              "id": "f",
+              "name": "They later used the same method in another area."
+            },
+            {
+              "id": "g",
+              "name": "This made the final decision much easier."
+            },
+            {
+              "id": "h",
+              "name": "In the end, everyone agreed to continue."
+            }
+          ],
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test31-part-4-q16",
+              "number": 16,
+              "type": "gap-fill",
+              "prompt": "Gap 16",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test31-part-4-q17",
+              "number": 17,
+              "type": "gap-fill",
+              "prompt": "Gap 17",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test31-part-4-q18",
+              "number": 18,
+              "type": "gap-fill",
+              "prompt": "Gap 18",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test31-part-4-q19",
+              "number": 19,
+              "type": "gap-fill",
+              "prompt": "Gap 19",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test31-part-4-q20",
+              "number": 20,
+              "type": "gap-fill",
+              "prompt": "Gap 20",
+              "options": [],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-pet-b1-test31-part-5",
+      "partNumber": 5,
+      "rangeLabel": "Questions 21–26",
+      "passageTitle": "Part 5 – repair cafés",
+      "passage": [
+        {
+          "text": "The volunteers usually meet (21) ........ Saturday. New members are shown how to (22) ........ the equipment. They can ask for advice if they are (23) ........ about a task. The group works together (24) ........ everyone can learn. Members often share ideas (25) ........ the session. The project has become a popular way to meet (26) ........ people. The coordinator keeps a simple list of jobs and checks it before each meeting. Members bring small items from home, explain what has gone wrong and listen before opening anything. Some repairs take only a few minutes, while others need a second visit or a spare part. The group never promises that every object can be saved, but it does explain the safest next step. This honest approach has encouraged neighbours to try repairing things instead of replacing them immediately. At the end of each session, members clean the tables and return tools to labelled drawers. They record unfinished jobs so that a different volunteer can continue later. This small system has reduced confusion and made the café more dependable for people who have limited time. The organisers explain each decision clearly, so visitors know what they can safely attempt."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test31-part-5-g0",
+          "range": "Questions 21–26",
+          "instruction": "For each question, choose the correct answer A, B, C or D.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test31-part-5-q21",
+              "number": 21,
+              "type": "multiple-choice",
+              "prompt": "Gap (21)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "every"
+                },
+                {
+                  "id": "B",
+                  "label": "each"
+                },
+                {
+                  "id": "C",
+                  "label": "whole"
+                },
+                {
+                  "id": "D",
+                  "label": "all"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test31-part-5-q22",
+              "number": 22,
+              "type": "multiple-choice",
+              "prompt": "Gap (22)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "use"
+                },
+                {
+                  "id": "B",
+                  "label": "make"
+                },
+                {
+                  "id": "C",
+                  "label": "bring"
+                },
+                {
+                  "id": "D",
+                  "label": "hold"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test31-part-5-q23",
+              "number": 23,
+              "type": "multiple-choice",
+              "prompt": "Gap (23)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "uncertain"
+                },
+                {
+                  "id": "B",
+                  "label": "narrow"
+                },
+                {
+                  "id": "C",
+                  "label": "single"
+                },
+                {
+                  "id": "D",
+                  "label": "empty"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test31-part-5-q24",
+              "number": 24,
+              "type": "multiple-choice",
+              "prompt": "Gap (24)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "so that"
+                },
+                {
+                  "id": "B",
+                  "label": "unless"
+                },
+                {
+                  "id": "C",
+                  "label": "although"
+                },
+                {
+                  "id": "D",
+                  "label": "before"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test31-part-5-q25",
+              "number": 25,
+              "type": "multiple-choice",
+              "prompt": "Gap (25)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "during"
+                },
+                {
+                  "id": "B",
+                  "label": "between"
+                },
+                {
+                  "id": "C",
+                  "label": "inside"
+                },
+                {
+                  "id": "D",
+                  "label": "through"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test31-part-5-q26",
+              "number": 26,
+              "type": "multiple-choice",
+              "prompt": "Gap (26)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "local"
+                },
+                {
+                  "id": "B",
+                  "label": "private"
+                },
+                {
+                  "id": "C",
+                  "label": "silent"
+                },
+                {
+                  "id": "D",
+                  "label": "rare"
+                }
+              ],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-pet-b1-test31-part-6",
+      "partNumber": 6,
+      "rangeLabel": "Questions 27–32",
+      "passageTitle": "Part 6 – repair cafés",
+      "passage": [
+        {
+          "text": "The volunteers meet (27) ........ week to plan activities. New members learn (28) ........ to use the broken appliances safely. They can join the work, (29) ........ they should follow the group’s instructions. The project has kept useful materials (30) ........ being thrown away. It is a place (31) ........ people can exchange ideas. Remember (32) ........ ask for help when you need it. Before a visitor starts, a volunteer checks that the workspace is safe and asks what the owner already knows. The group records useful advice in a shared notebook. If a repair cannot be completed, members explain the reason clearly and suggest where professional help might be found. This makes the café friendly as well as practical, and it helps new volunteers learn from real examples. The notebook also records which tools are safe for beginners. A short explanation is given before anyone switches on equipment. These habits protect visitors and make the volunteers more confident when an unfamiliar object arrives."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test31-part-6-g0",
+          "range": "Questions 27–32",
+          "instruction": "Write one word for each gap.",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test31-part-6-q27",
+              "number": 27,
+              "type": "gap-fill",
+              "prompt": "Gap (27)",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test31-part-6-q28",
+              "number": 28,
+              "type": "gap-fill",
+              "prompt": "Gap (28)",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test31-part-6-q29",
+              "number": 29,
+              "type": "gap-fill",
+              "prompt": "Gap (29)",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test31-part-6-q30",
+              "number": 30,
+              "type": "gap-fill",
+              "prompt": "Gap (30)",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test31-part-6-q31",
+              "number": 31,
+              "type": "gap-fill",
+              "prompt": "Gap (31)",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test31-part-6-q32",
+              "number": 32,
+              "type": "gap-fill",
+              "prompt": "Gap (32)",
+              "options": [],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

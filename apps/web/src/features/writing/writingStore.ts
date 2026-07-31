@@ -1,6 +1,17 @@
 import { create } from 'zustand'
 import type { WritingGuide, WritingScore } from '@ryan/core'
 
+const ACTIVE_WRITING_DOC_KEY = 'ryan-writing-active-doc-id'
+
+function readActiveDocId(): string | null {
+  if (typeof window === 'undefined') return null
+  try {
+    return window.localStorage.getItem(ACTIVE_WRITING_DOC_KEY)
+  } catch {
+    return null
+  }
+}
+
 interface WritingState {
   activeDocId: string | null
   score: WritingScore | null
@@ -22,7 +33,7 @@ interface WritingState {
 }
 
 export const useWritingStore = create<WritingState>()((set) => ({
-  activeDocId: null,
+  activeDocId: readActiveDocId(),
   score: null,
   isGrading: false,
   gradingError: null,
@@ -30,7 +41,16 @@ export const useWritingStore = create<WritingState>()((set) => ({
   guideDocId: null,
   isGuideLoading: false,
   guideError: null,
-  setActiveDoc: (id) => set({
+  setActiveDoc: (id) => {
+    if (typeof window !== 'undefined') {
+      try {
+        if (id) window.localStorage.setItem(ACTIVE_WRITING_DOC_KEY, id)
+        else window.localStorage.removeItem(ACTIVE_WRITING_DOC_KEY)
+      } catch {
+        // Local storage can be unavailable in privacy-restricted browsers.
+      }
+    }
+    set({
     activeDocId: id,
     score: null,
     gradingError: null,
@@ -38,7 +58,8 @@ export const useWritingStore = create<WritingState>()((set) => ({
     guideDocId: null,
     guideError: null,
     isGuideLoading: false,
-  }),
+    })
+  },
   setScore: (score) => set({ score, gradingError: null }),
   setGrading: (v) => set({ isGrading: v }),
   setError: (err) => set({ gradingError: err, isGrading: false }),

@@ -1,0 +1,266 @@
+{
+  "34": {
+    "domain": "school libraries and reading spaces",
+    "options": [
+      {
+        "key": "option-a",
+        "title": "Lunchtime book circle with audio",
+        "description": "A weekly book circle held in the library at midday every Wednesday. Members choose a story together, listen to audio editions on shared headphones and chat about the plot over sandwiches. New members can join mid-term without booking, no homework is set between meetings, and everyone leaves with a short list of books to try next.",
+        "openingStyle": "schedule-led",
+        "constraints": ["Wednesday midday", "audio editions", "no booking", "no homework"]
+      },
+      {
+        "key": "option-b",
+        "title": "Silent homework corner after lessons",
+        "description": "A calm study area open from the final bell until five o'clock on school days. The corner has individual desks, power sockets and free Wi-Fi, and mobile phones must stay switched off. Students may bring drinks but not food, and a helper quietly collects books that need returning to the shelves.",
+        "openingStyle": "feature-led",
+        "constraints": ["after school", "silent area", "power sockets and Wi-Fi", "no food"]
+      },
+      {
+        "key": "option-c",
+        "title": "Saturday storytelling hour for young pupils",
+        "description": "An hour of picture-book storytelling held on Saturday mornings for children aged six to eight. A volunteer reads aloud, families join together and every child takes home a bookmark with the story list. No previous library membership is needed, and the session repeats each month so families can choose the date that suits them best.",
+        "openingStyle": "audience-led",
+        "constraints": ["Saturday mornings", "ages six to eight", "families together", "no membership"]
+      },
+      {
+        "key": "option-d",
+        "title": "Online ebook club from home",
+        "description": "A digital reading club where members borrow ebooks through the school app and share short reviews on a weekly message board. Everything happens online, so there are no travel costs, and the club stays open during holidays. A parent account is required for members under twelve, and new titles arrive each month.",
+        "openingStyle": "activity-led",
+        "constraints": ["online from home", "ebooks on the app", "weekly reviews", "parent account under twelve"]
+      },
+      {
+        "key": "option-e",
+        "title": "Exam revision zone with tutor drop-ins",
+        "description": "A supervised revision space for older students sitting their final summer exams. Subject tutors drop in each Tuesday and Thursday afternoon, and printed revision guides cover English, maths and science. Attendance is free, but the zone is reserved for pupils who have already returned all borrowed books, so the room stays calm and well-stocked.",
+        "openingStyle": "need-led",
+        "constraints": ["final year exams", "tutor drop-ins", "printed revision guides", "borrowed books returned"]
+      },
+      {
+        "key": "option-f",
+        "title": "Library helper badge programme",
+        "description": "A volunteer programme where students sort returned shelves, repair torn pages and guide new pupils to the catalogue. Helpers attend a short training session, meet other volunteers in the library kitchen and earn a badge after six weeks. The role suits pupils who can arrive ten minutes early on their chosen weekday.",
+        "openingStyle": "outcome-led",
+        "constraints": ["volunteer duties", "training session", "badge after six weeks", "arrive early on a weekday"]
+      },
+      {
+        "key": "option-g",
+        "title": "Reading corner makeover team",
+        "description": "A small team that redesigns the library reading corner, choosing cushions, posters and a new display shelf. The project runs for one term on Thursday afternoons, and members must attend most sessions to finish the design. Spaces are limited, and previous art skills are welcome but not required.",
+        "openingStyle": "condition-led",
+        "constraints": ["redesign project", "Thursday afternoons for one term", "attend most sessions", "limited spaces"]
+      },
+      {
+        "key": "option-h",
+        "title": "Creative writing circle in the studio",
+        "description": "A writing circle that meets in the library's upstairs studio, where pupils compose short stories and poems on shared laptops. Finished work appears in the school magazine each term, and an editor gives friendly feedback. The circle takes eight members and opens twice a year, in September and January.",
+        "openingStyle": "location-led",
+        "constraints": ["upstairs studio", "short stories and poems", "magazine publication", "max eight members", "twice a year"]
+      }
+    ],
+    "profiles": [
+      {
+        "key": "profile-1",
+        "text": "Arif is in his final year and revising for summer exams in English and maths. He wants free tutor help on weekday afternoons and printed study guides, but he still owes two library books that he plans to return this week.",
+        "correctOptionKey": "option-e"
+      },
+      {
+        "key": "profile-2",
+        "text": "Chloe wants a quiet place to finish homework after the last lesson without being disturbed. She needs a desk with power for her laptop and free internet, and she wants to keep her phone off while she works.",
+        "correctOptionKey": "option-b"
+      },
+      {
+        "key": "profile-3",
+        "text": "Nina enjoys writing short stories at home and would like feedback from someone who reads carefully. She can manage one fixed meeting each term, wants her work published somewhere, and prefers a small group in a quiet room.",
+        "correctOptionKey": "option-h"
+      },
+      {
+        "key": "profile-4",
+        "text": "Rosa has no free time after school because of football practice, but she is free in the middle of the day. She wants to listen to stories rather than read long pages, and she prefers activities where she can start without booking.",
+        "correctOptionKey": "option-a"
+      },
+      {
+        "key": "profile-5",
+        "text": "Daniel's family has no car and he lives far from the school library. He wants to borrow ebooks on his tablet, share his thoughts with other readers weekly, and keep reading during the holidays. His mother is happy to create an account for him.",
+        "correctOptionKey": "option-d"
+      }
+    ]
+  },
+  "35": {
+    "domain": "wildlife walks",
+    "options": [
+      {
+        "key": "option-a",
+        "title": "Dawn birdwatch along the river",
+        "description": "An early-morning walk beside the river before school, starting at six o'clock on Tuesdays. A guide sets up telescopes so walkers can watch herons and kingfishers, and everyone notes the birds they see on a shared chart. The path is flat, well-marked and takes about an hour.",
+        "openingStyle": "schedule-led",
+        "constraints": ["Tuesday at six", "riverbank flat path", "telescopes supplied", "about an hour"]
+      },
+      {
+        "key": "option-b",
+        "title": "Family bug hunt in the meadow",
+        "description": "A relaxed weekend hunt for insects and pond creatures in a fenced meadow. Children aged four to ten search with nets and magnifying glasses, and every family receives a simple identification card. No previous experience is needed, parents must stay with their children, and the hunt ends with a pond dip.",
+        "openingStyle": "audience-led",
+        "constraints": ["weekend", "children four to ten with parents", "nets and identification card", "no experience"]
+      },
+      {
+        "key": "option-c",
+        "title": "Coastal seal-spotting boat and shore walk",
+        "description": "A guided trip that combines a short boat ride past seal rocks with a shore walk along the low-tide beach. Walkers learn how to behave near wild animals, and the leader carries a radio to check weather changes. The trip suits people who can climb into a small boat and manage gentle slopes.",
+        "openingStyle": "location-led",
+        "constraints": ["coast and shore", "seals", "short boat ride", "weather-checking leader", "gentle slopes"]
+      },
+      {
+        "key": "option-d",
+        "title": "Bat walk after dark in the park",
+        "description": "A two-hour evening walk through the city park using hand-held bat detectors that turn bat calls into sounds visitors can hear. It runs only when the evening is dry and mild, and places are booked online in advance. Torches are provided, but participants should wear warm clothes and sturdy shoes.",
+        "openingStyle": "condition-led",
+        "constraints": ["evening", "bat detectors", "dry mild weather only", "booked online", "sturdy shoes"]
+      },
+      {
+        "key": "option-e",
+        "title": "Botanical trail with wildflower app",
+        "description": "A self-guided route through the botanical gardens where a free app identifies wildflowers and trees from photos. The path is fully accessible and signposted, benches appear every few minutes, and visitors can go at their own pace between opening and closing times. Dogs are not allowed on the trail.",
+        "openingStyle": "feature-led",
+        "constraints": ["self-guided", "free identification app", "fully accessible", "own pace with benches", "no dogs"]
+      },
+      {
+        "key": "option-f",
+        "title": "Mammal tracking skills day",
+        "description": "A full-day practical course where walkers search for footprints, fur and feeding marks in a woodland reserve. Instructors teach each group how to set up a simple camera trap, and the photos are shared in an online gallery afterwards. Lunch is provided, and the course ends with a short skills test.",
+        "openingStyle": "activity-led",
+        "constraints": ["full day", "woodland reserve", "footprints and fur tracking", "camera trap", "lunch provided"]
+      },
+      {
+        "key": "option-g",
+        "title": "Volunteer path-clearing crew",
+        "description": "A working group that clears overgrown paths, repairs wooden steps and removes litter from the nature reserve. Volunteers meet one Saturday each month, tools and gloves are supplied, and the work finishes with a guided look at the wildlife the trail protects. The role needs reasonable fitness and a full morning.",
+        "openingStyle": "outcome-led",
+        "constraints": ["one Saturday each month", "tools and gloves supplied", "physical outdoor work", "full morning", "reasonable fitness"]
+      },
+      {
+        "key": "option-h",
+        "title": "Night-sky walk on the hilltop",
+        "description": "A quiet evening walk up a gently sloping hill to watch stars and listen for owls, led by an astronomer. The pace is slow with frequent rests on benches, head torches are shared and participants can leave at any viewpoint if they feel tired. It begins after sunset and returns to the same car park two hours later.",
+        "openingStyle": "need-led",
+        "constraints": ["evening hilltop", "slow pace with rests", "astronomer guide", "can leave early", "shared torches"]
+      }
+    ],
+    "profiles": [
+      {
+        "key": "profile-1",
+        "text": "Yuki has football training every afternoon, so mornings are her only free time. She wants to watch wild birds using equipment she does not own, follow a flat path that is easy to walk, and finish before breakfast on a school day.",
+        "correctOptionKey": "option-a"
+      },
+      {
+        "key": "profile-2",
+        "text": "Hugo lives near the coast and wants to see seals in the wild without climbing steep hills. He is happy to take a short boat ride, needs a leader who checks the weather, and walks with his young niece who tires on long routes.",
+        "correctOptionKey": "option-c"
+      },
+      {
+        "key": "profile-3",
+        "text": "Jack uses a wheelchair and wants to spend a few hours outdoors at his own pace. He would like a free phone app to identify flowers and trees, a smooth path with benches, and a garden that stays open for most of the day.",
+        "correctOptionKey": "option-e"
+      },
+      {
+        "key": "profile-4",
+        "text": "Nadia recently joined a wildlife club and wants a complete day of practical learning in a woodland reserve. She hopes to search for animal footprints and fur, set up equipment that takes photographs automatically, and share the results online with other members.",
+        "correctOptionKey": "option-f"
+      },
+      {
+        "key": "profile-5",
+        "text": "Marco works from home and feels stiff after sitting at his desk all day. He wants a gentle evening walk on easy ground with frequent rests, an expert who can explain what they see, and the freedom to return early if he grows tired.",
+        "correctOptionKey": "option-h"
+      }
+    ]
+  },
+  "41": {
+    "domain": "cycle routes",
+    "options": [
+      {
+        "key": "option-a",
+        "title": "Weekday commuter workshop at the station",
+        "description": "A practical workshop at the railway station every weekday at eight o'clock, where commuters learn to plan safe routes to work. Trainers cover quick bike checks, helmet fitting and busy junctions, and every session ends with a short ride around the station area. Bikes are not required for the first lesson.",
+        "openingStyle": "schedule-led",
+        "constraints": ["weekday at eight", "railway station", "route planning", "no bike needed for first lesson"]
+      },
+      {
+        "key": "option-b",
+        "title": "Weekend mountain-bike skills park",
+        "description": "A weekend session at the outdoor skills park where riders practise hills, bends and narrow bridges on a closed course. Coaches split teenagers and adults into separate groups, helmets are supplied and beginners start on flat ground before trying slopes. The park closes if the ground is icy.",
+        "openingStyle": "audience-led",
+        "constraints": ["weekend", "closed skills course", "teenagers and adults", "helmets supplied", "closes when icy"]
+      },
+      {
+        "key": "option-c",
+        "title": "Hillside family cycle trail with hire bikes",
+        "description": "A gentle family route that follows a disused railway line through the hills, with hire bikes in every size from child to adult. A picnic area marks the halfway point, water is sold at the start, and the surface is smooth gravel that suits new riders. The route is eight kilometres each way.",
+        "openingStyle": "location-led",
+        "constraints": ["family trail", "bike hire in children's sizes", "flat traffic-free surface", "picnic stop", "new riders welcome"]
+      },
+      {
+        "key": "option-d",
+        "title": "Night riders group with lights and escorts",
+        "description": "An evening cycling club for people who commute after dark. Members ride in a group with front and rear lights, and experienced escorts stay at the front and back of the line. New riders must complete one daytime safety session first, and the group pauses every twenty minutes.",
+        "openingStyle": "condition-led",
+        "constraints": ["evening", "group with escorts", "lights", "daytime safety session first"]
+      },
+      {
+        "key": "option-e",
+        "title": "Cargo-bike delivery trial in the city",
+        "description": "A six-week trial where volunteers deliver small packages around the city centre using electric cargo bikes. The project measures how many car journeys each delivery replaces, and successful riders receive a cycling voucher. Training and bikes are free, but volunteers must be available for one weekday shift each week.",
+        "openingStyle": "outcome-led",
+        "constraints": ["six-week trial", "city-centre package delivery", "electric cargo bikes with free training", "one weekday shift weekly", "reward after six weeks"]
+      },
+      {
+        "key": "option-f",
+        "title": "Gentle health rides with a physiotherapist",
+        "description": "Slow group rides arranged around the health needs of adults recovering from injury. A physiotherapist sets the pace, chooses flat, traffic-free paths and plans stops every few minutes. Bikes with low steps are available, and riders join for as many or as few sessions as they like.",
+        "openingStyle": "need-led",
+        "constraints": ["adults recovering from injury", "physiotherapist-led", "flat traffic-free paths", "frequent stops", "low-step bikes"]
+      },
+      {
+        "key": "option-g",
+        "title": "Long-distance tour planning club",
+        "description": "A club for cyclists who want to plan and ride longer routes, such as a two-day trip to the coast. Members share maps, repair their own bikes in the club workshop and test route notes on practice rides. The club meets twice a month and expects a reasonable level of fitness.",
+        "openingStyle": "feature-led",
+        "constraints": ["long-distance routes", "map sharing", "club workshop", "meets twice a month", "reasonable fitness"]
+      },
+      {
+        "key": "option-h",
+        "title": "School-run cycle bus for families",
+        "description": "A supervised cycle bus that collects children from set points and rides together to the school gate each morning. Adults take turns leading and the route changes each term, so families can join from anywhere along the line. Children must pass a balance check and wear a helmet.",
+        "openingStyle": "activity-led",
+        "constraints": ["morning school run", "set pick-up points", "adults take turns leading", "balance check", "helmet"]
+      }
+    ],
+    "profiles": [
+      {
+        "key": "profile-1",
+        "text": "Ben wants to reduce car use in his city and can spare one fixed shift every week. He would like to ride an electric bike with free training, carry small packages in a trial project, and earn a reward after six weeks.",
+        "correctOptionKey": "option-e"
+      },
+      {
+        "key": "profile-2",
+        "text": "Lina has two children aged seven and nine and wants a relaxed ride they can all manage. She needs bikes in child sizes, a flat smooth surface with no traffic, a lunch stop, and a route short enough for half a day.",
+        "correctOptionKey": "option-c"
+      },
+      {
+        "key": "profile-3",
+        "text": "Theo is an experienced cyclist who dreams of riding two days to the coast with friends. He wants help choosing routes and sharing maps, a place to maintain his own bicycle, and a group that tests planned journeys before the real trip.",
+        "correctOptionKey": "option-g"
+      },
+      {
+        "key": "profile-4",
+        "text": "Aria's children are too young to ride alone and the school is two kilometres from home. She wants a supervised morning group that collects children at points along the route, adults who take turns leading, and a balance test before anyone joins.",
+        "correctOptionKey": "option-h"
+      },
+      {
+        "key": "profile-5",
+        "text": "Omar is recovering from a knee operation and wants to start cycling again slowly. He needs rides led by a health professional on flat paths with no traffic, frequent short stops, and a bike that is easy to get on and off.",
+        "correctOptionKey": "option-f"
+      }
+    ]
+  }
+}

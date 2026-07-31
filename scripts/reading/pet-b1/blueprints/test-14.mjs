@@ -183,6 +183,8 @@ export default {
   },
 
   part5: {
+    title: "A Community Garden Brings Neighbours Together",
+    title: "A Community Garden Brings Neighbours Together",
     text: 'The community garden started with a simple idea, but its success depended on careful planning. Each volunteer chose a task that suited their experience, and the organisers kept a record of tools and seeds. A retired teacher explained how to protect young plants, while children learned to recognise insects that help crops grow. When summer became unusually dry, the group collected rainwater and changed the watering schedule. They also shared vegetables with the food bank, which made the project feel connected to the wider neighbourhood. New members are welcome during the Saturday session, although they should contact the coordinator first. The garden is not only a place to grow food; it is also a practical way for neighbours to learn from one another and take responsibility for a shared space.',
     extra: ' The coordinator also checks the visitor book after each session and records suggestions for the following month. This record helps the team decide which tasks should be offered next and welcomes suggestions from regular visitors.',
     specs: [
@@ -196,6 +198,8 @@ export default {
   },
 
   part6: {
+    title: "Preparing the Community Garden",
+    title: "Preparing the Community Garden",
     text: 'Before the garden opened, the organisers checked (27) ........ the ground could drain properly. They invited residents to help, (28) ........ nobody needed previous experience. A notice explained (29) ........ tools were stored and asked visitors to return them after use. The team decided (30) ........ collect rainwater from the centre roof. This meant (31) ........ plants could survive a dry week without using drinking water. Volunteers recorded (32) ........ had watered each plot, so the next person knew what remained to be done.',
     extra: ' The coordinator updates the notice whenever a tool changes location, and members check the list before they leave. This routine helps visitors work independently while keeping the shared room ready for the next group. It also means that a missing screwdriver is reported before it becomes a larger problem. The list is checked weekly.',
     tail: ' The notice is updated whenever the group changes its routine.',

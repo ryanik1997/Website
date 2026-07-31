@@ -13,10 +13,30 @@ import bp21 from './pet-b1/blueprints/test-21.mjs'
 import bp22 from './pet-b1/blueprints/test-22.mjs'
 import bp23 from './pet-b1/blueprints/test-23.mjs'
 import bp24 from './pet-b1/blueprints/test-24.mjs'
+import bp25 from './pet-b1/blueprints/test-25.mjs'
+import bp26 from './pet-b1/blueprints/test-26.mjs'
+import bp27 from './pet-b1/blueprints/test-27.mjs'
+import bp28 from './pet-b1/blueprints/test-28.mjs'
+import bp29 from './pet-b1/blueprints/test-29.mjs'
 import bp30 from './pet-b1/blueprints/test-30.mjs'
+import bp36 from './pet-b1/blueprints/test-36.mjs'
+import bp37 from './pet-b1/blueprints/test-37.mjs'
+import bp38 from './pet-b1/blueprints/test-38.mjs'
+import bp39 from './pet-b1/blueprints/test-39.mjs'
+import bp40 from './pet-b1/blueprints/test-40.mjs'
+import bp41 from './pet-b1/blueprints/test-41.mjs'
+import bp42 from './pet-b1/blueprints/test-42.mjs'
+import bp43 from './pet-b1/blueprints/test-43.mjs'
+import bp44 from './pet-b1/blueprints/test-44.mjs'
+import bp45 from './pet-b1/blueprints/test-45.mjs'
+import bp46 from './pet-b1/blueprints/test-46.mjs'
+import bp47 from './pet-b1/blueprints/test-47.mjs'
+import bp48 from './pet-b1/blueprints/test-48.mjs'
+import bp49 from './pet-b1/blueprints/test-49.mjs'
+import bp50 from './pet-b1/blueprints/test-50.mjs'
 import bp51 from './pet-b1/blueprints/test-51.mjs'
 
-const BLUEPRINTS = { 14: bp14, 15: bp15, 16: bp16, 17: bp17, 18: bp18, 19: bp19, 20: bp20, 21: bp21, 22: bp22, 23: bp23, 24: bp24, 30: bp30, 51: bp51 }
+const BLUEPRINTS = { 14: bp14, 15: bp15, 16: bp16, 17: bp17, 18: bp18, 19: bp19, 20: bp20, 21: bp21, 22: bp22, 23: bp23, 24: bp24, 25: bp25, 26: bp26, 27: bp27, 28: bp28, 29: bp29, 30: bp30, 36: bp36, 37: bp37, 38: bp38, 39: bp39, 40: bp40, 41: bp41, 42: bp42, 43: bp43, 44: bp44, 45: bp45, 46: bp46, 47: bp47, 48: bp48, 49: bp49, 50: bp50, 51: bp51 }
 
 const ROOT = process.cwd()
 const DATA = path.join(ROOT, 'packages/catalog/data')
@@ -228,7 +248,7 @@ function part5(n, topic) {
     [`The ${people} usually meet (21) ........ Saturday.`, ['every', 'each', 'whole', 'all'], 'A', 'every'],
     [`New members are shown how to (22) ........ the equipment.`, ['use', 'make', 'bring', 'hold'], 'A', 'use'],
     [`They can ask for advice if they are (23) ........ about a task.`, ['uncertain', 'narrow', 'single', 'empty'], 'A', 'uncertain'],
-    [`The group works together (24) ........ everyone can learn.`, ['so that', 'unless', 'although', 'before'], 'A', 'so that'],
+    [`The group works together (24) ........ everyone can learn.`, ['so', 'if', 'unless', 'although'], 'A', 'so'],
     [`Members often share ideas (25) ........ the session.`, ['during', 'between', 'inside', 'through'], 'A', 'during'],
     [`The project has become a popular way to meet (26) ........ people.`, ['local', 'private', 'silent', 'rare'], 'A', 'local'],
   ]

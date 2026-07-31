@@ -239,6 +239,8 @@ export default {
   },
 
   part5: {
+    title: "The New Swimming Pool Opens",
+    title: "The New Swimming Pool Opens",
     text: 'The new swimming pool opened on a bright Saturday morning, and residents had been (21) ..... forward to it for months. Before the doors opened, a long queue had already (22) ..... up outside the entrance. The mayor cut a ribbon and thanked the workers who had (23) ..... the building in under two years. Inside, visitors could try the main pool, a smaller teaching pool and a warm jacuzzi. Children were especially excited, and their laughter (24) ..... the building echo. The council had agreed to (25) ..... entry free for the first week, which attracted families who might not otherwise have visited. By closing time, the atmosphere (26) ..... relaxed, and several parents had already signed their children up for lessons.',
     extra: ' The pool manager said the first month exceeded all expectations. Staff are now planning additional early-morning sessions for people who prefer to swim before work.',
     specs: [
@@ -252,6 +254,8 @@ export default {
   },
 
   part6: {
+    title: "Taking Part in a Fun Run",
+    title: "Taking Part in a Fun Run",
     text: 'I arrived (27) ........ the fun run just before eight. A friend (28) ........ I had not seen for months was already stretching near the start. The route, (29) ........ followed the river path, was longer than we expected. We had not trained seriously, (30) ........ we decided to walk the uphill sections. Other runners encouraged us, and (31) ........ made the last kilometre feel shorter. By the finish, my legs were tired, but I (32) ........ still smile.',
     extra: ' The organisers gave every finisher a small medal and a bottle of water. Several people stopped to take photographs, and the atmosphere felt more like a celebration than a race.',
     tail: ' I have already registered for next year, although I plan to train a little harder.',

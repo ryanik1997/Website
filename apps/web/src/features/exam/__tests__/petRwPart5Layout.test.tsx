@@ -157,4 +157,70 @@ describe('Part 5 — horizontal chooser gap', () => {
     fireEvent.click(field)
     expect(document.querySelector('.pet-rw-part5-gap__chooser')).toBeNull()
   })
+
+  // ── Regression: selected answer must NOT replace the question number ──
+
+  it('empty gaps show their question numbers 21–26', () => {
+    render(<Part5Harness />)
+    const fields = document.querySelectorAll('.pet-rw-part5-gap__field') as NodeListOf<HTMLElement>
+    expect(fields).toHaveLength(6)
+    fields.forEach((field, i) => {
+      expect(field.textContent).toContain(String(i + 21))
+    })
+  })
+
+  it('filled gap keeps question number alongside the answer', () => {
+    render(<Part5Harness />)
+    const fields = document.querySelectorAll('.pet-rw-part5-gap__field') as NodeListOf<HTMLElement>
+    // Q23 is the 3rd gap
+    fireEvent.click(fields[2])
+    const option = document.querySelector('.pet-rw-part5-gap__option') as HTMLElement
+    fireEvent.click(option) // 'north'
+    const trigger = fields[2]
+    // The trigger must contain the number AND the selected answer — never the answer alone.
+    expect(trigger.textContent).toContain('23')
+    expect(trigger.textContent).toContain('north')
+    expect(document.querySelector('.pet-rw-part5-gap__number')).toBeTruthy()
+  })
+
+  it('opening dropdown keeps the question number on the trigger', () => {
+    render(<Part5Harness />)
+    const field = document.querySelector('.pet-rw-part5-gap__field') as HTMLElement
+    fireEvent.click(field) // open Q21 chooser
+    expect(field.textContent).toContain('21')
+    expect(document.querySelectorAll('.pet-rw-part5-gap__option')).toHaveLength(4)
+  })
+
+  it('each filled gap keeps its own number (independence)', () => {
+    render(<Part5Harness />)
+    const fields = document.querySelectorAll('.pet-rw-part5-gap__field') as NodeListOf<HTMLElement>
+    for (let i = 0; i < fields.length; i++) {
+      fireEvent.click(fields[i])
+      const option = document.querySelector('.pet-rw-part5-gap__option') as HTMLElement
+      fireEvent.click(option)
+    }
+    fields.forEach((field, i) => {
+      expect(field.textContent).toContain(String(i + 21))
+    })
+  })
+
+  it('dropdown options are single words (no multi-word regression)', () => {
+    render(<Part5Harness />)
+    const field = document.querySelector('.pet-rw-part5-gap__field') as HTMLElement
+    fireEvent.click(field)
+    const options = document.querySelectorAll('.pet-rw-part5-gap__option') as NodeListOf<HTMLElement>
+    expect(options).toHaveLength(4)
+    options.forEach(opt => expect(opt.textContent!.trim().split(/\s+/)).toHaveLength(1))
+  })
+
+  it('persists number and answer when gap is pre-filled (return from another part)', () => {
+    render(<Part5Harness initialAnswers={{ q23: 'c' }} />)
+    const fields = document.querySelectorAll('.pet-rw-part5-gap__field') as NodeListOf<HTMLElement>
+    const trigger = fields[2] // Q23
+    expect(trigger.textContent).toContain('23')
+    expect(trigger.textContent).toContain('east') // q23 option c label
+    // Accessible name includes the number and the selected answer.
+    expect(trigger.getAttribute('aria-label')).toContain('Question 23')
+    expect(trigger.getAttribute('aria-label')).toContain('selected answer east')
+  })
 })

@@ -239,6 +239,8 @@ export default {
   },
 
   part5: {
+    title: "Learning a Musical Instrument",
+    title: "Learning a Musical Instrument",
     text: 'Learning a musical instrument requires patience, and most beginners discover that progress depends (21) ..... regular practice rather than natural talent. When I started the guitar, my teacher told me to (22) ..... up a short routine each morning instead of playing for hours at the weekend. At first, my fingers hurt and the chords sounded unclear, but I (23) ..... on because I enjoyed the feeling of improvement. After three months, I could play a simple song (24) ..... mistakes, which gave me the confidence to join a practice group. The other members were supportive, and their feedback helped me (25) ..... out which notes to emphasise. Looking back, the most important lesson was not technical; it was learning that small daily efforts (26) ..... to noticeable results over time.',
     extra: ' My teacher now recommends the same approach to all her students. She keeps a chart on the wall showing how many consecutive days each person has practised, which creates a friendly sense of motivation.',
     specs: [
@@ -252,6 +254,8 @@ export default {
   },
 
   part6: {
+    title: "Joining the Youth Orchestra",
+    title: "Joining the Youth Orchestra",
     text: 'The youth orchestra (27) ........ I joined last September meets every Wednesday evening. We practise (28) ........ the school hall, which has good acoustics. I was nervous at first, (29) ........ the other members welcomed me quickly. Our conductor chose (30) ........ pieces carefully so that beginners could play alongside experienced musicians. I made several friends, (31) ........ we often walk to the bus stop together after rehearsal. By the winter concert, I no longer felt afraid because (32) ........ had become a familiar routine.',
     extra: ' The orchestra performs three times a year, and families are always invited. New members can attend two trial sessions before deciding whether to commit to the full term.',
     tail: ' The conductor publishes the next term\u2019s music list online so that players can practise difficult sections in advance.',

@@ -1,0 +1,139 @@
+{
+  "base": "http://localhost:5173",
+  "at": "2026-07-30T13:13:41.337Z",
+  "full": [
+    {
+      "test": 20,
+      "cards": 8,
+      "openings": [
+        "Weekend mural painting",
+        "Evening life drawing",
+        "Free photography walk",
+        "Intensive weekend ceramics",
+        "After-school drama club",
+        "Online creative writing",
+        "Monthly heritage storytelling",
+        "Daytime watercolour course"
+      ],
+      "diverse": true,
+      "selectFilled": true,
+      "titleBold": true,
+      "descLen": 334,
+      "removeEmptied": true,
+      "cardFreed": true,
+      "reassign": true,
+      "reassignTarget": true,
+      "persistence": true,
+      "consoleErrors": [],
+      "pass": true
+    },
+    {
+      "test": 15,
+      "cards": 8,
+      "openings": [
+        "Weekday evening Italian",
+        "Saturday family baking",
+        "Free lunchtime soup",
+        "Advanced French pastry",
+        "Quick healthy meals,",
+        "Village hall bread-making",
+        "Monthly supper club,",
+        "Weekend cooking challenge"
+      ],
+      "diverse": true,
+      "selectFilled": true,
+      "titleBold": true,
+      "descLen": 364,
+      "removeEmptied": true,
+      "cardFreed": true,
+      "reassign": true,
+      "reassignTarget": true,
+      "persistence": true,
+      "consoleErrors": [],
+      "pass": true
+    },
+    {
+      "test": 24,
+      "cards": 8,
+      "openings": [
+        "Silent study room",
+        "Weekly reading mentoring",
+        "Weekend study café",
+        "Online reading challenge",
+        "Lunchtime quiet reading",
+        "Exam revision bootcamp",
+        "Community library reading",
+        "Morning study skills"
+      ],
+      "diverse": true,
+      "selectFilled": true,
+      "titleBold": true,
+      "descLen": 303,
+      "removeEmptied": true,
+      "cardFreed": true,
+      "reassign": true,
+      "reassignTarget": true,
+      "persistence": true,
+      "consoleErrors": [],
+      "pass": true
+    },
+    {
+      "test": 30,
+      "cards": 8,
+      "openings": [
+        "Evening animation workshop,",
+        "Saturday phone screen",
+        "Free online study",
+        "Advanced spreadsheet workshop,",
+        "After-school coding club",
+        "Weekday home printer",
+        "Cheap video course",
+        "Friday drop-in for"
+      ],
+      "diverse": true,
+      "selectFilled": true,
+      "titleBold": true,
+      "descLen": 177,
+      "removeEmptied": true,
+      "cardFreed": true,
+      "reassign": true,
+      "reassignTarget": true,
+      "persistence": true,
+      "consoleErrors": [],
+      "pass": true
+    }
+  ],
+  "legacy": [
+    {
+      "test": 1,
+      "cards": 8,
+      "titledCards": 8,
+      "fills": true,
+      "crash": false,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "test": 13,
+      "cards": 8,
+      "titledCards": 8,
+      "fills": true,
+      "crash": false,
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "overflow768": {
+    "viewport": "768x1024",
+    "metrics": {
+      "found": true,
+      "contentScrollW": 277,
+      "contentClientW": 277,
+      "slotScrollW": 333,
+      "slotClientW": 333,
+      "docScrollW": 768,
+      "innerW": 768
+    },
+    "overflow": true
+  }
+}
