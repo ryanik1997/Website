@@ -1,0 +1,590 @@
+{
+  "tests": {
+    "31": {
+      "ids": [
+        [
+          "catalog-reading-pet-b1-test31-part-1",
+          "catalog-reading-pet-b1-test31-part-1-q1",
+          "catalog-reading-pet-b1-test31-part-1-q2",
+          "catalog-reading-pet-b1-test31-part-1-q3",
+          "catalog-reading-pet-b1-test31-part-1-q4",
+          "catalog-reading-pet-b1-test31-part-1-q5"
+        ],
+        [
+          "catalog-reading-pet-b1-test31-part-2",
+          "catalog-reading-pet-b1-test31-part-2-q6",
+          "catalog-reading-pet-b1-test31-part-2-q7",
+          "catalog-reading-pet-b1-test31-part-2-q8",
+          "catalog-reading-pet-b1-test31-part-2-q9",
+          "catalog-reading-pet-b1-test31-part-2-q10"
+        ],
+        [
+          "catalog-reading-pet-b1-test31-part-3",
+          "catalog-reading-pet-b1-test31-part-3-q11",
+          "catalog-reading-pet-b1-test31-part-3-q12",
+          "catalog-reading-pet-b1-test31-part-3-q13",
+          "catalog-reading-pet-b1-test31-part-3-q14",
+          "catalog-reading-pet-b1-test31-part-3-q15"
+        ],
+        [
+          "catalog-reading-pet-b1-test31-part-4",
+          "catalog-reading-pet-b1-test31-part-4-q16",
+          "catalog-reading-pet-b1-test31-part-4-q17",
+          "catalog-reading-pet-b1-test31-part-4-q18",
+          "catalog-reading-pet-b1-test31-part-4-q19",
+          "catalog-reading-pet-b1-test31-part-4-q20"
+        ],
+        [
+          "catalog-reading-pet-b1-test31-part-5",
+          "catalog-reading-pet-b1-test31-part-5-q21",
+          "catalog-reading-pet-b1-test31-part-5-q22",
+          "catalog-reading-pet-b1-test31-part-5-q23",
+          "catalog-reading-pet-b1-test31-part-5-q24",
+          "catalog-reading-pet-b1-test31-part-5-q25",
+          "catalog-reading-pet-b1-test31-part-5-q26"
+        ],
+        [
+          "catalog-reading-pet-b1-test31-part-6",
+          "catalog-reading-pet-b1-test31-part-6-q27",
+          "catalog-reading-pet-b1-test31-part-6-q28",
+          "catalog-reading-pet-b1-test31-part-6-q29",
+          "catalog-reading-pet-b1-test31-part-6-q30",
+          "catalog-reading-pet-b1-test31-part-6-q31",
+          "catalog-reading-pet-b1-test31-part-6-q32"
+        ]
+      ],
+      "p1to3": [
+        "edf178d1c5c1c3f3304a32ea7a70eb998ba21ecefbfb9ffbaf3575fa3824be3c",
+        "53f7b87cfc56740bf4d145f75348633be324e52845262337241d27cc01a44805",
+        "6f737a11cadcdd6116e9fe737696d02c254fd4dcd154cdfbcd64070653214b02"
+      ],
+      "p2media": [
+        {
+          "text": "The people below all want to take part in repair cafés. Decide which option would be most suitable."
+        },
+        {
+          "label": "A",
+          "text": "A morning course about broken appliances, with equipment supplied.",
+          "imageSlotId": "catalog-reading-pet-b1-test31-part-2-option-a-image",
+          "imageRequired": false
+        },
+        {
+          "label": "B",
+          "text": "An evening club for people who prefer meeting local experts.",
+          "imageSlotId": "catalog-reading-pet-b1-test31-part-2-option-b-image",
+          "imageRequired": false
+        },
+        {
+          "label": "C",
+          "text": "A weekend event offering practical activities in small groups.",
+          "imageSlotId": "catalog-reading-pet-b1-test31-part-2-option-c-image",
+          "imageRequired": false
+        },
+        {
+          "label": "D",
+          "text": "A low-cost programme near the town centre, open to beginners.",
+          "imageSlotId": "catalog-reading-pet-b1-test31-part-2-option-d-image",
+          "imageRequired": false
+        },
+        {
+          "label": "E",
+          "text": "A quiet project where members can work independently.",
+          "imageSlotId": "catalog-reading-pet-b1-test31-part-2-option-e-image",
+          "imageRequired": false
+        },
+        {
+          "label": "F",
+          "text": "A short course that includes advice from experienced volunteers.",
+          "imageSlotId": "catalog-reading-pet-b1-test31-part-2-option-f-image",
+          "imageRequired": false
+        },
+        {
+          "label": "G",
+          "text": "A family activity held outdoors when the weather is suitable.",
+          "imageSlotId": "catalog-reading-pet-b1-test31-part-2-option-g-image",
+          "imageRequired": false
+        },
+        {
+          "label": "H",
+          "text": "A longer programme combining study with social events.",
+          "imageSlotId": "catalog-reading-pet-b1-test31-part-2-option-h-image",
+          "imageRequired": false
+        }
+      ],
+      "counts": {
+        "4": 69,
+        "5": 47,
+        "6": 52
+      }
+    },
+    "32": {
+      "ids": [
+        [
+          "catalog-reading-pet-b1-test32-part-1",
+          "catalog-reading-pet-b1-test32-part-1-q1",
+          "catalog-reading-pet-b1-test32-part-1-q2",
+          "catalog-reading-pet-b1-test32-part-1-q3",
+          "catalog-reading-pet-b1-test32-part-1-q4",
+          "catalog-reading-pet-b1-test32-part-1-q5"
+        ],
+        [
+          "catalog-reading-pet-b1-test32-part-2",
+          "catalog-reading-pet-b1-test32-part-2-q6",
+          "catalog-reading-pet-b1-test32-part-2-q7",
+          "catalog-reading-pet-b1-test32-part-2-q8",
+          "catalog-reading-pet-b1-test32-part-2-q9",
+          "catalog-reading-pet-b1-test32-part-2-q10"
+        ],
+        [
+          "catalog-reading-pet-b1-test32-part-3",
+          "catalog-reading-pet-b1-test32-part-3-q11",
+          "catalog-reading-pet-b1-test32-part-3-q12",
+          "catalog-reading-pet-b1-test32-part-3-q13",
+          "catalog-reading-pet-b1-test32-part-3-q14",
+          "catalog-reading-pet-b1-test32-part-3-q15"
+        ],
+        [
+          "catalog-reading-pet-b1-test32-part-4",
+          "catalog-reading-pet-b1-test32-part-4-q16",
+          "catalog-reading-pet-b1-test32-part-4-q17",
+          "catalog-reading-pet-b1-test32-part-4-q18",
+          "catalog-reading-pet-b1-test32-part-4-q19",
+          "catalog-reading-pet-b1-test32-part-4-q20"
+        ],
+        [
+          "catalog-reading-pet-b1-test32-part-5",
+          "catalog-reading-pet-b1-test32-part-5-q21",
+          "catalog-reading-pet-b1-test32-part-5-q22",
+          "catalog-reading-pet-b1-test32-part-5-q23",
+          "catalog-reading-pet-b1-test32-part-5-q24",
+          "catalog-reading-pet-b1-test32-part-5-q25",
+          "catalog-reading-pet-b1-test32-part-5-q26"
+        ],
+        [
+          "catalog-reading-pet-b1-test32-part-6",
+          "catalog-reading-pet-b1-test32-part-6-q27",
+          "catalog-reading-pet-b1-test32-part-6-q28",
+          "catalog-reading-pet-b1-test32-part-6-q29",
+          "catalog-reading-pet-b1-test32-part-6-q30",
+          "catalog-reading-pet-b1-test32-part-6-q31",
+          "catalog-reading-pet-b1-test32-part-6-q32"
+        ]
+      ],
+      "p1to3": [
+        "d753deab01c88ce4bb53c015287217b8d57403c57aa7b6d657a4c26f8a532f07",
+        "46fb3a1a48fbd05fb9a02b74308e670b9a6bfc4bdb12cb8d7d8a5afcab464f43",
+        "62c2f533441a2042ffd8255cfd6aedb81a0345462cfdf9918352a1e1d413169c"
+      ],
+      "p2media": [
+        {
+          "text": "The people below all want to take part in night markets. Decide which option would be most suitable."
+        },
+        {
+          "label": "A",
+          "text": "A morning course about street food, with equipment supplied.",
+          "imageSlotId": "catalog-reading-pet-b1-test32-part-2-option-a-image",
+          "imageRequired": false
+        },
+        {
+          "label": "B",
+          "text": "An evening club for people who prefer meeting local experts.",
+          "imageSlotId": "catalog-reading-pet-b1-test32-part-2-option-b-image",
+          "imageRequired": false
+        },
+        {
+          "label": "C",
+          "text": "A weekend event offering practical activities in small groups.",
+          "imageSlotId": "catalog-reading-pet-b1-test32-part-2-option-c-image",
+          "imageRequired": false
+        },
+        {
+          "label": "D",
+          "text": "A low-cost programme near the town centre, open to beginners.",
+          "imageSlotId": "catalog-reading-pet-b1-test32-part-2-option-d-image",
+          "imageRequired": false
+        },
+        {
+          "label": "E",
+          "text": "A quiet project where members can work independently.",
+          "imageSlotId": "catalog-reading-pet-b1-test32-part-2-option-e-image",
+          "imageRequired": false
+        },
+        {
+          "label": "F",
+          "text": "A short course that includes advice from experienced visitors.",
+          "imageSlotId": "catalog-reading-pet-b1-test32-part-2-option-f-image",
+          "imageRequired": false
+        },
+        {
+          "label": "G",
+          "text": "A family activity held outdoors when the weather is suitable.",
+          "imageSlotId": "catalog-reading-pet-b1-test32-part-2-option-g-image",
+          "imageRequired": false
+        },
+        {
+          "label": "H",
+          "text": "A longer programme combining study with social events.",
+          "imageSlotId": "catalog-reading-pet-b1-test32-part-2-option-h-image",
+          "imageRequired": false
+        }
+      ],
+      "counts": {
+        "4": 69,
+        "5": 47,
+        "6": 52
+      }
+    },
+    "33": {
+      "ids": [
+        [
+          "catalog-reading-pet-b1-test33-part-1",
+          "catalog-reading-pet-b1-test33-part-1-q1",
+          "catalog-reading-pet-b1-test33-part-1-q2",
+          "catalog-reading-pet-b1-test33-part-1-q3",
+          "catalog-reading-pet-b1-test33-part-1-q4",
+          "catalog-reading-pet-b1-test33-part-1-q5"
+        ],
+        [
+          "catalog-reading-pet-b1-test33-part-2",
+          "catalog-reading-pet-b1-test33-part-2-q6",
+          "catalog-reading-pet-b1-test33-part-2-q7",
+          "catalog-reading-pet-b1-test33-part-2-q8",
+          "catalog-reading-pet-b1-test33-part-2-q9",
+          "catalog-reading-pet-b1-test33-part-2-q10"
+        ],
+        [
+          "catalog-reading-pet-b1-test33-part-3",
+          "catalog-reading-pet-b1-test33-part-3-q11",
+          "catalog-reading-pet-b1-test33-part-3-q12",
+          "catalog-reading-pet-b1-test33-part-3-q13",
+          "catalog-reading-pet-b1-test33-part-3-q14",
+          "catalog-reading-pet-b1-test33-part-3-q15"
+        ],
+        [
+          "catalog-reading-pet-b1-test33-part-4",
+          "catalog-reading-pet-b1-test33-part-4-q16",
+          "catalog-reading-pet-b1-test33-part-4-q17",
+          "catalog-reading-pet-b1-test33-part-4-q18",
+          "catalog-reading-pet-b1-test33-part-4-q19",
+          "catalog-reading-pet-b1-test33-part-4-q20"
+        ],
+        [
+          "catalog-reading-pet-b1-test33-part-5",
+          "catalog-reading-pet-b1-test33-part-5-q21",
+          "catalog-reading-pet-b1-test33-part-5-q22",
+          "catalog-reading-pet-b1-test33-part-5-q23",
+          "catalog-reading-pet-b1-test33-part-5-q24",
+          "catalog-reading-pet-b1-test33-part-5-q25",
+          "catalog-reading-pet-b1-test33-part-5-q26"
+        ],
+        [
+          "catalog-reading-pet-b1-test33-part-6",
+          "catalog-reading-pet-b1-test33-part-6-q27",
+          "catalog-reading-pet-b1-test33-part-6-q28",
+          "catalog-reading-pet-b1-test33-part-6-q29",
+          "catalog-reading-pet-b1-test33-part-6-q30",
+          "catalog-reading-pet-b1-test33-part-6-q31",
+          "catalog-reading-pet-b1-test33-part-6-q32"
+        ]
+      ],
+      "p1to3": [
+        "f2b3a930269621da36df18cb50c4e705f94109620e220427293e663f19f35ba7",
+        "4b9029644150653edae068a7a3e23b84fa00a5c11225af1b5cbcfffd15e4d49b",
+        "15bd449f3b7e8de0938f20ea78dc0c47a894a834a7a297db60d1ef8cf20b98f3"
+      ],
+      "p2media": [
+        {
+          "text": "The people below all want to take part in cycle routes. Decide which option would be most suitable."
+        },
+        {
+          "label": "A",
+          "text": "A morning course about safe paths, with equipment supplied.",
+          "imageSlotId": "catalog-reading-pet-b1-test33-part-2-option-a-image",
+          "imageRequired": false
+        },
+        {
+          "label": "B",
+          "text": "An evening club for people who prefer meeting local experts.",
+          "imageSlotId": "catalog-reading-pet-b1-test33-part-2-option-b-image",
+          "imageRequired": false
+        },
+        {
+          "label": "C",
+          "text": "A weekend event offering practical activities in small groups.",
+          "imageSlotId": "catalog-reading-pet-b1-test33-part-2-option-c-image",
+          "imageRequired": false
+        },
+        {
+          "label": "D",
+          "text": "A low-cost programme near the town centre, open to beginners.",
+          "imageSlotId": "catalog-reading-pet-b1-test33-part-2-option-d-image",
+          "imageRequired": false
+        },
+        {
+          "label": "E",
+          "text": "A quiet project where members can work independently.",
+          "imageSlotId": "catalog-reading-pet-b1-test33-part-2-option-e-image",
+          "imageRequired": false
+        },
+        {
+          "label": "F",
+          "text": "A short course that includes advice from experienced commuters.",
+          "imageSlotId": "catalog-reading-pet-b1-test33-part-2-option-f-image",
+          "imageRequired": false
+        },
+        {
+          "label": "G",
+          "text": "A family activity held outdoors when the weather is suitable.",
+          "imageSlotId": "catalog-reading-pet-b1-test33-part-2-option-g-image",
+          "imageRequired": false
+        },
+        {
+          "label": "H",
+          "text": "A longer programme combining study with social events.",
+          "imageSlotId": "catalog-reading-pet-b1-test33-part-2-option-h-image",
+          "imageRequired": false
+        }
+      ],
+      "counts": {
+        "4": 69,
+        "5": 47,
+        "6": 52
+      }
+    },
+    "34": {
+      "ids": [
+        [
+          "catalog-reading-pet-b1-test34-part-1",
+          "catalog-reading-pet-b1-test34-part-1-q1",
+          "catalog-reading-pet-b1-test34-part-1-q2",
+          "catalog-reading-pet-b1-test34-part-1-q3",
+          "catalog-reading-pet-b1-test34-part-1-q4",
+          "catalog-reading-pet-b1-test34-part-1-q5"
+        ],
+        [
+          "catalog-reading-pet-b1-test34-part-2",
+          "catalog-reading-pet-b1-test34-part-2-q6",
+          "catalog-reading-pet-b1-test34-part-2-q7",
+          "catalog-reading-pet-b1-test34-part-2-q8",
+          "catalog-reading-pet-b1-test34-part-2-q9",
+          "catalog-reading-pet-b1-test34-part-2-q10"
+        ],
+        [
+          "catalog-reading-pet-b1-test34-part-3",
+          "catalog-reading-pet-b1-test34-part-3-q11",
+          "catalog-reading-pet-b1-test34-part-3-q12",
+          "catalog-reading-pet-b1-test34-part-3-q13",
+          "catalog-reading-pet-b1-test34-part-3-q14",
+          "catalog-reading-pet-b1-test34-part-3-q15"
+        ],
+        [
+          "catalog-reading-pet-b1-test34-part-4",
+          "catalog-reading-pet-b1-test34-part-4-q16",
+          "catalog-reading-pet-b1-test34-part-4-q17",
+          "catalog-reading-pet-b1-test34-part-4-q18",
+          "catalog-reading-pet-b1-test34-part-4-q19",
+          "catalog-reading-pet-b1-test34-part-4-q20"
+        ],
+        [
+          "catalog-reading-pet-b1-test34-part-5",
+          "catalog-reading-pet-b1-test34-part-5-q21",
+          "catalog-reading-pet-b1-test34-part-5-q22",
+          "catalog-reading-pet-b1-test34-part-5-q23",
+          "catalog-reading-pet-b1-test34-part-5-q24",
+          "catalog-reading-pet-b1-test34-part-5-q25",
+          "catalog-reading-pet-b1-test34-part-5-q26"
+        ],
+        [
+          "catalog-reading-pet-b1-test34-part-6",
+          "catalog-reading-pet-b1-test34-part-6-q27",
+          "catalog-reading-pet-b1-test34-part-6-q28",
+          "catalog-reading-pet-b1-test34-part-6-q29",
+          "catalog-reading-pet-b1-test34-part-6-q30",
+          "catalog-reading-pet-b1-test34-part-6-q31",
+          "catalog-reading-pet-b1-test34-part-6-q32"
+        ]
+      ],
+      "p1to3": [
+        "5b9431ea6e6746392c5f67a24559309d63ee7de440e89be434db1a063ea8fa79",
+        "cbb0b74086c76d55b7046b4159f510b4b84935ab99acd6d869ed47ab369da783",
+        "29bba5d930aea7649f1069e35d9856de2346739383b3ea9a7dc1b466edae0cd4"
+      ],
+      "p2media": [
+        {
+          "text": "The people below all want to take part in school libraries. Decide which option would be most suitable."
+        },
+        {
+          "label": "A",
+          "text": "A morning course about reading corners, with equipment supplied.",
+          "imageSlotId": "catalog-reading-pet-b1-test34-part-2-option-a-image",
+          "imageRequired": false
+        },
+        {
+          "label": "B",
+          "text": "An evening club for people who prefer meeting local experts.",
+          "imageSlotId": "catalog-reading-pet-b1-test34-part-2-option-b-image",
+          "imageRequired": false
+        },
+        {
+          "label": "C",
+          "text": "A weekend event offering practical activities in small groups.",
+          "imageSlotId": "catalog-reading-pet-b1-test34-part-2-option-c-image",
+          "imageRequired": false
+        },
+        {
+          "label": "D",
+          "text": "A low-cost programme near the town centre, open to beginners.",
+          "imageSlotId": "catalog-reading-pet-b1-test34-part-2-option-d-image",
+          "imageRequired": false
+        },
+        {
+          "label": "E",
+          "text": "A quiet project where members can work independently.",
+          "imageSlotId": "catalog-reading-pet-b1-test34-part-2-option-e-image",
+          "imageRequired": false
+        },
+        {
+          "label": "F",
+          "text": "A short course that includes advice from experienced students.",
+          "imageSlotId": "catalog-reading-pet-b1-test34-part-2-option-f-image",
+          "imageRequired": false
+        },
+        {
+          "label": "G",
+          "text": "A family activity held outdoors when the weather is suitable.",
+          "imageSlotId": "catalog-reading-pet-b1-test34-part-2-option-g-image",
+          "imageRequired": false
+        },
+        {
+          "label": "H",
+          "text": "A longer programme combining study with social events.",
+          "imageSlotId": "catalog-reading-pet-b1-test34-part-2-option-h-image",
+          "imageRequired": false
+        }
+      ],
+      "counts": {
+        "4": 69,
+        "5": 47,
+        "6": 52
+      }
+    },
+    "35": {
+      "ids": [
+        [
+          "catalog-reading-pet-b1-test35-part-1",
+          "catalog-reading-pet-b1-test35-part-1-q1",
+          "catalog-reading-pet-b1-test35-part-1-q2",
+          "catalog-reading-pet-b1-test35-part-1-q3",
+          "catalog-reading-pet-b1-test35-part-1-q4",
+          "catalog-reading-pet-b1-test35-part-1-q5"
+        ],
+        [
+          "catalog-reading-pet-b1-test35-part-2",
+          "catalog-reading-pet-b1-test35-part-2-q6",
+          "catalog-reading-pet-b1-test35-part-2-q7",
+          "catalog-reading-pet-b1-test35-part-2-q8",
+          "catalog-reading-pet-b1-test35-part-2-q9",
+          "catalog-reading-pet-b1-test35-part-2-q10"
+        ],
+        [
+          "catalog-reading-pet-b1-test35-part-3",
+          "catalog-reading-pet-b1-test35-part-3-q11",
+          "catalog-reading-pet-b1-test35-part-3-q12",
+          "catalog-reading-pet-b1-test35-part-3-q13",
+          "catalog-reading-pet-b1-test35-part-3-q14",
+          "catalog-reading-pet-b1-test35-part-3-q15"
+        ],
+        [
+          "catalog-reading-pet-b1-test35-part-4",
+          "catalog-reading-pet-b1-test35-part-4-q16",
+          "catalog-reading-pet-b1-test35-part-4-q17",
+          "catalog-reading-pet-b1-test35-part-4-q18",
+          "catalog-reading-pet-b1-test35-part-4-q19",
+          "catalog-reading-pet-b1-test35-part-4-q20"
+        ],
+        [
+          "catalog-reading-pet-b1-test35-part-5",
+          "catalog-reading-pet-b1-test35-part-5-q21",
+          "catalog-reading-pet-b1-test35-part-5-q22",
+          "catalog-reading-pet-b1-test35-part-5-q23",
+          "catalog-reading-pet-b1-test35-part-5-q24",
+          "catalog-reading-pet-b1-test35-part-5-q25",
+          "catalog-reading-pet-b1-test35-part-5-q26"
+        ],
+        [
+          "catalog-reading-pet-b1-test35-part-6",
+          "catalog-reading-pet-b1-test35-part-6-q27",
+          "catalog-reading-pet-b1-test35-part-6-q28",
+          "catalog-reading-pet-b1-test35-part-6-q29",
+          "catalog-reading-pet-b1-test35-part-6-q30",
+          "catalog-reading-pet-b1-test35-part-6-q31",
+          "catalog-reading-pet-b1-test35-part-6-q32"
+        ]
+      ],
+      "p1to3": [
+        "13a4300cd3383e91eb9d9302a136399cb1618bc9e42f82a106af88ea3319d311",
+        "5ea6e3a2109034555d19cf954c4817130d492523cdccdcba7dc8f84559360cbf",
+        "3b9169fd629fa53fa186dd71a3807291e2831a3927b2d498bf8e0bf32cbf52d0"
+      ],
+      "p2media": [
+        {
+          "text": "The people below all want to take part in wildlife walks. Decide which option would be most suitable."
+        },
+        {
+          "label": "A",
+          "text": "A morning course about woodland trails, with equipment supplied.",
+          "imageSlotId": "catalog-reading-pet-b1-test35-part-2-option-a-image",
+          "imageRequired": false
+        },
+        {
+          "label": "B",
+          "text": "An evening club for people who prefer meeting local experts.",
+          "imageSlotId": "catalog-reading-pet-b1-test35-part-2-option-b-image",
+          "imageRequired": false
+        },
+        {
+          "label": "C",
+          "text": "A weekend event offering practical activities in small groups.",
+          "imageSlotId": "catalog-reading-pet-b1-test35-part-2-option-c-image",
+          "imageRequired": false
+        },
+        {
+          "label": "D",
+          "text": "A low-cost programme near the town centre, open to beginners.",
+          "imageSlotId": "catalog-reading-pet-b1-test35-part-2-option-d-image",
+          "imageRequired": false
+        },
+        {
+          "label": "E",
+          "text": "A quiet project where members can work independently.",
+          "imageSlotId": "catalog-reading-pet-b1-test35-part-2-option-e-image",
+          "imageRequired": false
+        },
+        {
+          "label": "F",
+          "text": "A short course that includes advice from experienced young naturalists.",
+          "imageSlotId": "catalog-reading-pet-b1-test35-part-2-option-f-image",
+          "imageRequired": false
+        },
+        {
+          "label": "G",
+          "text": "A family activity held outdoors when the weather is suitable.",
+          "imageSlotId": "catalog-reading-pet-b1-test35-part-2-option-g-image",
+          "imageRequired": false
+        },
+        {
+          "label": "H",
+          "text": "A longer programme combining study with social events.",
+          "imageSlotId": "catalog-reading-pet-b1-test35-part-2-option-h-image",
+          "imageRequired": false
+        }
+      ],
+      "counts": {
+        "4": 70,
+        "5": 48,
+        "6": 53
+      }
+    }
+  },
+  "outside": {}
+}
