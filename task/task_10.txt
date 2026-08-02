@@ -1,0 +1,51 @@
+Hãy đồng bộ header Listening của A2, B1 và B2 theo đúng mẫu Cambridge đang có ở C2.
+
+Mục tiêu:
+- Tái sử dụng chính component/logo/header của Listening C2 nếu đã có.
+- Không tạo thêm bản logo mới hoặc CSS trùng lặp.
+- Góc trái hiển thị:
+  - Cambridge crest.
+  - Chữ “CAMBRIDGE” bên phải crest.
+  - Chữ “English” căn giữa bên dưới wordmark.
+- Logo nằm sát góc trái nhưng vẫn giữ padding khoảng 20–24px.
+- Tỉ lệ, kích thước và khoảng cách phải giống C2.
+- Không kéo méo ảnh, không crop crest.
+- Bên phải logo giữ nguyên:
+  - “Candidate ID”
+  - trạng thái “Audio is playing”
+- Header phải căn dọc đồng đều, không làm thay đổi chiều cao khi chuyển Part.
+
+Phạm vi:
+- Listening A2
+- Listening B1
+- Listening B2
+
+Không sửa:
+- Listening C2.
+- Audio player.
+- Navigation.
+- Nội dung đề.
+- Scoring.
+- Question layout.
+
+Thực hiện:
+1. Audit component header/logo của Listening C2.
+2. Xác định asset logo và CSS đang dùng.
+3. Đưa A2/B1/B2 dùng chung component đó.
+4. Xóa logo/header legacy bị trùng nếu không còn dùng.
+5. Không dùng ảnh screenshot làm logo.
+
+Kiểm tra tại:
+- 1920×1080
+- 1366×768
+- 390×844
+
+Acceptance:
+- A2/B1/B2 có logo Cambridge giống C2.
+- Crest và chữ không bị mờ hoặc méo.
+- “English” căn đúng dưới “CAMBRIDGE”.
+- Candidate ID và “Audio is playing” không bị lệch.
+- Không có layout shift.
+- Console errors = 0.
+- TypeScript PASS.
+- git diff --check PASS.

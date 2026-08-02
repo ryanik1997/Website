@@ -3164,16 +3164,18 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 1.65rem;
-  height: 1.65rem;
-  border-radius: 999px;
-  border: 2px solid #5a9ab5;
-  background: #fff;
-  color: #111;
+  width: var(--exam-question-size, 32px);
+  min-width: var(--exam-question-size, 32px);
+  height: var(--exam-question-size, 32px);
+  border: var(--exam-question-border-width, 2px) solid var(--exam-question-blue, #238ed0);
+  border-radius: var(--exam-question-radius, 4px);
+  background: var(--exam-question-surface, #fff);
+  color: var(--exam-question-text, #111);
   font-size: 0.95rem;
   font-weight: 800;
   line-height: 1;
   flex-shrink: 0;
+  aspect-ratio: 1 / 1;
 }
 
 .listening-ket-p1__prompt {
@@ -3515,20 +3517,19 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 1.75rem;
-  height: 1.75rem;
-  padding: 0 0.3rem;
-  border: 0;
-  border-radius: 999px;
-  background: linear-gradient(160deg, #0e84b8, #0b628a);
-  color: #fff;
+  width: var(--exam-question-size, 32px);
+  min-width: var(--exam-question-size, 32px);
+  height: var(--exam-question-size, 32px);
+  padding: 0;
+  border: var(--exam-question-border-width, 2px) solid var(--exam-question-blue, #238ed0);
+  border-radius: var(--exam-question-radius, 4px);
+  background: var(--exam-question-surface, #fff);
+  color: var(--exam-question-text, #111);
   font-size: 0.88rem;
   font-weight: 800;
   line-height: 1;
   flex-shrink: 0;
-  box-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, 0.35),
-    0 6px 14px -8px rgba(11, 98, 138, 0.7);
+  aspect-ratio: 1 / 1;
 }
 
 .listening-ket-p3__prompt {
@@ -3967,26 +3968,34 @@
 }
 
 .listening-ket-cambridge__qnav button {
-  width: 1.45rem;
-  height: 1.7rem;
+  width: var(--exam-question-size, 32px);
+  min-width: var(--exam-question-size, 32px);
+  height: var(--exam-question-size, 32px);
   padding: 0;
-  border: 0;
-  border-radius: 0.18rem;
-  background: transparent;
-  color: #4b4f54;
+  border: var(--exam-question-border-width, 2px) solid var(--exam-question-blue, #238ed0);
+  border-radius: var(--exam-question-radius, 4px);
+  background: var(--exam-question-surface, #fff);
+  color: var(--exam-question-text, #111);
   font-size: 1rem;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  aspect-ratio: 1 / 1;
 }
 
 .listening-ket-cambridge__qnav button.is-current {
-  border: 2px solid #4aa7b5;
-  background: #e8fbff;
-  color: #111;
+  background: var(--exam-question-blue, #238ed0);
+  border-color: var(--exam-question-blue, #238ed0);
+  color: #fff;
   font-weight: 700;
 }
 
 .listening-ket-cambridge__qnav button.is-answered:not(.is-current) {
-  color: #111;
+  background: var(--exam-question-blue-soft, #eaf5fb);
+  border-color: var(--exam-question-blue, #238ed0);
+  color: #0f5f91;
   font-weight: 700;
 }
 
@@ -4777,19 +4786,18 @@
   flex: 0 0 auto;
   display: inline-grid;
   place-items: center;
-  min-width: 1.7rem;
-  height: 1.7rem;
-  padding: 0 0.28rem;
-  border: 0;
-  border-radius: 999px;
-  background: linear-gradient(160deg, #0e84b8, #0b628a);
-  color: #fff;
+  width: var(--exam-question-size, 32px);
+  min-width: var(--exam-question-size, 32px);
+  height: var(--exam-question-size, 32px);
+  padding: 0;
+  border: var(--exam-question-border-width, 2px) solid var(--exam-question-blue, #238ed0);
+  border-radius: var(--exam-question-radius, 4px);
+  background: var(--exam-question-surface, #fff);
+  color: var(--exam-question-text, #111);
   font-size: 0.86rem;
   font-weight: 800;
   line-height: 1;
-  box-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, 0.35),
-    0 6px 14px -8px rgba(11, 98, 138, 0.7);
+  aspect-ratio: 1 / 1;
 }
 
 .listening-fce__audio {
@@ -5346,6 +5354,290 @@
   .listening-cae-cambridge .listening-dual-match__bank .listening-letter-match__bank-row,
   .listening-cae-cambridge .listening-dual-match__bank .listening-letter-match__bank-label {
     white-space: normal;
+  }
+}
+
+/* CAE Listening reference layout: keep this scoped so PET/FCE/KET remain unchanged. */
+.listening-cae-cambridge {
+  --cae-bg: #f3f6f7;
+  --cae-border: #d7dcdf;
+  --cae-blue: #2d8dcc;
+  background: var(--cae-bg);
+  color: #111;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.listening-cae-cambridge .listening-ket-cambridge__header {
+  min-height: 82px;
+  height: 82px;
+  padding: 0 18px;
+  background: #fff;
+  border-bottom: 1px solid #c7cdd0;
+}
+
+.listening-cae-cambridge .listening-ket-cambridge__brand {
+  width: 220px;
+  min-width: 220px;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+.listening-cae-cambridge .listening-ket-cambridge__logo {
+  display: block;
+  flex: 0 0 auto;
+  width: auto;
+  height: 43px;
+  max-width: 168px;
+  object-fit: contain;
+}
+
+.listening-cae-cambridge .listening-ket-cambridge__candidate {
+  align-self: flex-start;
+  gap: 2px;
+  margin-top: 7px;
+  color: #111;
+}
+
+.listening-cae-cambridge .listening-ket-cambridge__candidate span::before {
+  color: #111;
+}
+
+/* ── Sync A2/B1/B2 listening header to match C2 (Cambridge logo image) ── */
+.listening-ket-cambridge:not(.listening-cae-cambridge) .listening-ket-cambridge__header {
+  min-height: 82px;
+  height: 82px;
+  padding: 0 18px;
+}
+
+.listening-ket-cambridge:not(.listening-cae-cambridge) .listening-ket-cambridge__brand {
+  display: flex;
+  align-items: center;
+  width: 220px;
+  min-width: 220px;
+  padding: 0;
+}
+
+.listening-ket-cambridge:not(.listening-cae-cambridge) .listening-ket-cambridge__logo {
+  display: block;
+  flex: 0 0 auto;
+  width: auto;
+  height: 43px;
+  max-width: 168px;
+  object-fit: contain;
+}
+
+.listening-ket-cambridge:not(.listening-cae-cambridge) .listening-ket-cambridge__candidate {
+  align-self: flex-start;
+  gap: 2px;
+  margin-top: 7px;
+  color: #111;
+}
+
+@media (max-width: 640px) {
+  .listening-ket-cambridge:not(.listening-cae-cambridge) .listening-ket-cambridge__header {
+    padding: 0 10px;
+  }
+  .listening-ket-cambridge:not(.listening-cae-cambridge) .listening-ket-cambridge__brand {
+    width: 150px;
+    min-width: 150px;
+  }
+  .listening-ket-cambridge:not(.listening-cae-cambridge) .listening-ket-cambridge__logo {
+    height: 36px;
+    max-width: 145px;
+  }
+}
+
+.listening-cae-cambridge .listening-ket-cambridge__stage {
+  min-height: calc(100vh - 82px);
+  padding: 18px 18px 116px;
+  background: var(--cae-bg);
+}
+
+.listening-cae-cambridge .listening-fce__instruction-card {
+  margin: 0 0 28px;
+  padding: 12px 13px;
+  border: 1px solid var(--cae-border);
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: none;
+  color: #111;
+}
+
+.listening-cae-cambridge .listening-fce__instruction-card strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 19px;
+}
+
+.listening-cae-cambridge .listening-fce__instruction-card span,
+.listening-cae-cambridge .listening-fce__instruction-line {
+  color: #111;
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+.listening-cae-cambridge .listening-fce-mc__list,
+.listening-cae-cambridge .listening-fce-gapfill__fields {
+  max-width: none;
+}
+
+.listening-cae-cambridge .listening-fce-mc__question {
+  padding: 0 0 28px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+}
+
+.listening-cae-cambridge .listening-fce-mc__question.is-active {
+  border: 0;
+  box-shadow: none;
+  transform: none;
+}
+
+.listening-cae-cambridge .listening-fce-mc__heading {
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 19px;
+  line-height: 1.45;
+}
+
+.listening-cae-cambridge .listening-fce__num {
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--cae-blue);
+  border-radius: 3px;
+  background: #fff;
+  color: #111;
+  line-height: 30px;
+  text-align: center;
+}
+
+.listening-cae-cambridge .listening-fce-mc__prompt {
+  font-size: 19px;
+}
+
+.listening-cae-cambridge .listening-fce-mc__options {
+  gap: 0;
+  margin-left: 0;
+}
+
+.listening-cae-cambridge .listening-fce-mc__option {
+  min-height: 56px;
+  padding: 12px 14px;
+  border: 0;
+  border-bottom: 1px solid #edf0f1;
+  border-radius: 2px;
+  background: #fff;
+  color: #111;
+  font-size: 18px;
+  box-shadow: none;
+}
+
+.listening-cae-cambridge .listening-fce-mc__option:hover,
+.listening-cae-cambridge .listening-fce-mc__option.is-selected {
+  background: #f8fafb;
+  border-color: #edf0f1;
+  color: #111;
+  box-shadow: none;
+}
+
+.listening-cae-cambridge .listening-fce-gapfill__title-row {
+  margin: 30px 0 26px;
+}
+
+.listening-cae-cambridge .listening-fce-gapfill__title {
+  color: #111;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.listening-cae-cambridge .listening-fce-gapfill__fields {
+  display: grid;
+  gap: 20px;
+}
+
+.listening-cae-cambridge .listening-fce-gapfill__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #111;
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+.listening-cae-cambridge .listening-fce-gapfill__row.is-active {
+  background: transparent;
+  box-shadow: none;
+}
+
+.listening-cae-cambridge .listening-fce-gapfill__input-wrap {
+  position: relative;
+  display: inline-flex;
+  flex: 0 1 340px;
+  min-width: 180px;
+  height: 34px;
+  vertical-align: baseline;
+}
+
+.listening-cae-cambridge .listening-fce-gapfill__input {
+  width: 100%;
+  height: 34px;
+  padding: 3px 9px;
+  border: 1px solid #9da6aa;
+  border-radius: 3px;
+  background: #fff;
+  color: #111;
+  font: inherit;
+  line-height: 1.2;
+  text-align: left;
+  box-shadow: none;
+}
+
+.listening-cae-cambridge .listening-fce-gapfill__input:focus {
+  border-color: var(--cae-blue);
+  outline: 2px solid color-mix(in srgb, var(--cae-blue) 24%, transparent);
+}
+
+.listening-cae-cambridge .listening-fce-gapfill__input-number {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  color: #111;
+  font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  .listening-cae-cambridge .listening-ket-cambridge__header {
+    padding: 0 10px;
+  }
+  .listening-cae-cambridge .listening-ket-cambridge__brand {
+    width: 150px;
+    min-width: 150px;
+  }
+  .listening-cae-cambridge .listening-ket-cambridge__logo {
+    height: 36px;
+    max-width: 145px;
+  }
+  .listening-cae-cambridge .listening-ket-cambridge__candidate {
+    font-size: 13px;
+  }
+  .listening-cae-cambridge .listening-ket-cambridge__tools {
+    gap: 8px;
+  }
+  .listening-cae-cambridge .listening-fce-gapfill__input-wrap {
+    flex-basis: min(340px, 100%);
   }
 }
 

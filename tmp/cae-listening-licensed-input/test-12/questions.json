@@ -1,0 +1,738 @@
+{
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "Questions 1-6",
+      "instruction": "You will hear three different extracts. For questions 1-6, choose the answer (A, B or C) which fits best",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 1,
+          "type": "multiple-choice",
+          "prompt": "How does Charles feel about designers who put their names on products?",
+          "options": [
+            {
+              "id": "A",
+              "label": "He understands their basic needs."
+            },
+            {
+              "id": "B",
+              "label": "He is dismissive of their motives."
+            },
+            {
+              "id": "C",
+              "label": "He admires their business skills."
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "type": "multiple-choice",
+          "prompt": "What does Charles suggest about a good product?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Its appearance should reflect its function."
+            },
+            {
+              "id": "B",
+              "label": "It should encourage a desire to possess it."
+            },
+            {
+              "id": "C",
+              "label": "Its ecological impact should be considered."
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "type": "multiple-choice",
+          "prompt": "They agree that the interviewer made the mistake of",
+          "options": [
+            {
+              "id": "A",
+              "label": "dominating the discussion."
+            },
+            {
+              "id": "B",
+              "label": "asking predictable questions."
+            },
+            {
+              "id": "C",
+              "label": "failing to listen fully to answers."
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "type": "multiple-choice",
+          "prompt": "The man says that certain film stars can be difficult to interview because",
+          "options": [
+            {
+              "id": "A",
+              "label": "they generally show a lack of spontaneity."
+            },
+            {
+              "id": "B",
+              "label": "they’re unwilling to reveal their true personality."
+            },
+            {
+              "id": "C",
+              "label": "they’re too anxious to promote their latest work."
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "type": "multiple-choice",
+          "prompt": "When talking about how he tackles a creative writing task, the man",
+          "options": [
+            {
+              "id": "A",
+              "label": "points out how easily he can assume the right frame of mind."
+            },
+            {
+              "id": "B",
+              "label": "tries to justify his antisocial behaviour when working."
+            },
+            {
+              "id": "C",
+              "label": "admits that frequent breaks can be beneficial."
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "type": "multiple-choice",
+          "prompt": "What does the woman say about her earlier writing?",
+          "options": [
+            {
+              "id": "A",
+              "label": "She feels she no longer fully relates to it."
+            },
+            {
+              "id": "B",
+              "label": "She tends to draw on similar themes in her current work."
+            },
+            {
+              "id": "C",
+              "label": "She highlights the improvements she’s noticed in her work."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "rangeLabel": "Questions 7-14",
+      "instruction": "You will hear a woman called Janine Rogers giving a talk about her work. For questions 7-14, complete the sentences with a word or short phrase.",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "Janine trained as a ________ before working for her current employer.",
+          "options": []
+        },
+        {
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "Janine found her background particularly helpful when working on a project to put ________ into chocolate.",
+          "options": []
+        },
+        {
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "Janine uses the word ________ to describe chocolate as a substance to work with.",
+          "options": []
+        },
+        {
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "Janine mentions the method of ________ the cocoa beans as a variable affecting the taste of her chocolate.",
+          "options": []
+        },
+        {
+          "number": 11,
+          "type": "gap-fill",
+          "prompt": "Janine says that ideas for new types of chocolate generally come from her company’s ________ department.",
+          "options": []
+        },
+        {
+          "number": 12,
+          "type": "gap-fill",
+          "prompt": "Janine says the staff responsible for ________ play a surprisingly important role in developing a new chocolate product.",
+          "options": []
+        },
+        {
+          "number": 13,
+          "type": "gap-fill",
+          "prompt": "Janine gives the example of ________ as a group that need to be considered when designing the label for a product.",
+          "options": []
+        },
+        {
+          "number": 14,
+          "type": "gap-fill",
+          "prompt": "Janine thinks that ________ is the most essential quality needed for her job.",
+          "options": []
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "rangeLabel": "Questions 15-20",
+      "instruction": "You will hear part of an interview with two sports psychologists called Sheila Forbes and Peter Maxton. For questions 15-20, choose the answer (A, B, C or D) which fits best according to what you hear.",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 15,
+          "type": "multiple-choice",
+          "prompt": "Sheila explains that her role involves",
+          "options": [
+            {
+              "id": "A",
+              "label": "preventing players from becoming over-confident."
+            },
+            {
+              "id": "B",
+              "label": "responding to whatever players feel they need to improve."
+            },
+            {
+              "id": "C",
+              "label": "enabling players to train aggressively."
+            },
+            {
+              "id": "D",
+              "label": "persuading players that her techniques can really benefit them."
+            }
+          ]
+        },
+        {
+          "number": 16,
+          "type": "multiple-choice",
+          "prompt": "Sheila says one strategy she uses to achieve her goals is to",
+          "options": [
+            {
+              "id": "A",
+              "label": "encourage players to replicate good features of others’ performance."
+            },
+            {
+              "id": "B",
+              "label": "ask players to share with her the way they control their anxieties."
+            },
+            {
+              "id": "C",
+              "label": "get players to examine their effectiveness as team members."
+            },
+            {
+              "id": "D",
+              "label": "trace the causes of negative thinking in players."
+            }
+          ]
+        },
+        {
+          "number": 17,
+          "type": "multiple-choice",
+          "prompt": "Sheila and Peter both think that it’s important for sports psychologists",
+          "options": [
+            {
+              "id": "A",
+              "label": "to have wide experience in a range of different sports."
+            },
+            {
+              "id": "B",
+              "label": "not to raise false hopes about what they can achieve."
+            },
+            {
+              "id": "C",
+              "label": "not to become too immersed in the environment of sport."
+            },
+            {
+              "id": "D",
+              "label": "to adapt the decisions they make to suit individual situations."
+            }
+          ]
+        },
+        {
+          "number": 18,
+          "type": "multiple-choice",
+          "prompt": "What was Peter’s reaction to his deteriorating sporting performance as a student?",
+          "options": [
+            {
+              "id": "A",
+              "label": "He felt disappointed at the lack of relevant help available."
+            },
+            {
+              "id": "B",
+              "label": "He redoubled his efforts to succeed despite failing health."
+            },
+            {
+              "id": "C",
+              "label": "He became desperate to uncover the source of his problem."
+            },
+            {
+              "id": "D",
+              "label": "He switched to what he felt were easier sports to succeed in."
+            }
+          ]
+        },
+        {
+          "number": 19,
+          "type": "multiple-choice",
+          "prompt": "What does Peter dislike about his job?",
+          "options": [
+            {
+              "id": "A",
+              "label": "needing always to be creative in his choice of techniques"
+            },
+            {
+              "id": "B",
+              "label": "having constantly to work in different environments"
+            },
+            {
+              "id": "C",
+              "label": "being criticised for ineffective working methods"
+            },
+            {
+              "id": "D",
+              "label": "feeling he has to justify his achievements to others"
+            }
+          ]
+        },
+        {
+          "number": 20,
+          "type": "multiple-choice",
+          "prompt": "When talking about their profession, Shelia and Peter agree that",
+          "options": [
+            {
+              "id": "A",
+              "label": "it’s slowly establishing its place in player development."
+            },
+            {
+              "id": "B",
+              "label": "it isn’t attracting the right kind of people."
+            },
+            {
+              "id": "C",
+              "label": "its profile needs to be raised among the general public."
+            },
+            {
+              "id": "D",
+              "label": "it has a poorly-developed career structure."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 4,
+      "rangeLabel": "Questions 21-30",
+      "instruction": "You will hear five short extracts in which people are talking about their experiences of travelling.",
+      "matchingDualTask": true,
+      "taskOneInstruction": "For questions 21-25, choose the option which best describes each speaker.",
+      "taskTwoInstruction": "For questions 26-30, choose the option which best describes each speaker.",
+      "questions": [
+        {
+          "number": 21,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "context": "Speaker 1"
+        },
+        {
+          "number": 22,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "context": "Speaker 2"
+        },
+        {
+          "number": 23,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "context": "Speaker 3"
+        },
+        {
+          "number": 24,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "context": "Speaker 4"
+        },
+        {
+          "number": 25,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "context": "Speaker 5"
+        },
+        {
+          "number": 26,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "context": "Speaker 1"
+        },
+        {
+          "number": 27,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "context": "Speaker 2"
+        },
+        {
+          "number": 28,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "context": "Speaker 3"
+        },
+        {
+          "number": 29,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "context": "Speaker 4"
+        },
+        {
+          "number": 30,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "context": "Speaker 5"
+        }
+      ]
+    }
+  ]
+}

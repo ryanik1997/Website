@@ -7,6 +7,7 @@ import type {
 } from './examData'
 import { normalizeReadingNoteTable } from './readingNoteTableUtils'
 import { normalizeReadingChooseTwoGroup } from './readingChooseTwoUtils'
+import { isPaginationArtifact } from './sanitizeCaeImportedContent'
 
 const YNNG_OPTIONS = [
   { id: 'yes', label: 'YES' },
@@ -475,10 +476,12 @@ function sanitizeReadingPartWithContext(
     ...part,
     rangeLabel: typeof part.rangeLabel === 'string' ? part.rangeLabel : `Part ${part.partNumber}`,
     passageTitle: typeof part.passageTitle === 'string' ? part.passageTitle : `Part ${part.partNumber}`,
-    passage: (part.passage ?? []).map(block => ({
-      ...block,
-      text: typeof block.text === 'string' ? block.text : '',
-    })),
+    passage: (part.passage ?? [])
+      .map(block => ({
+        ...block,
+        text: typeof block.text === 'string' ? block.text : '',
+      }))
+      .filter(block => !isPaginationArtifact(block.text)),
     questionGroups: (part.questionGroups ?? []).map(
       (group, groupIndex) =>
         sanitizeGroup(group, {

@@ -512,14 +512,17 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 1.35rem;
-  height: 1.35rem;
-  border-radius: 3px;
-  background: var(--ket-accent);
-  color: var(--ket-body-bg);
+  width: var(--exam-question-size, 32px);
+  min-width: var(--exam-question-size, 32px);
+  height: var(--exam-question-size, 32px);
+  border: var(--exam-question-border-width, 2px) solid var(--exam-question-blue, #238ed0);
+  border-radius: var(--exam-question-radius, 4px);
+  background: var(--exam-question-blue, #238ed0);
+  color: #fff;
   font-size: 0.72rem;
   font-weight: 700;
   flex-shrink: 0;
+  aspect-ratio: 1 / 1;
 }
 
 .fce-rw-keyword-list__stem {

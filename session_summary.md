@@ -1,5 +1,565 @@
 # Consolidated Session Summary — Ryan English Website
 
+## 2026-08-02 — Reading/Listening Question Badge Standardization A2–C2 (COMPLETE)
+
+### Việc đã hoàn thành
+
+- **Shared component**: Created `QuestionNumberBadge.tsx` + `questionNumberBadge.css` with design tokens (`--exam-question-blue: #238ed0`, `--exam-question-size: 32px`, `--exam-question-radius: 4px`). Component supports states: unanswered, answered, current, disabled, correct, incorrect. Bookmark indicator (7×7px square, not circle). 3-digit font reduction. `data-question-number-badge="true"` attribute for E2E testing.
+- **CSS import**: Added `questionNumberBadge.css` import in `main.tsx` for global token availability.
+- **Circle → Square migration (4 badges)**:
+  - `ket-rw-q-num` (KET/PET Reading inline): `border-radius: 50%` → `4px`, `background: var(--ket-accent)` (#6366f1) → `#fff` with `#238ed0` border
+  - `listening-ket-p1__qbadge` (KET Listening Part 1): `border-radius: 999px` → `4px`, border `#5a9ab5` → `#238ed0`
+  - `listening-ket-p3__num` (KET Listening Part 3): `border-radius: 999px` → `4px`, gradient `#0e84b8→#0b628a` → `#fff` with `#238ed0` border
+  - `listening-fce__num` (FCE Listening): `border-radius: 999px` → `4px`, gradient → `#fff` with `#238ed0` border
+- **Indigo → Blue migration (2 badges)**:
+  - `cae-rw-keyword-list__num` (CAE Reading): `background: var(--ket-accent)` (#6366f1) → `var(--exam-question-blue, #238ed0)`, `border-radius: 3px` → `4px`
+  - `fce-rw-keyword-list__num` (FCE Reading): same migration
+- **Footer pill standardization (5 footer styles)**:
+  - `reading-test-q-pill` (IELTS Reading/Listening): border `1px var(--border-color)` → `2px #238ed0`, radius `0.25rem` → `4px`, size `1.55rem` → `32px`, active bg `--text-primary` → `#238ed0`, answered `color-mix primary 18%` → `#eaf5fb`
+  - `ket-rw-footer__pill` (KET/FCE/CAE/CPE Reading): border `0` → `2px #238ed0`, radius `0.18rem` → `4px`, active border `#008b95` → `#238ed0` fill, size → `32px`
+  - `pet-rw-footer__pill` (PET Reading): border `0` → `2px #238ed0`, active border `#4aa7b5` → `#238ed0` fill, size → `32px`
+  - `listening-ket-cambridge__qnav button` (KET/PET/FCE Listening): border `0` → `2px #238ed0`, active border `#4aa7b5` → `#238ed0` fill, size → `32px`
+  - `listening-tid-footer__pill` (IELTS Listening TID): `--tid-accent: #418ec8` → `#238ed0`, border `1px transparent` → `2px #238ed0`, size → `32px`
+- **`data-question-number-badge="true"`** added to all 13 TSX files rendering question badges (ExamPartFooter, KetRwFooter, PetRwFooter, ListeningIeltsTidShell, ListeningKetTest, ListeningPetTest, ListeningFceTest, RwMcRadioQuestion, ListeningKetPart1PictureView, ListeningKetPart3McListView, ListeningFceMcPartView, CaeRwPartContent, FceRwPartContent).
+- **Audit report**: `tmp/reading-listening-question-badge-audit.md` with full migration matrix.
+- **Tests**: `QuestionNumberBadge.test.tsx` — 15 tests (render 7, render 47, default state, current, answered, disabled, correct, incorrect, bookmarked, not bookmarked, click callback, aria-current, disabled no click, data attribute, no rounded-full). All PASS.
+- **Validation**: TypeScript PASS, Vitest PASS (15 tests), `git diff --check` PASS (no trailing whitespace in changed files). No `#6366f1`, `border-radius: 50%`, or `border-radius: 999px` remaining in question badge CSS. Pre-existing catalog test failure unrelated.
+
+### Files changed
+
+- `apps/web/src/components/exam/QuestionNumberBadge.tsx` (NEW)
+- `apps/web/src/components/exam/questionNumberBadge.css` (NEW)
+- `apps/web/src/components/exam/QuestionNumberBadge.test.tsx` (NEW)
+- `apps/web/src/main.tsx` — added `questionNumberBadge.css` import
+- `apps/web/src/features/exam/ExamPartFooter.tsx` — `data-question-number-badge`
+- `apps/web/src/features/exam/ketRw/KetRwFooter.tsx` — `data-question-number-badge`
+- `apps/web/src/features/exam/ketRw/readingKetRw.css` — circle→square, indigo→blue, footer pill
+- `apps/web/src/features/exam/petRw/PetRwFooter.tsx` — `data-question-number-badge`
+- `apps/web/src/features/exam/petRw/readingPetRw.css` — footer pill
+- `apps/web/src/features/exam/fceRw/FceRwPartContent.tsx` — `data-question-number-badge`
+- `apps/web/src/features/exam/fceRw/readingFceRw.css` — indigo→blue
+- `apps/web/src/features/exam/caeRw/CaeRwPartContent.tsx` — `data-question-number-badge`
+- `apps/web/src/features/exam/caeRw/readingCaeRw.css` — indigo→blue
+- `apps/web/src/features/exam/readingTest.css` — footer pill
+- `apps/web/src/features/exam/listeningTest.css` — circle→square (3 badges), footer pill
+- `apps/web/src/features/exam/listeningIeltsTid.css` — footer pill
+- `apps/web/src/features/exam/ListeningKetTest.tsx` — `data-question-number-badge`
+- `apps/web/src/features/exam/ListeningPetTest.tsx` — `data-question-number-badge`
+- `apps/web/src/features/exam/ListeningFceTest.tsx` — `data-question-number-badge`
+- `apps/web/src/features/exam/ListeningIeltsTidShell.tsx` — `data-question-number-badge`
+- `apps/web/src/features/exam/rwHighlight/RwMcRadioQuestion.tsx` — `data-question-number-badge`
+- `apps/web/src/features/exam/ListeningKetPart1PictureView.tsx` — `data-question-number-badge`
+- `apps/web/src/features/exam/ListeningKetPart3McListView.tsx` — `data-question-number-badge`
+- `apps/web/src/features/exam/ListeningFceMcPartView.tsx` — `data-question-number-badge`
+- `tmp/reading-listening-question-badge-audit.md` (NEW)
+
+### Lỗi còn tồn tại
+
+- (none)
+
+### Next session start prompt
+
+Question badge standardization complete. All Reading/Listening A2–C2 question badges now use square 32×32px, border-radius 4px, border #238ED0. No circles, no indigo. Shared `QuestionNumberBadge` component + CSS tokens in `questionNumberBadge.css`. 15 component tests pass, TypeScript PASS. Browser E2E testing recommended to verify computed styles on real routes.
+
+---
+
+## 2026-08-02 — Speaking Roulette: Card Spacing + Audio (COMPLETE)
+
+### Việc đã hoàn thành
+
+- **Card spacing fix**: Replaced fixed `cardGapPx` (108px) with percentage-based `--line-left` (8%→92% desktop, 16%→84% mobile). Removed `winW` state and resize listener. Cards now spread evenly across deck width at any viewport.
+- **CSS phase transforms**: Lineup `scale(.74)`, running highlighted `scale(.83)`, landed non-selected `opacity:.28 scale(.68)`, landed selected `left:50% scale(.96)`. Transitions: lineup 320ms `cubic-bezier(.34,1.2,.64,1)`, running 70ms, landed 440ms `cubic-bezier(.22,1,.36,1)`.
+- **Deck CSS**: `overflow:visible`, `max-width:none`, `margin-inline:auto`. Mobile 520px: card 124×168px, `--line-left-mobile`, running scale .8, landed scale .94.
+- **Hover scoped**: `.si-deck.phase-idle > button:hover` only — no longer overrides running/landed transforms.
+- **Audio (`soundEffects.ts`)**: Added `primeRouletteAudio()` (lazy AudioContext, `resume()` on suspended, `webkitAudioContext` fallback). Tick: triangle 1200→800Hz, volume .035, 60ms, node disconnect on ended. Reveal: 220ms filtered noise whoosh + two sine chimes (880/1320Hz), volume .04/.06, all nodes disconnect on ended. Silent fallback if no AudioContext.
+- **`primeRouletteAudio()` called in `spin()`** before any `setTimeout` — resumes AudioContext on user gesture.
+- **Tests**: `soundEffects.test.ts` (5 tests — silent fallback, prime resume, tick, reveal), `RouletteSpacing.test.tsx` (9 tests — 7 cards, line-left %, mobile %, idle disabled, prime once, double-click guard, landed highlight, reveal once, tick calls). All 95 speaking-ielts tests PASS.
+
+### Files changed
+
+- `apps/web/src/features/speaking-ielts/soundEffects.ts` — rewritten with `primeRouletteAudio`, node disconnect, adjusted volumes
+- `apps/web/src/features/speaking-ielts/SpeakingIeltsPage.tsx` — percentage `--line-left`/`--line-left-mobile`, removed `winW`/`cardGapPx`/resize listener, added `primeRouletteAudio()` import + call
+- `apps/web/src/features/speaking-ielts/speakingIelts.css` — deck `overflow:visible`, phase transforms, transition timings, mobile overrides
+- `apps/web/src/features/speaking-ielts/soundEffects.test.ts` — new (5 tests)
+- `apps/web/src/features/speaking-ielts/RouletteSpacing.test.tsx` — new (9 tests)
+
+### Lỗi còn tồn tại
+
+- (none)
+
+### Next session start prompt
+
+Roulette card spacing + audio complete. All 95 speaking-ielts tests pass, TypeScript PASS. If committing, review `git diff` for the 5 files above. Browser testing at 1366×768 / 1920×1080 / 375×812 recommended to verify visual spacing and audio playback.
+
+---
+
+## 2026-08-02 — Reading Split Pane A2–C2 Standardization (COMPLETE)
+
+### Việc đã hoàn thành
+
+- **Audit**: Browser-tested all Cambridge Reading split-pane layouts A2→C2 (KET, PET, FCE, CAE, CPE) at 1366×768, 1920×1080, 2048×1152. Found `KetRwSplitPane` already shared across all levels.
+- **Root cause**: KET/PET shells had `is-part-N` class → part-specific CSS overrides applied (z-index 5, centered grip 30×30px). FCE/CAE/CPE shells lacked `is-part-N` → only generic CSS applied (z-index 3, bottom-aligned grip ~11×21px).
+- **Fix 1 — Duplicate CSS removal**: Removed 513 duplicate lines (lines 1899–2411) from `readingKetRw.css` — exact copy of lines 220–731.
+- **Fix 2 — Generic resizer standardized**: Updated `.ket-rw-resizer` generic CSS to match KET A2 Part 2 canonical reference: z-index 5 (was 3), margin 0 (was 0 -3px), align-items center (was flex-end), padding 0 (was 2.5rem bottom), ::before full-width auto (was 2px centered), grip 30×30px square white (was 1.35rem rounded with shadow), `flex-shrink: 0` on grip (prevents flexbox shrink).
+- **Fix 3 — Redundant overrides removed**: Removed KET Part 2/3 resizer overrides (lines 1163–1208) and PET Part 3 resizer overrides (lines 1037–1091) from `readingPetRw.css` — now redundant since generic matches canonical.
+- **Verification**: 63/63 split-pane parts PASS across all 3 viewports. All resizable splitters now have identical computed styles: z=5, w=10px, margin=0, align=center, grip=30×30px, ::before bg=rgb(143,147,149). No horizontal overflow, no console errors. TypeScript PASS. Catalog data unchanged (163 reading entries).
+
+### Files modified
+
+- `apps/web/src/features/exam/ketRw/readingKetRw.css` — removed 513 duplicate lines, updated generic resizer CSS, removed redundant part-specific resizer overrides
+- `apps/web/src/features/exam/petRw/readingPetRw.css` — removed redundant PET Part 3 resizer overrides
+
+### Lỗi còn tồn tại
+
+- PET Part 2 uses `is-fixed-scrollbar` variant (grid 50/50, no resizer) — this is by design, not a bug
+- PET Parts 5/6/7 are single-pane (not split) — expected behavior
+
+### Next session start prompt
+
+Split-pane standardization complete. All Cambridge Reading split panes A2–C2 now use identical shared `KetRwSplitPane` component with standardized resizer visual. If committing, review `git diff` for `readingKetRw.css` and `readingPetRw.css`. Next: highlight/note and DnD regression testing across all levels after resize.
+
+---
+
+## 2026-08-02 — Task 5 continuation: Part 3 expansion + session-based picker (PASS)
+
+### Việc đã hoàn thành
+
+- **Part 3 expansion**: Mở rộng từ 180 lên **340 câu** (34 groups × 10 câu/group). Mỗi `linkedPart3Group` giờ có tối thiểu 10 câu Part 3.
+- **Near-duplicate fix**: Sửa 6 cặp near-duplicate (Jaccard > 0.75):
+  - Part 1: `ielts-p1-food-004` ↔ `ielts-p1-music-004` → rephrase music-004
+  - Part 3: `hometown-005` ↔ `cities-006` → rephrase cities-006
+  - Part 3: `accommodation-003` ↔ `cities-003` → rephrase cities-003
+  - Part 3: `study-002` ↔ `communication-002` → rephrase communication-002
+  - Part 3: `technology-002` ↔ `communication-002` → fixed by communication-002 change
+  - Part 3: `books-003` ↔ `books-007` → rephrase books-007
+- **Manual quality audit**: Audit 30+ Part 1, 25+ Part 2, 40+ Part 3. Sửa 8 items:
+  - `ielts-p1-environment-001`: awkward English → rephrase
+  - `ielts-p1-transport-003`: bandFocus mismatch → fix
+  - `ielts-p1-public-services-003`: thematic mismatch (transport question in public-services) → replace
+  - `ielts-p2-accommodation-003`: double "in" + near-duplicate with accommodation-001 → rephrase to renovation
+  - `ielts-p2-travel-002`: near-duplicate with cities-001 → narrow to natural landscape
+  - `ielts-p3-cities-007`: near-duplicate with cities-003 → rephrase
+  - `ielts-p3-culture-010`: near-duplicate with culture-005 → rephrase
+- **Related group mapping**: `RELATED_GROUPS` trong `speakingPools.ts` — 34 groups, mỗi group maps 3 related groups (e.g., travel→transport,culture,environment; technology→education,communication,work; health→food,sports,public-services).
+- **Session-based Part 3 picker**: `pickPart3ForSession()` — ưu tiên unused items từ linked group → related groups → full pool → reset. `Part3Session` type với `usedIds: Set<string>`. `resetPart3Session()` khi user đổi Part 2 card.
+- **Roulette integration**: `SpeakingIeltsPage.tsx` Roulette component dùng `pickPart3ForSession` cho Part 3, `part3SessionRef` ref, reset khi Part 2 card thay đổi.
+- **Validation**: `validateSpeakingPools.ts` cập nhật: Part 3 min 340, linked group min 10, near-duplicate check (Jaccard > 0.75).
+- **Tests**: `speakingPools.test.ts` — 41 tests PASS (validation, roulette, Part 2→3 linking, related groups, session-based picker, browser simulation 20 spins × 6 groups). Tổng 69 tests trong speaking-ielts PASS.
+
+### Verification
+
+- TypeScript PASS (0 errors).
+- 69 tests PASS (6 files).
+- `git diff --check`: chỉ có pre-existing trailing whitespace trong `AppShell.tsx` (ngoài scope).
+- Không sửa animation/CSS/route.
+
+### Files modified
+
+- `apps/web/src/features/speaking-ielts/data/part3.ts` — 160 new questions + 6 near-duplicate fixes
+- `apps/web/src/features/speaking-ielts/data/part1.ts` — 3 quality fixes
+- `apps/web/src/features/speaking-ielts/data/part2.ts` — 2 near-duplicate fixes
+- `apps/web/src/features/speaking-ielts/data/speakingPools.ts` — RELATED_GROUPS, Part3Session, pickPart3ForSession
+- `apps/web/src/features/speaking-ielts/SpeakingIeltsPage.tsx` — session-based Part 3 picker integration
+- `apps/web/src/features/speaking-ielts/utils/validateSpeakingPools.ts` — updated thresholds + near-duplicate check
+- `apps/web/src/features/speaking-ielts/speakingPools.test.ts` — 41 tests
+
+### Lỗi còn tồn tại
+
+- Sample Speaking corpus vẫn cần nguồn data thật.
+- 2 `.tsx` test files không chạy được qua npx vitest (jsdom missing) — pre-existing, không liên quan.
+
+### Next session start prompt
+
+Task 5 continuation hoàn tất. Part 3 có 340 câu (10/group), session-based picker không lặp, related groups mapping, 41 tests PASS. Nếu cần commit, review `git diff` cho speaking-ielts files. Next: populate `speakingSamples` với nguồn thật, hoặc browser verify trên dev server.
+
+---
+
+## 2026-08-02 — Task 4.3 CAE Part 7 pixel-match (VERIFIED)
+
+- Root build follow-up: fixed catalog regeneration so full builds preserve supplemental manifest/meta entries that have valid runtime body+answer files but no package source JSON (notably PET Test 13/14–51 and CAE Test 2–23). `pnpm run build` now PASS end-to-end; catalog runtime validator reports 27 FCE entries and 40 PET entries, and the post-build CAE guard still reports 23 entries/0 problems.
+- Root cause: CAE and FCE already rendered the shared `GappedTextGap`, but higher-specificity CAE-only CSS forced `display:flex`, `width:100%`, `min-height:48px`, large padding and a dotted neutral border. CAE source gaps are intentionally between semantic paragraphs, so no raw-data/parser rewrite was appropriate.
+- Added/imported shared `CambridgeGappedText.css`; removed conflicting CAE-only Part 7 slot/bank overrides. Empty CAE/FCE slots now both measure `300×23px`, `inline-flex`, `2px dashed rgb(65,142,200)`, 5px radius and 1px margins; paragraph-block bottom spacing is 13.6px. Shared bank border/padding/radius/spacing now match FCE. Filled gaps reserve room for an in-card remove control without text overlap.
+- Full 1920×1080 evidence is in `outputs/cae-task4.3/`; computed metrics and zero-overflow/zero-console-error results are in `runtime-evidence.json`.
+- Real Playwright pointer checks passed bank→gap, gap→gap, gap→bank, replace and clear. Pointer text selection passed highlight + Note creation and part-switch persistence. Submit/retry restored six empty gaps and seven A–G cards (`reset-evidence.json`).
+- TypeScript PASS; 4 targeted files / 39 tests PASS; scoped `git diff --check` PASS; production build PASS (2,584 modules); post-build guard PASS with 23 CAE entries, 1,232 questions, 1,232 answers and 0 problems.
+
+## 2026-08-02 — Task 6: Speaking Roulette 4-stage card animation (Phase 3 COMPLETE)
+
+### Việc đã hoàn thành
+
+- **Phase 3 (Implement)** — 4-stage "Speaking Roulette" card animation đã implement trong `SpeakingIeltsPage.tsx` và `speakingIelts.css`:
+  1. **State/refs**: `phase` (`"idle"|"lineup"|"running"|"landed"`), `highlightIndex`, `pickedIndex`, `pendingResultRef`, `spinLockedRef`, `spinRunIdRef`, `spinTimerIdsRef`.
+  2. **Spin flow**: `spin()` → double-click guard → `spinInternal()` → `pickRoulette(visibleCards)` → `buildSpotlightSequence()` → lineup (320ms) → running (spotlight ~1.1–1.6s) → landed (440ms) → `setResult` + `setRevealing(true)` → flipIn 500ms.
+  3. **Spotlight**: one-directional `highlightIndex` sweep across 7 cards, delay formula `45 + progress²·² × 95` (45ms→140ms), ends exactly on `finalIndex`.
+  4. **CSS**: `.si-deck.phase-idle/lineup/running/landed` transitions; `.is-highlighted` yellow glow + lift; landed dims non-selected to 0.28 opacity; hover restricted to `phase-idle`; `prefers-reduced-motion` 80ms fallback.
+  5. **Preserved**: `@keyframes flipIn` (3D reveal), `@keyframes shimmer` (SPIN button), `@keyframes tabPulse` (active tab).
+  6. **Removed**: `@keyframes shuffle`, `.si-deck.spinning` — replaced by phase-based spotlight system.
+  7. **`buildSpotlightSequence`** in `speakingIeltsData.ts`: pure function, clamps `finalIndex`, ensures `minimumTicks`, cycles `i % cardCount`, ends on target.
+- **Unit tests**: Added 8 test cases for `buildSpotlightSequence` in `speakingIeltsData.test.ts` — empty input, minimum ticks, finalIndex landing, clamping, cycling, alignment, default minimumTicks, single-card deck. All 16 assertions PASS (verified via node ESM import).
+- TypeScript: no errors in speaking-ielts files (unrelated errors in `src/security/` and `src/styles/` only).
+- `git status`: speaking-ielts directory is untracked (not yet committed).
+
+### Lỗi còn tồn tại
+
+- Vitest không chạy được do `@vitest/utils` missing trong `node_modules` (cần `pnpm install --ignore-scripts`); tests verified via direct node ESM import instead.
+- speaking-ielts files chưa commit.
+
+### Next session start prompt
+
+Task 6 Phase 3 hoàn tất. Implementation đã có trong working tree + unit tests cho `buildSpotlightSequence`. Nếu cần commit, review `git status` cho speaking-ielts directory. Next: browser verify roulette animation (Playwright), hoặc commit + deploy.
+
+---
+
+## 2026-08-02 — Task 4.2 CAE/FCE shared interaction pass (VERIFIED)
+
+- Phase 0 guard trước sửa:
+  - SHA-256 `catalog-reading-meta.json`: `c1a8ef69e7eb7aaa240402a7db3e02fb5cc371bda2e440144a71a00209969c48`.
+  - SHA-256 `manifest.json`: `772a2b5506b29232c7a9c2e4e9f248df44a6b78aea433f13671b329212c5b31a`.
+  - `validate-cae-c1-app-import.mjs`: 23 manifest entries, 1,232 questions/answers, 0 problems.
+- Audit root causes:
+  - CAE Part 1 dùng `InlineMcGap` riêng, menu là child trực tiếp trong passage; FCE dùng shared `RwPart5McGap` với outside-click/Escape flow.
+  - CAE đã lưu highlights/notes bằng `usePartHighlights`, nhưng shell thiếu `useStableTextSelection` và `CambridgeSelectionToolbar`, nên không có selection toolbar để commit annotation.
+  - CAE Part 7 giữ `label=full text`, render gap inline và bank không phải drop target; reverse drag chỉ có nút Clear.
+- Đã sửa:
+  - CAE Part 1 dùng trực tiếp shared `RwPart5McGap` của FCE.
+  - CAE shell dùng cùng `useStableTextSelection` + portal `CambridgeSelectionToolbar` + commit add/delete highlight/note như FCE.
+  - Thêm shared `gappedText/CambridgeGappedText.tsx` và dùng cho cả CAE Part 7 lẫn FCE Part 6.
+  - Contract chuẩn `{ id, label, text }`; CAE labels A–G và full text nằm ở `text`.
+  - Shared bank hỗ trợ bank→gap, gap→gap, gap→bank, replace, Clear và click fallback; bank toàn vùng là drop target.
+  - CAE gap render block với margin/height ổn định; bank có hover outline token-based.
+- Browser pointer evidence thật (Playwright mouse/drag; không dùng `dispatchEvent`) trên CAE Test 1/14/23:
+  - Part 1 popup 4 options, bounding boxes > 0, không reflow, không viewport overflow, console 0.
+  - Pointer text selection → toolbar → yellow highlight → Part 2 → Part 1 persistence PASS.
+  - Bank→41, 41→bank, bank→43, 43→44 (pointer + pane scroll), replace B bằng C, Part switch persistence: PASS cả 3 tests.
+  - Test 14 Note create/reopen/edit/delete: PASS, console 0.
+  - Submit → “Làm lại bài” reset: gaps 41–46 empty, 7 cards, footer Part 7 `0 of 6`, console 0.
+- FCE Test 21 browser regression: Part 1 popup, pointer highlight, Part 6 bank→gap→bank PASS, console 0.
+- PET/KET annotation + FCE shared DnD tests: 4 files, 39 tests PASS.
+- 23-route audit exit 0; final CAE guard vẫn 23 entries/0 problems.
+- Visual evidence: `outputs/cae-task4.2/` (CAE Test 14 popup/toolbar/highlight/note/Part 7 at 1920×1080; popup/Part 7 at 1366×768; FCE references; JSON pointer evidence).
+- `git diff --check` scoped PASS.
+- Fresh verification cuối: sửa narrowing hiển nhiên ngoài scope tại `SpeakingIeltsPage.tsx:88` (`else` đã chứng minh `result` falsy nên gọi `spinInternal()` thay vì `spinInternal(result?.id)`). `pnpm --filter web build` PASS: TypeScript + Vite, 2,583 modules, khoảng 1m51s; chỉ còn chunk-size warnings. Guard chạy ngay sau build vẫn 23 CAE entries/0 problems.
+
+## 2026-08-02 — Task 5: IELTS Speaking content expansion (PASS)
+
+### Việc đã hoàn thành
+
+- Mở rộng kho IELTS Speaking từ 60 items (Part 1: 17, Part 2: 18, Part 3: 25) lên **455 items** (Part 1: 170, Part 2: 105, Part 3: 180).
+- Tạo kiến trúc dữ liệu module hóa: `types/speakingContent.ts` (schema Part 1/2/3 + 34 topic groups), `data/part1.ts`, `data/part2.ts`, `data/part3.ts`, `data/speakingPools.ts` (adapter RouletteItem + Part 2→3 linking helpers), `utils/validateSpeakingPools.ts` (16 validation checks).
+- Part 2 cue cards: mỗi card có đúng 4 bullet prompts + closing instruction + `linkedPart3Group` ổn định.
+- Part 3 linking: khi user spin Part 2, lưu `linkedPart3Group`; khi chuyển Part 3, pool được filter theo group đó (fallback toàn bộ nếu group không tồn tại).
+- SpeakingIeltsPage.tsx: Roulette component dùng `SPEAKING_POOLS` mới; result hiển thị 4 prompts cho Part 2; route handler hỗ trợ cả ID mới (`ielts-p1-*`) và cũ (`roulette-1-*`).
+- CSS: thêm `.si-result-prompts`, `.si-prompts-label`, `.si-closing`, `.si-linked-group` — không thay đổi animation/layout/màu sắc hiện có.
+- Tests: `speakingPools.test.ts` — 23 tests PASS (16 validation checks + roulette compatibility + Part 2→3 linking). Tổng 55 tests trong speaking-ielts PASS.
+- TypeScript PASS. `git diff --check` clean cho speaking-ielts files.
+- Browser test (Playwright): Part 1/2/3 roulette 20 lượt mỗi part, 0 console errors, 0 network errors, 0 consecutive duplicates, Part 2 render 4 prompts, mobile 375px no overflow, Part 3 linked đúng với Part 2 topic.
+
+### Lỗi còn tồn tại
+
+- Sample Speaking corpus vẫn cần nguồn data thật (Cambridge/IELTS books, audio).
+- Part 3 pool khi linked group nhỏ (5-6 questions) sẽ lặp sau vài lượt spin — đây là behavior đúng (pool nhỏ, pickRoulette chỉ tránh lặp ngay liên tiếp).
+
+### Next session start prompt
+
+Task 5 hoàn tất. Kiểm tra `session_summary.md` cho context. Nếu cần commit, review `git diff` cho 7 file mới/sửa trong `apps/web/src/features/speaking-ielts/`. Task tiếp theo có thể là populate `speakingSamples` array với nguồn data thật.
+
+---
+
+## 2026-08-02 — Task 4.1 CAE C1 recovery/runtime pass (PARTIAL: reference comparison blocked)
+
+### Việc đã hoàn thành
+
+- Khôi phục lại registry/catalog runtime CAE bằng importer local hiện có (không recrawl, không sửa nội dung đề): `catalog-reading-meta.json` và `manifest.json` lại có đủ Test 1–23; Library Archives hiển thị 6 nhóm sách với tổng `3+4+4+4+4+4 = 23` tests.
+- Browser loop trực tiếp **23/23 routes** xác nhận HTTP 200, đúng `data-exam-id` riêng (không fallback Test 1), 8 Parts, 56 questions, Part 7 có 7 cards A–G full text và 0 console errors.
+- Part 7 dùng normalization có invariants: 7 labels A–G duy nhất, option IDs duy nhất, text không rỗng và đúng gaps 41–46. Browser DnD event validation trên Test 1/2/12/23 đã PASS chuỗi A→41, B→42, A 41→43, clear 42, đổi Part/quay lại và state vẫn đúng; bank uniqueness đúng.
+- CAE header dùng asset thật `/exam/cambridge-english-logo.png` giống FCE thay cho ô chữ `CE`; inline Part 1 không còn dot-run thừa; Part 2/3 và Part 4 có width riêng; Part 4 vẫn chỉ một input.
+- Footer CAE dùng flex columns ổn định + review cell cố định, active Part đủ chỗ cho question pills; Part 7 hiển thị đủ 41–46. Shell dùng grid `auto minmax(0,1fr) auto`; split panes scroll độc lập và runtime không có body horizontal overflow.
+- Shared gap parser hỗ trợ dot-run hỗn hợp `.…_`; FCE duplicate React keys phát sinh khi parser nhận đúng các slot đã được sửa bằng key gồm segment index.
+- Runtime regression PET/FCE Test 1: HTTP 200, Cambridge logo hiện, body overflow 0, console errors 0. Targeted PET/FCE tests: **44/44 PASS**.
+- Verification cuối: `pnpm --filter web exec tsc --noEmit` PASS; `pnpm --filter web build` PASS (2578 modules, ~1m56s); scoped `git diff --check` PASS.
+- Screenshot evidence đã tạo tại `outputs/cae-task4.1/`: Test 1 Parts 1/2/7/8 (1920×1080), Test 12 Part 7 và Test 23 Part 7 (2048×1152), cùng CAE catalog 23 tests.
+
+### Lỗi/điều kiện còn tồn tại
+
+- Không tìm thấy `Screenshot_true.zip` hoặc `part1_true.jpg`–`part8_true.jpg` tại đường dẫn user cung cấp; chỉ thấy `.hermes/desktop-attachments/Screenshot 2026-08-01 211730.png`. Vì vậy chưa thể comparison pixel/visual trực tiếp với bộ reference và không claim toàn bộ Definition of Done.
+- Chưa browser-verify riêng reset/retry sau submit và click từng one of 23 nested catalog cards/back-forward; route direct loop 23/23 đã PASS nhưng hai checklist này chưa chạy.
+- Repository vẫn có số lượng lớn modified/untracked files ngoài phạm vi Task 4.1; không reset/overwrite chúng.
+
+### Next session start prompt
+
+Tiếp tục Task 4.1 từ evidence trong `tmp/cae-route-audit.json`, `tmp/cae-part7-interaction.json` và `outputs/cae-task4.1/`. Nếu user cung cấp `Screenshot_true.zip`, giải nén và comparison 7 screenshots. Sau đó browser-verify 23 nested catalog-card clicks/back-forward và reset/retry Part 7 trước khi đổi trạng thái từ PARTIAL sang DONE.
+
+## 2026-08-02 — Task 4 CAE C1 Reading ponytail pass (PARTIAL, verified scope only)
+
+### Việc đã hoàn thành
+
+- Kept all CAE catalog data untouched; the Reading shell now exposes only Parts 1–8, so legacy Test 1 retains its two stored Writing parts without showing question 57/58 on the Reading route.
+- Fixed CAE Part 4 at the renderer root: exactly one active question and one answer input are rendered. The dotted placeholder is now parsed as one contiguous slot instead of producing four repeated inputs.
+- Hardened CAE Part 7 shared interaction path: placed cards can be dragged from gap to gap, drop-hover state is visible, and a clear button returns a card to the bank while preserving stable option IDs and uniqueness logic.
+- Added CAE-scoped viewport/rubric/inline MC/input styling with theme variables; inline gaps now have visible Cambridge-style controls and the page has no horizontal body overflow.
+- Static catalog audit: Tests 1–23 all have 8 Reading parts, 56 Reading questions, and counts `8,8,8,6,6,4,6,10` (Test 1 raw data has 10 parts but its Reading projection is 8/56).
+- Browser runtime checks passed for every Part on Tests 1, 12, and 23: expected question counts, split panes on Parts 3/5/6/7/8, Part 4 one article/one input, body overflow 0, console JS errors 0.
+- Verification: web TypeScript PASS; web production build PASS; scoped `git diff --check` PASS. No commit/push.
+
+### Lỗi còn tồn tại
+
+- Full brief is not complete: PET-equivalent selection toolbar/note workflow and persistent question flags are not yet wired into CAE; header remains the older KET-style header; duplicate title/instruction text remains in some imported passages.
+- Full interaction automation across all 23 routes, all four target viewports, visual screenshot comparison, PET/FCE regression suite, and root `pnpm run test` were not run in this pass.
+- Repository-wide `git diff --check` is blocked by pre-existing trailing whitespace in unrelated `apps/web/src/pages/AppShell.tsx`; scoped CAE diff is clean.
+
+### Next session start prompt
+
+Continue CAE Task 4 from the three CAE files only. Reuse PET `CambridgeSelectionToolbar`/`useStableTextSelection` and question-flag persistence, then replace the CAE header with PET's compact Cambridge identity. Add focused CAE renderer tests and run the 23-route interaction loop plus screenshots for Tests 1/12/23 before claiming DONE.
+
+---
+
+## 2026-08-02 — Task 3: Roulette UX Animations (COMPLETE)
+
+### Việc đã hoàn thành
+
+- **7 CSS animation upgrades** implemented in `speakingIelts.css` + 1 JSX change in `SpeakingIeltsPage.tsx`:
+  1. **Card hover** — `.si-deck button` gets `transition: transform .22s, box-shadow .22s`; `:hover` overrides transform to `rotate(0deg) translateY(-24px) scale(1.05)` with `z-index:10`. Wrapped in `@media(hover:hover)` to avoid sticky hover on touch devices.
+  2. **Shuffle spin** — Replaced old `@keyframes shake` (0.12s alternate) with `@keyframes shuffle` (.55s cubic-bezier) — cards swing ±14deg/±10deg with bounce-back. `.si-deck.spinning button` uses `shuffle .55s cubic-bezier(.36,.07,.19,.97) both`.
+  3. **Flip 3D reveal** — New `revealing` state in `Roulette()`. After spin completes, `setRevealing(true)` → 500ms → `setRevealing(false)`. `.si-result.revealing` animates `flipIn .5s` (rotateY 90deg→0deg + scale .9→1). Added `perspective:1000px` to `.si-result`.
+  4. **Card material** — `.si-deck button` background changed from flat `hsl()` to `linear-gradient(135deg, hsl(85% 74%) → hsl(75% 60%))`. Double shadow: `6px 6px 0 #111, 0 12px 24px -8px rgba(0,0,0,.35)`.
+  5. **Shimmer on SPIN button** — `.si-spin` gets `position:relative; overflow:hidden` + `::after` pseudo-element with `linear-gradient(120deg, transparent, rgba(255,255,255,.55), transparent)` sweeping `left:-150%` → `left:150%` over 3s. Paused when `:disabled`.
+  6. **Pulse on active tab** — `.si-tabs .active` gets `animation:tabPulse 2s ease-in-out infinite` animating `box-shadow` only (not transform) to avoid conflict with existing `translate(3px,3px)`. Yellow glow ring expands and fades.
+  7. **Mobile responsive** — `@media(max-width:520px)` adds `.si-deck button{width:140px;height:190px;left:calc(50% - 70px);--angle:calc((var(--i) - 3)*6deg)}` to prevent horizontal overflow at 375px.
+
+### Tab `.active` conflict note
+
+Original `.si-tabs .active` had `transform:translate(3px,3px)`. The `tabPulse` animation targets `box-shadow` only, NOT `transform` — no conflict. The static `translate(3px,3px)` is preserved.
+
+### Verification
+
+- TypeScript PASS (`pnpm --filter web exec tsc --noEmit`).
+- Speaking tests: 7 files, 32 tests PASS.
+- Dev server: Vite served CSS with all 5 new keyframes (`shuffle`, `flipIn`, `shimmer`, `tabPulse` confirmed in compiled output). No compilation errors.
+- No commit/push made.
+
+### Files modified
+
+- `apps/web/src/features/speaking-ielts/speakingIelts.css` — 7 CSS changes
+- `apps/web/src/features/speaking-ielts/SpeakingIeltsPage.tsx` — `revealing` state + `spin()` update + `revealing` class
+
+### Lỗi còn tồn tại
+
+- **Sample Speaking corpus:** `speakingSamples` array still empty. Cần real source (sách IELTS chính thống, băng mẫu Cambridge, tự thu âm).
+- **Roulette Part 2/3 enrichment:** Chưa enrich Roulette Part 2/3 items với question bank data.
+
+### Next session start prompt
+
+1. Cung cấp real speaking samples (Cambridge/sách IELTS) để populate `speakingSamples` array.
+2. Roulette Part 2/3 enrichment (brief ưu tiên 5): `relatedQuestions`, `answerHints`, `part2CueCardBullets`, `linkedPart3Ids`.
+3. Premium Mock Interview (brief ưu tiên 6): premium question set, session template, examiner follow-up sequence.
+
+---
+
+## 2026-08-02 — Task 1: Fetch Part 3 Questions for 82 Forecast Part 2+3 sets (COMPLETE)
+
+### Việc đã hoàn thành
+
+- **Discovered public API endpoint:** `https://theieltsdictionary.com/data/speaking/forecast-q2-2026.json` returns full forecast data (74,220 bytes) with `part2_3` array containing all 82 cue cards with bullets AND Part 3 questions. No authentication required — the endpoint is publicly accessible.
+- **Saved raw JSON:** Copied to `D:\App-English-Ryan\Crawl\IELTS_Bank\Speaking_IELTS\raw\api\forecast-q2-2026-full.json` (crawl dir) and `apps/web/src/features/speaking-ielts/data/forecast-q2-2026-full.json` (app data dir).
+- **Updated parser:** `normalizeForecast()` in `speakingIeltsData.ts` now accepts optional `fullData` parameter with `part2_3` array. When provided, it enriches each `ForecastItem` with `part3Questions` from the full JSON by index mapping (tab state item N ↔ full JSON item N).
+- **Updated `SpeakingIeltsPage.tsx`:** Passes `forecast-q2-2026-full.json` as second argument to `normalizeForecast()`.
+- **Updated tests:** `speakingIeltsData.test.ts` and `speakingIeltsCorpus.test.ts` import `forecast-q2-2026-full.json` and pass it to `normalizeForecast()`. New test verifies all 82 sets have non-empty `part3Questions` matching the source JSON.
+
+### Verification
+
+- TypeScript PASS (`pnpm --filter web exec tsc --noEmit`).
+- Speaking tests: 7 files, 32 tests PASS (parser 7 + question bank 6 + corpus 3 + session 2 + progress 2 + mock interview 2 + actions 10).
+- No commit/push made.
+
+### Data summary
+
+- Total cue cards: 82
+- Cue cards with Part 3 Questions: 82/82 (100%)
+- Total Part 3 questions: 518
+- Average per cue card: ~6.3 questions
+- Source: `https://theieltsdictionary.com/data/speaking/forecast-q2-2026.json` (public, no auth)
+
+### 3 mapping examples
+
+1. Cue card #1: "Describe a time when you felt very proud of something a family member did" → 6 Part 3 questions (e.g., "What kinds of behaviors of young children can make their parents feel proud?")
+2. Cue card #2: "Describe a time when you were not allowed to use your phone" → 6 Part 3 questions (e.g., "In your country, which places are not allowed people to use phones?")
+3. Cue card #82: "Describe a person you would like to study or work with" → 6 Part 3 questions (e.g., "What qualities make a good colleague?")
+
+### Files modified
+
+- `apps/web/src/features/speaking-ielts/speakingIeltsData.ts` — `normalizeForecast()` signature + enrichment logic
+- `apps/web/src/features/speaking-ielts/SpeakingIeltsPage.tsx` — pass full data to `normalizeForecast()`
+- `apps/web/src/features/speaking-ielts/speakingIeltsData.test.ts` — import + new test
+- `apps/web/src/features/speaking-ielts/speakingIeltsCorpus.test.ts` — import + pass full data
+- `apps/web/src/features/speaking-ielts/data/forecast-q2-2026-full.json` — new data file (74,220 bytes)
+
+### Files saved to crawl dir
+
+- `D:\App-English-Ryan\Crawl\IELTS_Bank\Speaking_IELTS\raw\api\forecast-q2-2026-full.json`
+
+### Lỗi còn tồn tại
+
+- **Sample Speaking corpus:** `speakingSamples` array still empty. Cần real source (sách IELTS chính thống, băng mẫu Cambridge, tự thu âm).
+- **Roulette Part 2/3 enrichment:** Chưa enrich Roulette Part 2/3 items với question bank data.
+
+### Next session start prompt
+
+1. Cung cấp real speaking samples (Cambridge/sách IELTS) để populate `speakingSamples` array.
+2. Roulette Part 2/3 enrichment (brief ưu tiên 5): `relatedQuestions`, `answerHints`, `part2CueCardBullets`, `linkedPart3Ids`.
+3. Premium Mock Interview (brief ưu tiên 6): premium question set, session template, examiner follow-up sequence.
+
+---
+
+## 2026-08-01 — Speaking data gaps: Parser fix + part1QuestionBank + Sample Speaking schema (COMPLETE)
+
+### Việc đã hoàn thành
+
+- **Parser fix (Task 1):** Sửa `forecastItems()` trong `speakingIeltsData.ts` để capture Part 3 Questions khi có trong source data. Thêm `inPart3` state; khi gặp heading "Part 3 Questions", parser chuyển sang mode thu thập Part 3. Distinguishes Part 3 questions từ new cue cards bằng cách check `^(Describe|Talk about)\b` pattern. Parser hiện SẴN SÀNG capture Part 3 questions, nhưng source data hiện chỉ có heading "Part 3 Questions (N)" với count — actual questions loaded dynamically trên website, cần re-crawl với JS rendering.
+- **part1QuestionBank (Task 2):** Tạo `part1QuestionBank.ts` — shared question bank với 55+ topics, mỗi topic có 3-5 questions, hints (vocabulary), sampleAnswerStructure. Alias system matching topic names across Forecast (34 Part 1 topics), Practice Bank (27 topics), Roulette (17 Part 1 topics). `lookupPart1Questions(topic)` resolves aliases (e.g., "Where you live now" → "Hometown", "ANIMALS" → "Pets").
+- **Practice Bank enrichment (Task 3):** `practiceItems` Part 1 trong `SpeakingIeltsPage.tsx` giờ enrich từ question bank. Forecast Part 1 expanded view hiển thị questions + hints + structure. Roulette Part 1 route handler enrich từ question bank. Mock Interview page hiển thị questions/hints/structure qua details elements.
+- **Sample Speaking schema (Task 4):** Tạo `speakingSamples.ts` với `SpeakingSample` type (bandScore, transcript, bandDescriptor 4 criteria, vocabularyAnnotations). `speakingSamples` array initially empty — cần real source data (Cambridge/sách IELTS). Samples page update: hiển thị samples by Part khi có data, "coming soon" message khi empty.
+- **ForecastItem type:** Thêm optional fields `questions`, `hints`, `sampleAnswerStructure` — backward compatible.
+
+### Verification
+
+- TypeScript PASS (`pnpm --filter web exec tsc --noEmit`).
+- Speaking tests: 7 files, 31 tests PASS (parser 6 + question bank 6 + corpus 3 + session 2 + progress 2 + mock interview 2 + actions 10).
+- No commit/push made.
+
+### Lỗi còn tồn tại
+
+- **Part 3 Questions data gap:** Source data (`forecast-tab-states.json`) chỉ có "Part 3 Questions (N)" headings với count, không có actual question text. Parser đã fix và sẵn sàng capture, nhưng cần re-crawl website với JavaScript rendering để lấy Part 3 questions thật.
+- **Sample Speaking corpus:** `speakingSamples` array empty. Cần real source (sách IELTS chính thống, băng mẫu Cambridge, tự thu âm). Brief: "AI chỉ hỗ trợ annotate, không tự viết bài mẫu."
+
+### Next session start prompt
+
+Tiếp tục speaking data gaps:
+1. Re-crawl `theieltsdictionary.com/practice/speaking` với JS rendering để lấy Part 3 questions cho 82 cue cards. Parser đã sẵn sàng.
+2. Cung cấp real speaking samples (Cambridge/sách IELTS) để populate `speakingSamples` array.
+3. Roulette Part 2/3 enrichment (brief ưu tiên 5): `relatedQuestions`, `answerHints`, `part2CueCardBullets`, `linkedPart3Ids`.
+4. Premium Mock Interview (brief ưu tiên 6): premium question set, session template, examiner follow-up sequence.
+
+---
+
+## 2026-08-01 — Task 15: Fix card cuối bị cắt shadow tại /app/vocab (COMPLETE)
+
+- **Root cause (xác nhận bằng computed styles):** Không phải lỗi per-card — computed styles của "Hóa học" vs "Địa chất học" GIỐNG HỆT NHAU (184px, border 2.4px, shadow solid 1.6px offset). Nguyên nhân: virtualizer (`@tanstack/react-virtual` v3) không có end-clearance → card cuối chạm sát đáy list, chỉ còn ~44px room, shadow/hover bị sát mép.
+- **Fix (1 dòng, shared container):** thêm `paddingEnd: 38` vào config `useVirtualizer` trong [DeckGrid.tsx](apps/web/src/features/vocab/DeckGrid.tsx). Không đụng per-card, không overflow hack.
+- **Verify:** room dưới card cuối 44px → **82.4px** tại 1920/1440/1280 (maxScroll +38 đúng bằng paddingEnd); mobile 1-col room rất lớn; console errors = 0; `tsc --noEmit` PASS.
+- **Data note:** "Địa chất học" không còn là card cuối (Dexie không sort — thứ tự = insertion order). Card cuối thực tế: "Y sinh học" (Học thuật) / "Xuất nhập khẩu" (All). Fix ở container nên cover mọi card cuối mọi filter.
+- **Theme note:** theme neo-brutalist đang active — shadow solid offset 1.6px (không phải blur shadow trong deckCards.css base), card 184px.
+
+## 2026-08-01 — CAE Listening audio sync to R2 (ryan-english-media)
+
+- Fixed `scripts/listening/test-r2-connection.mjs`: AWS SDK v3 `GetObjectCommand` body has no `.transformTo()` — added `bodyToString()` helper (transformToString → text → stream concat) and wrapped the smoke test in `try/finally` so `DeleteObject` always runs. Smoke test now exits cleanly instead of hanging.
+- Correct bucket is `ryan-english-media` (not `ryan-english-assets`, which returns 403 AccessDenied). Smoke test 5/5 PASS: PutObject/HeadObject/GetObject/PublicGetRange (206 `text/plain`)/DeleteObject.
+- Deleted orphaned diagnostics object `__diagnostics/cae-r2-smoke-1785563191928.txt` left by the crashed run.
+- Synced 120 CAE C1 Listening MP3s from `tmp/cae-audio-upload-manifest.json` (decision `upload-runtime`) → `listening/cae-c1-testN/...`. Dry-run: 120 planned. Apply: 120 uploaded, 0 failed. Public URL check: 120 × 206 `audio/mpeg`. `--verify-only`: 120 verified, 0 size mismatch.
+- **SECURITY:** R2 credentials were pasted into chat during this session — they should be revoked and rotated.
+- No commit/push made.
+
+## 2026-07-31 — Task 14: Sentence Structure Focus Mode (COMPLETE)
+
+- Route catalog `/app/sentence-structure/catalog:*` dùng Focus Mode tập trung tại `AppShell`; ẩn desktop/mobile sidebar, drawer/overlay, notification/global sidebar controls, corner mascot, dictionary và SRS reminder. Route danh sách giữ layout cũ.
+- Thay topbar cao bằng Focus Header 56–64px có Back theo browser history, fallback `/app/sentence-structure`, title + CEFR, tiến độ `1 / 1`, nút Thoát; workspace rộng tối đa 60rem, responsive, `100dvh`, không dùng Browser Fullscreen API hay CSS âm.
+- Giữ nguyên logic input A/B, lật thẻ, kiểm tra mẫu, AI grading; thêm `role=status`/`aria-live` cho feedback và `role=alert` cho lỗi AI. Bật React Router v7 future flags để console không còn cảnh báo migration.
+- Browser QA thật PASS 28 checks tại 1920×1080, 1366×768, 390×844: sidebar/widget ẩn đúng, list route không đổi, Back/Forward giữ `?cefr=A2`, input/flip/check/AI control hoạt động, không overflow, console errors = 0, React warnings = 0.
+- Targeted Vitest: 77/77 PASS. TypeScript PASS. `git diff --check` PASS.
+- Screenshots: `outputs/task14-focus-1920x1080.png`, `outputs/task14-focus-1366x768.png`, `outputs/task14-focus-390x844.png`.
+
+## 2026-07-31 — Task 13: Sentence Structure filters, saved view, learning status
+
+- Redesign `/app/sentence-structure` thành toolbar responsive gọn; hỗ trợ search + CEFR + nhóm + trạng thái kết hợp, count sau filter và giữ Lịch sử.
+- Thêm card “Cấu trúc đã lưu”, saved view tại `/app/sentence-structure?view=saved`, Back/Forward, empty state và thống kê trạng thái trong tập favorite.
+- Thêm `LearningStatus` optional trên `SentenceStructure`, persist bằng Dexie/repository hiện có; dữ liệu cũ mặc định `not_started`; catalog sync giữ cả favorite và trạng thái.
+- Thêm status chip/menu accessible (click ngoài, Escape, Arrow/Home/End), cập nhật tức thì và hiện lỗi/rollback nếu write thất bại.
+- Verify: route QA thật PASS 19 checks, gồm reload persistence favorite/status, filter kết hợp, saved count, Back/Forward, desktop/mobile overflow, dark surface và console errors = 0. Targeted Vitest 4/4 PASS; DB suite 6/6 PASS; TypeScript PASS; `git diff --check` PASS. Full web suite: 413 PASS, 2 FAIL ngoài phạm vi Task 13; 6 worker files khác fail do unhandled-worker exits.
+- Screenshots: `outputs/task13-desktop-all.png`, `task13-desktop-saved.png`, `task13-status-menu.png`, `task13-mobile.png`.
+
+## 2026-07-31 — Task 11: Close Task 10 safely + licensed CAE Listening import pipeline (COMPLETE)
+
+**Status:** Task 10 was closed without importing EngExam content. The offline licensed/user-owned CAE Listening pipeline is implemented and targeted validation passes. No commit or push was made.
+
+### Việc đã hoàn thành
+
+- Audited retained Task 10 artifacts. `tmp/cae-listening-crawl/` does not exist, and no raw EngExam questions, answer keys, tapescripts, MP3 URLs/files, HTML, or Markdown were retained. Only legitimate schema discovery, source metadata, and the licensing decision remain.
+- Added the input contract at `tmp/cae-listening-licensed-input/README.md`. Input must use `test-XX/manifest.json`, `questions.json`, `answers.json`, `transcripts.json`, and four local non-empty MP3 files. The folder number must match `manifest.testNumber`.
+- Added shared validation/transformation logic in `scripts/listening/cae-c1/licensed-cae-listening.mjs`:
+  - requires owner, permission, source, and exactly one of `userOwned` / `licensed`;
+  - rejects `engexam.info` and subdomains unless written permission and evidence are recorded;
+  - rejects unexpected test-directory names, folder/manifest mismatches, unsafe audio paths, missing/empty audio, answer leakage, invalid option IDs, duplicate/missing Q1–30, missing answers, and missing transcript mapping;
+  - builds the existing package body, public answer-stripped body, answer vault, metadata stub, IDs, slugs, and audio URLs.
+- Added offline validator `scripts/listening/cae-c1/validate-licensed-cae-listening-input.mjs` with structured JSON diagnostics.
+- Added offline converter `scripts/listening/cae-c1/convert-licensed-cae-listening-to-catalog.mjs`. It requires exactly one of `--dry-run` / `--apply`, performs no crawl or network access, writes atomically, copies only local licensed MP3s, updates manifest/meta deterministically, permits identical reruns, and refuses material conflicts unless `--overwrite` is explicit.
+- Added synthetic-only regression suite `scripts/listening/cae-c1/test-licensed-cae-listening-pipeline.mjs`. It covers the valid path, fail-closed licence cases, EngExam permission gate, path traversal, folder mismatch/naming, empty audio, CAE part/question/answer/transcript checks, dry-run no-write behavior, package/public/vault/audio parity, transcript preservation, idempotency, and overwrite protection.
+- Updated `scripts/build-catalog.mjs` so `transformListening` preserves `partJson.transcript` and `partJson.transcriptSegments`.
+
+### Validation
+
+- Synthetic pipeline suite: **PASS** (`Licensed CAE Listening pipeline tests PASS`).
+- Real scaffold validator: **PASS**, with `discovered: 0`, `valid: 0`, `invalid: 0` because no licensed corpus has been supplied.
+- Converter dry-run on the real scaffold: **PASS**, no writes; existing `manifest.json` and `catalog-listening-meta.json` are byte-identical to planned output.
+- Existing catalog runtime validator: **PASS** (`manifestCount: 27`, `metaCount: 27`, `bodyCount: 27`, `answerVaultCount: 27`).
+- Web TypeScript check: **PASS** via `pnpm --dir apps/web exec tsc --noEmit`. The documented filtered form printed `No projects matched the filters` despite exit code 0, so the direct package-directory invocation was used for a real check.
+- `git diff --check`: **PASS**. New pipeline/scaffold files also have no trailing whitespace or conflict markers.
+- Full tests/build and browser DOM checks were intentionally not run. Browser evidence is deferred until an actual licensed corpus exists.
+
+### Task 10 final disposition
+
+- EngExam content imported: **No**.
+- EngExam audio downloaded: **No**.
+- EngExam Tests 2–30 generated: **No**.
+- Raw EngExam content retained: **No**.
+- Legitimate schema discovery retained: **Yes**.
+- Required next input: a CAE Listening corpus the user owns or is licensed to reproduce, including rights metadata and four MP3 files per test. EngExam-derived input additionally requires recorded written permission.
+
+### Files intentionally uncommitted
+
+- `scripts/build-catalog.mjs`
+- `scripts/listening/cae-c1/licensed-cae-listening.mjs`
+- `scripts/listening/cae-c1/validate-licensed-cae-listening-input.mjs`
+- `scripts/listening/cae-c1/convert-licensed-cae-listening-to-catalog.mjs`
+- `scripts/listening/cae-c1/test-licensed-cae-listening-pipeline.mjs`
+- `tmp/cae-listening-licensed-input/README.md`
+- `session_summary.md`
+- `.workbuddy-ai/memory/2026-07-31.md`
+
+Unrelated pre-existing untracked artifacts under `outputs/`, `tmp/crawl4ai-skill-audit/`, and `tmp/crawl4ai-skill-package/` were preserved and are outside Task 11.
+
+### Next session start prompt
+
+When a licensed/user-owned CAE Listening corpus is available, place it under `tmp/cae-listening-licensed-input/test-XX/`, run the validator, review the converter `--dry-run`, then use `--apply`. After real catalog files exist, run package/public/answer-vault/audio parity checks and browser DOM/text validation without screenshots. Do not crawl EngExam or accept EngExam-derived material without written permission. Do not commit or push unless explicitly requested.
+
+---
+
+## 2026-07-31 — Task 10: CAE C1 Listening EngExam import (BLOCKED by source terms)
+
+**Status:** Schema discovery and source-access review complete. Bulk crawl/import NOT performed.
+
+### Việc đã hoàn thành
+
+- Read `task_10.txt`; confirmed requested scope was 30 public CAE Listening tests, no bypass, no commit/push.
+- Located app source of truth: `packages/catalog/data/listening-cae-c1-test1.json` and its public body/answer vault. Existing contract is 4 parts / 30 questions; Q1–6 MC A–C, Q7–14 gap-fill, Q15–20 MC A–D, Q21–30 dual matching A–H.
+- Confirmed route/data IDs and media pattern: `catalog-listening-cae-c1-testN`, `cae-c1-testN`, `/catalog/listening/cae-c1-testN/...`; answer vault is a separate `*.answers.json` file. CAE renders through `ListeningFceTest.tsx` and `.listening-cae-cambridge` using `listeningExamData.ts`.
+- Confirmed EngExam page layout with a minimal discovery sample only: pages 1–4 contain Parts 1–4 and one MP3 URL per part; page 5 contains Answer Keys and Tapescripts with `[question]` markers. Did not batch-fetch 30×5 pages and did not download audio.
+- Checked `https://engexam.info/robots.txt`: target paths are not disallowed, but robots permission is not a content redistribution license.
+- Checked `https://engexam.info/terms-of-use`: Section 5 says original content belongs to EngExam unless stated otherwise and unauthorized use, reproduction, or redistribution is prohibited. Because Task 10 explicitly requires copying questions, tapescripts, answers, and audio into this app, the requested bulk import was stopped pending written permission or a licensed source.
+- Installed Crawl4AI 0.9.2 only in isolated managed venv `C:/Users/lindv/.workbuddy/binaries/python/envs/crawl4ai` using wheel-only installation. Did not run `crawl4ai-setup`; no Playwright/Patchright browser/model download and no global Python changes.
+- Improved the user-level Crawl4AI skill to require checking Terms of Use before bulk collection/import/republication and to distinguish public access from redistribution rights.
+
+### Lỗi còn tồn tại / blocker
+
+- **Blocking:** No documented permission/license to reproduce and redistribute EngExam's questions, answers, tapescripts, and MP3 assets in the app.
+- No CAE Test 2–30 catalog data or audio files were created.
+- Existing `build-catalog.mjs` does not currently carry `partJson.transcript` / `transcriptSegments` through `transformListening`; this should be addressed only after obtaining a lawful source.
+- Pre-existing unrelated worktree artifacts were preserved; no commit or push was made.
+
+### Next session start prompt
+
+Resume Task 10 only after the user provides written permission from EngExam or a licensed/user-owned CAE Listening corpus. Then crawl at low rate into staging, preserve source URLs, add CAE practice-bundle discovery/generation, carry transcript fields through `transformListening`, build 30 bodies + answer vaults + media, and run catalog/runtime/UI validation. Do not commit or push unless explicitly requested.
+
+---
+
 ## 2026-07-31 — Task 4: KET A2 Writing Part 7 images Test 2-51 (IN PROGRESS, handed off)
 
 **Status:** Discovery done, implementation NOT started. Handing off to next agent.
@@ -11404,3 +11964,93 @@ Run browser smoke on the current generated Test 14, Test 30, and Test 51 Part 4 
 ### Next session start prompt — Task 4 handoff
 
 Run a fresh dev-server/browser smoke on Test 2 and Test 51 Task 32 after restart, then optionally production build. Review only the 50 Task 32 JSON diffs and confirm no unrelated files are staged. Do not repair the pre-existing whole-corpus Writing validator failures in this task.
+
+## 2026-08-01 — Vocabulary deck card height alignment
+
+- **Root cause:** `.vocab-deck-card` had `height: 9.5rem` but inherited `min-height: 11.5rem`; the card root measured 184px while `.vocab-deck-card__hit` measured 152px, leaving an uneven lower strip.
+- **Fix:** aligned root and inner hit surface with `min-height: 9.5rem`, `box-sizing: border-box`, and `height: 100%` on the hit surface. No padding-bottom workaround.
+- **Validation:** browser measurement now shows root 152px and hit surface 146px inside the 3px border; TypeScript PASS.
+
+## 2026-08-01 — Vocabulary grid background synchronization
+
+- **Root cause:** `/app/vocab` had two independent grid backgrounds: `.app-shell__backdrop-grid` and `.vocab-library-page__panel`; the panel grid moved with the inner scroll content and drifted against the shell grid.
+- **Fix:** removed the panel’s duplicate grid/background and made it transparent so the app-shell grid is the single coordinate system.
+- **Validation:** browser loop confirms one grid background, the vocab scroll owner still changes `scrollTop`, panel background is `none`, and TypeScript PASS.
+
+## 2026-08-01 — Vocabulary card hover border preservation
+
+- **Root cause:** shared app-shell hover CSS forced `.vocab-deck-card` to `translate(-.2rem, -.2rem) !important`, shifting the card left/up and making the top/left border appear clipped.
+- **Fix:** vocab hover now keeps a fixed 3px border and uses only `translateY(-.2rem)`, with the card raised by `z-index: 2` and shadow preserved.
+- **Validation:** first and middle card checks keep `480x152` dimensions, border remains dark 3px, no horizontal overflow, TypeScript PASS, and `git diff --check` PASS.
+
+## 2026-08-01 — Vocabulary hover shadow consistency
+
+- **Root cause:** the vocab hover rule increased the hard shadow from `.1rem .1rem` to `.55rem .55rem`, making the lower/right band look detached and inconsistent.
+- **Fix:** hover now keeps the same `.1rem .1rem` shadow as normal state; only the existing vertical lift remains.
+- **Validation:** browser checks on first and middle rendered cards show identical normal/hover shadows, unchanged 3px border and 20px radius, no horizontal overflow; TypeScript and `git diff --check` PASS.
+
+## 2026-08-01 - IELTS Speaking crawl and initial app route
+
+- Completed authenticated Speaking discovery: 34/34 Speaking URLs/states, pending 0, failed 0; forecast tabs 2/32/82, roulette tabs/spin exercised, shadowing catalog plus 30 lessons, 30 assets downloaded and hashed.
+- Added crawl coverage/asset reports and normalized source records under `D:\App-English-Ryan\Crawl\IELTS_Bank\Speaking_IELTS`; no credentials stored and no R2 upload.
+- Audited `/app/reading-corner/bao` and existing Speaking AI recorder/API/Edge Function; reused the existing Speaking AI flow rather than creating a second judge pipeline.
+- Added initial data-driven `/app/speaking/ielts` catalog below Speaking AI, with search/filter and links to the existing AI route. TypeScript, Speaking AI tests 6/6, and production build PASS.
+- Remaining: browser-authenticated smoke of the new route and richer Part 1/2/3 practice adapters; no production deploy.
+
+## 2026-08-01 - IELTS Speaking dashboard phase 2
+
+- Replaced the minimal Speaking IELTS link catalog with a responsive bento dashboard: stats fallback, Practice Bank, Forecast, Roulette, Shadowing, Premium Speaking, and Sample cards.
+- Added data-driven list/practice routes under `/app/speaking/ielts/*`, source-title de-duplication, search, and an IELTS context adapter that forwards topic/mode into the existing Speaking AI route.
+- Added `tmp/speaking-ielts-ui-phase2-audit.md`; reused the existing recorder/API/Edge Function and did not create a second AI pipeline or progress store.
+- Validation: TypeScript PASS, existing Speaking AI tests 6/6 PASS, production build PASS, `git diff --check` PASS.
+- Remaining: authenticated browser smoke, real progress/history integration, and deeper structured Part 1/2/3 question rendering; no production deploy.
+
+## 2026-08-01 - IELTS Speaking phase 3 progress and smoke
+
+- Connected dashboard weekly sessions and streak to existing `speaking-ai` history (`speaking_conversations`/`speaking_messages`); no new store or database table. Avg Band remains `—` because the current AI response schema has no IELTS `overallBand`.
+- Added deterministic progress helpers and tests; progress tests 2/2, Speaking AI tests 6/6, TypeScript PASS.
+- Browser smoke with authenticated local session: dashboard, Forecast, Roulette, Practice Bank and Shadowing routes PASS; Shadowing shows 30 lessons; mobile 390px has no horizontal overflow; no 4xx/5xx or failed requests observed.
+- Fixed Roulette route rendering and Shadowing catalog count. Final production build and `git diff --check` PASS.
+- Not run: physical microphone permission/recording and real AI submit; no production deploy. Bookmark service and persisted IELTS attempt schema do not exist yet, so no fake persistence was added.
+
+## 2026-08-01 - IELTS Speaking source parity reset (task_10)
+
+- Re-audited the authenticated source with browser state: landing scroll 1372px, Forecast tabs 2/32/82, Roulette Part 1/2/3 + spin, Shadowing catalog 30 lessons and 3035px scroll document.
+- Reset prior overclaim: UI parity FAILED, functional parity FAILED, data mapping FAILED/PARTIAL, production-ready NO.
+- Fixed Speaking IELTS shell scroll ownership (`.app-shell__main` auto-scroll), excluded Shadowing catalog wrapper from lesson count, extracted real lesson titles, and rejected page/container records on practice routes instead of rendering raw crawl text.
+- Added source parity audit/route/state reports under `tmp/`; Forecast and Roulette now show honest missing-normalized-pool states rather than fake practice items.
+- Validation: TypeScript PASS, progress tests PASS, local scroll smoke PASS, final production build PASS; source parity and production-ready status remain NO until normalized Forecast/Roulette pools and inline practice flows are implemented.
+
+## 2026-08-01 - IELTS Speaking Phase 4 normalization foundation (task_11)
+
+- Added `speakingIeltsData.ts` with typed Forecast and Roulette normalization adapters sourced from crawl state data; no JSX count constants are used for Forecast.
+- Added normalization regression tests covering Forecast item records and stable/deduplicated Roulette IDs.
+- Validation: TypeScript PASS; new normalization tests 2/2 PASS. Phase 4 visual/functional parity remains incomplete; no production deploy.
+- Added the first real Forecast flow: normalized 2/32/82 groups render as tabs and open an inline Mock Interview route using the existing recorder, TTS and Speaking AI API; no generic Speaking AI redirect.
+- Validation after Mock Interview wiring: TypeScript PASS; Speaking IELTS tests 4/4 PASS. Full Goal remains incomplete pending Roulette UI, Shadowing lesson player, session summary and authenticated browser/visual validation.
+
+## 2026-08-01 � IELTS Speaking clone implementation checkpoint
+- Added scoped normalization helpers for roulette non-repeat selection, practice-item guards, Shadowing title/transcript extraction, and session lifecycle/summary helpers with tests.
+- Validation: pnpm Vitest/TypeScript commands were started but hung without output in the local environment and were stopped; no pass claimed.
+- Remaining: route-specific Forecast/Roulette/Shadowing player/Mock Interview summary UI and browser validation still require implementation.
+
+## 2026-08-01 — IELTS Speaking complete rebuild
+- Replaced the monolithic IELTS Speaking UI with a full-width Quicksand/neo-brutalist landing bento, Forecast tabs (2/32/82), three-part Roulette with animated non-repeating draws, 30-lesson Shadowing catalog/player, and inline Mock Interview recorder/production AI feedback/summary flow.
+- Preserved the existing `useSpeakingRecorder`, TTS and `sendSpeakingTurn` production integrations. Missing provider band remains `—`; no score is fabricated.
+- Targeted IELTS Speaking + Speaking AI + Focus Shell Vitest: 99/99 PASS. TypeScript: PASS. Direct Vite production build: PASS (`SpeakingIeltsPage` bundle emitted; built in 1m57s). Feature-scoped `git diff --check`: PASS.
+- Playwright smoke: 14 screenshots across 1366×768 and 390×844; landing, Forecast, Roulette pre/result, Shadowing catalog/player, Mock Part 1/2/3, feedback and summary all opened; horizontal overflow 0 and console/page errors 0. Roulette pools normalize to 17/18/25 after filtering crawl UI text.
+- Real microphone permission/recording remains MANUAL CHECK REQUIRED in Chrome/Edge; production continues to call `navigator.mediaDevices.getUserMedia`.
+
+## IELTS Speaking Goal 2 — card actions/source-flow parity (2026-08-01)
+
+- Practice Bank is now a modal action, not a Forecast link. The accessible topic picker supports Part 1/2/3, grouped topic chips, random selection, disabled/enabled sticky CTA, ESC/backdrop close, focus trapping, and topic-specific Mock Interview routes.
+- Landing mappings are explicit: Forecast → `/app/speaking/ielts/forecast`; Roulette → `/app/speaking/ielts/roulette`; Shadowing → `/app/shadowing`; Premium → `/app/speaking/ielts/mock-interview/demo`; Sample → `/app/speaking/ielts/samples`.
+- Forecast now has the Q2 2026 source hierarchy, search, accessible tabs with real 2/32/82 counts, hot badge, copy/detail controls and item-specific `Luyện tập` routes.
+- Premium is clearly Ryan English proposed content using the real three-part demo corpus. Samples is an explicit Coming Soon page and states it is not TID crawl data.
+- Goal 2 targeted suite: 9 files / 108 tests PASS. TypeScript PASS. Direct Vite production build PASS in 2m54s (`SpeakingIeltsPage-D93uiyzP.js` emitted). Playwright six-card smoke PASS with 8 screenshots, console errors 0, and mobile topic-modal horizontal overflow 0. Scoped `git diff --check` PASS.
+
+## IELTS Speaking Goal 4 — selected cream/blue mockup landing (2026-08-01)
+
+- Replaced only `/app/speaking/ielts` landing DOM/CSS with the supplied mockup hierarchy: cream focus canvas; Fraunces headings; Inter body; JetBrains Mono tags; compact stats; full-width blue Premium hero; tall Practice card; sage Roulette; real-count Forecast; dust Shadowing; paper Sample card.
+- Preserved all Goal 2 actions and child routes. DOM card order is Premium, Practice, Roulette, Forecast, Shadowing, Sample; Practice still opens the accessible topic modal.
+- Goal 4 targeted suite: 9 files / 109 tests PASS. TypeScript PASS. Playwright six-card desktop/mobile smoke PASS with 9 screenshots, console errors 0, document/modal mobile overflow 0. Scoped `git diff --check` PASS.

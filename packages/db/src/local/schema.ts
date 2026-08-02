@@ -170,6 +170,8 @@ export interface ListeningExamRecord {
   updatedAt: number
 }
 
+export type LearningStatus = 'not_started' | 'learning' | 'learned'
+
 /** Cấu trúc câu — luyện điền A / B theo mẫu */
 export interface SentenceStructure {
   id: string
@@ -181,6 +183,8 @@ export interface SentenceStructure {
   exampleB: string
   exampleNoteVi: string
   starred?: boolean
+  /** Thiếu field ở dữ liệu cũ được hiểu là chưa học. */
+  learningStatus?: LearningStatus
   /** Trình độ CEFR gợi ý (A2–C2) */
   cefr?: CefrLevel
   createdAt: number

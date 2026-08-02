@@ -1,0 +1,845 @@
+{
+  "id": "catalog-listening-cae-c1-test16",
+  "title": "CAE Listening Test 16",
+  "durationMinutes": 40,
+  "bandHint": "C1 Advanced Listening · 4 parts · 30 câu",
+  "examType": "cae",
+  "examMode": "practice",
+  "parts": [
+    {
+      "id": "catalog-listening-cae-c1-test16-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1-6",
+      "instruction": "You will hear three different extracts. For questions 1-6, choose the answer (A, B or C) which fits best",
+      "audioUrl": "/catalog/listening/cae-c1-test16/cae-listening-test-15-part-1.mp3",
+      "transcript": "**Extract One** **Woman:** I dread the experience. It’s the anticipation that gets me. Once I start I’m usually OK but beforehand I panic **[2]**. I think that my mind will go blank and everyone will stare at me. This happened once. I was trying to speak and listen to my own voice at the same time but all I could hear was silence. I seemed to have forgotten how to speak and I felt my face go red **[1]**. I fumbled for my notes and simply read out the rest of the speech. **Man:** Well, fear of public speaking, or what is called ‘representational anxiety’, is normal **[2]**. If you think about it, public speaking is not a natural thing to do. You don’t want to humiliate yourself in front of people **[1]**. But with preparation and practice, even the most stressed public speakers can conquer their fears. There are very few people who are quick, intelligent and extrovert enough to just get up and deliver something spontaneously. If you’re giving a speech, you must carefully plan what you’re going to say. **Woman:** I find it also helps not to think of yourself the whole time. Once you shift the focus on to the people you are speaking to, you feel the pressure lift. **Extract Two** **Man:** As part of a huge publicity drive in the 1920s and 1930s, London Transport launched a poster campaign to persuade people to move into the suburbs and make use of the rapidly expanding Underground network. Tell us about that, Zoe. **Woman:** Well, the posters were used to encourage people to live in and enjoy the quiet and domestic life of the suburbs and travel into London for work and leisure. They helped to shape people’s perceptions and expectations of London and what it meant to live there in a period of great change. **[3]** As well as persuading people to move out to the suburbs, there was a drive for people to make use of the city at a time when the leisure industry was expanding. **Man:** What kind of things did these posters show? **Woman:** Well, despite the fact that many women worked in the 1920s and 1930s, the posters depicted a domestic ideal, with pictures of women playing with their children in the park and preparing meals for their husbands’ return. More and more people were becoming middle class and part of this ideal was that the husband would go to work and the wife would stay at home, even though this was not the case for many families. **[4]** **Extract Three** **Man:** Of course, the cliche is ‘don’t believe everything you read in the papers’, and I guess there’s some truth in that. But in many ways that’s not backed up by the evidence. **[5]** Look at all the times when stories would never have come out if it hadn’t been for the much maligned news media. **Woman:** I don’t know about that. Personally I’m always pretty sceptical when it comes to all these revelations. I mean, look at medical stories. It sometimes seems as if every day brings some new health scare – you mustn’t eat that, you should drink that – and most of these things you never hear about again. I think it’d be really interesting to find out how many of these stories actually turn out to be true. I reckon they just write these things to create a stir. I mean, lots of them are in the entertainment industry really, aren’t they? ‘Don’t let the facts get in the way of a good story’ is the joke in the trade isn’t it? **[6]** I think lots of them live by that. **Man:** I don’t think that’s really fair. There are lots of investigative journalists who’ve done the public a great service by exposing things they otherwise would never have known about.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test16-q-1",
+          "number": 1,
+          "type": "multiple-choice",
+          "prompt": "Both speakers refer to a feeling of",
+          "options": [
+            {
+              "id": "A",
+              "label": "over-confidence."
+            },
+            {
+              "id": "B",
+              "label": "embarrassment."
+            },
+            {
+              "id": "C",
+              "label": "achievement."
+            }
+          ],
+          "answer": "B",
+          "explanation": "BWoman: ... I seemed to have forgotten how to speak and I felt my face go red.Man: ... You don’t want to humiliate yourself in front of people"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test16-q-2",
+          "number": 2,
+          "type": "multiple-choice",
+          "prompt": "The two speakers agree that a big problem with speaking in public is",
+          "options": [
+            {
+              "id": "A",
+              "label": "losing the audiences attention during a speech."
+            },
+            {
+              "id": "B",
+              "label": "choosing the wrong content for a speech."
+            },
+            {
+              "id": "C",
+              "label": "feeling nervous at the thought of giving a speech."
+            }
+          ],
+          "answer": "C",
+          "explanation": "CWoman: I dread the experience. It’s the anticipation that gets me. Once I start I’m usually OK but beforehand I panicMan: Well, fear of public speaking, or what is called ‘representational anxiety’, is normal."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test16-q-3",
+          "number": 3,
+          "type": "multiple-choice",
+          "prompt": "The poster campaign came at a time when",
+          "options": [
+            {
+              "id": "A",
+              "label": "various aspects of life in London were changing."
+            },
+            {
+              "id": "B",
+              "label": "many people were reluctant to travel on the Underground."
+            },
+            {
+              "id": "C",
+              "label": "the use of posters for advertising was increasing."
+            }
+          ],
+          "answer": "A",
+          "explanation": "AWoman: They helped to shape people’s perceptions and expectations of London and what it meant to live there in a period of great change."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test16-q-4",
+          "number": 4,
+          "type": "multiple-choice",
+          "prompt": "What does Zoe say about the content of the posters?",
+          "options": [
+            {
+              "id": "A",
+              "label": "It only appealed to a certain type of person."
+            },
+            {
+              "id": "B",
+              "label": "It contrasted with real life for many people."
+            },
+            {
+              "id": "C",
+              "label": "It influenced the lifestyles of some people."
+            }
+          ],
+          "answer": "B",
+          "explanation": "BWoman: More and more people were becoming middle class and part of this ideal was that the husband would go to work and the wife would stay at home, even though this was not the case for many families."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test16-q-5",
+          "number": 5,
+          "type": "multiple-choice",
+          "prompt": "What opinion does the man express about the news media?",
+          "options": [
+            {
+              "id": "A",
+              "label": "It doesn’t deserve its reputation."
+            },
+            {
+              "id": "B",
+              "label": "It has become more influential."
+            },
+            {
+              "id": "C",
+              "label": "Its standards have risen."
+            }
+          ],
+          "answer": "A",
+          "explanation": "AMan: Of course, the cliche is ‘don’t believe everything you read in the papers’, and I guess there’s some truth in that. But in many ways that’s not backed up by the evidence."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test16-q-6",
+          "number": 6,
+          "type": "multiple-choice",
+          "prompt": "The woman mentions medical stories",
+          "options": [
+            {
+              "id": "A",
+              "label": "to explain her attitude to the news media."
+            },
+            {
+              "id": "B",
+              "label": "to illustrate the importance of the news media."
+            },
+            {
+              "id": "C",
+              "label": "to describe why people dislike the news media."
+            }
+          ],
+          "answer": "A",
+          "explanation": "AWoman: ‘Don’t let the facts get in the way of a good story’ is the joke in the trade isn’t it?"
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test16-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 7-14",
+      "instruction": "Part 2 — Sentence completion",
+      "audioUrl": "/catalog/listening/cae-c1-test16/cae-listening-test-15-part-2.mp3",
+      "transcript": "**Man:** One day in spring 1945, physics engineer Percy Spencer was walking past a switched-on piece of radar equipment when he felt something sticky in his pocket. It turned out to be a chocolate peanut bar he had been saving for his coffee break. Intrigued, he set out to discover why it had suddenly melted. **[7]** The equipment concerned was a magnetron tube – the heart of a radar set. Radar had been invented by the British in World War II to detect enemy aircraft at night using short waves, or microwaves. But it wasn’t until Spencer, an engineer at a small-time firm called Raytheon in Boston, US, worked out a way of mass-producing the tubes, that radar made a real difference in the war **[8]**. The day after the chocolate incident, Spencer sent a boy out to buy some popcorn. He placed the kernels near the magnetron tube. **[9]** They immediately started popping round the lab. His next experiment was with an egg, which he put inside a kettle. Curious colleagues gathered round to watch it quaking – one unlucky director bent down to take a closer look just at the moment the egg exploded. **[10]** Spencer came to realize that the microwaves were heating the food by agitating its water and fat molecules, which meant that the inside cooked just as fast as the outside. Raytheon engineers soon refined the idea: the first microwave, 5ft 6in tall and weighing 750lb, was installed in a Boston restaurant for testing in 1946. **[11]** The first commercial microwave hit the market the following year. It was named Radarange following a competition among Raytheon employees. **[12]** Spencer and his colleagues confidently expected a cooking revolution. But the machine was primitive, enormous and, at $3,000, too expensive. All too soon, chefs realized its main drawback: meat refused to brown and food emerged limp and flabby. **[13]** The company chairman’s chef quit in disgust because he was told to use the Radarange. Not until the 1960s, when the first countertop microwave was produced, did sales at last begin to take off. **[14]** The first model in 1967 was 100 volts and cost just under $500. By 1975, sales of microwaves overtook gas cookers in the US. Now, nearly 90% of households in Britain and the US use a microwave oven.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test16-q-7",
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "The invention of the microwave oven began when a chocolate peanut bar ________ in Percy Spencer’s pocket.",
+          "options": [],
+          "answer": "melted",
+          "explanation": "meltedIt turned out to be a chocolate peanut bar he had been saving for his coffee break. Intrigued, he set out to discover why it had suddenly melted."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test16-q-8",
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "Spencer had previously invented a method for ________ the tubes used in radar equipment.",
+          "options": [],
+          "answer": "mass(-)producing",
+          "explanation": "mass(-)producingBut it wasn’t until Spencer, an engineer at a small-time firm called Raytheon in Boston, US, worked out a way of mass-producing the tubes, that radar made a real difference in the war"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test16-q-9",
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "Spencer’s first experiment involved putting ________ near to some radar equipment.",
+          "options": [],
+          "answer": "(some) popcorn",
+          "explanation": "(some) popcornThe day after the chocolate incident, Spencer sent a boy out to buy some popcorn. He placed the kernels near the magnetron tube."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test16-q-10",
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "In his next experiment, an egg was put into a kettle and it ________ .",
+          "options": [],
+          "answer": "exploded",
+          "explanation": "explodedHis next experiment was with an egg, which he put inside a kettle. Curious colleagues gathered round to watch it quaking – one unlucky director bent down to take a closer look just at the moment the egg exploded."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test16-q-11",
+          "number": 11,
+          "type": "gap-fill",
+          "prompt": "The first microwave oven was set up in ________ in Boston in 1946.",
+          "options": [],
+          "answer": "a restaurant",
+          "explanation": "a restaurantRaytheon engineers soon refined the idea: the first microwave, 5ft 6in tall and weighing 7501b, was installed in a Boston restaurant for testing in 1946."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test16-q-12",
+          "number": 12,
+          "type": "gap-fill",
+          "prompt": "The first microwave oven got its name as a result of ________ at the company.",
+          "options": [],
+          "answer": "a competition",
+          "explanation": "a competitionThe first commercial microwave hit the market the following year. It was named Radarange following a competition among Raytheon employees."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test16-q-13",
+          "number": 13,
+          "type": "gap-fill",
+          "prompt": "One problem with the first microwave oven was that ________ did not change colour in it.",
+          "options": [],
+          "answer": "meat",
+          "explanation": "meatAll too soon, chefs realized its main drawback: meat refused to brown and food emerged limp and flabby."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test16-q-14",
+          "number": 14,
+          "type": "gap-fill",
+          "prompt": "When a microwave oven that could be placed on top of a ________ was produced, sales began to rise.",
+          "options": [],
+          "answer": "counter",
+          "explanation": "counterNot until the 1960s, when the first countertop microwave was produced, did sales at last begin to take off."
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test16-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 15-20",
+      "instruction": "You will hear a radio interview with someone who has been having ballet lessons. For questions 15-20, choose the answer (A, B, C or D) which fits best according to what you hear.",
+      "audioUrl": "/catalog/listening/cae-c1-test16/cae-listening-test-15-part-3.mp3",
+      "transcript": "**Interviewer:** Today I’m talking to opera critic Rupert Christiansen, who is in his forties and has recently started doing ballet classes. It’s a pretty unusual thing to do, isn’t it? **Rupert:** Well, yes, but one consolation of growing old is that you cease to care what other people think of your views or activities. So here I am, coming out on the radio as probably the only balding middle-aged man on the entire planet to take up ballet lessons. Go on, snigger. **[15]** **Interviewer:** I’m not laughing, I’m just interested. Tell me, how did it all start? **Rupert:** Well, I have long been an infatuated ballet fan. The way most men think about their football team, I think about the Royal Ballet company- they’re my team and I follow their every move with nerdy fascination. Recently, I’ve become increasingly frustrated at my lack of technical knowledge, but the thought of having a bash myself hadn’t crossed my mind since a schoolboy attempt at ballroom dancing culminated in disaster. Anyway, many years after that unfortunate event, to stave off bodily decay, I discovered Balance, a wonderful physiotherapy gym in London, where I began personal training with Hans Ektvedt and his colleagues. Hans nobly takes me through the necessary boring stuff – weights, pull-ups, crunches – and his patience and good humour make it endurable and almost enjoyable. **[16]** **Interviewer:** So what led you from that to ballet lessons? **Rupert:** One day earlier this year, Hans mentioned a newcomer to the Balance team and suggested I try him for some supplementary lessons. His name is Julien Diaz, and he turns out to be a remarkable character. A graduate of the Rambert Dance School, he ended up dancing professionally in Berlin and Amsterdam, before returning to England tp set up as a trainer, specializing in posture and the freeing up of body language. He told me I should start doing ballet and his disarming manner soon persuaded me to drop my inhibitions. **[17]** I was under no illusions about my abilities but I wanted to find out about the art of ballet by trying it myself. **Interviewer:** Isn’t it a bit dangerous for someone of your age, if you don’t mind me saying so? **Rupert:** Well, as Julien says, it’s a superb form of exercise. He’d like to see the whole world doing ballet. It’s only dangerous to muscles if you do it day in, day out at the very top level. For almost anyone else, it’s an injury-preventative activity that tones and elongates every part of your body, from toes to fingers to head. It’s a training in balance, co-ordination and flexibility, which gets you to engage your body and brain at the same time. **[18]** It’s fantastic for getting you to walk with a spring in your step, and it also cleanses the mind – there’s no way you can do a ballet class without concentrating 100 per cent on what you’re doing. **Interviewer:** So what do your lessons consist of? **Rupert:** The sessions last for 90 minutes. We start with what are basically bending and stretching exercises. Then we move on to the hopping, skipping and turning movements, finishing with some jumps in both the closed first and open second positions, before cooling down with some excruciating but vital stretches. This is basic stuff, but, believe me, it isn’t easy, and you have to take it slowly. I’m not unfit, but I can’t do more than a couple of minutes without gasping for rest, and it’s incredibly difficult to programme it all into one’s muscle memory. You can’t approximate – you have to get it right, and that involves focusing simultaneously on the correct angle of turnout, the complementary shaping of the arms, a firm finish to any sequence of movements, and the fluent placing of the head, neck and shoulders. **[19]** **Interviewer:** Are you going to get really good at this? What kind of progress are you hoping to make? **Rupert:** How much further can I get? Well, I’m not expecting a call from my beloved Royal Ballet. My main aim is to find out something of what it feels like to dance, from the inside – already I find that, as a spectator, my admiration for the professionals has sharpened considerably. **[20]** Julien has a potty notion of moulding some of the movements I am painfully acquiring into a dance, and believes that most people of my age could reach a point at which they could take the lower grades of Royal Academy of Dance exams. And Hans has noticed that my work with Julien has resulted in improvements in my regular training. He says that I’m moving better and walking taller, with firmer core stability and more flexibility in my hips and back. I wonder whether he’s tempted to have a go himself.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test16-q-15",
+          "number": 15,
+          "type": "multiple-choice",
+          "prompt": "What does Rupert say about the fact that he is doing ballet classes?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Other people have ridiculed him for it."
+            },
+            {
+              "id": "B",
+              "label": "He expects to be mocked for it."
+            },
+            {
+              "id": "C",
+              "label": "It is not as unusual as people might think."
+            },
+            {
+              "id": "D",
+              "label": "People may think it isn’t really true."
+            }
+          ],
+          "answer": "B",
+          "explanation": "BRupert: So here I am, coming out on the radio as probably the only balding middle-aged man on the entire planet to take up ballet lessons. Go on, snigger."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test16-q-16",
+          "number": 16,
+          "type": "multiple-choice",
+          "prompt": "Rupert says that before he started doing ballet lessons",
+          "options": [
+            {
+              "id": "A",
+              "label": "he had been doing routine physical fitness training."
+            },
+            {
+              "id": "B",
+              "label": "his knowledge of ballet had been growing."
+            },
+            {
+              "id": "C",
+              "label": "ballet had taken over from football as his greatest interest."
+            },
+            {
+              "id": "D",
+              "label": "he had been considering doing ballroom dancing again."
+            }
+          ],
+          "answer": "A",
+          "explanation": "ARupert: Hans nobly takes me through the necessary boring stuff – weights, pull-ups, crunches – and his patience and good humour make it endurable and almost enjoyable."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test16-q-17",
+          "number": 17,
+          "type": "multiple-choice",
+          "prompt": "Rupert says that when the idea of ballet lessons was suggested to him,",
+          "options": [
+            {
+              "id": "A",
+              "label": "he thought it was a joke."
+            },
+            {
+              "id": "B",
+              "label": "he was unsure exactly what would be involved."
+            },
+            {
+              "id": "C",
+              "label": "he began to have unrealistic expectations of what he could achieve."
+            },
+            {
+              "id": "D",
+              "label": "he initially lacked the confidence to do it."
+            }
+          ],
+          "answer": "D",
+          "explanation": "DRupert: He told me I should start doing ballet and his disarming manner soon persuaded me to drop my inhibitions."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test16-q-18",
+          "number": 18,
+          "type": "multiple-choice",
+          "prompt": "One of the advantages of ballet that Rupert mentions is that",
+          "options": [
+            {
+              "id": "A",
+              "label": "it leads to fewer injuries than other physical activities."
+            },
+            {
+              "id": "B",
+              "label": "it has both physical and mental effects."
+            },
+            {
+              "id": "C",
+              "label": "it is particularly good for certain parts of the body."
+            },
+            {
+              "id": "D",
+              "label": "it is more interesting than other forms of exercise."
+            }
+          ],
+          "answer": "B",
+          "explanation": "BRupert: It’s a training in balance, co-ordination and flexibility, which gets you to engage your body and brain at the same time."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test16-q-19",
+          "number": 19,
+          "type": "multiple-choice",
+          "prompt": "What does Rupert say about the sessions?",
+          "options": [
+            {
+              "id": "A",
+              "label": "The content of them is varied."
+            },
+            {
+              "id": "B",
+              "label": "Some of the movements in them are harder than others for him."
+            },
+            {
+              "id": "C",
+              "label": "All of the movements in them have to be done accurately."
+            },
+            {
+              "id": "D",
+              "label": "They don’t all involve basic movements."
+            }
+          ],
+          "answer": "C",
+          "explanation": "CRupert: You can’t approximate – you have to get it right, and that involves focusing simultaneously on the correct angle of turnout, the complementary shaping of the arms, a firm finish to any sequence of movements, and the fluent placing of the head, neck and shoulders."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test16-q-20",
+          "number": 20,
+          "type": "multiple-choice",
+          "prompt": "What does Rupert say about his progress at ballet?",
+          "options": [
+            {
+              "id": "A",
+              "label": "It has been much more rapid than he had expected."
+            },
+            {
+              "id": "B",
+              "label": "It has made him consider giving up his other training."
+            },
+            {
+              "id": "C",
+              "label": "It has given him greater appreciation of the skills of professionals."
+            },
+            {
+              "id": "D",
+              "label": "It has led him to enrol for certain exams."
+            }
+          ],
+          "answer": "C",
+          "explanation": "CRupert: My main aim is to find out something of what it feels like to dance, from the inside – already I find that, as a spectator, my admiration for the professionals has sharpened considerably."
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test16-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 21-30",
+      "instruction": "You will hear five short extracts in which people are talking about people they know",
+      "audioUrl": "/catalog/listening/cae-c1-test16/cae-listening-test-15-part-4.mp3",
+      "transcript": "**Speaker 1** I know people say he thinks a lot of himself, and, well, they’ve got a point, he certainly isn’t what you’d call modest. He’ll be the first one to tell you how brilliant he is and how hard he’s worked and you certainly couldn’t accuse him of lacking confidence. Quite frankly, a lot of people think he’s an absolute pain and steer clear of him, because he’s always going on about himself. **[21]** Anything you’ve done, he can top it. But the fact is, I know another side of him, the kind side that means he’ll do anything for a friend. And he’s done me a lot of big favours so I stand by him. When other people have a go at him, I always defend him. **[26]** **Speaker 2** She’s certainly had a lot of knocks in her life but she keeps bouncing back. She’s definitely what you’d call resilient, and all these terrible things that have happened, she just seems to take them in her stride, and hardly talks about them. **[22]** I wish I could be like that **[27]** – I always seem to cave in at the slightest hint of trouble, I don’t seem to be able to just got on with life when something goes wrong. But she’s got this incredible strength that keeps her going – it must be great to be like that. She doesn’t want anyone feeling pity for her – she hates that and she doesn’t need it. **Speaker 3** You never know what’s going to happen with him, because he’s never the same. One time you’re with him he’s cheerful and sociable, the next time he sits quietly in the corner and doesn’t want to speak to anyone. **[23]** Some people find that very hard to handle and he often loses friends because of it. I think that might well happen with me because, to be honest, it gets on my nerves. **[28]** You want your friends to be basically the same most of the time, not always up and down like he is. I know it’s not the nicest thing to say, but sometimes I just want to yell at him. **Speaker 4** He’s one of those people who’s always finding fault with things – nothing’s ever good enough for him **[24]**, there’s always something wrong. He likes nothing better than to moan, and my goodness, can he moan? You’ve never heard anything like him when he gets going. People wonder why I spend so much time with him, considering that he’s always like that, but the fact is I find it hilarious. **[29]** Once he gets going, it’s as much as I can do to keep a straight face. And, believe it or not, he sees the funny side sometimes. He’s not as serious about everything as most people think he is. **Speaker 5** You never know whether you can take what he tells you at face value or not because he makes a lot of it up. **[25]** He’ll tell you he’s doing one thing when in fact he’s doing another and he tells different people different things. I sometimes wonder if he can remember all the different versions he’s given! He’s always up to something – covering up something he shouldn’t have done, or coming up with some cunning plan. To be honest, I feel sorry for him, it must be terrible to spend your whole life pretending. **[30]** He must be very unhappy at heart and I wouldn’t wish that on anyone.",
+      "matchingDualTask": true,
+      "taskOneInstruction": "For questions 21-25, choose the option which best describes each speaker.",
+      "taskTwoInstruction": "For questions 26-30, choose the option which best describes each speaker.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test16-q-21",
+          "number": 21,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "answer": "G",
+          "explanation": "GHe’ll be the first one to tell you how brilliant he is and how hard he’s worked and you certainly couldn’t accuse him of lacking confidence. Quite frankly, a lot of people think he’s an absolute pain and steer clear of him, because he’s always going on about himself.",
+          "context": "Speaker 1"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test16-q-22",
+          "number": 22,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CShe’s definitely what you’d call resilient, and all these terrible things that have happened, she just seems to take them in her stride, and hardly talks about them.",
+          "context": "Speaker 2"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test16-q-23",
+          "number": 23,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "answer": "E",
+          "explanation": "EYou never know what’s going to happen with him, because he’s never the same. One time you’re with him he’s cheerful and sociable, the next time he sits quietly in the corner and doesn’t want to speak to anyone.",
+          "context": "Speaker 3"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test16-q-24",
+          "number": 24,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "answer": "A",
+          "explanation": "AHe’s one of those people who’s always finding fault with things – nothing’s ever good enough for him...",
+          "context": "Speaker 4"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test16-q-25",
+          "number": 25,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "answer": "H",
+          "explanation": "HYou never know whether you can take what he tells you at face value or not because he makes a lot of it up.",
+          "context": "Speaker 5"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test16-q-26",
+          "number": 26,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CAnd he’s done me a lot of big favours so I stand by him. When other people have a go at him, I always defend him.",
+          "context": "Speaker 1"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test16-q-27",
+          "number": 27,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "answer": "F",
+          "explanation": "FI wish I could be like that – I always seem to cave in at the slightest hint of trouble, I don’t seem to be able to just got on with life when something goes wrong.",
+          "context": "Speaker 2"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test16-q-28",
+          "number": 28,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "answer": "H",
+          "explanation": "HSome people find that very hard to handle and he often loses friends because of it. I think that might well happen with me because, to be honest, it gets on my nerves.",
+          "context": "Speaker 3"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test16-q-29",
+          "number": 29,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "answer": "D",
+          "explanation": "DPeople wonder why I spend so much time with him, considering that he’s always like that, but the fact is I find it hilarious.",
+          "context": "Speaker 4"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test16-q-30",
+          "number": 30,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "answer": "A",
+          "explanation": "ATo be honest, I feel sorry for him, it must be terrible to spend your whole life pretending.",
+          "context": "Speaker 5"
+        }
+      ]
+    }
+  ],
+  "catalogSlug": "cae-c1-test16",
+  "catalogBase": "/catalog/listening/cae-c1-test16"
+}

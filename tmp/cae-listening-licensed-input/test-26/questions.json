@@ -1,0 +1,738 @@
+{
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "Questions 1-6",
+      "instruction": "You will hear three different extracts. For questions 1-6, choose the answer (A, B or C) which fits best",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 1,
+          "type": "multiple-choice",
+          "prompt": "What are the people discussing?",
+          "options": [
+            {
+              "id": "A",
+              "label": "a fire"
+            },
+            {
+              "id": "B",
+              "label": "floods"
+            },
+            {
+              "id": "C",
+              "label": "an earthquake"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "type": "multiple-choice",
+          "prompt": "What is the purpose of the discussion?",
+          "options": [
+            {
+              "id": "A",
+              "label": "to prevents listeners from going to the place"
+            },
+            {
+              "id": "B",
+              "label": "to get donations for the people affected by the situation"
+            },
+            {
+              "id": "C",
+              "label": "to provide factual information about the current state of emergency"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "type": "multiple-choice",
+          "prompt": "Both speakers agree that",
+          "options": [
+            {
+              "id": "A",
+              "label": "the leaving colleague cause lower profits for the company."
+            },
+            {
+              "id": "B",
+              "label": "their colleague’s decision to leave came as a surprise"
+            },
+            {
+              "id": "C",
+              "label": "working without the leaving colleague is going to be less enjoyable"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "type": "multiple-choice",
+          "prompt": "What is the speakers’ attitude towards their work?",
+          "options": [
+            {
+              "id": "A",
+              "label": "It lacks variety."
+            },
+            {
+              "id": "B",
+              "label": "It is too physically taxing."
+            },
+            {
+              "id": "C",
+              "label": "It can cause emotional strain."
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "type": "multiple-choice",
+          "prompt": "What is the aim of the man?",
+          "options": [
+            {
+              "id": "A",
+              "label": "to apologise"
+            },
+            {
+              "id": "B",
+              "label": "to convince"
+            },
+            {
+              "id": "C",
+              "label": "to clarify"
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "type": "multiple-choice",
+          "prompt": "What is the actresses attitude to the conversation?",
+          "options": [
+            {
+              "id": "A",
+              "label": "embarrassment"
+            },
+            {
+              "id": "B",
+              "label": "surprise"
+            },
+            {
+              "id": "C",
+              "label": "impatience"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "rangeLabel": "Questions 7-14",
+      "instruction": "Part 2 — Sentence completion",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "Alex is a part of a band with the name ________.",
+          "options": []
+        },
+        {
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "The country Alex grew up in is ________.",
+          "options": []
+        },
+        {
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "When Alex first saw his wife, he thought she looked beautiful and ________.",
+          "options": []
+        },
+        {
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "What makes Alex and his band different from other groups is that they are completely ________.",
+          "options": []
+        },
+        {
+          "number": 11,
+          "type": "gap-fill",
+          "prompt": "The group uses an old ________ as their recording studio.",
+          "options": []
+        },
+        {
+          "number": 12,
+          "type": "gap-fill",
+          "prompt": "Alex uses the word ________ to describe the style of their music.",
+          "options": []
+        },
+        {
+          "number": 13,
+          "type": "gap-fill",
+          "prompt": "The newest album of their band is called ________.",
+          "options": []
+        },
+        {
+          "number": 14,
+          "type": "gap-fill",
+          "prompt": "The latest album songs explore the theme of ________.",
+          "options": []
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "rangeLabel": "Questions 15-20",
+      "instruction": "You will hear part of an interview with a writer. For questions 15-20, choose the answer (A, B, C or D) which fits best according to what you hear.",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 15,
+          "type": "multiple-choice",
+          "prompt": "What was Jessica writing about at first?",
+          "options": [
+            {
+              "id": "A",
+              "label": "travelling tips for young people"
+            },
+            {
+              "id": "B",
+              "label": "teenage film reviews"
+            },
+            {
+              "id": "C",
+              "label": "humorous poetry"
+            },
+            {
+              "id": "D",
+              "label": "local news outtakes"
+            }
+          ]
+        },
+        {
+          "number": 16,
+          "type": "multiple-choice",
+          "prompt": "According to Jessica, what is the most challenging aspect of writing?",
+          "options": [
+            {
+              "id": "A",
+              "label": "finding the right words to share her ideas"
+            },
+            {
+              "id": "B",
+              "label": "being in a hurry to travel to different places"
+            },
+            {
+              "id": "C",
+              "label": "the pressure to have work done on time"
+            },
+            {
+              "id": "D",
+              "label": "quickly familiarising yourself with the place"
+            }
+          ]
+        },
+        {
+          "number": 17,
+          "type": "multiple-choice",
+          "prompt": "What is most enjoyable about her work?",
+          "options": [
+            {
+              "id": "A",
+              "label": "the chance to see all kinds of places"
+            },
+            {
+              "id": "B",
+              "label": "meeting all the different people"
+            },
+            {
+              "id": "C",
+              "label": "the joy of completing an article"
+            },
+            {
+              "id": "D",
+              "label": "keeping in touch with her fellow writers"
+            }
+          ]
+        },
+        {
+          "number": 18,
+          "type": "multiple-choice",
+          "prompt": "Apart from writing, what other experience does Jessica have?",
+          "options": [
+            {
+              "id": "A",
+              "label": "promoting consumer goods"
+            },
+            {
+              "id": "B",
+              "label": "selling make-up goods"
+            },
+            {
+              "id": "C",
+              "label": "working as a tour guide"
+            },
+            {
+              "id": "D",
+              "label": "working at an airline company"
+            }
+          ]
+        },
+        {
+          "number": 19,
+          "type": "multiple-choice",
+          "prompt": "What does Jessica advice to other aspiring travel writers?",
+          "options": [
+            {
+              "id": "A",
+              "label": "develop your own original style of writing"
+            },
+            {
+              "id": "B",
+              "label": "find a place that few people have written about before"
+            },
+            {
+              "id": "C",
+              "label": "find a different angle to approach your topic from"
+            },
+            {
+              "id": "D",
+              "label": "write with a specific type of reader in mind"
+            }
+          ]
+        },
+        {
+          "number": 20,
+          "type": "multiple-choice",
+          "prompt": "What are Jessica’s plans for the future?",
+          "options": [
+            {
+              "id": "A",
+              "label": "She intends to continue travelling."
+            },
+            {
+              "id": "B",
+              "label": "She plans to do more TV presenting."
+            },
+            {
+              "id": "C",
+              "label": "She dreams about starting a travel agency."
+            },
+            {
+              "id": "D",
+              "label": "She wishes to try a different approach to writing."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 4,
+      "rangeLabel": "Questions 21-30",
+      "instruction": "You will hear five short extracts in which people are talking about their jobs.",
+      "matchingDualTask": true,
+      "taskOneInstruction": "For questions 21-25, choose the option which best describes each speaker.",
+      "taskTwoInstruction": "For questions 26-30, choose the option which best describes each speaker.",
+      "questions": [
+        {
+          "number": 21,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "hotel"
+            },
+            {
+              "id": "B",
+              "label": "university"
+            },
+            {
+              "id": "C",
+              "label": "railway station"
+            },
+            {
+              "id": "D",
+              "label": "supermarket"
+            },
+            {
+              "id": "E",
+              "label": "hospital"
+            },
+            {
+              "id": "F",
+              "label": "travel agency"
+            },
+            {
+              "id": "G",
+              "label": "airport"
+            },
+            {
+              "id": "H",
+              "label": "library"
+            }
+          ],
+          "context": "Speaker 1"
+        },
+        {
+          "number": 22,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "hotel"
+            },
+            {
+              "id": "B",
+              "label": "university"
+            },
+            {
+              "id": "C",
+              "label": "railway station"
+            },
+            {
+              "id": "D",
+              "label": "supermarket"
+            },
+            {
+              "id": "E",
+              "label": "hospital"
+            },
+            {
+              "id": "F",
+              "label": "travel agency"
+            },
+            {
+              "id": "G",
+              "label": "airport"
+            },
+            {
+              "id": "H",
+              "label": "library"
+            }
+          ],
+          "context": "Speaker 2"
+        },
+        {
+          "number": 23,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "hotel"
+            },
+            {
+              "id": "B",
+              "label": "university"
+            },
+            {
+              "id": "C",
+              "label": "railway station"
+            },
+            {
+              "id": "D",
+              "label": "supermarket"
+            },
+            {
+              "id": "E",
+              "label": "hospital"
+            },
+            {
+              "id": "F",
+              "label": "travel agency"
+            },
+            {
+              "id": "G",
+              "label": "airport"
+            },
+            {
+              "id": "H",
+              "label": "library"
+            }
+          ],
+          "context": "Speaker 3"
+        },
+        {
+          "number": 24,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "hotel"
+            },
+            {
+              "id": "B",
+              "label": "university"
+            },
+            {
+              "id": "C",
+              "label": "railway station"
+            },
+            {
+              "id": "D",
+              "label": "supermarket"
+            },
+            {
+              "id": "E",
+              "label": "hospital"
+            },
+            {
+              "id": "F",
+              "label": "travel agency"
+            },
+            {
+              "id": "G",
+              "label": "airport"
+            },
+            {
+              "id": "H",
+              "label": "library"
+            }
+          ],
+          "context": "Speaker 4"
+        },
+        {
+          "number": 25,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "hotel"
+            },
+            {
+              "id": "B",
+              "label": "university"
+            },
+            {
+              "id": "C",
+              "label": "railway station"
+            },
+            {
+              "id": "D",
+              "label": "supermarket"
+            },
+            {
+              "id": "E",
+              "label": "hospital"
+            },
+            {
+              "id": "F",
+              "label": "travel agency"
+            },
+            {
+              "id": "G",
+              "label": "airport"
+            },
+            {
+              "id": "H",
+              "label": "library"
+            }
+          ],
+          "context": "Speaker 5"
+        },
+        {
+          "number": 26,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "amusing colleagues"
+            },
+            {
+              "id": "B",
+              "label": "can be creative"
+            },
+            {
+              "id": "C",
+              "label": "good holiday entitlement"
+            },
+            {
+              "id": "D",
+              "label": "convenient location"
+            },
+            {
+              "id": "E",
+              "label": "flexible working hours"
+            },
+            {
+              "id": "F",
+              "label": "opportunities for promotion"
+            },
+            {
+              "id": "G",
+              "label": "varied responsibilities"
+            },
+            {
+              "id": "H",
+              "label": "helps a variety of people"
+            }
+          ],
+          "context": "Speaker 1"
+        },
+        {
+          "number": 27,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "amusing colleagues"
+            },
+            {
+              "id": "B",
+              "label": "can be creative"
+            },
+            {
+              "id": "C",
+              "label": "good holiday entitlement"
+            },
+            {
+              "id": "D",
+              "label": "convenient location"
+            },
+            {
+              "id": "E",
+              "label": "flexible working hours"
+            },
+            {
+              "id": "F",
+              "label": "opportunities for promotion"
+            },
+            {
+              "id": "G",
+              "label": "varied responsibilities"
+            },
+            {
+              "id": "H",
+              "label": "helps a variety of people"
+            }
+          ],
+          "context": "Speaker 2"
+        },
+        {
+          "number": 28,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "amusing colleagues"
+            },
+            {
+              "id": "B",
+              "label": "can be creative"
+            },
+            {
+              "id": "C",
+              "label": "good holiday entitlement"
+            },
+            {
+              "id": "D",
+              "label": "convenient location"
+            },
+            {
+              "id": "E",
+              "label": "flexible working hours"
+            },
+            {
+              "id": "F",
+              "label": "opportunities for promotion"
+            },
+            {
+              "id": "G",
+              "label": "varied responsibilities"
+            },
+            {
+              "id": "H",
+              "label": "helps a variety of people"
+            }
+          ],
+          "context": "Speaker 3"
+        },
+        {
+          "number": 29,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "amusing colleagues"
+            },
+            {
+              "id": "B",
+              "label": "can be creative"
+            },
+            {
+              "id": "C",
+              "label": "good holiday entitlement"
+            },
+            {
+              "id": "D",
+              "label": "convenient location"
+            },
+            {
+              "id": "E",
+              "label": "flexible working hours"
+            },
+            {
+              "id": "F",
+              "label": "opportunities for promotion"
+            },
+            {
+              "id": "G",
+              "label": "varied responsibilities"
+            },
+            {
+              "id": "H",
+              "label": "helps a variety of people"
+            }
+          ],
+          "context": "Speaker 4"
+        },
+        {
+          "number": 30,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "amusing colleagues"
+            },
+            {
+              "id": "B",
+              "label": "can be creative"
+            },
+            {
+              "id": "C",
+              "label": "good holiday entitlement"
+            },
+            {
+              "id": "D",
+              "label": "convenient location"
+            },
+            {
+              "id": "E",
+              "label": "flexible working hours"
+            },
+            {
+              "id": "F",
+              "label": "opportunities for promotion"
+            },
+            {
+              "id": "G",
+              "label": "varied responsibilities"
+            },
+            {
+              "id": "H",
+              "label": "helps a variety of people"
+            }
+          ],
+          "context": "Speaker 5"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "uiParity": "FAILED",
+  "functionalParity": "FAILED",
+  "dataMapping": "PARTIAL",
+  "scrollBehavior": "PASS_AFTER_FIX",
+  "build": "PASS",
+  "productionReady": false,
+  "sourceCounts": {"forecast": {"mandatoryPart1": 2, "part1Topics": 32, "part2Plus3": 82}, "shadowingLessons": 30},
+  "remaining": ["normalize Forecast practice items", "normalize Roulette pools", "inline Shadowing lesson player", "inline Part 1/2/3 practice recorder"]
+}

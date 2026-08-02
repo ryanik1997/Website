@@ -40,8 +40,8 @@ function findCatalogMediaDonor(exam: ReadingExam): ReadingExam | null {
 
   const testOf = (t: string) => t.toLowerCase().match(/\btest\s*(\d+)\b/)?.[1]
   const bookOf = (t: string) => t.toLowerCase().match(/\bbook\s*(\d+)\b/)?.[1]
-  const wantTest = testOf(exam.title)
-  const wantBook = bookOf(exam.title)
+  const wantTest = testOf(exam.title ?? '')
+  const wantBook = bookOf(exam.title ?? '')
   const track = exam.examTrack ?? 'cambridge'
 
   // Match Book + Test + level + part count (an toàn khi id local ≠ catalog)

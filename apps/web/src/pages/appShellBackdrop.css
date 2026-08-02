@@ -275,6 +275,12 @@
   background: transparent !important;
 }
 
+/* IELTS Speaking is a document-style dashboard; let the shell own its single scroll. */
+.app-shell__main:has(.ielts-speaking-page) {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
 /* Exam players own their full viewport surface; do not expose the backdrop
    behind Reading/Listening/Writing content. */
 .app-shell--backdrop .app-shell__main:has(.reading-test-shell),

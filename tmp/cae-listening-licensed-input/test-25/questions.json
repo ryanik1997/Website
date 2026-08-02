@@ -1,0 +1,738 @@
+{
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "Questions 1-6",
+      "instruction": "You will hear three different extracts. For questions 1-6, choose the answer (A, B or C) which fits best",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 1,
+          "type": "multiple-choice",
+          "prompt": "What is the situation?",
+          "options": [
+            {
+              "id": "A",
+              "label": "They let their friend down"
+            },
+            {
+              "id": "B",
+              "label": "They had an argument with their friend"
+            },
+            {
+              "id": "C",
+              "label": "Their opinion of their friend has changed"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "type": "multiple-choice",
+          "prompt": "How do the speakers feel about the situation?",
+          "options": [
+            {
+              "id": "A",
+              "label": "resigned"
+            },
+            {
+              "id": "B",
+              "label": "upset"
+            },
+            {
+              "id": "C",
+              "label": "uncertain"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "type": "multiple-choice",
+          "prompt": "What is the man doing as he speaks?",
+          "options": [
+            {
+              "id": "A",
+              "label": "justifying somebody’s hobby"
+            },
+            {
+              "id": "B",
+              "label": "showing concern for somebody’s problem"
+            },
+            {
+              "id": "C",
+              "label": "describing a problem in detail"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "type": "multiple-choice",
+          "prompt": "The woman believes that the author of the letter should",
+          "options": [
+            {
+              "id": "A",
+              "label": "face the fact that people can be cruel."
+            },
+            {
+              "id": "B",
+              "label": "reassess his attitude to certain people."
+            },
+            {
+              "id": "C",
+              "label": "discuss the situation with his friends."
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "type": "multiple-choice",
+          "prompt": "The woman believes that punchlines",
+          "options": [
+            {
+              "id": "A",
+              "label": "can be found in jokes that follow a certain structure."
+            },
+            {
+              "id": "B",
+              "label": "are usually more funny than catchphrases."
+            },
+            {
+              "id": "C",
+              "label": "are more accessible than inside jokes."
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "type": "multiple-choice",
+          "prompt": "The man says that many professional comedians",
+          "options": [
+            {
+              "id": "A",
+              "label": "attempt to create context they can make jokes about."
+            },
+            {
+              "id": "B",
+              "label": "make events sound more exciting than they really were."
+            },
+            {
+              "id": "C",
+              "label": "find it difficult to tell made-up experiences from real ones."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "rangeLabel": "Questions 7-14",
+      "instruction": "Part 2 — Sentence completion",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "The play takes place in an ________ in 1950s Britain.",
+          "options": []
+        },
+        {
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "The protagonists were working in a company producing ________.",
+          "options": []
+        },
+        {
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "An interesting thing about the play was that both main characters had a ________.",
+          "options": []
+        },
+        {
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "The main characters spend much time exploring the topic of ________.",
+          "options": []
+        },
+        {
+          "number": 11,
+          "type": "gap-fill",
+          "prompt": "The male character’s plan was to get a degree and work as a ________.",
+          "options": []
+        },
+        {
+          "number": 12,
+          "type": "gap-fill",
+          "prompt": "The woman’s desire was to earn a living using her talent in ________.",
+          "options": []
+        },
+        {
+          "number": 13,
+          "type": "gap-fill",
+          "prompt": "A noteworthy part of props is a ________ at the front part of the stage.",
+          "options": []
+        },
+        {
+          "number": 14,
+          "type": "gap-fill",
+          "prompt": "Easily noticeable, ________ standing at the back are another prominent feature of the play.",
+          "options": []
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "rangeLabel": "Questions 15-20",
+      "instruction": "You will hear a radio interview about meals and consuming food. For questions 15-20, choose the answer (A, B, C or D) which fits best according to what you hear.",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 15,
+          "type": "multiple-choice",
+          "prompt": "Heston gives the example of eating with plastic utensils",
+          "options": [
+            {
+              "id": "A",
+              "label": "because many listeners might be able to relate to this situation."
+            },
+            {
+              "id": "B",
+              "label": "because it evokes the memories of eating food."
+            },
+            {
+              "id": "C",
+              "label": "to illustrate poor experience of consuming food."
+            },
+            {
+              "id": "D",
+              "label": "to show factors that contribute to the experience of eating."
+            }
+          ]
+        },
+        {
+          "number": 16,
+          "type": "multiple-choice",
+          "prompt": "What aspect of taste does Heston bring up?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Fat is taste just like any other."
+            },
+            {
+              "id": "B",
+              "label": "There is a difference between taste and flavour."
+            },
+            {
+              "id": "C",
+              "label": "Smell is a vital part of taste."
+            },
+            {
+              "id": "D",
+              "label": "As we age, we gradually lose our taste."
+            }
+          ]
+        },
+        {
+          "number": 17,
+          "type": "multiple-choice",
+          "prompt": "The salt experiment shows that",
+          "options": [
+            {
+              "id": "A",
+              "label": "you can feel the taste of something you can’t smell."
+            },
+            {
+              "id": "B",
+              "label": "smell as one the senses is the least powerful."
+            },
+            {
+              "id": "C",
+              "label": "you can enjoy food better if you don’t smell it."
+            },
+            {
+              "id": "D",
+              "label": "food flavour can change as you eat it."
+            }
+          ]
+        },
+        {
+          "number": 18,
+          "type": "multiple-choice",
+          "prompt": "The wine-tasting example shows that",
+          "options": [
+            {
+              "id": "A",
+              "label": "some colours are likely to be more attractive."
+            },
+            {
+              "id": "B",
+              "label": "food or drink that looks good will seem to taste better."
+            },
+            {
+              "id": "C",
+              "label": "senses can influence one another heavily."
+            },
+            {
+              "id": "D",
+              "label": "some sommeliers are better at tasting wine."
+            }
+          ]
+        },
+        {
+          "number": 19,
+          "type": "multiple-choice",
+          "prompt": "What is Heston’s opinion on the bitter taste?",
+          "options": [
+            {
+              "id": "A",
+              "label": "It can misguide and create the impression of being dangerous."
+            },
+            {
+              "id": "B",
+              "label": "It is the reason why people like certain food."
+            },
+            {
+              "id": "C",
+              "label": "The approach to it can evolve with time."
+            },
+            {
+              "id": "D",
+              "label": "People misunderstand the purpose of this taste."
+            }
+          ]
+        },
+        {
+          "number": 20,
+          "type": "multiple-choice",
+          "prompt": "The problem of the cabbage dish is",
+          "options": [
+            {
+              "id": "A",
+              "label": "the way it looks."
+            },
+            {
+              "id": "B",
+              "label": "its taste."
+            },
+            {
+              "id": "C",
+              "label": "the unusual combination of flavours."
+            },
+            {
+              "id": "D",
+              "label": "the recipe couldn’t be changed."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 4,
+      "rangeLabel": "Questions 21-30",
+      "instruction": "You will hear five short extracts in which people are talking about celebrities and other prominent people.",
+      "matchingDualTask": true,
+      "taskOneInstruction": "For questions 21-25, choose the option which best describes each speaker.",
+      "taskTwoInstruction": "For questions 26-30, choose the option which best describes each speaker.",
+      "questions": [
+        {
+          "number": 21,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "a coach"
+            },
+            {
+              "id": "B",
+              "label": "a novelist"
+            },
+            {
+              "id": "C",
+              "label": "a sportsman"
+            },
+            {
+              "id": "D",
+              "label": "a journalist"
+            },
+            {
+              "id": "E",
+              "label": "a businessman"
+            },
+            {
+              "id": "F",
+              "label": "a TV newsreader"
+            },
+            {
+              "id": "G",
+              "label": "a politician"
+            },
+            {
+              "id": "H",
+              "label": "an actor"
+            }
+          ],
+          "context": "Speaker 1"
+        },
+        {
+          "number": 22,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "a coach"
+            },
+            {
+              "id": "B",
+              "label": "a novelist"
+            },
+            {
+              "id": "C",
+              "label": "a sportsman"
+            },
+            {
+              "id": "D",
+              "label": "a journalist"
+            },
+            {
+              "id": "E",
+              "label": "a businessman"
+            },
+            {
+              "id": "F",
+              "label": "a TV newsreader"
+            },
+            {
+              "id": "G",
+              "label": "a politician"
+            },
+            {
+              "id": "H",
+              "label": "an actor"
+            }
+          ],
+          "context": "Speaker 2"
+        },
+        {
+          "number": 23,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "a coach"
+            },
+            {
+              "id": "B",
+              "label": "a novelist"
+            },
+            {
+              "id": "C",
+              "label": "a sportsman"
+            },
+            {
+              "id": "D",
+              "label": "a journalist"
+            },
+            {
+              "id": "E",
+              "label": "a businessman"
+            },
+            {
+              "id": "F",
+              "label": "a TV newsreader"
+            },
+            {
+              "id": "G",
+              "label": "a politician"
+            },
+            {
+              "id": "H",
+              "label": "an actor"
+            }
+          ],
+          "context": "Speaker 3"
+        },
+        {
+          "number": 24,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "a coach"
+            },
+            {
+              "id": "B",
+              "label": "a novelist"
+            },
+            {
+              "id": "C",
+              "label": "a sportsman"
+            },
+            {
+              "id": "D",
+              "label": "a journalist"
+            },
+            {
+              "id": "E",
+              "label": "a businessman"
+            },
+            {
+              "id": "F",
+              "label": "a TV newsreader"
+            },
+            {
+              "id": "G",
+              "label": "a politician"
+            },
+            {
+              "id": "H",
+              "label": "an actor"
+            }
+          ],
+          "context": "Speaker 4"
+        },
+        {
+          "number": 25,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "a coach"
+            },
+            {
+              "id": "B",
+              "label": "a novelist"
+            },
+            {
+              "id": "C",
+              "label": "a sportsman"
+            },
+            {
+              "id": "D",
+              "label": "a journalist"
+            },
+            {
+              "id": "E",
+              "label": "a businessman"
+            },
+            {
+              "id": "F",
+              "label": "a TV newsreader"
+            },
+            {
+              "id": "G",
+              "label": "a politician"
+            },
+            {
+              "id": "H",
+              "label": "an actor"
+            }
+          ],
+          "context": "Speaker 5"
+        },
+        {
+          "number": 26,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "scary"
+            },
+            {
+              "id": "B",
+              "label": "underrated"
+            },
+            {
+              "id": "C",
+              "label": "amusing"
+            },
+            {
+              "id": "D",
+              "label": "unintelligent"
+            },
+            {
+              "id": "E",
+              "label": "weird"
+            },
+            {
+              "id": "F",
+              "label": "sincere"
+            },
+            {
+              "id": "G",
+              "label": "lucky"
+            },
+            {
+              "id": "H",
+              "label": "unpredictable"
+            }
+          ],
+          "context": "Speaker 1"
+        },
+        {
+          "number": 27,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "scary"
+            },
+            {
+              "id": "B",
+              "label": "underrated"
+            },
+            {
+              "id": "C",
+              "label": "amusing"
+            },
+            {
+              "id": "D",
+              "label": "unintelligent"
+            },
+            {
+              "id": "E",
+              "label": "weird"
+            },
+            {
+              "id": "F",
+              "label": "sincere"
+            },
+            {
+              "id": "G",
+              "label": "lucky"
+            },
+            {
+              "id": "H",
+              "label": "unpredictable"
+            }
+          ],
+          "context": "Speaker 2"
+        },
+        {
+          "number": 28,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "scary"
+            },
+            {
+              "id": "B",
+              "label": "underrated"
+            },
+            {
+              "id": "C",
+              "label": "amusing"
+            },
+            {
+              "id": "D",
+              "label": "unintelligent"
+            },
+            {
+              "id": "E",
+              "label": "weird"
+            },
+            {
+              "id": "F",
+              "label": "sincere"
+            },
+            {
+              "id": "G",
+              "label": "lucky"
+            },
+            {
+              "id": "H",
+              "label": "unpredictable"
+            }
+          ],
+          "context": "Speaker 3"
+        },
+        {
+          "number": 29,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "scary"
+            },
+            {
+              "id": "B",
+              "label": "underrated"
+            },
+            {
+              "id": "C",
+              "label": "amusing"
+            },
+            {
+              "id": "D",
+              "label": "unintelligent"
+            },
+            {
+              "id": "E",
+              "label": "weird"
+            },
+            {
+              "id": "F",
+              "label": "sincere"
+            },
+            {
+              "id": "G",
+              "label": "lucky"
+            },
+            {
+              "id": "H",
+              "label": "unpredictable"
+            }
+          ],
+          "context": "Speaker 4"
+        },
+        {
+          "number": 30,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "scary"
+            },
+            {
+              "id": "B",
+              "label": "underrated"
+            },
+            {
+              "id": "C",
+              "label": "amusing"
+            },
+            {
+              "id": "D",
+              "label": "unintelligent"
+            },
+            {
+              "id": "E",
+              "label": "weird"
+            },
+            {
+              "id": "F",
+              "label": "sincere"
+            },
+            {
+              "id": "G",
+              "label": "lucky"
+            },
+            {
+              "id": "H",
+              "label": "unpredictable"
+            }
+          ],
+          "context": "Speaker 5"
+        }
+      ]
+    }
+  ]
+}

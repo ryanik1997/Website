@@ -1,0 +1,845 @@
+{
+  "id": "catalog-listening-cae-c1-test10",
+  "title": "CAE Listening Test 10",
+  "durationMinutes": 40,
+  "bandHint": "C1 Advanced Listening · 4 parts · 30 câu",
+  "examType": "cae",
+  "examMode": "practice",
+  "parts": [
+    {
+      "id": "catalog-listening-cae-c1-test10-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1-6",
+      "instruction": "You will hear three different extracts. For questions 1-6, choose the answer (A, B or C) which fits best",
+      "audioUrl": "/catalog/listening/cae-c1-test10/cae-listening-test-09-part-1.mp3",
+      "transcript": "**Extract One** **Man:** As a kid, I was always messing around on computers, so ended up doing a degree in computer science. Though strictly speaking it isn’t necessary for this job, it did mean I could walk straight into it. What companies want is people who can come up with ideas. I get a buzz from that side of it **[1]**, even when it’s hard. It’s a fluid working environment, so hours aren’t fixed and can be long in relation to the salary **[2]**. I generally like to work on my own, but a web designer can’t produce stuff in a vacuum, because by its very nature it’s a collaborative effort. **Woman:** I didn’t go the university route but worked part-time with different companies and made loads of contacts who’ve come in handy – got my foot in the door so to speak – then I got a full time job offer that got me on the ladder. It wasn’t easy, and considering what you put in the job’s not the big earner that people assume it is – at least not at the beginning! **[2]** I supplement it by writing reviews of other people’s sites, but I enjoy the flexibility. I like working with other people, and that’s key. **Extract Two** **Woman:** How long have you been cycling then? **Man:** I started road cycling when I was six, and got hooked immediately. I’d practise sprinting between two streetlights over and over. I’ve always been competitive, and I work harder than anyone else. If I don’t win I need to know why. I copy the person who beat me. I won’t stop till I’m better than them. The stiff competition in the cycling world is what drives me **[3]**. You’ve been to the velodrome, haven’t you? **Woman:** Yeah. The track itself is amazing – such a steep angle and the bikes have no brakes. If you stop pedalling it stops! Although I’m not such an experienced cyclist as you, I jumped at the chance to try it and, wow! From the position of the start line that steep slope looks like a mountain! I was told the faster you go the safer you are, so I pedalled like mad, and managed one lap **[4]**. I kept going and started to enjoy it; so much so I forgot to pedal, and immediately fell off! **Man:** So you’ll go be going back? **Woman:** You try stopping me! **Extract Three** **Interviewer:** So, Roy, what do you want to talk about on the programme today? **Roy:** I want to talk about bees. Bees are a vital part of our ecosystem, they’re friendly creatures and they’re declining in numbers. For what it’s worth, my own experience is much like that of other callers who’ve reported near normal numbers of bumble bees but virtually no honey bees **[5]**. I think there’s a distinct lack of wasps, too. I’m at a loss to know why, though I’ve read interesting articles about the domestication of bees and poor practices of modern beekeepers, but it seems clear that we can’t discount what others see as the number one culprit – the overuse of chemicals by gardeners. **Interviewer:** So what do you suggest gardeners do, Roy? **Roy:** Well, the best thing anyone lucky enough to have a garden can do is provide a ‘bee friendly’ area. And the good news is bees prefer ‘lazy’ gardeners, which I suspect is most of us. A wild garden providing a natural habitat is the way forward. Choose what you plant carefully **[6]**. It doesn’t have to be hard work but it could make a big difference! And buy your honey from local suppliers you know and trust.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test10-q-1",
+          "number": 1,
+          "type": "multiple-choice",
+          "prompt": "How does the man feel about the work?",
+          "options": [
+            {
+              "id": "A",
+              "label": "He finds the creativity stimulating"
+            },
+            {
+              "id": "B",
+              "label": "He would like to use his academic training more"
+            },
+            {
+              "id": "C",
+              "label": "He gets most satisfaction from being part of a team"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A What companies want is people who can come up with ideas. I get a buzz from that side of it..."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test10-q-2",
+          "number": 2,
+          "type": "multiple-choice",
+          "prompt": "What do they both think about the job?",
+          "options": [
+            {
+              "id": "A",
+              "label": "It’s a difficult career to get started in"
+            },
+            {
+              "id": "B",
+              "label": "It’s important to be able to work flexible hours"
+            },
+            {
+              "id": "C",
+              "label": "It’s a poorly paid job for the amount of work involved"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CManLIt’s a fluid working environment, so hours aren’t fixed and can be long in relation to the salary.Woman: It wasn’t easy, and considering what you put in the job’s not the big earner that people assume it is – at least not at the beginning!"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test10-q-3",
+          "number": 3,
+          "type": "multiple-choice",
+          "prompt": "The man thinks his success as a cyclist is due to",
+          "options": [
+            {
+              "id": "A",
+              "label": "his complete dedication"
+            },
+            {
+              "id": "B",
+              "label": "the age at which he started"
+            },
+            {
+              "id": "C",
+              "label": "a series of great role models"
+            }
+          ],
+          "answer": "A",
+          "explanation": "AMan: I copy the person who beat me. I won’t stop till I’m better than them. The stiff competition in the cycling world is what drives me"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test10-q-4",
+          "number": 4,
+          "type": "multiple-choice",
+          "prompt": "When talking about cycling in a velodrome, the woman reveals her",
+          "options": [
+            {
+              "id": "A",
+              "label": "fear of dangerous sports"
+            },
+            {
+              "id": "B",
+              "label": "inability to follow instructions"
+            },
+            {
+              "id": "C",
+              "label": "willingness to accept a challenge"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CWoman: I was told the faster you go the safer you are, so I pedalled like mad, and managed one lap"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test10-q-5",
+          "number": 5,
+          "type": "multiple-choice",
+          "prompt": "Why has he phoned the programme?",
+          "options": [
+            {
+              "id": "A",
+              "label": "to raise issues not previously discussed"
+            },
+            {
+              "id": "B",
+              "label": "to challenge the opinions of other contributors"
+            },
+            {
+              "id": "C",
+              "label": "to lend his support to a view that’s been expressed"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CRoy: For what it’s worth, my own experience is much like that of other callers who’ve reported near normal numbers of bumble bees but virtually no honey bees"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test10-q-6",
+          "number": 6,
+          "type": "multiple-choice",
+          "prompt": "When talking about gardens, he is",
+          "options": [
+            {
+              "id": "A",
+              "label": "describing what he does in his own"
+            },
+            {
+              "id": "B",
+              "label": "encouraging people to grow certain things"
+            },
+            {
+              "id": "C",
+              "label": "suggesting that people keep bees themselves HINTS AND KEYWORDS"
+            }
+          ],
+          "answer": "B",
+          "explanation": "BRoy: And the good news is bees prefer ‘lazy’ gardeners, which I suspect is most of us. A wild garden providing a natural habitat is the way forward. Choose what you plant carefully."
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test10-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 7-14",
+      "instruction": "You will hear a student called Tim Farnham giving a class presentation about a seabird called the albatross. For questions 7-14, complete the sentences.",
+      "audioUrl": "/catalog/listening/cae-c1-test10/cae-listening-test-09-part-2.mp3",
+      "transcript": "**Tim**: Hi. My name’s Tim and the topic of my presentation is a seabird called the albatross. It’s the largest seabird, and it’s always been a great favourite with sailors. It’s also well-known because it features in a famous English poem. The word ‘albatross’ came into the English language via the Portuguese word ‘alcatraz’ that was used for similar birds called gannets. The famous American prison island was also named after them. But the real origin of the word is thought to be Arabic, where it means ‘diver’ **[7]**. There’s lots of different species of albatross, and scientists are always arguing about exactly how many. Over the years, estimates have varied from thirteen to as many as eighty. Nowadays, a figure of twenty-one is widely accepted **[8]**, with nineteen of those identified as being in danger of extinction. The albatross is mostly found in the southern hemisphere, and there’s none in the north Atlantic. The bird travels long distances in search of its food – fish and squid mostly – and depends on the wind to a great extent. That’s why you rarely find them in tropical areas, where long periods of calm are common **[9]**. The albatross manages to cover such long distances by conserving energy. Apart from take-off and landing, it rarely flaps its huge wings, and actually there’s a locking mechanism in its shoulder that keeps the wings in place as it glides through the air **[10]**. As you’d expect, the bird’s got good eyesight and will swoop down when it sees signs of food near the surface of the water. What I didn’t expect to find, however, was that it can also detect the smell of its food; this explains why it follows fishing boats that use dead fish as bait **[11]**. Indeed, one of the reasons the albatross is such an endangered bird is that it tends to get caught up in fishing nets. Another reason the albatross faces extinction is it takes a long time to reproduce. The bird can live for sixty years, and only starts breeding from the age of five. Even then, each pair of birds only produces one egg per year. They build nests on remote uninhabited islands, because animals like rats, which arrive at the same time as humans, will eat the eggs and, predictably, cats will kill the chicks. Apparently, even little mice can be a problem at nest sites, which is incredible **[12]**. And, of course, the albatross has always been killed by people. Sailors used to eat them, and at one time their feathers were highly valued, which was actually the main reason **[13]**. Even the bird’s bones were used in certain ceremonies by local populations, though that wasn’t on a big scale. These days, plastic is the biggest enemy, and there’s tons of it in the sea. Eating plastic doesn’t in itself kill an albatross, but it tends to stay in the stomach and so cut down the amount of food the bird can digest, which then weakens it. Some dead birds have even been found with weird things like plastic cigarette lighters and toy soldiers in their stomachs as well as the all too common bottle caps **[14]**. There must be a way of stopping those getting into the sea!",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test10-q-7",
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "Tim thinks that the name ‘albatross’ comes originally from a word in the ________ language.",
+          "options": [],
+          "answer": "Arabic",
+          "explanation": "ArabicThe famous American prison island was also named after them. But the real origin of the word is thought to be Arabic, where it means ‘diver’."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test10-q-8",
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "There are currently thought to be a total of ________ species of albatross.",
+          "options": [],
+          "answer": "21/twenty-one",
+          "explanation": "21/twenty-oneNowadays, a figure of twenty-one is widely accepted, with nineteen of those identified as being in danger of extinction."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test10-q-9",
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "The fact that it relies on ________ explains why the albatross isn’t found in some areas.",
+          "options": [],
+          "answer": "(the) wind",
+          "explanation": "(the) windThe bird travels long distances in search of its food – fish and squid mostly – and depends on the wind to a great extent. That’s why you rarely find them in tropical areas, where long periods of calm are common."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test10-q-10",
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "By using a locking mechanism in its ________ , the albatross can save energy when flying.",
+          "options": [],
+          "answer": "shoulders",
+          "explanation": "shouldersApart from take-off and landing, it rarely flaps its huge wings, and actually there’s a locking mechanism in its shoulder that keeps the wings in place as it glides through the air."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test10-q-11",
+          "number": 11,
+          "type": "gap-fill",
+          "prompt": "Tim explains that the albatross has a surprisingly good sense of ________ .",
+          "options": [],
+          "answer": "smell",
+          "explanation": "smellWhat I didn’t expect to find, however, was that it can also detect the smell of its food; this explains why it follows fishing boats that use dead fish as bait."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test10-q-12",
+          "number": 12,
+          "type": "gap-fill",
+          "prompt": "Tim was surprised to discover that ________ attack albatross nests.",
+          "options": [],
+          "answer": "(little) mice",
+          "explanation": "(little) miceApparently, even little mice can be a problem at nest sites, which is incredible."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test10-q-13",
+          "number": 13,
+          "type": "gap-fill",
+          "prompt": "The albatross used to be hunted mostly for its ________ as well as for food.",
+          "options": [],
+          "answer": "feathers",
+          "explanation": "feathersAnd, of course, the albatross has always been killed by people. Sailors used to eat them, and at one time their feathers were highly valued, which was actually the main reason."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test10-q-14",
+          "number": 14,
+          "type": "gap-fill",
+          "prompt": "Tim gives the example of ________ as plastic objects commonly eaten by albatrosses.",
+          "options": [],
+          "answer": "bottle caps/bottle tops",
+          "explanation": "bottle caps/ bottle tops... as well as the all too common bottle caps"
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test10-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 15-20",
+      "instruction": "You will hear an interview with a woman called Amy Marties, who works as a choreographer, creating dance performances for live shows. For questions 15-20, choose the answer (A, B, C or D) which fits best according to what you hear.",
+      "audioUrl": "/catalog/listening/cae-c1-test10/cae-listening-test-09-part-3.mp3",
+      "transcript": "**Man:** My guest today is the choreographer Amy Martles, who’s put together many diverse dance productions; everything from classical ballet to modern stage musicals and experimental modern dance – the list goes on. Amy, tell us, how did you get into choreography in the first place? **Amy:** Well I got the performance bug as a kid – you know, we’d put on plays at primary school. Dance was a part of that, though it wasn’t ever to the forefront particularly. Gymnastics was the thing I excelled at, and it was my sports coach who suggested trying private dance classes. She saw something in the way I used my body to communicate feeling **[15]**, and thought that might be worth developing. She was right. I naturally leaned towards rather athletic dance styles, and there wasn’t much of a repertoire for that, so creating dances was the natural way forward. I like to do my own thing, and movement and gesture are a very effective means of communication **[15]**. That whole idea’s always fascinated me. **Man:** So, do you need to be a good dancer to be a good choreographer? **Amy:** Well, when I was a dancer, I had the experience of working under a choreographer and I keep reminding myself how that felt – how frustrating it can be when the choreographer just seems to be trying out ideas on a whim – and you’re the guinea pig. You know, after a long tiring session, that’s the last thing a dancer wants. Any choreographer worth her salt would pick up on that and call it a day **[16]**. I’m not sure you have to be an exceptional dancer yourself though, and I know of choreographers who hardly ever set foot on stage themselves – and certainly couldn’t reproduce all the steps. Because that’s not the point really – it’s more what you bring out in others. **Man:** Sure. Talk us through how you go about creating a new dance. **Amy:** Well it really depends – like, sometimes I’m commissioned for a show where the music, the narrative – that’s all in place and I’m working within those constraints – and that’s the challenge. Other times it’s an idea that comes first and I work with the composer to create something coherent that could be performed as an original piece of dance – and that’s just as challenging, but in a different way. For that I create the final version with the dancers, seeing what their bodies can manage, which moves are more achievable or visually effective. It can be pretty experimental and almost random – like, you might see a movement that really works by chance – if, say, a dancer slips and creates a particular shape – and you make something of it **[17]**. **Man:** Right. So what do you aim for in your work? **Amy:** Well, I have to feel that everything comes together as a unified whole, that we’re saying something to the audience that’s honest and meaningful **[18]**. That means having harmony and balance in everything – the music, the dance steps, the costumes and the lighting, and they’re all equally important. Sometimes you can see a piece that has originality and groundbreaking steps, but performed on a set that’s distracting, and the message gets blurred. I want to enhance people’s perceptions not confuse them – I want them to understand what I’m doing and the idea I’m trying to put across. So it’s more about them than me really, but it’s certainly not about impressing them with flashy moves or anything like that. **Man:** I’ve heard choreographers are very choosey about which dancers they’ll work with. What do you look for in a dancer? **Amy:** For me, it’s got to be someone who’s ready to collaborate in anything and explore any options without pre-conceptions. I’m pretty intolerant of dancers who go in for introspection or whose egos need massaging. Actually, in some ways, working with students is more straightforward because they’ve got the basic training, they’re desperate to learn, but they’re not weighed down with expectations **[19]**. I guess I like the idea of the blank canvas best. But if I am working with professionals, then it’s more collaborative, and that’s nice too. We develop a conversation about the work and through that something emerges – it’s a coming together of minds, so always stimulating. **Man:** And if you’re asked to work on a new production of a well-known piece, is it a very different approach? **Amy:** I think I stay true to the spirit of the piece – and to my own instincts. All art is created to speak to contemporary audiences. Even productions of historical dramas end up being about today’s concerns. That’s inescapable. But I wouldn’t set out to change the underlying ideas in a piece. I know people will inevitably make comparisons with past productions, and I don’t have a problem with that, but it’s not my starting point. Actually more of an issue for me is the gulf that people perceive between the experimental original piece and the new production of a known work – because it just isn’t as wide as they imagine. Sure, the starting point is different, as are the practical considerations – but if you’re talking about the essence – the choreographer’s vision – her craft if you like – then for me there’s hardly a gulf at all **[20]**.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test10-q-15",
+          "number": 15,
+          "type": "multiple-choice",
+          "prompt": "Amy traces her decision to become a choreographer back to",
+          "options": [
+            {
+              "id": "A",
+              "label": "the advice of her first dance teacher"
+            },
+            {
+              "id": "B",
+              "label": "her need to express herself through movement"
+            },
+            {
+              "id": "C",
+              "label": "the emphasis placed on dance in her primary school"
+            },
+            {
+              "id": "D",
+              "label": "her failure to reach a high level of sporting achievement"
+            }
+          ],
+          "answer": "B",
+          "explanation": "BGymnastics was the thing I excelled at, and it was my sports coach who suggested trying private dance classes. She saw something in the way I used my body to communicate feeling... I like to do my own thing, and movement and gesture are a very effective means of communication."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test10-q-16",
+          "number": 16,
+          "type": "multiple-choice",
+          "prompt": "Amy feels that, above all, a good choreographer is one who",
+          "options": [
+            {
+              "id": "A",
+              "label": "remains in touch with the everyday feelings of dancers"
+            },
+            {
+              "id": "B",
+              "label": "keeps dancers motivated during long tiring sessions"
+            },
+            {
+              "id": "C",
+              "label": "has experience of appearing on stage as a dancer"
+            },
+            {
+              "id": "D",
+              "label": "is able to join in with the dancing itself if necessary"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A You know, after a long tiring session, that’s the last thing a dancer wants. Any choreographer worth her salt would pick up on that and call it a day"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test10-q-17",
+          "number": 17,
+          "type": "multiple-choice",
+          "prompt": "When she’s creating a new dance, Amy",
+          "options": [
+            {
+              "id": "A",
+              "label": "finds it easier to work directly with a composer"
+            },
+            {
+              "id": "B",
+              "label": "prefers to be given clear constraints to work within"
+            },
+            {
+              "id": "C",
+              "label": "keeps an open mind about how a piece might develop"
+            },
+            {
+              "id": "D",
+              "label": "accepts that some of her ideas will prove to be unpopular"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CIt can be pretty experimental and almost random – like, you might see a movement that really works by chance – if, say, a dancer slips and creates a particular shape – and you make something of it."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test10-q-18",
+          "number": 18,
+          "type": "multiple-choice",
+          "prompt": "In her work as a choreographer, Amy aims to",
+          "options": [
+            {
+              "id": "A",
+              "label": "challenge the audience’s ideas about what dance is"
+            },
+            {
+              "id": "B",
+              "label": "feel that she is conveying a message to the audience"
+            },
+            {
+              "id": "C",
+              "label": "thrill the audience with some cutting-edge dance techniques"
+            },
+            {
+              "id": "D",
+              "label": "draw the audience’s attention away from other elements in the show"
+            }
+          ],
+          "answer": "B",
+          "explanation": "BWell, I have to feel that everything comes together as a unified whole, that we’re saying something to the audience that’s honest and meaningful."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test10-q-19",
+          "number": 19,
+          "type": "multiple-choice",
+          "prompt": "When asked about choosing dancers to work with, Amy says she",
+          "options": [
+            {
+              "id": "A",
+              "label": "relies on the expertise top professionals bring to the creative process"
+            },
+            {
+              "id": "B",
+              "label": "accepts the need to accommodate the feelings of sensitive people"
+            },
+            {
+              "id": "C",
+              "label": "finds those with less experience an easier proposition"
+            },
+            {
+              "id": "D",
+              "label": "likes to help those she has previously taught"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CActually, in some ways, working with students is more straightforward because they’ve got the basic training, they’re desperate to learn, but they’re not weighed down with expectations."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test10-q-20",
+          "number": 20,
+          "type": "multiple-choice",
+          "prompt": "When she’s working on a new production of a well-known piece, Amy",
+          "options": [
+            {
+              "id": "A",
+              "label": "tries to build on the work of those who have gone before"
+            },
+            {
+              "id": "B",
+              "label": "is aware of the need to update the ideas in a play"
+            },
+            {
+              "id": "C",
+              "label": "is annoyed if people make unfair comparisons"
+            },
+            {
+              "id": "D",
+              "label": "remains faithful to her usual guiding principles HINTS AND KEYWORDS"
+            }
+          ],
+          "answer": "D",
+          "explanation": "DSure, the starting point is different, as are the practical considerations – but if you’re talking about the essence – the choreographer’s vision – her craft if you like – then for me there’s hardly a gulf at all."
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test10-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 21-30",
+      "instruction": "You will hear five short extracts in which people are talking about how they gave up office jobs to do other types of work.",
+      "audioUrl": "/catalog/listening/cae-c1-test10/cae-listening-test-09-part-4.mp3",
+      "transcript": "**Speaker 1** I just drifted into office work – having no particular qualifications to speak of. I didn’t mind that it was nine-to-five or that we were always chasing impossible deadlines. I mean, that’s what kept the people in our section on our toes. No, the thing I couldn’t stand was all the sitting about in front of a screen **[21]**. Even though I went to the gym at lunchtime, I still never really felt fit. Gardening’s certainly put that right. I’m outside in all weathers, but I love it, and although the money’s nothing to write home about, I really feel that people who employ me are grateful – that’s worth a lot to me **[26]**. **Speaker 2** The trouble with our office wasn’t so much the lack of space; I could put up with that – it was the sort of people you had to work with. I mean, sitting in front of a screen for six hours at a stretch, you needed a bit of light relief, but nobody there could see the funny side of my anecdotes I’m afraid **[22]**. I’m much happier in hairdressing. I chat all day, and you never know who’s going to come in next. My boss is a real laugh and I feel that I’m really expressing my creativity when I suggest a new style to a client **[27]** – even if it doesn’t always work out as I intended. **Speaker 3** People think I went into nursing because I wanted a more caring job, but that wasn’t the real reason. Sure, it’s nice helping people, but we used to do that in our office too. No, it was having to do everything by yesterday that got me down. We were always in a rush because the bosses couldn’t get the scheduling right **[23]**. Although the hours are a bit irregular, I’m actually a bit better off as a nurse **[28]**, so it’s a real win-win situation for me, because I had been expecting a cut in my standard of living. I’m calmer and feel more in control of my life and, in a year’s time, I’ll be fully qualified. **Speaker 4** I went into office work because I had good IT skills. I thought it was a good career move. It never occurred to me that I’d find it stressful just being there. I mean the hours weren’t that long but we were all packed into this really small area **[24]**. It was quite well-paid, but it just wasn’t worth it. As a window dresser for a big store I know that what I do will be seen by lots of people and could have a big impact – that makes me determined to do it as well as I can **[29]**. I love that feeling. And there’s no grumpy boss breathing down my neck all the time either! **Speaker 5** I thought I’d get promotion eventually and that’d help me re-engage with the job. But when I did, it made no difference. I couldn’t care less whether we met our deadlines or not **[25]** – much to my colleagues’ disgust. I just did my hours and looked forward to going home. I’d no commitment to it anymore. Plumbing’s such a contrast. It’s a small company but they’re paying for my training and that makes up for the drop in salary. What thrills me is that people look up to you when you say you’re a plumber **[30]**, even if I’m not fully qualified yet. It means you can do things they can’t. I never felt that as an office worker.",
+      "matchingDualTask": true,
+      "taskOneInstruction": "For questions 21-25, choose the option which best describes each speaker.",
+      "taskTwoInstruction": "For questions 26-30, choose the option which best describes each speaker.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test10-q-21",
+          "number": 21,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "poor motivation"
+            },
+            {
+              "id": "B",
+              "label": "lack of exercise"
+            },
+            {
+              "id": "C",
+              "label": "the regular hours"
+            },
+            {
+              "id": "D",
+              "label": "limited contact with people"
+            },
+            {
+              "id": "E",
+              "label": "overcrowded workplace"
+            },
+            {
+              "id": "F",
+              "label": "dull colleagues"
+            },
+            {
+              "id": "G",
+              "label": "few career prospects"
+            },
+            {
+              "id": "H",
+              "label": "stressful deadlines"
+            }
+          ],
+          "answer": "B",
+          "explanation": "BNo, the thing I couldn’t stand was all the sitting about in front of a screen.",
+          "context": "Speaker 1"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test10-q-22",
+          "number": 22,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "poor motivation"
+            },
+            {
+              "id": "B",
+              "label": "lack of exercise"
+            },
+            {
+              "id": "C",
+              "label": "the regular hours"
+            },
+            {
+              "id": "D",
+              "label": "limited contact with people"
+            },
+            {
+              "id": "E",
+              "label": "overcrowded workplace"
+            },
+            {
+              "id": "F",
+              "label": "dull colleagues"
+            },
+            {
+              "id": "G",
+              "label": "few career prospects"
+            },
+            {
+              "id": "H",
+              "label": "stressful deadlines"
+            }
+          ],
+          "answer": "F",
+          "explanation": "FI mean, sitting in front of a screen for six hours at a stretch, you needed a bit of light relief, but nobody there could see the funny side of my anecdotes I’m afraid.",
+          "context": "Speaker 2"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test10-q-23",
+          "number": 23,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "poor motivation"
+            },
+            {
+              "id": "B",
+              "label": "lack of exercise"
+            },
+            {
+              "id": "C",
+              "label": "the regular hours"
+            },
+            {
+              "id": "D",
+              "label": "limited contact with people"
+            },
+            {
+              "id": "E",
+              "label": "overcrowded workplace"
+            },
+            {
+              "id": "F",
+              "label": "dull colleagues"
+            },
+            {
+              "id": "G",
+              "label": "few career prospects"
+            },
+            {
+              "id": "H",
+              "label": "stressful deadlines"
+            }
+          ],
+          "answer": "H",
+          "explanation": "HNo, it was having to do everything by yesterday that got me down. We were always in a rush because the bosses couldn’t get the scheduling right.",
+          "context": "Speaker 3"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test10-q-24",
+          "number": 24,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "poor motivation"
+            },
+            {
+              "id": "B",
+              "label": "lack of exercise"
+            },
+            {
+              "id": "C",
+              "label": "the regular hours"
+            },
+            {
+              "id": "D",
+              "label": "limited contact with people"
+            },
+            {
+              "id": "E",
+              "label": "overcrowded workplace"
+            },
+            {
+              "id": "F",
+              "label": "dull colleagues"
+            },
+            {
+              "id": "G",
+              "label": "few career prospects"
+            },
+            {
+              "id": "H",
+              "label": "stressful deadlines"
+            }
+          ],
+          "answer": "E",
+          "explanation": "EI mean the hours weren’t that long but we were all packed into this really small area.",
+          "context": "Speaker 4"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test10-q-25",
+          "number": 25,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "poor motivation"
+            },
+            {
+              "id": "B",
+              "label": "lack of exercise"
+            },
+            {
+              "id": "C",
+              "label": "the regular hours"
+            },
+            {
+              "id": "D",
+              "label": "limited contact with people"
+            },
+            {
+              "id": "E",
+              "label": "overcrowded workplace"
+            },
+            {
+              "id": "F",
+              "label": "dull colleagues"
+            },
+            {
+              "id": "G",
+              "label": "few career prospects"
+            },
+            {
+              "id": "H",
+              "label": "stressful deadlines"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A I couldn’t care less whether we met our deadlines or not – much to my colleagues.’ disgust.",
+          "context": "Speaker 5"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test10-q-26",
+          "number": 26,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "being my own boss"
+            },
+            {
+              "id": "B",
+              "label": "feeling appreciated by clients"
+            },
+            {
+              "id": "C",
+              "label": "being able to offer advice"
+            },
+            {
+              "id": "D",
+              "label": "feeling respected for my skills"
+            },
+            {
+              "id": "E",
+              "label": "being fully qualified"
+            },
+            {
+              "id": "F",
+              "label": "feeling committed to the work"
+            },
+            {
+              "id": "G",
+              "label": "being relatively well paid"
+            },
+            {
+              "id": "H",
+              "label": "being able to help others"
+            }
+          ],
+          "answer": "B",
+          "explanation": "BGardening’s certainly put that right. I’m outside in all weathers, but I love it, and although the money’s nothing to write home about, I really feel that people who employ me are grateful – that’s worth a lot to me.",
+          "context": "Speaker 1"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test10-q-27",
+          "number": 27,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "being my own boss"
+            },
+            {
+              "id": "B",
+              "label": "feeling appreciated by clients"
+            },
+            {
+              "id": "C",
+              "label": "being able to offer advice"
+            },
+            {
+              "id": "D",
+              "label": "feeling respected for my skills"
+            },
+            {
+              "id": "E",
+              "label": "being fully qualified"
+            },
+            {
+              "id": "F",
+              "label": "feeling committed to the work"
+            },
+            {
+              "id": "G",
+              "label": "being relatively well paid"
+            },
+            {
+              "id": "H",
+              "label": "being able to help others"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C My boss is a real laugh and I feel that I’m really expressing my creativity when I suggest a new style to a client – even if it doesn’t always work out as I intended.",
+          "context": "Speaker 2"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test10-q-28",
+          "number": 28,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "being my own boss"
+            },
+            {
+              "id": "B",
+              "label": "feeling appreciated by clients"
+            },
+            {
+              "id": "C",
+              "label": "being able to offer advice"
+            },
+            {
+              "id": "D",
+              "label": "feeling respected for my skills"
+            },
+            {
+              "id": "E",
+              "label": "being fully qualified"
+            },
+            {
+              "id": "F",
+              "label": "feeling committed to the work"
+            },
+            {
+              "id": "G",
+              "label": "being relatively well paid"
+            },
+            {
+              "id": "H",
+              "label": "being able to help others"
+            }
+          ],
+          "answer": "G",
+          "explanation": "GAlthough the hours are a bit irregular, I’m actually a bit better off as a nurse, so it’s a real win-win situation for me, because I had been expecting a cut in my standard of living.",
+          "context": "Speaker 3"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test10-q-29",
+          "number": 29,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "being my own boss"
+            },
+            {
+              "id": "B",
+              "label": "feeling appreciated by clients"
+            },
+            {
+              "id": "C",
+              "label": "being able to offer advice"
+            },
+            {
+              "id": "D",
+              "label": "feeling respected for my skills"
+            },
+            {
+              "id": "E",
+              "label": "being fully qualified"
+            },
+            {
+              "id": "F",
+              "label": "feeling committed to the work"
+            },
+            {
+              "id": "G",
+              "label": "being relatively well paid"
+            },
+            {
+              "id": "H",
+              "label": "being able to help others"
+            }
+          ],
+          "answer": "F",
+          "explanation": "FAs a window dresser for a big store I know that what I do will be seen by lots of people and could have a big impact – that makes me determined to do it as well as I can.",
+          "context": "Speaker 4"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test10-q-30",
+          "number": 30,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "being my own boss"
+            },
+            {
+              "id": "B",
+              "label": "feeling appreciated by clients"
+            },
+            {
+              "id": "C",
+              "label": "being able to offer advice"
+            },
+            {
+              "id": "D",
+              "label": "feeling respected for my skills"
+            },
+            {
+              "id": "E",
+              "label": "being fully qualified"
+            },
+            {
+              "id": "F",
+              "label": "feeling committed to the work"
+            },
+            {
+              "id": "G",
+              "label": "being relatively well paid"
+            },
+            {
+              "id": "H",
+              "label": "being able to help others"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D What thrills me is that people look up to you when you say you’re a plumber...",
+          "context": "Speaker 5"
+        }
+      ]
+    }
+  ],
+  "catalogSlug": "cae-c1-test10",
+  "catalogBase": "/catalog/listening/cae-c1-test10"
+}

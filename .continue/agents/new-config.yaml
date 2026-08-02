@@ -1,0 +1,13 @@
+export function modifyConfig(config: Config): Config {
+  config.models = [
+    {
+      title: "inferX Provider",
+      provider: "openai",
+      model: "glm-52",
+      apiBase: "https://inferx.net",
+      apiKey: "ix_aa9832233edc3feec7a6d3ed0512e3ff60c2dd7a0b2757173b90babc2c0854b9"
+    }
+  ];
+  
+  return config;
+}

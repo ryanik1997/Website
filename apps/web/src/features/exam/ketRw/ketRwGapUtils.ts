@@ -2,7 +2,7 @@ import type { ReadingQuestion } from '../examData'
 import { READING_GAP_DOTS } from '../readingGapDisplay'
 
 /** Chỉ match gap thật — có dấu chấm/gạch dưới; bỏ qua ví dụ (0) are */
-const GAP_TOKEN_RE = /\((\d+)\)\s*(?:\.{2,}|_{2,})/g
+const GAP_TOKEN_RE = /\((\d+)\)\s*[.…_]{2,}/g
 
 export type KetRwGapSegment =
   | { kind: 'text'; value: string }
@@ -30,7 +30,7 @@ export function ensureGapDots(text: string, gapNumbers: number[]): string {
   if (!gapNumbers.length) return text
   let result = text
   for (const n of [...new Set(gapNumbers)].sort((a, b) => b - a)) {
-    const re = new RegExp(`\\(${n}\\)\\s*(?:\\.{2,}|_{2,})?`, 'g')
+    const re = new RegExp(`\\(${n}\\)\\s*[.…_]{0,}`, 'g')
     result = result.replace(re, `(${n}) ${READING_GAP_DOTS}`)
   }
   return result

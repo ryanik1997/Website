@@ -1,0 +1,845 @@
+{
+  "id": "catalog-listening-cae-c1-test11",
+  "title": "CAE Listening Test 11",
+  "durationMinutes": 40,
+  "bandHint": "C1 Advanced Listening · 4 parts · 30 câu",
+  "examType": "cae",
+  "examMode": "practice",
+  "parts": [
+    {
+      "id": "catalog-listening-cae-c1-test11-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1-6",
+      "instruction": "You will hear three different extracts. For questions 1-6, choose the answer (A, B or C) which fits best",
+      "audioUrl": "/catalog/listening/cae-c1-test11/cae-listening-test-10-part-1.mp3",
+      "transcript": "**Girl:** Hi Tom, so what d’you think of the concert? **Tom:** Well, I’m not complaining because at the end of the day, I had a pretty good night out. But it’s just as well that we got a hefty student discount on the tickets. I went with high hopes of seeing something really spectacular from the headline band, and it just didn’t happen **[1]**. I reckon I was taken in by all the hype; you know, the big build-up in the media and everything. I should know better than to take any notice of it, but you just get swept up by it, don’t you? **Girl:** Well, you may but I don’t. I hadn’t actually read or heard much about the gig at all, so I didn’t go with any preconceptions. If you ask me, you’re being rather hard on the main band. I mean, they were way better than the support act **[2]**. If the idea was to get us in the mood for what was coming later, then I think they should’ve been presenting us with something a bit more exciting **[2]**. **Tom:** Well, who knows? Perhaps they were chosen because they wouldn’t upstage the stars. **Gary:** There’s been lots of speculation in the press this week surrounding the fate of United manager Tony Benson, with some people calling for his resignation after a run of poor results. Talking to people at the club this week, I sense that there may actually be little substance to stories that his job’s on the line **[3]**. Indeed, a number of people I spoke to were keen to defend his record, feeling that he was focussing the players on a more stylish, entertaining brand of football. They thought it would only be a matter of time before we begin to see this reflected in the results. What’s your take on all this, Suzie? **Suzie:** Well Gary, the club’s invested in promising players. The potential’s there, it’s just a question of whether Benson’s the man to pull it all together and make it work; and time’s running out for him. I’ve been talking to some of the players and I’d say there was a groundswell of support in the dressing room for Benson’s general approach. But I think the results speak for themselves and, these days, if a top-flight football team isn’t getting points, then something’s got to change and that comes back to the manager because that’s his responsibility – getting the results **[4]**. **Man:** So what did you think of it? **Woman:** I could stand and look at his work all day long. I know it’s a strange thing to say about sculpture, but it really makes you think, you know, about more than just the art – about aspects of life itself **[5]**. **Man:** But this was a strange exhibition. They seemed to have gone for quite an eclectic selection **[6]**. Was it meant to be representative of something? I never read the notes they hand out because I prefer to come to my own interpretation. **Woman:** Yes, so do I. Actually, I think the unifying theme was the material. I mean, all these pieces were made out of the same three raw materials – wire, glass and straw. Not all his work is, of course, but I guess it’s a phase he went through; part of his development as an artist. I’d have been happy to have seen some of his other stuff actually **[6]**. **Man:** Yeah, more of a range **[6]**. Well you can’t fault the museum, can you? I mean, any exhibition they put on is worth going to. It’s such a brilliant space and you never know how things are going to look because the presentation’s so imaginative, isn’t it? **Woman:** There’s nowhere quite like it really.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test11-q-1",
+          "number": 1,
+          "type": "multiple-choice",
+          "prompt": "How does the boy feel about the main band?",
+          "options": [
+            {
+              "id": "A",
+              "label": "disappointed by their performance"
+            },
+            {
+              "id": "B",
+              "label": "confused by all the advanced publicity"
+            },
+            {
+              "id": "C",
+              "label": "unsure whether he got value for money or not"
+            }
+          ],
+          "answer": "A",
+          "explanation": ""
+        },
+        {
+          "id": "catalog-listening-cae-c1-test11-q-2",
+          "number": 2,
+          "type": "multiple-choice",
+          "prompt": "What is the woman doing in her reply?",
+          "options": [
+            {
+              "id": "A",
+              "label": "criticising the support band"
+            },
+            {
+              "id": "B",
+              "label": "defending the approach of the media"
+            },
+            {
+              "id": "C",
+              "label": "agreeing with comments about the main band"
+            }
+          ],
+          "answer": "A",
+          "explanation": ""
+        },
+        {
+          "id": "catalog-listening-cae-c1-test11-q-3",
+          "number": 3,
+          "type": "multiple-choice",
+          "prompt": "What is the male presenter doing?",
+          "options": [
+            {
+              "id": "A",
+              "label": "praising changes that the manager has made"
+            },
+            {
+              "id": "B",
+              "label": "suggesting that rumours about the manager are unfounded"
+            },
+            {
+              "id": "C",
+              "label": "describing a growing sense of dissatisfaction with the manager’s performance"
+            }
+          ],
+          "answer": "B",
+          "explanation": ""
+        },
+        {
+          "id": "catalog-listening-cae-c1-test11-q-4",
+          "number": 4,
+          "type": "multiple-choice",
+          "prompt": "In the female presenter’s opinion",
+          "options": [
+            {
+              "id": "A",
+              "label": "the manager’s strategy is the correct one"
+            },
+            {
+              "id": "B",
+              "label": "the real problem is a lack of talented players"
+            },
+            {
+              "id": "C",
+              "label": "the pressure on the manager is likely to increase"
+            }
+          ],
+          "answer": "C",
+          "explanation": ""
+        },
+        {
+          "id": "catalog-listening-cae-c1-test11-q-5",
+          "number": 5,
+          "type": "multiple-choice",
+          "prompt": "What does the woman particularly admire about the artist?",
+          "options": [
+            {
+              "id": "A",
+              "label": "the originality of his work"
+            },
+            {
+              "id": "B",
+              "label": "the way his art has developed"
+            },
+            {
+              "id": "C",
+              "label": "the issues that his sculptures raise"
+            }
+          ],
+          "answer": "C",
+          "explanation": ""
+        },
+        {
+          "id": "catalog-listening-cae-c1-test11-q-6",
+          "number": 6,
+          "type": "multiple-choice",
+          "prompt": "What disappointed them both about the exhibition?",
+          "options": [
+            {
+              "id": "A",
+              "label": "the pieces of work that had been chosen"
+            },
+            {
+              "id": "B",
+              "label": "the information provided for visitors"
+            },
+            {
+              "id": "C",
+              "label": "the way it had been laid out HINTS AND KEYWORDS"
+            }
+          ],
+          "answer": "A",
+          "explanation": ""
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test11-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 7-14",
+      "instruction": "You will hear a man called Carl Pitman, giving a group of tourists practical advice about learning the sport of surfing. For questions 7-14, complete the sentences.",
+      "audioUrl": "/catalog/listening/cae-c1-test11/cae-listening-test-10-part-2.mp3",
+      "transcript": "**Carl:** Hi, I’ve come along to tell you about surfing here on the island; something I know many of you want to learn. Now, you can learn to surf anywhere that waves break on a swimmable shoreline. On this island, most of the local population lives around the north coast. We often see waves on it but you rarely see surfers there. The National Park, on the other hand, has miles of sandy shoreline with plenty of elbow room for beginners to develop their surfing skills **[7]**. I’d say that was your best choice of venue. Now, surfers need waves, and waves are generated by wind moving across water. The further the wind drags across the water, called fetch, the more powerful the waves, which then spread out and fall into groups we call sets. The distance between waves is measured in seconds and we call that the period **[8]**. We see just the very top of waves. Most of the energy goes deep into the ocean. The ocean here’s not warm, so surfers wear wetsuits most of the time. These keep you warm by trapping a thin layer of water against your body, which your body heats. A new suit should almost feel too tight. If the fit of your suit is too loose, then it will hold more water. **[9]** If you start shivering uncontrollably, then this may be the problem, and you should go in and get warm. New materials will stretch out and conform to your body. Make sure you have lots of length in the legs, and that you have no folds of material under your arms **[10]**. It’s also important to check that it fits well over your lower back. Rinse your suit thoroughly every time you use it. Use a mild detergent or a wetsuit-specific soap in warm water to wash your suit, and especially your boots and gloves regularly **[11]**. Hot water is not recommended for wetsuits. And keep your suit on a wide plastic hanger **[12]**. Metal hangers, especially wire ones, will create creases that will be the first wear-out points on your suit, and wooden hangers aren’t much better. Creases decrease lifespan. Do not store your suit in direct sunlight. It will lose elasticity and become stiff and brittle before its time. Now, the other thing you’ll need is a surfboard. Don’t go out and buy a new one straightaway. The surfboard you use as an accomplished surfer will be far too fragile to take you through the learning process. The main problem is when beginners hit the board with their knees **[13]** and put great dents in them, but they also tend to lean surfboards against cars and walls where they can fall over or bump into pointy things when carrying them. So I’d say always borrow your friend’s board to learn on, or maybe rent one. Your board will need waxing. Surfers use wax to help them stay on their boards, whereas skaters and snowboarders use it to make their boards slide. If you want to clean old wax off, leave your board in the sun for a while or, better still, use a hair dryer **[14]** and then use a wax comb or plastic scraper. A citrus-based cleaner on a cloth will clean up the rest.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test11-q-7",
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "Carl recommends the ________ as the best place for learning to surf in his area.",
+          "options": [],
+          "answer": "National Park",
+          "explanation": ""
+        },
+        {
+          "id": "catalog-listening-cae-c1-test11-q-8",
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "Carl uses the term ________ to describe the distance between waves.",
+          "options": [],
+          "answer": "(the/a) period",
+          "explanation": ""
+        },
+        {
+          "id": "catalog-listening-cae-c1-test11-q-9",
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "Carl advises getting a wetsuit that has a ________ fit.",
+          "options": [],
+          "answer": "tight",
+          "explanation": ""
+        },
+        {
+          "id": "catalog-listening-cae-c1-test11-q-10",
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "Carl says it’s important to check the quantity of material beneath the ________ of a new wetsuit.",
+          "options": [],
+          "answer": "arm(s)",
+          "explanation": ""
+        },
+        {
+          "id": "catalog-listening-cae-c1-test11-q-11",
+          "number": 11,
+          "type": "gap-fill",
+          "prompt": "Carl says that the wetsuit, ________ and footwear all need washing regularly.",
+          "options": [],
+          "answer": "gloves",
+          "explanation": ""
+        },
+        {
+          "id": "catalog-listening-cae-c1-test11-q-12",
+          "number": 12,
+          "type": "gap-fill",
+          "prompt": "According to Carl, a hanger made of ________ is best for storing wetsuits.",
+          "options": [],
+          "answer": "plastic",
+          "explanation": ""
+        },
+        {
+          "id": "catalog-listening-cae-c1-test11-q-13",
+          "number": 13,
+          "type": "gap-fill",
+          "prompt": "Beginners most often damage surfboards through contact with ________ .",
+          "options": [],
+          "answer": "(their) knees",
+          "explanation": ""
+        },
+        {
+          "id": "catalog-listening-cae-c1-test11-q-14",
+          "number": 14,
+          "type": "gap-fill",
+          "prompt": "Carl suggests using a ________ as the first step in removing wax from a surfboard.",
+          "options": [],
+          "answer": "hair(-)dryer",
+          "explanation": ""
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test11-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 15-20",
+      "instruction": "You will hear an interview with a writer called Barry Pagham, who writes crime novels. For questions 15-20, choose the answer (A, B, C or D) which fits best according to what you hear.",
+      "audioUrl": "/catalog/listening/cae-c1-test11/cae-listening-test-10-part-3.mp3",
+      "transcript": "**Interviewer:** My guest today is the crime writer Barry Pagham. Barry, you’ve written a number of best-selling crime novels, but you wrote other things before that, didn’t you? **Barry:** Yes, my first published novel was a spy thriller. I really wanted to write, and crime would’ve been my first choice, but it wasn’t such a respected genre back then. I read a newspaper article that said there was a shortage of classy spy thrillers and thought I could write one. To my great amazement, it was published but, of course, it flopped completely; so I wrote a second one, which also made little or no impact. The upside was that I’d established that I was able to write **[15]**, which would stand me in good stead later. I’ve now bought back the rights, though, so that I can keep those titles out of print, they’re really not up to much. **Interviewer:** So, your first big break came with the rather spooky novel Transgression? **Barry:** Yeah. That one veered on crime in that someone actually committed one. But it wasn’t a crime novel as such; more a horror story really. I wrote it as a kind of one-off book **[16]**, but then my publishers said to me: ‘You know, we can build your name up if we pigeonhole you as horror’ and at that time horror was in the ascendant. I was grateful to have a publisher who was enthusiastic and went along with the idea. It was a false trail though, because five books later, the genre had gone into decline and crime was starting to become fashionable again, and I was in the wrong pigeonhole! **Interviewer:** So what did you do? **Barry:** I asked my publishers to reposition me as a crime-thriller writer, but they were resistant to the idea. Although they said they wanted crime, they actually kept marketing my ‘horror’ tag. I got very fed up with them. I was half-way through a two-year publishing contract, so I was tied. It was my agent who eventually talked me into biting the bullet and just writing a crime novel. It was a chancy thing to do **[17]**, and very, very traumatic because I could easily have ended up without a publisher. Luckily they liked the novel once they’d seen it, and the rest is history. With the benefit of hindsight, it was my best decision ever. But it was touch and go at the time. **Interviewer:** And your crime novels are now very successful. And you seem to know quite a lot about police work. How’s that? **Barry:** When I’m researching one, I spend two days a month with the local city police: on patrol, at crime scenes, or in their offices; and I’ve had some hairy experiences, been in the line of fire **[18]**. Like, recently, there was a guy ‘five times wanted’ for armed robbery who was holed up in a local flat. When I arrived, there was a whole bunch of police; plain clothes, dog handlers, guys with armoured vests. I knew one of them and he said: ‘Stay clear of the door in case he shoots’. That really brought it home to me that this was the real thing. Incredibly, they rang the doorbell and said ‘Mr X are you in?’ Silence – so they smashed the door off its hinges, and there he was behind it. They threw him to the ground and handcuffed him. **Interviewer:** Do you use those experiences in your writing, because the novels are set in the city, aren’t they? **Barry:** Yes, very much so, a big part of what I’m doing in my books is building a reality, and every book pulls in the background of the city and the world of the police there. The sense of place in a crime novel is as crucial as the characters themselves **[19]**. I’m published in twenty-eight languages, and each country seems to love the setting. It’s kind of bizarre. I get letters from all over the world from readers wanting to come and see the city. And I guess I can see why. I think it’s because although the city has a veneer of elegance and sophistication, you don’t have to scratch very hard to discover its seamy side below the surface. **Interviewer:** So would you make a good detective, Barry? **Barry:** I do think perhaps, if I was twenty-eight years old again, then maybe. Whereas at the time I’d never even considered the police, I’d have more of an open mind now **[20]**. Perhaps with training, I’d have found the courage to jump out of a car and apprehend a mean looking suspect, or go off chasing someone on my own at night. I think one thing that would drive me nuts is the bureaucracy: If you arrest somebody you end up signing your name thirty-seven times. But I guess I’d get used to it. What I do admire about the police in this city, and I’ve got friendly with them at all levels, is that they’re incredibly good and committed people.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test11-q-15",
+          "number": 15,
+          "type": "multiple-choice",
+          "prompt": "What does Barry say about his first two published novels?",
+          "options": [
+            {
+              "id": "A",
+              "label": "They were more successful than he anticipated"
+            },
+            {
+              "id": "B",
+              "label": "They were useful in proving that he could write"
+            },
+            {
+              "id": "C",
+              "label": "It’s a shame that they’re no longer available to buy"
+            },
+            {
+              "id": "D",
+              "label": "It was a mistake to write an unfashionable type of novel"
+            }
+          ],
+          "answer": "B",
+          "explanation": ""
+        },
+        {
+          "id": "catalog-listening-cae-c1-test11-q-16",
+          "number": 16,
+          "type": "multiple-choice",
+          "prompt": "Barry admits that when he wrote the novel Transgression,",
+          "options": [
+            {
+              "id": "A",
+              "label": "he only did it to please his publishers"
+            },
+            {
+              "id": "B",
+              "label": "he didn’t expect it to be so well received"
+            },
+            {
+              "id": "C",
+              "label": "he didn’t intend to produce any more like it"
+            },
+            {
+              "id": "D",
+              "label": "he never meant it to be sold as a horror story"
+            }
+          ],
+          "answer": "C",
+          "explanation": ""
+        },
+        {
+          "id": "catalog-listening-cae-c1-test11-q-17",
+          "number": 17,
+          "type": "multiple-choice",
+          "prompt": "Looking back, how does Barry view his decision to write his first crime novel?",
+          "options": [
+            {
+              "id": "A",
+              "label": "He accepts that he took a big risk"
+            },
+            {
+              "id": "B",
+              "label": "He wishes that he hadn’t upset his publishers"
+            },
+            {
+              "id": "C",
+              "label": "He recognises that he behaved unprofessionally"
+            },
+            {
+              "id": "D",
+              "label": "He regrets putting himself under so much stress"
+            }
+          ],
+          "answer": "A",
+          "explanation": ""
+        },
+        {
+          "id": "catalog-listening-cae-c1-test11-q-18",
+          "number": 18,
+          "type": "multiple-choice",
+          "prompt": "Barry tells the story of the arrest of an armed robber to illustrate",
+          "options": [
+            {
+              "id": "A",
+              "label": "how true to life his novels are"
+            },
+            {
+              "id": "B",
+              "label": "how dangerous his research can be"
+            },
+            {
+              "id": "C",
+              "label": "how seriously the police take his work"
+            },
+            {
+              "id": "D",
+              "label": "how unpredictably criminals can sometimes behave"
+            }
+          ],
+          "answer": "B",
+          "explanation": ""
+        },
+        {
+          "id": "catalog-listening-cae-c1-test11-q-19",
+          "number": 19,
+          "type": "multiple-choice",
+          "prompt": "What does Barry say about the city where his novels are based?",
+          "options": [
+            {
+              "id": "A",
+              "label": "He makes it sound more exciting than it actually is"
+            },
+            {
+              "id": "B",
+              "label": "He regards it as an important element in the stories"
+            },
+            {
+              "id": "C",
+              "label": "He doesn’t attempt to create a realistic picture of it"
+            },
+            {
+              "id": "D",
+              "label": "He’s surprised that foreign readers want to visit it"
+            }
+          ],
+          "answer": "B",
+          "explanation": ""
+        },
+        {
+          "id": "catalog-listening-cae-c1-test11-q-20",
+          "number": 20,
+          "type": "multiple-choice",
+          "prompt": "How would Barry feel about becoming a policeman?",
+          "options": [
+            {
+              "id": "A",
+              "label": "He suspects that he wouldn’t be brave enough"
+            },
+            {
+              "id": "B",
+              "label": "He doubts whether he would have the patience"
+            },
+            {
+              "id": "C",
+              "label": "He’s sure someone of his age wouldn’t be accepted"
+            },
+            {
+              "id": "D",
+              "label": "He suggests that he wouldn’t reject the idea completely HINTS AND KEYWORDS"
+            }
+          ],
+          "answer": "D",
+          "explanation": ""
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test11-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 21-30",
+      "instruction": "You will hear five short extracts in which people are talking about their experiences of travelling.",
+      "audioUrl": "/catalog/listening/cae-c1-test11/cae-listening-test-10-part-4.mp3",
+      "transcript": "**Speaker 1** With all my travelling experience I’ve got packing down to a fine art now, and it’s hardly that big a deal anyway. If you forget something you just buy it at your destination. But on one recent trip I was running really late and actually found myself on the coach to the airport still trying to fit various clothes and papers into my luggage **[26]**. But the one real kick for me about going to new places, and the thing I’d really recommend, is trying all the stuff that’s grown in the region, all the specialities **[21]**. I’ve kept a record of them all, and I’m thinking of writing a recipe book! **Speaker 2** This will probably sound obvious, but if you’re like me and leave everything to the last minute, then rolling up your clothes to put them in your bag can be your saving grace **[22]**. Space is always limited when you’re travelling, but this way you can just cram everything in! Even so, this technique didn’t help me much on one occasion when I saw this locally-made rug I just knew would look fabulous at home. Sadly, no one pointed out that it wouldn’t be easily transportable so I ended up paying loads of money to bring it back **[27]**. I probably could’ve got just the same thing at home. **Speaker 3** Nowadays, I travel as much as I can because it’s dead easy to tell yourself you’re too busy to fit it in. I remember not joining a two-day trek with friends in South America **[28]** for that reason. Then afterwards, I heard how great it’d been, especially the hotel and kicked myself. Apart from anything, I could’ve really done with brushing up my Spanish. Anyway, wherever you go, I reckon it’s key to remember that, despite advances in technology making it theoretically easy to get great bargain-priced tickets, you can often actually get much better deals elsewhere, for example just by picking up the phone and talking to a real human being **[23]**! **Speaker 4** When you’ve arrived at the airport just as the final call’s being made for your flight, there’s nothing worse than being weighed down by tons of unwanted bits of luggage. My general rule is to take half the stuff I think I’ll need, and twice the money **[24]**! It’s done me proud so far! And it certainly stood me in good stead when I once got confused over flight booking times and ended up at the airport thinking I was leaving at midnight. When I finally bothered to look, I found my ticket was actually for the previous day **[29]**. That cost me an extra 500 dollars to sort out – an important lesson. **Speaker 5** I remember planning what I thought was a quiet beach vacation, and spending ages negotiating the booking with our travel agent. Then, having arrived and given the hotel address to the taxi driver, we found ourselves heading downtown into the city. I hadn’t bothered researching the lie of the land **[30]** so I guess it served me right. But it actually turned out well. We were right near the clubs where various bands played, and we really got into the local music; even performed at one place, despite not speaking the language. So I’d recommend doing something like that **[25]**. It’s by far the best way of getting a true flavour of a place",
+      "matchingDualTask": true,
+      "taskOneInstruction": "For questions 21-25, choose the option which best describes each speaker.",
+      "taskTwoInstruction": "For questions 26-30, choose the option which best describes each speaker.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test11-q-21",
+          "number": 21,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "plan what you need to take carefully"
+            },
+            {
+              "id": "B",
+              "label": "explore a range of booking methods"
+            },
+            {
+              "id": "C",
+              "label": "participate in local cultural events"
+            },
+            {
+              "id": "D",
+              "label": "sample as much local produce as possible"
+            },
+            {
+              "id": "E",
+              "label": "learn some of the language"
+            },
+            {
+              "id": "F",
+              "label": "consider how belongings should be packed"
+            },
+            {
+              "id": "G",
+              "label": "keep a diary of travel experiences"
+            },
+            {
+              "id": "H",
+              "label": "carry sufficient funds with you"
+            }
+          ],
+          "answer": "D",
+          "explanation": "",
+          "context": "Speaker 1"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test11-q-22",
+          "number": 22,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "plan what you need to take carefully"
+            },
+            {
+              "id": "B",
+              "label": "explore a range of booking methods"
+            },
+            {
+              "id": "C",
+              "label": "participate in local cultural events"
+            },
+            {
+              "id": "D",
+              "label": "sample as much local produce as possible"
+            },
+            {
+              "id": "E",
+              "label": "learn some of the language"
+            },
+            {
+              "id": "F",
+              "label": "consider how belongings should be packed"
+            },
+            {
+              "id": "G",
+              "label": "keep a diary of travel experiences"
+            },
+            {
+              "id": "H",
+              "label": "carry sufficient funds with you"
+            }
+          ],
+          "answer": "F",
+          "explanation": "",
+          "context": "Speaker 2"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test11-q-23",
+          "number": 23,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "plan what you need to take carefully"
+            },
+            {
+              "id": "B",
+              "label": "explore a range of booking methods"
+            },
+            {
+              "id": "C",
+              "label": "participate in local cultural events"
+            },
+            {
+              "id": "D",
+              "label": "sample as much local produce as possible"
+            },
+            {
+              "id": "E",
+              "label": "learn some of the language"
+            },
+            {
+              "id": "F",
+              "label": "consider how belongings should be packed"
+            },
+            {
+              "id": "G",
+              "label": "keep a diary of travel experiences"
+            },
+            {
+              "id": "H",
+              "label": "carry sufficient funds with you"
+            }
+          ],
+          "answer": "B",
+          "explanation": "",
+          "context": "Speaker 3"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test11-q-24",
+          "number": 24,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "plan what you need to take carefully"
+            },
+            {
+              "id": "B",
+              "label": "explore a range of booking methods"
+            },
+            {
+              "id": "C",
+              "label": "participate in local cultural events"
+            },
+            {
+              "id": "D",
+              "label": "sample as much local produce as possible"
+            },
+            {
+              "id": "E",
+              "label": "learn some of the language"
+            },
+            {
+              "id": "F",
+              "label": "consider how belongings should be packed"
+            },
+            {
+              "id": "G",
+              "label": "keep a diary of travel experiences"
+            },
+            {
+              "id": "H",
+              "label": "carry sufficient funds with you"
+            }
+          ],
+          "answer": "H",
+          "explanation": "",
+          "context": "Speaker 4"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test11-q-25",
+          "number": 25,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "plan what you need to take carefully"
+            },
+            {
+              "id": "B",
+              "label": "explore a range of booking methods"
+            },
+            {
+              "id": "C",
+              "label": "participate in local cultural events"
+            },
+            {
+              "id": "D",
+              "label": "sample as much local produce as possible"
+            },
+            {
+              "id": "E",
+              "label": "learn some of the language"
+            },
+            {
+              "id": "F",
+              "label": "consider how belongings should be packed"
+            },
+            {
+              "id": "G",
+              "label": "keep a diary of travel experiences"
+            },
+            {
+              "id": "H",
+              "label": "carry sufficient funds with you"
+            }
+          ],
+          "answer": "C",
+          "explanation": "",
+          "context": "Speaker 5"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test11-q-26",
+          "number": 26,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "failing to check documents"
+            },
+            {
+              "id": "B",
+              "label": "booking a hotel in an unattractive area"
+            },
+            {
+              "id": "C",
+              "label": "failing to research a destination"
+            },
+            {
+              "id": "D",
+              "label": "forgetting some pieces of luggage"
+            },
+            {
+              "id": "E",
+              "label": "making a poorly-considered purchase"
+            },
+            {
+              "id": "F",
+              "label": "not allowing enough preparation time"
+            },
+            {
+              "id": "G",
+              "label": "turning down a travel opportunity"
+            },
+            {
+              "id": "H",
+              "label": "buying overpriced goods"
+            }
+          ],
+          "answer": "F",
+          "explanation": "",
+          "context": "Speaker 1"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test11-q-27",
+          "number": 27,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "failing to check documents"
+            },
+            {
+              "id": "B",
+              "label": "booking a hotel in an unattractive area"
+            },
+            {
+              "id": "C",
+              "label": "failing to research a destination"
+            },
+            {
+              "id": "D",
+              "label": "forgetting some pieces of luggage"
+            },
+            {
+              "id": "E",
+              "label": "making a poorly-considered purchase"
+            },
+            {
+              "id": "F",
+              "label": "not allowing enough preparation time"
+            },
+            {
+              "id": "G",
+              "label": "turning down a travel opportunity"
+            },
+            {
+              "id": "H",
+              "label": "buying overpriced goods"
+            }
+          ],
+          "answer": "E",
+          "explanation": "",
+          "context": "Speaker 2"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test11-q-28",
+          "number": 28,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "failing to check documents"
+            },
+            {
+              "id": "B",
+              "label": "booking a hotel in an unattractive area"
+            },
+            {
+              "id": "C",
+              "label": "failing to research a destination"
+            },
+            {
+              "id": "D",
+              "label": "forgetting some pieces of luggage"
+            },
+            {
+              "id": "E",
+              "label": "making a poorly-considered purchase"
+            },
+            {
+              "id": "F",
+              "label": "not allowing enough preparation time"
+            },
+            {
+              "id": "G",
+              "label": "turning down a travel opportunity"
+            },
+            {
+              "id": "H",
+              "label": "buying overpriced goods"
+            }
+          ],
+          "answer": "G",
+          "explanation": "",
+          "context": "Speaker 3"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test11-q-29",
+          "number": 29,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "failing to check documents"
+            },
+            {
+              "id": "B",
+              "label": "booking a hotel in an unattractive area"
+            },
+            {
+              "id": "C",
+              "label": "failing to research a destination"
+            },
+            {
+              "id": "D",
+              "label": "forgetting some pieces of luggage"
+            },
+            {
+              "id": "E",
+              "label": "making a poorly-considered purchase"
+            },
+            {
+              "id": "F",
+              "label": "not allowing enough preparation time"
+            },
+            {
+              "id": "G",
+              "label": "turning down a travel opportunity"
+            },
+            {
+              "id": "H",
+              "label": "buying overpriced goods"
+            }
+          ],
+          "answer": "A",
+          "explanation": "",
+          "context": "Speaker 4"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test11-q-30",
+          "number": 30,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "failing to check documents"
+            },
+            {
+              "id": "B",
+              "label": "booking a hotel in an unattractive area"
+            },
+            {
+              "id": "C",
+              "label": "failing to research a destination"
+            },
+            {
+              "id": "D",
+              "label": "forgetting some pieces of luggage"
+            },
+            {
+              "id": "E",
+              "label": "making a poorly-considered purchase"
+            },
+            {
+              "id": "F",
+              "label": "not allowing enough preparation time"
+            },
+            {
+              "id": "G",
+              "label": "turning down a travel opportunity"
+            },
+            {
+              "id": "H",
+              "label": "buying overpriced goods"
+            }
+          ],
+          "answer": "C",
+          "explanation": "",
+          "context": "Speaker 5"
+        }
+      ]
+    }
+  ],
+  "catalogSlug": "cae-c1-test11",
+  "catalogBase": "/catalog/listening/cae-c1-test11"
+}

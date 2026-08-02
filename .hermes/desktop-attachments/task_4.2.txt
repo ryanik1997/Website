@@ -1,0 +1,1019 @@
+TASK 4.2 — MAP CAE VỀ ĐÚNG FCE STANDARD, FIX POPOVER + ANNOTATION + PART 7 REVERSE DND
+
+REPOSITORY
+D:\App-English-Ryan\Website
+
+TARGET
+/app/exam/reading/catalog-reading-cae-c1-test1
+...
+/app/exam/reading/catalog-reading-cae-c1-test23
+
+PRIMARY VISUAL AND BEHAVIOR REFERENCE
+
+FCE là source of truth bắt buộc, không phải chỉ là tài liệu tham khảo.
+
+Reference routes cần mở trực tiếp:
+
+1. FCE Part 1:
+   /app/exam/reading/catalog-reading-fce-b2-test21
+   hoặc một FCE test có Multiple Choice Cloze đang hoạt động đúng.
+
+2. FCE Gapped Text:
+   route FCE có Part 6 như ảnh user cung cấp.
+
+3. FCE highlight/note:
+   route FCE/PET đang có toolbar:
+   - màu highlight
+   - Note
+   - Copy
+   - persistence
+   - remove highlight
+
+CAE phải reuse đúng component, state flow và interaction của FCE/PET.
+Không dựng bản mô phỏng riêng bằng CSS.
+
+CURRENT USER-VISIBLE BUGS
+
+1. CAE Part 1:
+   - popup lựa chọn đang che nội dung/answer controls;
+   - vị trí popup không ổn định;
+   - popup nằm trong passage flow hoặc stacking context sai;
+   - interaction chưa giống FCE.
+
+2. CAE:
+   - highlight chưa được map qua;
+   - Note chưa được map qua;
+   - toolbar annotation chưa xuất hiện như FCE;
+   - chưa có bằng chứng runtime CAE.
+
+3. CAE Part 7:
+   - khoảng cách giữa các paragraph và gap chưa đúng;
+   - paragraph bị dính liền vào passage;
+   - card trong gap không có spacing giống FCE;
+   - chưa kéo card trực tiếp từ gap trở lại bank;
+   - chỉ có Clear không được coi là đủ;
+   - interaction chưa ngang bằng FCE.
+
+4. Không được làm mất lại CAE Test 2–23.
+
+==================================================
+NON-NEGOTIABLE RULES
+==================================================
+
+1. Không recrawl.
+2. Không sửa nội dung đề.
+3. Không sửa answer vault.
+4. Không tạo dữ liệu giả.
+5. Không hardcode riêng Test 14 hoặc Test 1.
+6. Không tạo hệ thống popup thứ ba.
+7. Không tạo hệ thống annotation thứ ba.
+8. Không tạo hệ thống drag/drop thứ ba.
+9. Không copy-paste toàn bộ FCE component rồi đổi prefix thành CAE.
+10. Phải extract/reuse shared primitives khi FCE đã có behavior đúng.
+11. Không dùng z-index cực lớn để che root cause.
+12. Không dùng overflow:hidden để giấu lỗi.
+13. Không dùng transform/scale để giả visual.
+14. Không claim PASS bằng static source inspection.
+15. Phải thực hiện pointer drag thật trong browser.
+16. Không dùng synthetic dispatchEvent làm bằng chứng duy nhất.
+17. Không chạy catalog regeneration theo cách có thể xóa Test 2–23.
+18. Sau mọi command có khả năng sinh lại catalog, phải kiểm tra ngay 23 CAE manifest entries.
+
+==================================================
+PHASE 0 — PROTECT 23 CAE TESTS
+==================================================
+
+Trước khi sửa code:
+
+1. Chạy git status.
+2. Ghi lại checksum hoặc snapshot của:
+   - packages/catalog/data/catalog-reading-meta.json
+   - packages/catalog/data/manifest.json
+3. Đếm CAE entries trong cả hai file.
+4. Xác nhận đang có đúng 23 CAE tests.
+5. Xác nhận direct routes Test 1, 10, 14, 20, 23 đang mở đúng.
+6. Không chạy root catalog generator nếu chưa hiểu rõ nó lấy input từ đâu.
+
+Tạo guard validation hoặc dùng script hiện có:
+
+node scripts/reading/validate-cae-c1-app-import.mjs
+
+Guard phải fail khi:
+
+- manifest CAE entries khác 23;
+- bất kỳ Test 2–23 mất;
+- test ID bị trùng;
+- test route fallback về Test 1.
+
+Sau mỗi build hoặc catalog-related command, chạy lại guard.
+
+Không tiếp tục nếu CAE manifest không còn đủ 23.
+
+==================================================
+PHASE 1 — AUDIT FCE COMPONENTS TRƯỚC KHI SỬA
+==================================================
+
+Tìm chính xác component FCE đang xử lý:
+
+A. Multiple Choice Cloze inline gap
+B. Option popup/popover
+C. Highlight selection toolbar
+D. Note creation/edit/delete
+E. Annotation persistence
+F. Gapped Text draggable bank
+G. Droppable gap
+H. Drag từ gap trở lại bank
+I. Gap-to-gap movement
+J. Drag overlay/preview
+K. Footer and active question synchronization
+
+Tìm các file có thể liên quan:
+
+- apps/web/src/features/exam/fceRw/FceRwPartContent.tsx
+- FCE CSS
+- shared Cambridge gap controls
+- ReadingHighlightToolbar
+- ReadingHighlightableText
+- ExamHighlightZone
+- usePartHighlights
+- note hooks/store
+- DnD provider/context
+- draggable option/card
+- droppable answer slot
+- gapped text utilities
+- answer movement reducer
+
+Lập bảng trước khi code:
+
+| Feature | FCE implementation | CAE current implementation | Action |
+|---------|--------------------|----------------------------|--------|
+| Part 1 trigger | file/component | file/component | reuse |
+| Part 1 popup | ... | ... | extract/reuse |
+| Highlight | ... | missing/partial | reuse |
+| Note | ... | missing/partial | reuse |
+| Part 7 bank card | ... | ... | reuse |
+| Part 7 gap | ... | ... | reuse |
+| Reverse drag | ... | missing | reuse |
+| DnD reducer | ... | ... | reuse |
+
+Không sửa bằng CSS trial-and-error trước khi bảng này hoàn thành.
+
+==================================================
+PHASE 2 — FIX CAE PART 1 OPTION POPOVER
+==================================================
+
+FCE PART 1 LÀ BEHAVIOR SOURCE OF TRUTH.
+
+Không chỉ copy màu đen của popup.
+
+CAE phải dùng cùng:
+
+- trigger component;
+- popup component;
+- positioning strategy;
+- open/close logic;
+- keyboard navigation;
+- focus management;
+- outside click;
+- Escape handling;
+- collision handling;
+- scroll handling.
+
+--------------------------------------------------
+ROOT CAUSE CHECKLIST
+--------------------------------------------------
+
+Kiểm tra cụ thể:
+
+1. Popup có đang render bên trong paragraph không?
+2. Popup có đang tham gia normal document flow không?
+3. Popup có nằm trong `overflow: hidden/auto` container không?
+4. Popup có bị `ReadingHighlightableText` bọc sai không?
+5. Ancestor nào tạo stacking context bằng:
+   - transform
+   - filter
+   - opacity
+   - isolation
+   - contain
+   - positioned z-index
+6. Popup có dùng absolute position theo sai offset parent không?
+7. Popup có lấy tọa độ trước khi text wrap xong không?
+8. Popup có reflow passage khi mở không?
+9. Popup có che trigger đang active không?
+10. Popup có tràn khỏi viewport hoặc bị cắt không?
+
+Phải ghi root cause thực tế trong báo cáo.
+
+--------------------------------------------------
+EXPECTED IMPLEMENTATION
+--------------------------------------------------
+
+Ưu tiên reuse đúng FCE popover.
+
+Nếu FCE dùng portal thì CAE cũng phải dùng portal.
+
+Popup nên render vào shared exam overlay root hoặc document body:
+
+createPortal(
+  <GapOptionPopover ... />,
+  examOverlayRoot
+)
+
+Không đặt popup trực tiếp làm child của `<p>`.
+
+Positioning:
+
+- anchor theo `trigger.getBoundingClientRect()`;
+- dùng fixed positioning nếu portal vào body;
+- mặc định mở phía dưới trigger;
+- có khoảng cách 4–8px;
+- flip lên trên khi thiếu không gian phía dưới;
+- shift theo chiều ngang để không vượt viewport;
+- recompute khi resize;
+- recompute hoặc đóng khi pane scroll;
+- không che trigger;
+- không làm paragraph reflow.
+
+Popup phải có:
+
+- đủ 4 options;
+- full option text;
+- không truncate;
+- contrast giống FCE;
+- active/hover state;
+- keyboard ArrowLeft/Right hoặc Up/Down theo FCE;
+- Enter chọn;
+- Escape đóng;
+- Tab không mắc kẹt;
+- click ngoài đóng;
+- chọn xong đóng;
+- focus trả về trigger phù hợp.
+
+Trigger phải:
+
+- vẫn nhìn thấy khi popup mở;
+- không bị popup phủ;
+- không bị highlight toolbar bắt selection;
+- có `data-highlight-skip`;
+- giữ active question state;
+- không làm text line-height nhảy.
+
+Không dùng một z-index magic number như 999999.
+Dùng shared layer token, ví dụ:
+
+--exam-layer-content
+--exam-layer-popover
+--exam-layer-toolbar
+--exam-layer-modal
+
+Popover và annotation toolbar không được chồng sai thứ tự.
+
+--------------------------------------------------
+PART 1 VISUAL ACCEPTANCE
+--------------------------------------------------
+
+So với FCE:
+
+- inline control cùng baseline;
+- popup mở sát control;
+- popup không đè control khác;
+- popup không che toàn bộ dòng văn bản;
+- text trước/sau gap vẫn đọc được;
+- full four options visible;
+- passage không đổi chiều cao bất thường;
+- body không có horizontal overflow.
+
+Kiểm tra gap:
+
+1, 2, 3, 4, 5, 6, 7, 8
+
+Đặc biệt kiểm tra:
+
+- gap gần mép trái;
+- gap ở giữa dòng;
+- gap gần mép phải;
+- gap ở dòng cuối;
+- popup khi viewport 1366px;
+- popup khi viewport 1920px;
+- popup sau khi scroll.
+
+==================================================
+PHASE 3 — MAP FCE/PET HIGHLIGHT VÀ NOTE SANG CAE
+==================================================
+
+Không tự viết lại annotation bằng `window.getSelection()` trong CAE component nếu shared implementation đã có.
+
+CAE phải reuse đúng annotation architecture hiện tại:
+
+- ReadingHighlightToolbar
+- ReadingHighlightableText
+- ExamHighlightZone
+- usePartHighlights
+- shared note store/hook
+- annotation serialization
+- selection range mapping
+
+--------------------------------------------------
+ANNOTATION PROVIDER
+--------------------------------------------------
+
+CAE Reading shell phải có provider/state owner tương đương FCE/PET.
+
+State identity bắt buộc gồm:
+
+- exam family: CAE
+- test ID
+- part ID
+- zone ID
+- annotation ID
+
+Không key chỉ bằng Part number.
+
+Ví dụ:
+
+cae-c1:test14:part1:passage-main
+
+Không để highlight của Test 14 xuất hiện trong Test 15.
+
+--------------------------------------------------
+HIGHLIGHT ZONES
+--------------------------------------------------
+
+Chỉ wrap selectable passage content.
+
+Không wrap cả Part renderer một cách mù quáng.
+
+Mỗi zone cần stable ID:
+
+- passage-main
+- passage-reviewer-a
+- passage-reviewer-b
+- paragraph-bank-a
+- paragraph-bank-b
+- transformed-source
+- các zone khác nếu thực sự cần
+
+Không cho selection xuyên qua:
+
+- inline answer trigger;
+- input;
+- textarea;
+- radio;
+- option popup;
+- note popup;
+- draggable handle/card control;
+- gap remove button;
+- footer;
+- header;
+- splitter;
+- previous/next buttons.
+
+Thêm `data-highlight-skip` cho các control này.
+
+--------------------------------------------------
+HIGHLIGHT TOOLBAR
+--------------------------------------------------
+
+Khi chọn text trong CAE passage phải hiện toolbar giống FCE:
+
+- orange/yellow highlight;
+- blue highlight;
+- green highlight;
+- heart/pink nếu FCE có;
+- Note;
+- Copy.
+
+Không dựng toolbar có style riêng cho CAE.
+
+Toolbar phải:
+
+- anchor gần selection;
+- không bị pane cắt;
+- dùng portal/layer giống FCE;
+- không che selection hoàn toàn;
+- shift/flip khi gần mép viewport;
+- đóng khi Escape;
+- đóng khi click ngoài;
+- đóng khi selection mất;
+- không mở khi kéo card;
+- không mở khi chọn text trong input;
+- không mở khi click answer popup.
+
+--------------------------------------------------
+HIGHLIGHT BEHAVIOR
+--------------------------------------------------
+
+Browser runtime bắt buộc chứng minh:
+
+1. Chọn một cụm chữ trong CAE Part 1.
+2. Toolbar xuất hiện.
+3. Chọn yellow.
+4. Text được highlight.
+5. Đổi question.
+6. Highlight còn.
+7. Đổi Part.
+8. Quay lại Part 1.
+9. Highlight còn.
+10. Đổi sang Test khác.
+11. Highlight không leak.
+12. Remove highlight hoạt động.
+13. Reset/retry xử lý theo đúng policy FCE/PET.
+
+--------------------------------------------------
+NOTE BEHAVIOR
+--------------------------------------------------
+
+Browser runtime bắt buộc:
+
+1. Chọn text.
+2. Bấm Note.
+3. Note editor mở.
+4. Nhập nội dung.
+5. Save.
+6. Đóng note.
+7. Đổi question.
+8. Đổi Part.
+9. Quay lại.
+10. Mở lại đúng note.
+11. Edit note.
+12. Save.
+13. Delete note.
+14. Note biến mất.
+15. Không duplicate note sau rerender.
+
+Note popup:
+
+- không bị clip bởi split pane;
+- không nằm dưới footer;
+- không che toàn bộ đoạn văn;
+- Escape đóng;
+- click outside theo behavior FCE;
+- không reset splitter;
+- không thay đổi answer.
+
+Copy phải copy đúng selected text, không copy answer control labels.
+
+==================================================
+PHASE 4 — PART 7 MAP VỀ FCE GAPPED TEXT
+==================================================
+
+FCE GAPPED TEXT LÀ SOURCE OF TRUTH.
+
+CAE không được giữ implementation riêng nếu nó thiếu reverse drag.
+
+Phải reuse hoặc extract shared component từ FCE:
+
+<GappedTextLayout>
+  <GappedTextPassage />
+  <GappedTextBank />
+</GappedTextLayout>
+
+Shared primitives đề xuất:
+
+- GappedTextDnDProvider
+- DraggableParagraphCard
+- DroppableGapSlot
+- ParagraphBankDropZone
+- DragOverlayCard
+- moveGappedTextAnswer()
+- returnParagraphToBank()
+- replaceGapAnswer()
+
+Tên thực tế có thể khác, nhưng logic phải dùng chung.
+
+==================================================
+PART 7 DATA CONTRACT
+==================================================
+
+Normalized options:
+
+type GappedParagraphOption = {
+  id: string;
+  label: "A" | "B" | "C" | "D" | "E" | "F" | "G";
+  text: string;
+};
+
+Normalized gaps:
+
+type GappedTextGap = {
+  questionId: string;
+  questionNumber: number;
+};
+
+Không dùng:
+
+{id: "A", label: fullParagraphText}
+
+nếu shared FCE component phân biệt `label` và `text`.
+
+Phải map đúng semantic fields:
+
+{
+  id: "A",
+  label: "A",
+  text: "He is confident that..."
+}
+
+Thêm DEV invariants:
+
+- 7 unique options;
+- labels A–G;
+- full text non-empty;
+- 6 gaps;
+- stable IDs;
+- answer values tham chiếu option ID;
+- option không tồn tại đồng thời ở bank và nhiều gap.
+
+==================================================
+PART 7 SPACING
+==================================================
+
+Ảnh lỗi hiện tại cho thấy paragraph và gap dính liền.
+
+Không sửa bằng `<br />` thủ công trong từng test.
+
+Passage phải render thành semantic block sequence:
+
+type PassageBlock =
+  | { type: "paragraph"; id: string; text: string }
+  | { type: "gap"; questionId: string };
+
+Render:
+
+<div className="gapped-passage">
+  <PassageParagraph />
+  <GapSlot />
+  <PassageParagraph />
+  <GapSlot />
+</div>
+
+CSS tương đương FCE:
+
+.gapped-passage {
+  display: flex;
+  flex-direction: column;
+}
+
+.gapped-passage-paragraph {
+  margin: 0 0 var(--gapped-paragraph-spacing);
+  line-height: var(--reading-line-height);
+}
+
+.gapped-gap-slot {
+  margin-block:
+    var(--gapped-gap-margin-before)
+    var(--gapped-gap-margin-after);
+}
+
+Không concatenate paragraph strings rồi inject gap inline một cách làm mất paragraph boundaries.
+
+Spacing phải giống FCE:
+
+- paragraph cách paragraph rõ;
+- gap có breathing room trên/dưới;
+- card đã drop không chạm vào text trước/sau;
+- nút remove không đè text;
+- gap trống có height ổn định;
+- không tạo khoảng trắng quá lớn.
+
+Card đã đặt phải là block card, không phải inline text nối liền câu.
+
+==================================================
+PART 7 REVERSE DRAG — BẮT BUỘC
+==================================================
+
+Hiện có nút Clear nhưng chưa đủ.
+
+Right bank phải là một droppable target thật.
+
+Luồng bắt buộc:
+
+BANK → GAP
+- kéo A từ bank vào gap 41;
+- A biến mất khỏi bank;
+- A xuất hiện ở gap 41.
+
+GAP → GAP
+- kéo A từ gap 41 sang gap 43;
+- gap 41 trống;
+- gap 43 có A.
+
+GAP → BANK
+- kéo A trực tiếp từ gap 43 trở lại vùng bank;
+- gap 43 trống;
+- A trở về đúng vị trí hợp lý trong bank;
+- không cần bấm Clear.
+
+REPLACE
+- gap 42 đang có B;
+- kéo C từ bank vào gap 42;
+- B phải trở về bank hoặc swap theo đúng FCE behavior;
+- không được mất B;
+- không được duplicate C.
+
+BANK DROP TARGET
+- toàn vùng paragraph bank hoặc vùng drop rõ ràng phải nhận drop;
+- không bắt người dùng thả đúng một pixel nhỏ;
+- có hover state khi card từ gap đi vào bank;
+- cursor/drag overlay đúng;
+- autoscroll hoạt động khi kéo gần mép pane.
+
+Card trong gap phải `draggable`, không chỉ card trong bank.
+
+Không disable drag dựa trên việc option đã được assigned.
+
+DND state không được derive bằng cách xóa vĩnh viễn option khỏi source array.
+Phải derive:
+
+bankOptions = allOptions.filter(
+  option => !assignedOptionIds.has(option.id)
+)
+
+Khi trả về bank, chỉ cần xóa assignment.
+
+==================================================
+PART 7 CLICK FALLBACK
+==================================================
+
+Giữ interaction fallback giống FCE:
+
+- click một card trong bank để select;
+- click gap để place;
+- click card đã đặt để select;
+- click bank hoặc hành động Return để trả lại;
+- Escape hủy selection;
+- selected state rõ ràng.
+
+Không để click fallback xung đột với text selection/annotation.
+
+Paragraph bank cards có thể selectable text hay không phải theo đúng FCE behavior.
+Không tự mở highlight toolbar trong khi người dùng đang drag.
+
+==================================================
+PART 7 RESET/PERSISTENCE
+==================================================
+
+Phải browser-verify:
+
+1. A → 41.
+2. B → 42.
+3. Đổi Part 6.
+4. Quay lại Part 7.
+5. A và B vẫn còn.
+6. Refresh theo persistence policy hiện tại.
+7. Submit/review.
+8. Bấm reset/retry.
+9. Tất cả gaps trống.
+10. A–G trở lại bank.
+11. Không duplicate.
+12. Footer answered count trở về 0 of 6.
+
+Không claim reset PASS nếu chưa thao tác thật.
+
+==================================================
+PHASE 5 — CSS AND LAYER ARCHITECTURE
+==================================================
+
+Dùng shared design tokens của FCE.
+
+Không tạo một theme CAE khác cho các feature này.
+
+Các layer cần rõ:
+
+- passage content;
+- inline controls;
+- drag overlay;
+- answer popover;
+- annotation toolbar;
+- note popup;
+- modal.
+
+Không dùng random z-index.
+
+Ví dụ:
+
+.exam-reading-shell {
+  --layer-content: 1;
+  --layer-inline-control: 5;
+  --layer-drag-overlay: 20;
+  --layer-popover: 30;
+  --layer-annotation-toolbar: 40;
+  --layer-note-dialog: 50;
+}
+
+Chỉ dùng nếu phù hợp với shared architecture hiện tại.
+
+Kiểm tra ancestor overflow:
+
+- passage pane có thể scroll;
+- overlay phải portal ra ngoài clipping ancestor;
+- footer vẫn nằm trên content;
+- popup không chui dưới footer;
+- annotation toolbar không bị splitter che.
+
+==================================================
+PHASE 6 — FCE REGRESSION
+==================================================
+
+Vì FCE là source of truth và có thể được refactor thành shared components,
+phải kiểm tra FCE sau thay đổi.
+
+FCE Part 1:
+
+- mở popup ở gap 1;
+- chọn answer;
+- mở gap 3;
+- popup đúng vị trí;
+- không clipping;
+- answer persistence đúng.
+
+FCE Gapped Text:
+
+- bank → gap;
+- gap → gap;
+- gap → bank;
+- replace;
+- clear;
+- part switch persistence;
+- reset.
+
+FCE highlight/note:
+
+- highlight;
+- note;
+- copy;
+- persistence.
+
+Không được làm FCE xấu đi để CAE giống nó.
+
+==================================================
+PHASE 7 — BROWSER VALIDATION
+==================================================
+
+Không chỉ dùng DOM event injection.
+
+Dùng browser pointer/mouse actions thực tế.
+
+--------------------------------------------------
+A. CAE PART 1
+--------------------------------------------------
+
+Routes:
+
+- CAE Test 1
+- CAE Test 14
+- CAE Test 23
+
+Trên mỗi route:
+
+1. Mở Part 1.
+2. Click gap 1.
+3. Assert popup có đúng 4 options.
+4. Assert từng option có visible bounding box.
+5. Assert popup không overlap trigger quá mức.
+6. Assert trigger vẫn visible.
+7. Chọn option.
+8. Mở gap 3.
+9. Chọn option.
+10. Mở gap gần mép phải.
+11. Assert popup không vượt viewport.
+12. Escape đóng.
+13. Click outside đóng.
+14. Console errors = 0.
+
+Ghi bounding boxes:
+
+- trigger;
+- popup;
+- từng option;
+- viewport;
+- footer.
+
+Fail nếu:
+
+- option width/height bằng 0;
+- popup bị clip;
+- popup nằm dưới footer;
+- popup che toàn bộ trigger;
+- popup vượt viewport;
+- popup làm paragraph reflow đáng kể.
+
+--------------------------------------------------
+B. CAE HIGHLIGHT/NOTE
+--------------------------------------------------
+
+Trên CAE Test 14 Part 1:
+
+1. Drag-select cụm chữ thật bằng pointer.
+2. Toolbar xuất hiện.
+3. Screenshot toolbar.
+4. Apply yellow.
+5. Screenshot highlight.
+6. Select đoạn khác.
+7. Create Note.
+8. Nhập nội dung:
+   CAE annotation runtime test
+9. Save.
+10. Đổi Part 2.
+11. Quay Part 1.
+12. Highlight còn.
+13. Note mở lại được.
+14. Edit.
+15. Delete.
+16. Console errors = 0.
+
+Không dùng programmatic Range làm bằng chứng duy nhất.
+Phải có ít nhất một pointer text selection thật.
+
+--------------------------------------------------
+C. CAE PART 7
+--------------------------------------------------
+
+Routes:
+
+- CAE Test 1
+- CAE Test 14
+- CAE Test 23
+
+Trên mỗi route:
+
+1. Mở Part 7.
+2. Assert có 7 bank cards.
+3. Assert card A–G đều có full text.
+4. Pointer drag A → gap 41.
+5. Pointer drag B → gap 42.
+6. Pointer drag A từ gap 41 → bank.
+7. Assert A trở lại bank.
+8. Pointer drag A → gap 43.
+9. Pointer drag A từ gap 43 → gap 44.
+10. Assert gap 43 trống.
+11. Drag C vào gap 42 đang có B.
+12. Assert replace behavior đúng.
+13. Clear một gap.
+14. Switch Part.
+15. Return Part 7.
+16. Assert persistence.
+17. Submit/retry hoặc reset.
+18. Assert all options trở lại bank.
+19. Console errors = 0.
+
+Phải ghi lại:
+
+- source card bounding box;
+- target bounding box;
+- pointer start/end;
+- DOM state trước/sau;
+- answer state trước/sau.
+
+Nếu browser automation không hỗ trợ pointer drag ổn định:
+- báo BLOCKED;
+- không claim reverse drag PASS;
+- vẫn không được thay bằng synthetic event rồi gọi là browser proof.
+
+==================================================
+PHASE 8 — VISUAL SCREENSHOTS
+==================================================
+
+Chụp tại 1920×1080:
+
+1. CAE Test 14 Part 1 popup mở.
+2. CAE Test 14 Part 1 highlight toolbar mở.
+3. CAE Test 14 Part 1 saved highlight.
+4. CAE Test 14 Part 1 note editor.
+5. CAE Test 14 Part 7 bank ban đầu.
+6. CAE Test 14 Part 7 A ở gap 41.
+7. CAE Test 14 Part 7 A được kéo trả về bank.
+8. FCE Part 1 reference.
+9. FCE Gapped Text reference.
+
+Chụp thêm 1366×768 để kiểm tra collision:
+
+- CAE Part 1 popup gần mép phải;
+- annotation toolbar gần mép phải;
+- Part 7 drag bank.
+
+Screenshot phải cho thấy cả viewport, không crop chỉ phần đẹp.
+
+==================================================
+PHASE 9 — AUTOMATED TESTS
+==================================================
+
+Thêm targeted tests cho shared logic:
+
+1. Popover positioning:
+   - open below;
+   - flip above;
+   - shift horizontally;
+   - no trigger overlap;
+   - Escape;
+   - outside click.
+
+2. Annotation identity:
+   - CAE test isolation;
+   - part isolation;
+   - zone isolation;
+   - persistence;
+   - delete.
+
+3. Gapped text reducer:
+   - bank → gap;
+   - gap → gap;
+   - gap → bank;
+   - replace;
+   - clear;
+   - no duplicate;
+   - reset;
+   - stable IDs.
+
+4. Data normalization:
+   - label A–G;
+   - text non-empty;
+   - no field inversion;
+   - 7 options;
+   - 6 gaps.
+
+Chạy:
+
+pnpm --filter web exec tsc --noEmit
+targeted CAE/FCE/PET tests
+pnpm --filter web build
+git diff --check
+
+Sau build:
+
+node scripts/reading/validate-cae-c1-app-import.mjs
+
+Xác nhận vẫn có:
+
+- 23 CAE manifest entries;
+- 23 direct routes;
+- 56 questions mỗi test.
+
+==================================================
+DEFINITION OF DONE
+==================================================
+
+Chỉ claim DONE khi tất cả đạt:
+
+1. CAE Part 1 dùng cùng popover behavior với FCE.
+2. Popup không che trigger hoặc các answer controls khác.
+3. Bốn options luôn nhìn thấy đầy đủ.
+4. Popup không bị clipping.
+5. Popup không làm passage reflow.
+6. CAE có highlight toolbar thật.
+7. CAE highlight add/remove hoạt động.
+8. CAE Note create/edit/reopen/delete hoạt động.
+9. Annotation persist khi đổi question/Part.
+10. Annotation không leak giữa các test.
+11. Part 7 có spacing giống FCE.
+12. Paragraph không còn dính liền.
+13. Card trong gap có margin trên/dưới đúng.
+14. Bank → gap hoạt động bằng pointer drag.
+15. Gap → gap hoạt động bằng pointer drag.
+16. Gap → bank hoạt động bằng pointer drag.
+17. Replace không làm mất hoặc duplicate option.
+18. Clear hoạt động.
+19. Reset/retry đưa A–G về bank.
+20. Part switch persistence đúng.
+21. FCE không regression.
+22. PET annotation không regression.
+23. CAE Test 1–23 vẫn đầy đủ.
+24. Manifest vẫn có 23 CAE entries.
+25. Console errors = 0.
+26. TypeScript PASS.
+27. Targeted tests PASS.
+28. Web production build PASS.
+29. Có screenshot evidence.
+30. Có pointer interaction evidence.
+31. Không claim bằng synthetic DnD event.
+32. Không claim DONE nếu reverse drag chưa chạy thật.
+
+==================================================
+FINAL REPORT FORMAT
+==================================================
+
+Báo cáo phải gồm:
+
+1. Root cause popup CAE Part 1.
+2. Component FCE nào đã được reuse/extract.
+3. Root cause CAE annotation chưa hoạt động.
+4. Annotation provider/state mapping đã thêm.
+5. Root cause Part 7 paragraph spacing.
+6. Root cause reverse drag thiếu.
+7. Reducer/actions trước và sau.
+8. Browser pointer evidence cho:
+   - bank → gap;
+   - gap → gap;
+   - gap → bank;
+   - replace;
+   - reset.
+9. Screenshot paths.
+10. CAE Test 1/14/23 runtime results.
+11. FCE regression results.
+12. PET annotation regression results.
+13. 23-route guard result.
+14. Manifest entry count.
+15. TypeScript/test/build results.
+16. Console errors.
+17. Danh sách file sửa.
+18. Không ghi PASS cho bất kỳ interaction nào chỉ được kiểm tra bằng source inspection hoặc synthetic event.

@@ -1,5 +1,5 @@
 import { db } from '../schema'
-import type { SentenceStructure } from '../schema'
+import type { LearningStatus, SentenceStructure } from '../schema'
 
 const uid = () => crypto.randomUUID()
 const now = () => Date.now()
@@ -31,7 +31,12 @@ export const sentenceStructureRepo = {
 
   toggleStar: async (id: string) => {
     const item = await db.sentenceStructures.get(id)
-    if (!item) return
+    if (!item) throw new Error('Không tìm thấy cấu trúc câu')
     await db.sentenceStructures.update(id, { starred: !item.starred, updatedAt: now() })
+  },
+
+  setLearningStatus: async (id: string, learningStatus: LearningStatus) => {
+    const updated = await db.sentenceStructures.update(id, { learningStatus, updatedAt: now() })
+    if (!updated) throw new Error('Không tìm thấy cấu trúc câu')
   },
 }

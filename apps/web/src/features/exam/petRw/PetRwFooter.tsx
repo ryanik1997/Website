@@ -83,6 +83,7 @@ export default function PetRwFooter({
                         key={question.id}
                         type="button"
                         data-question-id={question.id}
+                        data-question-number-badge="true"
                         aria-label={`Go to question ${question.number}`}
                         aria-current={isActive ? 'true' : undefined}
                         className={`pet-rw-footer__pill${isActive ? ' is-active' : ''}${!reviewStatus && isAnswered ? ' is-answered' : ''}${reviewClass}`}

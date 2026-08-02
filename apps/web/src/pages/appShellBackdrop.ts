@@ -14,7 +14,7 @@ const EXAM_TRACK_RIBBON_PATH =
 
 const SHADOWING_LESSON_RIBBON_PATH = /^\/app\/shadowing\/[^/]+$/
 
-const SENTENCE_STRUCTURE_CATALOG_RIBBON_PATH =
+const SENTENCE_STRUCTURE_CATALOG_PATH =
   /^\/app\/sentence-structure\/(?:catalog:ss:|catalog%3ass%3a)[^/]+$/i
 
 const APP_GRID_ONLY_PATHS = new Set([
@@ -27,8 +27,21 @@ const WRITING_GRID_ONLY_PATH = /^\/app\/writing\/.+/
 
 export type AppShellBackdropMode = 'none' | 'grid' | 'ribbon'
 
+function normalizePath(pathname: string): string {
+  return pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname
+}
+
+export function isSentenceStructureFocusPath(pathname: string): boolean {
+  return SENTENCE_STRUCTURE_CATALOG_PATH.test(normalizePath(pathname))
+}
+
+export function isIeltsSpeakingFocusPath(pathname: string): boolean {
+  const normalized = normalizePath(pathname)
+  return normalized === '/app/speaking/ielts' || normalized.startsWith('/app/speaking/ielts/')
+}
+
 export function getAppShellBackdropMode(pathname: string): AppShellBackdropMode {
-  const normalized = pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname
+  const normalized = normalizePath(pathname)
 
   if (APP_GRID_ONLY_PATHS.has(normalized) || WRITING_GRID_ONLY_PATH.test(normalized)) {
     return 'grid'
@@ -37,7 +50,7 @@ export function getAppShellBackdropMode(pathname: string): AppShellBackdropMode 
   if (APP_RIBBON_ROOT_PATHS.has(normalized)
     || EXAM_TRACK_RIBBON_PATH.test(normalized)
     || SHADOWING_LESSON_RIBBON_PATH.test(normalized)
-    || SENTENCE_STRUCTURE_CATALOG_RIBBON_PATH.test(normalized)) {
+    || isSentenceStructureFocusPath(normalized)) {
     return 'ribbon'
   }
 

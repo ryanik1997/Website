@@ -101,6 +101,7 @@ async function upsertCatalogStructures(): Promise<void> {
       createdAt: existing?.createdAt ?? ts,
       updatedAt: ts,
       starred: existing?.starred ?? item.starred,
+      learningStatus: existing?.learningStatus ?? item.learningStatus,
     }
     await db.sentenceStructures.put(record)
   }

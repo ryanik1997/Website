@@ -1,0 +1,845 @@
+{
+  "id": "catalog-listening-cae-c1-test30",
+  "title": "CAE Listening Test 30",
+  "durationMinutes": 40,
+  "bandHint": "C1 Advanced Listening · 4 parts · 30 câu",
+  "examType": "cae",
+  "examMode": "practice",
+  "parts": [
+    {
+      "id": "catalog-listening-cae-c1-test30-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1-6",
+      "instruction": "You will hear three different extracts. For questions 1-6, choose the answer (A, B or C) which fits best",
+      "audioUrl": "/catalog/listening/cae-c1-test30/cae-listening-test-29-part-1.mp3",
+      "transcript": "**Extract One** **Man:** I hope Jeremy’s going to turn out OK as the new store supervisor. I’m beginning to have my doubts. **Woman:** Well, he’s bound to take some time to settle into the role, I guess, but things aren’t looking that promising. I’ve heard mutterings from several members of staff already. **[1]** **Man:** I know. And it used to be such a happy team. At least everything seems fine as far as customers are concerned. I guess there’s no reason to take it up with our line manager at this stage. But perhaps we should have a quiet word with him? You’re good at that sort of thing, **Woman:** Well, I wouldn’t mind but I think I’d be more in favour of hanging on for a bit. It might just be a matter of him getting used to our way of working with each other. He might just have been used to a less collaborative atmosphere. **[2]** **Man:** OK, let’s give that a try then. **Extract Two** **Man:** Look at this. They’ve gone and sacked their manager. He’s only been in the post for a couple of years. **[3]** **Woman:** Is that because they’ve had such poor results recently? When everyone had said the team was on the verge of doing so much better than before. **Man:** It must be. And they’ve terminated the coach’s contract too. But he’s no loss. I never thought he was much good. **Woman:** And you never thought much of the manager either did you? You were always saying he was in out of his depth. **Man:** Yes, in the long term it might be a good thing, but it’s still an odd time to do it. **[4]** It’s going to be pretty unsettling for the players. I wonder if there’s more to it than meets the eye. Some legal issue perhaps. **Woman:** Maybe. But perhaps it’s a relief to see the back of them if something like that’s involved. **Man:** I’d agree with you if it had happened at the beginning of the season but not… **[4]** **Extract Three** **Woman:** The Monday afternoon optional course seems to be turning out OK, don’t you think? I thought it was going to be tedious at first but it seems to get a bit better each time. **[5]** **Man:** Yes, I thought I might end up dropping it after the first week but I’m getting more used to the lecturer and I think I quite like his style now **[5]**. He’s got quite a dry sense of humour. And I suppose vibrations could be an important topic, if we’re going to become hands-on engineers. **Woman:** I’m not so sure about that. Anyway, I’ve decided to stick with it for a bit longer. I wish he didn’t speak so softly though. It’s hard to hear his voice from the back of that huge lecture hall. If he wasn’t so witty I don’t think I’d make the effort. **[6]** And his slides have far too much on them, I can’t read them when I’m sitting at the back, It’s a good job he puts them up online for us. **Man:** Mm, I know. And did you see he’s also put up a coursework assignment for us? We’ve got to get it done by the end of next week.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test30-q-1",
+          "number": 1,
+          "type": "multiple-choice",
+          "prompt": "What is the problem the colleague causes?",
+          "options": [
+            {
+              "id": "A",
+              "label": "others have to do more work because of them"
+            },
+            {
+              "id": "B",
+              "label": "clients are not happy with the service"
+            },
+            {
+              "id": "C",
+              "label": "other members of staff are dissatisfied with them"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CWoman: Well, he’s bound to take some time to settle into the role, I guess, but things aren’t looking that promising. I’ve heard mutterings from several members of staff already."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test30-q-2",
+          "number": 2,
+          "type": "multiple-choice",
+          "prompt": "What does the woman suggest as a solution?",
+          "options": [
+            {
+              "id": "A",
+              "label": "talk about it with the colleague"
+            },
+            {
+              "id": "B",
+              "label": "get the management involved"
+            },
+            {
+              "id": "C",
+              "label": "give the situation more time"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CWoman: Well, I wouldn’t mind but I think I’d be more in favour of hanging on for a bit. It might just be a matter of him getting used to our way of working with each other. He might just have been used to a less collaborative atmosphere."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test30-q-3",
+          "number": 3,
+          "type": "multiple-choice",
+          "prompt": "What is the newspaper article about?",
+          "options": [
+            {
+              "id": "A",
+              "label": "poor results of a football match"
+            },
+            {
+              "id": "B",
+              "label": "club management changes"
+            },
+            {
+              "id": "C",
+              "label": "a sports club involved in a lawsuit"
+            }
+          ],
+          "answer": "B",
+          "explanation": "BMan: Look at this. They’ve gone and sacked their manager. He’s only been in the post for a couple of years."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test30-q-4",
+          "number": 4,
+          "type": "multiple-choice",
+          "prompt": "What is the man’s reaction to the news?",
+          "options": [
+            {
+              "id": "A",
+              "label": "He is unhappy because the situation is very unfortunate"
+            },
+            {
+              "id": "B",
+              "label": "He feels relief that they avoided a difficult situation"
+            },
+            {
+              "id": "C",
+              "label": "He is puzzled by the timing of the event"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CMan: Yes, in the long term it might be a good thing, but it’s still an odd time to do it.[...] I’d agree with you if it had happened at the beginning of the season but not…"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test30-q-5",
+          "number": 5,
+          "type": "multiple-choice",
+          "prompt": "What do they agree about?",
+          "options": [
+            {
+              "id": "A",
+              "label": "The teacher manages to arouse interest to the difficult subject."
+            },
+            {
+              "id": "B",
+              "label": "The course got off to a bad start."
+            },
+            {
+              "id": "C",
+              "label": "Their future careers will benefit from this course."
+            }
+          ],
+          "answer": "B",
+          "explanation": "BWoman: I thought it was going to be tedious at first but it seems to get a bit better each time. Man: Yes, I thought I might end up dropping it after the first week but I’m getting more used to the lecturer and I think I quite like his style now"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test30-q-6",
+          "number": 6,
+          "type": "multiple-choice",
+          "prompt": "What does the woman like about the lectures?",
+          "options": [
+            {
+              "id": "A",
+              "label": "the voice of the lecturer"
+            },
+            {
+              "id": "B",
+              "label": "the lecturer’s humorous approach"
+            },
+            {
+              "id": "C",
+              "label": "the lecturer’s visual presentation of the material"
+            }
+          ],
+          "answer": "B",
+          "explanation": "BWoman: if he wasn’t so witty I don’t think I’d make the effort."
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test30-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 7-14",
+      "instruction": "Part 2 — Sentence completion",
+      "audioUrl": "/catalog/listening/cae-c1-test30/cae-listening-test-29-part-2.mp3",
+      "transcript": "**Woman:** I’m here today to talk to you about working in computer gaming, I’d certainly recommend it as a career. Not because it’s glamorous — it has that reputation among some people, I believe — nor because it’s a well-paid job — generally it isn’t — but rather because it’s creative. **[7]** And that’s the factor that, all things being equal, correlates most highly with job satisfaction. People get jobs in the computer games industry after degrees in all sorts of subjects. Of course, if you’ve done a course in graphic design, that’ll stand you in good stead but it’s certainly not essential. I myself graduated in economics **[8]** and colleagues of mine did history, engineering and English. The degree itself is less important than the enthusiasm someone brings to the job. It goes without saying that everyone who joins the industry has themselves enjoyed playing games. My parents always told me I spent far too much time on them, so much so that they suggested I put it to good use and apply for work in the industry. My uncle sent me the name of someone he knew at a major games company, so I decided to apply there first. **[9]** I was lucky enough to get taken on. I didn’t have the skills to become a technical programmer of course and started as a game tester **[10]**. That taught me a huge amount and after six months I was able to do something more demanding. At first I was assigned to one of the games the company was then in the process of developing. You may well know it — it’s called Jungle — it turned out to be a big seller. **[11]** Later I worked on a game called Motor Show — that’s less widely known but it has a devoted niche following. Anyway, I learnt a lot working on these two contrasting products. After six months I moved on. I was given a position in the research department. **[12]** I had applied for something in the marketing department but didn’t get that. I was disappointed at the time but now feel it worked out for the best. There are, of course, many different types of computer games. The company I work for specialises in sports games — skateboarding, motor racing, that sort of thing. However, it’s also dabbled in old-fashioned arcade games and it does some adventure games too. Those are the ones I personally most enjoy working on — though each type of game has its own attractions, of course. **[13]** Anyway, I’d certainly recommend a career in computer games. I’d say mine has been very satisfying. **[14]** Not as financially rewarding as some of you might like but that’s not the main thing is it? When preparing for this talk I asked some of my colleagues how they would sum up their careers. The most common word they used was challenging but I don’t feel that that puts a positive enough slant on a career in computer games. Anyway. let me now take any",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test30-q-7",
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "The speaker believes computer games industry is a great career choice because it is ________.",
+          "options": [],
+          "answer": "creative",
+          "explanation": "creative... but rather because it’s creative."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test30-q-8",
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "Back at university the speaker got a degree in ________.",
+          "options": [],
+          "answer": "economics",
+          "explanation": "economicsI myself graduated in economics."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test30-q-9",
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "She applied for the job when her ________ shared a contact name with her.",
+          "options": [],
+          "answer": "uncle",
+          "explanation": "uncleMy uncle sent me the name of someone he knew at a major games company, so I decided to apply there first."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test30-q-10",
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "At first she worked as a ________ for a big name in the industry.",
+          "options": [],
+          "answer": "(game) tester",
+          "explanation": "(game) testerI didn’t have the skills to become a technical programmer of course and started as a game tester."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test30-q-11",
+          "number": 11,
+          "type": "gap-fill",
+          "prompt": "The first game she worked on was called ________.",
+          "options": [],
+          "answer": "Jungle",
+          "explanation": "JungleAt first I was assigned to one of the games the company was then in the process of developing. You may well know it — it’s called Jungle — it turned out to be a big seller."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test30-q-12",
+          "number": 12,
+          "type": "gap-fill",
+          "prompt": "The speaker was later transferred to company’s ________ department.",
+          "options": [],
+          "answer": "research",
+          "explanation": "researchAfter six months I moved on. I was given a position in the research department."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test30-q-13",
+          "number": 13,
+          "type": "gap-fill",
+          "prompt": "She derives particular pleasure from working on ________ games.",
+          "options": [],
+          "answer": "adventure",
+          "explanation": "adventureand it does some adventure games too. Those are the ones I personally most enjoy working on — though each type of game has its own attractions, of course."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test30-q-14",
+          "number": 14,
+          "type": "gap-fill",
+          "prompt": "The speaker uses the word ________ to describe her career in the industry.",
+          "options": [],
+          "answer": "(very) satisfying",
+          "explanation": "(very) satisfyingI’d say mine has been very satisfying."
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test30-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 15-20",
+      "instruction": "You will hear a part of a radio programme about a professional dancer. For questions 15-20, choose the answer (A, B, C or D) which fits best according to what you hear.",
+      "audioUrl": "/catalog/listening/cae-c1-test30/cae-listening-test-29-part-3.mp3",
+      "transcript": "**Interviewer:** Ross, it’s a pleasure to have you in the studio today. I wonder if you could tell me first what your work is like at the moment? **Ross:** Sure. I work for two different dance companies. My primary responsibilities include attending warm-up class, rehearsals, performances as well as some teaching. At rehearsals, I must learn, master and artistically interpret the dance routines. **[15]** It’s not my role to change the choreographer’s ideas, though sometimes I might be tempted to. In performances, the dancer has to accomplish what is surely their principal task: to bring the choreography to life, much as an actor does with their role in a play. Sometimes I have jobs that involve teaching younger dancers and there the goal is to teach within the style of the company you are representing, so that requires plenty of thought and planning. **Interviewer:** So, what are some of the problems or decisions you face on a regular basis? **Ross:** One of the chief problems I face is scheduling. **[16]** The dance companies I work for often have overlapping performance dates. I also have to factor in my yoga teaching schedule. Very few dancers land dance jobs where they work just for one company and can live off of that salary alone. Most dancers work for multiple choreographers or companies. Of course, you also need to stay in good physical shape and prioritise going to technique class and the gym. **Interviewer:** What skills are required to handle these problems or decisions? **Ross:** You have to be extremely organised and vigilant, adaptable and cooperative. Being a fast learner is helpful, so when you have to attend rehearsals for a shorter period of time, you still get the necessary work done. Fortunately, that’s not usually a problem for me. Lately, though, I have been working on being more confident about asking for what I need **[17]**. I’m aware that can let me down sometimes. **Interviewer:** Could you tell us about some of the people you work with, and give us some idea of what working with them is like? **Ross:** Most modern dancers are extremely hard-working, down-to-earth, friendly people. Their personalities can range from being quirky, very creative types to extremely meticulous perfectionists who, under other circumstances, you might find in an accounting office. I work with both types and more. My interactions with my fellow dancers are usually filled with laughter and fun. I tend to gravitate towards dancers who are light-hearted and encouraging – though I certainly respect other types too **[18]**. I watch and learn from dancers who are perfectionists and go-getters. I try to avoid confrontation and work toward open channels of communication between myself and other dancers, so that they feel free to give me feedback about my dancing and vice-versa. **Interviewer:** How would you describe your work atmosphere? **Ross:** I’m currently working for two main companies. One of these has a very structured and organised rehearsal process. A lot of time is spent on details and precision of the movements, spacing, musical counts, etc. Each rehearsal is carefully planned out with asks that need to be accomplished that day. The other company has rehearsals where dancers improvise with each other, and by themselves, to generate movement material and stylistic ideas. The rehearsals are freer in their structure, ideas are tossed out, played with, transformed or discarded. **[19]** I think both of these working atmospheres, or a combination of both, are typical in the field of dance. **Interviewer:** What are your plans for your future? **Ross:** Most dancers end up teaching and that’s a great career of course. I’d kind of prefer to do something a bit less predictable. I don’t think I’ve necessarily got the skills to run a business of my own or anything like that but I think I might go back to college and do a course in something like film studies. Or perhaps, even something in history as that’s something I get increasingly interested in as I get older. **[20]** Who knows what I might end up doing! **Interviewer:** Thank you, Ross.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test30-q-15",
+          "number": 15,
+          "type": "multiple-choice",
+          "prompt": "What does Ross mention about his current professional life?",
+          "options": [
+            {
+              "id": "A",
+              "label": "He enjoys the opportunity to work on his acting skills."
+            },
+            {
+              "id": "B",
+              "label": "He is actively involved in dance routines planning."
+            },
+            {
+              "id": "C",
+              "label": "He believes that his task is to make choreography come alive."
+            },
+            {
+              "id": "D",
+              "label": "He finds it interesting to plan the classes in a responsible manner."
+            }
+          ],
+          "answer": "C",
+          "explanation": "CRoss: At rehearsals, I must learn, master and artistically interpret the dance routines."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test30-q-16",
+          "number": 16,
+          "type": "multiple-choice",
+          "prompt": "According to Ross, the biggest issue is",
+          "options": [
+            {
+              "id": "A",
+              "label": "finding enough work contracts."
+            },
+            {
+              "id": "B",
+              "label": "staying fit and healthy."
+            },
+            {
+              "id": "C",
+              "label": "picking which company to work with."
+            },
+            {
+              "id": "D",
+              "label": "efficient time-managing."
+            }
+          ],
+          "answer": "D",
+          "explanation": "DRoss: One of the chief problems I face is scheduling."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test30-q-17",
+          "number": 17,
+          "type": "multiple-choice",
+          "prompt": "Ross believes that he should get better at",
+          "options": [
+            {
+              "id": "A",
+              "label": "cooperating with others."
+            },
+            {
+              "id": "B",
+              "label": "using rehearsal more effectively."
+            },
+            {
+              "id": "C",
+              "label": "asserting himself."
+            },
+            {
+              "id": "D",
+              "label": "being a quicker learner."
+            }
+          ],
+          "answer": "C",
+          "explanation": "CRoss: Lately, though, I have been working on being more confident about asking for what I need"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test30-q-18",
+          "number": 18,
+          "type": "multiple-choice",
+          "prompt": "Ross says he most enjoys working with other dancers who",
+          "options": [
+            {
+              "id": "A",
+              "label": "support others and are fun to be with."
+            },
+            {
+              "id": "B",
+              "label": "have ambition and strive for perfection."
+            },
+            {
+              "id": "C",
+              "label": "friendly and know how to communicate."
+            },
+            {
+              "id": "D",
+              "label": "energetic and creative."
+            }
+          ],
+          "answer": "A",
+          "explanation": "ARoss: I tend to gravitate towards dancers who are light-hearted and encouraging – though I certainly respect other types too."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test30-q-19",
+          "number": 19,
+          "type": "multiple-choice",
+          "prompt": "What does Ross say about the atmosphere in the two companies he worked with?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Both are committed to dancing."
+            },
+            {
+              "id": "B",
+              "label": "The way they approach to dancing is very different."
+            },
+            {
+              "id": "C",
+              "label": "One of the companies is more enjoyable to work with than the other."
+            },
+            {
+              "id": "D",
+              "label": "They have their own way to show dancer’s style."
+            }
+          ],
+          "answer": "B",
+          "explanation": "BRoss: One of these has a very structured and organised rehearsal process. A lot of time is spent on details and precision of the movements, spacing, musical counts, etc. Each rehearsal is carefully planned out with asks that need to be accomplished that day. The other company has rehearsals where dancers improvise with each other, and by themselves, to generate movement material and stylistic ideas. The rehearsals are freer in their structure, ideas are tossed out, played with, transformed or discarded."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test30-q-20",
+          "number": 20,
+          "type": "multiple-choice",
+          "prompt": "What plans does Ross have?",
+          "options": [
+            {
+              "id": "A",
+              "label": "find employment in the movies"
+            },
+            {
+              "id": "B",
+              "label": "become a teacher for younger dancers"
+            },
+            {
+              "id": "C",
+              "label": "start a business of his own"
+            },
+            {
+              "id": "D",
+              "label": "study a different field"
+            }
+          ],
+          "answer": "D",
+          "explanation": "DRoss: ... I think I might go back to college and do a course in something like film studies. Or perhaps, even something in history as that’s something I get increasingly interested in as I get older."
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test30-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 21-30",
+      "instruction": "You will hear five short extracts in which people are talking about events that they remember well.",
+      "audioUrl": "/catalog/listening/cae-c1-test30/cae-listening-test-29-part-4.mp3",
+      "transcript": "Speaker 1 I’ve just been to something I’m sure I’ll remember all my life. It was one of my favourite bands of all time playing in front of the National Gallery. **[21]** It was just the perfect setting – a square surrounded by elegant historic buildings. Quite a severe location in some ways but that suited their style. The bit I’ll personally always treasure was how taken my son was by it all. **[26]** Usually he’s a bit dismissive of my tastes in songs but he agreed to let me drag him along and it was clear from his face that he found it spellbinding. I’ve now agreed to go along to watch a cricket match with him and hope I’ll be equally surprised to find it enjoyable. **Speaker 2** It was an absolutely extraordinary evening, well worth the long rail journey I’d had to make to get there. The speakers were excellent – managing to be both moving and witty in a way that seemed totally appropriate given the nature of the occasion. A hundred years since the halls that had a exhibition had burnt down. **[22]** But I remember the event also for personal reasons. I bumped into a friend I hadn’t seen for a good ten years, a guy I used to football with before we both headed off to university. I’d thought about him often but hadn’t managed to find out where he was living or what he was doing now — despite googling him every now and then. **[27]** **Speaker 3** When you think back over the memorable events in your life I think sometimes it’s relatively ordinary ones that can stand out more than the big public occasions. My grandfather becoming eighty, for example, had a surprisingly significant impact on my life. **[23]** A famous actor who’d been to school with Grandpa gave a very touching speech about the importance of roots and it came to me with total clarity that I really did want to move back to the town where I grew up. I’d been turning the idea over in my mind for quite some time but might never have got round to doing anything about it had it not been for that speech. **[28]** **Speaker 4** I met Fiona when we were both on a train going to the airport last month and we started talking about where we were heading. Fiona told me she was going back to the island where she’d spent many happy holidays as a child – but this time because she had to attend a conference in connection with her work as an architect. I explained that I was off to the city where I’d had the luck as a child to go to the opening ceremony of the winter Olympics. **[24]** The thing that struck me most then were the fireworks over the snowy mountains. I don’t think I’ve ever seen more in the twenty years since. **[29]** **Speaker 5** I was a bit late coming home last night because I’d had to hand in a piece of lost property. I’d found a purse on the floor of the auditorium. You remember I was going to see one of my favourite plays. **[25]** It was an excellent performance but I think I’ll remember the evening most because of that purse. When I looked inside it the credit card had the name of a really famous political figure on it. **[30]** Do you think they might ask to meet me when they learn their purse has been handed in? They should be very grateful because there was a lot of money in there. And I mean a lot! Enough to buy a new car!",
+      "matchingDualTask": true,
+      "taskOneInstruction": "For questions 21-25, choose the option which best describes each speaker.",
+      "taskTwoInstruction": "For questions 26-30, choose the option which best describes each speaker.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test30-q-21",
+          "number": 21,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "a sporting event"
+            },
+            {
+              "id": "B",
+              "label": "a special birthday"
+            },
+            {
+              "id": "C",
+              "label": "a train journey"
+            },
+            {
+              "id": "D",
+              "label": "a theatre visit"
+            },
+            {
+              "id": "E",
+              "label": "a musical event"
+            },
+            {
+              "id": "F",
+              "label": "the anniversary of an historic event"
+            },
+            {
+              "id": "G",
+              "label": "apolitical speech"
+            },
+            {
+              "id": "H",
+              "label": "the opening of a public building"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E It was one of my favourite bands of all time playing in front of the National Gallery.",
+          "context": "Speaker 1"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test30-q-22",
+          "number": 22,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "a sporting event"
+            },
+            {
+              "id": "B",
+              "label": "a special birthday"
+            },
+            {
+              "id": "C",
+              "label": "a train journey"
+            },
+            {
+              "id": "D",
+              "label": "a theatre visit"
+            },
+            {
+              "id": "E",
+              "label": "a musical event"
+            },
+            {
+              "id": "F",
+              "label": "the anniversary of an historic event"
+            },
+            {
+              "id": "G",
+              "label": "apolitical speech"
+            },
+            {
+              "id": "H",
+              "label": "the opening of a public building"
+            }
+          ],
+          "answer": "F",
+          "explanation": "FA hundred years since the halls that had a exhibition had burnt down.",
+          "context": "Speaker 2"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test30-q-23",
+          "number": 23,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "a sporting event"
+            },
+            {
+              "id": "B",
+              "label": "a special birthday"
+            },
+            {
+              "id": "C",
+              "label": "a train journey"
+            },
+            {
+              "id": "D",
+              "label": "a theatre visit"
+            },
+            {
+              "id": "E",
+              "label": "a musical event"
+            },
+            {
+              "id": "F",
+              "label": "the anniversary of an historic event"
+            },
+            {
+              "id": "G",
+              "label": "apolitical speech"
+            },
+            {
+              "id": "H",
+              "label": "the opening of a public building"
+            }
+          ],
+          "answer": "B",
+          "explanation": "BMy grandfather becoming eighty, for example, had a surprisingly significant impact on my life.",
+          "context": "Speaker 3"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test30-q-24",
+          "number": 24,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "a sporting event"
+            },
+            {
+              "id": "B",
+              "label": "a special birthday"
+            },
+            {
+              "id": "C",
+              "label": "a train journey"
+            },
+            {
+              "id": "D",
+              "label": "a theatre visit"
+            },
+            {
+              "id": "E",
+              "label": "a musical event"
+            },
+            {
+              "id": "F",
+              "label": "the anniversary of an historic event"
+            },
+            {
+              "id": "G",
+              "label": "apolitical speech"
+            },
+            {
+              "id": "H",
+              "label": "the opening of a public building"
+            }
+          ],
+          "answer": "A",
+          "explanation": "AI explained that I was off to the city where I’d had the luck as a child to go to the opening ceremony of the winter Olympics.",
+          "context": "Speaker 4"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test30-q-25",
+          "number": 25,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "a sporting event"
+            },
+            {
+              "id": "B",
+              "label": "a special birthday"
+            },
+            {
+              "id": "C",
+              "label": "a train journey"
+            },
+            {
+              "id": "D",
+              "label": "a theatre visit"
+            },
+            {
+              "id": "E",
+              "label": "a musical event"
+            },
+            {
+              "id": "F",
+              "label": "the anniversary of an historic event"
+            },
+            {
+              "id": "G",
+              "label": "apolitical speech"
+            },
+            {
+              "id": "H",
+              "label": "the opening of a public building"
+            }
+          ],
+          "answer": "D",
+          "explanation": "DYou remember I was going to see one of my favourite plays.",
+          "context": "Speaker 5"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test30-q-26",
+          "number": 26,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "it changed their opinion of someone."
+            },
+            {
+              "id": "B",
+              "label": "it was very beautiful."
+            },
+            {
+              "id": "C",
+              "label": "their companion reacted unexpectedly."
+            },
+            {
+              "id": "D",
+              "label": "it had an impact on their career."
+            },
+            {
+              "id": "E",
+              "label": "It helped them make a decision."
+            },
+            {
+              "id": "F",
+              "label": "They found something there."
+            },
+            {
+              "id": "G",
+              "label": "hey bought something special there."
+            },
+            {
+              "id": "H",
+              "label": "They met someone special there."
+            }
+          ],
+          "answer": "C",
+          "explanation": "CThe bit I’ll personally always treasure was how taken my son was by it all.",
+          "context": "Speaker 1"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test30-q-27",
+          "number": 27,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "it changed their opinion of someone."
+            },
+            {
+              "id": "B",
+              "label": "it was very beautiful."
+            },
+            {
+              "id": "C",
+              "label": "their companion reacted unexpectedly."
+            },
+            {
+              "id": "D",
+              "label": "it had an impact on their career."
+            },
+            {
+              "id": "E",
+              "label": "It helped them make a decision."
+            },
+            {
+              "id": "F",
+              "label": "They found something there."
+            },
+            {
+              "id": "G",
+              "label": "hey bought something special there."
+            },
+            {
+              "id": "H",
+              "label": "They met someone special there."
+            }
+          ],
+          "answer": "H",
+          "explanation": "HI bumped into a friend I hadn’t seen for a good ten years, a guy I used to football with before we both headed off to university. I’d thought about him often but hadn’t managed to find out where he was living or what he was doing now — despite googling him every now and then.",
+          "context": "Speaker 2"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test30-q-28",
+          "number": 28,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "it changed their opinion of someone."
+            },
+            {
+              "id": "B",
+              "label": "it was very beautiful."
+            },
+            {
+              "id": "C",
+              "label": "their companion reacted unexpectedly."
+            },
+            {
+              "id": "D",
+              "label": "it had an impact on their career."
+            },
+            {
+              "id": "E",
+              "label": "It helped them make a decision."
+            },
+            {
+              "id": "F",
+              "label": "They found something there."
+            },
+            {
+              "id": "G",
+              "label": "hey bought something special there."
+            },
+            {
+              "id": "H",
+              "label": "They met someone special there."
+            }
+          ],
+          "answer": "E",
+          "explanation": "EA famous actor who’d been to school with Grandpa gave a very touching speech about the importance of roots and it came to me with total clarity that I really did want to move back to the town where I grew up. I’d been turning the idea over in my mind for quite some time but might never have got round to doing anything about it had it not been for that speech.",
+          "context": "Speaker 3"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test30-q-29",
+          "number": 29,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "it changed their opinion of someone."
+            },
+            {
+              "id": "B",
+              "label": "it was very beautiful."
+            },
+            {
+              "id": "C",
+              "label": "their companion reacted unexpectedly."
+            },
+            {
+              "id": "D",
+              "label": "it had an impact on their career."
+            },
+            {
+              "id": "E",
+              "label": "It helped them make a decision."
+            },
+            {
+              "id": "F",
+              "label": "They found something there."
+            },
+            {
+              "id": "G",
+              "label": "hey bought something special there."
+            },
+            {
+              "id": "H",
+              "label": "They met someone special there."
+            }
+          ],
+          "answer": "B",
+          "explanation": "BThe thing that struck me most then were the fireworks over the snowy mountains. I don’t think I’ve ever seen more in the twenty years since.",
+          "context": "Speaker 4"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test30-q-30",
+          "number": 30,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "it changed their opinion of someone."
+            },
+            {
+              "id": "B",
+              "label": "it was very beautiful."
+            },
+            {
+              "id": "C",
+              "label": "their companion reacted unexpectedly."
+            },
+            {
+              "id": "D",
+              "label": "it had an impact on their career."
+            },
+            {
+              "id": "E",
+              "label": "It helped them make a decision."
+            },
+            {
+              "id": "F",
+              "label": "They found something there."
+            },
+            {
+              "id": "G",
+              "label": "hey bought something special there."
+            },
+            {
+              "id": "H",
+              "label": "They met someone special there."
+            }
+          ],
+          "answer": "F",
+          "explanation": "FI think I’ll remember the evening most because of that purse. When I looked inside it the credit card had the name of a really famous political figure on it.",
+          "context": "Speaker 5"
+        }
+      ]
+    }
+  ],
+  "catalogSlug": "cae-c1-test30",
+  "catalogBase": "/catalog/listening/cae-c1-test30"
+}

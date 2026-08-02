@@ -1,7 +1,7 @@
 import Dexie from 'dexie'
 import { indexedDB, IDBKeyRange } from 'fake-indexeddb'
 import { beforeEach, describe, expect, it } from 'vitest'
-import { RyanDB } from './schema'
+import { RyanDB, type SentenceStructure } from './schema'
 
 const V17_STORES = {
   groups: '&id, order',
@@ -42,6 +42,18 @@ describe('RyanDB v18 migration', () => {
     legacy.version(17).stores(V17_STORES)
     await legacy.open()
     await legacy.table('settings').put({ key: 'legacy-flag', value: true })
+    await legacy.table('sentenceStructures').put({
+      id: 'legacy-structure',
+      title: 'Legacy',
+      template: 'S + V',
+      description: '',
+      category: 'other',
+      exampleA: '',
+      exampleB: '',
+      exampleNoteVi: '',
+      createdAt: 1,
+      updatedAt: 1,
+    } satisfies SentenceStructure)
     await legacy.close()
 
     const upgraded = new RyanDB(name)
@@ -50,6 +62,7 @@ describe('RyanDB v18 migration', () => {
     expect(upgraded.tables.some(table => table.name === 'cambridgeWritingTests')).toBe(true)
     expect(await upgraded.settings.get('legacy-flag')).toEqual({ key: 'legacy-flag', value: true })
     expect(await upgraded.cambridgeWritingTests.count()).toBe(0)
+    expect((await upgraded.sentenceStructures.get('legacy-structure'))?.learningStatus ?? 'not_started').toBe('not_started')
 
     await upgraded.delete()
   })

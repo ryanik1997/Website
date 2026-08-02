@@ -119,6 +119,7 @@ export default function DeckGrid({
     lanes: columnCount,
     overscan: 5,
     scrollMargin,
+    paddingEnd: 38,
   })
 
   useEffect(() => {

@@ -857,6 +857,8 @@ function transformListening(payload, bundle, sourceDir) {
       instruction: partJson.instruction,
       audioUrl: partAudioUrl,
       ttsText: partJson.ttsText,
+      transcript: partJson.transcript,
+      transcriptSegments: partJson.transcriptSegments,
       maxPlays: partJson.maxPlays,
       questions,
     }
@@ -973,7 +975,7 @@ async function main() {
     ...petPracticeListeningBundles,
     ...fcePracticeListeningBundles,
     ...fcePracticeReadingBundles,
-    ...ieltsReadingBundles.filter(bundle => !bundle.payloadPath),
+    ...ieltsReadingBundles.filter(bundle => !bundle.payloadPath && !bundle.crawlPath),
     ...ieltsListeningBundles,
   ]
   const BUNDLES = ONLY_EXAM_ID
@@ -990,15 +992,20 @@ async function main() {
   }
 
   const existingManifestPath = path.join(DATA_OUT, 'manifest.json')
-  const existingManifest = ONLY_EXAM_ID && existsSync(existingManifestPath)
+  const existingManifest = existsSync(existingManifestPath)
     ? JSON.parse(await fs.readFile(existingManifestPath, 'utf8'))
     : null
+  const runtimeEntryExists = (kind, item) => {
+    const runtimeDir = path.join(ROOT, 'apps', 'web', 'public', 'catalog', 'exams', kind)
+    return existsSync(path.join(runtimeDir, `${item.id}.json`))
+      && existsSync(path.join(runtimeDir, `${item.id}.answers.json`))
+  }
   const manifest = existingManifest
     ? {
         ...existingManifest,
         builtAt: new Date().toISOString(),
-        reading: (existingManifest.reading ?? []).filter(item => item.id !== ONLY_EXAM_ID),
-        listening: (existingManifest.listening ?? []).filter(item => item.id !== ONLY_EXAM_ID),
+        reading: (existingManifest.reading ?? []).filter(item => item.id !== ONLY_EXAM_ID && runtimeEntryExists('reading', item)),
+        listening: (existingManifest.listening ?? []).filter(item => item.id !== ONLY_EXAM_ID && runtimeEntryExists('listening', item)),
       }
     : {
         version: 2,
@@ -1042,7 +1049,7 @@ async function main() {
   }
 
   for (const bundle of ONLY_EXAM_ID ? [] : payloadReadingBundles) {
-    const raw = JSON.parse(await fs.readFile(bundle.payloadPath, 'utf8'))
+    const raw = JSON.parse(await fs.readFile(bundle.crawlPath ?? bundle.payloadPath, 'utf8'))
     const sourcePath = path.join(ROOT, 'reading_filtered.json')
     const sourceRows = existsSync(sourcePath)
       ? JSON.parse(await fs.readFile(sourcePath, 'utf8'))
@@ -1058,8 +1065,10 @@ async function main() {
     console.log(`✓ reading/${bundle.slug} — payload, → ${outName}`)
   }
 
-  manifest.reading.sort((a, b) => String(a.id).localeCompare(String(b.id), undefined, { numeric: true }))
-  manifest.listening.sort((a, b) => String(a.id).localeCompare(String(b.id), undefined, { numeric: true }))
+  manifest.reading = [...new Map(manifest.reading.map(item => [item.id, item])).values()]
+    .sort((a, b) => String(a.id).localeCompare(String(b.id), undefined, { numeric: true }))
+  manifest.listening = [...new Map(manifest.listening.map(item => [item.id, item])).values()]
+    .sort((a, b) => String(a.id).localeCompare(String(b.id), undefined, { numeric: true }))
   await fs.writeFile(
     path.join(DATA_OUT, 'manifest.json'),
     JSON.stringify(manifest, null, 2),

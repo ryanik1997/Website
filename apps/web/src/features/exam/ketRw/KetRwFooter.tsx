@@ -8,7 +8,8 @@ interface Props {
   activeQuestionId: string | null
   answers: Record<string, string>
   onGoToPart: (index: number) => void
-  onSelectQuestion: (id: string) => void
+  onSelectQuestion: (id: string) => void
+
   onSubmit: () => void
   reviewMode?: boolean
   getQuestionReviewStatus?: (questionId: string) => ExamReviewStatus | null
@@ -18,12 +19,15 @@ export default function KetRwFooter({
   exam,
   partIndex,
   activeQuestionId,
-  answers,
+  answers,
+
   onGoToPart,
-  onSelectQuestion,
+  onSelectQuestion,
+
   onSubmit,
   reviewMode = false,
-  getQuestionReviewStatus,
+  getQuestionReviewStatus,
+
 }: Props) {
   const answeredInPart = (index: number) => {
     const qs = getPartQuestions(exam.parts[index])
@@ -86,6 +90,7 @@ export default function KetRwFooter({
                         key={q.id}
                         type="button"
                         data-question-id={q.id}
+                        data-question-number-badge="true"
                         aria-label={`Go to question ${q.number}`}
                         aria-current={isActive ? 'true' : undefined}
                         className={[

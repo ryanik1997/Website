@@ -1,0 +1,738 @@
+{
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "Questions 1-6",
+      "instruction": "You will hear three different extracts. For questions 1-6, choose the answer (A, B or C) which fits best",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 1,
+          "type": "multiple-choice",
+          "prompt": "What do they agree about inspiration?",
+          "options": [
+            {
+              "id": "A",
+              "label": "An artist has to find their own source of it."
+            },
+            {
+              "id": "B",
+              "label": "Non-artists won’t be able to understand it."
+            },
+            {
+              "id": "C",
+              "label": "It can be difficult to talk about it."
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "type": "multiple-choice",
+          "prompt": "The man’s latest project aims to discover if",
+          "options": [
+            {
+              "id": "A",
+              "label": "holiday brochures are actually works of art."
+            },
+            {
+              "id": "B",
+              "label": "the visual component of holiday brochures is effective."
+            },
+            {
+              "id": "C",
+              "label": "the image made by holiday brochures is misleading"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "type": "multiple-choice",
+          "prompt": "What did the man dislike about his last job as a radio DJ?",
+          "options": [
+            {
+              "id": "A",
+              "label": "He lacked the knowledge of the industry."
+            },
+            {
+              "id": "B",
+              "label": "He didn’t have one of the necessary skills."
+            },
+            {
+              "id": "C",
+              "label": "He would often have arguments with the management."
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "type": "multiple-choice",
+          "prompt": "What do they agree about being a club DJ?",
+          "options": [
+            {
+              "id": "A",
+              "label": "It’s not easy to have it as the only job."
+            },
+            {
+              "id": "B",
+              "label": "You shouldn’t play music you don’t like personally."
+            },
+            {
+              "id": "C",
+              "label": "You have to be receptive to what the audience wants."
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "type": "multiple-choice",
+          "prompt": "What does she say about cake making?",
+          "options": [
+            {
+              "id": "A",
+              "label": "It’s always been her dream to do it for a living."
+            },
+            {
+              "id": "B",
+              "label": "She found it interesting as it required different skills."
+            },
+            {
+              "id": "C",
+              "label": "It was a skill she picked up at her first job."
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "type": "multiple-choice",
+          "prompt": "How does she feel about her new business?",
+          "options": [
+            {
+              "id": "A",
+              "label": "confident in her own judgement."
+            },
+            {
+              "id": "B",
+              "label": "relieved that she listened to an expert advice."
+            },
+            {
+              "id": "C",
+              "label": "concerned that the early success might not last."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "rangeLabel": "Questions 7-14",
+      "instruction": "You will hear a man called Paul Osborne sharing his his work experience as a videogame designer.. For questions 7-14, complete the sentences.",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "Paul says that people tend to think he’s a game ________ rather than a designer.",
+          "options": []
+        },
+        {
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "As a part of his education Paul did a course in ________ which significantly helped his career.",
+          "options": []
+        },
+        {
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "In his first job, Paul was mostly designing ________.",
+          "options": []
+        },
+        {
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "Paul worked with what is known as ________ in his first job.",
+          "options": []
+        },
+        {
+          "number": 11,
+          "type": "gap-fill",
+          "prompt": "Paul mentions a videogame titled ________ as the one he found most enjoyable to work on.",
+          "options": []
+        },
+        {
+          "number": 12,
+          "type": "gap-fill",
+          "prompt": "Paul uses the word ________ to describe what multiplayers in a game can create for themselves.",
+          "options": []
+        },
+        {
+          "number": 13,
+          "type": "gap-fill",
+          "prompt": "Paul says that getting the ________ right is one of the most challenging aspects of game design.",
+          "options": []
+        },
+        {
+          "number": 14,
+          "type": "gap-fill",
+          "prompt": "Paul names ________ as the most crucial quality any game designer should have.",
+          "options": []
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "rangeLabel": "Questions 15-20",
+      "instruction": "You will hear an interview with an archaeologist called Julian Radwinter. For questions 15-20, choose the answer (A, B, C or D) which fits best according to what you hear.",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 15,
+          "type": "multiple-choice",
+          "prompt": "Julian links his teenage archaeology interest to",
+          "options": [
+            {
+              "id": "A",
+              "label": "a desire to please his father."
+            },
+            {
+              "id": "B",
+              "label": "his natural sense of curiosity."
+            },
+            {
+              "id": "C",
+              "label": "a need to make some spare money."
+            },
+            {
+              "id": "D",
+              "label": "his unhappiness with farm life."
+            }
+          ]
+        },
+        {
+          "number": 16,
+          "type": "multiple-choice",
+          "prompt": "What aspect of archaeology still excites Julian today?",
+          "options": [
+            {
+              "id": "A",
+              "label": "the methodical nature of much of the work"
+            },
+            {
+              "id": "B",
+              "label": "the pleasure of solving ancient mysteries"
+            },
+            {
+              "id": "C",
+              "label": "the chance to accurately assess the age of objects with precise tools"
+            },
+            {
+              "id": "D",
+              "label": "the process of theorising with little information available"
+            }
+          ]
+        },
+        {
+          "number": 17,
+          "type": "multiple-choice",
+          "prompt": "Julian believes that the way people see archaeology",
+          "options": [
+            {
+              "id": "A",
+              "label": "fails to acknowledge its scientific value."
+            },
+            {
+              "id": "B",
+              "label": "has been given a negative image by popular media."
+            },
+            {
+              "id": "C",
+              "label": "doesn’t show the gradual nature of the research process."
+            },
+            {
+              "id": "D",
+              "label": "has tended to concentrate on the physical hardships involved."
+            }
+          ]
+        },
+        {
+          "number": 18,
+          "type": "multiple-choice",
+          "prompt": "How does Julian feel about his current research post?",
+          "options": [
+            {
+              "id": "A",
+              "label": "He regrets having relatively few opportunities to travel."
+            },
+            {
+              "id": "B",
+              "label": "He wishes his colleagues would take it more seriously."
+            },
+            {
+              "id": "C",
+              "label": "He admits that the problems can get him down."
+            },
+            {
+              "id": "D",
+              "label": "He suggests that it is relatively cost effective."
+            }
+          ]
+        },
+        {
+          "number": 19,
+          "type": "multiple-choice",
+          "prompt": "What does Julian hope to show as a result of his current research?",
+          "options": [
+            {
+              "id": "A",
+              "label": "population levels in England in different periods"
+            },
+            {
+              "id": "B",
+              "label": "the length of time certain villages have existed"
+            },
+            {
+              "id": "C",
+              "label": "how wider trends affected local communities"
+            },
+            {
+              "id": "D",
+              "label": "the range of ancient agricultural methods"
+            }
+          ]
+        },
+        {
+          "number": 20,
+          "type": "multiple-choice",
+          "prompt": "Julian’s project on humour in archaeology aims to",
+          "options": [
+            {
+              "id": "A",
+              "label": "celebrate an otherwise unrecorded aspect of archaeologists’ lives."
+            },
+            {
+              "id": "B",
+              "label": "compare archaeological findings with anecdotal evidence."
+            },
+            {
+              "id": "C",
+              "label": "compile a list of jokes about archaeology."
+            },
+            {
+              "id": "D",
+              "label": "make archaeological reports more accessible to non-specialists."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 4,
+      "rangeLabel": "Questions 21-30",
+      "instruction": "You will hear five short extracts in which college students are talking about being a member of a club.",
+      "matchingDualTask": true,
+      "taskOneInstruction": "For questions 21-25, choose the option which best describes each speaker.",
+      "taskTwoInstruction": "For questions 26-30, choose the option which best describes each speaker.",
+      "questions": [
+        {
+          "number": 21,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "the advice of a friend"
+            },
+            {
+              "id": "B",
+              "label": "seeing an advertisement"
+            },
+            {
+              "id": "C",
+              "label": "wanting to meet people"
+            },
+            {
+              "id": "D",
+              "label": "a desire to try something new"
+            },
+            {
+              "id": "E",
+              "label": "hoping to learn a skill"
+            },
+            {
+              "id": "F",
+              "label": "a need for exercise"
+            },
+            {
+              "id": "G",
+              "label": "wishing to please someone else"
+            },
+            {
+              "id": "H",
+              "label": "going along with a group decision"
+            }
+          ],
+          "context": "Speaker 1"
+        },
+        {
+          "number": 22,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "the advice of a friend"
+            },
+            {
+              "id": "B",
+              "label": "seeing an advertisement"
+            },
+            {
+              "id": "C",
+              "label": "wanting to meet people"
+            },
+            {
+              "id": "D",
+              "label": "a desire to try something new"
+            },
+            {
+              "id": "E",
+              "label": "hoping to learn a skill"
+            },
+            {
+              "id": "F",
+              "label": "a need for exercise"
+            },
+            {
+              "id": "G",
+              "label": "wishing to please someone else"
+            },
+            {
+              "id": "H",
+              "label": "going along with a group decision"
+            }
+          ],
+          "context": "Speaker 2"
+        },
+        {
+          "number": 23,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "the advice of a friend"
+            },
+            {
+              "id": "B",
+              "label": "seeing an advertisement"
+            },
+            {
+              "id": "C",
+              "label": "wanting to meet people"
+            },
+            {
+              "id": "D",
+              "label": "a desire to try something new"
+            },
+            {
+              "id": "E",
+              "label": "hoping to learn a skill"
+            },
+            {
+              "id": "F",
+              "label": "a need for exercise"
+            },
+            {
+              "id": "G",
+              "label": "wishing to please someone else"
+            },
+            {
+              "id": "H",
+              "label": "going along with a group decision"
+            }
+          ],
+          "context": "Speaker 3"
+        },
+        {
+          "number": 24,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "the advice of a friend"
+            },
+            {
+              "id": "B",
+              "label": "seeing an advertisement"
+            },
+            {
+              "id": "C",
+              "label": "wanting to meet people"
+            },
+            {
+              "id": "D",
+              "label": "a desire to try something new"
+            },
+            {
+              "id": "E",
+              "label": "hoping to learn a skill"
+            },
+            {
+              "id": "F",
+              "label": "a need for exercise"
+            },
+            {
+              "id": "G",
+              "label": "wishing to please someone else"
+            },
+            {
+              "id": "H",
+              "label": "going along with a group decision"
+            }
+          ],
+          "context": "Speaker 4"
+        },
+        {
+          "number": 25,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "the advice of a friend"
+            },
+            {
+              "id": "B",
+              "label": "seeing an advertisement"
+            },
+            {
+              "id": "C",
+              "label": "wanting to meet people"
+            },
+            {
+              "id": "D",
+              "label": "a desire to try something new"
+            },
+            {
+              "id": "E",
+              "label": "hoping to learn a skill"
+            },
+            {
+              "id": "F",
+              "label": "a need for exercise"
+            },
+            {
+              "id": "G",
+              "label": "wishing to please someone else"
+            },
+            {
+              "id": "H",
+              "label": "going along with a group decision"
+            }
+          ],
+          "context": "Speaker 5"
+        },
+        {
+          "number": 26,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "the cost"
+            },
+            {
+              "id": "B",
+              "label": "the regular commitment"
+            },
+            {
+              "id": "C",
+              "label": "the attitude of other members"
+            },
+            {
+              "id": "D",
+              "label": "the location"
+            },
+            {
+              "id": "E",
+              "label": "the way it’s organised"
+            },
+            {
+              "id": "F",
+              "label": "the level of challenge"
+            },
+            {
+              "id": "G",
+              "label": "the timing of sessions"
+            },
+            {
+              "id": "H",
+              "label": "the lack of feedback on progress"
+            }
+          ],
+          "context": "Speaker 1"
+        },
+        {
+          "number": 27,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "the cost"
+            },
+            {
+              "id": "B",
+              "label": "the regular commitment"
+            },
+            {
+              "id": "C",
+              "label": "the attitude of other members"
+            },
+            {
+              "id": "D",
+              "label": "the location"
+            },
+            {
+              "id": "E",
+              "label": "the way it’s organised"
+            },
+            {
+              "id": "F",
+              "label": "the level of challenge"
+            },
+            {
+              "id": "G",
+              "label": "the timing of sessions"
+            },
+            {
+              "id": "H",
+              "label": "the lack of feedback on progress"
+            }
+          ],
+          "context": "Speaker 2"
+        },
+        {
+          "number": 28,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "the cost"
+            },
+            {
+              "id": "B",
+              "label": "the regular commitment"
+            },
+            {
+              "id": "C",
+              "label": "the attitude of other members"
+            },
+            {
+              "id": "D",
+              "label": "the location"
+            },
+            {
+              "id": "E",
+              "label": "the way it’s organised"
+            },
+            {
+              "id": "F",
+              "label": "the level of challenge"
+            },
+            {
+              "id": "G",
+              "label": "the timing of sessions"
+            },
+            {
+              "id": "H",
+              "label": "the lack of feedback on progress"
+            }
+          ],
+          "context": "Speaker 3"
+        },
+        {
+          "number": 29,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "the cost"
+            },
+            {
+              "id": "B",
+              "label": "the regular commitment"
+            },
+            {
+              "id": "C",
+              "label": "the attitude of other members"
+            },
+            {
+              "id": "D",
+              "label": "the location"
+            },
+            {
+              "id": "E",
+              "label": "the way it’s organised"
+            },
+            {
+              "id": "F",
+              "label": "the level of challenge"
+            },
+            {
+              "id": "G",
+              "label": "the timing of sessions"
+            },
+            {
+              "id": "H",
+              "label": "the lack of feedback on progress"
+            }
+          ],
+          "context": "Speaker 4"
+        },
+        {
+          "number": 30,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "the cost"
+            },
+            {
+              "id": "B",
+              "label": "the regular commitment"
+            },
+            {
+              "id": "C",
+              "label": "the attitude of other members"
+            },
+            {
+              "id": "D",
+              "label": "the location"
+            },
+            {
+              "id": "E",
+              "label": "the way it’s organised"
+            },
+            {
+              "id": "F",
+              "label": "the level of challenge"
+            },
+            {
+              "id": "G",
+              "label": "the timing of sessions"
+            },
+            {
+              "id": "H",
+              "label": "the lack of feedback on progress"
+            }
+          ],
+          "context": "Speaker 5"
+        }
+      ]
+    }
+  ]
+}

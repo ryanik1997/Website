@@ -26,6 +26,8 @@ export interface StoredConversation {
   topic: string
   mode: string
   speaking_messages: Array<{ id: number; role: 'user' | 'assistant'; text: string; corrected_text?: string | null; feedback_json?: Record<string, unknown> }>
+  started_at?: string
+  total_duration?: number
 }
 
 export interface SpeakingHistory {

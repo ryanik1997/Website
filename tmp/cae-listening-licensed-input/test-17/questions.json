@@ -1,0 +1,738 @@
+{
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "Questions 1-6",
+      "instruction": "You will hear three different extracts. For questions 1-6, choose the answer (A, B or C) which fits best",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 1,
+          "type": "multiple-choice",
+          "prompt": "What do we learn about the writer of the play?",
+          "options": [
+            {
+              "id": "A",
+              "label": "He died."
+            },
+            {
+              "id": "B",
+              "label": "He is dying."
+            },
+            {
+              "id": "C",
+              "label": "He nearly died."
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "type": "multiple-choice",
+          "prompt": "What do the speakers agree on?",
+          "options": [
+            {
+              "id": "A",
+              "label": "The writer is quite predictable."
+            },
+            {
+              "id": "B",
+              "label": "The writer’s style has changed direction."
+            },
+            {
+              "id": "C",
+              "label": "The play wasn’t as funny as some of the writer’s earlier plays."
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "type": "multiple-choice",
+          "prompt": "According to Pablo Jenson",
+          "options": [
+            {
+              "id": "A",
+              "label": "a variety of different shops tends to boost sales."
+            },
+            {
+              "id": "B",
+              "label": "traders that have something in common can boost each other’s sales."
+            },
+            {
+              "id": "C",
+              "label": "butchers are the most successful traders."
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "type": "multiple-choice",
+          "prompt": "Jenson’s theory",
+          "options": [
+            {
+              "id": "A",
+              "label": "advertised for similar retailers to open shops in one particular area."
+            },
+            {
+              "id": "B",
+              "label": "works better for bakers and butchers than for other kinds of retailers."
+            },
+            {
+              "id": "C",
+              "label": "seems to have been proved to be credible."
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "type": "multiple-choice",
+          "prompt": "The Costa de la Cruz",
+          "options": [
+            {
+              "id": "A",
+              "label": "is being spoiled by developers."
+            },
+            {
+              "id": "B",
+              "label": "is the cheapest area of Spain in which you can buy a holiday home."
+            },
+            {
+              "id": "C",
+              "label": "is close to Portugal."
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "type": "multiple-choice",
+          "prompt": "According to Chris Mercer",
+          "options": [
+            {
+              "id": "A",
+              "label": "there is a danger that the Costa de la Cruz will lose its appeal."
+            },
+            {
+              "id": "B",
+              "label": "the Costa de la Cruz can be developed without the area being damaged."
+            },
+            {
+              "id": "C",
+              "label": "the government has put a stop to the Costa de la Cruz being developed further."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "rangeLabel": "Questions 7-14",
+      "instruction": "You will hear a representative from British Waterways called John Sampson talking about a canal network in England.For questions 7-14, complete the sentences with a word or short phrase.",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "The canals were built despite the fact that there was no ________ and very little technology.",
+          "options": []
+        },
+        {
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "From 1790 to 1929, there were many canals that were ________ with each other but which were not uniform in size.",
+          "options": []
+        },
+        {
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "The new union of canals provided a ________ between major industrial cities.",
+          "options": []
+        },
+        {
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "There are plenty of ________ for a variety of wildlife on and around the canals.",
+          "options": []
+        },
+        {
+          "number": 11,
+          "type": "gap-fill",
+          "prompt": "Walkers can go to the nearest waterway office to get information on ________ so they can start and end at the same place.",
+          "options": []
+        },
+        {
+          "number": 12,
+          "type": "gap-fill",
+          "prompt": "Anglers can fish in the canals and ________.",
+          "options": []
+        },
+        {
+          "number": 13,
+          "type": "gap-fill",
+          "prompt": "If you want to go fishing, you must buy a ________.",
+          "options": []
+        },
+        {
+          "number": 14,
+          "type": "gap-fill",
+          "prompt": "The waterways authority request that people are ________ towards the canal users.",
+          "options": []
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "rangeLabel": "Questions 15-20",
+      "instruction": "You will hear part of a radio interview with the comedian, Lenny Henry. For questions 15-20, choose the answer (A, B, C or D) which fits best according to what you hear.",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 15,
+          "type": "multiple-choice",
+          "prompt": "Why did Lenny decide to do a degree?",
+          "options": [
+            {
+              "id": "A",
+              "label": "He was self-conscious because he didn’t have one."
+            },
+            {
+              "id": "B",
+              "label": "Other actors persuaded him that it was a good idea."
+            },
+            {
+              "id": "C",
+              "label": "He needed one to further his acting career."
+            },
+            {
+              "id": "D",
+              "label": "He was impressed by other actors who had been to university."
+            }
+          ]
+        },
+        {
+          "number": 16,
+          "type": "multiple-choice",
+          "prompt": "What effect has studying for a degree had on Lenny?",
+          "options": [
+            {
+              "id": "A",
+              "label": "It has developed his ability to think more clearly about his work in general."
+            },
+            {
+              "id": "B",
+              "label": "It has made him think more seriously about his career."
+            },
+            {
+              "id": "C",
+              "label": "It has given him the confidence to try for more challenging acting roles."
+            },
+            {
+              "id": "D",
+              "label": "It causes him a lot of stress when he has to write an essay."
+            }
+          ]
+        },
+        {
+          "number": 17,
+          "type": "multiple-choice",
+          "prompt": "According to Lenny, how does comedy affect the way people feel?",
+          "options": [
+            {
+              "id": "A",
+              "label": "It hinders their appreciation of the seriousness of a situation."
+            },
+            {
+              "id": "B",
+              "label": "It helps them deal with disturbing images."
+            },
+            {
+              "id": "C",
+              "label": "It makes people more sensitive."
+            },
+            {
+              "id": "D",
+              "label": "It enables them to laugh at heartbreaking stories."
+            }
+          ]
+        },
+        {
+          "number": 18,
+          "type": "multiple-choice",
+          "prompt": "What does Lenny say about the work of Comic Relief in Africa?",
+          "options": [
+            {
+              "id": "A",
+              "label": "People in Africa now have new ways of raising money for themselves."
+            },
+            {
+              "id": "B",
+              "label": "The task they are facing is too big for them to make a real difference."
+            },
+            {
+              "id": "C",
+              "label": "People aren’t committed enough yet to the cause."
+            },
+            {
+              "id": "D",
+              "label": "It should be a steady process to help the local communities."
+            }
+          ]
+        },
+        {
+          "number": 19,
+          "type": "multiple-choice",
+          "prompt": "What does Lenny say about his visit to Debre Zeit?",
+          "options": [
+            {
+              "id": "A",
+              "label": "He enjoyed working as a care worker for a while."
+            },
+            {
+              "id": "B",
+              "label": "He was impressed by Fanti’s bravery despite his illness."
+            },
+            {
+              "id": "C",
+              "label": "He was moved by the way the people there handled their situation."
+            },
+            {
+              "id": "D",
+              "label": "He was impressed by the way Fanti praised comic Relief."
+            }
+          ]
+        },
+        {
+          "number": 20,
+          "type": "multiple-choice",
+          "prompt": "What does Lenny say about writing comedy?",
+          "options": [
+            {
+              "id": "A",
+              "label": "He hopes that he will soon be a more self-confident writer."
+            },
+            {
+              "id": "B",
+              "label": "He finds it really easy since starting his degree."
+            },
+            {
+              "id": "C",
+              "label": "He doesn’t think he’ll ever have the confidence to write something on his own."
+            },
+            {
+              "id": "D",
+              "label": "He no longer likes working with other writers."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 4,
+      "rangeLabel": "Questions 21-30",
+      "instruction": "You will hear five short extracts in which people are talking about problems related to their work",
+      "matchingDualTask": true,
+      "taskOneInstruction": "For questions 21-25, choose the option which best describes each speaker.",
+      "taskTwoInstruction": "For questions 26-30, choose the option which best describes each speaker.",
+      "questions": [
+        {
+          "number": 21,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "a doctor"
+            },
+            {
+              "id": "B",
+              "label": "a circus trainer"
+            },
+            {
+              "id": "C",
+              "label": "a retired person"
+            },
+            {
+              "id": "D",
+              "label": "a zoo keeper"
+            },
+            {
+              "id": "E",
+              "label": "a pet shop owner"
+            },
+            {
+              "id": "F",
+              "label": "a vet"
+            },
+            {
+              "id": "G",
+              "label": "a blind person"
+            },
+            {
+              "id": "H",
+              "label": "a patient"
+            }
+          ],
+          "context": "Speaker 1"
+        },
+        {
+          "number": 22,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "a doctor"
+            },
+            {
+              "id": "B",
+              "label": "a circus trainer"
+            },
+            {
+              "id": "C",
+              "label": "a retired person"
+            },
+            {
+              "id": "D",
+              "label": "a zoo keeper"
+            },
+            {
+              "id": "E",
+              "label": "a pet shop owner"
+            },
+            {
+              "id": "F",
+              "label": "a vet"
+            },
+            {
+              "id": "G",
+              "label": "a blind person"
+            },
+            {
+              "id": "H",
+              "label": "a patient"
+            }
+          ],
+          "context": "Speaker 2"
+        },
+        {
+          "number": 23,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "a doctor"
+            },
+            {
+              "id": "B",
+              "label": "a circus trainer"
+            },
+            {
+              "id": "C",
+              "label": "a retired person"
+            },
+            {
+              "id": "D",
+              "label": "a zoo keeper"
+            },
+            {
+              "id": "E",
+              "label": "a pet shop owner"
+            },
+            {
+              "id": "F",
+              "label": "a vet"
+            },
+            {
+              "id": "G",
+              "label": "a blind person"
+            },
+            {
+              "id": "H",
+              "label": "a patient"
+            }
+          ],
+          "context": "Speaker 3"
+        },
+        {
+          "number": 24,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "a doctor"
+            },
+            {
+              "id": "B",
+              "label": "a circus trainer"
+            },
+            {
+              "id": "C",
+              "label": "a retired person"
+            },
+            {
+              "id": "D",
+              "label": "a zoo keeper"
+            },
+            {
+              "id": "E",
+              "label": "a pet shop owner"
+            },
+            {
+              "id": "F",
+              "label": "a vet"
+            },
+            {
+              "id": "G",
+              "label": "a blind person"
+            },
+            {
+              "id": "H",
+              "label": "a patient"
+            }
+          ],
+          "context": "Speaker 4"
+        },
+        {
+          "number": 25,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "a doctor"
+            },
+            {
+              "id": "B",
+              "label": "a circus trainer"
+            },
+            {
+              "id": "C",
+              "label": "a retired person"
+            },
+            {
+              "id": "D",
+              "label": "a zoo keeper"
+            },
+            {
+              "id": "E",
+              "label": "a pet shop owner"
+            },
+            {
+              "id": "F",
+              "label": "a vet"
+            },
+            {
+              "id": "G",
+              "label": "a blind person"
+            },
+            {
+              "id": "H",
+              "label": "a patient"
+            }
+          ],
+          "context": "Speaker 5"
+        },
+        {
+          "number": 26,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "a anger at how people can be so rude"
+            },
+            {
+              "id": "B",
+              "label": "a need for experience and total competence when doing a job"
+            },
+            {
+              "id": "C",
+              "label": "the value of making a difference to the world"
+            },
+            {
+              "id": "D",
+              "label": "pride at their own courage"
+            },
+            {
+              "id": "E",
+              "label": "the need to train young people with technological skills"
+            },
+            {
+              "id": "F",
+              "label": "surprise at someone’s reluctance to deal with a problem"
+            },
+            {
+              "id": "G",
+              "label": "annoyance at other people being inconsiderate"
+            },
+            {
+              "id": "H",
+              "label": "reluctance to be sociable"
+            }
+          ],
+          "context": "Speaker 1"
+        },
+        {
+          "number": 27,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "a anger at how people can be so rude"
+            },
+            {
+              "id": "B",
+              "label": "a need for experience and total competence when doing a job"
+            },
+            {
+              "id": "C",
+              "label": "the value of making a difference to the world"
+            },
+            {
+              "id": "D",
+              "label": "pride at their own courage"
+            },
+            {
+              "id": "E",
+              "label": "the need to train young people with technological skills"
+            },
+            {
+              "id": "F",
+              "label": "surprise at someone’s reluctance to deal with a problem"
+            },
+            {
+              "id": "G",
+              "label": "annoyance at other people being inconsiderate"
+            },
+            {
+              "id": "H",
+              "label": "reluctance to be sociable"
+            }
+          ],
+          "context": "Speaker 2"
+        },
+        {
+          "number": 28,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "a anger at how people can be so rude"
+            },
+            {
+              "id": "B",
+              "label": "a need for experience and total competence when doing a job"
+            },
+            {
+              "id": "C",
+              "label": "the value of making a difference to the world"
+            },
+            {
+              "id": "D",
+              "label": "pride at their own courage"
+            },
+            {
+              "id": "E",
+              "label": "the need to train young people with technological skills"
+            },
+            {
+              "id": "F",
+              "label": "surprise at someone’s reluctance to deal with a problem"
+            },
+            {
+              "id": "G",
+              "label": "annoyance at other people being inconsiderate"
+            },
+            {
+              "id": "H",
+              "label": "reluctance to be sociable"
+            }
+          ],
+          "context": "Speaker 3"
+        },
+        {
+          "number": 29,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "a anger at how people can be so rude"
+            },
+            {
+              "id": "B",
+              "label": "a need for experience and total competence when doing a job"
+            },
+            {
+              "id": "C",
+              "label": "the value of making a difference to the world"
+            },
+            {
+              "id": "D",
+              "label": "pride at their own courage"
+            },
+            {
+              "id": "E",
+              "label": "the need to train young people with technological skills"
+            },
+            {
+              "id": "F",
+              "label": "surprise at someone’s reluctance to deal with a problem"
+            },
+            {
+              "id": "G",
+              "label": "annoyance at other people being inconsiderate"
+            },
+            {
+              "id": "H",
+              "label": "reluctance to be sociable"
+            }
+          ],
+          "context": "Speaker 4"
+        },
+        {
+          "number": 30,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "a anger at how people can be so rude"
+            },
+            {
+              "id": "B",
+              "label": "a need for experience and total competence when doing a job"
+            },
+            {
+              "id": "C",
+              "label": "the value of making a difference to the world"
+            },
+            {
+              "id": "D",
+              "label": "pride at their own courage"
+            },
+            {
+              "id": "E",
+              "label": "the need to train young people with technological skills"
+            },
+            {
+              "id": "F",
+              "label": "surprise at someone’s reluctance to deal with a problem"
+            },
+            {
+              "id": "G",
+              "label": "annoyance at other people being inconsiderate"
+            },
+            {
+              "id": "H",
+              "label": "reluctance to be sociable"
+            }
+          ],
+          "context": "Speaker 5"
+        }
+      ]
+    }
+  ]
+}

@@ -41,7 +41,7 @@ import SrsReviewReminderModal from '../features/vocab/reminder/SrsReviewReminder
 import LegalFooter from '../components/LegalFooter'
 import { LanguageProvider, useI18n } from '../lib/language'
 import { useAdminPerformanceTracking } from '../features/admin/useAdminPerformanceTracking'
-import { getAppShellBackdropMode } from './appShellBackdrop'
+import { getAppShellBackdropMode, isIeltsSpeakingFocusPath, isSentenceStructureFocusPath } from './appShellBackdrop'
 import './appShellBackdrop.css'
 
 const DictionaryModal = lazy(() => import('../features/dictionary/DictionaryModal'))
@@ -78,6 +78,7 @@ const NAV: NavItem[] = [
   { kind: 'link', to: '/app/listening', icon: Headphones, label: 'Nghe', navKey: 'nav.listening' },
   { kind: 'link', to: '/app/shadowing', icon: Mic2, label: 'Luyện Shadowing', navKey: 'nav.shadowing' },
   { kind: 'link', to: '/app/speaking-ai', icon: AudioLines, label: 'Speaking AI', navKey: 'nav.speakingAi' },
+  { kind: 'link', to: '/app/speaking/ielts', icon: Mic2, label: 'Speaking IELTS', navKey: 'nav.speakingIelts' },
   {
     kind: 'group',
     id: 'reading-corner',
@@ -162,11 +163,13 @@ function AppShellInner() {
     [],
   )
 
-  // Full-bleed exam player (TID Listening / Reading paper) — hide app sidebar
-  const examPlayerMode =
+  // Full-bleed study routes own their header and workspace.
+  const focusMode =
     /^\/app\/exam\/(listening|reading)\//.test(location.pathname)
     || /^\/app\/writing\/cambridge\/[^/]+\/[^/]+\/[^/]+$/.test(location.pathname)
     || /^\/app\/writing\/practice\/[^/]+\/[^/]+$/.test(location.pathname)
+    || isSentenceStructureFocusPath(location.pathname)
+    || isIeltsSpeakingFocusPath(location.pathname)
   const appBackdropMode = getAppShellBackdropMode(location.pathname)
   const appBackdropActive = appBackdropMode !== 'none'
   const showCornerSun = shouldShowCornerSun(location.pathname)
@@ -183,7 +186,7 @@ function AppShellInner() {
     <div
       className={`app-shell flex h-[100dvh] overflow-hidden${appBackdropActive ? ` app-shell--backdrop app-shell--${appBackdropMode}` : ''}`}
       style={{
-        background: examPlayerMode
+        background: focusMode
           ? 'var(--bg-card)'
           : appBackdropActive
             ? 'var(--reading-corner-bg)'
@@ -192,7 +195,7 @@ function AppShellInner() {
     >
       {appBackdropActive && <AppShellBackdrop withRibbon={appBackdropMode === 'ribbon'} />}
       {/* Mobile hamburger */}
-      {!examPlayerMode && (
+      {!focusMode && (
         <button
           type="button"
           className="mobile-sidebar-toggle fixed top-3 left-3 z-30 w-10 h-10 rounded-lg items-center justify-center"
@@ -205,7 +208,7 @@ function AppShellInner() {
       )}
 
       {/* Mobile drawer overlay */}
-      {!examPlayerMode && (
+      {!focusMode && (
         <div
           className={`sidebar-drawer-overlay ${mobileDrawerOpen ? 'open' : ''}`}
           onClick={() => setMobileDrawerOpen(false)}
@@ -213,13 +216,13 @@ function AppShellInner() {
       )}
 
       {/* Desktop sidebar */}
-      {!examPlayerMode && <aside
+      {!focusMode && <aside
         className={`desktop-sidebar flex flex-col shrink-0 border-r transition-[width] duration-200 ${
           sidebarCollapsed ? 'w-20' : 'w-52'
         }`}
         style={{ background: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
       >
-        <div className="px-4 py-4 border-b" style={{ borderColor: 'var(--border-color)' }}>
+        <div className="relative px-4 py-4 border-b" style={{ borderColor: 'var(--border-color)' }}>
           <div className={`flex items-center ${sidebarCollapsed ? 'justify-center' : 'gap-2.5'}`}>
             <div
               className="w-8 h-8 rounded-xl flex items-center justify-center text-sm font-black shrink-0"
@@ -240,6 +243,18 @@ function AppShellInner() {
                 </p>
               </div>
             )}
+            <button
+              type="button"
+              aria-label={sidebarCollapsed ? t('app.expand') : t('app.collapse')}
+              title={sidebarCollapsed ? t('app.expand') : t('app.collapse')}
+              onClick={() => setSidebarCollapsed(value => !value)}
+              className={`shrink-0 w-7 h-7 rounded-lg flex items-center justify-center transition-colors hover:bg-[var(--bg-secondary)] ${sidebarCollapsed ? 'absolute -right-3.5 border shadow-sm' : ''}`}
+              style={sidebarCollapsed
+                ? { borderColor: 'var(--border-color)', color: 'var(--text-muted)', background: 'var(--bg-card)' }
+                : { color: 'var(--text-muted)' }}
+            >
+              {sidebarCollapsed ? <PanelLeftOpen size={14} /> : <PanelLeftClose size={14} />}
+            </button>
           </div>
         </div>
 
@@ -357,81 +372,77 @@ function AppShellInner() {
 
         <ThemeSwitcher compact={sidebarCollapsed} />
 
-        <div className="px-2.5 pb-2">
+        {/* Status row: notifications + sync */}
+        <div className={`px-2.5 pb-2 flex items-center ${sidebarCollapsed ? 'flex-col gap-1' : 'justify-between'}`}>
           <NotificationCenter compact={sidebarCollapsed} />
+          {user && (
+            <SyncStatusIndicator
+              syncState={syncState}
+              lastSyncAt={lastSyncAt}
+              error={error}
+              onRetry={triggerSync}
+              compact
+              inline={!sidebarCollapsed}
+            />
+          )}
         </div>
 
-        {user && (
-          <SyncStatusIndicator
-            syncState={syncState}
-            lastSyncAt={lastSyncAt}
-            error={error}
-            onRetry={triggerSync}
-            compact={sidebarCollapsed}
-          />
-        )}
-
+        {/* Account card: user info + plan + sign out */}
         <div className="p-2.5 border-t" style={{ borderColor: 'var(--border-color)' }}>
-          <button
-            type="button"
-            onClick={() => navigate('/app/settings?tab=account')}
-            className={`w-full px-1 mb-2 flex items-center rounded-xl transition-colors hover:bg-[var(--bg-secondary)] ${sidebarCollapsed ? 'justify-center py-1.5' : 'gap-2.5 py-1.5'}`}
+          <div
+            className={`rounded-xl border ${sidebarCollapsed ? 'p-1.5' : 'p-2'}`}
+            style={{
+              borderColor: 'var(--border-color)',
+              background: 'var(--bg-secondary)',
+            }}
           >
-            <UserAvatar user={user} size="sm" />
+            <button
+              type="button"
+              onClick={() => navigate('/app/settings?tab=account')}
+              className={`w-full flex items-center rounded-lg transition-colors hover:bg-[var(--bg-card)] ${sidebarCollapsed ? 'justify-center p-1' : 'gap-2.5 px-1.5 py-1.5'}`}
+            >
+              <UserAvatar user={user} size="sm" />
+              {!sidebarCollapsed && (
+                <div className="flex-1 min-w-0 text-left">
+                  <p className="text-xs font-medium truncate" style={{ color: 'var(--text-primary)' }}>
+                    {user?.user_metadata?.full_name ?? t('app.user')}
+                  </p>
+                  <p className="text-[11px] truncate" style={{ color: 'var(--text-muted)' }}>
+                    {user?.email}
+                  </p>
+                </div>
+              )}
+            </button>
+
             {!sidebarCollapsed && (
-              <div className="flex-1 min-w-0">
-                <p className="text-xs font-medium truncate" style={{ color: 'var(--text-primary)' }}>
-                  {user?.user_metadata?.full_name ?? t('app.user')}
-                </p>
-                <p className="text-[11px] truncate" style={{ color: 'var(--text-muted)' }}>
-                  {user?.email}
-                </p>
+              <div className="mt-1.5 px-1.5">
+                <PlanStatus plan={plan ?? 'free'} expiresAt={planExpiresAt ?? null} />
               </div>
             )}
-          </button>
 
-          {!sidebarCollapsed && <div className="h-px mb-2 mx-1" style={{ background: 'var(--border-color)' }} />}
-
-          {!sidebarCollapsed && <PlanStatus plan={plan ?? 'free'} expiresAt={planExpiresAt ?? null} />}
-
-          <button
-            type="button"
-            onClick={signOut}
-            title={t('app.logout')}
-            className={`group flex px-2 py-1.5 rounded-lg w-full transition-colors mt-1 hover:bg-[color-mix(in_srgb,var(--color-accent)_10%,transparent)] ${
-              sidebarCollapsed ? 'justify-center items-center' : 'items-center gap-1.5'
-            }`}
-            style={{ color: 'var(--text-muted)' }}
-          >
-            <LogOut size={14} className="shrink-0" />
-            {!sidebarCollapsed && (
-              <span
-                className="text-xs opacity-0 group-hover:opacity-100 transition-opacity"
-                style={{ color: 'var(--color-accent)' }}
-              >
-                {t('app.logout')}
-              </span>
-            )}
-          </button>
-        </div>
-
-        <div className="p-2.5 border-t" style={{ borderColor: 'var(--border-color)' }}>
-          <button
-            type="button"
-            aria-label={sidebarCollapsed ? t('app.expand') : t('app.collapse')}
-            title={sidebarCollapsed ? t('app.expand') : t('app.collapse')}
-            onClick={() => setSidebarCollapsed(value => !value)}
-            className="h-8 w-full rounded-lg border flex items-center justify-center transition-colors hover:bg-[var(--bg-secondary)]"
-            style={{ borderColor: 'var(--border-color)', color: 'var(--text-muted)' }}
-          >
-            {sidebarCollapsed ? <PanelLeftOpen size={16} /> : <PanelLeftClose size={16} />}
-          </button>
+            <button
+              type="button"
+              onClick={signOut}
+              title={t('app.logout')}
+              className={`mt-1.5 flex w-full rounded-lg transition-colors hover:bg-[color-mix(in_srgb,var(--color-accent)_10%,transparent)] ${
+                sidebarCollapsed ? 'justify-center items-center p-1.5' : 'items-center gap-2 px-2.5 py-1.5'
+              }`}
+              style={{ color: 'var(--text-muted)' }}
+            >
+              <LogOut size={14} className="shrink-0" />
+              {!sidebarCollapsed && (
+                <span className="text-xs font-medium" style={{ color: 'var(--color-accent)' }}>
+                  {t('app.logout')}
+                </span>
+              )}
+            </button>
+          </div>
         </div>
         {!sidebarCollapsed && <LegalFooter compact />}
       </aside>}
 
       {/* Mobile drawer sidebar (same content, different wrapper) */}
-      {!examPlayerMode && (
+      {!focusMode && (
         <aside
           className={`sidebar-drawer flex flex-col ${mobileDrawerOpen ? 'open' : ''}`}
           style={{ background: 'var(--bg-card)' }}
@@ -574,7 +585,7 @@ function AppShellInner() {
         <Outlet />
       </main>
 
-      {showCornerSun && (
+      {showCornerSun && !focusMode && (
         <div className="app-corner-sun" aria-hidden="true">
           <div className="app-corner-sun__companions">
             <SunnyMascotSvg className="app-corner-sun__mascot" />
@@ -587,7 +598,7 @@ function AppShellInner() {
       <Suspense fallback={null}>
         <GlobalCatalogSync />
       </Suspense>
-      {!examPlayerMode && (
+      {!focusMode && (
         <>
           <DictionaryFAB />
           {dictionaryOpen ? (
@@ -628,39 +639,44 @@ function SyncStatusIndicator({
   error,
   onRetry,
   compact,
+  inline,
 }: {
   syncState: ReturnType<typeof useSyncManager>['syncState']
   lastSyncAt: string | null
   error: string | null
   onRetry: () => void
   compact?: boolean
+  inline?: boolean
 }) {
   const { t } = useI18n()
-  if (compact) {
-    if (syncState === 'syncing') {
-      return (
-        <div className="px-3 pb-2 flex justify-center" style={{ color: 'var(--text-muted)' }} title={t('app.syncing')}>
-          <LoaderCircle size={16} className="animate-spin shrink-0" />
-        </div>
+  if (compact || inline) {
+    const title =
+      syncState === 'syncing'
+        ? t('app.syncing')
+        : syncState === 'error'
+          ? (error ?? 'Lỗi đồng bộ')
+          : `${t('app.synced')}${lastSyncAt ? ` · ${formatSyncTime(lastSyncAt)}` : ''}`
+    const icon =
+      syncState === 'syncing' ? (
+        <LoaderCircle size={15} className="animate-spin shrink-0" />
+      ) : syncState === 'error' ? (
+        <AlertCircle size={15} className="shrink-0" style={{ color: 'var(--color-accent)' }} />
+      ) : (
+        <Cloud size={15} className="shrink-0" />
       )
-    }
-
+    const cls = inline
+      ? 'flex items-center transition-opacity hover:opacity-80'
+      : 'px-3 pb-2 flex justify-center w-full transition-opacity hover:opacity-80'
     if (syncState === 'error') {
       return (
-        <button
-          type="button"
-          onClick={onRetry}
-          className="px-3 pb-2 flex justify-center w-full transition-opacity hover:opacity-80"
-          title={error ?? 'Lỗi đồng bộ'}
-        >
-          <AlertCircle size={16} className="shrink-0" style={{ color: 'var(--color-accent)' }} />
+        <button type="button" onClick={onRetry} className={cls} title={title} style={{ color: 'var(--text-muted)' }}>
+          {icon}
         </button>
       )
     }
-
     return (
-      <div className="px-3 pb-2 flex justify-center" style={{ color: 'var(--text-muted)' }} title={t('app.synced')}>
-        <Cloud size={16} className="shrink-0" />
+      <div className={cls} style={{ color: 'var(--text-muted)' }} title={title}>
+        {icon}
       </div>
     )
   }

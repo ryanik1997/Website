@@ -1,0 +1,738 @@
+{
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "Questions 1-6",
+      "instruction": "You will hear three different extracts. For questions 1-6, choose the answer (A, B or C) which fits best",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 1,
+          "type": "multiple-choice",
+          "prompt": "What point does the tutor make about a teacher’s attitude?",
+          "options": [
+            {
+              "id": "A",
+              "label": "A good teacher can put any subject across effectively."
+            },
+            {
+              "id": "B",
+              "label": "Students will pick up on a teacher’s commitment."
+            },
+            {
+              "id": "C",
+              "label": "There’s little point in a teacher trying to fake passion for a subject."
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "type": "multiple-choice",
+          "prompt": "What is Susanna doing?",
+          "options": [
+            {
+              "id": "A",
+              "label": "complaining about her students’ lack of enthusiasm"
+            },
+            {
+              "id": "B",
+              "label": "proposing ways of making her subject more appealing"
+            },
+            {
+              "id": "C",
+              "label": "asking for ideas about exercises her students could do"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "type": "multiple-choice",
+          "prompt": "Sam is trying to",
+          "options": [
+            {
+              "id": "A",
+              "label": "suggest how the visual impact could have been improved."
+            },
+            {
+              "id": "B",
+              "label": "challenge Ella’s preconceptions about the music."
+            },
+            {
+              "id": "C",
+              "label": "persuade Ella to go to a similar one in the future."
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "type": "multiple-choice",
+          "prompt": "In Sam’s opinion, what makes the performer stand out?",
+          "options": [
+            {
+              "id": "A",
+              "label": "the influence her academic background has on her music"
+            },
+            {
+              "id": "B",
+              "label": "the instinctive way she responds to her audience"
+            },
+            {
+              "id": "C",
+              "label": "the high level of stage presence she displays"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "type": "multiple-choice",
+          "prompt": "Staff have been planting trees in order to",
+          "options": [
+            {
+              "id": "A",
+              "label": "promote a desirable image."
+            },
+            {
+              "id": "B",
+              "label": "encourage a spirit of mutual co-operation."
+            },
+            {
+              "id": "C",
+              "label": "compensate for environmental damage."
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "type": "multiple-choice",
+          "prompt": "The company was surprised that its remote working initiative resulted in",
+          "options": [
+            {
+              "id": "A",
+              "label": "more appreciative customers."
+            },
+            {
+              "id": "B",
+              "label": "a better standard of new recruits."
+            },
+            {
+              "id": "C",
+              "label": "a more motivated workforce."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "rangeLabel": "Questions 7-14",
+      "instruction": "You will hear a scientist called Jim Weller giving a talk about some robots he has created and how they function like insects called termites. For questions 7-14 complete the sentences with a word or short phrase.",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "Jim says termites differ from bees in that a ________ is not responsible for organising their building work.",
+          "options": []
+        },
+        {
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "Jim uses the word ________ to refer to the group of robots he’s created to function as independent units.",
+          "options": []
+        },
+        {
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "Jim observed termites depositing partially consumed ________ in shared habitats, which activated a response from other termites.",
+          "options": []
+        },
+        {
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "Jim states that the robots receive ________ to help them correct any errors they make.",
+          "options": []
+        },
+        {
+          "number": 11,
+          "type": "gap-fill",
+          "prompt": "Jim got a single robot to finish the construction of a ________ when publicly demonstrating how simple structure building is performed.",
+          "options": []
+        },
+        {
+          "number": 12,
+          "type": "gap-fill",
+          "prompt": "Jim predicts that his robots will soon be able to move ________ into position to help people cope with the threat of floods.",
+          "options": []
+        },
+        {
+          "number": 13,
+          "type": "gap-fill",
+          "prompt": "Jim compares both termites and his robots to brain cells, in that they all create a superior form of ________ .",
+          "options": []
+        },
+        {
+          "number": 14,
+          "type": "gap-fill",
+          "prompt": "A group of Turkish researchers has observed Jim’s work in the hope of coming up with a ________ they can learn from.",
+          "options": []
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "rangeLabel": "Questions 15-20",
+      "instruction": "You will hear an interview in which a historian called Mark Connor and a writer called Judith Monroe are talking about the history of the underground railway in London. For questions 15-20, choose the answer (A, B, C or D) which fits best according to what you hear.",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 15,
+          "type": "multiple-choice",
+          "prompt": "Mark says that the problems which led to the creation of the railway",
+          "options": [
+            {
+              "id": "A",
+              "label": "resulted from poor urban planning."
+            },
+            {
+              "id": "B",
+              "label": "were similar to those we have today."
+            },
+            {
+              "id": "C",
+              "label": "typified the thinking of their age."
+            },
+            {
+              "id": "D",
+              "label": "only had one possible solution."
+            }
+          ]
+        },
+        {
+          "number": 16,
+          "type": "multiple-choice",
+          "prompt": "Judith believes that the engineering methods used to make the first tunnel",
+          "options": [
+            {
+              "id": "A",
+              "label": "worked surprisingly quickly."
+            },
+            {
+              "id": "B",
+              "label": "were too basic to be efficient."
+            },
+            {
+              "id": "C",
+              "label": "caused a minimum amount of disruption."
+            },
+            {
+              "id": "D",
+              "label": "resulted in the loss of too many homes."
+            }
+          ]
+        },
+        {
+          "number": 17,
+          "type": "multiple-choice",
+          "prompt": "How does Mark feel about the public reaction when the first underground line opened?",
+          "options": [
+            {
+              "id": "A",
+              "label": "disappointed by their reluctance to go underground"
+            },
+            {
+              "id": "B",
+              "label": "struck by their willingness to tolerate lengthy journeys"
+            },
+            {
+              "id": "C",
+              "label": "amused by their unfounded fears"
+            },
+            {
+              "id": "D",
+              "label": "impressed by their general enthusiasm"
+            }
+          ]
+        },
+        {
+          "number": 18,
+          "type": "multiple-choice",
+          "prompt": "Judith and Mark both say that, during the early years of its construction, the railway",
+          "options": [
+            {
+              "id": "A",
+              "label": "created many jobs for people."
+            },
+            {
+              "id": "B",
+              "label": "had a big influence on urban development."
+            },
+            {
+              "id": "C",
+              "label": "inspired imitators all over the world."
+            },
+            {
+              "id": "D",
+              "label": "made national heroes of its developers."
+            }
+          ]
+        },
+        {
+          "number": 19,
+          "type": "multiple-choice",
+          "prompt": "Judith compares certain underground stations to a classic film in that",
+          "options": [
+            {
+              "id": "A",
+              "label": "they are designed in the style of a particular era."
+            },
+            {
+              "id": "B",
+              "label": "they give a feeling of being in a cinema."
+            },
+            {
+              "id": "C",
+              "label": "they are a product of the same creative vision."
+            },
+            {
+              "id": "D",
+              "label": "they give a similar sense of size and excitement."
+            }
+          ]
+        },
+        {
+          "number": 20,
+          "type": "multiple-choice",
+          "prompt": "What does Mark think about the railway map?",
+          "options": [
+            {
+              "id": "A",
+              "label": "It has come to represent the city."
+            },
+            {
+              "id": "B",
+              "label": "It can confuse people unfamiliar with its format."
+            },
+            {
+              "id": "C",
+              "label": "It encourages people to use the underground."
+            },
+            {
+              "id": "D",
+              "label": "It is well designed for something so inexpensive."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 4,
+      "rangeLabel": "Questions 21-30",
+      "instruction": "You will hear five short extracts in which people are talking about visits they have made to museums.",
+      "matchingDualTask": true,
+      "taskOneInstruction": "For questions 21-25, choose the option which best describes each speaker.",
+      "taskTwoInstruction": "For questions 26-30, choose the option which best describes each speaker.",
+      "questions": [
+        {
+          "number": 21,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "context": "Speaker 1"
+        },
+        {
+          "number": 22,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "context": "Speaker 2"
+        },
+        {
+          "number": 23,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "context": "Speaker 3"
+        },
+        {
+          "number": 24,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "context": "Speaker 4"
+        },
+        {
+          "number": 25,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "context": "Speaker 5"
+        },
+        {
+          "number": 26,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "context": "Speaker 1"
+        },
+        {
+          "number": 27,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "context": "Speaker 2"
+        },
+        {
+          "number": 28,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "context": "Speaker 3"
+        },
+        {
+          "number": 29,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "context": "Speaker 4"
+        },
+        {
+          "number": 30,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "context": "Speaker 5"
+        }
+      ]
+    }
+  ]
+}

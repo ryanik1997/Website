@@ -13,7 +13,8 @@ const CAM_BOOK_RE = /Cambridge\s*(\d+)/i
 const BOOK_VOL_RE = /(?:Book|Vol(?:ume)?)\s*(\d+)/i
 const TEST_RE = /Test\s*(\d+)/i
 
-export function parseCambridgeTestNumber(title: string): number | null {
+export function parseCambridgeTestNumber(title: string | null | undefined): number | null {
+  if (!title) return null
   const match = title.match(TEST_RE)
   if (match) return Number(match[1])
   if (/\bsample\b/i.test(title)) return 1
@@ -21,7 +22,8 @@ export function parseCambridgeTestNumber(title: string): number | null {
 }
 
 /** Suy ra số “quyển” từ tiêu đề hoặc gom Test 1–4 → Book 1, Test 5–8 → Book 2… */
-export function parseCambridgeBookNumber(title: string): number {
+export function parseCambridgeBookNumber(title: string | null | undefined): number {
+  if (!title) return 1
   const cam = title.match(CAM_BOOK_RE)
   if (cam) return Number(cam[1])
   const vol = title.match(BOOK_VOL_RE)
@@ -110,17 +112,17 @@ export function filterCambridgeBooksByQuery<T extends { title: string }>(
       if (bookMatch && Number(bookMatch[1]) !== book.book) return false
       if (!bookMatch && q.includes(brandLower)) return true
       if (!bookMatch && (`book ${book.book}`.includes(q) || String(book.book).includes(q))) return true
-      return book.exams.some(e => e.exam.title.toLowerCase().includes(q))
+      return book.exams.some(e => (e.exam.title ?? '').toLowerCase().includes(q))
     })
     .map(book => ({
       ...book,
       exams: testMatch
         ? book.exams.filter(e => e.test === Number(testMatch[1]))
-        : book.exams.filter(e => e.exam.title.toLowerCase().includes(q) || !testMatch),
+        : book.exams.filter(e => (e.exam.title ?? '').toLowerCase().includes(q) || !testMatch),
     }))
     .filter(book => book.exams.length > 0)
 
-  const filteredUngrouped = ungrouped.filter(e => e.title.toLowerCase().includes(q))
+  const filteredUngrouped = ungrouped.filter(e => (e.title ?? '').toLowerCase().includes(q))
 
   return { books: filteredBooks, ungrouped: filteredUngrouped }
 }

@@ -1,0 +1,1212 @@
+FINAL ONE-SHOT GOAL — IELTS SPEAKING FUNCTIONAL CLONE
+
+PROJECT:
+D:\App-English-Ryan\Website
+
+CRAWL DATA:
+D:\App-English-Ryan\Crawl\IELTS_Bank\Speaking_IELTS
+
+SOURCE OF TRUTH:
+https://theieltsdictionary.com/practice/speaking
+
+TARGET ROOT:
+http://localhost:5173/app/speaking/ielts
+
+==================================================
+MỤC TIÊU DUY NHẤT
+==================================================
+
+Hoàn thiện toàn bộ IELTS Speaking trong một lần thành một functional clone có thể sử dụng thật của khu vực Speaking trên The IELTS Dictionary.
+
+Source website là chuẩn cuối cùng cho:
+
+- cấu trúc trang;
+- thứ tự module;
+- bố cục;
+- kích thước;
+- màu sắc;
+- typography;
+- artwork;
+- navigation;
+- tab;
+- trạng thái;
+- interaction;
+- responsive;
+- luồng vào bài;
+- Mock Interview;
+- Shadowing;
+- Roulette;
+- Forecast.
+
+Không tiếp tục vá từng lỗi nhỏ.
+Không giữ UI hiện tại chỉ vì đã viết xong.
+Không tự thiết kế lại.
+Không lấy Reading Corner làm reference.
+Không dừng ở trạng thái “coded but not verified”.
+Không gửi báo cáo giữa chừng.
+
+Chỉ được kết thúc task khi:
+
+DONE — PRODUCTION READY
+
+hoặc khi có đúng một blocker bên ngoài không thể tự giải quyết, kèm bằng chứng cụ thể.
+
+==================================================
+TRẠNG THÁI HIỆN TẠI
+==================================================
+
+Đã có:
+
+- Crawl data.
+- Forecast count 2 / 32 / 82.
+- Một phần Mock Interview code.
+- Speaking AI backend/recorder hiện có.
+- Progress stats cơ bản.
+- TypeScript và một số tests đã PASS.
+
+Nhưng vẫn chưa hoàn tất:
+
+- Focus Shell.
+- Visual parity landing.
+- Roulette thật.
+- Shadowing player.
+- Shadowing đúng 30/30 trên runtime.
+- Session summary.
+- Browser microphone + AI submit thật.
+- Visual diff.
+- Authenticated end-to-end validation.
+- Production readiness.
+
+Không được xem các phần hiện có là đúng nếu chưa kiểm chứng lại.
+
+==================================================
+1. QUY TẮC THỰC THI
+==================================================
+
+1. Dùng skill `/clone-website`.
+2. Dùng browser thật với session đăng nhập nguồn đã có.
+3. Dùng browser thật với tài khoản Ryan English đã đăng nhập.
+4. Được phép thay toàn bộ implementation IELTS Speaking hiện tại.
+5. Giữ lại hạ tầng đúng:
+   - auth;
+   - router;
+   - Speaking AI API;
+   - recorder;
+   - user progress;
+   - shared UI utilities.
+6. Không tạo AI pipeline thứ hai.
+7. Không hard-code dữ liệu để làm đẹp screenshot.
+8. Không dùng raw crawl page làm practice item.
+9. Không dùng screenshot nguyên trang làm UI.
+10. Không hotlink assets nguồn trong production.
+11. Không hỏi lại người dùng trong quá trình làm, trừ blocker bên ngoài thật.
+12. Tự chạy vòng lặp:
+    inspect → implement → browser test → compare → fix → retest
+    cho đến khi đạt Definition of Done.
+
+==================================================
+2. AUDIT SOURCE TRƯỚC KHI CODE
+==================================================
+
+Mở toàn bộ các màn hình nguồn bằng `/clone-website`.
+
+Bắt buộc audit:
+
+1. Speaking landing.
+2. Forecast landing.
+3. Forecast Part 1 bắt buộc.
+4. Forecast Part 1 chủ đề.
+5. Forecast Part 2 + 3.
+6. Roulette Part 1.
+7. Roulette Part 2.
+8. Roulette Part 3.
+9. Roulette trạng thái trước quay.
+10. Roulette trạng thái đang quay.
+11. Roulette result state.
+12. Shadowing catalog.
+13. Shadowing lesson.
+14. Mock Interview Part 1.
+15. Mock Interview Part 2.
+16. Mock Interview Part 3.
+17. Recording state.
+18. AI processing state.
+19. Feedback state.
+20. Session completion/summary.
+21. Desktop.
+22. Tablet.
+23. Mobile.
+
+Với mỗi screen/state, lưu:
+
+- screenshot;
+- DOM hierarchy;
+- computed styles;
+- route;
+- click flow;
+- network requests;
+- responsive behavior;
+- loading state;
+- empty state;
+- error state.
+
+Output audit:
+
+D:\App-English-Ryan\Website\tmp\speaking-final\
+├── source-route-map.json
+├── source-interactions.json
+├── source-style-map.json
+├── source-data-map.json
+├── source-desktop\
+├── source-mobile\
+└── source-audit.md
+
+Không được code dựa trên trí nhớ hoặc screenshot cũ khi browser có thể kiểm tra source trực tiếp.
+
+==================================================
+3. LẬP ROUTE MAP ĐẦY ĐỦ
+==================================================
+
+Tạo bảng:
+
+| Source screen/state | Source URL/state | App route | Data model | Component | Validation screenshot |
+
+App phải có route tương ứng cho toàn bộ source flow.
+
+Route tối thiểu:
+
+/app/speaking/ielts
+/app/speaking/ielts/forecast
+/app/speaking/ielts/forecast/part-1
+/app/speaking/ielts/forecast/part-2-3
+/app/speaking/ielts/roulette
+/app/speaking/ielts/shadowing
+/app/speaking/ielts/shadowing/:lessonId
+/app/speaking/ielts/mock-interview/:sessionId
+/app/speaking/ielts/session/:sessionId/summary
+
+Có thể điều chỉnh route theo convention hiện tại, nhưng không được gom tất cả state vào một generic page.
+
+==================================================
+4. XÓA IMPLEMENTATION SAI
+==================================================
+
+Loại bỏ hoặc thay thế:
+
+- dashboard hiện tại khác source;
+- sidebar trên các màn hình nguồn không có sidebar;
+- generic catalog cards;
+- generic title “Speaking practice item”;
+- generic Shadowing list không có player;
+- Roulette chỉ có card/link;
+- page/container record được coi là practice item;
+- raw Forecast page text;
+- Mock Interview redirect sang generic Speaking AI;
+- mock score bị dùng như dữ liệu thật;
+- hard-coded count;
+- CSS vá chồng chéo.
+
+Giữ lại:
+
+- recorder;
+- Speaking AI API;
+- auth;
+- progress hooks đúng;
+- normalized data helpers đúng;
+- stable IDs đúng.
+
+Không giữ code sai chỉ để giảm số file diff.
+
+==================================================
+5. FOCUS SHELL BẮT BUỘC
+==================================================
+
+Các route IELTS Speaking phải dùng Focus Shell riêng nếu source không có sidebar.
+
+Focus Shell:
+
+- không sidebar Ryan English;
+- không global floating widget;
+- không global app header dư thừa;
+- không margin-left dành cho sidebar;
+- không overlay che sidebar;
+- không negative margin;
+- không width > 100vw;
+- chỉ một vertical scroll container;
+- scroll wheel hoạt động;
+- PageDown hoạt động;
+- mobile scroll hoạt động;
+- không horizontal overflow.
+
+Các route khác trong app vẫn giữ app shell bình thường.
+
+Validation bắt buộc:
+
+- DOM không chứa sidebar visible.
+- main content bắt đầu từ left 0.
+- viewport width được dùng đúng.
+- scroll từ đầu đến cuối.
+- không scroll trap.
+
+==================================================
+6. NORMALIZE DATA ĐÚNG CẤP
+==================================================
+
+Tách rõ:
+
+type SpeakingPageRecord =
+  | LandingPage
+  | ForecastIndexPage
+  | RoulettePage
+  | ShadowingCatalogPage;
+
+type SpeakingPracticeItem =
+  | Part1Question
+  | Part2CueCard
+  | Part3Question
+  | ShadowingLesson;
+
+Runtime guard:
+
+isSpeakingPracticeItem(record)
+
+Không cho phép route practice nhận:
+
+- landing page;
+- Forecast index;
+- Roulette container;
+- Shadowing catalog;
+- site page wrapper;
+- raw page text.
+
+Nếu record không hợp lệ:
+
+- không render raw text;
+- redirect đúng module;
+- log development error;
+- fail test.
+
+==================================================
+7. FORECAST DATA
+==================================================
+
+Normalized schema:
+
+type ForecastData = {
+  period: string | null;
+  mandatoryPart1: ForecastPart1Group[];
+  part1Topics: ForecastPart1Topic[];
+  part23Sets: ForecastPart23Set[];
+};
+
+Runtime count bắt buộc:
+
+mandatoryPart1.length === 2
+part1Topics.length === 32
+part23Sets.length === 82
+
+Không hard-code 2, 32, 82 trong JSX.
+
+Part 1 item:
+
+{
+  id,
+  topic,
+  question,
+  relatedQuestions,
+  hints,
+  sourceId,
+  sourceUrl
+}
+
+Part 2 + 3 item:
+
+{
+  id,
+  topic,
+  cueCard,
+  bulletPoints,
+  hints,
+  linkedPart3Questions,
+  sourceId,
+  sourceUrl
+}
+
+Không cho phép các chuỗi module heading trở thành question:
+
+- THE IELTS DICTIONARY
+- BỘ DỰ ĐOÁN ĐỀ THI
+- PART 1 BẮT BUỘC
+- PART 1 CHỦ ĐỀ
+- PART 2 + 3
+- Về trang Speaking
+
+Thêm content-sanity validation.
+
+==================================================
+8. ROULETTE DATA
+==================================================
+
+Normalized schema:
+
+type RoulettePools = {
+  part1: Part1Question[];
+  part2: Part2CueCard[];
+  part3: Part3Question[];
+};
+
+Mỗi item phải có:
+
+- stable ID;
+- part;
+- topic;
+- prompt/question;
+- source URL;
+- AI context.
+
+Không dùng:
+
+- Roulette page record;
+- generic title;
+- site page title;
+- array index.
+
+Tests bắt buộc:
+
+- Part 1 pool có dữ liệu thật.
+- Part 2 pool có dữ liệu thật.
+- Part 3 pool có dữ liệu thật.
+- Spin không trả container record.
+- Spin không trả undefined.
+- Không lặp ngay item trước nếu pool còn item khác.
+- Chuyển tab đổi đúng pool.
+- Reset state đúng khi đổi tab.
+
+==================================================
+9. SHADOWING DATA
+==================================================
+
+Bắt buộc:
+
+source lessons = 30
+normalized lessons = 30
+rendered lessons = 30
+
+Mỗi lesson:
+
+{
+  id,
+  title,
+  videoTitle,
+  videoUrl,
+  audioUrl,
+  thumbnailUrl,
+  duration,
+  transcript,
+  segments,
+  sourceUrl
+}
+
+Title priority:
+
+1. lesson.title
+2. lesson.videoTitle
+3. lesson.customTitle
+4. lesson.heading
+5. parsed title từ metadata
+6. “Bài luyện Shadowing”
+
+Không được hiển thị hàng loạt:
+
+“Speaking practice item”
+
+Không dùng site title làm lesson title.
+
+Tạo report:
+
+| Source ID | Source title | Normalized title | Rendered | Exclusion reason |
+
+Exclusion reason phải bằng 0 cho 30 lessons.
+
+==================================================
+10. LANDING PAGE VISUAL CLONE
+==================================================
+
+Rebuild toàn bộ landing DOM theo source.
+
+Không sửa dần các card hiện tại.
+
+Cấu trúc:
+
+<SpeakingFocusLayout>
+  <BackLink />
+  <Hero />
+  <Stats />
+  <BentoGrid>
+    <PracticeBankCard />
+    <ForecastCard />
+    <RouletteCard />
+    <ShadowingCard />
+    <PremiumCard />
+    <SampleCard />
+  </BentoGrid>
+</SpeakingFocusLayout>
+
+Bento layout desktop phải khớp source:
+
+grid-template-areas:
+  "practice forecast forecast"
+  "practice roulette shadowing"
+  "premium premium sample";
+
+Yêu cầu:
+
+- max-width gần source;
+- card ratio giống source;
+- card height giống source;
+- gap giống source;
+- border radius giống source;
+- hard shadow giống source;
+- card colors giống source;
+- typography giống source;
+- artwork đúng vị trí;
+- không có vùng card rỗng;
+- không sidebar.
+
+==================================================
+11. HERO VÀ STATS
+==================================================
+
+Hero:
+
+IELTS Speaking Lab
+
+Subtitle:
+
+Phòng luyện thi Speaking ảo với AI — Nâng band điểm mỗi ngày.
+
+Không thêm label phía trên nếu source không có.
+
+Stats phải là card vuông đứng giống source:
+
+- Sessions tuần.
+- Avg Band.
+- Ngày liên tiếp.
+
+Dữ liệu thật:
+
+- sessions từ progress/history;
+- avg band = “–” nếu API chưa có overallBand;
+- streak từ ngày luyện thật.
+
+Không hard-code score.
+
+==================================================
+12. PRACTICE BANK CARD
+==================================================
+
+Phải có:
+
+- nền lavender;
+- decorative shape;
+- heading giống source;
+- illustration hai cuốn sách;
+- một cuốn “IELTS SPEAKING”;
+- một cuốn “REAL IELTS QUESTIONS”;
+- navigation strip phía dưới;
+- Speaking active.
+
+Không dùng một icon nhỏ ở đáy card thay artwork.
+
+Click:
+
+/app/speaking/ielts/forecast
+
+hoặc route practice-bank tương ứng với source flow thật.
+
+==================================================
+13. FORECAST CARD
+==================================================
+
+Phải có:
+
+- pink/coral background;
+- period thật;
+- description;
+- Forecast paper artwork;
+- calendar artwork;
+- wave decoration;
+- CTA đúng source.
+
+Không dùng background tím.
+Không dùng icon calendar đơn sắc.
+Không hiển thị count sai.
+
+Click vào Forecast mở đúng Forecast screen.
+
+==================================================
+14. ROULETTE CARD
+==================================================
+
+Phải có:
+
+- dark green background;
+- dot pattern;
+- text trắng;
+- three-card artwork Part 1/2/3;
+- CTA.
+
+Không dùng nền xanh nhạt.
+Không dùng ba button trắng đơn giản.
+
+==================================================
+15. SHADOWING CARD
+==================================================
+
+Phải có:
+
+- yellow background;
+- stripe pattern;
+- video preview;
+- waveform;
+- play button;
+- đúng 30 lessons;
+- CTA.
+
+Không dùng icon loa xám đơn giản.
+
+==================================================
+16. PREMIUM VÀ SAMPLE CARD
+==================================================
+
+Premium:
+
+- orange background;
+- description;
+- score preview panel;
+- layout giống source.
+
+Score preview chỉ là illustration, không phải dữ liệu user.
+
+Sample:
+
+- light green background;
+- dark sample card;
+- “SAMPLE 8.0 SPEAKING”;
+- caption;
+- layout giống source.
+
+Không dùng card trắng chỉ có chữ.
+
+==================================================
+17. ASSETS
+==================================================
+
+Audit toàn bộ assets đã crawl và assets source.
+
+Tạo:
+
+tmp/speaking-final/asset-manifest.json
+
+Mỗi asset:
+
+{
+  id,
+  sourceUrl,
+  localPath,
+  purpose,
+  usedBy,
+  width,
+  height,
+  mimeType,
+  sha256
+}
+
+Cần assets cho:
+
+- books;
+- Forecast papers;
+- calendar;
+- Roulette cards;
+- Shadowing video frame;
+- waveform;
+- Premium score panel;
+- Sample card;
+- decorative backgrounds.
+
+Priority:
+
+1. Asset đã crawl.
+2. Asset local hiện có.
+3. SVG local được dựng lại.
+4. CSS shapes.
+
+Không hotlink source.
+Không dùng screenshot nguyên card.
+Không dùng emoji làm artwork chính.
+
+==================================================
+18. FORECAST SCREEN
+==================================================
+
+Forecast route phải tái tạo source flow.
+
+Bắt buộc có:
+
+- period;
+- Part 1 mandatory section;
+- Part 1 topics section;
+- Part 2 + 3 section;
+- tabs/accordion/list giống source;
+- count đúng;
+- item thật;
+- CTA “Bắt đầu phỏng vấn”;
+- bookmark nếu hệ thống có;
+- browser Back.
+
+Click item:
+
+- tạo Mock Interview session;
+- không mở page wrapper;
+- không render raw text;
+- không redirect generic Speaking AI.
+
+==================================================
+19. ROULETTE SCREEN
+==================================================
+
+Phải có:
+
+- Part 1 tab;
+- Part 2 tab;
+- Part 3 tab;
+- state trước spin;
+- spin animation;
+- loading state;
+- result state;
+- câu hỏi thật;
+- topic thật;
+- “Quay câu khác”;
+- “Luyện ngay”;
+- chống lặp;
+- browser Back.
+
+Không được chỉ hiển thị search + card generic.
+
+==================================================
+20. SHADOWING CATALOG
+==================================================
+
+Catalog:
+
+- 30 lessons;
+- title thật;
+- thumbnail;
+- duration;
+- search;
+- progress nếu có;
+- bookmark nếu có;
+- CTA lesson.
+
+Không dùng generic title.
+Không để title thật nằm ở description.
+
+==================================================
+21. SHADOWING PLAYER
+==================================================
+
+Route:
+
+/app/speaking/ielts/shadowing/:lessonId
+
+Phải có:
+
+- title;
+- video/audio player;
+- transcript;
+- sentence/chunk navigation nếu source có;
+- replay;
+- speed control;
+- previous/next segment;
+- record;
+- playback;
+- progress;
+- complete action.
+
+Không chuyển thẳng sang generic Speaking AI.
+
+AI pronunciation có thể dùng adapter hiện có nhưng player phải hoạt động độc lập.
+
+==================================================
+22. MOCK INTERVIEW
+==================================================
+
+Route:
+
+/app/speaking/ielts/mock-interview/:sessionId
+
+Focus Shell toàn màn hình.
+
+Header phải giống source:
+
+- back button tròn;
+- microphone icon block;
+- “IELTS MOCK INTERVIEW”;
+- trạng thái AI online;
+- không sidebar.
+
+Main:
+
+- Part badge;
+- Câu X / N;
+- question card;
+- topic label;
+- question;
+- “Nghe lại”;
+- hint accordion;
+- microphone lớn;
+- recording timer;
+- processing;
+- AI scoring;
+- feedback;
+- next question.
+
+Background:
+
+- geometric pattern nhẹ;
+- local SVG/CSS;
+- không hotlink.
+
+Không hard-code 10 câu.
+Dùng `session.items.length`.
+
+==================================================
+23. PART 1 / PART 2 / PART 3
+==================================================
+
+Part 1:
+
+- topic;
+- question thật;
+- related questions;
+- TTS;
+- hint;
+- recorder;
+- AI feedback.
+
+Part 2:
+
+- cue card;
+- bullet points;
+- preparation timer;
+- speaking timer;
+- TTS nếu nguồn có;
+- recorder;
+- AI feedback.
+
+Part 3:
+
+- topic;
+- main question;
+- follow-up;
+- recorder;
+- AI feedback;
+- previous/next.
+
+Không dùng cùng một generic layout nếu source khác nhau.
+
+==================================================
+24. RECORDER + AI INLINE
+==================================================
+
+Tái sử dụng recorder và API Speaking AI hiện có.
+
+Không tạo endpoint/pipeline mới nếu không cần.
+
+Không điều hướng sang generic Speaking AI route.
+
+Flow:
+
+1. Request microphone.
+2. Record.
+3. Stop.
+4. Playback.
+5. Upload.
+6. Transcribe.
+7. AI score.
+8. Show feedback.
+9. Next question.
+10. Summary.
+
+States:
+
+idle
+requesting_permission
+recording
+paused
+processing
+scoring
+completed
+error
+
+Chống:
+
+- double submit;
+- stale response;
+- duplicated attempt;
+- mất recording khi request lỗi;
+- autoplay loop;
+- re-submit khi component rerender.
+
+Context:
+
+{
+  sessionId,
+  itemId,
+  part,
+  topic,
+  question,
+  cueCard,
+  bulletPoints,
+  expectedDuration
+}
+
+Không gửi raw crawl record.
+
+==================================================
+25. FEEDBACK
+==================================================
+
+Hiển thị trong cùng Mock Interview route:
+
+- transcript;
+- pronunciation;
+- fluency;
+- grammar;
+- lexical resource;
+- suggestions;
+- playback recording;
+- retry;
+- next question.
+
+Chỉ hiển thị overallBand khi API thật trả về.
+
+Không fake band.
+Không suy diễn band.
+Không dùng mock 8.0 làm result thật.
+
+==================================================
+26. SESSION SUMMARY
+==================================================
+
+Câu cuối phải mở summary.
+
+Summary:
+
+- total questions;
+- answered questions;
+- duration;
+- part breakdown;
+- transcript links;
+- feedback summary;
+- average band nếu có dữ liệu thật;
+- review question;
+- retry session;
+- back to IELTS Speaking.
+
+Không fake số liệu.
+
+==================================================
+27. CONTEXTUAL BACK NAVIGATION
+==================================================
+
+Landing:
+- “Về trang chủ”.
+
+Forecast:
+- “Về IELTS Speaking”.
+
+Roulette:
+- “Về IELTS Speaking”.
+
+Shadowing:
+- “Về IELTS Speaking”.
+
+Lesson:
+- “Về Shadowing”.
+
+Mock Interview:
+- quay lại source module/session list.
+
+Dùng browser history khi hợp lệ.
+Fallback route phải đúng context.
+
+==================================================
+28. VISUAL DIFF BẮT BUỘC
+==================================================
+
+Chụp source và app ở cùng viewport:
+
+- 911×1107;
+- 1366×768;
+- 390×844.
+
+Screens:
+
+- landing;
+- Forecast;
+- Roulette pre-spin;
+- Roulette result;
+- Shadowing catalog;
+- Shadowing player;
+- Mock Interview Part 1;
+- Mock Interview Part 2;
+- Mock Interview Part 3;
+- feedback;
+- summary.
+
+Tạo:
+
+tmp/speaking-final/source-*.png
+tmp/speaking-final/app-*.png
+tmp/speaking-final/diff-*.png
+tmp/speaking-final/visual-diff.json
+tmp/speaking-final/visual-parity.md
+
+Mask các vùng động:
+
+- user stats;
+- timer;
+- media frame;
+- timestamps;
+- scrollbar.
+
+Acceptance:
+
+- structure parity: 100%;
+- functional controls parity: 100%;
+- data correctness: 100%;
+- card arrangement khớp;
+- major dimensions lệch tối đa khoảng 6px;
+- major spacing lệch tối đa khoảng 6px;
+- visual diff dưới 8–10% sau mask.
+
+Không claim 100% nếu visual diff chưa đạt.
+
+==================================================
+29. AUTHENTICATED BROWSER E2E
+==================================================
+
+Bắt buộc chạy browser thật với user đã login.
+
+Flow chính:
+
+Dashboard
+→ Forecast
+→ Part 1 mandatory/topic
+→ chọn bài thật
+→ bắt đầu Mock Interview
+→ nghe lại
+→ mở hint
+→ microphone permission
+→ ghi âm thật
+→ stop
+→ playback
+→ AI submit thật
+→ feedback
+→ câu tiếp theo
+→ câu cuối
+→ summary.
+
+Chạy thêm:
+
+- Roulette Part 1.
+- Roulette Part 2.
+- Roulette Part 3.
+- Shadowing lesson.
+- Shadowing record/playback.
+- Mobile viewport.
+
+Không được dùng mock AI response cho acceptance cuối.
+
+==================================================
+30. NETWORK VÀ CONSOLE
+==================================================
+
+Ghi lại:
+
+- console errors;
+- React warnings;
+- 4xx;
+- 5xx;
+- failed assets;
+- media errors;
+- CORS;
+- duplicate submit;
+- AI timeout;
+- auth errors.
+
+Acceptance:
+
+console errors = 0
+React warnings = 0
+unexpected 4xx = 0
+5xx = 0
+failed required assets = 0
+duplicate AI requests = 0
+
+==================================================
+31. TESTS
+==================================================
+
+Bắt buộc tests:
+
+- Forecast count 2/32/82.
+- Forecast content sanity.
+- Part 1 mapping.
+- Part 2 mapping.
+- Part 3 mapping.
+- page record guard.
+- Roulette pools.
+- Roulette non-repeat.
+- Roulette tab switching.
+- Shadowing 30/30.
+- Shadowing title extraction.
+- Shadowing route.
+- Mock session creation.
+- session progress.
+- next question.
+- final question.
+- session summary.
+- recorder states.
+- duplicate submit prevention.
+- AI context mapping.
+- no fake overallBand.
+- Focus Shell.
+- contextual back navigation.
+- mobile no overflow.
+
+Chạy:
+
+- TypeScript.
+- Speaking IELTS tests.
+- Speaking AI tests.
+- Production build.
+- Authenticated browser E2E.
+- Real microphone/AI submit.
+- Visual diff.
+- git diff --check.
+
+==================================================
+32. KHÔNG DỪNG GIỮA CHỪNG
+==================================================
+
+Không gửi báo cáo kiểu:
+
+- “Forecast đã xong, còn Roulette”.
+- “Mock Interview đã code, chưa browser test”.
+- “Phase tiếp theo”.
+- “Chưa production-ready”.
+- “Remaining items”.
+
+Nếu một hạng mục fail:
+
+- sửa;
+- chạy lại;
+- tiếp tục vòng lặp.
+
+Chỉ được dừng khi:
+
+A. Tất cả Definition of Done PASS.
+
+Hoặc:
+
+B. Có một blocker bên ngoài không thể tự xử lý.
+
+Blocker hợp lệ:
+
+- không có credential cần thiết;
+- AI provider outage;
+- source chặn truy cập hoàn toàn;
+- browser environment không cấp microphone;
+- API production không thể gọi từ môi trường hiện tại.
+
+Blocker không hợp lệ:
+
+- timeout nội bộ;
+- hết thời gian dự kiến;
+- còn nhiều file;
+- visual chưa giống;
+- cần phase tiếp;
+- test chưa viết;
+- route chưa hoàn thiện.
+
+==================================================
+DEFINITION OF DONE
+==================================================
+
+Chỉ claim DONE khi tất cả đều PASS:
+
+[PASS] Source audit đầy đủ
+[PASS] Focus Shell
+[PASS] Landing visual parity
+[PASS] Forecast 2/32/82
+[PASS] Forecast item thật
+[PASS] Roulette Part 1
+[PASS] Roulette Part 2
+[PASS] Roulette Part 3
+[PASS] Roulette spin/result
+[PASS] Shadowing 30/30
+[PASS] Shadowing title thật
+[PASS] Shadowing player
+[PASS] Part 1 practice
+[PASS] Part 2 practice
+[PASS] Part 3 practice
+[PASS] Mock Interview
+[PASS] TTS
+[PASS] Hint accordion
+[PASS] Microphone thật
+[PASS] Playback
+[PASS] AI submit thật
+[PASS] Feedback
+[PASS] Next question
+[PASS] Session summary
+[PASS] Browser Back
+[PASS] Refresh
+[PASS] Desktop
+[PASS] Tablet
+[PASS] Mobile
+[PASS] No overflow
+[PASS] Console errors 0
+[PASS] React warnings 0
+[PASS] Network failures 0
+[PASS] Visual diff đạt ngưỡng
+[PASS] TypeScript
+[PASS] Tests
+[PASS] Production build
+[PASS] git diff --check
+
+==================================================
+BÁO CÁO CUỐI DUY NHẤT
+==================================================
+
+Chỉ sau khi toàn bộ PASS, trả về:
+
+1. `DONE — PRODUCTION READY`.
+2. Route list.
+3. Data counts:
+   - Forecast 2/32/82.
+   - Roulette pool counts.
+   - Shadowing 30/30.
+4. Screenshot source/app/diff.
+5. Visual diff score.
+6. Authenticated browser flow result.
+7. Microphone result.
+8. AI submit result.
+9. Feedback result.
+10. Session summary result.
+11. Console/network result.
+12. TypeScript/tests/build result.
+13. Main files changed.
+14. Remaining issues: 0.
+
+Nếu Remaining issues khác 0 thì không được ghi DONE.

@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import type { ReadingPart, ReadingQuestion } from '../examData'
 import type { ExamReviewStatus } from '../examReviewUtils'
 import { countWords, getPartQuestions } from '../examData'
@@ -11,6 +11,11 @@ import { useBlobMediaUrl } from '../useBlobMediaUrl'
 import KetRwSplitPane from '../ketRw/KetRwSplitPane'
 import { ensureGapDots, questionByNumber, splitKetGapText } from '../ketRw/ketRwGapUtils'
 import { getBodyTextBlocks, optionBankFromPassage } from '../petRw/petRwPassageUtils'
+import {
+  GappedTextBank,
+  GappedTextGap,
+  type GappedTextOption,
+} from '../gappedText/CambridgeGappedText'
 
 interface Props {
   examId: string
@@ -97,78 +102,6 @@ function InlineGapText({
   )
 }
 
-function InlineGapDrop({
-  number,
-  question,
-  value,
-  bank,
-  pickedId,
-  onAssign,
-  onClear,
-  onSelectQuestion,
-}: {
-  number: number
-  question: ReadingQuestion
-  value: string
-  bank: Array<{ id: string; label: string }>
-  pickedId: string | null
-  onAssign: (questionId: string, optionId: string) => void
-  onClear: (questionId: string) => void
-  onSelectQuestion: (id: string) => void
-}) {
-  const item = bank.find(b => b.id.toLowerCase() === value.toLowerCase())
-  const [isOver, setIsOver] = useState(false)
-  return (
-    <span className="pet-rw-inline-gap">
-      <button
-        type="button"
-        className={`pet-rw-drag__slot pet-rw-drag__slot--inline${value ? ' is-filled' : ''}${isOver ? ' is-over' : ''}`}
-        data-highlight-skip
-        aria-label={
-          item
-            ? `Gap ${number}, answer ${item.id}`
-            : pickedId
-              ? `Gap ${number}, place ${pickedId} here`
-              : `Gap ${number}, empty`
-        }
-        onClick={() => {
-          if (pickedId) {
-            onAssign(question.id, pickedId)
-            return
-          }
-          onSelectQuestion(question.id)
-        }}
-        onDragEnter={() => setIsOver(true)}
-        onDragLeave={() => setIsOver(false)}
-        onDragOver={e => e.preventDefault()}
-        onDrop={e => {
-          e.preventDefault()
-          setIsOver(false)
-          const opt = e.dataTransfer.getData('text/plain')
-          if (opt) onAssign(question.id, opt)
-        }}
-      >
-        <span className="pet-rw-inline-gap__num">{number}</span>
-        {item ? (
-          <span className="pet-rw-drag__slot-value"><strong>{item.id}</strong> {item.label}</span>
-        ) : (
-          <span className="pet-rw-drag__slot-placeholder">…</span>
-        )}
-      </button>
-      {item && (
-        <button
-          type="button"
-          className="pet-rw-drag__slot-clear"
-          data-highlight-skip
-          aria-label={`Clear gap ${number}`}
-          onClick={() => onClear(question.id)}
-        >
-          ×
-        </button>
-      )}
-    </span>
-  )
-}
 
 export function parseWordStem(prompt: string): string {
   const match = prompt.match(/Gap\s*\(\d+\)\s*[—–-]\s*(.+)/i)
@@ -265,6 +198,7 @@ export default function FceRwPartContent({
   const group = part.questionGroups[0]
   const [openGap, setOpenGap] = useState<number | null>(null)
   const [pickedBankId, setPickedBankId] = useState<string | null>(null)
+  const draggedBankIdRef = useRef<string | null>(null)
 
   const instructionRange = group?.range ?? part.rangeLabel
   const instructionText = group?.instruction ?? ''
@@ -286,7 +220,7 @@ export default function FceRwPartContent({
           const ans = answers[q.id] ?? ''
           return (
             <RwPart5McGap
-              key={`g-${seg.number}`}
+              key={`g-${seg.number}-${i}`}
               number={seg.number}
               question={q}
               value={ans}
@@ -324,7 +258,7 @@ export default function FceRwPartContent({
           if (!q) return <span key={`g-${i}`}>({seg.number})</span>
           return (
             <InlineGapText
-              key={`g-${seg.number}`}
+              key={`g-${seg.number}-${i}`}
               number={seg.number}
               value={answers[q.id] ?? ''}
               onChange={v => {
@@ -355,7 +289,7 @@ export default function FceRwPartContent({
     passageKey: string,
     text: string,
     gapQuestions: ReadingQuestion[],
-    bank: Array<{ id: string; label: string }>,
+    bank: GappedTextOption[],
   ) => {
     const gapNums = gapQuestions.map(q => q.number)
     const prepared = ensureGapDots(text, gapNums)
@@ -367,13 +301,14 @@ export default function FceRwPartContent({
           const q = questionByNumber(gapQuestions, seg.number)
           if (!q) return <span key={`g-${i}`}>({seg.number})</span>
           return (
-            <InlineGapDrop
-              key={`g-${seg.number}`}
+            <GappedTextGap
+              key={`g-${seg.number}-${i}`}
               number={seg.number}
-              question={q}
+              questionId={q.id}
               value={answers[q.id] ?? ''}
-              bank={bank}
+              options={bank}
               pickedId={pickedBankId}
+              draggedIdRef={draggedBankIdRef}
               onAssign={assignGapLetter}
               onClear={id => onAnswer(id, '')}
               onSelectQuestion={onSelectQuestion}
@@ -465,7 +400,7 @@ export default function FceRwPartContent({
                         data-highlight-skip
                         onClick={() => onSelectQuestion(q.id)}
                       >
-                        <span className="fce-rw-keyword-list__num">{q.number}</span>
+                        <span className="fce-rw-keyword-list__num" data-question-number-badge="true">{q.number}</span>
                         <span className="fce-rw-keyword-list__stem">
                           <RwHighlightText
                             blockId={`${partId}-q-${q.id}-stem`}
@@ -569,8 +504,12 @@ export default function FceRwPartContent({
   }
 
   if (part.partNumber === 6) {
-    const bank = optionBankFromPassage(part.passage, group!, { partNumber: 6 })
+    const bank: GappedTextOption[] = optionBankFromPassage(part.passage, group!, { partNumber: 6 })
+      .map(option => ({ id: option.id, label: option.id.toUpperCase(), text: option.label }))
     const bodyBlocks = getBodyTextBlocks(part.passage)
+    const assignedIds = new Set(
+      questions.map(q => answers[q.id]?.toUpperCase()).filter((id): id is string => Boolean(id)),
+    )
     return (
       <>
         <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
@@ -588,39 +527,23 @@ export default function FceRwPartContent({
             </>
           )}
           right={(
-            <div className="pet-rw-drag__bank pet-rw-drag__bank--column">
-              {bank.map(option => {
-                const isUsed = questions.some(
-                  q => answers[q.id]?.toUpperCase() === option.id.toUpperCase(),
-                )
-                const isPicked = pickedBankId === option.id
-                return (
-                  <button
-                    key={option.id}
-                    type="button"
-                    className={`pet-rw-drag__bank-card${isUsed ? ' is-used' : ''}${isPicked ? ' is-picked' : ''}`}
-                    data-highlight-skip
-                    aria-pressed={isPicked}
-                    aria-label={`Option ${option.id}${isUsed ? ', already placed' : ''}${isPicked ? ', picked — now choose a gap' : ''}`}
-                    draggable
-                    onDragStart={e => {
-                      e.dataTransfer.setData('text/plain', option.id)
-                    }}
-                    onClick={() => {
-                      setPickedBankId(pickedBankId === option.id ? null : option.id)
-                    }}
-                  >
-                    <span className="pet-rw-drag__bank-letter">{option.id}</span>
-                    <p className="pet-rw-drag__bank-text">
-                      <RwHighlightText
-                        blockId={`${partId}-bank-${option.id}`}
-                        text={option.label}
-                      />
-                    </p>
-                  </button>
-                )
-              })}
-            </div>
+            <GappedTextBank
+              options={bank}
+              assignedIds={assignedIds}
+              pickedId={pickedBankId}
+              draggedIdRef={draggedBankIdRef}
+              disabled={reviewMode}
+              itemAriaPrefix="Option"
+              onPick={setPickedBankId}
+              onReturn={optionId => {
+                const assigned = questions.find(q => answers[q.id]?.toUpperCase() === optionId.toUpperCase())
+                if (assigned) onAnswer(assigned.id, '')
+                setPickedBankId(null)
+              }}
+              renderText={option => (
+                <RwHighlightText blockId={`${partId}-bank-${option.id}`} text={option.text} />
+              )}
+            />
           )}
         />
       </>

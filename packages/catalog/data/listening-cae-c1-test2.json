@@ -1,0 +1,845 @@
+{
+  "id": "catalog-listening-cae-c1-test2",
+  "title": "CAE Listening Test 2",
+  "durationMinutes": 40,
+  "bandHint": "C1 Advanced Listening · 4 parts · 30 câu",
+  "examType": "cae",
+  "examMode": "practice",
+  "parts": [
+    {
+      "id": "catalog-listening-cae-c1-test2-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1-6",
+      "instruction": "You will hear three different extracts. For questions 1-6, choose the answer (A, B or C) which fits best according to what you hear. There are two questions for each extract.",
+      "audioUrl": "/catalog/listening/cae-c1-test2/cae-listening-test-01-part-1.mp3",
+      "transcript": "**Interviewer:** So, Fiona, can you tell me about how you started in fashion retailing? **Fiona:** Yes, of course. After I finished university, I took a job with a big high street chain – I was an assistant manager. Every week you would see the sales figures for your product and then act on that by placing repeat orders or putting a new style in. It was a good grounding **[1]**. However, most of the staff had been there years and I think I did make mistakes in my dealings with them – I blush now to think of my time there. I then moved on, after five years, to my present job. **Interviewer:** And now you’re thinking of moving up the ladder. How do you see yourself in ten years’ time? **Fiona:** I would eventually like to be in senior management. **Interviewer:** Well, before you rush off to see your line manager, I think you need to work out skills you can offer emphasising your selling points, showing them what you can do **[2]**. Also have you been going the extra mile to get things done or doing more than what is asked of you, recently? **Friend:** So, what happened last weekend? **Woman:** Well, we were taking our boat along the river, when we passed a pair of swans, with a nest nearby. One swan just carried on feeding, but the other one – the male I think – decided to come and investigate. **Friend:** Oh, fantastic. I’ve never seen a swan’s nest close up. I expect he was hungry. **Woman:** Well, actually it was immediately obvious from his body language that he had other things on his mind. He was flapping his wings really hard, and approaching at incredible speed. And I guess we’d gone too close to the nest. I’d never have done that if I’d known what would happen **[3]**. **Friend:** Gosh, amazing. I’ve never heard of swans behaving like that before. So what did you do? Row like mad? **Woman:** Well, we got out onto the bank, but he followed us up, and then stood between us and the boat for about an hour! We just couldn’t frighten him away. **Friend:** No, I suppose not. Still, I’m sure he wouldn’t have hurt you. **Woman:** Are you kidding **[4]**? You should have seen the way he moved – swans can be really aggressive at nesting times. **Friend:** Hmm. **Interviewer:** Bruce, at school, you discovered you had a natural talent for art. **Bruce:** Yes, I inherited my dad’s gift for drawing. I wanted to do representational art; paint portraits. But every college I went to – and there were three who accepted me – all the college tutors said, ‘Forget representational art, get a single lens reflex 33-millimetre camera, hit the shutter, crash, there’s your picture. Not even Rembrandt could get that accuracy, so it’s not worth it **[5]**.’ **Interviewer:** And you believed them? **Bruce:** I did. That was my biggest mistake. I haven’t picked up a paintbrush since. **Interviewer:** How did your father react, when you told him you weren’t going to art college? **Bruce:** His face was white with rage **[6]**. He said, ‘Right, that’s it. You could have made something of going to college. You won’t get another chance. Now I’ve got a perfectly good job for you on the factory floor. You start this week – take it or leave it.’ I said, ‘No, I’m going to start a business next.’ He said, ‘Well, at your own expense, then.’ **Interviewer:** He refused to support you any more? **Bruce:** That’s it, and so…",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test2-q-1",
+          "number": 1,
+          "type": "multiple-choice",
+          "prompt": "How does the woman feel now about her first job in retailing?",
+          "options": [
+            {
+              "id": "A",
+              "label": "pleased by the way she handled the staff"
+            },
+            {
+              "id": "B",
+              "label": "confident that it gave her a good start"
+            },
+            {
+              "id": "C",
+              "label": "relaxed about the mistakes she made"
+            }
+          ],
+          "answer": "B",
+          "explanation": "BEvery week you would see the sales figures for your product and then act on that by placing repeat orders or putting a new style in. It was a good grounding."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test2-q-2",
+          "number": 2,
+          "type": "multiple-choice",
+          "prompt": "What is the woman advised to do next?",
+          "options": [
+            {
+              "id": "A",
+              "label": "reflect on her skills"
+            },
+            {
+              "id": "B",
+              "label": "volunteer for extra work"
+            },
+            {
+              "id": "C",
+              "label": "discuss her situation with her boss"
+            }
+          ],
+          "answer": "A",
+          "explanation": "AI think you need to work out skills you can offer emphasising your selling points, showing them what you can do"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test2-q-3",
+          "number": 3,
+          "type": "multiple-choice",
+          "prompt": "What problem did the woman have with the swan?",
+          "options": [
+            {
+              "id": "A",
+              "label": "She misunderstood its intentions"
+            },
+            {
+              "id": "B",
+              "label": "She underestimated the speed of its approach"
+            },
+            {
+              "id": "C",
+              "label": "She failed to realise the consequences of disturbing it"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CI’d never have done that if I’d known what would happen"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test2-q-4",
+          "number": 4,
+          "type": "multiple-choice",
+          "prompt": "What is the man’s reaction to the story?",
+          "options": [
+            {
+              "id": "A",
+              "label": "He feels he would have handled the situation better"
+            },
+            {
+              "id": "B",
+              "label": "He is unconvinced by the woman’s version of events"
+            },
+            {
+              "id": "C",
+              "label": "He fails to see quite how serious the problem was"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CFriend: No, I suppose not. Still, I’m sure he wouldn’t have hurt you.Woman: Are you kidding"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test2-q-5",
+          "number": 5,
+          "type": "multiple-choice",
+          "prompt": "Why did Bruce decide to give up the idea of studying art?",
+          "options": [
+            {
+              "id": "A",
+              "label": "He failed to gain a place at art college"
+            },
+            {
+              "id": "B",
+              "label": "He became tired of doing representational art"
+            },
+            {
+              "id": "C",
+              "label": "He was persuaded that he could not realise his ambition"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C... all the college tutors said, ‘Forget representational art, get a single lens reflex 33-millimetre camera, hit the shutter, crash, there’s your picture. Not even Rembrandt could get that accuracy, so it’s not worth it"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test2-q-6",
+          "number": 6,
+          "type": "multiple-choice",
+          "prompt": "What was his father’s reaction to Bruce’s decision?",
+          "options": [
+            {
+              "id": "A",
+              "label": "He was anxious to discuss alternative employment options"
+            },
+            {
+              "id": "B",
+              "label": "He was angry that a good opportunity had been wasted"
+            },
+            {
+              "id": "C",
+              "label": "He was dismissive of the advantages of higher education HINTS AND KEYWORDS"
+            }
+          ],
+          "answer": "B",
+          "explanation": "BInterviewer: How did your father react, when you told him you weren’t going to art college?Bruce: His face was white with rage"
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test2-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 7-14",
+      "instruction": "You will hear an explorer called Richard Livingstone talking about a trip he made in the rainforest of South America. For questions 7-14, complete the sentences.",
+      "audioUrl": "/catalog/listening/cae-c1-test2/cae-listening-test-01-part-2.mp3",
+      "transcript": "**Richard Livingstone:** I’d set off, with my friend Matthew Price, to sail down a little-known river in the rainforest, in a homemade boat. Our original idea was to go all the way by boat, carrying it past any rough bits, but the river was much rockier and faster-flowing than we’d thought, which meant we were only covering a few kilometres each day. Then, suddenly, we realised that, as the river was about to go over a waterfall, we could go no further by boat **[7]**. As it was only a homemade thing, we decided to abandon it, and walk to the nearest road **[8]**. As far as we knew, there were no villages or trading posts along the way and, on our map, it looked like a 100-kilometre walk. And that walk, through thick rainforest with 25 kilos on our backs, was difficult. We walked for six days, it was hot and we were permanently wet through **[9]**, before we came to any sign of civilisation. There were times when we really wondered if we’d ever get out of that jungle alive. Then, on the seventh day, we suddenly came across a path – not an animal trail, but a man-made one, so we knew there must be people living there **[10]**. It was going roughly in the right direction, so we followed it and, at dusk, we came to a deserted camp in a hollow. Deserted, but not uninhabited. There was digging equipment wrapped in plastic, alongside two water-filled holes. Obviously someone had been digging in search of gold at some time or another. Nearby, on a rough wooden table, were some cooking utensils and a few other supplies, and whoever was camping there must’ve been intending to return soon because there was a large pot full of thick soup. We couldn’t identify either the strange-looking pieces of meat or the unfamiliar vegetables it seemed to be made from **[11]**, but we were in a desperate state. Over the previous seven days, we’d only had flour and rice to eat and, although we had plenty left, we were low on energy **[12]**. This was our greatest problem. So, we cooked up some of our rice and decided to have two spoonfuls from the pot with it. It was good, so we had another spoonful. And then another. Soon, nothing was left of our host’s meal. Afterwards, we began to get worried **[13]**. People living this sort of life could be very tough, and this one could return any minute. We decided to make an early start. To show we were grateful, we placed 30 dollars in the cleaned-out cooking pot **[14]**. It was quite a lot for the quantity of food – it was probably only worth 10 dollars or so – but that wasn’t the point. This man wouldn’t be able to pop to the supermarket to replace the food we’d eaten. But I have no regrets because that dinner gave us the strength to make it the rest of the way through the jungle safely.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test2-q-7",
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "Richard and Matthew abandoned their boat because they couldn’t get past a ________ .",
+          "options": [],
+          "answer": "waterfall",
+          "explanation": "waterfallThen, suddenly, we realised that, as the river was about to go over a waterfall, we could go no further by boat"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test2-q-8",
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "They decided to walk through the jungle as far as the ________ marked on the map.",
+          "options": [],
+          "answer": "(nearest) road",
+          "explanation": "(nearest) roadAs it was only a homemade thing, we decided to abandon it, and walk to the nearest road"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test2-q-9",
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "Richard says that during the walk, they were always both ________ .",
+          "options": [],
+          "answer": "hot (and) wet (in either order)",
+          "explanation": "hot and wetWe walked for six days, it was hot and we were permanently wet through..."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test2-q-10",
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "The first sign of human activity that they found was a ________ .",
+          "options": [],
+          "answer": "path",
+          "explanation": "pathThen, on the seventh day, we suddenly came across a path – not an animal trail, but a man-made one, so we knew there must be people living there"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test2-q-11",
+          "number": 11,
+          "type": "gap-fill",
+          "prompt": "In a deserted camp, they found some soup made from unusual ________ .",
+          "options": [],
+          "answer": "meat (and) vegetables (in either order)",
+          "explanation": "mean and vegetables...strange-looking pieces of meat or the unfamiliar vegetables it seemed to be made from..."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test2-q-12",
+          "number": 12,
+          "type": "gap-fill",
+          "prompt": "Richard says that by the time they had reached the camp, they were lacking in ________ .",
+          "options": [],
+          "answer": "energy",
+          "explanation": "energyOver the previous seven days, we’d only had flour and rice to eat and, although we had plenty left, we were low on energy"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test2-q-13",
+          "number": 13,
+          "type": "gap-fill",
+          "prompt": "Richard says that after the meal, they began to feel ________ about what they’d done.",
+          "options": [],
+          "answer": "worried",
+          "explanation": "worriedSoon, nothing was left of our host’s meal. Afterwards, we began to get worried"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test2-q-14",
+          "number": 14,
+          "type": "gap-fill",
+          "prompt": "Before leaving the camp, they left the sum of ________ to thank their host.",
+          "options": [],
+          "answer": "30 dollars/thirty dollars/$30",
+          "explanation": "30/thirty dollars/$30To show we were grateful, we placed 30 dollars in the cleaned-out cooking pot"
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test2-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 15-20",
+      "instruction": "You will hear part of an interview with the astronaut Charles Duke, who is talking about his trip to the moon. For questions 15-20, choose the answer (A, B, C or D) which fits best according to what you hear.",
+      "audioUrl": "/catalog/listening/cae-c1-test2/cae-listening-test-01-part-3.mp3",
+      "transcript": "**Interviewer:** My guest today is Charles Duke, one of the few people to have walked on the moon as part of an Apollo mission. Charles, welcome to the studio. Have you always been hooked on space travel? **Charles:** Quite frankly, as a kid, it’d never entered my head **[15]**. There wasn’t even a space programme when I was young . . . so there weren’t any astronauts. **Interviewer: **What about science fiction films at the cinema? **Charles:** I’d seen them, of course I used to wonder what space travel might be like – but it was never what you might describe as a fascination – if you follow me. **Interviewer: **So, how did it all come about? **Charles:** It was at the Naval Academy . . . **Interviewer: **Not in the Air Force? **Charles:** No, but I was a navy pilot. I had fallen in love with planes and nothing else would do. And that gave me the opportunity to start – to get selected for the astronaut programme. **Interviewer: **Presumably by then they were talking about putting rockets into space? **Charles:** Absolutely. **Interviewer: **And how did you find the training? **Charles:** I suppose the lunar surface training in the spacesuit was physically demanding in a way. **Interviewer: **Quite uncomfortable, I imagine. **Charles:** It’s not what you might expect. Once the spacesuits get inflated, it gets very rigid. You had to fight to bend your arms and move your fingers inside the gloves. **Interviewer: **And how long did you spend inside it? **Charles:** Around four to five hours. But actually, the most challenging part was worrying about how to handle the simulator because we needed to know how to land and then take off on the moon **[16]**. **Interviewer: **I don’t think I could have coped with that! **Charles:** I’m not sure I did. But if you did something wrong, you were in trouble and we often spent eight hours a day trying to learn what to do! **Interviewer: **So how did you feel when you first heard that you were actually going to the moon? **Charles:** I suppose you’re expecting me to say ‘exhilarated’. But I knew there were lots of ‘ifs’ – it would happen if they didn’t cancel the programme, if I didn’t get sick and so on. So I stopped doing all the dangerous sports I was involved in **[17]**. **Interviewer: **So you knew you had one chance and if you blew it, you wouldn’t get another? **Charles:** That just about sums it up! **Interviewer: **And when you eventually got there, what impact did it have on you? Landing or the moon, I mean! **Charles:** When we saw the moon for the first time from about 1500 metres we recognise the landmarks but, as we got closer, we saw that the spot we were going to Ian on was very rough – big rocks and craters – so we panicked a bit. And the more we tried to manoeuvre and the closer we got, the more moon dust we blew out. **Interviewer: **But you landed safely? **Charles:** Eventually, yeah. We were six hours late. So when we touched down, we erupted with enthusiasm. We shook hands and hugged each other **[18]**. **Interviewer: **Not an easy feat in spacesuits. **Charles:** [laughs] No, indeed. But after that we had to rest for a certain period, we got outside for the very first time. **Interviewer: **You must have been terrified. **Charles:** We had no sense of fear about stepping off the ladder onto the moon. We just jumped off and started bouncing around like lambs in a field in springtime. **Interviewer: **And when you saw the lunar landscape, did it live up to your expectations? **Charles:** What struck me most, apart from its awesome attraction, was its desolation **[19]**. The sky was jet black. You felt as if you could reach out and touch it. There were no stars and the sun was shining all the time. **Interviewer: **And what went through your mind at that moment? **Charles:** The fact that it was so untouched. The fact that nobody had ever been to that particular spot before kept returning. It was simply breathtaking. **Interviewer: **And do you have a favourite memory of the mission? **Charles:** Definitely. It was the thing that we did during the last moonwalk. We were about six kilometres or so from the base, and on the edge of a big crater, 100 metres deep. We had to be careful as we walked along the ridge because one slip would have been dangerous. Suddenly we saw this huge rock. It was a long way off, and there are no people or cars to judge distances or give you any sense of scale. **Interviewer: **But you managed to get down to it? **Charles:** Eventually. It was enormous. The biggest rock anybody had ever touched on the moon. I had a hammer and I hit a chunk of it – and it came off in my hand – a piece the size of a small melon **[20]**. **Interviewer: **A different kind of souvenir! So do you think we should go back? What’s the reason for investing all this time and money in the space race anyway? **Charles:** Oh, it’s the prime place for a scientific base…",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test2-q-15",
+          "number": 15,
+          "type": "multiple-choice",
+          "prompt": "How did Charles feel about space travel as a boy?",
+          "options": [
+            {
+              "id": "A",
+              "label": "He thought it was unlikely to happen"
+            },
+            {
+              "id": "B",
+              "label": "He regarded it as more than science fiction"
+            },
+            {
+              "id": "C",
+              "label": "He was fascinated by the idea of it"
+            },
+            {
+              "id": "D",
+              "label": "He showed no particular interest in it"
+            }
+          ],
+          "answer": "D",
+          "explanation": "DCharles, welcome to the studio. Have you always been hooked on space travel?Charles: Quite frankly, as a kid, it’d never entered my head"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test2-q-16",
+          "number": 16,
+          "type": "multiple-choice",
+          "prompt": "What did Charles consider to be the hardest part of the training?",
+          "options": [
+            {
+              "id": "A",
+              "label": "feeling trapped in the heavy spacesuit"
+            },
+            {
+              "id": "B",
+              "label": "endlessly practising the lunar surface landing"
+            },
+            {
+              "id": "C",
+              "label": "constantly being afraid of making a mistake"
+            },
+            {
+              "id": "D",
+              "label": "being unable to move his arms and hands"
+            }
+          ],
+          "answer": "B",
+          "explanation": "BBut actually, the most challenging part was worrying about how to handle the simulator because we needed to know how to land and then take off on the moon"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test2-q-17",
+          "number": 17,
+          "type": "multiple-choice",
+          "prompt": "What was Charles’s reaction when he first found out he was going to the moon?",
+          "options": [
+            {
+              "id": "A",
+              "label": "He realised he had to be cautious"
+            },
+            {
+              "id": "B",
+              "label": "He felt proud to be given the opportunity"
+            },
+            {
+              "id": "C",
+              "label": "He tried to control his excitement"
+            },
+            {
+              "id": "D",
+              "label": "He reflected on his chances of survival."
+            }
+          ],
+          "answer": "A",
+          "explanation": "ABut I knew there were lots of ‘ifs’ – it would happen if they didn’t cancel the programme, if I didn’t get sick and so on. So I stopped doing all the dangerous sports I was involved in"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test2-q-18",
+          "number": 18,
+          "type": "multiple-choice",
+          "prompt": "How did the crew feel when they had landed on the moon?",
+          "options": [
+            {
+              "id": "A",
+              "label": "They felt as if they were coming home"
+            },
+            {
+              "id": "B",
+              "label": "They realised they had achieved something special"
+            },
+            {
+              "id": "C",
+              "label": "They were afraid of what they might find on the surface"
+            },
+            {
+              "id": "D",
+              "label": "They were worried about how they would take off again"
+            }
+          ],
+          "answer": "B",
+          "explanation": "BCharles: Eventually, yeah. We were six hours late. So when we touched down, we erupted with enthusiasm. We shook hands and hugged each other"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test2-q-19",
+          "number": 19,
+          "type": "multiple-choice",
+          "prompt": "What feature of the moon made the greatest impact on Charles?",
+          "options": [
+            {
+              "id": "A",
+              "label": "the brightness of the"
+            },
+            {
+              "id": "B",
+              "label": "the vastness of the sky"
+            },
+            {
+              "id": "C",
+              "label": "the loneliness of the place"
+            },
+            {
+              "id": "D",
+              "label": "the absence of any stars"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CCharles: What struck me most, apart from its awesome attraction, was its desolation"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test2-q-20",
+          "number": 20,
+          "type": "multiple-choice",
+          "prompt": "What does Charles feel was the most memorable part of his mission?",
+          "options": [
+            {
+              "id": "A",
+              "label": "nearly falling into a crater"
+            },
+            {
+              "id": "B",
+              "label": "walking on the moon’s surface"
+            },
+            {
+              "id": "C",
+              "label": "seeing things never seen before"
+            },
+            {
+              "id": "D",
+              "label": "holding a piece of the moon HINTS AND KEYWORDS"
+            }
+          ],
+          "answer": "D",
+          "explanation": "DI had a hammer and I hit a chunk of it – and it came off in my hand – a piece the size of a small melon"
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test2-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 21-30",
+      "instruction": "You will hear five short extracts in which people are talking about an occasion when they came into contact with a well-known celebrity.",
+      "audioUrl": "/catalog/listening/cae-c1-test2/cae-listening-test-01-part-4.mp3",
+      "transcript": "**Speaker 1:** I was a hotel receptionist and Lenny Grade, the film producer, came rushing in one night to say he had a very important meeting in the morning. He was quite worked up about it and kept stressing how vital it was that he had an 8 o’clock alarm call. At the time I remember finding him quite patronising, because he felt he must keep repeating his request as if I was an idiot **[26]**. I was doing an overnight shift and, to cut a long story short, I was having coffee before heading home when there was a commotion by the lift and he came sprinting past swearing. I looked at my watch and it was 9.15 – it had totally slipped my mind to wake him up **[21]**. **Speaker 2:** I used to be a chauffeur ferrying around various stars to events. My most tense experience was the time I took Stan Lane to the premiere of his film. The tension began when the company gave me an address but I ended up on the other side of London **[22]**, 15 minutes before I was due to pick him up. It was a complete catastrophe. I finally fetched him, then I ended up going through red lights and speeding, while he was panicking about being late and asking to be let out so he could get the tube. He went right over the top actually, as if it was the end of the world **[27]**, even though I kept telling him we’d make it on time. **Speaker 3:** I served the tennis player Tina Sherwood with lots of fruit and vegetables in a shop in Wimbledon during the tennis tournament one year. The players used to come in and buy huge amounts of stuff to keep them going. She bought so much she was paying by credit card. I suppose she thought she didn’t have to sign the slip because she was so famous, but I made her do it **[23]**. She looked quite taken aback at the time, but after that, whenever I saw her in the street, she’d stop me to ask how I was. I could be wrong but I reckon she realised that, no matter how famous you are, there are still rules that apply to everyone **[28]**. **Speaker 4:** I was the manager of a nightclub and one night this enormous car drew up outside the club with an extremely famous rock star in the back. His two bodyguards came up to the door and asked if they could come in and look around. I let them in, they checked out the club and reported back to him in the car. Then he came over and said that he would like to come in and could I arrange to have a special area cleared for him? As if… I mean, what made him think he could go to a crowded place like that and be kept apart from everyone else **[24, 29]**? **Speaker 5:** I served champagne and dinner at the film star Lena Leonard’s flat once. It was a party for close family and friends and she came to the door wearing no make-up, then disappeared for two hours while we got things ready and came back into the kitchen looking a million dollars. I wandered around her flat pouring champagne for her and her guests. She gave me a very generous tip afterwards, which came as a bit of a shock **[25]** because every other time I’d waited on stars they’d turned out to be rather mean. She was quite ordinary – for such a mega-star – and she didn’t seem to feel she had to put on an act or anything, she was just being herself **[30]**, I guess.",
+      "matchingDualTask": true,
+      "taskOneInstruction": "For questions 21-25, choose the option which best describes each speaker.",
+      "taskTwoInstruction": "For questions 26-30, choose the option which best describes each speaker.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test2-q-21",
+          "number": 21,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "I failed to recognise the person."
+            },
+            {
+              "id": "B",
+              "label": "I realised I had forgotten something."
+            },
+            {
+              "id": "C",
+              "label": "I insisted on something."
+            },
+            {
+              "id": "D",
+              "label": "I was upset by personal criticism."
+            },
+            {
+              "id": "E",
+              "label": "I had been given incorrect information."
+            },
+            {
+              "id": "F",
+              "label": "I was pleasantly surprised."
+            },
+            {
+              "id": "G",
+              "label": "I refused a request."
+            },
+            {
+              "id": "H",
+              "label": "I was amused by something."
+            }
+          ],
+          "answer": "B",
+          "explanation": "BI looked at my watch and it was 9.15 – it had totally slipped my mind to wake him up",
+          "context": "Speaker 1"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test2-q-22",
+          "number": 22,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "I failed to recognise the person."
+            },
+            {
+              "id": "B",
+              "label": "I realised I had forgotten something."
+            },
+            {
+              "id": "C",
+              "label": "I insisted on something."
+            },
+            {
+              "id": "D",
+              "label": "I was upset by personal criticism."
+            },
+            {
+              "id": "E",
+              "label": "I had been given incorrect information."
+            },
+            {
+              "id": "F",
+              "label": "I was pleasantly surprised."
+            },
+            {
+              "id": "G",
+              "label": "I refused a request."
+            },
+            {
+              "id": "H",
+              "label": "I was amused by something."
+            }
+          ],
+          "answer": "E",
+          "explanation": "EThe tension began when the company gave me an address but I ended up on the other side of London",
+          "context": "Speaker 2"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test2-q-23",
+          "number": 23,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "I failed to recognise the person."
+            },
+            {
+              "id": "B",
+              "label": "I realised I had forgotten something."
+            },
+            {
+              "id": "C",
+              "label": "I insisted on something."
+            },
+            {
+              "id": "D",
+              "label": "I was upset by personal criticism."
+            },
+            {
+              "id": "E",
+              "label": "I had been given incorrect information."
+            },
+            {
+              "id": "F",
+              "label": "I was pleasantly surprised."
+            },
+            {
+              "id": "G",
+              "label": "I refused a request."
+            },
+            {
+              "id": "H",
+              "label": "I was amused by something."
+            }
+          ],
+          "answer": "C",
+          "explanation": "CI suppose she thought she didn’t have to sign the slip because she was so famous, but I made her do it",
+          "context": "Speaker 3"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test2-q-24",
+          "number": 24,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "I failed to recognise the person."
+            },
+            {
+              "id": "B",
+              "label": "I realised I had forgotten something."
+            },
+            {
+              "id": "C",
+              "label": "I insisted on something."
+            },
+            {
+              "id": "D",
+              "label": "I was upset by personal criticism."
+            },
+            {
+              "id": "E",
+              "label": "I had been given incorrect information."
+            },
+            {
+              "id": "F",
+              "label": "I was pleasantly surprised."
+            },
+            {
+              "id": "G",
+              "label": "I refused a request."
+            },
+            {
+              "id": "H",
+              "label": "I was amused by something."
+            }
+          ],
+          "answer": "G",
+          "explanation": "GAs if… I mean, what made him think he could go to a crowded place like that and be kept apart from everyone else",
+          "context": "Speaker 4"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test2-q-25",
+          "number": 25,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "I failed to recognise the person."
+            },
+            {
+              "id": "B",
+              "label": "I realised I had forgotten something."
+            },
+            {
+              "id": "C",
+              "label": "I insisted on something."
+            },
+            {
+              "id": "D",
+              "label": "I was upset by personal criticism."
+            },
+            {
+              "id": "E",
+              "label": "I had been given incorrect information."
+            },
+            {
+              "id": "F",
+              "label": "I was pleasantly surprised."
+            },
+            {
+              "id": "G",
+              "label": "I refused a request."
+            },
+            {
+              "id": "H",
+              "label": "I was amused by something."
+            }
+          ],
+          "answer": "F",
+          "explanation": "FShe gave me a very generous tip afterwards, which came as a bit of a shock.",
+          "context": "Speaker 5"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test2-q-26",
+          "number": 26,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "He/She became more agitated than necessary."
+            },
+            {
+              "id": "B",
+              "label": "He/She enjoyed causing trouble."
+            },
+            {
+              "id": "C",
+              "label": "He/She appeared totally at ease."
+            },
+            {
+              "id": "D",
+              "label": "He/She expected too much privacy."
+            },
+            {
+              "id": "E",
+              "label": "He/She seemed insincere."
+            },
+            {
+              "id": "F",
+              "label": "He/She wasn’t able to cope with fame."
+            },
+            {
+              "id": "G",
+              "label": "He/She talked down to me."
+            },
+            {
+              "id": "H",
+              "label": "He/She eventually accepted the regulations."
+            }
+          ],
+          "answer": "G",
+          "explanation": "GAt the time I remember finding him quite patronising, because he felt he must keep repeating his request as if I was an idiot",
+          "context": "Speaker 1"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test2-q-27",
+          "number": 27,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "He/She became more agitated than necessary."
+            },
+            {
+              "id": "B",
+              "label": "He/She enjoyed causing trouble."
+            },
+            {
+              "id": "C",
+              "label": "He/She appeared totally at ease."
+            },
+            {
+              "id": "D",
+              "label": "He/She expected too much privacy."
+            },
+            {
+              "id": "E",
+              "label": "He/She seemed insincere."
+            },
+            {
+              "id": "F",
+              "label": "He/She wasn’t able to cope with fame."
+            },
+            {
+              "id": "G",
+              "label": "He/She talked down to me."
+            },
+            {
+              "id": "H",
+              "label": "He/She eventually accepted the regulations."
+            }
+          ],
+          "answer": "A",
+          "explanation": "AHe went right over the top actually, as if it was the end of the world",
+          "context": "Speaker 2"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test2-q-28",
+          "number": 28,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "He/She became more agitated than necessary."
+            },
+            {
+              "id": "B",
+              "label": "He/She enjoyed causing trouble."
+            },
+            {
+              "id": "C",
+              "label": "He/She appeared totally at ease."
+            },
+            {
+              "id": "D",
+              "label": "He/She expected too much privacy."
+            },
+            {
+              "id": "E",
+              "label": "He/She seemed insincere."
+            },
+            {
+              "id": "F",
+              "label": "He/She wasn’t able to cope with fame."
+            },
+            {
+              "id": "G",
+              "label": "He/She talked down to me."
+            },
+            {
+              "id": "H",
+              "label": "He/She eventually accepted the regulations."
+            }
+          ],
+          "answer": "H",
+          "explanation": "HI could be wrong but I reckon she realised that, no matter how famous you are, there are still rules that apply to everyone",
+          "context": "Speaker 3"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test2-q-29",
+          "number": 29,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "He/She became more agitated than necessary."
+            },
+            {
+              "id": "B",
+              "label": "He/She enjoyed causing trouble."
+            },
+            {
+              "id": "C",
+              "label": "He/She appeared totally at ease."
+            },
+            {
+              "id": "D",
+              "label": "He/She expected too much privacy."
+            },
+            {
+              "id": "E",
+              "label": "He/She seemed insincere."
+            },
+            {
+              "id": "F",
+              "label": "He/She wasn’t able to cope with fame."
+            },
+            {
+              "id": "G",
+              "label": "He/She talked down to me."
+            },
+            {
+              "id": "H",
+              "label": "He/She eventually accepted the regulations."
+            }
+          ],
+          "answer": "D",
+          "explanation": "DAs if… I mean, what made him think he could go to a crowded place like that and be kept apart from everyone else",
+          "context": "Speaker 4"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test2-q-30",
+          "number": 30,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "He/She became more agitated than necessary."
+            },
+            {
+              "id": "B",
+              "label": "He/She enjoyed causing trouble."
+            },
+            {
+              "id": "C",
+              "label": "He/She appeared totally at ease."
+            },
+            {
+              "id": "D",
+              "label": "He/She expected too much privacy."
+            },
+            {
+              "id": "E",
+              "label": "He/She seemed insincere."
+            },
+            {
+              "id": "F",
+              "label": "He/She wasn’t able to cope with fame."
+            },
+            {
+              "id": "G",
+              "label": "He/She talked down to me."
+            },
+            {
+              "id": "H",
+              "label": "He/She eventually accepted the regulations."
+            }
+          ],
+          "answer": "C",
+          "explanation": "Cshe didn’t seem to feel she had to put on an act or anything, she was just being herself",
+          "context": "Speaker 5"
+        }
+      ]
+    }
+  ],
+  "catalogSlug": "cae-c1-test2",
+  "catalogBase": "/catalog/listening/cae-c1-test2"
+}

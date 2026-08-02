@@ -1,0 +1,845 @@
+{
+  "id": "catalog-listening-cae-c1-test6",
+  "title": "CAE Listening Test 6",
+  "durationMinutes": 40,
+  "bandHint": "C1 Advanced Listening · 4 parts · 30 câu",
+  "examType": "cae",
+  "examMode": "practice",
+  "parts": [
+    {
+      "id": "catalog-listening-cae-c1-test6-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1-6",
+      "instruction": "You will hear three different extracts. For questions 1-6, choose the answer (A, B or C) which fits best",
+      "audioUrl": "/catalog/listening/cae-c1-test6/cae-listening-test-05-part-1.mp3",
+      "transcript": "**Gordon:** Annabelle, you saw A Secret Place the other day, didn’t you? **Annabelle:** I did. Interesting, but the action’s very patchy – it falls apart here and there. **Gordon:** There isn’t a thread you can follow all the way through **[1]**, is there? I can see what the director… **Annabelle: **Yoshiki Muto. **Gordon:** Yeah. I can see what he’s trying to do – it’s a complex layering of detail, but it just doesn’t come off. **Annabelle: **Well, it’s a brave attempt. It works for me. Although I have to say, I still really prefer the original novel with its very delicate touch. **Gordon:** I think, though, the film version taps into our emotions more. But what about the ending? **Annabelle: **I’d have enjoyed it more if it hadn’t been for that powerful, pounding rock music, which was obviously supposed to emphasise what was happening on screen. But I did like the way I was on the verge of laughing, then almost crying, for that final two or three minutes. Very well done **[2]**. **Gordon:** Not that it really appeared to sort anything out for our hero. **Annabelle: ** Presumably he’ll turn up in a sequel soon, with the same old dilemma! **Gordon: **Look forward to that then! **Interviewer:** So, Alan, what’s the best way to get good public architecture? **Alan:** Well, people don’t want to be challenged by architecture, that’s understandable in a way; I’m not one for saying necessarily that public buildings are an appropriate area where people should have a vote to say that this building should go ahead or not. Many of our greatest and most glorious buildings wouldn’t exist if that happened. Take St Paul’s Cathedral in London – at the time, people were very antagonistic and hated its horrid foreign style. Now everyone adores it **[3]**; it’s a landmark, a sort of emblem of the city, that wouldn’t have existed if public opinion had had its way. **Interviewer:** Do other countries do better than us – either in terms of imagination, or in terms of the kind of decision-making we’ve been talking about? **Alan:** Yes they do – in recent history anyway. The Netherlands is a prime example. A number of the world’s leading architects happen to come from there, but the important thing is that the people are very knowledgeable; they learn about architecture in school **[4]**. They do have a good record for town-planning as well, but that’s hardly the point. **Interviewer:** Why did you decide to publicise climate change in this way? **Lorna:** Well, I was really upset about some countries’ failure to sign up to pollution agreements **[5]**; it felt like the science wasn’t getting through to the politicians, so I decided to look into what I personally could do. That led me to dream up a cartoon character called Mr Carbon – we all know somebody like him – he’s climate-ignorant and makes no effort to save energy. Factories are the obvious villains, of course, but I couldn’t do much about them. **Interviewer:** So are we going to see him in scenes like we get in disaster movies? **Lorna:** That’s pretty unlikely – you need a lot of alarmist nonsense to make a box office success. But the reality certainly gives cause for concern. **Interviewer:** So you came up with the idea of another cartoon character, Mrs Green. **Lorna:** Yes – now she pays attention to little things, uses low-energy light bulbs, doesn’t leave the TV on standby, goes in for recycling. And, can you believe it, as well as making a huge difference to her climate impact **[6]**, she’ll save one hundred and fifty thousand dollars over her lifetime. **Interviewer:** That’s incredible!",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test6-q-1",
+          "number": 1,
+          "type": "multiple-choice",
+          "prompt": "What do Gordon and Annabelle agree about?",
+          "options": [
+            {
+              "id": "A",
+              "label": "The film lacks a coherent storyline"
+            },
+            {
+              "id": "B",
+              "label": "The director was over-ambitious in his aims"
+            },
+            {
+              "id": "C",
+              "label": "The book which the film was based on is far subtler"
+            }
+          ],
+          "answer": "A",
+          "explanation": "AAnnabelle: I did. Interesting, but the action’s very patchy – it falls apart here and there. Gordon: There isn’t a thread you can follow all the way through [1], is there? I can see what the director…"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test6-q-2",
+          "number": 2,
+          "type": "multiple-choice",
+          "prompt": "What does Annabelle think about the film’s ending?",
+          "options": [
+            {
+              "id": "A",
+              "label": "It is greatly enhanced by the musical soundtrack"
+            },
+            {
+              "id": "B",
+              "label": "It strikes a good balance between humour and tragedy"
+            },
+            {
+              "id": "C",
+              "label": "It is a clever way of solving a character’s problem"
+            }
+          ],
+          "answer": "B",
+          "explanation": "BAnnabelle: But I did like the way I was on the verge of laughing, then almost crying, for that final two or three minutes. Very well done"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test6-q-3",
+          "number": 3,
+          "type": "multiple-choice",
+          "prompt": "Alan refers to St Paul’s Cathedral in London because",
+          "options": [
+            {
+              "id": "A",
+              "label": "it is a building of outstanding beauty"
+            },
+            {
+              "id": "B",
+              "label": "it retains a powerful symbolism"
+            },
+            {
+              "id": "C",
+              "label": "it met with disapproval at first"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CAlan: Take St Paul’s Cathedral in London – at the time, people were very antagonistic and hated its horrid foreign style. Now everyone adores it"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test6-q-4",
+          "number": 4,
+          "type": "multiple-choice",
+          "prompt": "How does Alan account for the success of public architecture in the Netherlands?",
+          "options": [
+            {
+              "id": "A",
+              "label": "People there are very well-informed about architecture"
+            },
+            {
+              "id": "B",
+              "label": "Decision-making about architecture is well organised there"
+            },
+            {
+              "id": "C",
+              "label": "Many of the world’s leading architects happen to come from there"
+            }
+          ],
+          "answer": "A",
+          "explanation": "AAlan: Yes they do – in recent history anyway. The Netherlands is a prime example. A number of the world’s leading architects happen to come from there, but the important thing is that the people are very knowledgeable; they learn about architecture in school"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test6-q-5",
+          "number": 5,
+          "type": "multiple-choice",
+          "prompt": "What prompted Lorna to begin her latest project?",
+          "options": [
+            {
+              "id": "A",
+              "label": "dismay over a colleague’s behaviour"
+            },
+            {
+              "id": "B",
+              "label": "frustration at government inactivity"
+            },
+            {
+              "id": "C",
+              "label": "concern about industrial pollution"
+            }
+          ],
+          "answer": "B",
+          "explanation": "BLorna: Well, I was really upset about some countries’ failure to sign up to pollution agreements;"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test6-q-6",
+          "number": 6,
+          "type": "multiple-choice",
+          "prompt": "What is Lorna’s attitude to climate change?",
+          "options": [
+            {
+              "id": "A",
+              "label": "She believes individuals can help to combat it"
+            },
+            {
+              "id": "B",
+              "label": "She considers its dangers have been exaggerated"
+            },
+            {
+              "id": "C",
+              "label": "She places most emphasis on its economic implications HINTS AND KEYWORDS"
+            }
+          ],
+          "answer": "A",
+          "explanation": "ALorna: Yes – now she pays attention to little things, uses low-energy light bulbs, doesn’t leave the TV on standby, goes in for recycling. And, can you believe it, as well as making a huge difference to her climate impact..."
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test6-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 7-14",
+      "instruction": "You will hear a mountaineer called Stella Prime talking about her experience of climbing Mount Everest in the Himalayas. For questions 7-14, complete the sentences.",
+      "audioUrl": "/catalog/listening/cae-c1-test6/cae-listening-test-05-part-2.mp3",
+      "transcript": "**Stella Prime:** Hello. I’m Stella Prime and I’m a mountaineer. I’m here to tell you about climbing Mount Everest in the Himalayas – the world’s highest mountain. I was first bitten by the climbing bug when, as a journalist, I accompanied an expedition on the northeast ridge of Everest some years back. I wanted to write about what made mountaineers tick, and over the couple of months I spent with the expedition, I began to understand the sense of freedom and achievement that mountaineering brings **[7]**, and I did lots of personal learning and exploration too. I think they were the happiest two months of my life. Over the next three and a half years, I honed my newly acquired climbing skills on various mountains all over the world. People say: ‘Weren’t your family surprised by this new interest?’ Well, they weren’t, because I’d already done numerous similar activities of the sort people like to call ‘adventure sports’ **[8]**, you know, hang-gliding, scuba diving and so on. Anyway, eventually I gave up my job, let out my flat and joined the British Everest Expedition. To prepare physically for this, I trained at my local gym – that was the easy part – the bit I found trickier was the mental preparation **[9]** and I’d learnt that, whilst you have to be physically fit, that is really only half the story. And there were lots of things that frightened me about Everest. One of them was the icefall that you have to climb through **[10]**. A friend asked if there was any way I could prepare myself for it. I thought: What can I do – put myself in a fridge and look at lumps of ice?’ Everest is certainly not a place for cowards, and it’s also certainly not a place for life’s luxuries. You don’t carry anything that isn’t necessary because weight multiplies at high altitudes. The first time I went, as a journalist, I carried my perfume all the way, but it wasn’t necessary **[11]**. You can forget baths and showers on a mountain as well. On my second trip, I didn’t even take my toothbrush above seven thousand metres **[12]**. The only source of water is melted snow. To melt snow you need fuel and fuel is heavy, so you don’t melt snow unless you’re going to drink it. The question I’m asked most often is: ‘How did you feel when you reached the summit?’ Well, I still get emotional when I think about it. Neither of the two climbers with me had been to the top before either. It was tremendously exciting obviously, but I think the overriding thing we all felt was a great sense of satisfaction **[13]**. That is the thing that stays with me when I look back. Since then, I’ve gone on to climb a number of other summits and I plan to tackle Mount Fuji later this year. And of course I’ve got my new career in TV – as a presenter on the programme Tomorrow’s World. I’m in demand on the lecturing circuit and my book about my ascent of Everest – Aiming High – is a best-seller **[14]**. So, that’s my story. Now, does anyone have any questions?",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test6-q-7",
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "On her first expedition, Stella became aware of feelings of ________ connected with mountaineering.",
+          "options": [],
+          "answer": "freedom, achievement (in either order)",
+          "explanation": "freedom, achievement (in either order)... I wanted to write about what made mountaineers tick, and over the couple of months I spent with the expedition, I began to understand the sense of freedom and achievement that mountaineering brings"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test6-q-8",
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "Stella had previously taken part in several so-called ________ .",
+          "options": [],
+          "answer": "adventure sports",
+          "explanation": "adventure sportsPeople say: ‘Weren’t your family surprised by this new interest?’ Well, they weren’t, because I’d already done numerous similar activities of the sort people like to call ‘adventure sports’..."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test6-q-9",
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "Stella found the ________ for climbing Everest particularly hard.",
+          "options": [],
+          "answer": "mental preparation",
+          "explanation": "mental preparationTo prepare physically for this, I trained at my local gym – that was the easy part – the bit I found trickier was the mental preparation..."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test6-q-10",
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "On her second expedition, Stella was worried about the ________",
+          "options": [],
+          "answer": "ice (fall)",
+          "explanation": "ice / fallAnd there were lots of things that frightened me about Everest. One of them was the icefall that you have to climb through."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test6-q-11",
+          "number": 11,
+          "type": "gap-fill",
+          "prompt": "Stella had regretted taking ________ with her on her first expedition.",
+          "options": [],
+          "answer": "perfume",
+          "explanation": "perfume The first time I went, as a journalist, I carried my perfume all the way, but it wasn’t necessary"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test6-q-12",
+          "number": 12,
+          "type": "gap-fill",
+          "prompt": "Stella says that she didn’t take a ________ with her beyond a certain altitude.",
+          "options": [],
+          "answer": "toothbrush",
+          "explanation": "toothbrushYou can forget baths and showers on a mountain as well. On my second trip, I didn’t even take my toothbrush above seven thousand metres"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test6-q-13",
+          "number": 13,
+          "type": "gap-fill",
+          "prompt": "Stella uses the word ________ to describe the feelings of her party on reaching the summit.",
+          "options": [],
+          "answer": "satisfaction",
+          "explanation": "satisfactionIt was tremendously exciting obviously, but I think the overriding thing we all felt was a great sense of satisfaction"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test6-q-14",
+          "number": 14,
+          "type": "gap-fill",
+          "prompt": "Stella’s book about her experience is entitled ________ .",
+          "options": [],
+          "answer": "Aiming High",
+          "explanation": "Aiming High I’m in demand on the lecturing circuit and my book about my ascent of Everest – Aiming High – is a best-seller."
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test6-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 15-20",
+      "instruction": "You will hear part of an interview with a man called Tony Elliott who founded a magazine called Time Out. For questions 15-20, choose the answer (A, B, C or D) which fits best according to what you hear.",
+      "audioUrl": "/catalog/listening/cae-c1-test6/cae-listening-test-05-part-3.mp3",
+      "transcript": "**Interviewer:** OK, welcome back to the programme. Well, for the hundred thousand or more people in London who buy every issue, Time Out is an invaluable guide to what’s going on in the city. In its lists they can find everything from films, plays, concerts and nightclubs to exhibitions, sports, opera, dance and special events. And I’m talking now to Tony Elliott, the man who started it all, back in 1968. Tony, what gave you the idea? **Tony:** Well, back then it was very hard to find out about those things. There were magazines; there was a magazine called What’s On, which was a weekly, which is still around – rather, kind of, conventional in its approach, and you could look in the evening paper or you could look in the music press, uhm, to get information, but nothing covered everything all in one place **[15]**. So I perceived there was a gap and I suppose to some extent I just produced a magazine for myself, and it turned out a lot of other people wanted the same thing. **Interviewer:** At first, the magazine was just a sheet sold hand to hand in the street, wasn’t it? **Tony:** Well, I started with a few like-minded people and we did actually put it into newsagents – people do seem to think we started as a bunch of idealistic amateurs, but I have to say that I think we were actually pretty professional from day one. It was coming out every three weeks so I’d spend three or four days actually going round something like three hundred newsagents. The selling in the street was partly to do with getting copies sold so that we actually had some cash, but it also had this kind of in-built market research thing where you’d show people what you were doing and they’d go, ‘Oh really’ – and a lot of people said, ‘Oh, that’s a modern What’s On, that’s what we’ve been looking for.’ **Interviewer:** So, did you have any publishing experience before this? **Tony:** Hmm, I did a regular column for a magazine at university which was quite serious. It used to do single themes per issue, like provincial theatre or education or racialism, and then when I took it over I promptly changed it into being a kind of contemporary arts magazine **[16]**. We did interviews with artists, rock stars, writers, people like that. **Interviewer:** Were you still at university when you started Time Out? **Tony:** Yeah, technically I was actually on holiday for the summer vacation, and as far as the university was concerned, I was supposed to be going to France to teach. I think I’d told them I would do, because, you know, you go away for a term or a year if you’re studying French, and uhm, then I started doing the magazine. **Interviewer:** And, er, didn’t go back. **Tony:** Yes, well, there was a point when I suddenly realised that I was doing what I wanted to do **[17]**. **Interviewer:** So it soon took off, didn’t it? I mean, it was monthly first and then it went weekly, didn’t it, in a very short time? **Tony:** Well, it started monthly and then we went three-weekly – for some reason that was the highest frequency we could do. Then we went fortnightly, which is quite a valid frequency for publication, and then inevitably we went weekly – stimulated, I have to say, by the threat of some competition from some people who were starting a similar publication **[18]**. **Interviewer:** Oh, yes, I was going to say, someone else must have spotted the gap. I mean you identified it, but there must have been big publishing houses who thought, ‘Hang on, we can have some of this too.’ **Tony:** I think the truth is nobody really realised what the significance of the magazine was, ’cause in a sense it started very tiny, very small, and then built up and built up and a lot of publishers and a lot of advertisers also were very, uhm, dismissive of our readers. I mean, still, even today, you get occasional accusations like, ‘It’s not a particularly significant readership’ and ‘A lot of students read it, don’t they? **[19]**’, things like that. People just didn’t realise that, uhm, that we were creating a readership that was very significant. **Interviewer:** The readership’s grown up with you as well, hasn’t it? A lot of people, I imagine, who were buying it as students in the sixties are now buying it as parents of teenage children these days. **Tony:** That would imply our readership’s now older, which isn’t the case. And although the numbers have expanded, well it’s true that there are more people over thirty-five buying it than there were when it started. The readership hasn’t really changed **[20]**; it’s still basically intelligent young people who do things. **Interviewer:** OK, well, we’ll take a quick break now and then I’ll be back to talk to Tony some more…",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test6-q-15",
+          "number": 15,
+          "type": "multiple-choice",
+          "prompt": "Tony says that Time Out was unlike other publications in 1968 because",
+          "options": [
+            {
+              "id": "A",
+              "label": "it was written by one person"
+            },
+            {
+              "id": "B",
+              "label": "information was more accurate"
+            },
+            {
+              "id": "C",
+              "label": "it had a comprehensive list of events"
+            },
+            {
+              "id": "D",
+              "label": "it was in the form of a magazine"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CTony: Well, back then it was very hard to find out about those things. There were magazines; there was a magazine called What’s On, which was a weekly, which is still around – rather, kind of, conventional in its approach, and you could look in the evening paper or you could look in the music press, uhm, to get information, but nothing covered everything all in one place"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test6-q-16",
+          "number": 16,
+          "type": "multiple-choice",
+          "prompt": "What experience did Tony have of publishing?",
+          "options": [
+            {
+              "id": "A",
+              "label": "He had worked for What’s On"
+            },
+            {
+              "id": "B",
+              "label": "He had written numerous articles"
+            },
+            {
+              "id": "C",
+              "label": "He had transformed an existing magazine"
+            },
+            {
+              "id": "D",
+              "label": "He had started a student magazine"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CTony: ... It used to do single themes per issue, like provincial theatre or education or racialism, and then when I took it over I promptly changed it into being a kind of contemporary arts magazine"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test6-q-17",
+          "number": 17,
+          "type": "multiple-choice",
+          "prompt": "Why did Tony leave university?",
+          "options": [
+            {
+              "id": "A",
+              "label": "He wanted to go to France"
+            },
+            {
+              "id": "B",
+              "label": "He didn’t have time to study"
+            },
+            {
+              "id": "C",
+              "label": "He had failed his French examinations"
+            },
+            {
+              "id": "D",
+              "label": "He had found an alternative career"
+            }
+          ],
+          "answer": "D",
+          "explanation": "DInterviewer: And, er, didn’t go back.Tony: Yes, well, there was a point when I suddenly realised that I was doing what I wanted to do"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test6-q-18",
+          "number": 18,
+          "type": "multiple-choice",
+          "prompt": "According to Tony, what led to the magazine becoming a weekly?",
+          "options": [
+            {
+              "id": "A",
+              "label": "some market research"
+            },
+            {
+              "id": "B",
+              "label": "the quantity of information"
+            },
+            {
+              "id": "C",
+              "label": "technical improvements"
+            },
+            {
+              "id": "D",
+              "label": "external pressure"
+            }
+          ],
+          "answer": "D",
+          "explanation": "DTony: Then we went fortnightly, which is quite a valid frequency for publication, and then inevitably we went weekly – stimulated, I have to say, by the threat of some competition from some people who were starting a similar publication"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test6-q-19",
+          "number": 19,
+          "type": "multiple-choice",
+          "prompt": "Tony says the big publishers were not interested in this type of magazine because",
+          "options": [
+            {
+              "id": "A",
+              "label": "it was popular with students"
+            },
+            {
+              "id": "B",
+              "label": "it was considered too expensive"
+            },
+            {
+              "id": "C",
+              "label": "it came out too frequently"
+            },
+            {
+              "id": "D",
+              "label": "it threatened their publications"
+            }
+          ],
+          "answer": "A",
+          "explanation": "ATony: I mean, still, even today, you get occasional accusations like, ‘It’s not a particularly significant readership’ and ‘A lot of students read it, don’t they?"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test6-q-20",
+          "number": 20,
+          "type": "multiple-choice",
+          "prompt": "Tony says that, compared to 1968, people who buy Time Out today are",
+          "options": [
+            {
+              "id": "A",
+              "label": "more intelligent and active"
+            },
+            {
+              "id": "B",
+              "label": "more likely to be parents"
+            },
+            {
+              "id": "C",
+              "label": "more or less the same age"
+            },
+            {
+              "id": "D",
+              "label": "more mature and professional HINTS AND KEYWORDS"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CTony: That would imply our readership’s now older, which isn’t the case. And although the numbers have expanded, well it’s true that there are more people over thirty-five buying it than there were when it started. The readership hasn’t really changed;"
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test6-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 21-30",
+      "instruction": "You will hear five short extracts in which people are talking about things that have recently happened to them at work.",
+      "audioUrl": "/catalog/listening/cae-c1-test6/cae-listening-test-05-part-4.mp3",
+      "transcript": "**Speaker 1:** So the Head of Department called me in and launched into this long speech about how my messing up the arrangements for his meeting had created all sorts of trouble for him **[21]**. While he was going on about it, I glanced at the bit of paper in front of him and I saw the signature and I realised it hadn’t been me. I knew it wasn’t like me anyway. I mean, I get things wrong but only trivial things. It’s going to be hilarious when he realises what a fool he’s made of himself **[26]**. I doubt I’ll be able to keep a straight face. **Speaker 2:** Yeah, I was busy and the Area Manager turned up. Well, I wasn’t exactly thrilled to see him; it’s hardly ever good news **[22]**. Anyway, he wanted me to start on some other project. I’d been warned that was coming so I didn’t have much trouble coming up with reasons for turning it down. He said I’d regret it later but I said I didn’t think so, and he left it at that. The thing is, after all these years with the firm, all I get asked to do are the things no one else fancies. It’s really got me down – I joined with such high hopes and now I’m so disheartened, it’s such a shame **[27]**. **Speaker 3:** The ridiculous thing is, I’d always known she couldn’t be trusted, but it’s in my nature, I guess, to speak my mind. Still, I shouldn’t have confided in her what I really thought of the job. It’s just that when she asked me, it caught me unawares. It’s got me into a lot of trouble now **[23]**, because of course she’s spread it round everyone else. I should just laugh it off, but that’s easier said than done. She’d better not come near me for a while, the way I feel I’d give her a piece of my mind. It infuriates me **[28]** when people do that kind of thing. **Speaker 4:** Jack came to my office today – we used to get on really well till they moved him upstairs and I hardly see him now – and he said, ‘Hey, there’s an opening in our office now. I’ve fixed it so you can have it.’ Well, I didn’t know what to say – it came right out of the blue **[24]**. I mean, he’s always done me favours and been kind to me but I can’t think of anything worse than working there. So I feel awful about letting him down after all he’s done for me **[29]**, but I’m going to turn it down because it’s my career, isn’t it? **Speaker 5:** Well, I tried to be my usual tactful self but he took offence. ‘So you can’t bear to come on this trip with me?’ he asked and I said, ‘It’s not that, it’s just that I’ve been to so many conferences lately, I want a break from them.’ And he said, ‘But this is the most important of the lot – don’t be so stupid.’ If I’d reacted to that, we’d have had an enormous row, so I didn’t bother **[25]**. That’s the sort of thing that tends to happen with him. He’s either all over you or he can’t stand you. That’s just the way it is – I won’t let it bother me, what would be the point? There’s nothing I can do about it **[30]**.",
+      "matchingDualTask": true,
+      "taskOneInstruction": "For questions 21-25, choose the option which best describes each speaker.",
+      "taskTwoInstruction": "For questions 26-30, choose the option which best describes each speaker.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test6-q-21",
+          "number": 21,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "receiving an unwelcome visitor"
+            },
+            {
+              "id": "B",
+              "label": "being blamed for something"
+            },
+            {
+              "id": "C",
+              "label": "making a terrible mistake"
+            },
+            {
+              "id": "D",
+              "label": "receiving an unexpected offer"
+            },
+            {
+              "id": "E",
+              "label": "doing something uncharacteristic"
+            },
+            {
+              "id": "F",
+              "label": "resolving a misunderstanding"
+            },
+            {
+              "id": "G",
+              "label": "avoiding an argument"
+            },
+            {
+              "id": "H",
+              "label": "changing an opinion of someone"
+            }
+          ],
+          "answer": "B",
+          "explanation": "BSo the Head of Department called me in and launched into this long speech about how my messing up the arrangements for his meeting had created all sorts of trouble for him",
+          "context": "Speaker 1"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test6-q-22",
+          "number": 22,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "receiving an unwelcome visitor"
+            },
+            {
+              "id": "B",
+              "label": "being blamed for something"
+            },
+            {
+              "id": "C",
+              "label": "making a terrible mistake"
+            },
+            {
+              "id": "D",
+              "label": "receiving an unexpected offer"
+            },
+            {
+              "id": "E",
+              "label": "doing something uncharacteristic"
+            },
+            {
+              "id": "F",
+              "label": "resolving a misunderstanding"
+            },
+            {
+              "id": "G",
+              "label": "avoiding an argument"
+            },
+            {
+              "id": "H",
+              "label": "changing an opinion of someone"
+            }
+          ],
+          "answer": "A",
+          "explanation": "AYeah, I was busy and the Area Manager turned up. Well, I wasn’t exactly thrilled to see him; it’s hardly ever good news.",
+          "context": "Speaker 2"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test6-q-23",
+          "number": 23,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "receiving an unwelcome visitor"
+            },
+            {
+              "id": "B",
+              "label": "being blamed for something"
+            },
+            {
+              "id": "C",
+              "label": "making a terrible mistake"
+            },
+            {
+              "id": "D",
+              "label": "receiving an unexpected offer"
+            },
+            {
+              "id": "E",
+              "label": "doing something uncharacteristic"
+            },
+            {
+              "id": "F",
+              "label": "resolving a misunderstanding"
+            },
+            {
+              "id": "G",
+              "label": "avoiding an argument"
+            },
+            {
+              "id": "H",
+              "label": "changing an opinion of someone"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CThe ridiculous thing is, I’d always known she couldn’t be trusted, but it’s in my nature, I guess, to speak my mind. Still, I shouldn’t have confided in her what I really thought of the job. It’s just that when she asked me, it caught me unawares. It’s got me into a lot of trouble now...",
+          "context": "Speaker 3"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test6-q-24",
+          "number": 24,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "receiving an unwelcome visitor"
+            },
+            {
+              "id": "B",
+              "label": "being blamed for something"
+            },
+            {
+              "id": "C",
+              "label": "making a terrible mistake"
+            },
+            {
+              "id": "D",
+              "label": "receiving an unexpected offer"
+            },
+            {
+              "id": "E",
+              "label": "doing something uncharacteristic"
+            },
+            {
+              "id": "F",
+              "label": "resolving a misunderstanding"
+            },
+            {
+              "id": "G",
+              "label": "avoiding an argument"
+            },
+            {
+              "id": "H",
+              "label": "changing an opinion of someone"
+            }
+          ],
+          "answer": "D",
+          "explanation": "DJack came to my office today – we used to get on really well till they moved him upstairs and I hardly see him now – and he said, ‘Hey, there’s an opening in our office now. I’ve fixed it so you can have it.’ Well, I didn’t know what to say – it came right out of the blue.",
+          "context": "Speaker 4"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test6-q-25",
+          "number": 25,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "receiving an unwelcome visitor"
+            },
+            {
+              "id": "B",
+              "label": "being blamed for something"
+            },
+            {
+              "id": "C",
+              "label": "making a terrible mistake"
+            },
+            {
+              "id": "D",
+              "label": "receiving an unexpected offer"
+            },
+            {
+              "id": "E",
+              "label": "doing something uncharacteristic"
+            },
+            {
+              "id": "F",
+              "label": "resolving a misunderstanding"
+            },
+            {
+              "id": "G",
+              "label": "avoiding an argument"
+            },
+            {
+              "id": "H",
+              "label": "changing an opinion of someone"
+            }
+          ],
+          "answer": "G",
+          "explanation": "GAnd he said, ‘But this is the most important of the lot – don’t be so stupid.’ If I’d reacted to that, we’d have had an enormous row, so I didn’t bother.",
+          "context": "Speaker 5"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test6-q-26",
+          "number": 26,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "amusement"
+            },
+            {
+              "id": "B",
+              "label": "anger"
+            },
+            {
+              "id": "C",
+              "label": "guilt"
+            },
+            {
+              "id": "D",
+              "label": "confusion"
+            },
+            {
+              "id": "E",
+              "label": "resignation"
+            },
+            {
+              "id": "F",
+              "label": "shock"
+            },
+            {
+              "id": "G",
+              "label": "suspicion"
+            },
+            {
+              "id": "H",
+              "label": "sadness"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A It’s going to be hilarious when he realises what a fool he’s made of himself. I doubt I’ll be able to keep a straight face",
+          "context": "Speaker 1"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test6-q-27",
+          "number": 27,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "amusement"
+            },
+            {
+              "id": "B",
+              "label": "anger"
+            },
+            {
+              "id": "C",
+              "label": "guilt"
+            },
+            {
+              "id": "D",
+              "label": "confusion"
+            },
+            {
+              "id": "E",
+              "label": "resignation"
+            },
+            {
+              "id": "F",
+              "label": "shock"
+            },
+            {
+              "id": "G",
+              "label": "suspicion"
+            },
+            {
+              "id": "H",
+              "label": "sadness"
+            }
+          ],
+          "answer": "H",
+          "explanation": "HIt’s really got me down – I joined with such high hopes and now I’m so disheartened, it’s such a shame",
+          "context": "Speaker 2"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test6-q-28",
+          "number": 28,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "amusement"
+            },
+            {
+              "id": "B",
+              "label": "anger"
+            },
+            {
+              "id": "C",
+              "label": "guilt"
+            },
+            {
+              "id": "D",
+              "label": "confusion"
+            },
+            {
+              "id": "E",
+              "label": "resignation"
+            },
+            {
+              "id": "F",
+              "label": "shock"
+            },
+            {
+              "id": "G",
+              "label": "suspicion"
+            },
+            {
+              "id": "H",
+              "label": "sadness"
+            }
+          ],
+          "answer": "B",
+          "explanation": "BShe’d better not come near me for a while, the way I feel I’d give her a piece of my mind. It infuriates me when people do that kind of thing",
+          "context": "Speaker 3"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test6-q-29",
+          "number": 29,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "amusement"
+            },
+            {
+              "id": "B",
+              "label": "anger"
+            },
+            {
+              "id": "C",
+              "label": "guilt"
+            },
+            {
+              "id": "D",
+              "label": "confusion"
+            },
+            {
+              "id": "E",
+              "label": "resignation"
+            },
+            {
+              "id": "F",
+              "label": "shock"
+            },
+            {
+              "id": "G",
+              "label": "suspicion"
+            },
+            {
+              "id": "H",
+              "label": "sadness"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CSo I feel awful about letting him down after all he’s done for me, but I’m going to turn it down because it’s my career, isn’t it?",
+          "context": "Speaker 4"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test6-q-30",
+          "number": 30,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "amusement"
+            },
+            {
+              "id": "B",
+              "label": "anger"
+            },
+            {
+              "id": "C",
+              "label": "guilt"
+            },
+            {
+              "id": "D",
+              "label": "confusion"
+            },
+            {
+              "id": "E",
+              "label": "resignation"
+            },
+            {
+              "id": "F",
+              "label": "shock"
+            },
+            {
+              "id": "G",
+              "label": "suspicion"
+            },
+            {
+              "id": "H",
+              "label": "sadness"
+            }
+          ],
+          "answer": "E",
+          "explanation": "EThat’s just the way it is – I won’t let it bother me, what would be the point? There’s nothing I can do about it.",
+          "context": "Speaker 5"
+        }
+      ]
+    }
+  ],
+  "catalogSlug": "cae-c1-test6",
+  "catalogBase": "/catalog/listening/cae-c1-test6"
+}

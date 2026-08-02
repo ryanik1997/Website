@@ -355,30 +355,35 @@
 }
 
 .pet-rw-footer__pill {
-  width: auto;
-  min-width: 10px;
-  height: auto;
+  width: var(--exam-question-size, 32px);
+  min-width: var(--exam-question-size, 32px);
+  height: var(--exam-question-size, 32px);
   padding: 0;
-  border: 0;
-  background: transparent;
-  color: #111;
-  font-size: 15px;
+  border: var(--exam-question-border-width, 2px) solid var(--exam-question-blue, #238ed0);
+  border-radius: var(--exam-question-radius, 4px);
+  background: var(--exam-question-surface, #fff);
+  color: var(--exam-question-text, #111);
+  font-size: 0.95rem;
   line-height: 1;
   cursor: pointer;
-}
-
-.pet-rw-footer__pill.is-active {
-  width: 22px;
-  height: 22px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #4aa7b5;
-  border-radius: 3px;
-  background: #e8fbff;
+  flex: 0 0 auto;
+  aspect-ratio: 1 / 1;
+}
+
+.pet-rw-footer__pill.is-active {
+  background: var(--exam-question-blue, #238ed0);
+  border-color: var(--exam-question-blue, #238ed0);
+  color: #fff;
+  font-weight: 700;
 }
 
 .pet-rw-footer__pill.is-answered:not(.is-active) {
+  background: var(--exam-question-blue-soft, #eaf5fb);
+  border-color: var(--exam-question-blue, #238ed0);
+  color: #0f5f91;
   font-weight: 700;
 }
 
@@ -1034,61 +1039,6 @@
   background: #f3f7f8;
 }
 
-/* ── Cambridge-style split bar ── */
-/* Thin vertical line (2px) with draggable ↔ handle at center */
-.pet-rw-shell.is-part-3 .ket-rw-resizer {
-  width: 14px;
-  margin: 0 -6px;
-  flex-shrink: 0;
-  align-self: stretch;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  cursor: col-resize;
-  touch-action: none;
-  position: relative;
-  z-index: 5;
-}
-
-.pet-rw-shell.is-part-3 .ket-rw-resizer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 2px;
-  transform: translateX(-50%);
-  background: #8f9395;
-}
-
-.pet-rw-shell.is-part-3 .ket-rw-resizer:hover::before,
-.pet-rw-shell.is-part-3 .ket-rw-resizer.is-dragging::before {
-  width: 2px;
-  background: #777b7d;
-}
-
-.pet-rw-shell.is-part-3 .ket-rw-resizer__grip {
-  width: 30px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  border: 1px solid #707476;
-  border-radius: 0;
-  background: #fff;
-  color: #55595b;
-  font-family: Arial, sans-serif;
-  font-size: 15px;
-  line-height: 1;
-  box-shadow: none;
-  pointer-events: none;
-  position: relative;
-  z-index: 2;
-}
 
 /* Panes — independent scroll */
 .pet-rw-shell.is-part-3 .ket-rw-pane-left {

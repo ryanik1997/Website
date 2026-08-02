@@ -1,0 +1,152 @@
+/* ── Design tokens for exam question number badges ──────────────────── */
+:root {
+  --exam-question-blue: #238ed0;
+  --exam-question-blue-hover: #197fbd;
+  --exam-question-blue-soft: #eaf5fb;
+  --exam-question-blue-focus: rgba(35, 142, 208, 0.3);
+
+  --exam-question-text: #111111;
+  --exam-question-surface: #ffffff;
+  --exam-question-disabled-border: #a8cee5;
+  --exam-question-disabled-text: #748691;
+
+  --exam-question-size: 32px;
+  --exam-question-radius: 4px;
+  --exam-question-border-width: 2px;
+}
+
+/* ── Base badge ─────────────────────────────────────────────────────── */
+.exam-question-number-badge {
+  position: relative;
+
+  width: var(--exam-question-size);
+  min-width: var(--exam-question-size);
+  height: var(--exam-question-size);
+
+  display: inline-grid;
+  place-items: center;
+
+  box-sizing: border-box;
+  padding: 0;
+
+  border: var(--exam-question-border-width) solid var(--exam-question-blue);
+  border-radius: var(--exam-question-radius);
+
+  background: var(--exam-question-surface);
+  color: var(--exam-question-text);
+
+  font: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+
+  text-align: center;
+  vertical-align: middle;
+
+  box-shadow: none;
+
+  flex: 0 0 auto;
+  aspect-ratio: 1 / 1;
+
+  transition:
+    background-color 120ms ease,
+    border-color 120ms ease,
+    color 120ms ease,
+    box-shadow 120ms ease,
+    transform 120ms ease;
+}
+
+.exam-question-number-badge__label {
+  display: block;
+  line-height: 1;
+  transform: translateY(0);
+}
+
+/* Interactive styles — only for <button> elements */
+button.exam-question-number-badge {
+  cursor: pointer;
+}
+
+button.exam-question-number-badge:hover:not(:disabled) {
+  background: var(--exam-question-blue-soft);
+  border-color: var(--exam-question-blue-hover);
+}
+
+button.exam-question-number-badge:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--exam-question-blue-focus);
+}
+
+button.exam-question-number-badge:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+/* ── State: unanswered ──────────────────────────────────────────────── */
+.exam-question-number-badge[data-state="unanswered"] {
+  background: var(--exam-question-surface);
+  border-color: var(--exam-question-blue);
+  color: var(--exam-question-text);
+}
+
+/* ── State: current/active ──────────────────────────────────────────── */
+.exam-question-number-badge[data-state="current"] {
+  background: var(--exam-question-blue);
+  border-color: var(--exam-question-blue);
+  color: #fff;
+  font-weight: 700;
+}
+
+/* ── State: answered (not active) ───────────────────────────────────── */
+.exam-question-number-badge[data-state="answered"] {
+  background: var(--exam-question-blue-soft);
+  border-color: var(--exam-question-blue);
+  color: #0f5f91;
+}
+
+/* ── State: disabled ────────────────────────────────────────────────── */
+.exam-question-number-badge[data-state="disabled"],
+.exam-question-number-badge:disabled {
+  background: var(--exam-question-surface);
+  border-color: var(--exam-question-disabled-border);
+  color: var(--exam-question-disabled-text);
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+/* ── State: correct (review/result) ─────────────────────────────────── */
+.exam-question-number-badge[data-state="correct"] {
+  background: #e9f8ef;
+  border-color: #22a35a;
+  color: #14743e;
+}
+
+/* ── State: incorrect (review/result) ───────────────────────────────── */
+.exam-question-number-badge[data-state="incorrect"] {
+  background: #fff0f0;
+  border-color: #dc4545;
+  color: #a42020;
+}
+
+/* ── Bookmark indicator ─────────────────────────────────────────────── */
+.exam-question-number-badge__bookmark {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 7px;
+  height: 7px;
+  border: 1px solid #fff;
+  border-radius: 2px;
+  background: var(--exam-question-blue);
+}
+
+/* ── 3-digit number (font reduction) ────────────────────────────────── */
+.exam-question-number-badge[data-digits="3"] {
+  font-size: 13px;
+}
+
+/* ── Dark mode (only if app already supports dark mode) ─────────────── */
+@media (prefers-color-scheme: dark) {
+  .exam-question-number-badge[data-state="unanswered"] {
+    background: var(--exam-question-surface);
+  }
+}

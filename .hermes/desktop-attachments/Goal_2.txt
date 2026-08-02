@@ -1,0 +1,504 @@
+FIX IELTS SPEAKING CARD ACTIONS + SOURCE FLOW PARITY
+
+PROJECT:
+D:\App-English-Ryan\Website
+
+TARGET ROUTE:
+http://localhost:5173/app/speaking/ielts
+
+REFERENCE SOURCE:
+https://theieltsdictionary.com/practice/speaking
+https://theieltsdictionary.com/practice/speaking/forecast-q2-2026
+
+CURRENT ISSUE:
+
+Trên dashboard IELTS Speaking hiện tại:
+
+1. Card tím bên trái “Practice Bank” và card hồng “Forecast” đang mở nội dung gần giống nhau hoặc cùng một luồng.
+2. Trên source TID:
+   - Bấm card tím bên trái sẽ mở modal “Chọn Chủ Đề” giống screenshot user gửi.
+   - Bấm card hồng Forecast sẽ mở trang Forecast Q2 2026 giống screenshot user gửi.
+3. Card Shadowing màu vàng phải link sang route đã có của app:
+   http://localhost:5173/app/shadowing
+   Không mở /app/speaking/ielts/shadowing nữa nếu user yêu cầu link về Shadowing module chính.
+4. Hai card cuối trên TID đang phát triển nên không crawl được nội dung. Hãy tự đề xuất nội dung hợp lý trong app, nhưng không giả vờ là dữ liệu crawl từ TID.
+
+==================================================
+MỤC TIÊU
+==================================================
+
+Sửa đúng action và nội dung của 6 card trên landing:
+
+A. Practice Bank card màu tím
+→ mở modal chọn chủ đề như source screenshot.
+
+B. Forecast card màu hồng
+→ mở trang /app/speaking/ielts/forecast với layout giống source Forecast Q2 2026.
+
+C. Roulette card
+→ mở /app/speaking/ielts/roulette, giữ flow quay Part 1/2/3 thật.
+
+D. Shadowing card màu vàng
+→ link tới /app/shadowing.
+
+E. Premium Speaking card màu cam
+→ nội dung tự đề xuất:
+   “Mock Interview đủ 3 Part”
+   CTA: “Bắt đầu mock test”
+   Route: /app/speaking/ielts/mock-interview/demo
+   Không claim đây là dữ liệu crawl từ TID.
+
+F. Sample Speaking card màu xanh
+→ nội dung tự đề xuất:
+   “Bài mẫu band cao”
+   CTA: “Khám phá”
+   Route: /app/speaking/ielts/samples
+   Nếu chưa có sample data thật thì hiển thị Coming Soon hoặc curated local placeholder rõ ràng.
+   Không fake bài mẫu TID.
+
+==================================================
+1. AUDIT NHANH TRƯỚC KHI SỬA
+==================================================
+
+Đọc các file hiện tại:
+
+- apps/web/src/features/speaking-ielts/SpeakingIeltsPage.tsx
+- apps/web/src/features/speaking-ielts/SpeakingMockInterviewPage.tsx
+- apps/web/src/features/speaking-ielts/speakingIeltsData.ts
+- apps/web/src/features/speaking-ielts/speakingIeltsSession.ts nếu có
+- apps/web/src/App.tsx
+- các CSS tương ứng của speaking IELTS
+
+Xác định:
+
+- handler click của từng card;
+- route đang được navigate;
+- modal component hiện có hay chưa;
+- Forecast page đang dùng data nào;
+- /app/shadowing route có tồn tại không;
+- demo mock interview route có tồn tại không;
+- samples route có tồn tại không.
+
+Không sửa bằng cách hard-code trong JSX nếu đã có route helper.
+
+==================================================
+2. CARD ACTION MAPPING BẮT BUỘC
+==================================================
+
+Sửa action rõ ràng:
+
+const cardActions = {
+  practiceBank: "open-topic-modal",
+  forecast: "/app/speaking/ielts/forecast",
+  roulette: "/app/speaking/ielts/roulette",
+  shadowing: "/app/shadowing",
+  premium: "/app/speaking/ielts/mock-interview/demo",
+  sample: "/app/speaking/ielts/samples"
+}
+
+Không để Practice Bank và Forecast dùng chung route.
+
+Không để Practice Bank navigate thẳng vào Forecast.
+
+Không để Forecast mở modal chọn chủ đề.
+
+Không để Shadowing card mở /app/speaking/ielts/shadowing nếu yêu cầu user là /app/shadowing.
+
+==================================================
+3. PRACTICE BANK MODAL GIỐNG SOURCE
+==================================================
+
+Khi bấm card tím bên trái, mở modal “Chọn Chủ Đề” giống screenshot source.
+
+Modal cần có:
+
+Header:
+- “Chọn Chủ Đề”
+- subtitle: “AI examiner sẽ hỏi theo part bạn chọn”
+- nút đóng X dạng circle ở góc phải.
+
+Tabs:
+- Part 1
+  - label: “50 topics” hoặc count thật từ data.
+- Part 2
+  - label: “Cue card”
+- Part 3
+  - label: “Discussion”
+
+Part 1 active mặc định.
+
+Button random:
+- “Ngẫu nhiên”
+- border dashed
+- full width.
+
+Sections topic:
+- YOUR CUSTOM TOPICS
+- BẢN THÂN & GIA ĐÌNH
+- HỌC TẬP & NGHỀ NGHIỆP
+- GIẢI TRÍ & SỞ THÍCH
+- CÔNG NGHỆ & XÃ HỘI
+- LỐI SỐNG & SỨC KHỎE
+- các nhóm khác nếu data có.
+
+Topic chips giống source:
+- Hometown
+- Family
+- Friends
+- Neighbours
+- Childhood
+- Pets
+- Work or Study
+- Education
+- Languages
+- Reading
+- Newspapers
+- Hobbies
+- Music
+- Sport
+- Films
+- Television
+- Art
+- Photography
+- Technology
+- Social Media
+- Robots
+- Emails
+- v.v.
+
+Footer sticky:
+- button lớn:
+  “Chọn một chủ đề để bắt đầu”
+- disabled khi chưa chọn topic.
+- enabled sau khi chọn:
+  “Bắt đầu luyện”
+- icon mũi tên phải.
+
+Behavior:
+- Click topic chọn topic.
+- Click random chọn một topic ngẫu nhiên trong part đang active.
+- Click Start tạo session Mock Interview với item thật.
+- Navigate đến /app/speaking/ielts/mock-interview/:sessionId.
+- Không mở Forecast page.
+- Không dùng page wrapper làm question.
+
+Modal UI:
+- backdrop blur/dim như source;
+- modal centered;
+- width khoảng 600–680px desktop;
+- max-height khoảng 88vh;
+- internal scroll cho topic list;
+- footer sticky;
+- mobile full-screen-ish;
+- không overflow ngang.
+
+Accessibility:
+- ESC đóng modal.
+- Click backdrop đóng nếu app convention cho phép.
+- Focus trap.
+- aria-modal.
+- aria-expanded/selected cho tabs.
+
+==================================================
+4. FORECAST CARD MÀU HỒNG
+==================================================
+
+Card hồng phải navigate đến:
+
+/app/speaking/ielts/forecast
+
+Trang Forecast phải giống source screenshot:
+
+Header:
+- back link: “Về trang Speaking”.
+- yellow badge:
+  “THE IELTS DICTIONARY • QUÝ 2 • 2026”
+- title lớn:
+  “BỘ DỰ ĐOÁN ĐỀ THI IELTS SPEAKING QUÝ 2”
+- subtitle:
+  “(THÁNG 5 - THÁNG 8) NĂM 2026”
+- search box bên phải desktop.
+
+Tabs:
+- PART 1 BẮT BUỘC (2)
+- PART 1 CHỦ ĐỀ (32)
+- PART 2 + 3 (82)
+- hot button:
+  “🔥 THI THẬT CỰC CĂNG NEW”
+
+List item style:
+- rectangular white row;
+- border black;
+- hard shadow black;
+- number prefix;
+- title;
+- yellow “Luyện tập” button;
+- copy icon button;
+- chevron expand button.
+
+For Part 1 mandatory:
+- item 1: Where you live now
+- item 2: Work / Study
+
+Click “Luyện tập”:
+- tạo Mock Interview session đúng item.
+- mở route mock interview.
+- không mở generic Speaking AI.
+- không render raw Forecast page.
+
+Copy button:
+- copy item title/questions nếu có.
+- không navigate.
+
+Chevron:
+- expand details/questions/hints nếu có.
+- không navigate.
+
+Search:
+- filter theo title/topic.
+
+Tabs:
+- active tab đổi danh sách thật.
+- counts lấy từ data thật.
+
+==================================================
+5. SHADOWING CARD
+==================================================
+
+Card Shadowing màu vàng trên landing:
+
+Action bắt buộc:
+
+navigate("/app/shadowing")
+
+Không mở:
+- /app/speaking/ielts/shadowing
+- modal
+- external TID URL
+
+Label:
+- “SHADOWING”
+- “Nghe và nói như người bản xứ”
+hoặc giữ text đang có nhưng CTA phải rõ:
+- “Luyện Shadowing”
+
+Nếu app có route /app/shadowing trong sidebar hiện tại, route đó phải mở được.
+
+Nếu route /app/shadowing không tồn tại:
+- tạo redirect hoặc route wrapper an toàn đến module Shadowing hiện có.
+- Không để click chết.
+
+==================================================
+6. PREMIUM SPEAKING CARD — TỰ ĐỀ XUẤT
+==================================================
+
+Vì TID đang phát triển mục này và không có data crawl, tự đề xuất nội dung như sau:
+
+Card title:
+PREMIUM SPEAKING
+
+Main text:
+Mock Interview đủ 3 Part
+
+Description:
+Luyện trọn buổi phỏng vấn IELTS Speaking với AI: Part 1, Cue Card Part 2 và Discussion Part 3.
+
+Visual:
+- orange background;
+- black AI online panel;
+- “AI ONLINE”;
+- giữ style source screenshot.
+
+CTA:
+“Bắt đầu Mock Interview”
+
+Action:
+navigate("/app/speaking/ielts/mock-interview/demo")
+
+Behavior:
+- demo session gồm đủ Part 1/2/3 từ data thật nếu có.
+- không dùng fake question nếu data thật có sẵn.
+- nếu thiếu data một Part thì chọn fallback từ Forecast/Roulette normalized data.
+
+Không ghi “crawl từ TID” cho card này.
+
+==================================================
+7. SAMPLE SPEAKING CARD — TỰ ĐỀ XUẤT
+==================================================
+
+Vì TID đang phát triển mục này và không có data crawl, tự đề xuất:
+
+Card title:
+SAMPLE SPEAKING
+
+Main text:
+Bài mẫu band cao
+
+Description:
+Tham khảo cách trả lời, cấu trúc ý và cụm từ hay trước khi luyện với AI.
+
+Visual:
+- green background;
+- dark sample mini card;
+- label “SAMPLE”
+- “8.0 SPEAKING”
+- giữ style gần source.
+
+CTA:
+“Khám phá”
+
+Action:
+navigate("/app/speaking/ielts/samples")
+
+Samples page:
+- Nếu app có sample answers thật: render.
+- Nếu chưa có data thật:
+  - hiển thị Coming Soon đẹp;
+  - giải thích: “Mục bài mẫu đang được phát triển.”
+  - có CTA quay về Mock Interview hoặc Forecast.
+- Không fake bài mẫu band 8.0 như dữ liệu thật.
+- Không claim crawl từ TID.
+
+==================================================
+8. KHÔNG LÀM LẠI TOÀN BỘ MODULE
+==================================================
+
+Không crawl lại.
+Không rebuild lại toàn bộ architecture.
+Không đụng module PET/B1/Listening.
+Không thay unrelated app shell.
+Không chạy full catalog validation nếu nó đang fail ở module khác.
+
+Task lần này chỉ sửa:
+
+- landing card action mapping;
+- Practice Bank modal;
+- Forecast page layout/action;
+- Shadowing card route;
+- Premium/Sample content và route;
+- related tests.
+
+==================================================
+9. TEST BẮT BUỘC
+==================================================
+
+Thêm hoặc sửa targeted tests:
+
+1. Practice Bank card opens topic modal.
+2. Practice Bank card does not navigate to Forecast.
+3. Forecast card navigates to /app/speaking/ielts/forecast.
+4. Shadowing card navigates to /app/shadowing.
+5. Premium card navigates to mock-interview/demo.
+6. Sample card navigates to /app/speaking/ielts/samples.
+7. Topic modal Part 1 tab renders topics.
+8. Random topic selects a topic.
+9. Start button disabled before selecting topic.
+10. Start button creates Mock Interview after topic selected.
+11. Forecast page renders tabs 2 / 32 / 82.
+12. Forecast item “Luyện tập” opens Mock Interview, not raw page.
+13. Sample page shows real data or Coming Soon, not fake TID crawl.
+
+Run:
+
+- TypeScript.
+- Speaking IELTS targeted tests.
+- Browser smoke for the six cards.
+- Mobile modal smoke.
+- Console errors = 0.
+- git diff --check scoped to modified files.
+
+Không bị chặn bởi microphone automation.
+Không bị chặn bởi PET B1 catalog validation.
+
+==================================================
+10. BROWSER SMOKE BẮT BUỘC
+==================================================
+
+Open:
+
+/app/speaking/ielts
+
+Test:
+
+A. Click purple Practice Bank card:
+- modal opens.
+- modal giống source screenshot.
+- Part 1 tab active.
+- topics visible.
+- choose Hometown.
+- Start button enabled.
+- click Start opens Mock Interview.
+
+B. Back to landing.
+Click pink Forecast card:
+- opens Forecast page.
+- layout giống source screenshot.
+- tabs show 2 / 32 / 82.
+- click “Luyện tập” on Where you live now.
+- opens Mock Interview.
+
+C. Back to landing.
+Click Shadowing card:
+- opens /app/shadowing.
+
+D. Back to landing.
+Click Premium:
+- opens /app/speaking/ielts/mock-interview/demo.
+
+E. Back to landing.
+Click Sample:
+- opens /app/speaking/ielts/samples.
+- shows sample data or Coming Soon.
+
+F. Mobile:
+- modal usable.
+- no horizontal overflow.
+
+Screenshots required:
+- landing after fix.
+- topic modal.
+- forecast page.
+- mock interview from topic modal.
+- /app/shadowing after card click.
+- premium demo route.
+- samples page.
+
+==================================================
+11. ACCEPTANCE
+==================================================
+
+PASS only when:
+
+- Card tím không còn mở cùng nội dung với Forecast.
+- Card tím mở đúng modal chọn chủ đề.
+- Card hồng mở đúng Forecast page.
+- Forecast page giống source hình 3.
+- Shadowing card mở /app/shadowing.
+- Premium card có nội dung tự đề xuất và mở demo mock interview.
+- Sample card có nội dung tự đề xuất và mở samples/coming soon.
+- Không còn raw page record.
+- Không còn “Speaking practice item” cho các card chính.
+- Tests pass.
+- Browser smoke pass.
+- Console errors 0.
+
+==================================================
+BÁO CÁO CUỐI
+==================================================
+
+Báo ngắn gọn:
+
+1. File sửa.
+2. Card action mapping.
+3. Practice modal result.
+4. Forecast result.
+5. Shadowing route result.
+6. Premium proposal result.
+7. Sample proposal result.
+8. Screenshots paths.
+9. TypeScript.
+10. Tests.
+11. Browser smoke.
+12. Remaining issues.
+
+Nếu còn card nào sai action thì không claim done.

@@ -1,0 +1,10 @@
+{
+  "status": "NOT_PRODUCTION_READY",
+  "progressSource": "speaking_conversations + speaking_messages via speaking-ai history",
+  "weeklySessions": "completed IELTS conversations in current local week",
+  "averageBand": "unavailable; current AI schema has no overallBand",
+  "streak": "unique consecutive local calendar days",
+  "bookmarkSource": "none available; not fabricated",
+  "browserSmoke": {"dashboard": "PASS", "forecast": "PASS", "roulette": "PASS", "shadowing30Lessons": "PASS", "mobileNoOverflow": "PASS", "microphone": "NOT_RUN", "aiSubmit": "NOT_RUN"},
+  "tests": {"progress": "2/2 PASS", "speakingAi": "6/6 PASS", "typescript": "PASS", "gitDiffCheck": "PASS", "build": "PASS"}
+}

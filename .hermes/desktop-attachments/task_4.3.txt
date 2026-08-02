@@ -1,0 +1,603 @@
+TASK 4.3 — PIXEL-MATCH CAE PART 7 GAP VÀ PARAGRAPH SPACING THEO FCE
+
+REPOSITORY
+D:\App-English-Ryan\Website
+
+TARGET ROUTES
+/app/exam/reading/catalog-reading-cae-c1-test1
+...
+/app/exam/reading/catalog-reading-cae-c1-test23
+
+PRIMARY REFERENCE
+
+FCE là source of truth tuyệt đối cho giao diện Part 7 CAE.
+
+FCE reference route:
+http://localhost:5173/app/exam/reading/catalog-reading-fce-b2-test21
+
+FCE reference Part:
+Part 6 — Gapped Text
+
+CAE comparison route:
+http://localhost:5173/app/exam/reading/catalog-reading-cae-c1-test14
+
+CAE comparison Part:
+Part 7 — Gapped Text
+
+USER-VISIBLE DIFFERENCES
+
+FCE chuẩn:
+
+1. Gap là một ô ngắn nằm inline giữa đoạn văn.
+2. Gap có viền xanh dashed rõ.
+3. Question number nằm chính giữa gap.
+4. Gap không kéo dài toàn chiều rộng cột trái.
+5. Text trước và sau gap nằm cùng dòng nếu còn đủ chỗ.
+6. Các paragraph có khoảng cách rõ ràng.
+7. Mỗi paragraph đọc như một block riêng.
+8. Gap có khoảng thở trên/dưới nhưng không tạo một card cao lớn.
+9. Passage giữ nhịp đọc giống bài thi Cambridge thật.
+
+CAE hiện tại:
+
+1. Gap đang render thành full-width block.
+2. Viền gap xám hoặc quá nhạt.
+3. Gap cao và rộng quá mức.
+4. Gap đứng riêng thành một hàng lớn.
+5. Paragraph phía trước và phía sau bị tách không đúng nhịp.
+6. Một số đoạn văn dính sát nhau.
+7. Khoảng cách paragraph không đồng nhất.
+8. Shared CambridgeGappedText bundle đã tạo nhưng visual CAE vẫn không dùng đúng FCE layout mode.
+
+Không được claim VERIFIED cho tới khi visual browser comparison đạt.
+
+==================================================
+PHASE 1 — XÁC ĐỊNH ROOT CAUSE
+==================================================
+
+Audit shared component vừa tạo:
+
+- CambridgeGappedText
+- FCE Gapped Text renderer
+- CAE Part 7 renderer
+- shared CSS
+- FCE CSS
+- CAE CSS overrides
+- passage normalization
+- block/inline rendering mode
+
+Tìm lý do FCE và CAE cùng dùng shared bundle nhưng cho ra hai layout khác nhau.
+
+Kiểm tra:
+
+1. CAE có truyền prop như:
+   - variant="block"
+   - gapDisplay="block"
+   - fullWidth
+   - className riêng
+   - passageMode khác FCE
+
+2. CAE CSS có override:
+   - display: block
+   - width: 100%
+   - flex: 1
+   - min-height lớn
+   - margin-block quá lớn
+   - border-color xám
+   - border-style dotted
+
+3. Shared component có phân nhánh theo exam type:
+   - FCE → inline gap
+   - CAE → block gap
+
+4. Passage normalizer có tách gap thành block độc lập thay vì giữ gap trong paragraph.
+
+5. CAE render:
+   <Paragraph />
+   <Gap />
+   <Paragraph />
+
+   trong khi FCE render gap bên trong flow của paragraph.
+
+6. CAE dùng wrapper:
+   display: flex;
+   flex-direction: column;
+
+   cho từng text fragment và gap.
+
+7. CSS specificity của readingCaeRw.css đang ghi đè shared FCE styles.
+
+Phải ghi rõ root cause trong báo cáo.
+Không chỉ sửa bằng tăng border-color.
+
+==================================================
+PHASE 2 — DÙNG ĐÚNG FCE INLINE GAP
+==================================================
+
+CAE Part 7 phải reuse đúng component và CSS class mà FCE đang dùng cho gap.
+
+Không tạo một `.cae-gap-slot-v2`.
+
+Ưu tiên:
+
+<CambridgeGappedTextGap
+  variant="inline"
+  ...
+/>
+
+Hoặc bỏ variant hoàn toàn nếu FCE mặc định đã đúng.
+
+Expected DOM gần giống:
+
+<p class="cambridge-gapped-paragraph">
+  <span>Text before the gap...</span>
+
+  <DroppableGapSlot
+    questionNumber={41}
+    ...
+  />
+
+  <span>Text after the gap...</span>
+</p>
+
+Không render:
+
+<div class="paragraph">...</div>
+<div class="full-width-gap">41</div>
+<div class="paragraph">...</div>
+
+nếu raw passage thực tế cho phép gap nằm giữa cùng paragraph.
+
+==================================================
+PHASE 3 — GAP VISUAL PHẢI GIỐNG FCE
+==================================================
+
+Lấy trực tiếp computed styles từ FCE reference bằng browser.
+
+Ghi lại:
+
+- display
+- vertical-align
+- width
+- min-width
+- height
+- min-height
+- padding
+- margin-inline
+- margin-block
+- border-width
+- border-style
+- border-color
+- border-radius
+- line-height
+- font-size
+- background
+- box-sizing
+
+Sau đó map shared style sang CAE.
+
+Không đoán bằng mắt nếu browser có thể lấy computed styles.
+
+Mục tiêu gần đúng:
+
+.cambridge-gapped-text__gap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+
+  width: clamp(210px, 16vw, 285px);
+  min-width: 210px;
+  height: 24px;
+  min-height: 24px;
+
+  margin-inline: 6px;
+  margin-block: 2px;
+
+  padding-inline: 10px;
+
+  border: 1.5px dashed #2f98df;
+  border-radius: 5px;
+  background: transparent;
+
+  box-sizing: border-box;
+  line-height: 1;
+}
+
+Các con số trên chỉ là fallback.
+Phải ưu tiên giá trị computed thực tế của FCE.
+
+Yêu cầu bắt buộc:
+
+1. Viền xanh dashed.
+2. Không dùng dotted gray.
+3. Không width: 100%.
+4. Không flex: 1.
+5. Không min-height 48px.
+6. Không padding dọc lớn.
+7. Question number nằm chính giữa.
+8. Gap nằm cùng baseline với text.
+9. Gap có thể wrap xuống dòng như một inline element khi thiếu chỗ.
+10. Không làm cả paragraph thành flex row.
+11. Không tạo horizontal body overflow.
+
+Active/drag-over state:
+
+- border xanh đậm hơn;
+- background xanh rất nhạt;
+- không scale gây layout shift.
+
+Filled state:
+
+- card có thể cao hơn gap trống nếu chứa full paragraph;
+- nhưng phải có margin trên/dưới rõ;
+- không dính vào text;
+- không làm biến mất paragraph spacing;
+- nút remove nằm gọn, không đè nội dung.
+
+==================================================
+PHASE 4 — PARAGRAPH SPACING
+==================================================
+
+CAE hiện tại thiếu khoảng cách giữa các đoạn.
+
+Không chèn `<br /><br />` bằng tay.
+Không thêm newline vào data.
+
+Phải giữ semantic paragraph boundaries từ normalized passage.
+
+Expected DOM:
+
+<div class="cambridge-gapped-text__passage">
+  <p class="cambridge-gapped-text__paragraph">...</p>
+  <p class="cambridge-gapped-text__paragraph">...</p>
+  ...
+</div>
+
+Hoặc gap nằm trong đúng paragraph tương ứng.
+
+CSS phải lấy theo FCE reference.
+
+Fallback hợp lý:
+
+.cambridge-gapped-text__paragraph {
+  margin: 0 0 18px;
+  line-height: 1.65;
+}
+
+.cambridge-gapped-text__paragraph:last-child {
+  margin-bottom: 0;
+}
+
+Không dùng:
+
+.cambridge-gapped-text__paragraph {
+  margin: 0;
+}
+
+Không chỉ dựa vào line-height để tạo khoảng cách giữa paragraph.
+
+Yêu cầu visual:
+
+1. Giữa hai paragraph liên tiếp có khoảng trống rõ 16–22px.
+2. Không paragraph nào dính vào gap phía trên.
+3. Không paragraph nào dính vào gap phía dưới.
+4. Không tạo double spacing khi paragraph đã chứa gap.
+5. Không tạo khoảng trắng 40–60px.
+6. Title/introduction và paragraph đầu cũng phải có spacing hợp lý.
+7. Spacing nhất quán từ gap 41 đến 46.
+8. Khi card được đặt vào gap, khoảng cách đoạn vẫn giữ ổn định.
+9. Khi kéo card ra bank, spacing trở lại như ban đầu.
+10. Không dùng selector theo question number.
+
+==================================================
+PHASE 5 — PASSAGE NORMALIZATION
+==================================================
+
+Nếu root cause nằm ở parser, sửa normalization thay vì chỉ CSS.
+
+Normalized structure phải giữ paragraph boundary:
+
+type GappedTextSegment =
+  | {
+      type: "text";
+      text: string;
+    }
+  | {
+      type: "gap";
+      questionId: string;
+      questionNumber: number;
+    };
+
+type GappedTextParagraph = {
+  id: string;
+  segments: GappedTextSegment[];
+};
+
+Ví dụ:
+
+{
+  id: "p3",
+  segments: [
+    { type: "text", text: "In those early days..." },
+    { type: "gap", questionNumber: 41, questionId: "..." },
+    { type: "text", text: "How did they do that?..." }
+  ]
+}
+
+Không normalize thành:
+
+[
+  { type: "paragraph", text: "..." },
+  { type: "gap", questionNumber: 41 },
+  { type: "paragraph", text: "..." }
+]
+
+nếu gap vốn nằm trong cùng paragraph.
+
+Không làm mất:
+
+- punctuation trước gap;
+- punctuation sau gap;
+- dấu ngoặc kép;
+- dấu chấm;
+- paragraph boundary;
+- khoảng trắng hợp lệ.
+
+Thêm DEV invariant:
+
+- mỗi gap 41–46 xuất hiện đúng một lần;
+- không gap nào đứng ngoài paragraph nếu source không yêu cầu;
+- không paragraph rỗng được tạo quanh gap;
+- không duplicate punctuation.
+
+==================================================
+PHASE 6 — RIGHT BANK CARD CONSISTENCY
+==================================================
+
+Bank CAE hiện tương đối gần đúng nhưng vẫn phải so FCE.
+
+Map đúng:
+
+- border color;
+- border radius;
+- padding;
+- label column width;
+- text line-height;
+- card gap;
+- hover;
+- dragging state;
+- selected state.
+
+Các card phải cách nhau đều.
+
+Không để card A–G dính nhau.
+Không dùng border quá nhạt đến mức gần như biến mất.
+
+Khi card bị kéo khỏi bank:
+
+- các card còn lại reflow tự nhiên;
+- không giữ blank placeholder cao;
+- thứ tự bank ổn định;
+- khi trả về bank, card trở lại theo A–G.
+
+==================================================
+PHASE 7 — SPLIT PANE
+==================================================
+
+So sánh FCE và CAE:
+
+- divider position;
+- left/right pane widths;
+- divider thickness;
+- independent scrolling;
+- content padding;
+- bottom footer clearance.
+
+CAE nên dùng đúng shared split pane của FCE.
+
+Không để gap gần sát divider.
+Left passage phải có padding-right phù hợp.
+
+Suggested minimum:
+
+left pane content padding:
+14px 18px 32px 14px
+
+right pane content padding:
+14px 20px 32px 16px
+
+Nhưng ưu tiên computed values FCE.
+
+==================================================
+PHASE 8 — BROWSER VISUAL MEASUREMENT
+==================================================
+
+Mở cùng viewport:
+
+1920 × 1080
+
+FCE:
+catalog-reading-fce-b2-test21
+Part 6
+
+CAE:
+catalog-reading-cae-c1-test14
+Part 7
+
+Thu thập bảng:
+
+| Property | FCE gap | CAE before | CAE after |
+|----------|---------|------------|-----------|
+| width | ... | ... | ... |
+| height | ... | ... | ... |
+| border style | ... | ... | ... |
+| border color | ... | ... | ... |
+| display | ... | ... | ... |
+| vertical align | ... | ... | ... |
+| margin inline | ... | ... | ... |
+| paragraph margin bottom | ... | ... | ... |
+| line height | ... | ... | ... |
+
+Visual acceptance tolerance:
+
+- gap width lệch không quá 12px so với FCE tương đương;
+- gap height lệch không quá 4px;
+- paragraph bottom spacing lệch không quá 4px;
+- border color phải cùng token;
+- border style phải giống;
+- gap không full width.
+
+==================================================
+PHASE 9 — INTERACTION REGRESSION
+==================================================
+
+Sau khi đổi DOM từ block sang inline, phải test lại DnD.
+
+CAE Test 14:
+
+1. Kéo A từ bank → gap 41.
+2. Gap 41 filled.
+3. Kéo A gap 41 → gap 43.
+4. Gap 41 trống.
+5. Kéo A gap 43 → bank.
+6. A quay lại bank.
+7. Kéo B → gap 42.
+8. Kéo C vào gap 42.
+9. Replace đúng.
+10. Clear.
+11. Đổi Part rồi quay lại.
+12. Persistence đúng.
+13. Reset/retry.
+14. A–G trở lại bank.
+
+Cần đảm bảo inline gap nhỏ hơn vẫn là drop target dễ dùng.
+
+Có thể tăng invisible hit area bằng pseudo-element hoặc wrapper,
+nhưng visual box vẫn phải giống FCE.
+
+Ví dụ:
+
+.cambridge-gapped-text__gap-hit-area {
+  display: inline-flex;
+  padding-block: 6px;
+  margin-block: -6px;
+}
+
+Không làm visual gap cao lên.
+
+==================================================
+PHASE 10 — HIGHLIGHT/NOTE REGRESSION
+==================================================
+
+Việc thay paragraph DOM không được làm hỏng annotation.
+
+Test:
+
+1. Select text trong paragraph trước gap 41.
+2. Highlight.
+3. Select text sau gap 41.
+4. Tạo Note.
+5. Đổi Part.
+6. Quay lại.
+7. Highlight/note còn.
+8. Không cho selection xuyên qua gap control.
+9. Drag gap không mở highlight toolbar.
+10. Popup note không bị split pane clip.
+
+==================================================
+PHASE 11 — SCREENSHOT EVIDENCE
+==================================================
+
+Tạo ảnh cùng viewport 1920×1080:
+
+1. FCE Part 6 initial:
+   outputs/cae-task4.3/fce-reference-part6.png
+
+2. CAE Part 7 initial after fix:
+   outputs/cae-task4.3/cae-test14-part7-initial.png
+
+3. CAE Part 7 gap 41 filled:
+   outputs/cae-task4.3/cae-test14-part7-filled.png
+
+4. CAE Part 7 after reverse drag:
+   outputs/cae-task4.3/cae-test14-part7-returned.png
+
+5. CAE Test 1 Part 7:
+   outputs/cae-task4.3/cae-test1-part7.png
+
+6. CAE Test 23 Part 7:
+   outputs/cae-task4.3/cae-test23-part7.png
+
+Ảnh phải hiển thị toàn viewport, gồm:
+
+- header;
+- rubric;
+- passage;
+- bank;
+- footer.
+
+Không crop riêng gap.
+
+==================================================
+PHASE 12 — TESTS AND GUARDS
+==================================================
+
+Chạy:
+
+pnpm --filter web exec tsc --noEmit
+targeted shared CambridgeGappedText tests
+targeted CAE Part 7 tests
+targeted FCE Part 6 tests
+targeted annotation tests
+pnpm --filter web build
+git diff --check
+node scripts/reading/validate-cae-c1-app-import.mjs
+
+Sau build phải còn:
+
+manifestCaeEntries: 23
+problemCount: 0
+
+Không sửa file Speaking IELTS hoặc file ngoài phạm vi nếu không phải blocker mới do thay đổi này gây ra.
+
+Không mở rộng scope để “dọn code”.
+
+==================================================
+DEFINITION OF DONE
+==================================================
+
+Chỉ đổi trạng thái sang VERIFIED khi:
+
+1. CAE gap dùng viền xanh dashed giống FCE.
+2. Gap không còn full width.
+3. Gap nằm inline trong paragraph.
+4. Gap number nằm giữa.
+5. Gap height gần bằng FCE.
+6. Paragraph có khoảng cách rõ.
+7. Paragraph spacing đồng nhất.
+8. Không chèn `<br>` thủ công.
+9. Không sửa raw test content.
+10. Không CSS riêng theo Test.
+11. Bank → gap vẫn hoạt động.
+12. Gap → gap vẫn hoạt động.
+13. Gap → bank vẫn hoạt động.
+14. Replace vẫn hoạt động.
+15. Reset/retry vẫn hoạt động.
+16. Highlight/note không regression.
+17. FCE Part 6 không regression.
+18. CAE Test 1, 14, 23 đều đúng visual.
+19. 23 CAE entries vẫn còn.
+20. Console errors = 0.
+21. TypeScript PASS.
+22. Targeted tests PASS.
+23. Web build PASS.
+24. Có bảng computed-style comparison.
+25. Có full-page screenshot comparison.
+26. User-visible result giống FCE reference, không chỉ shared bundle tồn tại.
+
+Không được dùng cụm “Fresh verification passes” nếu chưa có:
+- computed style comparison;
+- full viewport screenshots;
+- pointer DnD runtime;
+- visual comparison FCE vs CAE.

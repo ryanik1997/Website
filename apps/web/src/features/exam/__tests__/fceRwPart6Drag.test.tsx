@@ -115,6 +115,27 @@ describe('FCE Part 6 — kéo thả gapped text', () => {
     fireEvent.drop(gap(38), { dataTransfer: { getData: () => 'B' } })
     expect(gap(38)).toHaveAccessibleName(/answer B/i)
   })
+
+  it('drop token từ gap về toàn vùng bank trả token lại', () => {
+    render(<Harness />)
+    fireEvent.click(token('A'))
+    fireEvent.click(gap(37))
+    fireEvent.drop(screen.getByLabelText('Paragraph bank'), {
+      dataTransfer: { getData: () => 'A' },
+    })
+    expect(gap(37)).toHaveAccessibleName(/empty/i)
+  })
+
+  it('replace trả option cũ về bank và không duplicate option mới', () => {
+    render(<Harness />)
+    fireEvent.click(token('B'))
+    fireEvent.click(gap(37))
+    fireEvent.click(token('C'))
+    fireEvent.click(gap(37))
+    expect(gap(37)).toHaveAccessibleName(/answer C/i)
+    expect(token('B')).not.toHaveClass('is-used')
+    expect(screen.getAllByRole('button', { name: /^Option C/ })).toHaveLength(1)
+  })
 })
 
 describe('FCE Part 7 — section headings', () => {

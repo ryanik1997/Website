@@ -1,0 +1,845 @@
+{
+  "id": "catalog-listening-cae-c1-test29",
+  "title": "CAE Listening Test 29",
+  "durationMinutes": 40,
+  "bandHint": "C1 Advanced Listening · 4 parts · 30 câu",
+  "examType": "cae",
+  "examMode": "practice",
+  "parts": [
+    {
+      "id": "catalog-listening-cae-c1-test29-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1-6",
+      "instruction": "You will hear three different extracts. For questions 1-6, choose the answer (A, B or C) which fits best",
+      "audioUrl": "/catalog/listening/cae-c1-test29/cae-listening-test-28-part-1.mp3",
+      "transcript": "**Extract One** **Man:** There’s more in the papers about next year’s international athletics competition. It seems they’re running into more problems. I’m beginning to wish they hadn’t decided to hold it in our area. It seems to be causing endless problems. **Woman:** I know. Not that it bothers me personally that much. I’ve certainly no intention of going along to anything. I realised at once that I’d be away while it was on and I feel quite relieved about that now. The town will probably be horribly crowded. But I don’t feel sorry it’s coming here though. Right from the start I thought it would be really positive for the local economy and you can already see that happening. **[1]** **Man:** I guess so but I wish I could feel more confident it’d all be worth it in the end. It’s just one thing after another. Now they’ve run into other problems with the foundations for the new stadium. They’re still adamant it’ll be ready well before due date, but I’ll believe it when I see it. It’s beginning to feel like a real possibility that it won’t be and how awful would that be. **[2]** You’d think that with all that experience on the planning committee and the huge budget they’ve been given, they’d be able to do things properly. **Woman:** I know what you mean, but there’s no point in getting too worked up about it. There’s nothing we can do to help, is there? **Extract Two** **Woman:** How’s your coursework coming along, Rick? My group’s meeting to finish ours off this afternoon. We’ve been finding it really hard but I think I’ve probably learnt a lot from the experience of doing it. **Man:** We’ve still got masses to do on ours. Mark said it’d be easy and there was no need to start it till Saturday even though we thought it was due in first thing on Monday morning. Then he decided to go away for the weekend leaving it all to Amy and me. **[3]** **Woman:** Sounds like it’s a good job the tutor extended the deadline till five o’clock tomorrow afternoon then. **Man:** I suppose so — though I’d rather have had it done by now. I’ve got another piece of work due in later this week. Anyway, I’m afraid it’s going to be an all-nighter for me. Amy’s not much help. She said she’d do one part of it, but she misunderstood the tutor’s instructions and has done the wrong thing. **[3]** I must admit he didn’t explain things ail that clearly, but even so .. **Woman:** You poor thing. I always thought people were exaggerating when they complained about this course, but now I’m beginning to feel they had a point. **[4]** **Man:** Absolutely! **Extract Three** **Woman:** So what did you think of Silent Laughter? **Man:** I was a bit disappointed. I didn’t think it was as good as it’s been hyped up to be. **Woman:** Yeah, I thought it was weird. Bordering on the pretentious. But I suppose that might be how things really are in the world of fashion. **Man:** Mm, I’m not so sure. My cousin knows someone who’s a model and she says the storyline was totally inauthentic. And my cousin and I both thought that absolutely the wrong people were cast in the main roles. **Woman:** Yeah, though some of the supporting actors were OK, I suppose. **Man:** Maybe. Mind you, even though I wasn’t too impressed when I saw it, it has kept coming into my mind since then. I start wondering just how much was the model’s dread and how much was reality. Or about the relationship between the supermodel and the designer. **[5]** **Woman:** I know what you mean. It’s certainly It’s not not the kind of film you see and then instantly forget. **[5]** I think the one thing that made it a bit special for me was the way it was very visually interesting— plenty of unusual and beautiful shots, particularly of the main characters **[6]**. I quite enjoyed the music too. **Man:** Absolutely.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test29-q-1",
+          "number": 1,
+          "type": "multiple-choice",
+          "prompt": "What was the woman’s initial reaction to the news of the planned event?",
+          "options": [
+            {
+              "id": "A",
+              "label": "looking forward to attending it"
+            },
+            {
+              "id": "B",
+              "label": "worried about feeling discomfort because of it"
+            },
+            {
+              "id": "C",
+              "label": "happy with the potential benefits it could bring"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CWoman: Right from the start I thought it would be really positive for the local economy and you can already see that happening."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test29-q-2",
+          "number": 2,
+          "type": "multiple-choice",
+          "prompt": "What is the reason the man is unhappy about the upcoming event?",
+          "options": [
+            {
+              "id": "A",
+              "label": "He believes that it is a very wasteful operation."
+            },
+            {
+              "id": "B",
+              "label": "He is concerned that the main venue may not get finished on time."
+            },
+            {
+              "id": "C",
+              "label": "He thinks that the people in charge should be replaced."
+            }
+          ],
+          "answer": "B",
+          "explanation": "BMan: They’re still adamant it’ll be ready well before due date, but I’ll believe it when I see it. It’s beginning to feel like a real possibility that it won’t be and how awful would that be."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test29-q-3",
+          "number": 3,
+          "type": "multiple-choice",
+          "prompt": "What has caused the man most annoyance?",
+          "options": [
+            {
+              "id": "A",
+              "label": "unclear instructions from the tutor"
+            },
+            {
+              "id": "B",
+              "label": "the fact that the project deadline has been moved"
+            },
+            {
+              "id": "C",
+              "label": "how much help he received from the group"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CMan:Mark said it’d be easy and there was no need to start it till Saturday even though we thought it was due in first thing on Monday morning. Then he decided to go away for the weekend leaving it all to Amy and me.[...]Woman: Anyway, I’m afraid it’s going to be an all-nighter for me. Amy’s not much help. She said she’d do one part of it, but she misunderstood the tutor’s instructions and has done the wrong thing."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test29-q-4",
+          "number": 4,
+          "type": "multiple-choice",
+          "prompt": "How does the woman react to the man’s problem?",
+          "options": [
+            {
+              "id": "A",
+              "label": "She expresses her sympathy."
+            },
+            {
+              "id": "B",
+              "label": "She believes that he is exaggerating."
+            },
+            {
+              "id": "C",
+              "label": "She thinks he will learn from the experience."
+            }
+          ],
+          "answer": "A",
+          "explanation": "AWoman: You poor thing. I always thought people were exaggerating when they complained about this course, but now I’m beginning to feel they had a point."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test29-q-5",
+          "number": 5,
+          "type": "multiple-choice",
+          "prompt": "Both people believe that",
+          "options": [
+            {
+              "id": "A",
+              "label": "the story was believable."
+            },
+            {
+              "id": "B",
+              "label": "the actors were chosen poorly."
+            },
+            {
+              "id": "C",
+              "label": "the movie made you think."
+            }
+          ],
+          "answer": "C",
+          "explanation": "CMan: Maybe. Mind you, even though I wasn’t too impressed when I saw it, it has kept coming into my mind since then. I start wondering just how much was the model’s dread and how much was reality. Or about the relationship between the supermodel and the designer.Woman: I know what you mean. It’s certainly It’s not not the kind of film you see and then instantly forget."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test29-q-6",
+          "number": 6,
+          "type": "multiple-choice",
+          "prompt": "According to woman, what was the best thing about the film?",
+          "options": [
+            {
+              "id": "A",
+              "label": "the camerawork"
+            },
+            {
+              "id": "B",
+              "label": "the soundtrack"
+            },
+            {
+              "id": "C",
+              "label": "the cast"
+            }
+          ],
+          "answer": "A",
+          "explanation": "AWoman: I think the one thing that made it a bit special for me was the way it was very visually interesting— plenty of unusual and beautiful shots, particularly of the main characters."
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test29-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 7-14",
+      "instruction": "You will hear a woman talking about her favourite wood-carving artist. For questions 7-14, complete the sentences.",
+      "audioUrl": "/catalog/listening/cae-c1-test29/cae-listening-test-28-part-2.mp3",
+      "transcript": "**Woman:** So today I want to tell you about my favourite artist. He’s an absolutely amazing wood carver called Livio di Marchi, I’ve always loved wood carving ever since I was a small child. One of my favourite toys was a lovely carved wooden bear. Also an uncle had a table made by someone who’d carved a mouse at the top of one of the legs. You couldn’t see it without crawling under the table but it seemed such a personal and fun thing to do. **[7]** Wood carving is a wonderful kind of art, I think. You just have to marvel at the patience of the people who’ve spend endless hours creating their works for our pleasure. I’d never be able to do it, I know. **[8]** Anyway, Livio Di Marchi is a wood carver from Venice in Italy. He prefers to use simple but familiar tools, including 100 different kinds of chisel and an ancient hammer made of wood. **[9]** He is truly a master craftsman, and some of his work is absolutely awesome. Many of his pieces are very famous. For example, he did one called A Dream in Venice that made an appearance in 1994. This extraordinary creation is a huge pumpkin drawn by four horses, which rear up when the driver pulls the reins. **[10]** It can accommodate four people as it glides across the waters of the Venetian canals and was one of the jewels of the Carnival that took place in the city that year. As a child, di Marchi’s interest in ornamental carving led him to work and practise in a craftsman’s workshop while studying art and drawing at a famous Venetian art academy. From an early age he was demonstrating that he had enormous artistic talent for moulding materials, creating wonderfully detailed sculptures. He started off working in marble, later moving to bronze. **[11]** However, it was not long before he gravitated towards wood. He said he did so because wood offered greater scope. **[12]** He felt he would be able to put it to a very wide range of uses. And indeed he has done so. He has created a wonderful variety of pieces — a basket full of teddy bears, items of clothing, all sorts of things. The one I like best is a jacket. **[13]** It just looks so realistic – you want to touch it because you’re sure it must actually be made of leather — but it isn’t! But many other people would say their favourite piece is a car. He’s done several of those and they’re also amazingly realistic. We often use the word wooden to describe something stiff, but di Marchi’s works are very far from stiff in this sense. In fact the most appropriate adjective to describe his work is simply ‘incredible’. **[14]** You just cannot believe that his objects are all made of wood.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test29-q-7",
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "In her childhood, the speaker saw a piece of furniture with a hidden carving of a ________ on it.",
+          "options": [],
+          "answer": "mouse",
+          "explanation": "mouseAlso an uncle had a table made by someone who’d carved a mouse at the top of one of the legs. You couldn’t see it without crawling under the table but it seemed such a personal and fun thing to do."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test29-q-8",
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "The woman appreciates wood-carving artists as they have more ________ than she has.",
+          "options": [],
+          "answer": "patience",
+          "explanation": "patienceYou just have to marvel at the patience of the people who’ve spend endless hours creating their works for our pleasure. I’d never be able to do it, I know."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test29-q-9",
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "Di Marchi’s old wooden ________ is his tool of choice.",
+          "options": [],
+          "answer": "hammer",
+          "explanation": "hammerHe prefers to use simple but familiar tools, including 100 different kinds of chisel and an ancient hammer made of wood."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test29-q-10",
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "A Dream in Venice depicts four steeds pulling a huge ________.",
+          "options": [],
+          "answer": "pumpkin",
+          "explanation": "pumpkinFor example, he did one called A Dream in Venice that made an appearance in 1994. This extraordinary creation is a huge pumpkin drawn by four horses, which rear up when the driver pulls the reins."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test29-q-11",
+          "number": 11,
+          "type": "gap-fill",
+          "prompt": "In his first works Di Marchi used ________ as the material.",
+          "options": [],
+          "answer": "marble",
+          "explanation": "marbleHe started off working in marble, later moving to bronze."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test29-q-12",
+          "number": 12,
+          "type": "gap-fill",
+          "prompt": "He later switched to wooden as he believed it allowed him larger ________.",
+          "options": [],
+          "answer": "scope",
+          "explanation": "scopeHowever, it was not long before he gravitated towards wood. He said he did so because wood offered greater scope."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test29-q-13",
+          "number": 13,
+          "type": "gap-fill",
+          "prompt": "Speaker prefers carving of a ________ the most.",
+          "options": [],
+          "answer": "jacket",
+          "explanation": "jacketHe has created a wonderful variety of pieces — a basket full of teddy bears, items of clothing, all sorts of things. The one I like best is a jacket."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test29-q-14",
+          "number": 14,
+          "type": "gap-fill",
+          "prompt": "The woman uses the word ________ to describe the carver’s works.",
+          "options": [],
+          "answer": "incredible",
+          "explanation": "incredibleWe often use the word wooden to describe something stiff, but di Marchi’s works are very far from stiff in this sense. In fact the most appropriate adjective to describe his work is simply ‘incredible’."
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test29-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 15-20",
+      "instruction": "You will hear part of a radio interview with a jam-making businessman. For questions 15-20, choose the answer (A, B, C or D) which fits best according to what you hear.",
+      "audioUrl": "/catalog/listening/cae-c1-test29/cae-listening-test-28-part-3.mp3",
+      "transcript": "**Interviewer:** It’s a pleasure to have with me in the studio today the successful young businessman, Douglas Grainger. Douglas, tell us how you got started in business at the early age of 14. **Douglas:** It all began one afternoon when I was only in my second year at secondary school. My grandmother taught me how to make jam with her secret recipes. She had a lot of fruit to make into jams and couldn’t manage the task all on her own, so she persuaded me to be her kitchen boy. **[15]** I found I loved making jams so I carried on doing it in the kitchen at home and selling it to the neighbours and at school fairs and farmers’ markets and later to local delicatessens. It just sort of grew and grew by word of mouth over a few years while I was still at school. **Interviewer:** So it quickly became a business? **Douglas:** That’s right! By the time I left school, I was working all day every day in my parents’ kitchen. At one point I was manufacturing about 1,000 jars a week. I’d realised I’d have to come up with some sort of big idea in order to move production into a commercial setting. After doing a lot of research, I discovered hat sales of jam, generally, have actually been in decline for the last couple of decades. That’s unfortunately because jam has a rather old fashioned image. So I decided to set myself the ambition of changing that stereotype by trying to come up with a way to make jam more appealing to a younger audience. **[16]** **Interviewer:** Hm, how is your product different from those made by your competitors? **Douglas:** I developed a set of recipes where the jams are made entirely from fruits and fruit juice. They don’t use anything artificial. Even the sugar in them is just what comes from the fruit itself. **[17]** I decided to call the jam ‘Super Jam’ because the fruits that I use are very healthy fruits like blueberries and cranberries. This gives the jam a very distinctive and interesting quality. After a year of development, I managed to convince an ad agency to work with me on labels and a factory to work with me to produce the jam. Some of the big supermarkets decided to take it on and I now supply about 500 shops including one of the largest retailers in the world. It’s been a whirlwind journey and it’s continuing to grow and grow very day. **Interviewer:** Was your age an issue that you had to overcome? **Douglas:** Definitely. Trying to convince one of the biggest jam manufacturers in the country to work with me to produce the jam was certainly difficult, I knocked on lots of different doors but all had was an original idea – no money or capital or anything like that. A lot of the doors were slammed in my face. But eventually I managed to convince the management of one factory to work with me. They could see I was ready to put everything I had into trying to make this work and felt they might as well give it a shot. **[18]** So, they diversified and were quickly very glad they did. **Interviewer:** Did you have a business mentor? **Douglas:** Not at first, but then a local entrepreneur read about what I was doing in the evening paper and the thought that I reminded him of himself at my age. He got in touch and we now go out for coffee every month and I tell him what I’m trying to do. **[19]** He explains things to me and it’s fantastic! He’s helped me enormously and I’d say we’re really good friends now. **Interviewer:** I guess your company had already taken off by the time you started university? **Douglas:** I started my Uni course not really knowing whether the business was really going to be successful. So midway through my first year, the products launched and I found myself going on TV and flying all over the place. It just completely took off and it was amazing for all the other students to see it happen. After my first year, I started struggling with running the business and going to university every day, so they said I could take a couple of years off and wait until everything calmed down a little bit. **[20]** I could get myself organised and go back whenever I felt ready. I’m pretty lucky in that respect.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test29-q-15",
+          "number": 15,
+          "type": "multiple-choice",
+          "prompt": "How did Douglas first began making jams?",
+          "options": [
+            {
+              "id": "A",
+              "label": "As a school assignment."
+            },
+            {
+              "id": "B",
+              "label": "As a business suggestion from a relative."
+            },
+            {
+              "id": "C",
+              "label": "He needed to sell something at a school fair."
+            },
+            {
+              "id": "D",
+              "label": "A busy family member asked him for help."
+            }
+          ],
+          "answer": "D",
+          "explanation": "DDouglas: My grandmother taught me how to make jam with her secret recipes. She had a lot of fruit to make into jams and couldn’t manage the task all on her own, so she persuaded me to be her kitchen boy."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test29-q-16",
+          "number": 16,
+          "type": "multiple-choice",
+          "prompt": "After leaving school, what was his first aim for business?",
+          "options": [
+            {
+              "id": "A",
+              "label": "to promote his product to other markets."
+            },
+            {
+              "id": "B",
+              "label": "to cut down costs."
+            },
+            {
+              "id": "C",
+              "label": "to introduce new products."
+            },
+            {
+              "id": "D",
+              "label": "to innovate his production process."
+            }
+          ],
+          "answer": "A",
+          "explanation": "ADouglas: So I decided to set myself the ambition of changing that stereotype by trying to come up with a way to make jam more appealing to a younger audience."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test29-q-17",
+          "number": 17,
+          "type": "multiple-choice",
+          "prompt": "Douglas’s new jams stand out because",
+          "options": [
+            {
+              "id": "A",
+              "label": "they took a long time to develop."
+            },
+            {
+              "id": "B",
+              "label": "they are not as sweet as others."
+            },
+            {
+              "id": "C",
+              "label": "they are made of natural ingredients only."
+            },
+            {
+              "id": "D",
+              "label": "they have various fruit flavours."
+            }
+          ],
+          "answer": "C",
+          "explanation": "CDouglas: I developed a set of recipes where the jams are made entirely from fruits and fruit juice. They don’t use anything artificial. Even the sugar in them is just what comes from the fruit itself."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test29-q-18",
+          "number": 18,
+          "type": "multiple-choice",
+          "prompt": "Eventually Douglas managed to convince a manufacturing company because",
+          "options": [
+            {
+              "id": "A",
+              "label": "one of their senior staff was his friend."
+            },
+            {
+              "id": "B",
+              "label": "they appreciated his enthusiasm."
+            },
+            {
+              "id": "C",
+              "label": "they liked the original idea behind jams."
+            },
+            {
+              "id": "D",
+              "label": "they had already planned to diversify."
+            }
+          ],
+          "answer": "B",
+          "explanation": "BDouglas: But eventually I managed to convince the management of one factory to work with me. They could see I was ready to put everything I had into trying to make this work and felt they might as well give it a shot."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test29-q-19",
+          "number": 19,
+          "type": "multiple-choice",
+          "prompt": "How did Douglas and his business mentor meet?",
+          "options": [
+            {
+              "id": "A",
+              "label": "It was an accidental meeting in a café."
+            },
+            {
+              "id": "B",
+              "label": "They met thanks to a person they both knew."
+            },
+            {
+              "id": "C",
+              "label": "Douglas was looking for one through a newspaper ad."
+            },
+            {
+              "id": "D",
+              "label": "The mentor got in touch with Douglas after having learnt about him."
+            }
+          ],
+          "answer": "D",
+          "explanation": "DDouglas: Not at first, but then a local entrepreneur read about what I was doing in the evening paper and the thought that I reminded him of himself at my age. He got in touch and we now go out for coffee every month and I tell him what I’m trying to do."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test29-q-20",
+          "number": 20,
+          "type": "multiple-choice",
+          "prompt": "During his sophomore year at university, Douglas",
+          "options": [
+            {
+              "id": "A",
+              "label": "chose not to pursue his degree."
+            },
+            {
+              "id": "B",
+              "label": "enjoyed doing both business and studying."
+            },
+            {
+              "id": "C",
+              "label": "found it difficult to complete all his courses."
+            },
+            {
+              "id": "D",
+              "label": "decided to put off finishing his studies."
+            }
+          ],
+          "answer": "D",
+          "explanation": "DDouglas: After my first year, I started struggling with running the business and going to university every day, so they said I could take a couple of years off and wait until everything calmed down a little bit."
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test29-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 21-30",
+      "instruction": "You will hear five short extracts in which people are talking about leisure activities.",
+      "audioUrl": "/catalog/listening/cae-c1-test29/cae-listening-test-28-part-4.mp3",
+      "transcript": "Speaker 1 I’ve been doing it for years. I’m an actor by profession and of course I have long periods when I’m not on stage and don’t have anything much else to do, so that’s when I really do a lot of it. I’m still not that expert at it — I don’t think I’d ever win any prizes or anything like that and I’ve no aspirations to become professional — but I find it very satisfying when I attempt something different and it seems to work. **[26]** I like adding my own personal touches – an unusual herb here, an unexpected combination of flavours. Appearance is important to me too – my roommate’s even been known to take a photo something of I’ve served up. **[21]** **Speaker 2** My earliest memory is of seeing my dad on stage with his huge trombone, so I suppose it’s not that surprising that my brothers and sisters and I all grew up more enthusiastic about music than sport. My brothers have formed a pop group that actually won a ‘Best Newcomers’ prize for their first album last year – you must have seen their photo in the papers — but I soon realised that it was the combination of movement and rhythm that I loved. **[22]** I go to the Studio after college every day and it’s my dream to actually be able to do it for a living, though I appreciate it’s a very competitive field. **[27]** **Speaker 3** A friend first got me enthusiastic about playing. That friend was much better at it than I am — he even won a few trophies when we were teenagers. Oddly enough he’s completely lost interest now while I’m quite the reverse. I seem to spend more time at it each year. **[28]** I fell fell and and broke my shoulder bone in in one match last year but it even that hasn’t put me off. I just love the excitement and the speed of movement on skates. **[23]** My mum says she wishes I’d taken up what she calls a nice civilised sport like table tennis, say, or golf, but I’ve every intention of keeping going as long as they’ll have me in a team! **Speaker 4** I’d never want to do it professionally — that’s far too risky a business — but it’s a great hobby! I feel I’ve learnt so much over the last few months and have become much more expert at what I can do and that’s given me huge satisfaction. **[29]** I’m involved now in a production about a famous dancer who had a very tempestuous private life. I’m playing one of the leads and getting to grips with that has been quite a challenge! **[24]** All the other people in the show are enthusiastic and determined to make it a success. That can make tempers run high at times, of course! Anyway, it’s a brilliant contrast to my day job in a busy restaurant. **Speaker 5** Sometimes I feel I spend more time at this than at work, I certainly feel more enthusiastic about it. You might imagine it’s the sense of achievement when you’re doing well that’s so attractive but that’s not really it as far as I’m concerned. It’s more a matter of the team thing, you know the feeling of all being in it together, both when you succeed and when you don’t. **[30]** That’s made us all very close. We’ve performed at a number of local clubs and colleges and are beginning to make quite a name for ourselves. Our latest song’s on the Internet and it’s already had an amazing number of views. **[25]** It’s all very exciting!",
+      "matchingDualTask": true,
+      "taskOneInstruction": "For questions 21-25, choose the option which best describes each speaker.",
+      "taskTwoInstruction": "For questions 26-30, choose the option which best describes each speaker.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test29-q-21",
+          "number": 21,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "table tennis"
+            },
+            {
+              "id": "B",
+              "label": "acting"
+            },
+            {
+              "id": "C",
+              "label": "photography"
+            },
+            {
+              "id": "D",
+              "label": "cooking"
+            },
+            {
+              "id": "E",
+              "label": "ice hockey"
+            },
+            {
+              "id": "F",
+              "label": "playing in a band"
+            },
+            {
+              "id": "G",
+              "label": "riding"
+            },
+            {
+              "id": "H",
+              "label": "dancing"
+            }
+          ],
+          "answer": "D",
+          "explanation": "DI like adding my own personal touches – an unusual herb here, an unexpected combination of flavours. Appearance is important to me too – my roommate’s even been known to take a photo something of I’ve served up.",
+          "context": "Speaker 1"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test29-q-22",
+          "number": 22,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "table tennis"
+            },
+            {
+              "id": "B",
+              "label": "acting"
+            },
+            {
+              "id": "C",
+              "label": "photography"
+            },
+            {
+              "id": "D",
+              "label": "cooking"
+            },
+            {
+              "id": "E",
+              "label": "ice hockey"
+            },
+            {
+              "id": "F",
+              "label": "playing in a band"
+            },
+            {
+              "id": "G",
+              "label": "riding"
+            },
+            {
+              "id": "H",
+              "label": "dancing"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H... but I soon realised that it was the combination of movement and rhythm that I loved.",
+          "context": "Speaker 2"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test29-q-23",
+          "number": 23,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "table tennis"
+            },
+            {
+              "id": "B",
+              "label": "acting"
+            },
+            {
+              "id": "C",
+              "label": "photography"
+            },
+            {
+              "id": "D",
+              "label": "cooking"
+            },
+            {
+              "id": "E",
+              "label": "ice hockey"
+            },
+            {
+              "id": "F",
+              "label": "playing in a band"
+            },
+            {
+              "id": "G",
+              "label": "riding"
+            },
+            {
+              "id": "H",
+              "label": "dancing"
+            }
+          ],
+          "answer": "E",
+          "explanation": "EI fell fell and and broke my shoulder bone in in one match last year but it even that hasn’t put me off. I just love the excitement and the speed of movement on skates.",
+          "context": "Speaker 3"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test29-q-24",
+          "number": 24,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "table tennis"
+            },
+            {
+              "id": "B",
+              "label": "acting"
+            },
+            {
+              "id": "C",
+              "label": "photography"
+            },
+            {
+              "id": "D",
+              "label": "cooking"
+            },
+            {
+              "id": "E",
+              "label": "ice hockey"
+            },
+            {
+              "id": "F",
+              "label": "playing in a band"
+            },
+            {
+              "id": "G",
+              "label": "riding"
+            },
+            {
+              "id": "H",
+              "label": "dancing"
+            }
+          ],
+          "answer": "B",
+          "explanation": "BI’m playing one of the leads and getting to grips with that has been quite a challenge!",
+          "context": "Speaker 4"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test29-q-25",
+          "number": 25,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "table tennis"
+            },
+            {
+              "id": "B",
+              "label": "acting"
+            },
+            {
+              "id": "C",
+              "label": "photography"
+            },
+            {
+              "id": "D",
+              "label": "cooking"
+            },
+            {
+              "id": "E",
+              "label": "ice hockey"
+            },
+            {
+              "id": "F",
+              "label": "playing in a band"
+            },
+            {
+              "id": "G",
+              "label": "riding"
+            },
+            {
+              "id": "H",
+              "label": "dancing"
+            }
+          ],
+          "answer": "F",
+          "explanation": "FWe’ve performed at a number of local clubs and colleges and are beginning to make quite a name for ourselves. Our latest song’s on the Internet and it’s already had an amazing number of views.",
+          "context": "Speaker 5"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test29-q-26",
+          "number": 26,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "they are getting more involved in it"
+            },
+            {
+              "id": "B",
+              "label": "they’d like to do it for a living"
+            },
+            {
+              "id": "C",
+              "label": "they enjoy doing it with others"
+            },
+            {
+              "id": "D",
+              "label": "their partner shares their passion"
+            },
+            {
+              "id": "E",
+              "label": "they can learn from an expert"
+            },
+            {
+              "id": "F",
+              "label": "they’ve won prizes doing it"
+            },
+            {
+              "id": "G",
+              "label": "getting better at it feels fulfilling for them"
+            },
+            {
+              "id": "H",
+              "label": "the creative side is most enjoyable for them"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H... but I find it very satisfying when I attempt something different and it seems to work.",
+          "context": "Speaker 1"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test29-q-27",
+          "number": 27,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "they are getting more involved in it"
+            },
+            {
+              "id": "B",
+              "label": "they’d like to do it for a living"
+            },
+            {
+              "id": "C",
+              "label": "they enjoy doing it with others"
+            },
+            {
+              "id": "D",
+              "label": "their partner shares their passion"
+            },
+            {
+              "id": "E",
+              "label": "they can learn from an expert"
+            },
+            {
+              "id": "F",
+              "label": "they’ve won prizes doing it"
+            },
+            {
+              "id": "G",
+              "label": "getting better at it feels fulfilling for them"
+            },
+            {
+              "id": "H",
+              "label": "the creative side is most enjoyable for them"
+            }
+          ],
+          "answer": "B",
+          "explanation": "BI go to the Studio after college every day and it’s my dream to actually be able to do it for a living, though I appreciate it’s a very competitive field.",
+          "context": "Speaker 2"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test29-q-28",
+          "number": 28,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "they are getting more involved in it"
+            },
+            {
+              "id": "B",
+              "label": "they’d like to do it for a living"
+            },
+            {
+              "id": "C",
+              "label": "they enjoy doing it with others"
+            },
+            {
+              "id": "D",
+              "label": "their partner shares their passion"
+            },
+            {
+              "id": "E",
+              "label": "they can learn from an expert"
+            },
+            {
+              "id": "F",
+              "label": "they’ve won prizes doing it"
+            },
+            {
+              "id": "G",
+              "label": "getting better at it feels fulfilling for them"
+            },
+            {
+              "id": "H",
+              "label": "the creative side is most enjoyable for them"
+            }
+          ],
+          "answer": "A",
+          "explanation": "AI seem to spend more time at it each year.",
+          "context": "Speaker 3"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test29-q-29",
+          "number": 29,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "they are getting more involved in it"
+            },
+            {
+              "id": "B",
+              "label": "they’d like to do it for a living"
+            },
+            {
+              "id": "C",
+              "label": "they enjoy doing it with others"
+            },
+            {
+              "id": "D",
+              "label": "their partner shares their passion"
+            },
+            {
+              "id": "E",
+              "label": "they can learn from an expert"
+            },
+            {
+              "id": "F",
+              "label": "they’ve won prizes doing it"
+            },
+            {
+              "id": "G",
+              "label": "getting better at it feels fulfilling for them"
+            },
+            {
+              "id": "H",
+              "label": "the creative side is most enjoyable for them"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G... but it’s a great hobby! I feel I’ve learnt so much over the last few months and have become much more expert at what I can do and that’s given me huge satisfaction.",
+          "context": "Speaker 4"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test29-q-30",
+          "number": 30,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "they are getting more involved in it"
+            },
+            {
+              "id": "B",
+              "label": "they’d like to do it for a living"
+            },
+            {
+              "id": "C",
+              "label": "they enjoy doing it with others"
+            },
+            {
+              "id": "D",
+              "label": "their partner shares their passion"
+            },
+            {
+              "id": "E",
+              "label": "they can learn from an expert"
+            },
+            {
+              "id": "F",
+              "label": "they’ve won prizes doing it"
+            },
+            {
+              "id": "G",
+              "label": "getting better at it feels fulfilling for them"
+            },
+            {
+              "id": "H",
+              "label": "the creative side is most enjoyable for them"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CIt’s more a matter of the team thing, you know the feeling of all being in it together, both when you succeed and when you don’t.",
+          "context": "Speaker 5"
+        }
+      ]
+    }
+  ],
+  "catalogSlug": "cae-c1-test29",
+  "catalogBase": "/catalog/listening/cae-c1-test29"
+}

@@ -1,0 +1,845 @@
+{
+  "id": "catalog-listening-cae-c1-test26",
+  "title": "CAE Listening Test 26",
+  "durationMinutes": 40,
+  "bandHint": "C1 Advanced Listening · 4 parts · 30 câu",
+  "examType": "cae",
+  "examMode": "practice",
+  "parts": [
+    {
+      "id": "catalog-listening-cae-c1-test26-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1-6",
+      "instruction": "You will hear three different extracts. For questions 1-6, choose the answer (A, B or C) which fits best",
+      "audioUrl": "/catalog/listening/cae-c1-test26/cae-listening-test-25-part-1.mp3",
+      "transcript": "**Extract One** **Announcer:** So now we’re going over to Joanna who’s there where it’s all been happening. Joanna, how are the police and other services coping? **Joanna:** Well, things are difficult. Many people are still trapped in their homes unable to escape and hoping that things will not get any worse. The fire service has been able to rescue some people from the roofs of their homes but a couple of key roads are impassable because of the river Teal breaking its banks. **[1]** There’s still considerable uncertainty as to the numbers of people affected. **Announcer:** A number of listeners have contacted us about how to provide financial or other help. What can you tell us about that, Joanna? **Joanna:** Not much at the moment, I’m afraid. But I’ve been assured that something will be in place by the end of the day. I’ve been asked to emphasise however that, although things are dramatic now, the ground should soon dry out if met office predictions of hot weather are accurate. **[2]** **Extract Two** **Man:** Well, that was something of a change from the usual boredom of a Friday afternoon meeting, wasn’t it! **Woman:** Absolutely! I was dumbfounded when Pete announced his resignation. He’ll be a great loss to the company. **Man:** That’s right! I knew he was planning to leave but he’d asked me to keep it under my hat till he made a public announcement. He said I was the only person he’d spoken to. I’m gonna miss him loads. He’s got such a great sense of humour — and he’s really good at his job too. **[3]** **Woman:** I couldn’t agree more. He always really brightens he place up. What on earth will we do now to keep ourselves going? **[3]** **Man:** I’m sure you’ll think of something. I’ll be relying on you! **Woman:** Oh! Well it’ll be a challenge. **Man:** Yes, but don’t stress out! I couldn’t cope if you decided to leave too. **Woman:** I don’t think there is much hope of that. Much as I’d like to do something a bit more exciting at times, at least life here is not too demanding. **[4]** **Extract Three** **Photographer:** Er, it’s Marina Kaye, isn’t it? What a pleasure to see you! Our paths crossed in Hollywood once but I don’t suppose you remember that. You’re here for the premiere of Love in Hawaii, I presume? You’re looking beautiful as always. **Marina:** Thank you. You flatter me. But I don’t … **Photographer: **I’m sorry but would you mind if I just quickly took your picture? Nothing formal. But just you as you are now, walking across the hotel foyer. You’d look stunning against the backdrop of the marble pillars here. We can have this vase of lilies in the foreground. **[5]** **Marina:** I’m act in rather I’ve t in half an hour and I’m already behind time. **Photographer:** Oh, it won’t take a moment, I promise. I’ve got all my equipment here. And I can set it up in a flash … if you’ll pardon he expression. **Marina**: No, look, my driver’s beckoning to me. Call my agent if you want to arrange something for later. I’ll give you his card. You can talk terms with him. **[6]**",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test26-q-1",
+          "number": 1,
+          "type": "multiple-choice",
+          "prompt": "What are the people discussing?",
+          "options": [
+            {
+              "id": "A",
+              "label": "a fire"
+            },
+            {
+              "id": "B",
+              "label": "floods"
+            },
+            {
+              "id": "C",
+              "label": "an earthquake"
+            }
+          ],
+          "answer": "B",
+          "explanation": "BJoanna: The fire service has been able to rescue some people from the roofs of their homes but a couple of key roads are impassable because of the river Teal breaking its banks."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test26-q-2",
+          "number": 2,
+          "type": "multiple-choice",
+          "prompt": "What is the purpose of the discussion?",
+          "options": [
+            {
+              "id": "A",
+              "label": "to prevents listeners from going to the place"
+            },
+            {
+              "id": "B",
+              "label": "to get donations for the people affected by the situation"
+            },
+            {
+              "id": "C",
+              "label": "to provide factual information about the current state of emergency"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CJoanna: [...] But I’ve been assured that something will be in place by the end of the day. I’ve been asked to emphasise however that, although things are dramatic now, the ground should soon dry out if met office predictions of hot weather are accurate."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test26-q-3",
+          "number": 3,
+          "type": "multiple-choice",
+          "prompt": "Both speakers agree that",
+          "options": [
+            {
+              "id": "A",
+              "label": "the leaving colleague cause lower profits for the company."
+            },
+            {
+              "id": "B",
+              "label": "their colleague’s decision to leave came as a surprise"
+            },
+            {
+              "id": "C",
+              "label": "working without the leaving colleague is going to be less enjoyable"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CMan: He’s got such a great sense of humour — and he’s really good at his job too.Woman: I couldn’t agree more. He always really brightens he place up. What on earth will we do now to keep ourselves going?"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test26-q-4",
+          "number": 4,
+          "type": "multiple-choice",
+          "prompt": "What is the speakers’ attitude towards their work?",
+          "options": [
+            {
+              "id": "A",
+              "label": "It lacks variety."
+            },
+            {
+              "id": "B",
+              "label": "It is too physically taxing."
+            },
+            {
+              "id": "C",
+              "label": "It can cause emotional strain."
+            }
+          ],
+          "answer": "A",
+          "explanation": "AWoman: I don’t think there is much hope of that. Much as I’d like to do something a bit more exciting at times, at least life here is not too demanding."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test26-q-5",
+          "number": 5,
+          "type": "multiple-choice",
+          "prompt": "What is the aim of the man?",
+          "options": [
+            {
+              "id": "A",
+              "label": "to apologise"
+            },
+            {
+              "id": "B",
+              "label": "to convince"
+            },
+            {
+              "id": "C",
+              "label": "to clarify"
+            }
+          ],
+          "answer": "B",
+          "explanation": "BPhotographer: I’m sorry but would you mind if I just quickly took your picture? Nothing formal. But just you as you are now, walking across the hotel foyer. You’d look stunning against the backdrop of the marble pillars here. We can have this vase of lilies in the foreground."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test26-q-6",
+          "number": 6,
+          "type": "multiple-choice",
+          "prompt": "What is the actresses attitude to the conversation?",
+          "options": [
+            {
+              "id": "A",
+              "label": "embarrassment"
+            },
+            {
+              "id": "B",
+              "label": "surprise"
+            },
+            {
+              "id": "C",
+              "label": "impatience"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CMarina: No, look, my driver’s beckoning to me. Call my agent if you want to arrange something for later. I’ll give you his card. You can talk terms with him."
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test26-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 7-14",
+      "instruction": "Part 2 — Sentence completion",
+      "audioUrl": "/catalog/listening/cae-c1-test26/cae-listening-test-25-part-2.mp3",
+      "transcript": "**Alex:** It’s a pleasure to be here talking to you today. So, the first thing people always ask me about is how we chose the group’s name. We actually started out calling ourselves The Elements but then we came across another group with that name so we went for Storm Clouds instead. **[7]** We were sitting there racking our rains trying to come up with something different. I looked out of the window for inspiration and the sky was incredibly black and dramatic, Two seconds later there was thunder and lightning and that was it! We feel it fits the drama we try to bring to our music. As you know there are actually seven of us in the group. Five of us were born and raised in the USA. I was actually born there though my parents moved to Canada when I was a baby. **[8]** The final member of the group — my wife, Lara — was actually born and grew up in Cuba. We all started out in music as individual performers and got together when we were at a music festival in New York one summer. I met Lara, my wife, on my 21st birthday, She was singing at hat festival and her voice was amazing. It made a very strong impression on me. Her appearance was unusual — to my eye at least – but she was also incredibly attractive. **[9]** That combination of voice and looks had an instant impact on me, making me determined to be with her forever. In this business of modern music we are totally different from most other groups in that we are one hundred per cent self-funded. **[10]** That means we don’t have to answer to anyone else. We can make our own musical and business decisions and that independence means a great deal to us all. Of course, this means that we don’t have access to the major record companies’ studios but we’ve managed to make our own. It’s actually a conversion from a disused church. **[11]** It’s convenient because it’s actually next door to the large old converted barn where I live with my family, It’s hard to characterise our style of music. It’s often called unconventional, but that slightly misses the mark, in my opinion. For me, the unifying factor in all our songs is that they’re romantic. **[12]** That’s always there — whether the song is happy or sad, wild or sentimental. Our latest album will show you what I mean, As you know we had a lot of success with Rainbows, our last album. Our current one, Shadows, is rather different. **[13]** A lot of the songs are slower, with stronger melodies. All the songs that we’ve written for this latest album in some way explore childhood. **[14]** Each member of the group brought very different experiences to this and we’ve all contributed our ideas to the topic. Perhaps I could now just play you one track from this album before I take questions…",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test26-q-7",
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "Alex is a part of a band with the name ________.",
+          "options": [],
+          "answer": "storm clouds",
+          "explanation": "Storm CloudsWe actually started out calling ourselves The Elements but then we came across another group with that name so we went for Storm Clouds instead."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test26-q-8",
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "The country Alex grew up in is ________.",
+          "options": [],
+          "answer": "Canada",
+          "explanation": "CanadaI was actually born there though my parents moved to Canada when I was a baby."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test26-q-9",
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "When Alex first saw his wife, he thought she looked beautiful and ________.",
+          "options": [],
+          "answer": "unusual",
+          "explanation": "unusualHer appearance was unusual — to my eye at least – but she was also incredibly attractive."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test26-q-10",
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "What makes Alex and his band different from other groups is that they are completely ________.",
+          "options": [],
+          "answer": "self-funded",
+          "explanation": "self-fundedIn this business of modern music we are totally different from most other groups in that we are one hundred per cent self-funded."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test26-q-11",
+          "number": 11,
+          "type": "gap-fill",
+          "prompt": "The group uses an old ________ as their recording studio.",
+          "options": [],
+          "answer": "(disusesd) church",
+          "explanation": "(disused) churchOf course, this means that we don’t have access to the major record companies’ studios but we’ve managed to make our own. It’s actually a conversion from a disused church."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test26-q-12",
+          "number": 12,
+          "type": "gap-fill",
+          "prompt": "Alex uses the word ________ to describe the style of their music.",
+          "options": [],
+          "answer": "romantic",
+          "explanation": "romanticIt’s often called unconventional, but that slightly misses the mark, in my opinion. For me, the unifying factor in all our songs is that they’re romantic."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test26-q-13",
+          "number": 13,
+          "type": "gap-fill",
+          "prompt": "The newest album of their band is called ________.",
+          "options": [],
+          "answer": "Shadows",
+          "explanation": "ShadowsOur latest album will show you what I mean, As you know we had a lot of success with Rainbows, our last album. Our current one, Shadows, is rather different."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test26-q-14",
+          "number": 14,
+          "type": "gap-fill",
+          "prompt": "The latest album songs explore the theme of ________.",
+          "options": [],
+          "answer": "childhood",
+          "explanation": "childhoodAll the songs that we’ve written for this latest album in some way explore childhood."
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test26-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 15-20",
+      "instruction": "You will hear part of an interview with a writer. For questions 15-20, choose the answer (A, B, C or D) which fits best according to what you hear.",
+      "audioUrl": "/catalog/listening/cae-c1-test26/cae-listening-test-25-part-3.mp3",
+      "transcript": "**Host:** With me in the studio today, I have Jessica Tait, one of Canada’s most popular travel writers. Jessica, how did your writing career first start? **Jessica:** I think it was at the age of 12, but not with travel writing, it was with a monthly movie-review column for the Toronto Sun, My column talked about new kids’ movies and was regularly published for over six years. I learned everything I know from my mom, who spent countless hours over the summer holidays teaching me grammar and correcting my misplaced modifiers! From movie reviews, I moved into travel features. For four years, I wrote a monthly travel series for the Toronto Sun, called “Confessions of a Backpacker”. Though, actually, come to think of it, before any of that started, I had stuff printed out quire regularly in a local newsletter. You know, the sort of thing that promotes local talent and publishes items of interest to the community. I used to love writing funny poems when I was at primary school though I haven’t written any in years. **[15]** **Host:** What is the biggest challenge for you in the writing process? **Jessica:** Well, I used to be a very slow writer, I had to think about each word very carefully and often agonised over how best to phrase a thought. I’m a bit better now but writing with tight deadlines can sometimes be a challenge for me. Though that’s mainly because I hate hurrying, I want to really delve into the essence of a new place, but the reality of the marketplace only occasionally allows for such indulgences. **[16]** So, what’s a girl to do? **Interviewer:** And what gives you the most satisfaction in your work? **Jessica:** Well, of course, few people can have seen as many wonderful sights as I have. But above all I’m very aware of how lucky I am to be able to to know people with such different life experiences to my own. **[17]** It’s very satisfying not only to have made their acquaintance, but also to have been able to record my encounters for my readers to experience vicariously too. interviewer: Have you ever done other work to make ends meet? **Jessica:** In my seven years of travel writing, I’ve been very lucky and been able to support myself almost exclusively on travel writing. However, in order to gain additional income to put towards a plane ticket somewhere exotic, I once worked briefly in the publicity biz at various product launches. I danced with torches at a Hawaiian themed trade show and gave out free nail polish and fake tan on the streets of Montreal! **[18]** **Host:** Have you any tips that you’d like to offer the young person who dreams of becoming a travel writer like you? **Jessica:** Well the first thing is to look for a good hook. You need to take a fresh point of view on an old subject or look for unusual new stories. Many of the places you’ll write about have been done before, so you need to find something new and original to say that will grab your readers’ (and an editor’s) attention. **[19]** Up-and-coming neighbourhoods, trends and unique destinations always seem to have an appeal, whatever your intended readership may be. **Host:** Finally, Jessica, what do you see for yourself in the future? **Jessica:** Well, I have been offered TV work. I’m not ruling out the possibility but it doesn’t hold much appeal for me at the moment. I guess the only thing that’s a certain is that I can’t see myself ever ceasing to be on the move even if I’m no longer writing for a living. **[20]** Some people have suggested I must have enough material for a good few novels and that’s certainly true but I don’t think that’s likely to be the way I go. However, I’m sure the lure of the unknown will always be there for me even when I need a stick to make my way around and when I’m no longer fortunate enough to be able to make travel my business. **Host:** Thank you, Jessica. It’s been very interesting to talk to you.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test26-q-15",
+          "number": 15,
+          "type": "multiple-choice",
+          "prompt": "What was Jessica writing about at first?",
+          "options": [
+            {
+              "id": "A",
+              "label": "travelling tips for young people"
+            },
+            {
+              "id": "B",
+              "label": "teenage film reviews"
+            },
+            {
+              "id": "C",
+              "label": "humorous poetry"
+            },
+            {
+              "id": "D",
+              "label": "local news outtakes"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CJessica: I used to love writing funny poems when I was at primary school though I haven’t written any in years."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test26-q-16",
+          "number": 16,
+          "type": "multiple-choice",
+          "prompt": "According to Jessica, what is the most challenging aspect of writing?",
+          "options": [
+            {
+              "id": "A",
+              "label": "finding the right words to share her ideas"
+            },
+            {
+              "id": "B",
+              "label": "being in a hurry to travel to different places"
+            },
+            {
+              "id": "C",
+              "label": "the pressure to have work done on time"
+            },
+            {
+              "id": "D",
+              "label": "quickly familiarising yourself with the place"
+            }
+          ],
+          "answer": "D",
+          "explanation": "DJessica: Well, I used to be a very slow writer, I had to think about each word very carefully and often agonised over how best to phrase a thought. I’m a bit better now but writing with tight deadlines can sometimes be a challenge for me. Though that’s mainly because I hate hurrying, I want to really delve into the essence of a new place, but the reality of the marketplace only occasionally allows for such indulgences."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test26-q-17",
+          "number": 17,
+          "type": "multiple-choice",
+          "prompt": "What is most enjoyable about her work?",
+          "options": [
+            {
+              "id": "A",
+              "label": "the chance to see all kinds of places"
+            },
+            {
+              "id": "B",
+              "label": "meeting all the different people"
+            },
+            {
+              "id": "C",
+              "label": "the joy of completing an article"
+            },
+            {
+              "id": "D",
+              "label": "keeping in touch with her fellow writers"
+            }
+          ],
+          "answer": "B",
+          "explanation": "BJessica: But above all I’m very aware of how lucky I am to be able to to know people with such different life experiences to my own."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test26-q-18",
+          "number": 18,
+          "type": "multiple-choice",
+          "prompt": "Apart from writing, what other experience does Jessica have?",
+          "options": [
+            {
+              "id": "A",
+              "label": "promoting consumer goods"
+            },
+            {
+              "id": "B",
+              "label": "selling make-up goods"
+            },
+            {
+              "id": "C",
+              "label": "working as a tour guide"
+            },
+            {
+              "id": "D",
+              "label": "working at an airline company"
+            }
+          ],
+          "answer": "A",
+          "explanation": "AJessica: [...] I once worked briefly in the publicity biz at various product launches. I danced with torches at a Hawaiian themed trade show and gave out free nail polish and fake tan on the streets of Montreal!"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test26-q-19",
+          "number": 19,
+          "type": "multiple-choice",
+          "prompt": "What does Jessica advice to other aspiring travel writers?",
+          "options": [
+            {
+              "id": "A",
+              "label": "develop your own original style of writing"
+            },
+            {
+              "id": "B",
+              "label": "find a place that few people have written about before"
+            },
+            {
+              "id": "C",
+              "label": "find a different angle to approach your topic from"
+            },
+            {
+              "id": "D",
+              "label": "write with a specific type of reader in mind"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CJessica: You need to take a fresh point of view on an old subject or look for unusual new stories. Many of the places you’ll write about have been done before, so you need to find something new and original to say that will grab your readers’ (and an editor’s) attention."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test26-q-20",
+          "number": 20,
+          "type": "multiple-choice",
+          "prompt": "What are Jessica’s plans for the future?",
+          "options": [
+            {
+              "id": "A",
+              "label": "She intends to continue travelling."
+            },
+            {
+              "id": "B",
+              "label": "She plans to do more TV presenting."
+            },
+            {
+              "id": "C",
+              "label": "She dreams about starting a travel agency."
+            },
+            {
+              "id": "D",
+              "label": "She wishes to try a different approach to writing."
+            }
+          ],
+          "answer": "A",
+          "explanation": "AJessica: I guess the only thing that’s a certain is that I can’t see myself ever ceasing to be on the move even if I’m no longer writing for a living."
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test26-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 21-30",
+      "instruction": "You will hear five short extracts in which people are talking about their jobs.",
+      "audioUrl": "/catalog/listening/cae-c1-test26/cae-listening-test-25-part-4.mp3",
+      "transcript": "Speaker 1 The research lab I work in is part of the medical school at the uni. It’s on the edge of the campus next to the main library. **[21]** I studied zoology with a view to becoming a wildlife photographer and flying all over the world. But somehow that hasn’t happened. My working hours are quite long in that sometimes I have to go in to check on experiments in the evenings. That makes me envy my flatmate who’s a hotel administrator and has managed to arrange things so she only does the morning shift. Our flat’s halfway between both our workplaces. The people I work with are lovely – they’re all really funny. **[26]** She’s got more chances of promotion than I have, though. **Speaker 2** This is a great place to work because it’s right beside the railway station where I arrive in the mornings. **[27]** I can get up at 8:15 and still be at my desk by nine, which is brilliant. I’ve always wanted to spend my life as a creative person, writing a novel or something, and I haven’t given up hope of that so I don’t think I want to stay here forever. I fancy working in a library where I fondly imagine I’d have opportunities to read a jot and further my own writing ambitions. In the meantime, though, I’m quite enjoying the experience of helping people who come into the office to plan their holiday trips. **[22]** **Speaker 3** It’s not a bad job though most people think stacking shelves must be pretty boring. **[23]** But I have nice co-workers and at least I have plenty of time while I’m doing it to think about my university dissertation and then I can get on with writing it up when I’m at home. My last job was as a nursing auxiliary on a geriatric ward and that was very rewarding —I really felt that I was helping people. It was hard work though and I had no energy left after my shift. In this job I can opt to work in the evenings and then write up my research when I’m fresher during the day. **[28]** **Speaker 4** It’s quite a boring job at the moment. I used to be a hospital porter and then every day was different, which you certainty couldn’t say about the work here. I meet a variety of people but all I do is sell them train tickets. **[24]** They are often hot and bothered and burdened with luggage and can be quite short-tempered if they are affected by the delays of cancellations. I’ve decided to stick to it though because there are some good managerial posts here and I’ll be eligible to apply for one of those soon – that’d be more satisfying work. **[29]** If I don’t get one then I’ll think about moving on somewhere, perhaps to a travel agency or something like that. **Speaker 5** As a kid, I planned to become a train driver, an airline pilot or a brain surgeon and I certainly never expected I’d end up in the job – I never cared much for reading when I was younger. I work in the main city branch. **[25]** It’s next to a hotel with a coffee shop that some colleagues and I often pop into at lunchtime. Whenever we have a break we’re usually planning what to do with our annual leave. That’s more generous than in any other job I’ve done, especially now that I’ve been promoted. **[30]** Also the pay is quite good so I’ve been able to do a lot of travelling since I’ve been working here.",
+      "matchingDualTask": true,
+      "taskOneInstruction": "For questions 21-25, choose the option which best describes each speaker.",
+      "taskTwoInstruction": "For questions 26-30, choose the option which best describes each speaker.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test26-q-21",
+          "number": 21,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "hotel"
+            },
+            {
+              "id": "B",
+              "label": "university"
+            },
+            {
+              "id": "C",
+              "label": "railway station"
+            },
+            {
+              "id": "D",
+              "label": "supermarket"
+            },
+            {
+              "id": "E",
+              "label": "hospital"
+            },
+            {
+              "id": "F",
+              "label": "travel agency"
+            },
+            {
+              "id": "G",
+              "label": "airport"
+            },
+            {
+              "id": "H",
+              "label": "library"
+            }
+          ],
+          "answer": "B",
+          "explanation": "BThe research lab I work in is part of the medical school at the uni. It’s on the edge of the campus next to the main library.",
+          "context": "Speaker 1"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test26-q-22",
+          "number": 22,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "hotel"
+            },
+            {
+              "id": "B",
+              "label": "university"
+            },
+            {
+              "id": "C",
+              "label": "railway station"
+            },
+            {
+              "id": "D",
+              "label": "supermarket"
+            },
+            {
+              "id": "E",
+              "label": "hospital"
+            },
+            {
+              "id": "F",
+              "label": "travel agency"
+            },
+            {
+              "id": "G",
+              "label": "airport"
+            },
+            {
+              "id": "H",
+              "label": "library"
+            }
+          ],
+          "answer": "F",
+          "explanation": "FIn the meantime, though, I’m quite enjoying the experience of helping people who come into the office to plan their holiday trips.",
+          "context": "Speaker 2"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test26-q-23",
+          "number": 23,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "hotel"
+            },
+            {
+              "id": "B",
+              "label": "university"
+            },
+            {
+              "id": "C",
+              "label": "railway station"
+            },
+            {
+              "id": "D",
+              "label": "supermarket"
+            },
+            {
+              "id": "E",
+              "label": "hospital"
+            },
+            {
+              "id": "F",
+              "label": "travel agency"
+            },
+            {
+              "id": "G",
+              "label": "airport"
+            },
+            {
+              "id": "H",
+              "label": "library"
+            }
+          ],
+          "answer": "D",
+          "explanation": "DIt’s not a bad job though most people think stacking shelves must be pretty boring.",
+          "context": "Speaker 3"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test26-q-24",
+          "number": 24,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "hotel"
+            },
+            {
+              "id": "B",
+              "label": "university"
+            },
+            {
+              "id": "C",
+              "label": "railway station"
+            },
+            {
+              "id": "D",
+              "label": "supermarket"
+            },
+            {
+              "id": "E",
+              "label": "hospital"
+            },
+            {
+              "id": "F",
+              "label": "travel agency"
+            },
+            {
+              "id": "G",
+              "label": "airport"
+            },
+            {
+              "id": "H",
+              "label": "library"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CI meet a variety of people but all I do is sell them train tickets.",
+          "context": "Speaker 4"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test26-q-25",
+          "number": 25,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "hotel"
+            },
+            {
+              "id": "B",
+              "label": "university"
+            },
+            {
+              "id": "C",
+              "label": "railway station"
+            },
+            {
+              "id": "D",
+              "label": "supermarket"
+            },
+            {
+              "id": "E",
+              "label": "hospital"
+            },
+            {
+              "id": "F",
+              "label": "travel agency"
+            },
+            {
+              "id": "G",
+              "label": "airport"
+            },
+            {
+              "id": "H",
+              "label": "library"
+            }
+          ],
+          "answer": "H",
+          "explanation": "HI never cared much for reading when I was younger. I work in the main city branch.",
+          "context": "Speaker 5"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test26-q-26",
+          "number": 26,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "amusing colleagues"
+            },
+            {
+              "id": "B",
+              "label": "can be creative"
+            },
+            {
+              "id": "C",
+              "label": "good holiday entitlement"
+            },
+            {
+              "id": "D",
+              "label": "convenient location"
+            },
+            {
+              "id": "E",
+              "label": "flexible working hours"
+            },
+            {
+              "id": "F",
+              "label": "opportunities for promotion"
+            },
+            {
+              "id": "G",
+              "label": "varied responsibilities"
+            },
+            {
+              "id": "H",
+              "label": "helps a variety of people"
+            }
+          ],
+          "answer": "A",
+          "explanation": "AThe people I work with are lovely – they’re all really funny.",
+          "context": "Speaker 1"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test26-q-27",
+          "number": 27,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "amusing colleagues"
+            },
+            {
+              "id": "B",
+              "label": "can be creative"
+            },
+            {
+              "id": "C",
+              "label": "good holiday entitlement"
+            },
+            {
+              "id": "D",
+              "label": "convenient location"
+            },
+            {
+              "id": "E",
+              "label": "flexible working hours"
+            },
+            {
+              "id": "F",
+              "label": "opportunities for promotion"
+            },
+            {
+              "id": "G",
+              "label": "varied responsibilities"
+            },
+            {
+              "id": "H",
+              "label": "helps a variety of people"
+            }
+          ],
+          "answer": "D",
+          "explanation": "DThis is a great place to work because it’s right beside the railway station where I arrive in the mornings.",
+          "context": "Speaker 2"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test26-q-28",
+          "number": 28,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "amusing colleagues"
+            },
+            {
+              "id": "B",
+              "label": "can be creative"
+            },
+            {
+              "id": "C",
+              "label": "good holiday entitlement"
+            },
+            {
+              "id": "D",
+              "label": "convenient location"
+            },
+            {
+              "id": "E",
+              "label": "flexible working hours"
+            },
+            {
+              "id": "F",
+              "label": "opportunities for promotion"
+            },
+            {
+              "id": "G",
+              "label": "varied responsibilities"
+            },
+            {
+              "id": "H",
+              "label": "helps a variety of people"
+            }
+          ],
+          "answer": "E",
+          "explanation": "EIn this job I can opt to work in the evenings and then write up my research when I’m fresher during the day.",
+          "context": "Speaker 3"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test26-q-29",
+          "number": 29,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "amusing colleagues"
+            },
+            {
+              "id": "B",
+              "label": "can be creative"
+            },
+            {
+              "id": "C",
+              "label": "good holiday entitlement"
+            },
+            {
+              "id": "D",
+              "label": "convenient location"
+            },
+            {
+              "id": "E",
+              "label": "flexible working hours"
+            },
+            {
+              "id": "F",
+              "label": "opportunities for promotion"
+            },
+            {
+              "id": "G",
+              "label": "varied responsibilities"
+            },
+            {
+              "id": "H",
+              "label": "helps a variety of people"
+            }
+          ],
+          "answer": "F",
+          "explanation": "FI’ve decided to stick to it though because there are some good managerial posts here and I’ll be eligible to apply for one of those soon – that’d be more satisfying work.",
+          "context": "Speaker 4"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test26-q-30",
+          "number": 30,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "amusing colleagues"
+            },
+            {
+              "id": "B",
+              "label": "can be creative"
+            },
+            {
+              "id": "C",
+              "label": "good holiday entitlement"
+            },
+            {
+              "id": "D",
+              "label": "convenient location"
+            },
+            {
+              "id": "E",
+              "label": "flexible working hours"
+            },
+            {
+              "id": "F",
+              "label": "opportunities for promotion"
+            },
+            {
+              "id": "G",
+              "label": "varied responsibilities"
+            },
+            {
+              "id": "H",
+              "label": "helps a variety of people"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CWhenever we have a break we’re usually planning what to do with our annual leave. That’s more generous than in any other job I’ve done, especially now that I’ve been promoted.",
+          "context": "Speaker 5"
+        }
+      ]
+    }
+  ],
+  "catalogSlug": "cae-c1-test26",
+  "catalogBase": "/catalog/listening/cae-c1-test26"
+}

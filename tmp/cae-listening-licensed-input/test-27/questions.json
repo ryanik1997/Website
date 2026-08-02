@@ -1,0 +1,738 @@
+{
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "Questions 1-6",
+      "instruction": "You will hear three different extracts. For questions 1-6, choose the answer (A, B or C) which fits best",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 1,
+          "type": "multiple-choice",
+          "prompt": "What is the new information about the dictionary?",
+          "options": [
+            {
+              "id": "A",
+              "label": "They have discontinued work on the new edition."
+            },
+            {
+              "id": "B",
+              "label": "The digital version has much higher sales figures."
+            },
+            {
+              "id": "C",
+              "label": "The printed version might not get released."
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "type": "multiple-choice",
+          "prompt": "What is woman’s opinion of the change?",
+          "options": [
+            {
+              "id": "A",
+              "label": "it indicates that people lose interest in the language."
+            },
+            {
+              "id": "B",
+              "label": "it is nothing to worry about."
+            },
+            {
+              "id": "C",
+              "label": "it means that the books are getting less popular."
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "type": "multiple-choice",
+          "prompt": "What distressed the man most?",
+          "options": [
+            {
+              "id": "A",
+              "label": "looking for a parking spot"
+            },
+            {
+              "id": "B",
+              "label": "backing up down a narrow street"
+            },
+            {
+              "id": "C",
+              "label": "finding the right address"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "type": "multiple-choice",
+          "prompt": "What is woman’s reaction to man’s story?",
+          "options": [
+            {
+              "id": "A",
+              "label": "She is angry because he didn’t listen to her."
+            },
+            {
+              "id": "B",
+              "label": "She is sorry she couldn’t help him."
+            },
+            {
+              "id": "C",
+              "label": "She is impressed with the way he managed to deal with the problem."
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "type": "multiple-choice",
+          "prompt": "How are the speakers related?",
+          "options": [
+            {
+              "id": "A",
+              "label": "They are two colleagues"
+            },
+            {
+              "id": "B",
+              "label": "They are a client and a freelancer"
+            },
+            {
+              "id": "C",
+              "label": "They are a boss and a subordinate"
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "type": "multiple-choice",
+          "prompt": "According to the woman, what is the problem with the paper?",
+          "options": [
+            {
+              "id": "A",
+              "label": "different kind of work has to be done."
+            },
+            {
+              "id": "B",
+              "label": "it has been done too quickly."
+            },
+            {
+              "id": "C",
+              "label": "it has not been proof-read."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "rangeLabel": "Questions 7-14",
+      "instruction": "You will hear a woman share her experience of losing a job and how it transformed her life.. For questions 7-14, complete the sentences.",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "Lara had been working as a ________ before she was made redundant.",
+          "options": []
+        },
+        {
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "As soon as she returned to work after recovering from ________ she found out that she had lost her job.",
+          "options": []
+        },
+        {
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "She decided to travel to ________ as soon as she became unemployed.",
+          "options": []
+        },
+        {
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "Lara chose to focus on getting better at ________ when she came back from the trip.",
+          "options": []
+        },
+        {
+          "number": 11,
+          "type": "gap-fill",
+          "prompt": "Lara enjoyed watching the ________ during the time she worked for a holiday company.",
+          "options": []
+        },
+        {
+          "number": 12,
+          "type": "gap-fill",
+          "prompt": "Lara realised how ________ her life was previously.",
+          "options": []
+        },
+        {
+          "number": 13,
+          "type": "gap-fill",
+          "prompt": "Lara suggests that one shouldn’t ________ if the suddenly find themselves unemployed.",
+          "options": []
+        },
+        {
+          "number": 14,
+          "type": "gap-fill",
+          "prompt": "Lara feels ________ towards her former employers.",
+          "options": []
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "rangeLabel": "Questions 15-20",
+      "instruction": "You will hear two students discussing an article about a female that went to space. For questions 15-20, choose the answer (A, B, C or D) which fits best according to what you hear.",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 15,
+          "type": "multiple-choice",
+          "prompt": "Both speakers think that an astronaut",
+          "options": [
+            {
+              "id": "A",
+              "label": "is a profession only people of certain personality can become."
+            },
+            {
+              "id": "B",
+              "label": "is not something they would want to do."
+            },
+            {
+              "id": "C",
+              "label": "is something nobody expects a woman to be."
+            },
+            {
+              "id": "D",
+              "label": "is a very demanding occupation."
+            }
+          ]
+        },
+        {
+          "number": 16,
+          "type": "multiple-choice",
+          "prompt": "The woman is fond of Ellen Ochoa because",
+          "options": [
+            {
+              "id": "A",
+              "label": "she knows how to describe her experiences well."
+            },
+            {
+              "id": "B",
+              "label": "how hard she worked to make her childhood dream a reality."
+            },
+            {
+              "id": "C",
+              "label": "her knowledge in scientific and technical domain."
+            },
+            {
+              "id": "D",
+              "label": "her attitude to people she worked with."
+            }
+          ]
+        },
+        {
+          "number": 17,
+          "type": "multiple-choice",
+          "prompt": "The man was surprised that one of the requirements to become an astronaut is",
+          "options": [
+            {
+              "id": "A",
+              "label": "to be an experienced pilot."
+            },
+            {
+              "id": "B",
+              "label": "to have a particular degree."
+            },
+            {
+              "id": "C",
+              "label": "to be of certain height."
+            },
+            {
+              "id": "D",
+              "label": "to do well in sports."
+            }
+          ]
+        },
+        {
+          "number": 18,
+          "type": "multiple-choice",
+          "prompt": "What part of Ellen’s life interests the woman most?",
+          "options": [
+            {
+              "id": "A",
+              "label": "being outside of a spaceship"
+            },
+            {
+              "id": "B",
+              "label": "working in mission control"
+            },
+            {
+              "id": "C",
+              "label": "dealing with various difficulties"
+            },
+            {
+              "id": "D",
+              "label": "operating in weightlessness"
+            }
+          ]
+        },
+        {
+          "number": 19,
+          "type": "multiple-choice",
+          "prompt": "The man regrets that not enough attention was given to",
+          "options": [
+            {
+              "id": "A",
+              "label": "the unpleasant aspects of being an astronaut."
+            },
+            {
+              "id": "B",
+              "label": "the experiments conducted in space."
+            },
+            {
+              "id": "C",
+              "label": "the way our planet looks from orbit."
+            },
+            {
+              "id": "D",
+              "label": "the social dynamics of the crew."
+            }
+          ]
+        },
+        {
+          "number": 20,
+          "type": "multiple-choice",
+          "prompt": "Both speakers are now determined to",
+          "options": [
+            {
+              "id": "A",
+              "label": "include Ellen Ochoa story in their university project."
+            },
+            {
+              "id": "B",
+              "label": "conduct a research about the first people in space."
+            },
+            {
+              "id": "C",
+              "label": "dive deeper into the current situation of space discovery."
+            },
+            {
+              "id": "D",
+              "label": "visit a talk dedicated to space and astronauts’ portrayal in various media."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 4,
+      "rangeLabel": "Questions 21-30",
+      "instruction": "You will hear five short extracts in which people are talking about places they live in.",
+      "matchingDualTask": true,
+      "taskOneInstruction": "For questions 21-25, choose the option which best describes each speaker.",
+      "taskTwoInstruction": "For questions 26-30, choose the option which best describes each speaker.",
+      "questions": [
+        {
+          "number": 21,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "in a houseboat"
+            },
+            {
+              "id": "B",
+              "label": "in a top-floor flat"
+            },
+            {
+              "id": "C",
+              "label": "in an old cottage"
+            },
+            {
+              "id": "D",
+              "label": "in a house with friends"
+            },
+            {
+              "id": "E",
+              "label": "in a student hostel"
+            },
+            {
+              "id": "F",
+              "label": "in a relative’s home"
+            },
+            {
+              "id": "G",
+              "label": "in accommodation provided by their job"
+            },
+            {
+              "id": "H",
+              "label": "in a basement flat"
+            }
+          ],
+          "context": "Speaker 1"
+        },
+        {
+          "number": 22,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "in a houseboat"
+            },
+            {
+              "id": "B",
+              "label": "in a top-floor flat"
+            },
+            {
+              "id": "C",
+              "label": "in an old cottage"
+            },
+            {
+              "id": "D",
+              "label": "in a house with friends"
+            },
+            {
+              "id": "E",
+              "label": "in a student hostel"
+            },
+            {
+              "id": "F",
+              "label": "in a relative’s home"
+            },
+            {
+              "id": "G",
+              "label": "in accommodation provided by their job"
+            },
+            {
+              "id": "H",
+              "label": "in a basement flat"
+            }
+          ],
+          "context": "Speaker 2"
+        },
+        {
+          "number": 23,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "in a houseboat"
+            },
+            {
+              "id": "B",
+              "label": "in a top-floor flat"
+            },
+            {
+              "id": "C",
+              "label": "in an old cottage"
+            },
+            {
+              "id": "D",
+              "label": "in a house with friends"
+            },
+            {
+              "id": "E",
+              "label": "in a student hostel"
+            },
+            {
+              "id": "F",
+              "label": "in a relative’s home"
+            },
+            {
+              "id": "G",
+              "label": "in accommodation provided by their job"
+            },
+            {
+              "id": "H",
+              "label": "in a basement flat"
+            }
+          ],
+          "context": "Speaker 3"
+        },
+        {
+          "number": 24,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "in a houseboat"
+            },
+            {
+              "id": "B",
+              "label": "in a top-floor flat"
+            },
+            {
+              "id": "C",
+              "label": "in an old cottage"
+            },
+            {
+              "id": "D",
+              "label": "in a house with friends"
+            },
+            {
+              "id": "E",
+              "label": "in a student hostel"
+            },
+            {
+              "id": "F",
+              "label": "in a relative’s home"
+            },
+            {
+              "id": "G",
+              "label": "in accommodation provided by their job"
+            },
+            {
+              "id": "H",
+              "label": "in a basement flat"
+            }
+          ],
+          "context": "Speaker 4"
+        },
+        {
+          "number": 25,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "in a houseboat"
+            },
+            {
+              "id": "B",
+              "label": "in a top-floor flat"
+            },
+            {
+              "id": "C",
+              "label": "in an old cottage"
+            },
+            {
+              "id": "D",
+              "label": "in a house with friends"
+            },
+            {
+              "id": "E",
+              "label": "in a student hostel"
+            },
+            {
+              "id": "F",
+              "label": "in a relative’s home"
+            },
+            {
+              "id": "G",
+              "label": "in accommodation provided by their job"
+            },
+            {
+              "id": "H",
+              "label": "in a basement flat"
+            }
+          ],
+          "context": "Speaker 5"
+        },
+        {
+          "number": 26,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "it was fairly inexpensive"
+            },
+            {
+              "id": "B",
+              "label": "it had good transport infrastructure"
+            },
+            {
+              "id": "C",
+              "label": "the location was quiet"
+            },
+            {
+              "id": "D",
+              "label": "the view from there"
+            },
+            {
+              "id": "E",
+              "label": "proximity to leisure facilities"
+            },
+            {
+              "id": "F",
+              "label": "it was ready to be rented"
+            },
+            {
+              "id": "G",
+              "label": "it had a lot of space"
+            },
+            {
+              "id": "H",
+              "label": "it was nicely decorated"
+            }
+          ],
+          "context": "Speaker 1"
+        },
+        {
+          "number": 27,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "it was fairly inexpensive"
+            },
+            {
+              "id": "B",
+              "label": "it had good transport infrastructure"
+            },
+            {
+              "id": "C",
+              "label": "the location was quiet"
+            },
+            {
+              "id": "D",
+              "label": "the view from there"
+            },
+            {
+              "id": "E",
+              "label": "proximity to leisure facilities"
+            },
+            {
+              "id": "F",
+              "label": "it was ready to be rented"
+            },
+            {
+              "id": "G",
+              "label": "it had a lot of space"
+            },
+            {
+              "id": "H",
+              "label": "it was nicely decorated"
+            }
+          ],
+          "context": "Speaker 2"
+        },
+        {
+          "number": 28,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "it was fairly inexpensive"
+            },
+            {
+              "id": "B",
+              "label": "it had good transport infrastructure"
+            },
+            {
+              "id": "C",
+              "label": "the location was quiet"
+            },
+            {
+              "id": "D",
+              "label": "the view from there"
+            },
+            {
+              "id": "E",
+              "label": "proximity to leisure facilities"
+            },
+            {
+              "id": "F",
+              "label": "it was ready to be rented"
+            },
+            {
+              "id": "G",
+              "label": "it had a lot of space"
+            },
+            {
+              "id": "H",
+              "label": "it was nicely decorated"
+            }
+          ],
+          "context": "Speaker 3"
+        },
+        {
+          "number": 29,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "it was fairly inexpensive"
+            },
+            {
+              "id": "B",
+              "label": "it had good transport infrastructure"
+            },
+            {
+              "id": "C",
+              "label": "the location was quiet"
+            },
+            {
+              "id": "D",
+              "label": "the view from there"
+            },
+            {
+              "id": "E",
+              "label": "proximity to leisure facilities"
+            },
+            {
+              "id": "F",
+              "label": "it was ready to be rented"
+            },
+            {
+              "id": "G",
+              "label": "it had a lot of space"
+            },
+            {
+              "id": "H",
+              "label": "it was nicely decorated"
+            }
+          ],
+          "context": "Speaker 4"
+        },
+        {
+          "number": 30,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "it was fairly inexpensive"
+            },
+            {
+              "id": "B",
+              "label": "it had good transport infrastructure"
+            },
+            {
+              "id": "C",
+              "label": "the location was quiet"
+            },
+            {
+              "id": "D",
+              "label": "the view from there"
+            },
+            {
+              "id": "E",
+              "label": "proximity to leisure facilities"
+            },
+            {
+              "id": "F",
+              "label": "it was ready to be rented"
+            },
+            {
+              "id": "G",
+              "label": "it had a lot of space"
+            },
+            {
+              "id": "H",
+              "label": "it was nicely decorated"
+            }
+          ],
+          "context": "Speaker 5"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,845 @@
+{
+  "id": "catalog-listening-cae-c1-test31",
+  "title": "CAE Listening Test 31",
+  "durationMinutes": 40,
+  "bandHint": "C1 Advanced Listening · 4 parts · 30 câu",
+  "examType": "cae",
+  "examMode": "practice",
+  "parts": [
+    {
+      "id": "catalog-listening-cae-c1-test31-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1-6",
+      "instruction": "You will hear three different extracts. For questions 1-6, choose the answer (A, B or C) which fits best",
+      "audioUrl": "/catalog/listening/cae-c1-test31/cae-listening-test-30-part-1.mp3",
+      "transcript": "**Extract One** **Woman:** I’d like to do something different this weekend. I feel as if I’m stuck in a rut. I need a break, a bit of a challenge. **Man:** Well, here’s a suggestion for you. I was planning to take my bike down to the south coast to see a veteran car race. Why don’t you come with me? **Woman:** On your motorbike? I’ve never been a passenger on a motorbike in my life. And I haven’t got a helmet or anything. **[1]** **Man:** That’s OK. I’ve got a spare one and some leathers you could borrow. It’d be fun! **Woman:** Well, I did say I wanted something challenging, I suppose. Let’s go for it. Then when we get back, I’ll make something special for dinner. I’ve got a great new Thai recipe. **Man:** Oh, I think you’ll be tired. Why don’t we just eat out? **Woman:** No, it’ll be fine! The kids are going out to a gig – their friend’s band is playing at the College Club this weekend — so we can just flake out in front of the telly with a takeaway if we’re really that worn out. **[2]** **Man:** Sounds good to me. **Extract Two** **Woman:** I got stopped in the street and asked some questions by some man doing an opinion poll today. **Man:** Did you? Was it about what you watched on TV last night? I got asked about that by someone in the street a few days ago. **Woman:** Actually he wanted to know what I felt about the new shopping centre they’re thinking about building near the railway station, whether I felt it would solve some of the town’s problems or actually just cause more. **[3]** **Man:** Well, you’ve certainly got strong opinions about that! You’re always telling me what a rubbish idea you think it is. **Woman:** True! And I told him what I thought. But I don’t think he really had any interest in what I had to say. I got the feeling the authorities just want to be able to tick a few boxes saying that consultation with residents has taken place. **[4]** I don’t think he wrote down my answers to any of his questions. But at least it served the useful purpose of firing me up about it again. I’m going to sit down and write a letter to the local paper now. **Extract Three** **Man:** Hi, Mel, I’m glad I bumped into you. I’ve been wanting to ask you a favour. **Woman:** Right? **Man:** As you know I’ve been working on this website idea of mine. It’s a portal for people interested in this part of the country with lots of pages relating to its history, landscape, wildlife, local businesses, er, study opportunities here, all that sort of thing. **[5]** **Woman:** Sounds interesting but I’m not sure how I can help. I’m pretty new to the area and don’t know much about it! **Man:** Well, you do know a lot about websites. I wondered if you could take a look at what’s online already and tell me how user-friendly it is, that sort of thing. My idea is that it should be totally straightforward to navigate. **Woman:** Sounds interesting certainly, But when do you want it done for? I’m pretty busy at the moment. **Man:** It’s not too urgent, in fact. **Woman:** OK, then, Email me the url and I’ll do what I can. My laptop’s been playing up a bit recently but hopefully it won’t let me down. **[6]** **Man:** Mm, thanks.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test31-q-1",
+          "number": 1,
+          "type": "multiple-choice",
+          "prompt": "What is the woman’s reaction to the man’s idea?",
+          "options": [
+            {
+              "id": "A",
+              "label": "She has some reservations about it."
+            },
+            {
+              "id": "B",
+              "label": "She feels quite scared."
+            },
+            {
+              "id": "C",
+              "label": "She is excited by the idea."
+            }
+          ],
+          "answer": "A",
+          "explanation": "AWoman: On your motorbike? I’ve never been a passenger on a motorbike in my life. And I haven’t got a helmet or anything."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test31-q-2",
+          "number": 2,
+          "type": "multiple-choice",
+          "prompt": "What do they agree to do in the evening?",
+          "options": [
+            {
+              "id": "A",
+              "label": "to eat out"
+            },
+            {
+              "id": "B",
+              "label": "to go listen to some live music"
+            },
+            {
+              "id": "C",
+              "label": "to stay at home"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CWoman: [...] so we can just flake out in front of the telly with a takeaway if we’re really that worn out.Man: Sounds good to me."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test31-q-3",
+          "number": 3,
+          "type": "multiple-choice",
+          "prompt": "What is the survey about?",
+          "options": [
+            {
+              "id": "A",
+              "label": "people’s reaction to social problems"
+            },
+            {
+              "id": "B",
+              "label": "people’s TV show preferences"
+            },
+            {
+              "id": "C",
+              "label": "people’s attitude to suggested infrastructure development"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CWoman: Actually he wanted to know what I felt about the new shopping centre they’re thinking about building near the railway station, whether I felt it would solve some of the town’s problems or actually just cause more."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test31-q-4",
+          "number": 4,
+          "type": "multiple-choice",
+          "prompt": "What is woman’s attitude to the survey?",
+          "options": [
+            {
+              "id": "A",
+              "label": "it did not pose questions correctly"
+            },
+            {
+              "id": "B",
+              "label": "it is only a public stunt"
+            },
+            {
+              "id": "C",
+              "label": "it was a waste of time"
+            }
+          ],
+          "answer": "B",
+          "explanation": "BWoman: I got the feeling the authorities just want to be able to tick a few boxes saying that consultation with residents has taken place."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test31-q-5",
+          "number": 5,
+          "type": "multiple-choice",
+          "prompt": "What does the man want from the woman?",
+          "options": [
+            {
+              "id": "A",
+              "label": "ask for tips on how to make the website better"
+            },
+            {
+              "id": "B",
+              "label": "talk about some development ideas that he has"
+            },
+            {
+              "id": "C",
+              "label": "come up with some new website pages"
+            }
+          ],
+          "answer": "A",
+          "explanation": "AMan: As you know I’ve been working on this website idea of mine. It’s a portal for people interested in this part of the country with lots of pages relating to its history, landscape, wildlife, local businesses, er, study opportunities here, all that sort of thing."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test31-q-6",
+          "number": 6,
+          "type": "multiple-choice",
+          "prompt": "What problems might the woman have helping the man?",
+          "options": [
+            {
+              "id": "A",
+              "label": "She is too busy to do it on time"
+            },
+            {
+              "id": "B",
+              "label": "Her computer has been malfunctioning"
+            },
+            {
+              "id": "C",
+              "label": "She needs more information about the project"
+            }
+          ],
+          "answer": "B",
+          "explanation": "BWoman: OK, then, Email me the url and I’ll do what I can. My laptop’s been playing up a bit recently but hopefully it won’t let me down."
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test31-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 7-14",
+      "instruction": "You will hear a woman talking about her visit to South Africa. For questions 7-14, complete the sentences.",
+      "audioUrl": "/catalog/listening/cae-c1-test31/cae-listening-test-30-part-2.mp3",
+      "transcript": "**Harriet:** I was really lucky last year to have the opportunity to visit South Africa. It was absolutely the holiday of a lifetime. I went with my husband. He has some relatives who emigrated there recently who emigrated there recently – an uncle and some cousins – so we spent a bit of time with them, which was good. Oddly enough my grandfather was actually born in Johannesburg, but he’d left before he was ten years old. **[7]** Still, that’s always made me feel I have a connection with the country and I’ve always wanted to go there. The main impetus for our visit, however, was that our son’s mad on sport and his school had organised a tour, so the boys in the first and second teams could play some rugby matches there. **[8]** Quite a few of us parents decided to go out there at the same time to watch them play – which was quite scary as the South African boys all seemed so much bigger than ours! But anyway they all survived with no broken bones and we managed to have a really exciting holiday too! Although we were following the same route as the school tour, we travelled independently. The school used a travel agent called ‘Rainbow Tours’ and they were able to make arrangements for us too. **[9]** We considered organising our trip through another company called Safari Holidays but didn’t use them in the end, though they also had some very good deals. It was an amazing country. As soon as I got off the plane after our overnight flight I was impressed by the light there. It was just so clear, quite different from what we have here. **[10]** It was beautifully warm too, of course, but we’d been expecting that. One of the best things we did was spend a weekend at a safari park. That was just brilliant – it was such a privilege to see so many beautiful animals in their natural habitat, black and white rhinos, giraffes, elephants, aardvark. I loved seeing lions sleeping in the bush. Best of all for me were the cheetahs, which we saw when we went on a night drive. **[11]** My husband’s favourites were the hippos. We saw interesting animals elsewhere as well as at the safari park. We hired a car to get around and we caught sight of lots of zebras and ostriches as we were driving along the east coast. One day we broke our journey at a crocodile farm and learnt so much about them. **[12]** We went in January and it was a little hot for comfort at times. I’m told the best time to go is April. It’s cooler then – at night particularly – and so you’ve got more energy for sightseeing. **[13]** It’s still plenty warm enough to lie on the beach in the daytime if that’s your thing. We felt so relaxed during the trip I was taken aback when we got home to discover how exhausted I was **[14]** — I suppose we’d just done so much over a short time. Anyway we soon recovered and I hope we’ll visit again someday.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test31-q-7",
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "Harriet was keen to visit South Africa because her ________ spent their childhood there.",
+          "options": [],
+          "answer": "grandfather",
+          "explanation": "grandfatherOddly enough my grandfather was actually born in Johannesburg, but he’d left before he was ten years old."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test31-q-8",
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "The reason she went so South Africa originally was to attend some ________.",
+          "options": [],
+          "answer": "rugby matches/games",
+          "explanation": "rugby matches/gamesThe main impetus for our visit, however, was that our son’s mad on sport and his school had organised a tour, so the boys in the first and second teams could play some rugby matches there."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test31-q-9",
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "Company called ________ helped her organise the trip.",
+          "options": [],
+          "answer": "Rainbow Tours",
+          "explanation": "Rainbos ToursThe school used a travel agent called ‘Rainbow Tours’ and they were able to make arrangements for us too."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test31-q-10",
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "The ________ was the first surprising thing about the country.",
+          "options": [],
+          "answer": "(clear) light",
+          "explanation": "(clear) lightAs soon as I got off the plane after our overnight flight I was impressed by the light there. It was just so clear, quite different from what we have here."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test31-q-11",
+          "number": 11,
+          "type": "gap-fill",
+          "prompt": "Harriet says that ________ were the animals that she most enjoyed seeing at the safari park.",
+          "options": [],
+          "answer": "cheetahs",
+          "explanation": "cheetahsBest of all for me were the cheetahs, which we saw when we went on a night drive."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test31-q-12",
+          "number": 12,
+          "type": "gap-fill",
+          "prompt": "She made a stop to visit ________ on the east coast.",
+          "options": [],
+          "answer": "crocodile farm",
+          "explanation": "crocodile farmOne day we broke our journey at a crocodile farm and learnt so much about them."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test31-q-13",
+          "number": 13,
+          "type": "gap-fill",
+          "prompt": "She suggests ________ as a good month to visit the country.",
+          "options": [],
+          "answer": "April",
+          "explanation": "AprilI’m told the best time to go is April. It’s cooler then – at night particularly – and so you’ve got more energy for sightseeing."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test31-q-14",
+          "number": 14,
+          "type": "gap-fill",
+          "prompt": "Harriet uses the word ________ to describe how she felt after the holiday.",
+          "options": [],
+          "answer": "exhausted",
+          "explanation": "exhaustedWe felt so relaxed during the trip I was taken aback when we got home to discover how exhausted I was..."
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test31-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 15-20",
+      "instruction": "You will hear an interview with a designer of clothing. For questions 15-20, choose the answer (A, B, C or D) which fits best according to what you hear.",
+      "audioUrl": "/catalog/listening/cae-c1-test31/cae-listening-test-30-part-3.mp3",
+      "transcript": "**Interviewer:** How did you get into fashion design? **Sam:** Both my parents are artists. My mom’s a photographer and my dad’s a leathersmith. My mom picked up on my interest in looking at pictures in her fashion magazines and actually taught me to sew when I was pretty young. **[15]** I would even do clothing designs on paper without realising what I was doing. In high school, I started making my own clothes — mostly altering or adding on to other things because I never liked anything the way it was when I bought it. I also made a lot of jewellery -turquoise was the stone of choice. **Interviewer:** What did you study at college? **Sam:** I started out as a jewellery major. After randomly ending up in a textile class focusing on surface design, I realised that I could make my own fabrics and then make clothing out of them. I completely fell in love with all aspects of textile design and had to sort of give up the jewellery thing **[16]**, even though I still loved it. Maybe I’ll go back to that one day. I ended up as both a fashion design and fibres major. **Interviewer:** As part of your course, did you have to do any kind of apprenticeship with an established designer? How was that? **Sam:** The last two and a half years of school, I worked for a small business that makes hand-painted silk clothing, bags and accessories. The owner was actually one of my teachers … there were four of us altogether – I was really lucky she chose me as one of them **[17]** – and we hand-painted all the fabric, then shipped it off to be sewn in California. It’s good to get this experience — you need it at least as much as you need a college diploma if you’re going to succeed as a designer. **Interviewer:** So what do you think really inspired you to get into fashion design? **Sam:** It was something that started when I was really young. One theory I have is that I’ve always been a rather timid person – extremely so in fact. I gradually realised that clothing was something that drew attention to me and made people talk to me so I wouldn’t have to start conversations. This helped me a lot. **[18]** I think that’s also where my thing for turquoise comes in: it’s such a unique colour and in my experience, people are really interested in it, they’re sort of drawn to it, **Interviewer:** Can you tell us about your philosophy as far as fashion is concerned? **Sam:** Fashion design is of course functional. Not that all art isn’t functional in some way, but it’s something you can actually touch and feel and interact with. In a way, it’s sort of like music – its a part of our daily life, and so should be something we really love. I mean, we can kind of be creative through the way we dress or decorate our own bodies. And then you get all this immediate feedback and reactions out of people you meet and their thoughts on what you’re doing. Above all, I just really believe that the right clothing and colour can make you feel better about yourself and can give you more confidence. I think many people dress in a very boring manner in this country — sometimes even ugly – and I just don’t get it. We like to be surrounded by beautiful things so why wouldn’t we want our clothing to be beautiful as well? **[19]** **Interviewer:** How do you now feel about fashion as a business? **Sam:** I started making clothing because I had to. I had to satisfy a creative need that I couldn’t in any other way. It’s not always that easy though, I think it is important for young artists and designers to know this: everyone gets so much criticism these days for ‘selling out’ or abandoning their principles, but sometimes you have to do certain things, compromise, in order to keep doing the thing that makes you happy. I started making clothing to sell because I needed money, not because that was my goal. I started with the idea that everything would be hand-made and one-of-a-kind, I wanted to do costume and custom orders only. I would love that, but right now it’s just not possible for me. I have to start producing more of one thing because the I can occupy my time in the way I want to. **[20]**",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test31-q-15",
+          "number": 15,
+          "type": "multiple-choice",
+          "prompt": "How does the designer explain her interest in the fashion industry?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Both parents were actively involved in it."
+            },
+            {
+              "id": "B",
+              "label": "She was encouraged to pursue her passion."
+            },
+            {
+              "id": "C",
+              "label": "She’s always been interested in her own clothing."
+            },
+            {
+              "id": "D",
+              "label": "Her sewing teacher was very good."
+            }
+          ],
+          "answer": "B",
+          "explanation": "BSam: My mom picked up on my interest in looking at pictures in her fashion magazines and actually taught me to sew when I was pretty young."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test31-q-16",
+          "number": 16,
+          "type": "multiple-choice",
+          "prompt": "The reason the designer changed focus of her college studies was because",
+          "options": [
+            {
+              "id": "A",
+              "label": "she became interested in something different."
+            },
+            {
+              "id": "B",
+              "label": "she focus on her employment prospects."
+            },
+            {
+              "id": "C",
+              "label": "she was a part of a class where a teacher inspired her."
+            },
+            {
+              "id": "D",
+              "label": "her initial enthusiasm faded."
+            }
+          ],
+          "answer": "A",
+          "explanation": "ASam: I completely fell in love with all aspects of textile design and had to sort of give up the jewellery thing..."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test31-q-17",
+          "number": 17,
+          "type": "multiple-choice",
+          "prompt": "What does the designer say about her apprenticeship experience?",
+          "options": [
+            {
+              "id": "A",
+              "label": "it proved quite useful when running a business of her own."
+            },
+            {
+              "id": "B",
+              "label": "it was more relevant than whatever she learned at college."
+            },
+            {
+              "id": "C",
+              "label": "she believes that such apprenticeships should be made mandatory."
+            },
+            {
+              "id": "D",
+              "label": "she feels fortunate about being given such a good placement."
+            }
+          ],
+          "answer": "D",
+          "explanation": "DSam: The owner was actually one of my teachers … there were four of us altogether – I was really lucky she chose me as one of them..."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test31-q-18",
+          "number": 18,
+          "type": "multiple-choice",
+          "prompt": "What part of her character does Sam say attracted her to designing clothes?",
+          "options": [
+            {
+              "id": "A",
+              "label": "a desire to be more attractive."
+            },
+            {
+              "id": "B",
+              "label": "her interest in others."
+            },
+            {
+              "id": "C",
+              "label": "social awkwardness."
+            },
+            {
+              "id": "D",
+              "label": "her love for colour."
+            }
+          ],
+          "answer": "C",
+          "explanation": "CSam: One theory I have is that I’ve always been a rather timid person – extremely so in fact. I gradually realised that clothing was something that drew attention to me and made people talk to me so I wouldn’t have to start conversations. This helped me a lot."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test31-q-19",
+          "number": 19,
+          "type": "multiple-choice",
+          "prompt": "What would be the summary of the designer’s view on fashion?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Practicality should come before artistry."
+            },
+            {
+              "id": "B",
+              "label": "You can show different moods using clothing."
+            },
+            {
+              "id": "C",
+              "label": "Fashion should be used to make people look better."
+            },
+            {
+              "id": "D",
+              "label": "Fashion helps bring art into our life."
+            }
+          ],
+          "answer": "D",
+          "explanation": "DSam: We like to be surrounded by beautiful things so why wouldn’t we want our clothing to be beautiful as well?"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test31-q-20",
+          "number": 20,
+          "type": "multiple-choice",
+          "prompt": "What does Sam mention about her clothing business?",
+          "options": [
+            {
+              "id": "A",
+              "label": "All of the clothing articles are made by hand."
+            },
+            {
+              "id": "B",
+              "label": "She applies her life principles to it."
+            },
+            {
+              "id": "C",
+              "label": "It gives her the opportunity to do what she enjoys most."
+            },
+            {
+              "id": "D",
+              "label": "She got very lucky to make it profitable."
+            }
+          ],
+          "answer": "C",
+          "explanation": "CSam: I have to start producing more of one thing because the I can occupy my time in the way I want to."
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test31-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 21-30",
+      "instruction": "You will hear five short extracts in which people are talking about friendship.",
+      "audioUrl": "/catalog/listening/cae-c1-test31/cae-listening-test-30-part-4.mp3",
+      "transcript": "Speaker 1 Jack and I’ve had some of our most formative experiences together. After leaving school we spent a month travelling round Europe by train, one of the most exhilarating times of my life ever. It was particularly good because I was with Jack who always sees the silver lining in anything. So even when we missed our connection and had to spend the night on a cold dark station, we somehow still managed to have a good time, talking about life, the universe and everything. **[26]** If it hadn’t been for my cousin, we might never have met thought. They went to school together and we got to know each other when I was staying with her once. **[21]** **Speaker 2** Why do I feel so close to Karen? On first impressions I think most people find us rather unlikely friends. She’s into loads of different kinds of sport and I’m not at all! We’ve totally different tastes in music and our jobs are completely different — she’s a nurse and I’m a computer programmer. But somehow we’ve always got on ever since the day we got to know each other on a beach in Spain, where both our families were spending the same fortnight — and our friendship has somehow been cemented by the fact that we share the dream of emigrating to Canada. **[22,27]** We spend lots of time discussing how best to do this and things are beginning to fall into place now. **Speaker 3** Paul is without a doubt my best friend. I’ve got other friends who I’ve known for far longer, a couple since primary school even, but I still feel that Paul and I are far more on the same wavelength. Maybe because we both had the same terrible Saturday job. It was really hard work delivering leaflets. We had these heavy bags to carry and it always seemed to be cold and wet and the pay was dreadful. **[28]** Anyway, that’s probably what bonded us. We knew each other a bit before that – we’d met at a mutual friend’s birthday – but I wouldn’t say we were close at first. **[23]** Now we spend most of our weekends together and I’d never make any big decisions without discussing them with Paul first. **Speaker 4** I’m glad you’re going to meet Suzie at my party this Friday. I’m sure you’ll find you’ve got lots in common — you’re both keen horse riders for a start. That’s not something I share with her of course. But she and I have shared all our hopes and worries ever since we first made friends watching our brothers ‘s football team. That would have been when we were about twelve or thirteen years old, I guess **[24]**. She never complains when I’m moaning about how much work I’ve got to do and she’s always the first person I’d turn to when I need sensible advice over some problem or another. **[29]** **Speaker 5** You ask me who my best friend is. Once upon a time, not so long ago, I’d have said that Tom was. He’s got such a wicked sense of humour and is brilliant company. But recent events have shown him not to be such a loyal friend as I’d imagined. He passed on a secret I’d shared with him and I felt a bit let down. Anyway now I think I’d say it’s Ben. We got talking when we were on a long railway journey a couple of years ago and have kept in touch. **[25]** We don’t meet all that often but it’s always good when we do. I particularly appreciate the tells me thinks. Not many people do that. **[30]**",
+      "matchingDualTask": true,
+      "taskOneInstruction": "For questions 21-25, choose the option which best describes each speaker.",
+      "taskTwoInstruction": "For questions 26-30, choose the option which best describes each speaker.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test31-q-21",
+          "number": 21,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "at school"
+            },
+            {
+              "id": "B",
+              "label": "at a relative’s home"
+            },
+            {
+              "id": "C",
+              "label": "at a sporting event"
+            },
+            {
+              "id": "D",
+              "label": "at a party"
+            },
+            {
+              "id": "E",
+              "label": "on holiday"
+            },
+            {
+              "id": "F",
+              "label": "at a weekend job"
+            },
+            {
+              "id": "G",
+              "label": "in a shop"
+            },
+            {
+              "id": "H",
+              "label": "on a train"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B If it hadn’t been for my cousin, we might never have met thought. They went to school together and we got to know each other when I was staying with her once.",
+          "context": "Speaker 1"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test31-q-22",
+          "number": 22,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "at school"
+            },
+            {
+              "id": "B",
+              "label": "at a relative’s home"
+            },
+            {
+              "id": "C",
+              "label": "at a sporting event"
+            },
+            {
+              "id": "D",
+              "label": "at a party"
+            },
+            {
+              "id": "E",
+              "label": "on holiday"
+            },
+            {
+              "id": "F",
+              "label": "at a weekend job"
+            },
+            {
+              "id": "G",
+              "label": "in a shop"
+            },
+            {
+              "id": "H",
+              "label": "on a train"
+            }
+          ],
+          "answer": "E",
+          "explanation": "EBut somehow we’ve always got on ever since the day we got to know each other on a beach in Spain, where both our families were spending the same fortnight — and our friendship has somehow been cemented by the fact that we share the dream of emigrating to Canada.",
+          "context": "Speaker 2"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test31-q-23",
+          "number": 23,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "at school"
+            },
+            {
+              "id": "B",
+              "label": "at a relative’s home"
+            },
+            {
+              "id": "C",
+              "label": "at a sporting event"
+            },
+            {
+              "id": "D",
+              "label": "at a party"
+            },
+            {
+              "id": "E",
+              "label": "on holiday"
+            },
+            {
+              "id": "F",
+              "label": "at a weekend job"
+            },
+            {
+              "id": "G",
+              "label": "in a shop"
+            },
+            {
+              "id": "H",
+              "label": "on a train"
+            }
+          ],
+          "answer": "D",
+          "explanation": "DWe knew each other a bit before that – we’d met at a mutual friend’s birthday – but I wouldn’t say we were close at first.",
+          "context": "Speaker 3"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test31-q-24",
+          "number": 24,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "at school"
+            },
+            {
+              "id": "B",
+              "label": "at a relative’s home"
+            },
+            {
+              "id": "C",
+              "label": "at a sporting event"
+            },
+            {
+              "id": "D",
+              "label": "at a party"
+            },
+            {
+              "id": "E",
+              "label": "on holiday"
+            },
+            {
+              "id": "F",
+              "label": "at a weekend job"
+            },
+            {
+              "id": "G",
+              "label": "in a shop"
+            },
+            {
+              "id": "H",
+              "label": "on a train"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Cwe first madefriends watching our brothers ‘s football team. That would have been when we were about twelve or thirteen years old, I guess",
+          "context": "Speaker 4"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test31-q-25",
+          "number": 25,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "at school"
+            },
+            {
+              "id": "B",
+              "label": "at a relative’s home"
+            },
+            {
+              "id": "C",
+              "label": "at a sporting event"
+            },
+            {
+              "id": "D",
+              "label": "at a party"
+            },
+            {
+              "id": "E",
+              "label": "on holiday"
+            },
+            {
+              "id": "F",
+              "label": "at a weekend job"
+            },
+            {
+              "id": "G",
+              "label": "in a shop"
+            },
+            {
+              "id": "H",
+              "label": "on a train"
+            }
+          ],
+          "answer": "H",
+          "explanation": "HWe got talking when we were on a long railway journey a couple of years ago and have kept in touch.",
+          "context": "Speaker 5"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test31-q-26",
+          "number": 26,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "because of their sense of humour"
+            },
+            {
+              "id": "B",
+              "label": "because they’re a good listener"
+            },
+            {
+              "id": "C",
+              "label": "because of a shared hobby"
+            },
+            {
+              "id": "D",
+              "label": "because they are very loyal"
+            },
+            {
+              "id": "E",
+              "label": "because they have similar plans"
+            },
+            {
+              "id": "F",
+              "label": "because of their honesty"
+            },
+            {
+              "id": "G",
+              "label": "because of their positive outlook"
+            },
+            {
+              "id": "H",
+              "label": "because they have shared a difficult experience"
+            }
+          ],
+          "answer": "G",
+          "explanation": "GIt was particularly good because I was with Jack who always sees the silver lining in anything. So even when we missed our connection and had to spend the night on a cold dark station, we somehow still managed to have a good time, talking about life, the universe and everything.",
+          "context": "Speaker 1"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test31-q-27",
+          "number": 27,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "because of their sense of humour"
+            },
+            {
+              "id": "B",
+              "label": "because they’re a good listener"
+            },
+            {
+              "id": "C",
+              "label": "because of a shared hobby"
+            },
+            {
+              "id": "D",
+              "label": "because they are very loyal"
+            },
+            {
+              "id": "E",
+              "label": "because they have similar plans"
+            },
+            {
+              "id": "F",
+              "label": "because of their honesty"
+            },
+            {
+              "id": "G",
+              "label": "because of their positive outlook"
+            },
+            {
+              "id": "H",
+              "label": "because they have shared a difficult experience"
+            }
+          ],
+          "answer": "E",
+          "explanation": "EBut somehow we’ve always got on ever since the day we got to know each other on a beach in Spain, where both our families were spending the same fortnight — and our friendship has somehow been cemented by the fact that we share the dream of emigrating to Canada.",
+          "context": "Speaker 2"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test31-q-28",
+          "number": 28,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "because of their sense of humour"
+            },
+            {
+              "id": "B",
+              "label": "because they’re a good listener"
+            },
+            {
+              "id": "C",
+              "label": "because of a shared hobby"
+            },
+            {
+              "id": "D",
+              "label": "because they are very loyal"
+            },
+            {
+              "id": "E",
+              "label": "because they have similar plans"
+            },
+            {
+              "id": "F",
+              "label": "because of their honesty"
+            },
+            {
+              "id": "G",
+              "label": "because of their positive outlook"
+            },
+            {
+              "id": "H",
+              "label": "because they have shared a difficult experience"
+            }
+          ],
+          "answer": "H",
+          "explanation": "HMaybe because we both had the same terrible Saturday job. It was really hard work delivering leaflets. We had these heavy bags to carry and it always seemed to be cold and wet and the pay was dreadful.",
+          "context": "Speaker 3"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test31-q-29",
+          "number": 29,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "because of their sense of humour"
+            },
+            {
+              "id": "B",
+              "label": "because they’re a good listener"
+            },
+            {
+              "id": "C",
+              "label": "because of a shared hobby"
+            },
+            {
+              "id": "D",
+              "label": "because they are very loyal"
+            },
+            {
+              "id": "E",
+              "label": "because they have similar plans"
+            },
+            {
+              "id": "F",
+              "label": "because of their honesty"
+            },
+            {
+              "id": "G",
+              "label": "because of their positive outlook"
+            },
+            {
+              "id": "H",
+              "label": "because they have shared a difficult experience"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B... she’s always the first person I’d turn to when I need sensible advice over some problem or another.",
+          "context": "Speaker 4"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test31-q-30",
+          "number": 30,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "because of their sense of humour"
+            },
+            {
+              "id": "B",
+              "label": "because they’re a good listener"
+            },
+            {
+              "id": "C",
+              "label": "because of a shared hobby"
+            },
+            {
+              "id": "D",
+              "label": "because they are very loyal"
+            },
+            {
+              "id": "E",
+              "label": "because they have similar plans"
+            },
+            {
+              "id": "F",
+              "label": "because of their honesty"
+            },
+            {
+              "id": "G",
+              "label": "because of their positive outlook"
+            },
+            {
+              "id": "H",
+              "label": "because they have shared a difficult experience"
+            }
+          ],
+          "answer": "F",
+          "explanation": "FI particularly appreciate the tells me thinks. Not many people do that.",
+          "context": "Speaker 5"
+        }
+      ]
+    }
+  ],
+  "catalogSlug": "cae-c1-test31",
+  "catalogBase": "/catalog/listening/cae-c1-test31"
+}

@@ -87,6 +87,7 @@ export default function ExamPartFooter({
                   <button
                     key={question.id}
                     type="button"
+                    data-question-number-badge="true"
                     className={`reading-test-q-pill${isActive ? ' is-current' : ''}${!rev && isAnswered ? ' is-answered' : ''}${revClass}`}
                     style={examReviewPillStyle(rev, isActive)}
                     onClick={() => onSelectQuestion(question.id)}

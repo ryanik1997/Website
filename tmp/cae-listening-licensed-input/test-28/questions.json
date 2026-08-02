@@ -1,0 +1,738 @@
+{
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "Questions 1-6",
+      "instruction": "You will hear three different extracts. For questions 1-6, choose the answer (A, B or C) which fits best",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 1,
+          "type": "multiple-choice",
+          "prompt": "What do the people have different opinions about?",
+          "options": [
+            {
+              "id": "A",
+              "label": "how interesting the programme is"
+            },
+            {
+              "id": "B",
+              "label": "the website design"
+            },
+            {
+              "id": "C",
+              "label": "the choice of the objects in the collection"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "type": "multiple-choice",
+          "prompt": "What does the woman like about the programme?",
+          "options": [
+            {
+              "id": "A",
+              "label": "the consistency of quality in the interviews"
+            },
+            {
+              "id": "B",
+              "label": "the fact that it is educational"
+            },
+            {
+              "id": "C",
+              "label": "the way they talk about history"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "type": "multiple-choice",
+          "prompt": "What does the woman say about the procedure in her department?",
+          "options": [
+            {
+              "id": "A",
+              "label": "it could have been more efficient."
+            },
+            {
+              "id": "B",
+              "label": "it does not necessarily help admit the best students."
+            },
+            {
+              "id": "C",
+              "label": "going through the application forms is very tedious."
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "type": "multiple-choice",
+          "prompt": "What part of the man’s suggestion worries the woman?",
+          "options": [
+            {
+              "id": "A",
+              "label": "if it would be any better than the current approach"
+            },
+            {
+              "id": "B",
+              "label": "if her colleagues would like it"
+            },
+            {
+              "id": "C",
+              "label": "if the procedure would be secure"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "type": "multiple-choice",
+          "prompt": "What is the project?",
+          "options": [
+            {
+              "id": "A",
+              "label": "putting up decorations in a room"
+            },
+            {
+              "id": "B",
+              "label": "building an extension to a house"
+            },
+            {
+              "id": "C",
+              "label": "renovating a room"
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "type": "multiple-choice",
+          "prompt": "Both speakers agree that",
+          "options": [
+            {
+              "id": "A",
+              "label": "they could learn something from this work."
+            },
+            {
+              "id": "B",
+              "label": "it is a relief that the work will start soon."
+            },
+            {
+              "id": "C",
+              "label": "the process will cause certain discomfort."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "rangeLabel": "Questions 7-14",
+      "instruction": "You will hear a young Arctic explorer called James Munro talking about his work. For questions 7-14, complete the sentences.",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "James Munro and Greg Hamilton managed to finish an unsupported expedition through ________.",
+          "options": []
+        },
+        {
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "According to James, the only things helping them in this expedition were ________.",
+          "options": []
+        },
+        {
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "Both James’ parents worked as ________.",
+          "options": []
+        },
+        {
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "James believes that his love for ________ made him more interested in adventures.",
+          "options": []
+        },
+        {
+          "number": 11,
+          "type": "gap-fill",
+          "prompt": "The expedition to ________ in 1995 fascinated James.",
+          "options": []
+        },
+        {
+          "number": 12,
+          "type": "gap-fill",
+          "prompt": "James admires Nansen for his breadth as he was a diplomat, an explorer as well as a ________.",
+          "options": []
+        },
+        {
+          "number": 13,
+          "type": "gap-fill",
+          "prompt": "James is convinced that having control over one’s ________ is essential for an explorer.",
+          "options": []
+        },
+        {
+          "number": 14,
+          "type": "gap-fill",
+          "prompt": "James believes that making use of ________ is the best way for inexperienced explorers to get sponsors.",
+          "options": []
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "rangeLabel": "Questions 15-20",
+      "instruction": "You will hear an interview with a wildlife photographer. For questions 15-20, choose the answer (A, B, C or D) which fits best according to what you hear.",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 15,
+          "type": "multiple-choice",
+          "prompt": "The reason Adam tries to keep in touch with amateur colleagues is",
+          "options": [
+            {
+              "id": "A",
+              "label": "he believes that they can teach him something."
+            },
+            {
+              "id": "B",
+              "label": "he sees himself as amateur in some ways."
+            },
+            {
+              "id": "C",
+              "label": "he finds pleasure in sharing his experience."
+            },
+            {
+              "id": "D",
+              "label": "he was helped when he himself was a beginner."
+            }
+          ]
+        },
+        {
+          "number": 16,
+          "type": "multiple-choice",
+          "prompt": "Adam sees professional ethics as",
+          "options": [
+            {
+              "id": "A",
+              "label": "responsible use of technology."
+            },
+            {
+              "id": "B",
+              "label": "respecting other photographers’ needs."
+            },
+            {
+              "id": "C",
+              "label": "honesty about the way shots were made."
+            },
+            {
+              "id": "D",
+              "label": "prioritising the needs of the subjects."
+            }
+          ]
+        },
+        {
+          "number": 17,
+          "type": "multiple-choice",
+          "prompt": "What does Adam say about knowledge of wildlife?",
+          "options": [
+            {
+              "id": "A",
+              "label": "it is has equal importance to technical competence."
+            },
+            {
+              "id": "B",
+              "label": "There is an abundance of literature to give sufficient knowledge to aspiring photographers."
+            },
+            {
+              "id": "C",
+              "label": "Knowing about wildlife results in taking better pictures."
+            },
+            {
+              "id": "D",
+              "label": "Knowledge of technology is more important than that of wildlife."
+            }
+          ]
+        },
+        {
+          "number": 18,
+          "type": "multiple-choice",
+          "prompt": "Mentioning recent shooting of bird species called ‘Great Crested Grebes’, Adam says that",
+          "options": [
+            {
+              "id": "A",
+              "label": "he researched the way the bird behaves beforehand."
+            },
+            {
+              "id": "B",
+              "label": "he chose his clothing carefully."
+            },
+            {
+              "id": "C",
+              "label": "he tried his best to approach the bird’s nest as close as possible."
+            },
+            {
+              "id": "D",
+              "label": "he made sure he didn’t disturb the birds."
+            }
+          ]
+        },
+        {
+          "number": 19,
+          "type": "multiple-choice",
+          "prompt": "Adam concedes that he switched to digital from analog photography because",
+          "options": [
+            {
+              "id": "A",
+              "label": "it was more advanced technically."
+            },
+            {
+              "id": "B",
+              "label": "it was more financially viable."
+            },
+            {
+              "id": "C",
+              "label": "it was easier to carry it around."
+            },
+            {
+              "id": "D",
+              "label": "it was more simple to use."
+            }
+          ]
+        },
+        {
+          "number": 20,
+          "type": "multiple-choice",
+          "prompt": "What is Adam’s attitude to getting the first prize in the competition?",
+          "options": [
+            {
+              "id": "A",
+              "label": "he is grateful for the sizeable price"
+            },
+            {
+              "id": "B",
+              "label": "he is happy because the winning pictures hold special meaning to him"
+            },
+            {
+              "id": "C",
+              "label": "he feels lucky because he believes other people’s pictures were better"
+            },
+            {
+              "id": "D",
+              "label": "he feels pride for having his works chosen over other’s"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 4,
+      "rangeLabel": "Questions 21-30",
+      "instruction": "You will hear five short extracts in which people are talking about their favourite possessions",
+      "matchingDualTask": true,
+      "taskOneInstruction": "For questions 21-25, choose the option which best describes each speaker.",
+      "taskTwoInstruction": "For questions 26-30, choose the option which best describes each speaker.",
+      "questions": [
+        {
+          "number": 21,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "in a bedroom cupboard"
+            },
+            {
+              "id": "B",
+              "label": "in their desk at work"
+            },
+            {
+              "id": "C",
+              "label": "on their living room wall"
+            },
+            {
+              "id": "D",
+              "label": "in a kitchen drawer"
+            },
+            {
+              "id": "E",
+              "label": "on a bookcase in their study"
+            },
+            {
+              "id": "F",
+              "label": "beside their bed"
+            },
+            {
+              "id": "G",
+              "label": "in the hall of their flat"
+            },
+            {
+              "id": "H",
+              "label": "on a kitchen shelf"
+            }
+          ],
+          "context": "Speaker 1"
+        },
+        {
+          "number": 22,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "in a bedroom cupboard"
+            },
+            {
+              "id": "B",
+              "label": "in their desk at work"
+            },
+            {
+              "id": "C",
+              "label": "on their living room wall"
+            },
+            {
+              "id": "D",
+              "label": "in a kitchen drawer"
+            },
+            {
+              "id": "E",
+              "label": "on a bookcase in their study"
+            },
+            {
+              "id": "F",
+              "label": "beside their bed"
+            },
+            {
+              "id": "G",
+              "label": "in the hall of their flat"
+            },
+            {
+              "id": "H",
+              "label": "on a kitchen shelf"
+            }
+          ],
+          "context": "Speaker 2"
+        },
+        {
+          "number": 23,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "in a bedroom cupboard"
+            },
+            {
+              "id": "B",
+              "label": "in their desk at work"
+            },
+            {
+              "id": "C",
+              "label": "on their living room wall"
+            },
+            {
+              "id": "D",
+              "label": "in a kitchen drawer"
+            },
+            {
+              "id": "E",
+              "label": "on a bookcase in their study"
+            },
+            {
+              "id": "F",
+              "label": "beside their bed"
+            },
+            {
+              "id": "G",
+              "label": "in the hall of their flat"
+            },
+            {
+              "id": "H",
+              "label": "on a kitchen shelf"
+            }
+          ],
+          "context": "Speaker 3"
+        },
+        {
+          "number": 24,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "in a bedroom cupboard"
+            },
+            {
+              "id": "B",
+              "label": "in their desk at work"
+            },
+            {
+              "id": "C",
+              "label": "on their living room wall"
+            },
+            {
+              "id": "D",
+              "label": "in a kitchen drawer"
+            },
+            {
+              "id": "E",
+              "label": "on a bookcase in their study"
+            },
+            {
+              "id": "F",
+              "label": "beside their bed"
+            },
+            {
+              "id": "G",
+              "label": "in the hall of their flat"
+            },
+            {
+              "id": "H",
+              "label": "on a kitchen shelf"
+            }
+          ],
+          "context": "Speaker 4"
+        },
+        {
+          "number": 25,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "in a bedroom cupboard"
+            },
+            {
+              "id": "B",
+              "label": "in their desk at work"
+            },
+            {
+              "id": "C",
+              "label": "on their living room wall"
+            },
+            {
+              "id": "D",
+              "label": "in a kitchen drawer"
+            },
+            {
+              "id": "E",
+              "label": "on a bookcase in their study"
+            },
+            {
+              "id": "F",
+              "label": "beside their bed"
+            },
+            {
+              "id": "G",
+              "label": "in the hall of their flat"
+            },
+            {
+              "id": "H",
+              "label": "on a kitchen shelf"
+            }
+          ],
+          "context": "Speaker 5"
+        },
+        {
+          "number": 26,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "it was a present from someone special."
+            },
+            {
+              "id": "B",
+              "label": "it is the work of a friend."
+            },
+            {
+              "id": "C",
+              "label": "it is worth a lot of money."
+            },
+            {
+              "id": "D",
+              "label": "it reminds them of their childhood."
+            },
+            {
+              "id": "E",
+              "label": "It seems to bring them luck."
+            },
+            {
+              "id": "F",
+              "label": "it has an unusual beauty."
+            },
+            {
+              "id": "G",
+              "label": "it has an historic value."
+            },
+            {
+              "id": "H",
+              "label": "It was given to them on a special occasion."
+            }
+          ],
+          "context": "Speaker 1"
+        },
+        {
+          "number": 27,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "it was a present from someone special."
+            },
+            {
+              "id": "B",
+              "label": "it is the work of a friend."
+            },
+            {
+              "id": "C",
+              "label": "it is worth a lot of money."
+            },
+            {
+              "id": "D",
+              "label": "it reminds them of their childhood."
+            },
+            {
+              "id": "E",
+              "label": "It seems to bring them luck."
+            },
+            {
+              "id": "F",
+              "label": "it has an unusual beauty."
+            },
+            {
+              "id": "G",
+              "label": "it has an historic value."
+            },
+            {
+              "id": "H",
+              "label": "It was given to them on a special occasion."
+            }
+          ],
+          "context": "Speaker 2"
+        },
+        {
+          "number": 28,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "it was a present from someone special."
+            },
+            {
+              "id": "B",
+              "label": "it is the work of a friend."
+            },
+            {
+              "id": "C",
+              "label": "it is worth a lot of money."
+            },
+            {
+              "id": "D",
+              "label": "it reminds them of their childhood."
+            },
+            {
+              "id": "E",
+              "label": "It seems to bring them luck."
+            },
+            {
+              "id": "F",
+              "label": "it has an unusual beauty."
+            },
+            {
+              "id": "G",
+              "label": "it has an historic value."
+            },
+            {
+              "id": "H",
+              "label": "It was given to them on a special occasion."
+            }
+          ],
+          "context": "Speaker 3"
+        },
+        {
+          "number": 29,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "it was a present from someone special."
+            },
+            {
+              "id": "B",
+              "label": "it is the work of a friend."
+            },
+            {
+              "id": "C",
+              "label": "it is worth a lot of money."
+            },
+            {
+              "id": "D",
+              "label": "it reminds them of their childhood."
+            },
+            {
+              "id": "E",
+              "label": "It seems to bring them luck."
+            },
+            {
+              "id": "F",
+              "label": "it has an unusual beauty."
+            },
+            {
+              "id": "G",
+              "label": "it has an historic value."
+            },
+            {
+              "id": "H",
+              "label": "It was given to them on a special occasion."
+            }
+          ],
+          "context": "Speaker 4"
+        },
+        {
+          "number": 30,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "it was a present from someone special."
+            },
+            {
+              "id": "B",
+              "label": "it is the work of a friend."
+            },
+            {
+              "id": "C",
+              "label": "it is worth a lot of money."
+            },
+            {
+              "id": "D",
+              "label": "it reminds them of their childhood."
+            },
+            {
+              "id": "E",
+              "label": "It seems to bring them luck."
+            },
+            {
+              "id": "F",
+              "label": "it has an unusual beauty."
+            },
+            {
+              "id": "G",
+              "label": "it has an historic value."
+            },
+            {
+              "id": "H",
+              "label": "It was given to them on a special occasion."
+            }
+          ],
+          "context": "Speaker 5"
+        }
+      ]
+    }
+  ]
+}

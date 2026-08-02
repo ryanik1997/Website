@@ -87,7 +87,7 @@ export default function ListeningKetPart3McListView({
                 onClick={() => onSelectQuestion(question.id)}
               >
                 <h2 className="listening-ket-p3__stem">
-                  <span className="listening-ket-p3__num" data-highlight-skip>
+                  <span className="listening-ket-p3__num" data-question-number-badge="true" data-highlight-skip>
                     {question.number}
                   </span>
                   <ReadingHighlightableText

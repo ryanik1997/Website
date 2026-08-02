@@ -5,9 +5,9 @@
   --rt-passage-bg: color-mix(in srgb, var(--bg-secondary) 55%, #ebe4d8);
   --rt-question-bg: var(--bg-card);
   --rt-divider: var(--border-color);
-  --rt-pill-active: var(--text-primary);
-  --rt-pill-answered: color-mix(in srgb, var(--color-primary) 18%, var(--bg-card));
-  --rt-pill-idle: var(--bg-secondary);
+  --rt-pill-active: var(--exam-question-blue, #238ed0);
+  --rt-pill-answered: var(--exam-question-blue-soft, #eaf5fb);
+  --rt-pill-idle: var(--exam-question-surface, #fff);
   --rt-font-size: 16px;
   --rt-font-family: inherit;
   display: flex;
@@ -1450,28 +1450,35 @@ mark.reading-test-note {
 }
 
 .reading-test-q-pill {
-  min-width: 1.55rem;
-  height: 1.55rem;
-  padding: 0 0.25rem;
-  border-radius: 0.25rem;
-  border: 1px solid var(--border-color);
+  min-width: var(--exam-question-size, 32px);
+  width: var(--exam-question-size, 32px);
+  height: var(--exam-question-size, 32px);
+  padding: 0;
+  border-radius: var(--exam-question-radius, 4px);
+  border: var(--exam-question-border-width, 2px) solid var(--exam-question-blue, #238ed0);
   background: var(--rt-pill-idle);
-  color: var(--text-primary);
+  color: var(--exam-question-text, #111);
   font-size: 0.68rem;
   font-weight: 700;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  aspect-ratio: 1 / 1;
   transition: background 0.12s, border-color 0.12s, color 0.12s;
 }
 
 .reading-test-q-pill.is-answered {
   background: var(--rt-pill-answered);
-  border-color: color-mix(in srgb, var(--color-primary) 30%, var(--border-color));
+  border-color: var(--exam-question-blue, #238ed0);
+  color: #0f5f91;
 }
 
 .reading-test-q-pill.is-current {
   background: var(--rt-pill-active);
   border-color: var(--rt-pill-active);
-  color: var(--bg-primary);
+  color: #fff;
 }
 
 /* Review: inline style ưu tiên; class chỉ bổ trợ. is-current không được đè màu review. */

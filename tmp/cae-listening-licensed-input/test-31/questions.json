@@ -1,0 +1,738 @@
+{
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "Questions 1-6",
+      "instruction": "You will hear three different extracts. For questions 1-6, choose the answer (A, B or C) which fits best",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 1,
+          "type": "multiple-choice",
+          "prompt": "What is the woman’s reaction to the man’s idea?",
+          "options": [
+            {
+              "id": "A",
+              "label": "She has some reservations about it."
+            },
+            {
+              "id": "B",
+              "label": "She feels quite scared."
+            },
+            {
+              "id": "C",
+              "label": "She is excited by the idea."
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "type": "multiple-choice",
+          "prompt": "What do they agree to do in the evening?",
+          "options": [
+            {
+              "id": "A",
+              "label": "to eat out"
+            },
+            {
+              "id": "B",
+              "label": "to go listen to some live music"
+            },
+            {
+              "id": "C",
+              "label": "to stay at home"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "type": "multiple-choice",
+          "prompt": "What is the survey about?",
+          "options": [
+            {
+              "id": "A",
+              "label": "people’s reaction to social problems"
+            },
+            {
+              "id": "B",
+              "label": "people’s TV show preferences"
+            },
+            {
+              "id": "C",
+              "label": "people’s attitude to suggested infrastructure development"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "type": "multiple-choice",
+          "prompt": "What is woman’s attitude to the survey?",
+          "options": [
+            {
+              "id": "A",
+              "label": "it did not pose questions correctly"
+            },
+            {
+              "id": "B",
+              "label": "it is only a public stunt"
+            },
+            {
+              "id": "C",
+              "label": "it was a waste of time"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "type": "multiple-choice",
+          "prompt": "What does the man want from the woman?",
+          "options": [
+            {
+              "id": "A",
+              "label": "ask for tips on how to make the website better"
+            },
+            {
+              "id": "B",
+              "label": "talk about some development ideas that he has"
+            },
+            {
+              "id": "C",
+              "label": "come up with some new website pages"
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "type": "multiple-choice",
+          "prompt": "What problems might the woman have helping the man?",
+          "options": [
+            {
+              "id": "A",
+              "label": "She is too busy to do it on time"
+            },
+            {
+              "id": "B",
+              "label": "Her computer has been malfunctioning"
+            },
+            {
+              "id": "C",
+              "label": "She needs more information about the project"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "rangeLabel": "Questions 7-14",
+      "instruction": "You will hear a woman talking about her visit to South Africa. For questions 7-14, complete the sentences.",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "Harriet was keen to visit South Africa because her ________ spent their childhood there.",
+          "options": []
+        },
+        {
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "The reason she went so South Africa originally was to attend some ________.",
+          "options": []
+        },
+        {
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "Company called ________ helped her organise the trip.",
+          "options": []
+        },
+        {
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "The ________ was the first surprising thing about the country.",
+          "options": []
+        },
+        {
+          "number": 11,
+          "type": "gap-fill",
+          "prompt": "Harriet says that ________ were the animals that she most enjoyed seeing at the safari park.",
+          "options": []
+        },
+        {
+          "number": 12,
+          "type": "gap-fill",
+          "prompt": "She made a stop to visit ________ on the east coast.",
+          "options": []
+        },
+        {
+          "number": 13,
+          "type": "gap-fill",
+          "prompt": "She suggests ________ as a good month to visit the country.",
+          "options": []
+        },
+        {
+          "number": 14,
+          "type": "gap-fill",
+          "prompt": "Harriet uses the word ________ to describe how she felt after the holiday.",
+          "options": []
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "rangeLabel": "Questions 15-20",
+      "instruction": "You will hear an interview with a designer of clothing. For questions 15-20, choose the answer (A, B, C or D) which fits best according to what you hear.",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 15,
+          "type": "multiple-choice",
+          "prompt": "How does the designer explain her interest in the fashion industry?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Both parents were actively involved in it."
+            },
+            {
+              "id": "B",
+              "label": "She was encouraged to pursue her passion."
+            },
+            {
+              "id": "C",
+              "label": "She’s always been interested in her own clothing."
+            },
+            {
+              "id": "D",
+              "label": "Her sewing teacher was very good."
+            }
+          ]
+        },
+        {
+          "number": 16,
+          "type": "multiple-choice",
+          "prompt": "The reason the designer changed focus of her college studies was because",
+          "options": [
+            {
+              "id": "A",
+              "label": "she became interested in something different."
+            },
+            {
+              "id": "B",
+              "label": "she focus on her employment prospects."
+            },
+            {
+              "id": "C",
+              "label": "she was a part of a class where a teacher inspired her."
+            },
+            {
+              "id": "D",
+              "label": "her initial enthusiasm faded."
+            }
+          ]
+        },
+        {
+          "number": 17,
+          "type": "multiple-choice",
+          "prompt": "What does the designer say about her apprenticeship experience?",
+          "options": [
+            {
+              "id": "A",
+              "label": "it proved quite useful when running a business of her own."
+            },
+            {
+              "id": "B",
+              "label": "it was more relevant than whatever she learned at college."
+            },
+            {
+              "id": "C",
+              "label": "she believes that such apprenticeships should be made mandatory."
+            },
+            {
+              "id": "D",
+              "label": "she feels fortunate about being given such a good placement."
+            }
+          ]
+        },
+        {
+          "number": 18,
+          "type": "multiple-choice",
+          "prompt": "What part of her character does Sam say attracted her to designing clothes?",
+          "options": [
+            {
+              "id": "A",
+              "label": "a desire to be more attractive."
+            },
+            {
+              "id": "B",
+              "label": "her interest in others."
+            },
+            {
+              "id": "C",
+              "label": "social awkwardness."
+            },
+            {
+              "id": "D",
+              "label": "her love for colour."
+            }
+          ]
+        },
+        {
+          "number": 19,
+          "type": "multiple-choice",
+          "prompt": "What would be the summary of the designer’s view on fashion?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Practicality should come before artistry."
+            },
+            {
+              "id": "B",
+              "label": "You can show different moods using clothing."
+            },
+            {
+              "id": "C",
+              "label": "Fashion should be used to make people look better."
+            },
+            {
+              "id": "D",
+              "label": "Fashion helps bring art into our life."
+            }
+          ]
+        },
+        {
+          "number": 20,
+          "type": "multiple-choice",
+          "prompt": "What does Sam mention about her clothing business?",
+          "options": [
+            {
+              "id": "A",
+              "label": "All of the clothing articles are made by hand."
+            },
+            {
+              "id": "B",
+              "label": "She applies her life principles to it."
+            },
+            {
+              "id": "C",
+              "label": "It gives her the opportunity to do what she enjoys most."
+            },
+            {
+              "id": "D",
+              "label": "She got very lucky to make it profitable."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 4,
+      "rangeLabel": "Questions 21-30",
+      "instruction": "You will hear five short extracts in which people are talking about friendship.",
+      "matchingDualTask": true,
+      "taskOneInstruction": "For questions 21-25, choose the option which best describes each speaker.",
+      "taskTwoInstruction": "For questions 26-30, choose the option which best describes each speaker.",
+      "questions": [
+        {
+          "number": 21,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "at school"
+            },
+            {
+              "id": "B",
+              "label": "at a relative’s home"
+            },
+            {
+              "id": "C",
+              "label": "at a sporting event"
+            },
+            {
+              "id": "D",
+              "label": "at a party"
+            },
+            {
+              "id": "E",
+              "label": "on holiday"
+            },
+            {
+              "id": "F",
+              "label": "at a weekend job"
+            },
+            {
+              "id": "G",
+              "label": "in a shop"
+            },
+            {
+              "id": "H",
+              "label": "on a train"
+            }
+          ],
+          "context": "Speaker 1"
+        },
+        {
+          "number": 22,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "at school"
+            },
+            {
+              "id": "B",
+              "label": "at a relative’s home"
+            },
+            {
+              "id": "C",
+              "label": "at a sporting event"
+            },
+            {
+              "id": "D",
+              "label": "at a party"
+            },
+            {
+              "id": "E",
+              "label": "on holiday"
+            },
+            {
+              "id": "F",
+              "label": "at a weekend job"
+            },
+            {
+              "id": "G",
+              "label": "in a shop"
+            },
+            {
+              "id": "H",
+              "label": "on a train"
+            }
+          ],
+          "context": "Speaker 2"
+        },
+        {
+          "number": 23,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "at school"
+            },
+            {
+              "id": "B",
+              "label": "at a relative’s home"
+            },
+            {
+              "id": "C",
+              "label": "at a sporting event"
+            },
+            {
+              "id": "D",
+              "label": "at a party"
+            },
+            {
+              "id": "E",
+              "label": "on holiday"
+            },
+            {
+              "id": "F",
+              "label": "at a weekend job"
+            },
+            {
+              "id": "G",
+              "label": "in a shop"
+            },
+            {
+              "id": "H",
+              "label": "on a train"
+            }
+          ],
+          "context": "Speaker 3"
+        },
+        {
+          "number": 24,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "at school"
+            },
+            {
+              "id": "B",
+              "label": "at a relative’s home"
+            },
+            {
+              "id": "C",
+              "label": "at a sporting event"
+            },
+            {
+              "id": "D",
+              "label": "at a party"
+            },
+            {
+              "id": "E",
+              "label": "on holiday"
+            },
+            {
+              "id": "F",
+              "label": "at a weekend job"
+            },
+            {
+              "id": "G",
+              "label": "in a shop"
+            },
+            {
+              "id": "H",
+              "label": "on a train"
+            }
+          ],
+          "context": "Speaker 4"
+        },
+        {
+          "number": 25,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "at school"
+            },
+            {
+              "id": "B",
+              "label": "at a relative’s home"
+            },
+            {
+              "id": "C",
+              "label": "at a sporting event"
+            },
+            {
+              "id": "D",
+              "label": "at a party"
+            },
+            {
+              "id": "E",
+              "label": "on holiday"
+            },
+            {
+              "id": "F",
+              "label": "at a weekend job"
+            },
+            {
+              "id": "G",
+              "label": "in a shop"
+            },
+            {
+              "id": "H",
+              "label": "on a train"
+            }
+          ],
+          "context": "Speaker 5"
+        },
+        {
+          "number": 26,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "because of their sense of humour"
+            },
+            {
+              "id": "B",
+              "label": "because they’re a good listener"
+            },
+            {
+              "id": "C",
+              "label": "because of a shared hobby"
+            },
+            {
+              "id": "D",
+              "label": "because they are very loyal"
+            },
+            {
+              "id": "E",
+              "label": "because they have similar plans"
+            },
+            {
+              "id": "F",
+              "label": "because of their honesty"
+            },
+            {
+              "id": "G",
+              "label": "because of their positive outlook"
+            },
+            {
+              "id": "H",
+              "label": "because they have shared a difficult experience"
+            }
+          ],
+          "context": "Speaker 1"
+        },
+        {
+          "number": 27,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "because of their sense of humour"
+            },
+            {
+              "id": "B",
+              "label": "because they’re a good listener"
+            },
+            {
+              "id": "C",
+              "label": "because of a shared hobby"
+            },
+            {
+              "id": "D",
+              "label": "because they are very loyal"
+            },
+            {
+              "id": "E",
+              "label": "because they have similar plans"
+            },
+            {
+              "id": "F",
+              "label": "because of their honesty"
+            },
+            {
+              "id": "G",
+              "label": "because of their positive outlook"
+            },
+            {
+              "id": "H",
+              "label": "because they have shared a difficult experience"
+            }
+          ],
+          "context": "Speaker 2"
+        },
+        {
+          "number": 28,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "because of their sense of humour"
+            },
+            {
+              "id": "B",
+              "label": "because they’re a good listener"
+            },
+            {
+              "id": "C",
+              "label": "because of a shared hobby"
+            },
+            {
+              "id": "D",
+              "label": "because they are very loyal"
+            },
+            {
+              "id": "E",
+              "label": "because they have similar plans"
+            },
+            {
+              "id": "F",
+              "label": "because of their honesty"
+            },
+            {
+              "id": "G",
+              "label": "because of their positive outlook"
+            },
+            {
+              "id": "H",
+              "label": "because they have shared a difficult experience"
+            }
+          ],
+          "context": "Speaker 3"
+        },
+        {
+          "number": 29,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "because of their sense of humour"
+            },
+            {
+              "id": "B",
+              "label": "because they’re a good listener"
+            },
+            {
+              "id": "C",
+              "label": "because of a shared hobby"
+            },
+            {
+              "id": "D",
+              "label": "because they are very loyal"
+            },
+            {
+              "id": "E",
+              "label": "because they have similar plans"
+            },
+            {
+              "id": "F",
+              "label": "because of their honesty"
+            },
+            {
+              "id": "G",
+              "label": "because of their positive outlook"
+            },
+            {
+              "id": "H",
+              "label": "because they have shared a difficult experience"
+            }
+          ],
+          "context": "Speaker 4"
+        },
+        {
+          "number": 30,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "because of their sense of humour"
+            },
+            {
+              "id": "B",
+              "label": "because they’re a good listener"
+            },
+            {
+              "id": "C",
+              "label": "because of a shared hobby"
+            },
+            {
+              "id": "D",
+              "label": "because they are very loyal"
+            },
+            {
+              "id": "E",
+              "label": "because they have similar plans"
+            },
+            {
+              "id": "F",
+              "label": "because of their honesty"
+            },
+            {
+              "id": "G",
+              "label": "because of their positive outlook"
+            },
+            {
+              "id": "H",
+              "label": "because they have shared a difficult experience"
+            }
+          ],
+          "context": "Speaker 5"
+        }
+      ]
+    }
+  ]
+}

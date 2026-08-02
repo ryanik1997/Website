@@ -1,0 +1,1090 @@
+GOAL — REBUILD TOÀN BỘ CAE C1 READING TEST 1–23 THEO GIAO DIỆN CAMBRIDGE THẬT
+
+REPOSITORY
+D:\App-English-Ryan\Website
+
+TARGET ROUTES
+http://localhost:5173/app/exam/reading/catalog-reading-cae-c1-test1
+...
+http://localhost:5173/app/exam/reading/catalog-reading-cae-c1-test23
+
+REFERENCE IMPLEMENTATIONS TRONG PROJECT
+1. Reading_PET_B1:
+   - dùng làm chuẩn cho exam shell
+   - highlight
+   - note
+   - question flag/bookmark
+   - footer navigation
+   - scroll handling
+   - reset/retry behavior
+
+2. Reading_FCE_B2:
+   - dùng làm chuẩn cho các dạng bài tương đồng với CAE:
+     - multiple-choice cloze
+     - open cloze
+     - word formation
+     - key word transformation
+     - long reading multiple choice
+     - gapped text
+     - multiple matching
+
+3. CAE hiện tại:
+   - giữ nguyên toàn bộ:
+     - test data
+     - passage
+     - questions
+     - options
+     - answers
+     - explanations
+     - IDs
+     - route
+     - catalog metadata
+     - answer vault
+     - grading logic
+     - progress state
+
+REFERENCE SCREENSHOTS
+Folder:
+C:\Users\lindv\OneDrive\Desktop\Task\Screenshot_true
+
+Bên trong có:
+- part1_true.jpg
+- part2_true.jpg
+- part3_true.jpg
+- part4_true.jpg
+- part5_true.jpg
+- part6_true.jpg
+- part7_true.jpg
+- part8_true.jpg
+
+Đây là visual source of truth.
+
+HARD CONSTRAINTS
+
+1. Không recrawl dữ liệu.
+2. Không gọi AI để viết lại nội dung.
+3. Không tạo dữ liệu giả.
+4. Không sửa nội dung câu hỏi hoặc đáp án.
+5. Không thay đổi mapping test hiện tại.
+6. Source Tests 01–22 trước đây đang map sang App Tests 02–23 bằng offset +1.
+7. Không overwrite dữ liệu Test 1.
+8. Không tạo component hoặc CSS riêng cho từng test.
+9. Không hardcode theo title của từng đề.
+10. Không dùng CSS zoom, transform: scale hoặc browser zoom để giả lập layout.
+11. Không che lỗi bằng overflow: hidden trên passage.
+12. Không để body có horizontal scrollbar.
+13. Không phá Reading_PET_B1 hoặc Reading_FCE_B2.
+14. Không copy toàn bộ PET/FCE rồi tạo thêm một codebase trùng lặp.
+15. Phải refactor theo shared primitives hoặc composition.
+16. Highlight/note phải dùng lại implementation đang hoạt động của PET.
+17. Phải kiểm tra đủ Test 1–23, không chỉ Test 1.
+
+==================================================
+PHASE 1 — AUDIT KIẾN TRÚC HIỆN TẠI
+==================================================
+
+Trước khi sửa, tìm toàn bộ file liên quan đến:
+
+- ReadingCaeRwTest
+- ReadingTest.tsx
+- CaeRwPartContent.tsx
+- apps/web/src/features/exam/caeRw/
+- ReadingPetRwTest.tsx
+- readingPetRw.css
+- Reading_FCE_B2 components
+- ExamPartFooter.tsx
+- ReadingHighlightToolbar
+- ReadingHighlightableText
+- usePartHighlights
+- ExamHighlightZone
+- question flag/bookmark
+- note persistence
+- cambridgeReadingImportTemplates.ts
+- examData.ts
+- cambridgeExamFormats.ts
+- readingExamDuration.ts
+
+Lập bảng audit:
+
+| Concern | CAE hiện tại | PET reference | FCE reference | Quyết định |
+|---------|--------------|---------------|---------------|------------|
+| Exam shell | ... | ... | ... | reuse/refactor |
+| Header | ... | ... | ... | ... |
+| Rubric | ... | ... | ... | ... |
+| Footer | ... | ... | ... | ... |
+| Highlight | ... | ... | ... | ... |
+| Note | ... | ... | ... | ... |
+| Part 1 renderer | ... | ... | ... | ... |
+| Part 2 renderer | ... | ... | ... | ... |
+| Part 3 renderer | ... | ... | ... | ... |
+| Part 4 renderer | ... | ... | ... | ... |
+| Part 5 renderer | ... | ... | ... | ... |
+| Part 6 renderer | ... | ... | ... | ... |
+| Part 7 renderer | ... | ... | ... | ... |
+| Part 8 renderer | ... | ... | ... | ... |
+
+Không bắt đầu bằng cách sửa CSS ngẫu nhiên.
+
+==================================================
+PHASE 2 — TẠO CAE READING SHELL DÙNG CHUNG
+==================================================
+
+CAE Reading phải có cấu trúc tương tự:
+
+<CaeReadingExamShell>
+  <CambridgeExamHeader />
+  <ExamRubric />
+  <CaePartViewport>
+    <CaePartRenderer />
+  </CaePartViewport>
+  <ExamFloatingNavigation />
+  <ExamPartFooter />
+</CaeReadingExamShell>
+
+Có thể reuse component từ PET/FCE nếu API phù hợp.
+
+Không duplicate footer hoặc highlight system.
+
+Suggested structure:
+
+apps/web/src/features/exam/caeRw/
+  reading/
+    CaeReadingExamShell.tsx
+    CaeReadingPartRenderer.tsx
+    parts/
+      CaeReadingPart1.tsx
+      CaeReadingPart2.tsx
+      CaeReadingPart3.tsx
+      CaeReadingPart4.tsx
+      CaeReadingPart5.tsx
+      CaeReadingPart6.tsx
+      CaeReadingPart7.tsx
+      CaeReadingPart8.tsx
+    caeReadingLayout.css
+
+Chỉ tạo file mới khi thực sự cần. Ưu tiên refactor component hiện tại.
+
+==================================================
+PHASE 3 — VIEWPORT VÀ SCROLL ARCHITECTURE
+==================================================
+
+Exam phải chiếm đúng viewport:
+
+.cae-reading-exam {
+  height: 100dvh;
+  min-height: 0;
+  display: grid;
+  grid-template-rows:
+    auto
+    auto
+    minmax(0, 1fr)
+    auto;
+  overflow: hidden;
+}
+
+.cae-reading-viewport {
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--cambridge-reading-bg);
+}
+
+Header, rubric và footer không được bị cuộn theo passage.
+
+Không dùng:
+
+height: calc(100vh - random pixels)
+
+ở nhiều component khác nhau.
+
+Chỉ shell được quyền quản lý chiều cao tổng.
+
+Đối với split pane:
+
+.cae-reading-split {
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+  display: grid;
+  grid-template-columns:
+    minmax(0, var(--left-pane-width))
+    12px
+    minmax(0, 1fr);
+  overflow: hidden;
+}
+
+.cae-reading-pane {
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+Không để scroll của pane làm scroll toàn page.
+
+Splitter phải:
+
+- kéo được
+- có min-width hai bên
+- không làm text bị đè
+- không tạo horizontal page scroll
+- giữ đúng vị trí khi đổi câu trong cùng Part
+- có thể reset về 50/50 khi đổi test nếu logic hiện tại yêu cầu
+
+==================================================
+PHASE 4 — HEADER THEO SCREENSHOT THẬT
+==================================================
+
+Header desktop cần gần giống ảnh Cambridge:
+
+Bên trái:
+- Cambridge crest/logo
+- chữ CAMBRIDGE English
+- Candidate ID nằm kế bên, không đặt chính giữa trang một cách rời rạc
+
+Bên phải:
+- network icon
+- notification icon
+- menu icon
+- notes/edit icon
+
+Không cần sao chép tài sản có bản quyền mới từ website ngoài.
+Dùng logo/tài sản đã có hợp lệ trong project hoặc dựng text/icon tương đương.
+
+Header phải:
+
+- nền trắng
+- chiều cao compact
+- border-bottom nhẹ
+- không có browser-like toolbar
+- không có nút thừa làm lệch bố cục
+- icon alignment theo cùng baseline
+
+Nếu timer là chức năng bắt buộc trong app, có thể giữ nhưng phải đưa vào khu vực toolbar hợp lý và không phá visual hierarchy.
+
+==================================================
+PHASE 5 — RUBRIC
+==================================================
+
+Rubric là box trắng full width phía dưới header:
+
+Dòng 1:
+Questions X–Y
+
+Dòng 2:
+instruction đúng của Part
+
+Ví dụ:
+
+Questions 1–8
+For each question, choose the correct answer for each gap.
+
+Style:
+
+- nền trắng
+- border #d7dddd
+- radius nhỏ 2–4px
+- margin khoảng 14px
+- padding compact
+- title bold
+- instruction regular
+- không thêm title “Part X — ...” vào rubric nếu screenshot không có
+- không duplicate instruction ở content
+
+==================================================
+PHASE 6 — PART-SPECIFIC RENDERERS
+==================================================
+
+Không dùng một generic renderer ép tất cả Part vào cùng layout.
+
+Dùng discriminated mapping, ví dụ:
+
+type CaeReadingPartKind =
+  | "multiple-choice-cloze"
+  | "open-cloze"
+  | "word-formation"
+  | "key-word-transformation"
+  | "long-text-multiple-choice"
+  | "cross-text-multiple-matching"
+  | "gapped-text"
+  | "multiple-matching";
+
+const CAE_PART_RENDERERS = {
+  "multiple-choice-cloze": CaeReadingPart1,
+  "open-cloze": CaeReadingPart2,
+  "word-formation": CaeReadingPart3,
+  "key-word-transformation": CaeReadingPart4,
+  "long-text-multiple-choice": CaeReadingPart5,
+  "cross-text-multiple-matching": CaeReadingPart6,
+  "gapped-text": CaeReadingPart7,
+  "multiple-matching": CaeReadingPart8,
+};
+
+Renderer selection phải dựa trên normalized part type/schema,
+không dựa vào test number hoặc title text.
+
+--------------------------------------------------
+PART 1 — QUESTIONS 1–8
+--------------------------------------------------
+
+Reference:
+part1_true.jpg
+
+Yêu cầu:
+
+- Một passage toàn chiều rộng.
+- Title nằm trên passage.
+- Gap controls inline trong paragraph.
+- Text phải wrap tự nhiên.
+- Không horizontal overflow.
+- Mỗi gap hiển thị số câu ở giữa khi chưa trả lời.
+- Khi trả lời, hiển thị answer hoặc selected option theo behavior hiện tại.
+- Popup options phải anchor đúng gap.
+- Popup không được làm paragraph thay đổi chiều rộng.
+- Popup không bị cắt bởi parent overflow.
+- Popup có z-index đúng nhưng không che header/footer.
+- Chỉ active gap có border focus màu xanh.
+- Bookmark/flag nằm bên phải vùng câu hỏi đang active.
+
+Không đặt tất cả gaps trong một flex row.
+
+Passage phải dùng normal inline flow, ví dụ:
+
+<p>
+  Text...
+  <InlineGap question={...} />
+  text...
+</p>
+
+InlineGap nên dùng:
+
+display: inline-flex;
+vertical-align: baseline;
+white-space: nowrap;
+
+Không dùng position:absolute cho gap.
+
+--------------------------------------------------
+PART 2 — QUESTIONS 9–16
+--------------------------------------------------
+
+Reference:
+part2_true.jpg
+
+Yêu cầu:
+
+- Passage full width.
+- Một từ cho mỗi gap.
+- Input inline trong đoạn văn.
+- Input có số câu ở giữa khi rỗng.
+- Khi focus:
+  - border xanh
+  - caret đúng
+  - số câu không cản việc nhập
+- Không duplicate dấu chấm hoặc dotted placeholder.
+- Giữ đúng punctuation quanh gap.
+- Enter/Tab chuyển tới input tiếp theo nếu behavior PET/FCE đang hỗ trợ.
+- Không submit form khi nhấn Enter ngoài ý muốn.
+- Bookmark/flag theo active question.
+- Footer chuyển active question đúng 9–16.
+
+--------------------------------------------------
+PART 3 — QUESTIONS 17–24
+--------------------------------------------------
+
+Reference:
+part3_true.jpg
+
+Layout bắt buộc:
+
+- Passage ở bên trái.
+- Keyword List ở bên phải.
+- Keyword list hiển thị:
+  17. COME
+  18. FIT
+  ...
+- Keyword của question active được highlight bằng nền xanh nhạt.
+- Gap inputs inline trong passage.
+- Cột keyword list phải sticky hoặc nằm ổn định trong viewport.
+- Không để keyword list rơi xuống dưới passage ở desktop.
+- Không duplicate base word trong passage nếu đã có ở keyword list.
+
+Suggested grid:
+
+grid-template-columns: minmax(0, 1fr) 360px;
+
+Ở viewport nhỏ hơn có thể giảm cột phải nhưng không được che passage.
+
+--------------------------------------------------
+PART 4 — QUESTIONS 25–30
+--------------------------------------------------
+
+Reference:
+part4_true.jpg
+
+Đây là lỗi lớn của giao diện hiện tại.
+
+Mỗi lần chỉ render MỘT question active.
+
+Không render cả 6 question thành danh sách dài.
+
+Mỗi question gồm:
+
+1. Source sentence.
+2. Keyword in uppercase.
+3. Transformed sentence.
+4. Một input duy nhất nằm trong transformed sentence.
+
+Sai hiện tại:
+- render 4 input boxes lặp số 25
+- render tất cả question 25–30 trên một page
+
+Phải sửa thành:
+
+My brother [ ONE SINGLE INPUT ] much now as he did when he was younger.
+
+Input nhận toàn bộ cụm 3–6 words.
+
+Không chia từng từ thành nhiều input.
+
+Validation:
+
+- normalize whitespace
+- không tự động thay đổi keyword
+- giữ grading logic hiện tại
+- không strip từ hợp lệ trong câu trả lời
+- không giới hạn bằng cách đếm input boxes
+
+Footer question 25–30 điều khiển activeQuestionId.
+
+Nút next/previous:
+- chuyển từng question trong Part 4
+- đến cuối Part mới chuyển Part tiếp theo theo behavior chung
+
+--------------------------------------------------
+PART 5 — QUESTIONS 31–36
+--------------------------------------------------
+
+Reference:
+part5_true.jpg
+
+Bắt buộc split pane:
+
+Left pane:
+- article passage
+- title
+- paragraph text
+- independent vertical scroll
+
+Right pane:
+- question cards
+- radio options A–D
+- independent vertical scroll
+- active question border/number highlight
+- bookmark/flag ở khu vực câu hỏi
+
+Splitter ở giữa.
+
+Không render options thành dropdown.
+
+Không để toàn passage phía trên rồi questions phía dưới.
+
+Radio option row:
+- full-width clickable
+- hover nhẹ
+- selected state rõ
+- keyboard accessible
+
+Khi chọn answer:
+- cập nhật footer count ngay
+- không tự cuộn passage về đầu
+- không làm reset splitter
+
+--------------------------------------------------
+PART 6 — QUESTIONS 37–40
+--------------------------------------------------
+
+Reference:
+part6_true.jpg
+
+Bắt buộc split pane.
+
+Left pane:
+- four reviewer texts
+- Reviewer A
+- Reviewer B
+- Reviewer C
+- Reviewer D
+- giữ label rõ ràng
+- independent scroll
+
+Right pane:
+- heading “Which reviewer”
+- question cards
+- options Reviewer A–D
+- independent scroll
+
+Không đổi Reviewer thành generic Paragraph A–D nếu data CAE đang dùng reviewer semantics.
+
+Không duplicate reviewer texts.
+
+Question active phải đồng bộ:
+- footer pill
+- question card
+- bookmark
+- keyboard navigation
+
+--------------------------------------------------
+PART 7 — QUESTIONS 41–46
+--------------------------------------------------
+
+Reference:
+part7_true.jpg
+
+Đây là gapped text drag/drop.
+
+Bắt buộc split pane.
+
+Left pane:
+- article
+- gap slots 41–46 nằm đúng vị trí trong article
+- gap chưa trả lời hiển thị number
+- gap đã trả lời hiển thị paragraph/card đã chọn
+- có thể remove hoặc replace answer
+- independent scroll
+
+Right pane:
+- paragraph bank
+- 7 paragraphs cho 6 gaps
+- mỗi paragraph là draggable card
+- một paragraph extra
+- independent scroll
+
+Không được:
+- chèn sẵn paragraph A vào passage như text thường
+- render “41A ...” trong article
+- hiển thị answer bank như plain text không tương tác
+- mutate source data để biểu diễn lựa chọn
+
+Drag/drop phải hỗ trợ:
+
+1. Drag paragraph từ bank vào gap.
+2. Drag paragraph từ gap sang gap khác.
+3. Thay answer cũ.
+4. Trả paragraph về bank.
+5. Click-to-select + click-gap fallback.
+6. Keyboard fallback nếu shared drag system đã hỗ trợ.
+7. Không cho một paragraph tồn tại ở hai gap.
+8. Lưu answer theo stable paragraph ID, không theo array index.
+9. Khi switch Part rồi quay lại, answer vẫn còn.
+10. Reset/retry trả toàn bộ paragraph về bank.
+
+Giữ label A–G trong data.
+UI có thể hiển thị label theo implementation chuẩn của FCE/PET,
+nhưng không được mất mapping đáp án.
+
+--------------------------------------------------
+PART 8 — QUESTIONS 47–56
+--------------------------------------------------
+
+Reference:
+part8_true.jpg
+
+Bắt buộc split pane.
+
+Left pane:
+- Consultant A–E
+- title và introduction
+- independent scroll
+
+Right pane:
+- heading:
+  “Which consultant makes the following statements?”
+- question cards
+- options Consultant A–E
+- independent scroll
+
+Không đổi consultant labels thành reviewer labels.
+
+Không dùng một option bank chung kéo-thả nếu đề yêu cầu radio/multiple matching selection.
+
+Mỗi question có thể chọn cùng một consultant nhiều lần.
+
+==================================================
+PHASE 7 — HIGHLIGHT, NOTE VÀ BOOKMARK
+==================================================
+
+Không viết mới hệ thống highlight bằng contentEditable.
+
+Tìm và reuse chính xác implementation đang hoạt động trong PET:
+
+- ReadingHighlightToolbar
+- ReadingHighlightableText
+- usePartHighlights
+- ExamHighlightZone
+
+CAE phải có cùng behavior với PET.
+
+HIGHLIGHT
+
+1. Người dùng chọn text trong passage.
+2. Toolbar xuất hiện gần selection.
+3. Có thể highlight.
+4. Có thể remove highlight.
+5. Highlight không làm thay đổi passage data.
+6. Highlight persist khi:
+   - đổi question
+   - đổi Part
+   - cuộn pane
+7. Highlight reset khi người dùng chọn “Làm lại”.
+8. Highlight phải scoped theo:
+   - test ID
+   - part ID
+   - text zone ID
+9. Không dùng HTML string replacement dễ phá React nodes.
+10. Không highlight xuyên qua nhiều zones hoặc xuyên qua input.
+
+Các element phải có data-highlight-skip:
+
+- input
+- textarea
+- select
+- button
+- draggable card handles
+- splitter
+- footer
+- header
+- navigation controls
+- answer radio controls
+
+NOTE
+
+Reuse note workflow của PET.
+
+Yêu cầu:
+
+- tạo note từ selected text hoặc từ note action hiện tại
+- note gắn với stable test/part/zone/selection identity
+- mở lại note sau khi đổi question/part
+- sửa note
+- xóa note
+- không duplicate note sau rerender
+- note popup không bị cắt bởi pane overflow
+- note popup không nằm dưới footer
+- Escape đóng popup
+- click outside đóng theo behavior PET
+- không mất note khi split pane resize
+
+BOOKMARK / QUESTION FLAG
+
+Bookmark ở mép phải trong screenshot là question flag,
+không được trộn với text note.
+
+Flag phải:
+
+- gắn với question ID
+- persist khi đổi Part
+- hiện trạng thái active rõ ràng
+- reset theo reset/retry policy
+- không thay đổi answer
+- không bị mất khi grading
+
+==================================================
+PHASE 8 — FOOTER NAVIGATION
+==================================================
+
+Reuse hoặc refactor ExamPartFooter.tsx.
+
+Footer phải fixed trong shell, không fixed trực tiếp vào window theo cách làm overlap content.
+
+Cấu trúc:
+
+Part 1   [1 2 3 4 5 6 7 8]
+Part 2   0 of 8
+Part 3   0 of 8
+Part 4   0 of 6
+Part 5   0 of 6
+Part 6   0 of 4
+Part 7   0 of 6
+Part 8   0 of 10
+✓
+
+Yêu cầu:
+
+- active Part có background trắng.
+- active Part có top border đen hoặc indicator giống screenshot.
+- chỉ active Part mở rộng và hiển thị question pills.
+- inactive Parts hiển thị answered count.
+- question pills không bị truncate.
+- Question 30 phải hiển thị đủ “30”, không thành “3”.
+- Footer không có horizontal scrollbar toàn page.
+- Nếu nội dung active Part rộng:
+  - dùng internal horizontal scrolling nhỏ
+  - không đẩy các Part khác ra khỏi viewport
+- active question pill có border màu teal.
+- answered, unanswered, flagged có trạng thái phân biệt.
+- click Part chuyển Part.
+- click question chuyển active question.
+- giữ answer state.
+- không tự reset scroll của pane trừ khi behavior được xác định rõ.
+
+Final check icon:
+- tách khỏi Part 8
+- có width ổn định
+- không bị co lại
+- mở review/submit theo logic hiện tại
+
+==================================================
+PHASE 9 — FLOATING PREVIOUS/NEXT
+==================================================
+
+Hai nút previous/next nằm phía trên footer, góc phải.
+
+- previous màu xám
+- next màu teal
+- kích thước bằng nhau
+- không che question content
+- không nằm trong scroll pane
+- disable state đúng
+- z-index thấp hơn modal nhưng cao hơn passage
+- không nhảy vị trí khi footer active Part thay đổi chiều rộng
+
+Navigation order:
+
+Part 1: 1 → 8
+Part 2: 9 → 16
+Part 3: 17 → 24
+Part 4: 25 → 30
+Part 5: 31 → 36
+Part 6: 37 → 40
+Part 7: 41 → 46
+Part 8: 47 → 56
+
+Không được tạo question 57 hoặc mất question 56.
+
+==================================================
+PHASE 10 — DATA ADAPTER
+==================================================
+
+Không sửa 23 bộ data chỉ để chiều theo UI.
+
+Tạo adapter normalization nếu schema giữa Test 1 và Test 2–23 khác nhau.
+
+Ví dụ:
+
+function normalizeCaeReadingPart(
+  rawPart: RawCaeReadingPart
+): NormalizedCaeReadingPart
+
+Normalized model cần cung cấp đủ:
+
+- partId
+- partNumber
+- kind
+- questionRange
+- instruction
+- title
+- introduction
+- passage blocks
+- inline gaps
+- base words
+- keyword transformation data
+- reviewer sections
+- consultant sections
+- gapped paragraph bank
+- questions
+- options
+- correct answers
+- explanation references
+
+Adapter phải:
+
+- pure
+- deterministic
+- idempotent
+- không mutate raw data
+- không phụ thuộc test number
+- throw/log rõ ràng khi thiếu field bắt buộc
+- không silently fallback sang UI sai
+
+Trong DEV, thêm invariant:
+
+- mỗi test có 8 Parts
+- tổng 56 questions
+- Part 1: 8
+- Part 2: 8
+- Part 3: 8
+- Part 4: 6
+- Part 5: 6
+- Part 6: 4
+- Part 7: 6
+- Part 8: 10
+
+==================================================
+PHASE 11 — STATE OWNERSHIP
+==================================================
+
+State không được đặt rải rác trong từng renderer.
+
+Reading exam controller quản lý:
+
+- activePartId
+- activeQuestionByPart
+- answers
+- flags
+- notes
+- highlights
+- pane ratios
+- grading status
+
+Mỗi Part nhớ active question riêng.
+
+Ví dụ:
+
+type ActiveQuestionByPart = Record<string, string>;
+
+Khi đổi Part:
+
+- lấy stored active question nếu hợp lệ
+- nếu không, fallback question đầu tiên của Part
+- không dùng stale ref để reset ngược active question
+- không reset answer
+- không reset highlight/note
+- không reset splitter ngoài ý muốn
+
+Derived activeQuestionId phải validate question tồn tại trong current Part.
+
+==================================================
+PHASE 12 — VISUAL TOKENS
+==================================================
+
+Tạo scoped tokens cho CAE Reading, không làm ảnh hưởng global app:
+
+.cae-reading-exam {
+  --cambridge-reading-bg: #f3faf7;
+  --cambridge-panel-bg: #ffffff;
+  --cambridge-border: #d4dddd;
+  --cambridge-muted-border: #e4e9e9;
+  --cambridge-active: #008f95;
+  --cambridge-focus: #168fe5;
+  --cambridge-footer-bg: #eeeeee;
+  --cambridge-text: #121717;
+}
+
+Không cần pixel-copy tuyệt đối màu nếu asset khác,
+nhưng spacing, hierarchy, pane architecture và interaction phải giống.
+
+Typography:
+
+- body khoảng 15–17px tùy viewport
+- line-height khoảng 1.45–1.6
+- question heading bold
+- passage title khoảng 22–25px desktop
+- không dùng font quá to như giao diện hiện tại
+- không để text chạm mép viewport
+
+==================================================
+PHASE 13 — RESPONSIVE TARGETS
+==================================================
+
+Ưu tiên desktop exam environment.
+
+Phải kiểm tra ít nhất:
+
+- 1366 × 768
+- 1600 × 900
+- 1920 × 1080
+- 2048 × 1152 hoặc gần kích thước reference
+
+Ở mọi kích thước:
+
+- footer nhìn thấy đầy đủ
+- header không wrap
+- rubric không che content
+- passage không horizontal overflow
+- split pane dùng được
+- previous/next không che answer
+- popup options/note không bị cắt
+
+Không cần thiết kế mobile-first cho màn hình điện thoại nếu route này là desktop exam,
+nhưng không được crash khi viewport hẹp.
+
+==================================================
+PHASE 14 — AUTOMATED AND RUNTIME VALIDATION
+==================================================
+
+STATIC CHECKS
+
+Chạy:
+
+- TypeScript
+- lint
+- targeted unit tests
+- build
+- git diff --check
+
+Không sửa lỗi bằng:
+- any
+- @ts-ignore
+- eslint-disable rộng
+- force cast không có validation
+
+RUNTIME ROUTE LOOP
+
+Kiểm tra toàn bộ:
+
+for test in 1..23:
+  open /app/exam/reading/catalog-reading-cae-c1-test${test}
+  verify 8 Parts
+  verify 56 questions
+  visit Part 1..8
+  verify no crash
+  verify no console error
+  verify no missing renderer
+  verify question ranges
+  verify footer counts
+
+INTERACTION TESTS
+
+Part 1:
+- mở/đóng option popup
+- chọn answer
+- đổi gap
+- text vẫn wrap
+
+Part 2:
+- nhập answer
+- đổi question
+- quay lại answer còn
+
+Part 3:
+- base word active đúng
+- input answer persist
+
+Part 4:
+- chỉ một question visible
+- chỉ một answer input
+- next/previous 25–30 đúng
+
+Part 5:
+- select radio
+- resize splitter
+- left/right scroll độc lập
+
+Part 6:
+- Reviewer A–D đúng
+- option mapping đúng
+
+Part 7:
+- drag paragraph vào gap
+- move paragraph giữa gaps
+- return paragraph to bank
+- no duplicate paragraph
+- persist after part switch
+
+Part 8:
+- Consultant A–E đúng
+- same consultant có thể dùng cho nhiều questions
+
+Highlight:
+- select passage text
+- add highlight
+- switch question
+- switch Part
+- return and highlight remains
+- remove highlight
+- reset clears according to PET behavior
+
+Note:
+- create
+- edit
+- close
+- reopen
+- delete
+- switch part and return
+
+Bookmark:
+- flag question
+- switch Part
+- state remains
+- flag không thay đổi answer
+
+VISUAL REGRESSION
+
+Chụp screenshot từng Part của ít nhất:
+
+- Test 1
+- một test giữa, ví dụ Test 12
+- Test 23
+
+So sánh với:
+- part1_true.jpg
+- ...
+- part8_true.jpg
+
+Visual checklist:
+
+- header
+- rubric
+- background
+- title spacing
+- inline gaps
+- keyword list
+- one-question Part 4
+- split panes
+- splitter
+- drag bank
+- footer
+- previous/next
+- bookmark
+- no horizontal overflow
+
+==================================================
+DEFINITION OF DONE
+==================================================
+
+Chỉ báo DONE khi toàn bộ điều kiện sau đạt:
+
+1. Test 1–23 đều load.
+2. Mỗi test có đủ 8 Parts và 56 questions.
+3. Không sửa nội dung đề hoặc đáp án.
+4. Không recrawl.
+5. Không tạo fake data.
+6. Layout Part 1–8 đúng architecture của ảnh reference.
+7. Part 4 chỉ hiển thị một question và một answer input.
+8. Part 5, 6, 7, 8 có split pane đúng.
+9. Part 7 drag/drop hoạt động đúng.
+10. Highlight hoạt động.
+11. Note hoạt động.
+12. Question bookmark hoạt động.
+13. State persist khi đổi Part/question.
+14. Footer không truncate question numbers.
+15. Không horizontal page scroll.
+16. Không console error.
+17. TypeScript PASS.
+18. Targeted tests PASS.
+19. Build PASS.
+20. git diff --check PASS.
+21. Reading_PET_B1 và Reading_FCE_B2 không regression.
+22. Có báo cáo rõ file đã sửa và bằng chứng kiểm thử.
+
+==================================================
+FINAL REPORT FORMAT
+==================================================
+
+Báo cáo cuối phải gồm:
+
+1. Root causes tìm thấy.
+2. Architecture đã chọn.
+3. Shared code nào lấy từ PET.
+4. Shared code nào lấy từ FCE.
+5. CAE-specific renderers đã tạo/sửa.
+6. Danh sách file thay đổi.
+7. Kết quả Test 1–23.
+8. Kết quả Part 1–8.
+9. Kết quả highlight/note/bookmark.
+10. Kết quả TypeScript/lint/build/tests.
+11. Console errors.
+12. Những điểm visual còn lệch, nếu còn.
+13. Screenshot paths của Test 1, Test 12 và Test 23.
+14. Không claim PASS nếu chưa chạy runtime đầy đủ.

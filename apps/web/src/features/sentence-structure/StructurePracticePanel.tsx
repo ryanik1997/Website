@@ -221,7 +221,7 @@ export default function StructurePracticePanel({ structureId }: Props) {
           </div>
 
           {checked && (
-            <div className={`ss-result${matchA && matchB ? ' ss-result--ok' : ' ss-result--hint'}`}>
+            <div className={`ss-result${matchA && matchB ? ' ss-result--ok' : ' ss-result--hint'}`} role="status" aria-live="polite">
               <p style={{ margin: '0 0 0.35rem', fontWeight: 700 }}>
                 {matchA && matchB ? '✓ Khớp đúng mẫu!' : 'So với mẫu:'}
               </p>
@@ -237,13 +237,13 @@ export default function StructurePracticePanel({ structureId }: Props) {
           )}
 
           {aiError && (
-            <div className="ss-result ss-result--hint">
+            <div className="ss-result ss-result--hint" role="alert">
               <p style={{ margin: 0, color: 'var(--color-accent)', fontWeight: 600 }}>{aiError}</p>
             </div>
           )}
 
           {aiGrade && (
-            <div className={`ss-ai-grade${aiGrade.pass ? ' is-pass' : ' is-fail'}`}>
+            <div className={`ss-ai-grade${aiGrade.pass ? ' is-pass' : ' is-fail'}`} role="status" aria-live="polite">
               <div className="ss-ai-grade__head">
                 <span className="ss-ai-grade__badge">
                   <Sparkles size={14} />

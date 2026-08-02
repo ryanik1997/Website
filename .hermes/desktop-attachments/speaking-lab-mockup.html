@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>IELTS Speaking Lab — Mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F6F3EA;
+    --ink:#1B1A17;
+    --ink-soft:#3A3833;
+    --paper:#FFFFFF;
+    --line:#1B1A17;
+    --sage:#DCE6D2;
+    --sage-ink:#3C4B31;
+    --dust:#DEE6EF;
+    --dust-ink:#2E4258;
+    --gold:#F3B63E;
+    --gold-ink:#4A3208;
+    --coral:#E2694A;
+    --muted:#8B887E;
+    --hero-bg:#155DFC;
+    --hero-line:#155DFC;
+    --hero-text:#FFFFFF;
+    --hero-sub:#D6E2FF;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--cream);
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+    padding:48px 20px 80px;
+  }
+  .wrap{max-width:1040px;margin:0 auto;}
+  .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:44px;}
+  .back{font-size:14px;color:var(--ink-soft);text-decoration:none;display:flex;align-items:center;gap:6px;}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--coral);font-weight:500;text-align:center;margin-bottom:10px;
+  }
+  h1{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:56px;
+    text-align:center;
+    margin:0 0 12px;
+    letter-spacing:-.01em;
+  }
+  .sub{
+    text-align:center;color:var(--ink-soft);font-size:16px;margin:0 0 36px;
+  }
+  .stats{display:flex;justify-content:center;gap:14px;margin-bottom:52px;flex-wrap:wrap;}
+  .stat{
+    background:var(--paper);border:1.5px solid var(--line);border-radius:14px;
+    padding:16px 28px;min-width:150px;text-align:center;
+  }
+  .stat .n{font-family:'JetBrains Mono',monospace;font-size:26px;font-weight:500;}
+  .stat .l{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:4px;}
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:16px;
+  }
+  .card{
+    border:1.5px solid var(--line);
+    border-radius:18px;
+    padding:26px;
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+  }
+  .tag{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+    display:inline-flex;align-items:center;gap:6px;
+    margin-bottom:14px;font-weight:500;
+  }
+  .card h2{font-family:'Fraunces',serif;font-weight:600;margin:0 0 8px;letter-spacing:-.01em;}
+  .card p{margin:0;color:var(--ink-soft);font-size:14px;line-height:1.5;}
+  .spacer{flex:1;}
+  .cta{
+    margin-top:18px;font-size:14px;font-weight:600;
+    display:inline-flex;align-items:center;gap:6px;cursor:pointer;
+  }
+  .cta svg{transition:transform .15s;}
+  .card:hover .cta svg{transform:translateX(3px);}
+
+  /* card fan signature icon */
+  .fan{width:56px;height:44px;position:relative;margin-bottom:16px;}
+  .fan .c{
+    position:absolute;width:34px;height:44px;border-radius:6px;border:1.5px solid var(--line);
+    top:0;
+  }
+  .fan .c1{left:0;transform:rotate(-9deg);background:var(--paper);}
+  .fan .c2{left:14px;transform:rotate(6deg);background:var(--gold);}
+
+  /* HERO - Mock Interview, spans full width */
+  .hero{
+    grid-column:span 6;
+    background:var(--hero-bg);
+    color:var(--hero-text);
+    border-color:var(--hero-line);
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+    gap:32px;
+    padding:36px 40px;
+  }
+  .hero .tag{color:var(--hero-text);}
+  .hero h2{color:var(--hero-text);font-size:30px;}
+  .hero p{color:var(--hero-sub);max-width:420px;}
+  .hero-right{display:flex;flex-direction:column;align-items:flex-end;gap:14px;flex-shrink:0;}
+  .live{
+    font-family:'JetBrains Mono',monospace;font-size:12px;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.35);
+    color:var(--hero-text);padding:6px 12px;border-radius:20px;
+    display:flex;align-items:center;gap:6px;
+  }
+  .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);}
+  .btn-primary{
+    background:var(--gold);color:var(--gold-ink);border:1.5px solid var(--line);
+    font-weight:600;font-size:15px;padding:13px 26px;border-radius:12px;
+    cursor:pointer;
+  }
+
+  /* Practice Bank - tall left */
+  .bank{grid-column:span 3;grid-row:span 2;background:var(--paper);justify-content:flex-end;min-height:340px;}
+  .bank .tag{color:var(--coral);}
+  .bank h2{font-size:24px;}
+  .bank .cta{color:var(--coral);}
+
+  .roulette{grid-column:span 3;background:var(--sage);border-color:var(--sage-ink);}
+  .roulette .tag,.roulette .cta{color:var(--sage-ink);}
+  .roulette p{color:var(--sage-ink);opacity:.75;}
+
+  .forecast{grid-column:span 3;background:var(--paper);}
+  .forecast .tag{color:var(--muted);}
+  .fstats{display:flex;gap:22px;margin-top:16px;}
+  .fstats div{font-family:'JetBrains Mono',monospace;}
+  .fstats .num{font-size:22px;font-weight:500;}
+  .fstats .lab{font-size:11px;color:var(--muted);text-transform:uppercase;}
+
+  .shadow{grid-column:span 3;background:var(--dust);border-color:var(--dust-ink);}
+  .shadow .tag,.shadow .cta{color:var(--dust-ink);}
+  .shadow p{color:var(--dust-ink);opacity:.75;}
+  .play{
+    width:100%;height:64px;background:var(--paper);border-radius:10px;
+    display:flex;align-items:center;justify-content:center;margin-top:14px;
+    border:1.5px solid var(--line);
+  }
+
+  .sample{grid-column:span 3;background:var(--paper);}
+  .badge{
+    display:inline-flex;align-items:center;gap:6px;background:var(--gold);color:var(--gold-ink);
+    font-family:'JetBrains Mono',monospace;font-size:12px;padding:6px 12px;border-radius:8px;
+    margin-bottom:14px;align-self:flex-start;font-weight:500;
+  }
+
+  @media(max-width:760px){
+    .grid{grid-template-columns:1fr;}
+    .hero,.bank,.roulette,.forecast,.shadow,.sample{grid-column:span 1;}
+    .hero{flex-direction:column;align-items:flex-start;}
+    .hero-right{align-items:flex-start;width:100%;}
+    .btn-primary{width:100%;}
+    h1{font-size:38px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top">
+    <a class="back" href="#">← Về trang chủ</a>
+    <div></div>
+  </div>
+
+  <div class="eyebrow">Speaking Lab</div>
+  <h1>IELTS Speaking Lab</h1>
+  <p class="sub">Phòng luyện thi Speaking ảo với AI — nâng band điểm mỗi ngày.</p>
+
+  <div class="stats">
+    <div class="stat"><div class="n">0</div><div class="l">Sessions tuần</div></div>
+    <div class="stat"><div class="n">—</div><div class="l">Avg band</div></div>
+    <div class="stat"><div class="n">0</div><div class="l">Ngày liên tiếp</div></div>
+  </div>
+
+  <div class="grid">
+
+    <div class="card hero">
+      <div>
+        <div class="tag">Premium speaking</div>
+        <h2>Mock interview đủ 3 phần</h2>
+        <p>Luyện trọn buổi phỏng vấn với AI: Part 1, Cue Card và Discussion.</p>
+      </div>
+      <div class="hero-right">
+        <div class="live"><span class="dot"></span> AI online</div>
+        <button class="btn-primary">Bắt đầu mock interview →</button>
+      </div>
+    </div>
+
+    <div class="card bank">
+      <div class="fan"><div class="c c1"></div><div class="c c2"></div></div>
+      <div class="tag">Real IELTS questions</div>
+      <h2>Practice bank</h2>
+      <p>Luyện với bộ câu hỏi thi thật.</p>
+      <div class="spacer"></div>
+      <div class="cta">Bắt đầu luyện <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+    </div>
+
+    <div class="card roulette">
+      <div class="tag">Speaking roulette</div>
+      <h2>Rút thẻ bất ngờ</h2>
+      <p>Ngẫu nhiên 1 chủ đề, luyện phản xạ trả lời.</p>
+      <div class="spacer"></div>
+      <div class="cta">Rút thẻ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+    </div>
+
+    <div class="card forecast">
+      <div class="tag">Forecast Q2 · 2026</div>
+      <h2>Dự đoán đề mới nhất</h2>
+      <div class="fstats">
+        <div><div class="num">2</div><div class="lab">Bắt buộc</div></div>
+        <div><div class="num">32</div><div class="lab">Chủ đề</div></div>
+        <div><div class="num">82</div><div class="lab">Part 2+3</div></div>
+      </div>
+      <div class="spacer"></div>
+      <div class="cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+    </div>
+
+    <div class="card shadow">
+      <div class="tag">Shadowing</div>
+      <h2>Nghe và nói như người bản xứ</h2>
+      <div class="play">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--ink)"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <div class="spacer"></div>
+      <div class="cta">Luyện shadowing <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+    </div>
+
+    <div class="card sample">
+      <div class="badge">Sample · 8.0 speaking</div>
+      <h2>Bài mẫu band cao</h2>
+      <p>Tham khảo cấu trúc ý và cụm từ hay trước khi luyện với AI.</p>
+      <div class="spacer"></div>
+      <div class="cta">Khám phá <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

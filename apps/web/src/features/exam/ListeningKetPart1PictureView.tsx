@@ -88,7 +88,7 @@ export default function ListeningKetPart1PictureView({
         </div>
 
         <div className="listening-ket-p1__qrow">
-          <span className="listening-ket-p1__qbadge" data-highlight-skip>
+          <span className="listening-ket-p1__qbadge" data-question-number-badge="true" data-highlight-skip>
             {question.number}
           </span>
           <ReadingHighlightableText

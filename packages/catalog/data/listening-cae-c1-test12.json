@@ -1,0 +1,845 @@
+{
+  "id": "catalog-listening-cae-c1-test12",
+  "title": "CAE Listening Test 12",
+  "durationMinutes": 40,
+  "bandHint": "C1 Advanced Listening · 4 parts · 30 câu",
+  "examType": "cae",
+  "examMode": "practice",
+  "parts": [
+    {
+      "id": "catalog-listening-cae-c1-test12-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1-6",
+      "instruction": "You will hear three different extracts. For questions 1-6, choose the answer (A, B or C) which fits best",
+      "audioUrl": "/catalog/listening/cae-c1-test12/cae-listening-test-11-part-1.mp3",
+      "transcript": "**Extract One** **Interviewer:** Charles, you’re retired now, but you actually designed some 600 household products, and all of them as an employee of a company. Did it ever frustrate you that you were making products without your name on? **Charles:** It was standard practice. Besides, I needed a weekly pay check before I needed recognition. Nowadays, you can find designers’ names on products, but it tends to be high-profile people seeking attention. And then there’s celebrity endorsement and all that. People think that if they buy a soccer ball that has the name of some famous player on it, they’re going to score wonderful goals… a ploy to get you to buy products **[1]**. **Interviewer:** What advice do you have for young designers? **Charles:** What they do will affect so many people during the lifetime of that product. That’s serious stuff. So the product should do what it’s supposed to do **[2]** and be pleasing to have in your environment. I tried to make things appear as if they just belong. They don’t need to scream. I don’t think a nutcracker needs to look like an elephant **[2]**. **Extract Two** **Man:** Well, what a one-sided interview that was – and with one of my favourite actresses. She hardly got a look-in! Noone would’ve learned anything new about her, especially as it was the usual, tired stuff being put to her **[3]**. When she did try to steer things in a different direction, the interviewer just ignored her and kept going on about himself. **Woman:** There aren’t many really good interviewers, are there? The best ones really take on board what’s being said and follow it up. This guy showed no imagination at all, just covering old ground, and targeting obvious stuff. No wonder he couldn’t get interesting responses. **Man:** And Celia could’ve told a few stories… she’s had a fascinating life. I know some film actors are perhaps a bit tricky – some seem afraid to be themselves, like they’re desperate to keep up their public image at all costs **[4]**. And of course many actors are interviewed just after their last film’s been released, and are understandably keen to publicise it, but interviewers often concentrate on other superficial stuff. I love it when actors are challenged a bit, and the interviewer dares to deviate from the set script, putting them on the spot! **Extract Three** **Man:** Hmm, I must get down to some work. **Woman:** Is getting started tricky for you? **Man:** Well, it can take me a while to enter into a creative state, but once I’m there, I lose awareness of absolutely anything but the ideas flowing – don’t even perceive my fingers typing. **Woman:** Really? **Man:** Hm, and I’m then extremely resistant to interruption, so I’ll shout at anyone who knocks at my study door **[5]**. My defensive reactions are subconscious, though, and usually I don’t even recall them. The family’s used to it and I’m certainly not upholding it as a model of good behaviour, but sometimes it’s necessary. **Woman:** Yeah, once I’m immersed in creating something, I usually maintain that state until I complete the work. And I don’t even feel as if I am working. But if I look at the task ahead of me, all I tend to see is the effort involved! **Man:** Right. And what about stuff you wrote ages back? Do you return to it for inspiration? **Woman:** Well, I find I can’t always recreate the mindset I had during its creation, because inevitably I’ve since broadened my perspective on it **[6]**. I can see why I used the inspiration I did, but obviously experience changes you. **Man:** Yes… absolutely.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test12-q-1",
+          "number": 1,
+          "type": "multiple-choice",
+          "prompt": "How does Charles feel about designers who put their names on products?",
+          "options": [
+            {
+              "id": "A",
+              "label": "He understands their basic needs."
+            },
+            {
+              "id": "B",
+              "label": "He is dismissive of their motives."
+            },
+            {
+              "id": "C",
+              "label": "He admires their business skills."
+            }
+          ],
+          "answer": "B",
+          "explanation": "BPeople think that if they buy a soccer ball that has the name of some famous player on it, they’re going to score wonderful goals… a ploy to get you to buy products"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test12-q-2",
+          "number": 2,
+          "type": "multiple-choice",
+          "prompt": "What does Charles suggest about a good product?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Its appearance should reflect its function."
+            },
+            {
+              "id": "B",
+              "label": "It should encourage a desire to possess it."
+            },
+            {
+              "id": "C",
+              "label": "Its ecological impact should be considered."
+            }
+          ],
+          "answer": "A",
+          "explanation": "AWhat they do will affect so many people during the lifetime of that product. That’s serious stuff. So the product should do what it’s supposed to do and be pleasing to have in your environment. I tried to make things appear as if they just belong. They don’t need to scream. I don’t think a nutcracker needs to look like an elephant."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test12-q-3",
+          "number": 3,
+          "type": "multiple-choice",
+          "prompt": "They agree that the interviewer made the mistake of",
+          "options": [
+            {
+              "id": "A",
+              "label": "dominating the discussion."
+            },
+            {
+              "id": "B",
+              "label": "asking predictable questions."
+            },
+            {
+              "id": "C",
+              "label": "failing to listen fully to answers."
+            }
+          ],
+          "answer": "B",
+          "explanation": "BShe hardly got a look-in! Noone would’ve learned anything new about her, especially as it was the usual, tired stuff being put to her"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test12-q-4",
+          "number": 4,
+          "type": "multiple-choice",
+          "prompt": "The man says that certain film stars can be difficult to interview because",
+          "options": [
+            {
+              "id": "A",
+              "label": "they generally show a lack of spontaneity."
+            },
+            {
+              "id": "B",
+              "label": "they’re unwilling to reveal their true personality."
+            },
+            {
+              "id": "C",
+              "label": "they’re too anxious to promote their latest work."
+            }
+          ],
+          "answer": "B",
+          "explanation": "BAnd Celia could’ve told a few stories… she’s had a fascinating life. I know some film actors are perhaps a bit tricky – some seem afraid to be themselves, like they’re desperate to keep up their public image at all costs"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test12-q-5",
+          "number": 5,
+          "type": "multiple-choice",
+          "prompt": "When talking about how he tackles a creative writing task, the man",
+          "options": [
+            {
+              "id": "A",
+              "label": "points out how easily he can assume the right frame of mind."
+            },
+            {
+              "id": "B",
+              "label": "tries to justify his antisocial behaviour when working."
+            },
+            {
+              "id": "C",
+              "label": "admits that frequent breaks can be beneficial."
+            }
+          ],
+          "answer": "B",
+          "explanation": "BMan: Hm, and I’m then extremely resistant to interruption, so I’ll shout at anyone who knocks at my study door"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test12-q-6",
+          "number": 6,
+          "type": "multiple-choice",
+          "prompt": "What does the woman say about her earlier writing?",
+          "options": [
+            {
+              "id": "A",
+              "label": "She feels she no longer fully relates to it."
+            },
+            {
+              "id": "B",
+              "label": "She tends to draw on similar themes in her current work."
+            },
+            {
+              "id": "C",
+              "label": "She highlights the improvements she’s noticed in her work."
+            }
+          ],
+          "answer": "A",
+          "explanation": "AWoman: Well, I find I can’t always recreate the mindset I had during its creation, because inevitably I’ve since broadened my perspective on it"
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test12-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 7-14",
+      "instruction": "You will hear a woman called Janine Rogers giving a talk about her work. For questions 7-14, complete the sentences with a word or short phrase.",
+      "audioUrl": "/catalog/listening/cae-c1-test12/cae-listening-test-11-part-2.mp3",
+      "transcript": "**Janine Rogers:** Hello, everyone. My name is Janine Rogers, and I’ve got what many people would regard as a dream job – I’m a chocolate taster! My route into the job came after graduation. As a qualified chemist **[7]**, I was looking to specialise as a lab technician, but when nothing came up, I considered retraining as a chef. Then I spotted a vacancy in the company I’m in now – and that’s where my career started. Everyone has a very specific professional title, mine being Product Developer. It doesn’t cover everything I do, but it perfectly describes one aspect of the role. My background has been a real asset to my work here. I’m currently creating the perfect fillings for our chocolates – at the moment it’s caramel. But last month I had to come up with a way of introducing bubbles into the chocolate mixture **[8]**. It may sound trivial, but it’s what sells the chocolate! And I suspect only someone with my technical knowledge would’ve had the know-how to pull that off **[8]**. It may sound wonderful to work with chocolate all day, but it’s not exactly a simple substance to work with – I’d even go so far as to call it problematic **[9]**. That’s because we’re using a blend of fat as well as cocoa, which means the approaches we use, and the time we spend blending it can be crucial. A lot of variables can affect how chocolate tastes – it doesn’t naturally occur as the sweet-tasting confection we’re all familiar with. Things like the climate of the region where the beans are grown have an effect, as does the technique used for drying them and the amount of sugar we put in the chocolate **[10]**. I spend about 20% of my time actually tasting chocolate. But of course, the end result is all the work of a team. For example, the marketing team will come up with a concept for a new range – and it’s my job in Research and Development to bring that idea to life **[11]**. Then we’ll make samples and test them on consumers. After that we’ll speak to the engineers in manufacturing, and also the people in charge of packaging which, believe it or not, is an essential early stage **[12]**. There’s no point in creating something that can’t be wrapped up and sold. Liquid chocolate is a good example – it’s delicious, but difficult to preserve in that state for sale. We also rely heavily on advice from our legal team about the claims we make for our chocolate in our advertising. And we need to be aware whether we’re making something that’s not suitable for vegetarians, say, but we haven’t stated this in our labelling **[13]**. So what qualities are required in my job? Well, a curiosity about how things work and why, but above and beyond all else, you need initiative, and lots of it **[14]**. There’ll be times when no-one’s giving you specific instructions and you need to get on by yourself. And of course, you need to love chocolate!",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test12-q-7",
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "Janine trained as a ________ before working for her current employer.",
+          "options": [],
+          "answer": "chemist",
+          "explanation": "chemistMy route into the job came after graduation. As a qualified chemist , I was looking to specialise as a lab technician, but when nothing came up, I considered retraining as a chef."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test12-q-8",
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "Janine found her background particularly helpful when working on a project to put ________ into chocolate.",
+          "options": [],
+          "answer": "bubbles",
+          "explanation": "bubblesBut last month I had to come up with a way of introducing bubbles into the chocolate mixture. It may sound trivial, but it’s what sells the chocolate! And I suspect only someone with my technical knowledge would’ve had the know-how to pull that off."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test12-q-9",
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "Janine uses the word ________ to describe chocolate as a substance to work with.",
+          "options": [],
+          "answer": "problematic",
+          "explanation": "problematicIt may sound wonderful to work with chocolate all day, but it’s not exactly a simple substance to work with – I’d even go so far as to call it problematic."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test12-q-10",
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "Janine mentions the method of ________ the cocoa beans as a variable affecting the taste of her chocolate.",
+          "options": [],
+          "answer": "drying",
+          "explanation": "dryingThings like the climate of the region where the beans are grown have an effect, as does the technique used for drying them and the amount of sugar we put in the chocolate."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test12-q-11",
+          "number": 11,
+          "type": "gap-fill",
+          "prompt": "Janine says that ideas for new types of chocolate generally come from her company’s ________ department.",
+          "options": [],
+          "answer": "marketing",
+          "explanation": "marketingFor example, the marketing team will come up with a concept for a new range – and it’s my job in Research and Development to bring that idea to life."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test12-q-12",
+          "number": 12,
+          "type": "gap-fill",
+          "prompt": "Janine says the staff responsible for ________ play a surprisingly important role in developing a new chocolate product.",
+          "options": [],
+          "answer": "packaging",
+          "explanation": "packagingAfter that we’ll speak to the engineers in manufacturing, and also the people in charge of packaging which, believe it or not, is an essential early stage."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test12-q-13",
+          "number": 13,
+          "type": "gap-fill",
+          "prompt": "Janine gives the example of ________ as a group that need to be considered when designing the label for a product.",
+          "options": [],
+          "answer": "vegetarians",
+          "explanation": "vegetariansAnd we need to be aware whether we’re making something that’s not suitable for vegetarians, say, but we haven’t stated this in our labelling."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test12-q-14",
+          "number": 14,
+          "type": "gap-fill",
+          "prompt": "Janine thinks that ________ is the most essential quality needed for her job.",
+          "options": [],
+          "answer": "initiative",
+          "explanation": "initiativeSo what qualities are required in my job? Well, a curiosity about how things work and why, but above and beyond all else, you need initiative, and lots of it."
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test12-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 15-20",
+      "instruction": "You will hear part of an interview with two sports psychologists called Sheila Forbes and Peter Maxton. For questions 15-20, choose the answer (A, B, C or D) which fits best according to what you hear.",
+      "audioUrl": "/catalog/listening/cae-c1-test12/cae-listening-test-11-part-3.mp3",
+      "transcript": "**Interviewer:** Today I’m with Peter Maxton and Sheila Forbes, both sports psychologists helping professional footballers prepare mentally for their performances. Welcome, both of you. **Peter & Sheila:** Thank you. **Interviewer:** So Sheila, how would you define your role? **Sheila:** It can vary depending on the individual I’m working with, but basically, I equip players with techniques to improve their performance. Initially, though, I have to make sure they understand what I do and show them what they’ ll get out of it **[15]**, so that they’re properly on board from the outset. In my experience, players generally don’t have tangible strategies to deal with the ups and downs that the game bombards them with, so I train them how to ‘think’ on the pitch – how to structure their thinking, be more confident themselves, and not be intimidated by the apparent confidence of others. **Interviewer:** So how do you set about achieving your goals? **Sheila:** Well, through a range of different approaches. I might set up a simulation of a performance, say, during which I’ll be observing players for signs of repetitive patterns in behaviour and thought processes that can have a damaging effect on what happens on the pitch **[16]**. Then I’ll set about seeing where they’re coming from, and begin the process of slowly breaking these patterns, using imagery or anxiety control. But players have to feel I’ll respect confidentiality. After all, they’re almost admitting to what might be interpreted by others as weaknesses in their mental approach, which in turn might raise questions about their suitability as a team member. **Interviewer:** So what does a sports psychologist need to bring to the job? **Sheila:** Well, during my career I’ve worked in a number of sports, such as boxing and horse riding. None of them are sports I’ve ever performed in, and in any case that’s not demanded. What needed though is that you understand the mental demands of those sports, and are able to adapt your work so that it can be integrated into the performance environment. But if you’re not honest to your clients about what you realistically can and can’t do, you won’t progress very far **[17]**. **Interviewer:** Peter, would you agree with Sheila? **Peter:** Well, my experience as a psychologist has been limited to football. But I’d add that you also have to be independent as you often have to make key decisions about an athlete on your own. But I’d certainly go along with Sheila’s point about frankness. That’s paramount, I’d say **[17]**. **Interviewer:** But you played sport as a student, didn’t you Peter? **Peter:** Well, I’ve never been a professional sportsperson, but I did play a lot of golf and tennis as a student, and was quite promising, although I don’t think I took either of them terribly seriously. Then I hit what I can only describe as a stale patch and couldn’t figure out why I was no longer up to standard. It eventually turned out that I’d been playing while suffering from an illness, a kind of fatigue syndrome. There wasn’t the kind of monitoring you’d get nowadays that could have detected this earlier, and I was rather taken aback to discover there was no support when I switched back into playing again **[18]**. That sparked my interest in the link between psychology and performance. **Interviewer:** So Peter, is there anything you dislike about the job? **Peter:** Well, it does get a bad press in some quarters, with people suggesting we’re simply doing this for financial gain and realistically can’t help top sports people up their game **[19]**. But all we’re doing is ensuring optimal conditions for athletes to achieve a consistently high level of performance. There’s a constant shift in environments, of course, but personally I find that stimulating – and even within one club, you have a range of players and situations, and the techniques you learn are extremely transferable, as long as you’re creative enough to do that. **Interviewer:** So what do you both see as the future for sport psychology? **Sheila:** Well, as an industry, it does have a developmental path for professionals coming into it, with young people with specialist skills coming through now. But there’s still some PR work for us to do. We’re still treated with a certain amount of suspicion by fans, simply because they don’t understand what we do. **[20]** **Interviewer:** Peter? **Peter:** I hope the use of psychology becomes more mainstream in both player development and coaching education. But, as Sheila said, there are still barriers to be broken down and psychology in sport should be put in perspective **[20]**. It’s part of the process of creating champions, which should be more widely publicised as a force for good.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test12-q-15",
+          "number": 15,
+          "type": "multiple-choice",
+          "prompt": "Sheila explains that her role involves",
+          "options": [
+            {
+              "id": "A",
+              "label": "preventing players from becoming over-confident."
+            },
+            {
+              "id": "B",
+              "label": "responding to whatever players feel they need to improve."
+            },
+            {
+              "id": "C",
+              "label": "enabling players to train aggressively."
+            },
+            {
+              "id": "D",
+              "label": "persuading players that her techniques can really benefit them."
+            }
+          ],
+          "answer": "D",
+          "explanation": "DSheila: It can vary depending on the individual I’m working with, but basically, I equip players with techniques to improve their performance. Initially, though, I have to make sure they understand what I do and show them what they’ ll get out of it..."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test12-q-16",
+          "number": 16,
+          "type": "multiple-choice",
+          "prompt": "Sheila says one strategy she uses to achieve her goals is to",
+          "options": [
+            {
+              "id": "A",
+              "label": "encourage players to replicate good features of others’ performance."
+            },
+            {
+              "id": "B",
+              "label": "ask players to share with her the way they control their anxieties."
+            },
+            {
+              "id": "C",
+              "label": "get players to examine their effectiveness as team members."
+            },
+            {
+              "id": "D",
+              "label": "trace the causes of negative thinking in players."
+            }
+          ],
+          "answer": "D",
+          "explanation": "DSheila: Well, through a range of different approaches. I might set up a simulation of a performance, say, during which I’ll be observing players for signs of repetitive patterns in behaviour and thought processes that can have a damaging effect on what happens on the pitch."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test12-q-17",
+          "number": 17,
+          "type": "multiple-choice",
+          "prompt": "Sheila and Peter both think that it’s important for sports psychologists",
+          "options": [
+            {
+              "id": "A",
+              "label": "to have wide experience in a range of different sports."
+            },
+            {
+              "id": "B",
+              "label": "not to raise false hopes about what they can achieve."
+            },
+            {
+              "id": "C",
+              "label": "not to become too immersed in the environment of sport."
+            },
+            {
+              "id": "D",
+              "label": "to adapt the decisions they make to suit individual situations."
+            }
+          ],
+          "answer": "B",
+          "explanation": "BSheila: But if you’re not honest to your clients about what you realistically can and can’t do, you won’t progress very far... Peter: But I’d certainly go along with Sheila’s point about frankness. That’s paramount, I’d say"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test12-q-18",
+          "number": 18,
+          "type": "multiple-choice",
+          "prompt": "What was Peter’s reaction to his deteriorating sporting performance as a student?",
+          "options": [
+            {
+              "id": "A",
+              "label": "He felt disappointed at the lack of relevant help available."
+            },
+            {
+              "id": "B",
+              "label": "He redoubled his efforts to succeed despite failing health."
+            },
+            {
+              "id": "C",
+              "label": "He became desperate to uncover the source of his problem."
+            },
+            {
+              "id": "D",
+              "label": "He switched to what he felt were easier sports to succeed in."
+            }
+          ],
+          "answer": "A",
+          "explanation": "APeter: There wasn’t the kind of monitoring you’d get nowadays that could have detected this earlier, and I was rather taken aback to discover there was no support when I switched back into playing again"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test12-q-19",
+          "number": 19,
+          "type": "multiple-choice",
+          "prompt": "What does Peter dislike about his job?",
+          "options": [
+            {
+              "id": "A",
+              "label": "needing always to be creative in his choice of techniques"
+            },
+            {
+              "id": "B",
+              "label": "having constantly to work in different environments"
+            },
+            {
+              "id": "C",
+              "label": "being criticised for ineffective working methods"
+            },
+            {
+              "id": "D",
+              "label": "feeling he has to justify his achievements to others"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CPeter: Well, it does get a bad press in some quarters, with people suggesting we’re simply doing this for financial gain and realistically can’t help top sports people up their game."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test12-q-20",
+          "number": 20,
+          "type": "multiple-choice",
+          "prompt": "When talking about their profession, Shelia and Peter agree that",
+          "options": [
+            {
+              "id": "A",
+              "label": "it’s slowly establishing its place in player development."
+            },
+            {
+              "id": "B",
+              "label": "it isn’t attracting the right kind of people."
+            },
+            {
+              "id": "C",
+              "label": "its profile needs to be raised among the general public."
+            },
+            {
+              "id": "D",
+              "label": "it has a poorly-developed career structure."
+            }
+          ],
+          "answer": "C",
+          "explanation": "CSheila: But there’s still some PR work for us to do. We’re still treated with a certain amount of suspicion by fans, simply because they don’t understand what we do.Peter:But, as Sheila said, there are still barriers to be broken down and psychology in sport should be put in perspective."
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test12-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 21-30",
+      "instruction": "You will hear five short extracts in which people are talking about their experiences of travelling.",
+      "audioUrl": "/catalog/listening/cae-c1-test12/cae-listening-test-11-part-4.mp3",
+      "transcript": "**Speaker 1:** My parents weren’t happy when I told them I wanted to study law. The thing is I’m a keen athlete and so having a state-of-the-art track on site to practise on after classes was crucial **[21]**. They’d have preferred me to study in my city so I could’ve lived at home, which would’ve been much cheaper and easier of course. Anyway, I think I made the right choice. It didn’t take long to start hanging out with some great people I met through lectures and my running. What was more of an issue was getting through all the stuff we were given to do **[26]**. I had to be up all hours to begin with. I think I’ve finally cracked it now though. **Speaker 2:** Nothing prepares you fully for starting university life. I was away from home during the week with a whole new group of people who I would have to get to know. Strangely, though, what threw me most was figuring out where to do my assignments **[27]**. After various unsuccessful attempts, I settled on a quiet spot in the student centre and then I could really focus at last. Choosing a university was straightforward actually. Since I’m studying history I thought a brand new campus wouldn’t feel right. I wanted to gaze at ancient spires and towers on my way to lectures **[22]**. That won hands down in the end against studying with one of my former classmates. **Speaker 3:** Selecting the right university was tricky. My dad would’ve liked me to study medicine close to home, but I also had to consider how the qualification I got would be valued in future. I mean, would the university command sufficient respect overseas, and that’s what swung it for me **[23]**. When I actually started, it took time to settle in. It was so different from school, where we all followed a fixed timetable term after term. My lectures are mostly after lunch, but I’ve got laboratory sessions at various times. Working all that out wasn’t easy **[28]**. Then I had to cook for myself too, though that broke up the hours of study a bit. **Speaker 4:** After school, I worked for my father for ten years and then decided to get a business qualification. I thought exchanging working life for one full of lectures and assignments would be demanding, which was true up to a point **[29]**. I’d also thought getting my head round what the tutors were explaining would be straightforward, but that turned out to be a false hope. I’d taken time finding the right college. Partly because of my age, I followed lots of student blogs from various institutions to find one which offered some sort of mentoring service to help me settle in. That seemed vital **[24]**. I was lucky that my first choice was surrounded by great mountains, but also easily-accessible from home – an added bonus! **Speaker 5:** I’d always wanted to study languages, but exactly which aspect, you know, linguistics, literature, drama and so on, well I kept changing my mind. It struck me what I needed was a university with lots of academic options, so I could experiment a bit **[25]**. The one I picked also had a huge campus with loads of clubs and places to hang out, which was amazing. So I was never at a loss for something to occupy me on Saturdays. The downside of that massive campus was that everything was so spread out, and I had real difficulty trying to track the various teaching sites **[30]**. I was forever apologising to tutors for creeping in way after their sessions had got going.",
+      "matchingDualTask": true,
+      "taskOneInstruction": "For questions 21-25, choose the option which best describes each speaker.",
+      "taskTwoInstruction": "For questions 26-30, choose the option which best describes each speaker.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test12-q-21",
+          "number": 21,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "answer": "B",
+          "explanation": "BThe thing is I’m a keen athlete and so having a state-of-the-art track on site to practise on after classes was crucial",
+          "context": "Speaker 1"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test12-q-22",
+          "number": 22,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "answer": "G",
+          "explanation": "GI wanted to gaze at ancient spires and towers on my way to lectures",
+          "context": "Speaker 2"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test12-q-23",
+          "number": 23,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "answer": "F",
+          "explanation": "FI mean, would the university command sufficient respect overseas, and that’s what swung it for me.",
+          "context": "Speaker 3"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test12-q-24",
+          "number": 24,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "answer": "E",
+          "explanation": "EPartly because of my age, I followed lots of student blogs from various institutions to find one which offered some sort of mentoring service to help me settle in. That seemed vital.",
+          "context": "Speaker 4"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test12-q-25",
+          "number": 25,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "answer": "H",
+          "explanation": "HIt struck me what I needed was a university with lots of academic options, so I could experiment a bit.",
+          "context": "Speaker 5"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test12-q-26",
+          "number": 26,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "answer": "A",
+          "explanation": "AWhat was more of an issue was getting through all the stuff we were given to do",
+          "context": "Speaker 1"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test12-q-27",
+          "number": 27,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "answer": "H",
+          "explanation": "HStrangely, though, what threw me most was figuring out where to do my assignments",
+          "context": "Speaker 2"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test12-q-28",
+          "number": 28,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "answer": "G",
+          "explanation": "GIt was so different from school, where we all followed a fixed timetable term after term. My lectures are mostly after lunch, but I’ve got laboratory sessions at various times. Working all that out wasn’t easy",
+          "context": "Speaker 3"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test12-q-29",
+          "number": 29,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CI thought exchanging working life for one full of lectures and assignments would be demanding, which was true up to a point",
+          "context": "Speaker 4"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test12-q-30",
+          "number": 30,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "answer": "E",
+          "explanation": "EThe downside of that massive campus was that everything was so spread out, and I had real difficulty trying to track the various teaching sites",
+          "context": "Speaker 5"
+        }
+      ]
+    }
+  ],
+  "catalogSlug": "cae-c1-test12",
+  "catalogBase": "/catalog/listening/cae-c1-test12"
+}

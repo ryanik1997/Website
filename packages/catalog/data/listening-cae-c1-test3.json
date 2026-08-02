@@ -1,0 +1,845 @@
+{
+  "id": "catalog-listening-cae-c1-test3",
+  "title": "CAE Listening Test 3",
+  "durationMinutes": 40,
+  "bandHint": "C1 Advanced Listening · 4 parts · 30 câu",
+  "examType": "cae",
+  "examMode": "practice",
+  "parts": [
+    {
+      "id": "catalog-listening-cae-c1-test3-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1-6",
+      "instruction": "You will hear three different extracts. For questions 1-6, choose the answer (A, B or C) which fits best",
+      "audioUrl": "/catalog/listening/cae-c1-test3/cae-listening-test-02-part-1.mp3",
+      "transcript": "**John:** So, Diane, have you finally decided to come to Hong Kong with us for a holiday? Your flight’s reserved, we need to confirm by Wednesday. **Diane:** Well, John, I’ve given it some thought and it’s pretty tempting, but it’s not that long since I last had a break. I don’t know – I still haven’t come to any definite decision. **John:** Oh, come on, what’s the problem? I know it may seem extravagant, but you told me you’d just been given promotion and a rise, so that can’t be an issue, surely **[1].** **Diane:** Well, it’s not so much that as my work situation. Taking another break so soon after my promotion might send out the wrong message to my team, although I think my line manager would understand. **John:** Of course – she knows you’re a good worker. **Diane:** Hmm. Well, I guess I could empty my in-tray in time – my workload’s not too heavy just now. It’s just that I haven’t had much time to get the office organised, and to be honest, one of my colleagues would probably be only too glad to use my absence to further his own position **[2].** **John:** Hmm, sounds pretty nasty to me. Are you sure you want to carry on working there? **Man:** I hear Joe Schultz’s new film The System isn’t going to be given the ‘12’ certificate he wanted. **Woman:** So youngsters can’t see it? I’m not surprised. The reviewers say that watching the first few minutes is pretty unpleasant – there’s a lot of aggression. **Man:** That didn’t seem to worry the authorities. Nor did the strong language, although there’s quite a bit of that, but they couldn’t take the little bursts of rather tense music – makes your hair stand on end, apparently **[3]!** **Woman:** Interesting. Anyway, I don’t think the storyline’s really suitable for young children – too much delving into people’s thoughts and motives. **Man:** True. You’ve read the book? **Woman:** Oh yeah. A great page-turner. I had no idea what the final outcome would be. **Man:** Oh, I guessed. I loved the way the author uses dialect all the way through – a bit out of the ordinary **[4].** **Woman:** Takes some getting used to, but it’s decidedly different. You can’t really believe the Prince is based on a real person from the past, though, can you? **Man:** I thought he did come over well, considering how little we know about people from that era. **Woman:** We’ll go and see the film, won’t we? **Man:** Definitely. **Interviewer:** Ingrid Chapman, tell us about this new office block. **Ingrid:** It has enormous glass walls, because transparency was paramount in the brief I received from my clients – that gives it an airy, spacious feel inside. The three floors all open onto a cavernous central hall, and this is what’s crucial for me – there are so many reasons for people to meet there **[5]**: have a coffee, gossip, discuss formal matters in an informal setting. I force them to do these things by locating most of the services they need in this area – toilets, photocopying, cafe, etc. **Interviewer:** Forgive me, but there’ll be company executives listening who are saying, ‘That’s all very well if you’re able to design a brand new building from scratch.’ What would you say to them? **Ingrid:** Commission me to come up with a scheme for a replacement, for example? No, seriously, it doesn’t require much, a little creativity, that’s all **[6]**. Under-used areas can be refurbished, art hung on the walls, that sort of thing. And a questionnaire can be sent to all personnel to get their reactions to any changes you’ve made. Good morale facilitates productivity.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test3-q-1",
+          "number": 1,
+          "type": "multiple-choice",
+          "prompt": "John thinks Diane’s indecision about the holiday is",
+          "options": [
+            {
+              "id": "A",
+              "label": "unreasonable in view of her financial position"
+            },
+            {
+              "id": "B",
+              "label": "surprising since her holiday is well overdue"
+            },
+            {
+              "id": "C",
+              "label": "understandable given how much money is involved"
+            }
+          ],
+          "answer": "A",
+          "explanation": "AJohn: Oh, come on, what’s the problem? I know it may seem extravagant, but you told me you’d just been given promotion and a rise, so that can’t be an issue, surely"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test3-q-2",
+          "number": 2,
+          "type": "multiple-choice",
+          "prompt": "How does Diane feel about the prospect of a break from work?",
+          "options": [
+            {
+              "id": "A",
+              "label": "nervous that her boss will regret promoting her"
+            },
+            {
+              "id": "B",
+              "label": "worried that staff will take advantage of her absence"
+            },
+            {
+              "id": "C",
+              "label": "doubtful whether she can clear her backlog of work in time"
+            }
+          ],
+          "answer": "B",
+          "explanation": "BDiane: ... to be honest, one of my colleagues would probably be only too glad to use my absence to further his own position"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test3-q-3",
+          "number": 3,
+          "type": "multiple-choice",
+          "prompt": "Why has the film been refused a certificate allowing it to be shown to children?",
+          "options": [
+            {
+              "id": "A",
+              "label": "The soundtrack makes it too frightening in places"
+            },
+            {
+              "id": "B",
+              "label": "The plot is too psychologically complex"
+            },
+            {
+              "id": "C",
+              "label": "The opening images are too violent"
+            }
+          ],
+          "answer": "A",
+          "explanation": "AMan: ... but they couldn’t take the little bursts of rather tense music – makes your hair stand on end, apparently"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test3-q-4",
+          "number": 4,
+          "type": "multiple-choice",
+          "prompt": "The friends agree that the original story on which the film is based",
+          "options": [
+            {
+              "id": "A",
+              "label": "is written in a rather unusual style"
+            },
+            {
+              "id": "B",
+              "label": "gives a convincing portrayal of a historical character"
+            },
+            {
+              "id": "C",
+              "label": "manages to keep the reader in suspense until the end"
+            }
+          ],
+          "answer": "A",
+          "explanation": "AMan: Oh, I guessed. I loved the way the author uses dialect all the way through – a bit out of the ordinary"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test3-q-5",
+          "number": 5,
+          "type": "multiple-choice",
+          "prompt": "What does Ingrid think is the best feature of the new building?",
+          "options": [
+            {
+              "id": "A",
+              "label": "the amount of light that comes in"
+            },
+            {
+              "id": "B",
+              "label": "the space she has created for staff interaction"
+            },
+            {
+              "id": "C",
+              "label": "the way each floor has its own facilities"
+            }
+          ],
+          "answer": "B",
+          "explanation": "BIngrid: The three floors all open onto a cavernous central hall, and this is what’s crucial for me – there are so many reasons for people to meet there"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test3-q-6",
+          "number": 6,
+          "type": "multiple-choice",
+          "prompt": "What does she suggest companies with outdated office buildings should do?",
+          "options": [
+            {
+              "id": "A",
+              "label": "employ her to design a more modern building"
+            },
+            {
+              "id": "B",
+              "label": "ask staff what kind of workplace they would like"
+            },
+            {
+              "id": "C",
+              "label": "use imagination to improve aspects of the offices HINTS AND KEYWORDS"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CIngrid: Commission me to come up with a scheme for a replacement, for example? No, seriously, it doesn’t require much, a little creativity, that’s all"
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test3-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 7-14",
+      "instruction": "Part 2 — Sentence completion",
+      "audioUrl": "/catalog/listening/cae-c1-test3/cae-listening-test-02-part-2.mp3",
+      "transcript": "**Museum guide:** Welcome to the City Museum and Art Gallery. Before we start our tour, I’d like to give you a bit of background information about the place itself. The museum was founded in 1849 as a home for the collections built up over the years by the local Cultural Society **[7]**, and is one of seven museums owned by the city council. Its collections of dinosaurs and mummies are well known, and it also has one of Britain’s top five exhibitions of natural science **[8]**. Unfortunately, not all areas are open to the public at the moment. In the cellar storerooms, for example, there are, amongst other things, display cases full of butterflies, and many others full of birds **[9]**. Upstairs, there’s a section designed especially for children, for those of you who are interested, where young people can dress up, draw pictures, and find out about the museum at their own pace. It’s called ‘Let’s Interact’ and there’s more noise there than silence **[10]**, as you might imagine. But we find this to be a successful way of attracting children to museums. Let’s face it, museums in the past have been boring, rather stuffy places for children, and indeed adults, to visit. The picture galleries, which we’ll be visiting later, boast a fine collection of drawings, prints and woodcuts by German artists **[11]**, and the art collection is arranged thematically, rather than chronologically. The themes we shall see are: colour, light, movement, signs, and symbols. It’s a bit cold here, I’m afraid. I do apologise for this but, I’m sorry to say, the central heating needs a million-pound refit **[12]**, which the city can’t afford to undertake at the moment. So, if any of you are millionaires, and feeling generous today, please see me after the tour! Now, if you will just follow me to the end of the Grand Colonnade, we’ll turn right into the first exhibit room on the ground floor. [pause] Now, this room houses the Rutland Dinosaur. As you can see, it’s three and a half metres high and fourteen metres long, quite an intimidating sight **[13]**! This Cetiosaurus, as it’s called, was found in England’s smallest county in 1968. The creature loped across the countryside 175 million years ago, and is the most complete example of the breed discovered to date. Most of the neck, some of the spine and a bit of the tail were found in Rutland; the rest of the tail is polystyrene **[14]**. For those of you who prefer your dinosaurs on a much more human scale, there is a much smaller 200-million-year-old Pilosaur over there.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test3-q-7",
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "This museum houses objects collected by the ________ based in the city.",
+          "options": [],
+          "answer": "(local) cultural Society",
+          "explanation": "(local) cultural society The museum was founded in 1849 as a home for the collections built up over the years by the local Cultural Society"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test3-q-8",
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "It has one of the country’s best galleries containing ________ exhibits.",
+          "options": [],
+          "answer": "natural science",
+          "explanation": "Natural science... and it also has one of Britain’s top five exhibitions of natural science"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test3-q-9",
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "The museum’s displays of ________ are closed to visitors at present.",
+          "options": [],
+          "answer": "butterflies, birds (in either order)",
+          "explanation": "birds (and) butterflies (in any order)Unfortunately, not all areas are open to the public at the moment. In the cellar storerooms, for example, there are, amongst other things, display cases full of butterflies, and many others full of birds"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test3-q-10",
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "The section called ________ is popular with young people.",
+          "options": [],
+          "answer": "Let’s Interact",
+          "explanation": ""
+        },
+        {
+          "id": "catalog-listening-cae-c1-test3-q-11",
+          "number": 11,
+          "type": "gap-fill",
+          "prompt": "The picture galleries contain works on various themes by ________ .",
+          "options": [],
+          "answer": "German artists",
+          "explanation": "German artistsThe picture galleries, which we’ll be visiting later, boast a fine collection of drawings, prints and woodcuts by German artists"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test3-q-12",
+          "number": 12,
+          "type": "gap-fill",
+          "prompt": "The museum’s ________ needs modernising.",
+          "options": [],
+          "answer": "heating",
+          "explanation": ")(central) heatingIt’s a bit cold here, I’m afraid. I do apologise for this but, I’m sorry to say, the central heating needs a million-pound refit"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test3-q-13",
+          "number": 13,
+          "type": "gap-fill",
+          "prompt": "The guide uses the word ________ to describe the Rutland Dinosaur’s effect on people.",
+          "options": [],
+          "answer": "intimidating",
+          "explanation": "IntimidatingNow, this room houses the Rutland Dinosaur. As you can see, it’s three and a half metres high and fourteen metres long, quite an intimidating sight!"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test3-q-14",
+          "number": 14,
+          "type": "gap-fill",
+          "prompt": "Polystyrene was used to reconstruct most of the Rutland Dinosaur’s ________",
+          "options": [],
+          "answer": "tail",
+          "explanation": "TailMost of the neck, some of the spine and a bit of the tail were found in Rutland; the rest of the tail is polystyrene"
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test3-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 15-20",
+      "instruction": "You will hear part of a radio interview in which Harry and Jennifer, two members of an after-work adult drama class, are asked about their reasons for attending the class. For questions 15-20, choose the answer (A, B, C or D) which fits best according to what you hear.",
+      "audioUrl": "/catalog/listening/cae-c1-test3/cae-listening-test-02-part-3.mp3",
+      "transcript": "**Interviewer:** I gather these drama courses which you are attending have really given you a new lease of life. Jennifer, can you try and explain the fascination you derive from a hard three-hour session at the college after a full day’s work? **Jennifer:** Above all, each session is fun, it energises me. I actually go home with more energy on a Tuesday than any other day of the week. The reason is simple, I feel alive after the drama classes. At first I wasn’t sure if I would enjoy the course; you have to relate to the others in the group. In fact most of the work is in small groups or at least in pairs and obviously the natural barriers between strangers exist. I can honestly say that from the first evening this did not bother me **[15]**, and I’m not an extrovert by nature. In fact, if anything, I’m rather shy and reserved. **Interviewer:** And what about you, Harry? **Harry:** Well, as far as I’m concerned, drama classes have freed me, they’ve allowed me to be creative and successful in so many ways that I’m not, usually. I particularly enjoy the sessions when we just create something out of nothing, we improvise. There is usually some time in the evening when we make up either a character or a conversation or a situation and act that out with the others. The spontaneous nature of improvisation is what’s so appealing to me **[16]**. **Jennifer:** You can’t ‘get it wrong’, you’re having a go, that’s all. I mean you just stand up and become another person for five minutes; perhaps you’re like yourself or totally different, that doesn’t matter. What counts is that you take on a new personality, and you actually become that person. And, since you invent the part, you can’t be out of character and it’s impossible to make mistakes **[17]**. I expect this will change when we move onto text, won’t it, Harry? **Harry:** Yes, yes, I’m really looking forward to using text in the classes and even to learning lines. I just find some text fascinating and can’t wait to really work on it. Of course it will be different from improvisation, where we make up the parts we play, but I know you can lose yourself in a part, and playing it your way is going to be the challenge. **Jennifer:** Obviously, a specific part will be open to interpretation and a director may want you to do it in a certain way **[18]**. Imagine playing a Shakespearean hero or heroine, well, there are bound to be different ways of saying those famous lines and the actor or actress may not agree with the director, but this is a stage we haven’t reached yet. For the moment, it’s about overcoming self-consciousness and learning to be sensitive. Last week we had a new person in the group and it became really clear that he hadn’t tuned in to the way in which the classes work, you know, it was embarrassing really, he overdid it and tried to dominate the group, he didn’t wait and watch and listen. This was when it struck me that we’ve been learning to listen to each other and to respond accordingly **[19]**; and of course you bring yourself into it, but not too much and not too inappropriately. **Harry:** I couldn’t agree more. He actually asked me personal questions which were intrusive and could have been saved for the tea break. I found it off the point and distracting. Well, I suppose he felt awkward too, but if I’ve learned anything this term, it’s not to jump in, but to take my time and allow the others time by being patient when they are struggling with, for example, creating an unfamiliar character. The group has to develop together and the newcomer was an outsider **[20]**. I guess it wasn’t his fault, but he didn’t seem interested in learning from the situation. That’s probably what annoyed me. **Jennifer:** I’d be surprised if he came again. He didn’t look comfortable. **Interviewer:** Would you say this receptiveness to each other is the key lesson so far, Jennifer?",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test3-q-15",
+          "number": 15,
+          "type": "multiple-choice",
+          "prompt": "How does Jennifer feel about working with strangers in the class?",
+          "options": [
+            {
+              "id": "A",
+              "label": "resigned to the need for it"
+            },
+            {
+              "id": "B",
+              "label": "doubtful about the value of it"
+            },
+            {
+              "id": "C",
+              "label": "relaxed in her attitude towards it"
+            },
+            {
+              "id": "D",
+              "label": "excited at the thought of it"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CJennifer: ... and obviously the natural barriers between strangers exist. I can honestly say that from the first evening this did not bother me"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test3-q-16",
+          "number": 16,
+          "type": "multiple-choice",
+          "prompt": "According to Harry, the improvisation sessions",
+          "options": [
+            {
+              "id": "A",
+              "label": "require some careful preparation"
+            },
+            {
+              "id": "B",
+              "label": "enable him to use his imagination"
+            },
+            {
+              "id": "C",
+              "label": "allow him to show his acting talent"
+            },
+            {
+              "id": "D",
+              "label": "encourage him to relate to the group"
+            }
+          ],
+          "answer": "B",
+          "explanation": "BHarry: I particularly enjoy the sessions when we just create something out of nothing, we improvise. There is usually some time in the evening when we make up either a character or a conversation or a situation and act that out with the others. The spontaneous nature of improvisation is what’s so appealing to me"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test3-q-17",
+          "number": 17,
+          "type": "multiple-choice",
+          "prompt": "What does Jennifer say about improvisation?",
+          "options": [
+            {
+              "id": "A",
+              "label": "It is important not to make a mistake"
+            },
+            {
+              "id": "B",
+              "label": "It is necessary to be aware of the timing"
+            },
+            {
+              "id": "C",
+              "label": "You should be familiar with the character you invent"
+            },
+            {
+              "id": "D",
+              "label": "You need to be completely involved in the activity"
+            }
+          ],
+          "answer": "D",
+          "explanation": "DJennifer: What counts is that you take on a new personality, and you actually become that person. And, since you invent the part, you can’t be out of character and it’s impossible to make mistakes"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test3-q-18",
+          "number": 18,
+          "type": "multiple-choice",
+          "prompt": "In Jennifer’s opinion, playing written parts will",
+          "options": [
+            {
+              "id": "A",
+              "label": "be less challenging than improvisation"
+            },
+            {
+              "id": "B",
+              "label": "include research into previous performances"
+            },
+            {
+              "id": "C",
+              "label": "involve guidance from an expert"
+            },
+            {
+              "id": "D",
+              "label": "lead to competition for parts"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CJennifer: Obviously, a specific part will be open to interpretation and a director may want you to do it in a certain way"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test3-q-19",
+          "number": 19,
+          "type": "multiple-choice",
+          "prompt": "Jennifer says that the drama classes have taught her how to",
+          "options": [
+            {
+              "id": "A",
+              "label": "improve her interaction with people"
+            },
+            {
+              "id": "B",
+              "label": "manage groups of people"
+            },
+            {
+              "id": "C",
+              "label": "develop her natural acting skills"
+            },
+            {
+              "id": "D",
+              "label": "be satisfied with minor achievements"
+            }
+          ],
+          "answer": "A",
+          "explanation": "AJennifer: This was when it struck me that we’ve been learning to listen to each other and to respond accordingly"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test3-q-20",
+          "number": 20,
+          "type": "multiple-choice",
+          "prompt": "Harry was annoyed because the newcomer to the group",
+          "options": [
+            {
+              "id": "A",
+              "label": "interrupted the class by arriving late"
+            },
+            {
+              "id": "B",
+              "label": "was reluctant to participate"
+            },
+            {
+              "id": "C",
+              "label": "seemed unaware of the mood of the group"
+            },
+            {
+              "id": "D",
+              "label": "wasted the tea break with pointless questions HINTS AND KEYWORDS"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CHarry: The group has to develop together and the newcomer was an outsider"
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test3-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 21-30",
+      "instruction": "You will hear five short extracts in which British people are talking about living abroad.",
+      "audioUrl": "/catalog/listening/cae-c1-test3/cae-listening-test-02-part-4.mp3",
+      "transcript": "**Speaker 1:** I’d often thought about living here, but my husband’s work as Head of Personnel for an engineering firm tied him to the UK and I worked in a hospital. Of course, we came here on holiday and got to know the place. Now we’ve retired here **[21]**, we don’t have to go home at the end of the summer and face the harsh English winter, and that’s the greatest bonus without a doubt **[26]**. We’re getting used to the local people. They try to help us, though we’re not proficient in the language yet. It’s not hard picking it up in shops and cafes, and of course there’s TV too. **Speaker 2:** I was posted here three years ago. At first, I wasn’t very keen on the idea of coming. It’s hardly a very cultural place, is it? But frankly it’s grown on me. I’m quite an outdoor person too and what I really appreciate are the many leisure opportunities and people with time on their hands to share them with.Obviously, the weather helps, although it’s unbearably hot in July. The embassy **[22]** pool and squash courts **[27]** are quite reasonable and we have access to other facilities locally. There are a few tournaments during the year – not very high standard but quite fun. I’ve also taken up a new interest – old buildings. The local architecture’s fascinating! **Speaker 3:** I’d always intended to travel, do a few short contracts in faraway places and then go home to study to be a specialist. So I came here 20 years ago and… sort of stayed. Initially, the work was quite different from what I dealt with in my surgery **[23]** in London, although it’s routine now. It’s certainly a good lifestyle, I have to admit, very reasonable remuneration for the hours I have to put in, and that’s the key **[28]**. It allows me to put something by for my retirement and indulge my hobbies. It’s a good place to grow old – sports, great golf courses for example, if you’re interested, which I’m not really! (laughs). **Speaker 4:** I started work near London, doing a very routine job, maintaining equipment in a water purification plant **[24]**. Then I was asked to come out here. I wasn’t keen at first as it involved working in the mountains on a new dam. I decided to try it for a year because the salary was acceptable and I thought the experience would be useful. But I stayed on because the job provides so much variety. I head a team of workers now on a new project, things I wouldn’t normally get to do at my age **[29]**. I live in a basic bungalow with amazing views over the plantations and rice fields. It’s great! **Speaker 5:** It all started when I came here on holiday. I was wandering around the market, looking for souvenirs and the craftsmanship impressed me. They’re great at carving wood or weaving fabrics. I’d been thinking of taking early retirement, then it struck me. Why not set up something of my own here? So I began in a small way, sending local handicrafts and produce back to small specialist shops. It took off and now I supply large department stores **[25]**. It’s hard, working for yourself, but I love being here because the locals are so easy to get on with **[30]**. They’ll always give you a helping hand and I feel part of things, which is great…",
+      "matchingDualTask": true,
+      "taskOneInstruction": "For questions 21-25, choose the option which best describes each speaker.",
+      "taskTwoInstruction": "For questions 26-30, choose the option which best describes each speaker.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test3-q-21",
+          "number": 21,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "business person"
+            },
+            {
+              "id": "B",
+              "label": "pensioner"
+            },
+            {
+              "id": "C",
+              "label": "doctor"
+            },
+            {
+              "id": "D",
+              "label": "farmer"
+            },
+            {
+              "id": "E",
+              "label": "diplomat"
+            },
+            {
+              "id": "F",
+              "label": "student"
+            },
+            {
+              "id": "G",
+              "label": "engineer"
+            },
+            {
+              "id": "H",
+              "label": "architect"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B... Of course, we came here on holiday and got to know the place. Now we’ve retired here",
+          "context": "Speaker 1"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test3-q-22",
+          "number": 22,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "business person"
+            },
+            {
+              "id": "B",
+              "label": "pensioner"
+            },
+            {
+              "id": "C",
+              "label": "doctor"
+            },
+            {
+              "id": "D",
+              "label": "farmer"
+            },
+            {
+              "id": "E",
+              "label": "diplomat"
+            },
+            {
+              "id": "F",
+              "label": "student"
+            },
+            {
+              "id": "G",
+              "label": "engineer"
+            },
+            {
+              "id": "H",
+              "label": "architect"
+            }
+          ],
+          "answer": "E",
+          "explanation": "EObviously, the weather helps, although it’s unbearably hot in July. The embassy (!) pool...",
+          "context": "Speaker 2"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test3-q-23",
+          "number": 23,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "business person"
+            },
+            {
+              "id": "B",
+              "label": "pensioner"
+            },
+            {
+              "id": "C",
+              "label": "doctor"
+            },
+            {
+              "id": "D",
+              "label": "farmer"
+            },
+            {
+              "id": "E",
+              "label": "diplomat"
+            },
+            {
+              "id": "F",
+              "label": "student"
+            },
+            {
+              "id": "G",
+              "label": "engineer"
+            },
+            {
+              "id": "H",
+              "label": "architect"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CInitially, the work was quite different from what I dealt with in my surgery...",
+          "context": "Speaker 3"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test3-q-24",
+          "number": 24,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "business person"
+            },
+            {
+              "id": "B",
+              "label": "pensioner"
+            },
+            {
+              "id": "C",
+              "label": "doctor"
+            },
+            {
+              "id": "D",
+              "label": "farmer"
+            },
+            {
+              "id": "E",
+              "label": "diplomat"
+            },
+            {
+              "id": "F",
+              "label": "student"
+            },
+            {
+              "id": "G",
+              "label": "engineer"
+            },
+            {
+              "id": "H",
+              "label": "architect"
+            }
+          ],
+          "answer": "G",
+          "explanation": "GI started work near London, doing a very routine job, maintaining equipment in a water purification plant...",
+          "context": "Speaker 4"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test3-q-25",
+          "number": 25,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "business person"
+            },
+            {
+              "id": "B",
+              "label": "pensioner"
+            },
+            {
+              "id": "C",
+              "label": "doctor"
+            },
+            {
+              "id": "D",
+              "label": "farmer"
+            },
+            {
+              "id": "E",
+              "label": "diplomat"
+            },
+            {
+              "id": "F",
+              "label": "student"
+            },
+            {
+              "id": "G",
+              "label": "engineer"
+            },
+            {
+              "id": "H",
+              "label": "architect"
+            }
+          ],
+          "answer": "A",
+          "explanation": "ASo I began in a small way, sending local handicrafts and produce back to small specialist shops. It took off and now I supply large department stores...",
+          "context": "Speaker 5"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test3-q-26",
+          "number": 26,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "a beautiful language"
+            },
+            {
+              "id": "B",
+              "label": "friendly people"
+            },
+            {
+              "id": "C",
+              "label": "luxury accommodation"
+            },
+            {
+              "id": "D",
+              "label": "a good climate"
+            },
+            {
+              "id": "E",
+              "label": "interesting challenges"
+            },
+            {
+              "id": "F",
+              "label": "varied sports"
+            },
+            {
+              "id": "G",
+              "label": "a high salary"
+            },
+            {
+              "id": "H",
+              "label": "excellent food"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D... we don’t have to go home at the end of the summer and face the harsh English winter, and that’s the greatest bonus without a doubt.",
+          "context": "Speaker 1"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test3-q-27",
+          "number": 27,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "a beautiful language"
+            },
+            {
+              "id": "B",
+              "label": "friendly people"
+            },
+            {
+              "id": "C",
+              "label": "luxury accommodation"
+            },
+            {
+              "id": "D",
+              "label": "a good climate"
+            },
+            {
+              "id": "E",
+              "label": "interesting challenges"
+            },
+            {
+              "id": "F",
+              "label": "varied sports"
+            },
+            {
+              "id": "G",
+              "label": "a high salary"
+            },
+            {
+              "id": "H",
+              "label": "excellent food"
+            }
+          ],
+          "answer": "F",
+          "explanation": "Fhe embassy pool and squash courts [27] are quite reasonable and we have access to other facilities locally.",
+          "context": "Speaker 2"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test3-q-28",
+          "number": 28,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "a beautiful language"
+            },
+            {
+              "id": "B",
+              "label": "friendly people"
+            },
+            {
+              "id": "C",
+              "label": "luxury accommodation"
+            },
+            {
+              "id": "D",
+              "label": "a good climate"
+            },
+            {
+              "id": "E",
+              "label": "interesting challenges"
+            },
+            {
+              "id": "F",
+              "label": "varied sports"
+            },
+            {
+              "id": "G",
+              "label": "a high salary"
+            },
+            {
+              "id": "H",
+              "label": "excellent food"
+            }
+          ],
+          "answer": "G",
+          "explanation": "GIt’s certainly a good lifestyle, I have to admit, very reasonable remuneration for the hours I have to put in, and that’s the key. It allows me to put something by for my retirement and indulge my hobbies.",
+          "context": "Speaker 3"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test3-q-29",
+          "number": 29,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "a beautiful language"
+            },
+            {
+              "id": "B",
+              "label": "friendly people"
+            },
+            {
+              "id": "C",
+              "label": "luxury accommodation"
+            },
+            {
+              "id": "D",
+              "label": "a good climate"
+            },
+            {
+              "id": "E",
+              "label": "interesting challenges"
+            },
+            {
+              "id": "F",
+              "label": "varied sports"
+            },
+            {
+              "id": "G",
+              "label": "a high salary"
+            },
+            {
+              "id": "H",
+              "label": "excellent food"
+            }
+          ],
+          "answer": "E",
+          "explanation": "EBut I stayed on because the job provides so much variety. I head a team of workers now on a new project, things I wouldn’t normally get to do at my age.",
+          "context": "Speaker 4"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test3-q-30",
+          "number": 30,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "a beautiful language"
+            },
+            {
+              "id": "B",
+              "label": "friendly people"
+            },
+            {
+              "id": "C",
+              "label": "luxury accommodation"
+            },
+            {
+              "id": "D",
+              "label": "a good climate"
+            },
+            {
+              "id": "E",
+              "label": "interesting challenges"
+            },
+            {
+              "id": "F",
+              "label": "varied sports"
+            },
+            {
+              "id": "G",
+              "label": "a high salary"
+            },
+            {
+              "id": "H",
+              "label": "excellent food"
+            }
+          ],
+          "answer": "B",
+          "explanation": "BIt’s hard, working for yourself, but I love being here because the locals are so easy to get on with.",
+          "context": "Speaker 5"
+        }
+      ]
+    }
+  ],
+  "catalogSlug": "cae-c1-test3",
+  "catalogBase": "/catalog/listening/cae-c1-test3"
+}

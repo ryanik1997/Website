@@ -1,7 +1,42 @@
 import { describe, expect, it } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
-import { getAppShellBackdropMode } from './appShellBackdrop'
+import { getAppShellBackdropMode, isIeltsSpeakingFocusPath, isSentenceStructureFocusPath } from './appShellBackdrop'
+
+describe('IELTS Speaking Focus Shell routes', () => {
+  it.each([
+    '/app/speaking/ielts',
+    '/app/speaking/ielts/forecast',
+    '/app/speaking/ielts/roulette',
+    '/app/speaking/ielts/shadowing/lesson-1',
+    '/app/speaking/ielts/mock-interview/session-1',
+    '/app/speaking/ielts/session/session-1/summary',
+  ])('matches every IELTS Speaking route on %s', pathname => {
+    expect(isIeltsSpeakingFocusPath(pathname)).toBe(true)
+  })
+
+  it.each(['/app/speaking-ai', '/app/shadowing', '/app/home'])('does not hide the shell on %s', pathname => {
+    expect(isIeltsSpeakingFocusPath(pathname)).toBe(false)
+  })
+})
+
+describe('sentence structure Focus Mode route', () => {
+  it.each([
+    '/app/sentence-structure/catalog:ss:used-to',
+    '/app/sentence-structure/catalog%3Ass%3Aused-to',
+    '/app/sentence-structure/catalog:ss:used-to/',
+  ])('matches catalog structures on %s', pathname => {
+    expect(isSentenceStructureFocusPath(pathname)).toBe(true)
+  })
+
+  it.each([
+    '/app/sentence-structure',
+    '/app/sentence-structure/history',
+    '/app/sentence-structure/custom-id',
+  ])('does not match normal structure routes on %s', pathname => {
+    expect(isSentenceStructureFocusPath(pathname)).toBe(false)
+  })
+})
 
 describe('getAppShellBackdropMode', () => {
   it.each([

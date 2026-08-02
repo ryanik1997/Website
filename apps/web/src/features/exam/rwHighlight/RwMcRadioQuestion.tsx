@@ -79,7 +79,7 @@ export default function RwMcRadioQuestion({
         </p>
       )}
       <p className="ket-rw-q-prompt">
-        <span className="ket-rw-q-num">{question.number}</span>
+        <span className="ket-rw-q-num" data-question-number-badge="true">{question.number}</span>
         <RwHighlightText
           blockId={`${partId}-q-${question.id}-prompt`}
           text={question.prompt}

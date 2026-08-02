@@ -378,11 +378,7 @@ export default function ListeningFceTest({ exam, sessionStarted = true }: Props)
           }}
           aria-label="Back to exam list"
         >
-          <span className="listening-ket-cambridge__crest">C</span>
-          <span>
-            <strong>CAMBRIDGE</strong>
-            <em>English</em>
-          </span>
+          <img src="/logo-ceq.png" alt="Cambridge English" className="listening-ket-cambridge__logo" />
         </button>
         <div className="listening-ket-cambridge__candidate">
           <strong>Candidate ID</strong>
@@ -558,6 +554,7 @@ export default function ListeningFceTest({ exam, sessionStarted = true }: Props)
                         <button
                           key={question.id}
                           type="button"
+                          data-question-number-badge="true"
                           className={`${isActive ? ' is-current' : ''}${!rev && answers[question.id] ? ' is-answered' : ''}`}
                           style={examReviewPillStyle(rev, isActive)}
                           title={rev === 'correct' ? 'Đúng' : rev === 'wrong' ? 'Sai' : rev === 'skipped' ? 'Bỏ qua' : undefined}

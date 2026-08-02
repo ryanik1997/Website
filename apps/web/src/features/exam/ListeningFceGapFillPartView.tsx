@@ -37,11 +37,11 @@ interface Props {
 }
 
 function promptParts(prompt: string): { lead: string; trail: string } {
-  const ellipsis = prompt.indexOf('...')
-  if (ellipsis >= 0) {
+  const marker = ['...', '________', '______', '__'].map(value => ({ value, index: prompt.indexOf(value) })).filter(item => item.index >= 0).sort((a, b) => a.index - b.index)[0]
+  if (marker) {
     return {
-      lead: prompt.slice(0, ellipsis).trimEnd(),
-      trail: prompt.slice(ellipsis + 3).trimStart(),
+      lead: prompt.slice(0, marker.index).trimEnd(),
+      trail: prompt.slice(marker.index + marker.value.length).trimStart(),
     }
   }
   const unicodeEllipsis = prompt.indexOf('…')
@@ -165,16 +165,19 @@ export default function ListeningFceGapFillPartView({
                   highlights={highlights}
                   as="span"
                 />
-                <span className="listening-fce__num listening-fce-gapfill__num">{question.number}</span>
-                <input
-                  id={`fce-gap-${question.id}`}
-                  type="text"
-                  className="listening-fce-gapfill__input"
-                  value={answers[question.id] ?? ''}
-                  data-highlight-skip
-                  onFocus={() => onSelectQuestion(question.id)}
-                  onChange={e => onAnswer(question.id, e.target.value)}
-                />
+                <span className="listening-fce-gapfill__input-wrap">
+                  <input
+                    id={`fce-gap-${question.id}`}
+                    type="text"
+                    className="listening-fce-gapfill__input"
+                    value={answers[question.id] ?? ''}
+                    aria-label={`Question ${question.number}`}
+                    data-highlight-skip
+                    onFocus={() => onSelectQuestion(question.id)}
+                    onChange={e => onAnswer(question.id, e.target.value)}
+                  />
+                  {!answers[question.id] && <span className="listening-fce-gapfill__input-number" aria-hidden="true">{question.number}</span>}
+                </span>
                 {parts.trail && (
                   <ReadingHighlightableText
                     blockId={`${question.id}-trail`}

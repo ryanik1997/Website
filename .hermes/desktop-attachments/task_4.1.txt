@@ -1,0 +1,646 @@
+TASK 4.1 — RECOVER 23 CAE TESTS VÀ HOÀN THIỆN GIAO DIỆN THẬT
+
+REPOSITORY
+D:\App-English-Ryan\Website
+
+TARGET ROUTES
+/app/exam/reading/catalog-reading-cae-c1-test1
+...
+/app/exam/reading/catalog-reading-cae-c1-test23
+
+REFERENCE
+- Screenshot_true.zip
+- Các ảnh lỗi mới nhất do user cung cấp
+- Reading_FCE_B2
+- Reading_PET_B1
+
+CURRENT STATUS
+Không được coi báo cáo trước là DONE.
+
+Các lỗi nhìn thấy trực tiếp:
+
+1. Cambridge logo/header chưa map đúng từ implementation đang hoạt động.
+2. Part 7 không có paragraph cards và không kéo-thả được.
+3. Paragraph bank chỉ hiện các label lặp:
+   A A B B C C D D E E F G G
+4. Part 1 và Part 2 có inline control/input chưa giống giao diện thật.
+5. Footer bottom navigation chưa cân hàng, chia cột sai và có vùng trống.
+6. User báo mất 22 đề.
+7. Runtime trước đó chỉ kiểm tra Test 1, Test 12, Test 23.
+8. Chưa có bằng chứng browser interaction cho drag/drop.
+9. Không được dùng static audit để kết luận 23 đề hoạt động.
+
+MỤC TIÊU LẦN NÀY
+
+Ưu tiên theo thứ tự:
+
+P0. Khôi phục và chứng minh đủ Test 1–23.
+P1. Sửa Part 7 drag/drop hoàn chỉnh.
+P1. Map đúng Cambridge header/logo.
+P1. Sửa inline answer controls Part 1–4.
+P1. Sửa footer alignment.
+P2. Chạy visual và interaction validation thật.
+
+Không sửa thêm các phần khác trước khi P0 hoàn thành.
+
+==================================================
+PHASE 0 — ĐỌC VÀ GIỮ NGUYÊN TRẠNG THÁI
+==================================================
+
+Trước khi sửa:
+
+1. Chạy git status.
+2. Đọc toàn bộ diff hiện tại của:
+   - ReadingCaeRwTest.tsx
+   - CaeRwPartContent.tsx
+   - readingCaeRw.css
+   - catalog/route/data registry liên quan CAE
+3. Không reset hoặc overwrite thay đổi hợp lệ của user.
+4. Không xóa data để làm route chạy.
+5. Không recrawl.
+6. Không tạo fake test.
+7. Không map toàn bộ Test 2–23 về data Test 1.
+8. Không đổi answer vault.
+9. Không sửa nội dung đề.
+
+==================================================
+P0 — KHÔI PHỤC ĐỦ TEST 1–23
+==================================================
+
+User báo hiện chỉ còn một đề hoặc mất 22 đề.
+
+Đừng kết luận rằng data vẫn tồn tại chỉ vì file còn trên ổ đĩa.
+
+Phải audit đủ bốn tầng:
+
+1. Source data modules
+2. Runtime registry/import map
+3. Catalog metadata/cards
+4. URL routing và route parameter resolution
+
+Tìm toàn bộ code liên quan:
+
+- catalog-reading-cae-c1-test
+- CAE C1 catalog entries
+- dynamic import map
+- route param parser
+- getTestBySlug
+- manifests
+- catalog metadata
+- reading test registry
+- generated catalog
+- test number normalization
+- test ID normalization
+- Test 1 → Test 23 mappings
+- slice/filter/map mới thêm trong lần sửa trước
+
+Đặc biệt tìm các lỗi:
+
+- slice(0, 1)
+- filter chỉ nhận test1
+- regex chỉ parse một chữ số
+- regex `test(\d)` thay vì `test(\d+)`
+- test10 bị parse thành test1
+- key trùng giữa test1 và test10–19
+- offset +1 bị áp dụng hai lần
+- catalog metadata chỉ còn Test 1
+- dynamic import chỉ import module đầu
+- fallback im lặng về Test 1
+- URL test2–23 redirect về test1
+- route data loading trả undefined
+- `parts.slice(0, 8)` đặt nhầm ở tầng catalog thay vì reading projection
+- Test 1 raw parts khác Tests 2–23 làm registry reject toàn bộ
+
+Reading projection được phép dùng 8 reading parts, nhưng không được làm mất test entries.
+
+Tạo runtime audit script hoặc browser loop xuất bảng:
+
+| Route | HTTP/render | Loaded test ID | Loaded title | Parts | Questions | Console |
+|------|-------------|----------------|--------------|-------|-----------|---------|
+| test1 | PASS | ... | ... | 8 | 56 | 0 |
+| test2 | PASS | ... | ... | 8 | 56 | 0 |
+...
+| test23 | PASS | ... | ... | 8 | 56 | 0 |
+
+Điều kiện:
+
+- 23/23 URL mở trực tiếp được.
+- Route nào cũng load đúng test ID.
+- Không route nào fallback về Test 1.
+- Mỗi test có đúng 8 Reading Parts.
+- Mỗi test có đúng 56 Reading questions.
+- Catalog hiển thị đủ 23 đề.
+- Click từng catalog card mở đúng URL.
+- Refresh trực tiếp URL Test 2, Test 10, Test 20, Test 23 vẫn chạy.
+- Back/forward browser không đổi sai test.
+
+Phải kiểm tra riêng các test dễ lỗi regex:
+
+- Test 1
+- Test 2
+- Test 9
+- Test 10
+- Test 11
+- Test 19
+- Test 20
+- Test 23
+
+Không chuyển sang sửa CSS cho tới khi bảng 23/23 PASS.
+
+==================================================
+P1 — MAP CAMBRIDGE HEADER VÀ LOGO
+==================================================
+
+Không dựng một header mới gần giống.
+
+Tìm route Reading PET/FCE đang có header giống reference nhất và reuse đúng:
+
+- component
+- logo asset import
+- typography
+- height
+- border
+- icon alignment
+- Candidate ID
+- timer/tool controls
+- Submit button
+
+Logo hiện tại chỉ là ô đỏ/chữ đơn giản và chưa map đúng.
+
+Yêu cầu:
+
+1. Reuse chính xác asset Cambridge đang có trong project.
+2. Không tự viết chữ CE để giả logo nếu asset thật đang tồn tại.
+3. Không tải asset mới từ website ngoài.
+4. Không duplicate header component.
+5. CAE phải truyền props vào shared Cambridge header giống PET/FCE.
+6. Header phải cao bằng reference.
+7. Cambridge English nằm sát logo đúng spacing.
+8. Candidate ID nằm đúng trục giữa.
+9. Toolbar bên phải không làm Candidate ID lệch.
+10. Submit không bị cắt ở mép phải.
+11. Header full-width ở 1366, 1920 và 2048 px.
+
+Nếu PET/FCE đang dùng hai header khác nhau, chọn implementation giống screenshot thật nhất và giải thích lý do.
+
+==================================================
+P1 — SỬA PART 7 DRAG/DROP THẬT
+==================================================
+
+Ảnh lỗi hiện tại cho thấy right pane chỉ render label lặp, không render paragraph text.
+
+Trước khi sửa UI, log hoặc inspect normalized Part 7 data:
+
+Với từng option A–G, phải có:
+
+{
+  id: stable unique ID,
+  label: "A" | "B" | ... | "G",
+  text: non-empty paragraph text
+}
+
+Thêm DEV invariants:
+
+- đúng 7 paragraph options
+- label A–G không trùng
+- mỗi option có text không rỗng
+- option IDs unique
+- đúng 6 gaps 41–46
+- không dùng array index làm persisted answer ID
+
+Nếu raw data field khác nhau giữa các Test, sửa adapter normalization.
+Không sửa 23 raw data files bằng tay.
+
+Sai hiện tại có thể do:
+
+- render label thay vì text
+- map option hai lần
+- paragraph text field bị undefined
+- flatMap label + content thành hai rows
+- option bank đang render text node rời
+- data adapter chọn nhầm `value`, `label`, `text`, `content` hoặc `paragraph`
+
+Phải sửa root cause.
+
+REUSE
+
+Tìm implementation Part 7/Gapped Text đang hoạt động trong Reading_FCE_B2 hoặc Reading_PET_B1.
+
+Reuse:
+
+- DnD context
+- draggable card
+- droppable gap
+- collision handling
+- keyboard fallback
+- answer persistence
+- move/replace logic
+- clear/return behavior
+
+Không tạo một drag system thứ ba nếu project đã có.
+
+RIGHT PANE
+
+Mỗi paragraph phải là một card riêng:
+
+[ A ]
+Full paragraph text...
+
+[ B ]
+Full paragraph text...
+
+...
+
+Không được hiển thị:
+
+A
+A
+B
+B
+C
+C
+
+Card cần:
+
+- border
+- padding
+- label rõ
+- full paragraph text
+- cursor grab
+- active dragging state
+- dragging preview nếu shared system có
+- keyboard focus
+- selected state cho click fallback
+
+LEFT PANE
+
+Gap 41–46 phải là droppable slot.
+
+Khi chưa trả lời:
+
+- hiển thị question number
+- có border/dashed slot rõ
+- có thể drop card vào
+
+Khi đã trả lời:
+
+- hiển thị paragraph card trong gap
+- giữ paragraph label
+- có nút remove/clear
+- có thể kéo sang gap khác
+
+BẮT BUỘC HỖ TRỢ
+
+1. Drag A từ bank vào gap 41.
+2. Drag B vào gap 42.
+3. Drag A từ gap 41 sang gap 43.
+4. Gap 41 trở về trạng thái trống.
+5. A không xuất hiện đồng thời ở bank và gap.
+6. Drop C vào gap đang có B thì B phải trở về bank hoặc swap theo shared behavior.
+7. Clear gap trả paragraph về bank.
+8. Đổi Part rồi quay lại vẫn giữ đáp án.
+9. Đổi Test không mang đáp án test cũ sang test mới.
+10. Reset/retry trả A–G về bank.
+11. Click card rồi click gap hoạt động nếu kéo chuột không tiện.
+12. Keyboard interaction hoạt động theo shared implementation.
+
+Phải chạy browser interaction thật.
+Không chỉ kiểm tra handler tồn tại trong source.
+
+==================================================
+P1 — SỬA INLINE ANSWER CONTROLS
+==================================================
+
+Không dùng chung một kích thước input cho Part 1–4.
+
+--------------------------------------------------
+PART 1
+--------------------------------------------------
+
+Current issue:
+
+- gap button vẫn chưa giống giao diện thật
+- dấu chấm placeholder xuất hiện thừa quanh control
+- baseline và khoảng cách chưa tự nhiên
+- control nhìn như button rời khỏi câu
+
+Yêu cầu:
+
+- control nằm inline với text
+- vertical-align theo baseline
+- width khoảng 44–52px
+- height khoảng 30–32px
+- border mảnh
+- radius nhỏ
+- số câu ở giữa
+- không có nhiều dấu chấm thừa cạnh control
+- không làm line-height của paragraph tăng bất thường
+- popup options anchor ngay dưới control
+- popup không làm paragraph reflow
+- popup không bị pane cắt
+- popup hiển thị full option text
+
+Không xóa punctuation thật của passage.
+Chỉ loại placeholder dot-run đã dùng để đánh dấu slot.
+
+Parser phải coi toàn bộ dot run là một slot:
+
+`......`
+`........`
+`………`
+
+Không split một placeholder thành nhiều input.
+
+--------------------------------------------------
+PART 2
+--------------------------------------------------
+
+Current issue:
+
+- input quá dài và nhìn như form field thông thường
+- spacing giữa input và text chưa giống reference
+- input đôi lúc chiếm quá nhiều dòng
+
+Yêu cầu desktop:
+
+- một input cho mỗi gap
+- width dùng scoped token hoặc clamp phù hợp
+- khoảng 130–170px tùy viewport
+- height khoảng 30–32px
+- inline-block/inline-flex
+- vertical-align baseline
+- margin inline nhỏ
+- number nằm trong input khi rỗng
+- khi focus, number không cản caret
+- border focus xanh
+- không có duplicate dotted placeholder
+- text wrap tự nhiên quanh input
+- không đặt paragraph thành một flex row
+
+Không dùng:
+
+display: flex
+
+cho toàn bộ paragraph.
+
+--------------------------------------------------
+PART 3
+--------------------------------------------------
+
+- Input inline giống Part 2.
+- Keyword List vẫn phải ở cột phải.
+- Không để input dùng width của keyword list.
+- Active keyword đồng bộ với active question.
+
+--------------------------------------------------
+PART 4
+--------------------------------------------------
+
+- Chỉ một question active.
+- Chỉ một input.
+- Input nhận toàn cụm 3–6 từ.
+- Không tách thành bốn input.
+- Width lớn hơn Part 2 nhưng không full viewport.
+- Source sentence, keyword và transformed sentence phải đúng spacing.
+
+==================================================
+P1 — SỬA FOOTER BOTTOM NAVIGATION
+==================================================
+
+Ảnh hiện tại cho thấy:
+
+- chiều rộng các Part không cân
+- Part 8 quá rộng
+- có một cell trống trước dấu check
+- active Part và question pills không align
+- scrollbar nằm lệch
+- footer không có một hệ thống cột ổn định
+
+Footer phải nằm trong exam shell, không gắn ngẫu nhiên vào body.
+
+Cấu trúc yêu cầu:
+
+<footer class="exam-footer">
+  <PartCell part=1 />
+  ...
+  <PartCell part=8 />
+  <ReviewCell />
+</footer>
+
+Không render thêm blank cell.
+
+Có thể dùng flex:
+
+- Part inactive: flex-grow 1
+- Part active: flex-grow khoảng 1.25–1.4
+- Review cell: width cố định khoảng 56–64px
+- tất cả cùng height
+- min-width: 0
+
+Hoặc dùng CSS grid có explicit columns.
+Không để intrinsic content quyết định width toàn footer.
+
+Yêu cầu:
+
+1. Footer full width.
+2. Mép dưới và mép trên thẳng hàng.
+3. Tất cả Part cell cùng chiều cao.
+4. Review/check cell nằm sát Part 8.
+5. Không có vùng trống dư.
+6. Active top border nằm đúng đầu cell.
+7. Question pills nằm cùng baseline với tên Part.
+8. Số 10, 20, 30, 40, 50, 56 không bị cắt.
+9. Question strip chỉ scroll bên trong active Part.
+10. Internal scrollbar không làm footer cao lên hoặc lệch xuống.
+11. Body không có horizontal scrollbar.
+12. Footer không che passage.
+13. Footer không nhảy chiều cao khi đổi Part.
+14. Part 7 hiển thị đủ 41–46.
+15. Part 8 hiển thị đủ 47–56.
+16. Click Part và question phải giữ đúng active state.
+
+Kiểm tra riêng:
+
+- active Part 1
+- active Part 4
+- active Part 7
+- active Part 8
+
+==================================================
+SHELL HEIGHT VÀ SCROLL
+==================================================
+
+Dùng một nguồn duy nhất quản lý viewport:
+
+.cae-reading-exam {
+  height: 100dvh;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  overflow: hidden;
+}
+
+Không hardcode nhiều `calc(100vh - ...)` ở các Part.
+
+Header:
+auto
+
+Rubric:
+auto
+
+Main:
+minmax(0, 1fr)
+
+Footer:
+auto
+
+Split panes phải scroll độc lập.
+Body không được scroll ngang.
+
+==================================================
+RUNTIME TEST BẮT BUỘC
+==================================================
+
+A. ROUTE LOOP 23 TESTS
+
+Mở trực tiếp đủ:
+
+test1
+test2
+test3
+...
+test23
+
+Với mỗi test:
+
+- đúng test ID
+- đúng title riêng của test
+- 8 Parts
+- 56 questions
+- Part 7 có 7 paragraph cards với text
+- không console error
+
+Không được chỉ test 1, 12, 23.
+
+B. PART 7 INTERACTION
+
+Trên ít nhất:
+
+- Test 1
+- Test 2
+- Test 12
+- Test 23
+
+Thực hiện:
+
+- drag A → 41
+- drag B → 42
+- move A 41 → 43
+- clear 42
+- switch Part
+- return Part 7
+- xác nhận state đúng
+
+C. VISUAL QA
+
+Chụp screenshot tại:
+
+1920 × 1080
+2048 × 1152
+
+Cho:
+
+- Test 1 Part 1
+- Test 1 Part 2
+- Test 1 Part 7
+- Test 1 footer active Part 8
+- Test 12 Part 7
+- Test 23 Part 7
+- CAE catalog có đủ 23 đề
+
+So sánh trực tiếp với Screenshot_true.zip.
+
+D. REGRESSION
+
+Kiểm tra ít nhất một PET route và một FCE route:
+
+- logo/header không đổi sai
+- highlight/note vẫn hoạt động
+- footer không regression
+- drag/drop cũ không hỏng
+
+==================================================
+AUTOMATED CHECKS
+==================================================
+
+Chạy:
+
+- TypeScript
+- targeted CAE tests
+- PET/FCE shared component tests
+- pnpm --filter web build
+- git diff --check trên files đã sửa
+
+Không dùng:
+
+- any để né type
+- @ts-ignore
+- eslint-disable toàn file
+- fallback về Test 1
+- fake paragraph data
+- hardcode text A–G cho riêng Test 1
+- CSS transform/scale để giả giao diện
+- overflow hidden để che nội dung
+- per-test CSS
+
+==================================================
+DEFINITION OF DONE
+==================================================
+
+Chỉ claim DONE khi:
+
+1. Catalog có đủ 23 CAE tests.
+2. 23/23 routes mở trực tiếp được.
+3. Không route nào load nhầm Test 1.
+4. Mỗi test có 8 Reading Parts và 56 questions.
+5. Cambridge logo/header đúng shared implementation.
+6. Part 7 hiển thị 7 full paragraph cards A–G.
+7. Không còn labels A A B B C C.
+8. Part 7 kéo-thả thật hoạt động.
+9. Move giữa các gap hoạt động.
+10. Clear/return bank hoạt động.
+11. Answer Part 7 persist đúng.
+12. Part 1 gap controls giống inline exam control.
+13. Part 2 input đúng kích thước và inline flow.
+14. Part 4 vẫn chỉ có một input.
+15. Footer không còn blank cell.
+16. Footer các Part align đúng.
+17. Không body horizontal overflow.
+18. Console errors = 0.
+19. TypeScript PASS.
+20. Web production build PASS.
+21. Có screenshot và runtime evidence.
+22. Không làm hỏng PET/FCE.
+23. Không claim dựa trên static audit.
+
+==================================================
+FINAL REPORT
+==================================================
+
+Báo cáo cuối phải có:
+
+1. Root cause khiến user thấy mất 22 đề.
+2. File và dòng code gây lỗi registry/route/catalog.
+3. Bảng runtime đủ Test 1–23.
+4. Root cause paragraph bank chỉ hiện labels.
+5. Data shape trước và sau normalization.
+6. Browser evidence kéo-thả.
+7. Header component và asset được reuse từ đâu.
+8. CSS/footer architecture đã sửa.
+9. Screenshot paths.
+10. Console result.
+11. TypeScript/build/test results.
+12. Danh sách file sửa.
+13. Không viết “PASS” cho mục chưa chạy.
+
+Nếu không thể thao tác drag/drop thật bằng browser automation, phải báo BLOCKED cụ thể và không claim Part 7 PASS.

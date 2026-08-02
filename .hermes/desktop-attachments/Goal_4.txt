@@ -1,0 +1,374 @@
+FINAL FIX — ĐỔI IELTS SPEAKING LANDING VỀ STYLE MOCKUP HÌNH 1
+
+PROJECT:
+D:\App-English-Ryan\Website
+
+TARGET ROUTE:
+http://localhost:5173/app/speaking/ielts
+
+REFERENCE:
+Dùng layout/style theo mockup hình 1 user vừa gửi.
+Nếu có file speaking-lab-mockup.html trong task/context thì đọc và lấy style từ đó làm chuẩn.
+
+MỤC TIÊU:
+Đổi landing IELTS Speaking về đúng kiểu hình 1:
+
+- Không dùng layout giống TID cũ nữa.
+- Không dùng card layout như hình 2 nữa.
+- Không sửa sâu các route con nếu không cần.
+- Chỉ chỉnh landing /app/speaking/ielts và action của từng card.
+- Giữ lại dữ liệu, route, Forecast, Roulette, Mock Interview, Shadowing đang có.
+- Không crawl lại.
+- Không đụng PET/B1/Listening/module khác.
+
+==================================================
+1. STYLE CHUẨN
+==================================================
+
+Landing phải theo hình 1:
+
+Background:
+- màu kem/cream nhẹ.
+- Không dùng background trắng lạnh.
+- Không dùng sidebar.
+
+Font:
+- Heading dùng serif giống Fraunces.
+- Body dùng Inter hoặc font hiện có gần nhất.
+- Label/tag dùng mono uppercase giống JetBrains Mono.
+
+Nếu project chưa có font import:
+- kiểm tra app đã có font nào tương đương.
+- nếu được phép dùng Google Fonts thì import:
+  Fraunces
+  Inter
+  JetBrains Mono
+- nếu không, dùng fallback tương đương nhưng giữ style gần hình 1.
+
+Màu chính gợi ý từ mockup:
+- cream: #F6F3EA
+- ink: #1B1A17
+- paper: #FFFFFF
+- blue hero: #155DFC
+- gold: #F3B63E
+- coral: #E2694A
+- sage: #DCE6D2
+- dust: #DEE6EF
+
+Card:
+- border 1.5px solid đen.
+- border-radius khoảng 18px.
+- shadow cứng/đậm vừa phải.
+- Không shadow mờ SaaS.
+- Không dùng gradient.
+- Padding khoảng 26px.
+- CTA có mũi tên.
+
+==================================================
+2. FOCUS LAYOUT
+==================================================
+
+Route /app/speaking/ielts phải dùng focus layout:
+
+- Không sidebar Ryan English.
+- Không floating book widget.
+- Không app shell margin-left.
+- Không khoảng trống do sidebar để lại.
+- Content full viewport.
+- Có scroll bình thường.
+- Không horizontal overflow.
+
+Không dùng negative margin hoặc overlay để che sidebar.
+Dùng route layout/focus shell đúng kiến trúc hiện tại.
+
+==================================================
+3. CẤU TRÚC LANDING
+==================================================
+
+Bố cục theo hình 1:
+
+Top:
+- Back link: “← Về trang chủ”
+- Eyebrow: “SPEAKING LAB”
+- Heading: “IELTS Speaking Lab”
+- Subtitle: “Phòng luyện thi Speaking ảo với AI — nâng band điểm mỗi ngày.”
+- Stats 3 card:
+  1. Sessions tuần
+  2. Avg band
+  3. Ngày liên tiếp
+
+Grid:
+
+Card 1 — Premium Speaking hero full width:
+- nằm trên cùng, span full width.
+- nền xanh #155DFC.
+- text trắng.
+- Tag: PREMIUM SPEAKING
+- Title: “Mock interview đủ 3 phần”
+- Description:
+  “Luyện trọn buổi phỏng vấn với AI: Part 1, Cue Card và Discussion.”
+- Badge: “AI online”
+- Button vàng:
+  “Bắt đầu mock interview →”
+- Action:
+  navigate("/app/speaking/ielts/mock-interview/demo")
+
+Card 2 — Practice Bank:
+- card trắng hoặc paper.
+- Tag: REAL IELTS QUESTIONS.
+- Illustration fan cards nhỏ giống hình 1.
+- Title: “Practice bank”
+- Description: “Luyện với bộ câu hỏi thi thật.”
+- CTA: “Bắt đầu luyện →”
+- Action:
+  mở topic modal chọn chủ đề, KHÔNG navigate tới Forecast.
+
+Card 3 — Speaking Roulette:
+- nền sage/xanh nhạt.
+- Tag: SPEAKING ROULETTE.
+- Title: “Rút thẻ bất ngờ”
+- Description:
+  “Ngẫu nhiên 1 chủ đề, luyện phản xạ trả lời.”
+- CTA: “Rút thẻ →”
+- Action:
+  navigate("/app/speaking/ielts/roulette")
+
+Card 4 — Forecast:
+- nền trắng/paper.
+- Tag: FORECAST Q2 · 2026.
+- Title: “Dự đoán đề mới nhất”
+- Counts lấy từ data thật:
+  2 Bắt buộc
+  32 Chủ đề
+  82 Part 2+3
+- CTA: “Xem chi tiết →”
+- Action:
+  navigate("/app/speaking/ielts/forecast")
+
+Card 5 — Shadowing:
+- nền dust/xanh xám nhạt.
+- Tag: SHADOWING.
+- Title: “Nghe và nói như người bản xứ”
+- Có khung play nhỏ giống hình 1.
+- CTA: “Luyện shadowing →”
+- Action:
+  navigate("/app/shadowing")
+
+Card 6 — Sample Speaking:
+- nền trắng/paper.
+- Badge: “Sample · 8.0 speaking”
+- Title: “Bài mẫu band cao”
+- Description:
+  “Tham khảo cấu trúc ý và cụm từ hay trước khi luyện với AI.”
+- CTA: “Khám phá →”
+- Action:
+  navigate("/app/speaking/ielts/samples")
+
+==================================================
+4. GRID DESKTOP
+==================================================
+
+Dùng grid giống mockup:
+
+- Wrapper max-width khoảng 1040px.
+- Grid 6 cột.
+- Gap 16px.
+
+Desktop layout:
+
+Hero:
+- grid-column: span 6
+
+Practice Bank:
+- grid-column: span 3
+- grid-row: span 2
+- min-height khoảng 340px
+
+Roulette:
+- grid-column: span 3
+
+Forecast:
+- grid-column: span 3
+
+Shadowing:
+- grid-column: span 3
+
+Sample:
+- grid-column: span 3
+
+Thứ tự DOM nên là:
+
+1. Hero Premium
+2. Practice Bank
+3. Roulette
+4. Forecast
+5. Shadowing
+6. Sample
+
+Nhưng visual cần giống hình 1.
+
+Nếu muốn Forecast nằm phía trên Roulette thì có thể dùng CSS grid-area, nhưng giữ tổng thể như hình 1 user chọn.
+
+==================================================
+5. RESPONSIVE
+==================================================
+
+Mobile dưới 760px:
+
+- grid 1 cột.
+- hero full width.
+- các card full width.
+- stats wrap.
+- heading khoảng 38px.
+- button full width nếu cần.
+- Không horizontal overflow.
+- Shadow không bị cắt.
+- Card không bị mất border khi hover.
+
+==================================================
+6. PRACTICE BANK MODAL
+==================================================
+
+Giữ yêu cầu cũ:
+
+Click Practice Bank:
+- mở modal “Chọn Chủ Đề”.
+- Không navigate sang Forecast.
+- Không mở raw page.
+- Modal có Part 1/2/3, random, topic chips, footer start.
+- Chọn topic rồi Start mở Mock Interview.
+
+Nếu modal đã có, chỉ cần bảo đảm action đúng.
+Nếu chưa có, tạo modal tối giản nhưng giống hình user gửi.
+
+==================================================
+7. FORECAST
+==================================================
+
+Click Forecast card:
+- navigate("/app/speaking/ielts/forecast")
+
+Forecast page vẫn phải giữ:
+- 2 / 32 / 82.
+- Part 1 bắt buộc.
+- Part 1 chủ đề.
+- Part 2 + 3.
+- Item “Luyện tập” mở Mock Interview.
+
+Không để Practice Bank và Forecast dùng chung route/action.
+
+==================================================
+8. SHADOWING
+==================================================
+
+Click Shadowing card:
+- navigate("/app/shadowing")
+
+Không mở /app/speaking/ielts/shadowing.
+
+Nếu /app/shadowing chưa tồn tại:
+- tìm route Shadowing chính trong app.
+- nếu route khác thì dùng đúng route hiện có.
+- nếu bắt buộc, tạo redirect /app/shadowing đến Shadowing module chính.
+
+==================================================
+9. PREMIUM VÀ SAMPLE
+==================================================
+
+Premium:
+- Không fake score user.
+- Đây là CTA vào mock interview demo.
+- Route:
+  /app/speaking/ielts/mock-interview/demo
+
+Sample:
+- Nếu có sample thật thì hiển thị.
+- Nếu chưa có thì route /samples hiển thị Coming Soon đẹp.
+- Không fake dữ liệu TID.
+
+==================================================
+10. KHÔNG ĐƯỢC
+==================================================
+
+Không:
+- quay lại layout hình 2.
+- dùng TID full clone layout nếu user đã chọn hình 1.
+- để sidebar xuất hiện.
+- để Practice và Forecast cùng mở một nội dung.
+- để Shadowing mở sai route.
+- để card bị trống quá nhiều.
+- dùng icon loa xám cũ cho Shadowing card.
+- sửa module không liên quan.
+- chạy full production build nếu bị lỗi PET B1 không liên quan.
+
+==================================================
+11. TEST
+==================================================
+
+Thêm/sửa targeted tests:
+
+1. Landing render 6 cards.
+2. Hero Premium click -> /app/speaking/ielts/mock-interview/demo.
+3. Practice Bank click -> topic modal opens.
+4. Practice Bank does not navigate to Forecast.
+5. Forecast click -> /app/speaking/ielts/forecast.
+6. Roulette click -> /app/speaking/ielts/roulette.
+7. Shadowing click -> /app/shadowing.
+8. Sample click -> /app/speaking/ielts/samples.
+9. Forecast card shows 2 / 32 / 82 from data.
+10. No sidebar in /app/speaking/ielts.
+11. Mobile no horizontal overflow.
+
+Run:
+- TypeScript.
+- Speaking IELTS targeted tests.
+- Browser smoke landing.
+- Browser smoke six card clicks.
+- Mobile smoke.
+- Console errors = 0.
+- scoped git diff --check for modified files.
+
+Không bị chặn bởi microphone.
+Không bị chặn bởi PET B1 catalog validation.
+
+==================================================
+12. BROWSER SMOKE
+==================================================
+
+Chụp screenshot:
+
+1. Landing desktop sau khi đổi về hình 1.
+2. Landing mobile.
+3. Practice topic modal.
+4. Forecast page sau khi click Forecast.
+5. /app/shadowing sau khi click Shadowing.
+6. Premium demo mock interview.
+7. Samples page.
+
+Validation bằng mắt:
+
+- Landing phải giống hình 1 user chọn.
+- Không giống hình 2 nữa.
+- Không sidebar.
+- 6 card đúng action.
+- Console errors 0.
+
+==================================================
+BÁO CÁO CUỐI
+==================================================
+
+Báo ngắn:
+
+1. Đã đổi landing về mockup hình 1.
+2. File sửa.
+3. 6 card action mapping.
+4. Practice modal PASS.
+5. Forecast route PASS.
+6. Shadowing /app/shadowing PASS.
+7. Premium route PASS.
+8. Sample route PASS.
+9. Screenshot paths.
+10. TypeScript/tests/browser smoke.
+11. Remaining issues.
+
+Không claim done nếu landing vẫn giống hình 2 hoặc card action còn sai.

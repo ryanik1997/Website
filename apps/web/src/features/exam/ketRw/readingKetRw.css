@@ -276,15 +276,15 @@
   flex-shrink: 0;
   align-self: stretch;
   width: 10px;
-  margin: 0 -3px;
+  margin: 0;
   cursor: col-resize;
   touch-action: none;
   position: relative;
-  z-index: 3;
+  z-index: 5;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
-  padding-bottom: 2.5rem;
+  padding: 0;
   background: transparent;
   border: none;
 }
@@ -292,35 +292,38 @@
 .ket-rw-resizer::before {
   content: '';
   position: absolute;
-  inset: 0;
-  width: 2px;
-  margin: 0 auto;
-  background: var(--ket-pane-border);
-  transition: background 0.15s, width 0.15s;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: auto;
+  margin: 0;
+  background: #8f9395;
+  transition: background 0.15s;
 }
 
 .ket-rw-resizer:hover::before,
 .ket-rw-resizer.is-dragging::before {
-  width: 3px;
-  background: color-mix(in srgb, var(--ket-accent) 55%, var(--ket-pane-border));
+  background: #777b7d;
 }
 
 .ket-rw-resizer__grip {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 1.35rem;
-  height: 1.35rem;
-  border-radius: 2px;
-  border: 1px solid var(--ket-pane-border);
-  background: var(--ket-body-bg);
-  color: var(--ket-muted);
-  font-size: 0.62rem;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #707476;
+  border-radius: 0;
+  background: #fff;
+  color: #55595b;
+  font-size: 15px;
   line-height: 1;
   pointer-events: none;
-  box-shadow: 0 1px 4px color-mix(in srgb, var(--ket-text) 10%, transparent);
+  box-shadow: none;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .ket-rw-resizer.is-dragging .ket-rw-resizer__grip {
@@ -514,15 +517,19 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 1.65rem;
-  height: 1.65rem;
-  border-radius: 50%;
-  background: var(--ket-accent);
-  color: #fff;
+  width: var(--exam-question-size, 32px);
+  min-width: var(--exam-question-size, 32px);
+  height: var(--exam-question-size, 32px);
+  border: var(--exam-question-border-width, 2px) solid var(--exam-question-blue, #238ed0);
+  border-radius: var(--exam-question-radius, 4px);
+  background: var(--exam-question-surface, #fff);
+  color: var(--exam-question-text, #111);
   font-size: 0.82rem;
   font-weight: 700;
   margin-right: 0.45rem;
   vertical-align: middle;
+  flex-shrink: 0;
+  aspect-ratio: 1 / 1;
 }
 
 .ket-rw-q-prompt {
@@ -1043,15 +1050,15 @@
 }
 
 /* Review: pill có màu đúng/sai cần khung để đọc được trên nền phẳng */
-.ket-rw-footer.is-review .ket-rw-q-pill[data-review] {
-  min-width: 22px;
-  height: 22px;
+.ket-rw-footer.is-review .ket-rw-footer__pill[data-review] {
+  min-width: var(--exam-question-size, 32px);
+  height: var(--exam-question-size, 32px);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0 3px;
-  border: 2px solid transparent;
-  border-radius: 3px;
+  padding: 0;
+  border: var(--exam-question-border-width, 2px) solid transparent;
+  border-radius: var(--exam-question-radius, 4px);
 }
 
 .ket-rw-footer__submit {
@@ -1160,52 +1167,6 @@
   box-sizing: border-box;
 }
 
-/* Thanh chia đậm + tay kéo vuông trắng ↔ ở giữa */
-.ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-resizer {
-  width: 10px;
-  margin: 0;
-  flex-shrink: 0;
-  align-self: stretch;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  cursor: col-resize;
-  position: relative;
-  z-index: 5;
-}
-
-.ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-resizer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: auto;
-  margin: 0;
-  background: #8f9395;
-  transition: background 0.15s;
-}
-
-.ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-resizer:hover::before,
-.ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-resizer.is-dragging::before {
-  background: #777b7d;
-}
-
-.ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-resizer__grip {
-  width: 30px;
-  height: 30px;
-  border: 1px solid #707476;
-  border-radius: 0;
-  background: #fff;
-  color: #55595b;
-  font-size: 15px;
-  box-shadow: none;
-  z-index: 2;
-}
 
 /* Bài đọc: tiêu đề lớn, tên riêng in đậm trên dòng riêng */
 .ket-rw-shell:is(.is-part-2, .is-part-3) .ket-rw-passage-title {
@@ -1896,518 +1857,6 @@
   margin: 0;
 }
 
-.ket-rw-body {
-  flex: 1;
-  min-height: 0;
-  overflow: hidden;
-  display: flex;
-}
-
-.ket-rw-body.is-single {
-  flex-direction: column;
-}
-
-.ket-rw-body.is-split .ket-rw-pane-left,
-.ket-rw-body.is-split .ket-rw-pane-right {
-  min-width: 0;
-  min-height: 0;
-  overflow-y: auto;
-  padding: 1rem 1.25rem;
-}
-
-/* Resizable split — uses flex + --ket-split-pct */
-.ket-rw-body.is-split.is-resizable .ket-rw-pane-left {
-  flex-shrink: 0;
-  width: var(--ket-split-pct, 50%);
-}
-
-.ket-rw-body.is-split.is-resizable .ket-rw-pane-right {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Fixed scrollbar split (PET Part 2) — grid 1fr 1fr, left scrollbar = middle bar */
-.ket-rw-body.is-split.is-fixed-scrollbar .ket-rw-pane-left,
-.ket-rw-body.is-split.is-fixed-scrollbar .ket-rw-pane-right {
-  width: 100%;
-  min-width: 0;
-  max-width: none;
-  height: 100%;
-  min-height: 0;
-  box-sizing: border-box;
-  flex: none;
-}
-
-/* Fixed divider split (PET Part 3) — grid 1fr 8px 1fr */
-.ket-rw-body.is-split.is-fixed-divider .ket-rw-pane-left,
-.ket-rw-body.is-split.is-fixed-divider .ket-rw-pane-right {
-  width: 100%;
-  min-width: 0;
-  max-width: none;
-  height: 100%;
-  min-height: 0;
-  box-sizing: border-box;
-  flex: none;
-}
-
-.ket-rw-resizer {
-  flex-shrink: 0;
-  align-self: stretch;
-  width: 10px;
-  margin: 0 -3px;
-  cursor: col-resize;
-  touch-action: none;
-  position: relative;
-  z-index: 3;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding-bottom: 2.5rem;
-  background: transparent;
-  border: none;
-}
-
-.ket-rw-resizer::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  width: 2px;
-  margin: 0 auto;
-  background: var(--ket-pane-border);
-  transition: background 0.15s, width 0.15s;
-}
-
-.ket-rw-resizer:hover::before,
-.ket-rw-resizer.is-dragging::before {
-  width: 3px;
-  background: color-mix(in srgb, var(--ket-accent) 55%, var(--ket-pane-border));
-}
-
-.ket-rw-resizer__grip {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.35rem;
-  height: 1.35rem;
-  border-radius: 2px;
-  border: 1px solid var(--ket-pane-border);
-  background: var(--ket-body-bg);
-  color: var(--ket-muted);
-  font-size: 0.62rem;
-  line-height: 1;
-  pointer-events: none;
-  box-shadow: 0 1px 4px color-mix(in srgb, var(--ket-text) 10%, transparent);
-  position: relative;
-  z-index: 1;
-}
-
-.ket-rw-resizer.is-dragging .ket-rw-resizer__grip {
-  border-color: var(--ket-accent);
-  color: var(--ket-accent);
-}
-
-.ket-rw-body.is-split.is-resizing {
-  cursor: col-resize;
-  user-select: none;
-}
-
-.ket-rw-body.is-split.is-resizing * {
-  cursor: col-resize !important;
-}
-
-.ket-rw-body.is-single .ket-rw-pane-full {
-  flex: 1;
-  min-height: 0;
-  overflow-y: auto;
-  padding: 1rem 1.25rem 1.5rem;
-}
-
-.ket-rw-passage-title {
-  font-size: 1.05rem;
-  font-weight: 700;
-  margin: 0 0 0.75rem;
-}
-
-.ket-rw-passage-subtitle {
-  font-size: 0.9rem;
-  font-style: italic;
-  color: var(--ket-muted);
-  margin: -0.35rem 0 0.75rem;
-}
-
-.ket-rw-paragraph {
-  font-size: 0.95rem;
-  line-height: 1.55;
-  margin: 0 0 0.85rem;
-  white-space: pre-wrap;
-}
-
-.ket-rw-paragraph__label {
-  font-weight: 700;
-  margin-right: 0.35rem;
-}
-
-/* KET A2 Part 2 — portrait 2.5cm × 3.5cm trước mỗi profile */
-.ket-rw-profile {
-  display: flex;
-  gap: 0.75rem;
-  align-items: flex-start;
-  margin: 0 0 1rem;
-}
-
-.ket-rw-profile__body {
-  flex: 1;
-  min-width: 0;
-}
-
-.ket-rw-profile__body .ket-rw-paragraph {
-  margin-bottom: 0;
-}
-
-.ket-rw-portrait {
-  flex: 0 0 auto;
-  width: 2.5cm;
-  height: 3.5cm;
-  position: relative;
-}
-
-.ket-rw-portrait__figure {
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  border: 1px solid var(--border-color, #c5c9d0);
-  border-radius: 2px;
-  overflow: hidden;
-  background: var(--bg-secondary, #f3f4f6);
-  position: relative;
-}
-
-.ket-rw-portrait__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
-}
-
-.ket-rw-portrait__actions {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  gap: 2px;
-  padding: 2px;
-  background: color-mix(in srgb, var(--bg-primary, #111) 72%, transparent);
-}
-
-.ket-rw-portrait__btn {
-  flex: 1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2px;
-  border: none;
-  border-radius: 2px;
-  padding: 2px 3px;
-  font-size: 0.58rem;
-  font-weight: 700;
-  cursor: pointer;
-  background: var(--color-primary);
-  color: var(--color-on-primary, #fff);
-  line-height: 1.2;
-}
-
-.ket-rw-portrait__btn--muted {
-  background: color-mix(in srgb, var(--bg-card, #fff) 85%, transparent);
-  color: var(--text-primary);
-}
-
-.ket-rw-portrait__slot {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.2rem;
-  border: 1.5px dashed var(--border-color, #9aa0a8);
-  border-radius: 2px;
-  background: color-mix(in srgb, var(--color-primary) 6%, var(--bg-card, #fff));
-  color: var(--text-muted, #6b7280);
-  cursor: pointer;
-  padding: 0.2rem;
-  font-size: 0.62rem;
-  font-weight: 600;
-  line-height: 1.15;
-}
-
-.ket-rw-portrait__slot:hover {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
-}
-
-.ket-rw-portrait__slot-label {
-  font-size: 0.68rem;
-  font-weight: 700;
-}
-
-.ket-rw-portrait__slot-hint {
-  font-size: 0.55rem;
-  opacity: 0.85;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-.ket-rw-portrait__input {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* Part 1 — sign box */
-.ket-rw-sign-box {
-  border: 2px solid var(--ket-sign-border);
-  padding: 1rem 1.1rem;
-  margin-bottom: 1.25rem;
-  max-width: 22rem;
-  font-size: 0.95rem;
-  line-height: 1.45;
-  white-space: pre-wrap;
-}
-
-.ket-rw-sign-box img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-.ket-rw-question {
-  margin-bottom: 1.5rem;
-}
-
-/* Question number — Cambridge bordered box style */
-.ket-rw-q-num {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 1.75rem;
-  height: 1.65rem;
-  padding: 0 0.25rem;
-  border: 2px solid var(--ket-qnum-border);
-  border-radius: 3px;
-  background: var(--ket-qnum-bg);
-  color: var(--ket-qnum-text);
-  font-size: 0.88rem;
-  font-weight: 600;
-  margin-right: 0.45rem;
-  vertical-align: middle;
-  line-height: 1;
-  box-sizing: border-box;
-}
-
-.ket-rw-q-prompt {
-  font-size: 0.95rem;
-  font-weight: 600;
-  margin: 0 0 0.65rem;
-  line-height: 1.4;
-}
-
-.ket-rw-radio-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-}
-
-.ket-rw-radio {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.55rem;
-  font-size: 0.92rem;
-  line-height: 1.4;
-  cursor: pointer;
-}
-
-.ket-rw-radio input {
-  margin-top: 0.2rem;
-  accent-color: var(--ket-accent);
-}
-
-/* Part 4 — inline MC gap (layout chips ngang + bar; màu theme = Part 1–3 / Part 5) */
-.ket-rw-inline-passage {
-  font-size: 0.95rem;
-  line-height: 1.75;
-}
-
-.ket-rw-gap-mc {
-  display: inline-flex;
-  align-items: center;
-  vertical-align: middle;
-  position: relative;
-  margin: 0.15rem 0.2rem;
-}
-
-/* Stack: chips phía trên · bar số phía dưới */
-.ket-rw-gap-mc--chips {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 0.28rem;
-  vertical-align: middle;
-  max-width: min(100%, 22rem);
-}
-
-.ket-rw-gap-mc__chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.28rem;
-  justify-content: center;
-  z-index: 25;
-}
-
-/* Pill đáp án — cùng họ màu option MC / accent-soft */
-.ket-rw-gap-mc__chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.28rem;
-  padding: 0.28rem 0.55rem;
-  border: 1px solid var(--ket-gap-border);
-  border-radius: 6px;
-  background: var(--bg-card);
-  color: var(--ket-text);
-  font-size: 0.78rem;
-  font-weight: 600;
-  line-height: 1.2;
-  cursor: pointer;
-  white-space: nowrap;
-  box-shadow: 0 1px 3px color-mix(in srgb, var(--ket-text) 8%, transparent);
-}
-
-.ket-rw-gap-mc__chip:hover {
-  background: var(--ket-accent-soft);
-  border-color: var(--ket-accent);
-  color: var(--ket-text);
-}
-
-.ket-rw-gap-mc__chip.is-selected {
-  background: var(--ket-accent);
-  border-color: var(--ket-accent);
-  color: var(--ket-submit-text, #fff);
-  outline: none;
-}
-
-.ket-rw-gap-mc__chip-x {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 0.95rem;
-  height: 0.95rem;
-  border-radius: 50%;
-  background: color-mix(in srgb, var(--ket-submit-text, #fff) 22%, transparent);
-  color: inherit;
-  flex-shrink: 0;
-}
-
-.ket-rw-gap-mc__chip-label {
-  letter-spacing: 0.01em;
-}
-
-/* Thanh số — cùng --ket-gap-bg / border như ô gap Part 5 */
-.ket-rw-gap-mc__bar {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.35rem;
-  min-width: 3.25rem;
-  min-height: 1.65rem;
-  padding: 0.22rem 0.65rem;
-  border: 1px solid var(--ket-gap-border);
-  border-radius: 4px;
-  background: var(--ket-gap-bg);
-  color: var(--ket-accent);
-  font-size: 0.88rem;
-  font-weight: 700;
-  cursor: pointer;
-  line-height: 1;
-  box-shadow: none;
-}
-
-.ket-rw-gap-mc--chips:not(.is-filled) .ket-rw-gap-mc__bar:not(.is-open) {
-  background: var(--ket-gap-bg);
-  color: var(--ket-accent);
-}
-
-.ket-rw-gap-mc__bar.is-open,
-.ket-rw-gap-mc__bar.is-filled {
-  border-color: var(--ket-accent);
-  background: color-mix(in srgb, var(--color-primary) 16%, var(--bg-secondary));
-  color: var(--ket-accent);
-}
-
-.ket-rw-gap-mc__bar-num {
-  font-variant-numeric: tabular-nums;
-  letter-spacing: 0.02em;
-  color: inherit;
-}
-
-.ket-rw-gap-mc__bar-word {
-  font-weight: 500;
-  font-size: 0.8rem;
-  max-width: 7rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  color: var(--ket-text);
-}
-
-/* Legacy dropdown (nếu variant=dropdown) */
-.ket-rw-gap-mc__value {
-  font-weight: 500;
-  color: var(--ket-text);
-  max-width: 8rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.ket-rw-gap-mc__value--key {
-  color: var(--color-success, #16a34a);
-}
-
-.ket-rw-gap-mc__menu {
-  position: absolute;
-  top: calc(100% + 4px);
-  left: 0;
-  z-index: 20;
-  min-width: 10rem;
-  background: var(--bg-card);
-  border: 1px solid var(--ket-pane-border);
-  color: var(--ket-text);
-  border-radius: 6px;
-  box-shadow: 0 4px 16px color-mix(in srgb, var(--ket-text) 12%, transparent);
-  padding: 0.25rem 0;
-}
-
-.ket-rw-gap-mc__option {
-  display: block;
-  width: 100%;
-  text-align: left;
-  padding: 0.45rem 0.75rem;
-  border: none;
-  background: transparent;
-  color: var(--ket-text);
-  font-size: 0.88rem;
-  cursor: pointer;
-}
-
-.ket-rw-gap-mc__option:hover,
-.ket-rw-gap-mc__option.is-selected {
-  background: var(--ket-accent-soft);
-  color: var(--ket-text);
-}
 
 /* ── KET Part 4 — Cambridge target gap boxes (image 2) ── */
 .ket-rw-shell .ket-rw-gap-mc--part4 {
@@ -2910,30 +2359,35 @@
 
 .ket-rw-shell .ket-rw-footer__pill {
   flex: 0 0 auto;
-  width: auto;
-  min-width: 1.1rem;
-  height: 1.85rem;
-  border: 0;
-  border-radius: 0.18rem;
-  background: transparent;
-  color: #4b5563;
-  font-size: 1rem;
+  width: var(--exam-question-size, 32px);
+  min-width: var(--exam-question-size, 32px);
+  height: var(--exam-question-size, 32px);
+  border: var(--exam-question-border-width, 2px) solid var(--exam-question-blue, #238ed0);
+  border-radius: var(--exam-question-radius, 4px);
+  background: var(--exam-question-surface, #fff);
+  color: var(--exam-question-text, #111);
+  font-size: 0.95rem;
   font-weight: 500;
   line-height: 1;
   cursor: pointer;
-  padding: 0 0.18rem;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
 }
 
 .ket-rw-shell .ket-rw-footer__pill.is-active {
-  min-width: 1.85rem;
-  border: 2px solid #008b95;
-  background: #ffffff;
-  color: #111827;
+  background: var(--exam-question-blue, #238ed0);
+  border-color: var(--exam-question-blue, #238ed0);
+  color: #fff;
   font-weight: 700;
 }
 
 .ket-rw-shell .ket-rw-footer__pill.is-answered:not(.is-active) {
-  color: #111827;
+  background: var(--exam-question-blue-soft, #eaf5fb);
+  border-color: var(--exam-question-blue, #238ed0);
+  color: #0f5f91;
   font-weight: 700;
 }
 

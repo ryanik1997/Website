@@ -1,0 +1,13 @@
+{
+  "sourceRoot": "https://theieltsdictionary.com/practice/speaking",
+  "appRoot": "/app/speaking/ielts",
+  "screens": [
+    {"source":"landing","sourceUrl":"/practice/speaking","appRoute":"/app/speaking/ielts","data":"landing page + forecast/roulette/shadowing links","implemented":true,"parity":"PARTIAL"},
+    {"source":"forecast home","sourceUrl":"/practice/speaking/forecast-q2-2026","appRoute":"/app/speaking/ielts/forecast","data":"forecast state evidence","implemented":true,"parity":"PARTIAL"},
+    {"source":"forecast tabs","sourceUrl":"/practice/speaking/forecast-q2-2026","appRoute":"/app/speaking/ielts/forecast","data":"mandatory 2, topics 32, part2+3 82","implemented":false,"parity":"FAILED"},
+    {"source":"roulette tabs/result","sourceUrl":"/practice/speaking/roulette","appRoute":"/app/speaking/ielts/roulette","data":"roulette state evidence","implemented":false,"parity":"FAILED"},
+    {"source":"shadowing catalog","sourceUrl":"/practice/speaking/shadowing","appRoute":"/app/speaking/ielts/shadowing","data":"30 lesson records","implemented":true,"parity":"PARTIAL"},
+    {"source":"shadowing lesson","sourceUrl":"/practice/speaking/shadowing/:lessonId","appRoute":"/app/speaking/ielts/practice/:itemId","data":"lesson record","implemented":false,"parity":"FAILED"},
+    {"source":"Part 1/2/3 practice","sourceUrl":"source forecast/roulette item states","appRoute":"/app/speaking/ielts/practice/:itemId","data":"page records incorrectly mixed with practice records","implemented":false,"parity":"FAILED"}
+  ]
+}

@@ -1,0 +1,2636 @@
+﻿{
+  "summary": {
+    "total": 125,
+    "localMissing": 0,
+    "bundledMissing": 5,
+    "remoteOk": 0,
+    "remoteFailed": 125
+  },
+  "rows": [
+    {
+      "sourceTest": 1,
+      "appTest": 2,
+      "part": 1,
+      "filename": "cae-listening-test-01-part-1.mp3",
+      "objectKey": "listening/cae-c1-test2/cae-listening-test-01-part-1.mp3",
+      "local": {
+        "exists": true,
+        "size": 8268555
+      },
+      "bundled": {
+        "exists": true,
+        "size": 8268555
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 1,
+      "appTest": 2,
+      "part": 2,
+      "filename": "cae-listening-test-01-part-2.mp3",
+      "objectKey": "listening/cae-c1-test2/cae-listening-test-01-part-2.mp3",
+      "local": {
+        "exists": true,
+        "size": 6937773
+      },
+      "bundled": {
+        "exists": true,
+        "size": 6937773
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 1,
+      "appTest": 2,
+      "part": 3,
+      "filename": "cae-listening-test-01-part-3.mp3",
+      "objectKey": "listening/cae-c1-test2/cae-listening-test-01-part-3.mp3",
+      "local": {
+        "exists": true,
+        "size": 9619817
+      },
+      "bundled": {
+        "exists": true,
+        "size": 9619817
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 1,
+      "appTest": 2,
+      "part": 4,
+      "filename": "cae-listening-test-01-part-4.mp3",
+      "objectKey": "listening/cae-c1-test2/cae-listening-test-01-part-4.mp3",
+      "local": {
+        "exists": true,
+        "size": 9549182
+      },
+      "bundled": {
+        "exists": true,
+        "size": 9549182
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 2,
+      "appTest": 3,
+      "part": 1,
+      "filename": "cae-listening-test-02-part-1.mp3",
+      "objectKey": "listening/cae-c1-test3/cae-listening-test-02-part-1.mp3",
+      "local": {
+        "exists": true,
+        "size": 8705322
+      },
+      "bundled": {
+        "exists": true,
+        "size": 8705322
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 2,
+      "appTest": 3,
+      "part": 2,
+      "filename": "cae-listening-test-02-part-2.mp3",
+      "objectKey": "listening/cae-c1-test3/cae-listening-test-02-part-2.mp3",
+      "local": {
+        "exists": true,
+        "size": 6678220
+      },
+      "bundled": {
+        "exists": true,
+        "size": 6678220
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 2,
+      "appTest": 3,
+      "part": 3,
+      "filename": "cae-listening-test-02-part-3.mp3",
+      "objectKey": "listening/cae-c1-test3/cae-listening-test-02-part-3.mp3",
+      "local": {
+        "exists": true,
+        "size": 9018792
+      },
+      "bundled": {
+        "exists": true,
+        "size": 9018792
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 2,
+      "appTest": 3,
+      "part": 4,
+      "filename": "cae-listening-test-02-part-4.mp3",
+      "objectKey": "listening/cae-c1-test3/cae-listening-test-02-part-4.mp3",
+      "local": {
+        "exists": true,
+        "size": 8953590
+      },
+      "bundled": {
+        "exists": true,
+        "size": 8953590
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 3,
+      "appTest": 4,
+      "part": 1,
+      "filename": "cae-listening-test-03-part-1.mp3",
+      "objectKey": "listening/cae-c1-test4/cae-listening-test-03-part-1.mp3",
+      "local": {
+        "exists": true,
+        "size": 8686514
+      },
+      "bundled": {
+        "exists": true,
+        "size": 8686514
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 3,
+      "appTest": 4,
+      "part": 2,
+      "filename": "cae-listening-test-03-part-2.mp3",
+      "objectKey": "listening/cae-c1-test4/cae-listening-test-03-part-2.mp3",
+      "local": {
+        "exists": true,
+        "size": 6838717
+      },
+      "bundled": {
+        "exists": true,
+        "size": 6838717
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 3,
+      "appTest": 4,
+      "part": 3,
+      "filename": "cae-listening-test-03-part-3.mp3",
+      "objectKey": "listening/cae-c1-test4/cae-listening-test-03-part-3.mp3",
+      "local": {
+        "exists": true,
+        "size": 9874772
+      },
+      "bundled": {
+        "exists": true,
+        "size": 9874772
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 3,
+      "appTest": 4,
+      "part": 4,
+      "filename": "cae-listening-test-03-part-4.mp3",
+      "objectKey": "listening/cae-c1-test4/cae-listening-test-03-part-4.mp3",
+      "local": {
+        "exists": true,
+        "size": 8124359
+      },
+      "bundled": {
+        "exists": true,
+        "size": 8124359
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 4,
+      "appTest": 5,
+      "part": 1,
+      "filename": "cae-listening-test-04-part-1.mp3",
+      "objectKey": "listening/cae-c1-test5/cae-listening-test-04-part-1.mp3",
+      "local": {
+        "exists": true,
+        "size": 8631762
+      },
+      "bundled": {
+        "exists": true,
+        "size": 8631762
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 4,
+      "appTest": 5,
+      "part": 2,
+      "filename": "cae-listening-test-04-part-2.mp3",
+      "objectKey": "listening/cae-c1-test5/cae-listening-test-04-part-2.mp3",
+      "local": {
+        "exists": true,
+        "size": 5852751
+      },
+      "bundled": {
+        "exists": true,
+        "size": 5852751
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 4,
+      "appTest": 5,
+      "part": 3,
+      "filename": "cae-listening-test-04-part-3.mp3",
+      "objectKey": "listening/cae-c1-test5/cae-listening-test-04-part-3.mp3",
+      "local": {
+        "exists": true,
+        "size": 9880624
+      },
+      "bundled": {
+        "exists": true,
+        "size": 9880624
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 4,
+      "appTest": 5,
+      "part": 4,
+      "filename": "cae-listening-test-04-part-4.mp3",
+      "objectKey": "listening/cae-c1-test5/cae-listening-test-04-part-4.mp3",
+      "local": {
+        "exists": true,
+        "size": 10068705
+      },
+      "bundled": {
+        "exists": true,
+        "size": 10068705
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 5,
+      "appTest": 6,
+      "part": 1,
+      "filename": "cae-listening-test-05-part-1.mp3",
+      "objectKey": "listening/cae-c1-test6/cae-listening-test-05-part-1.mp3",
+      "local": {
+        "exists": true,
+        "size": 8692007
+      },
+      "bundled": {
+        "exists": true,
+        "size": 8692007
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 5,
+      "appTest": 6,
+      "part": 2,
+      "filename": "cae-listening-test-05-part-2.mp3",
+      "objectKey": "listening/cae-c1-test6/cae-listening-test-05-part-2.mp3",
+      "local": {
+        "exists": true,
+        "size": 7543037
+      },
+      "bundled": {
+        "exists": true,
+        "size": 7543037
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 5,
+      "appTest": 6,
+      "part": 3,
+      "filename": "cae-listening-test-05-part-3.mp3",
+      "objectKey": "listening/cae-c1-test6/cae-listening-test-05-part-3.mp3",
+      "local": {
+        "exists": true,
+        "size": 10653907
+      },
+      "bundled": {
+        "exists": true,
+        "size": 10653907
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 5,
+      "appTest": 6,
+      "part": 4,
+      "filename": "cae-listening-test-05-part-4.mp3",
+      "objectKey": "listening/cae-c1-test6/cae-listening-test-05-part-4.mp3",
+      "local": {
+        "exists": true,
+        "size": 9211948
+      },
+      "bundled": {
+        "exists": true,
+        "size": 9211948
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 6,
+      "appTest": 7,
+      "part": 1,
+      "filename": "cae-listening-test-06-part-1.mp3",
+      "objectKey": "listening/cae-c1-test7/cae-listening-test-06-part-1.mp3",
+      "local": {
+        "exists": true,
+        "size": 8205502
+      },
+      "bundled": {
+        "exists": true,
+        "size": 8205502
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 6,
+      "appTest": 7,
+      "part": 2,
+      "filename": "cae-listening-test-06-part-2.mp3",
+      "objectKey": "listening/cae-c1-test7/cae-listening-test-06-part-2.mp3",
+      "local": {
+        "exists": true,
+        "size": 6225630
+      },
+      "bundled": {
+        "exists": true,
+        "size": 6225630
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 6,
+      "appTest": 7,
+      "part": 3,
+      "filename": "cae-listening-test-06-part-3.mp3",
+      "objectKey": "listening/cae-c1-test7/cae-listening-test-06-part-3.mp3",
+      "local": {
+        "exists": true,
+        "size": 9353218
+      },
+      "bundled": {
+        "exists": true,
+        "size": 9353218
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 6,
+      "appTest": 7,
+      "part": 4,
+      "filename": "cae-listening-test-06-part-4.mp3",
+      "objectKey": "listening/cae-c1-test7/cae-listening-test-06-part-4.mp3",
+      "local": {
+        "exists": true,
+        "size": 9483203
+      },
+      "bundled": {
+        "exists": true,
+        "size": 9483203
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 7,
+      "appTest": 8,
+      "part": 1,
+      "filename": "cae-listening-test-07-part-1.mp3",
+      "objectKey": "listening/cae-c1-test8/cae-listening-test-07-part-1.mp3",
+      "local": {
+        "exists": true,
+        "size": 8097251
+      },
+      "bundled": {
+        "exists": true,
+        "size": 8097251
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 7,
+      "appTest": 8,
+      "part": 2,
+      "filename": "cae-listening-test-07-part-2.mp3",
+      "objectKey": "listening/cae-c1-test8/cae-listening-test-07-part-2.mp3",
+      "local": {
+        "exists": true,
+        "size": 7313995
+      },
+      "bundled": {
+        "exists": true,
+        "size": 7313995
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 7,
+      "appTest": 8,
+      "part": 3,
+      "filename": "cae-listening-test-07-part-3.mp3",
+      "objectKey": "listening/cae-c1-test8/cae-listening-test-07-part-3.mp3",
+      "local": {
+        "exists": true,
+        "size": 10321948
+      },
+      "bundled": {
+        "exists": true,
+        "size": 10321948
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 7,
+      "appTest": 8,
+      "part": 4,
+      "filename": "cae-listening-test-07-part-4.mp3",
+      "objectKey": "listening/cae-c1-test8/cae-listening-test-07-part-4.mp3",
+      "local": {
+        "exists": true,
+        "size": 9171824
+      },
+      "bundled": {
+        "exists": true,
+        "size": 9171824
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 8,
+      "appTest": 9,
+      "part": 1,
+      "filename": "cae-listening-test-08-part-1.mp3",
+      "objectKey": "listening/cae-c1-test9/cae-listening-test-08-part-1.mp3",
+      "local": {
+        "exists": true,
+        "size": 8251060
+      },
+      "bundled": {
+        "exists": true,
+        "size": 8251060
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 8,
+      "appTest": 9,
+      "part": 2,
+      "filename": "cae-listening-test-08-part-2.mp3",
+      "objectKey": "listening/cae-c1-test9/cae-listening-test-08-part-2.mp3",
+      "local": {
+        "exists": true,
+        "size": 7739896
+      },
+      "bundled": {
+        "exists": true,
+        "size": 7739896
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 8,
+      "appTest": 9,
+      "part": 3,
+      "filename": "cae-listening-test-08-part-3.mp3",
+      "objectKey": "listening/cae-c1-test9/cae-listening-test-08-part-3.mp3",
+      "local": {
+        "exists": true,
+        "size": 11285025
+      },
+      "bundled": {
+        "exists": true,
+        "size": 11285025
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 8,
+      "appTest": 9,
+      "part": 4,
+      "filename": "cae-listening-test-08-part-4.mp3",
+      "objectKey": "listening/cae-c1-test9/cae-listening-test-08-part-4.mp3",
+      "local": {
+        "exists": true,
+        "size": 8752611
+      },
+      "bundled": {
+        "exists": true,
+        "size": 8752611
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 9,
+      "appTest": 10,
+      "part": 1,
+      "filename": "cae-listening-test-09-part-1.mp3",
+      "objectKey": "listening/cae-c1-test10/cae-listening-test-09-part-1.mp3",
+      "local": {
+        "exists": true,
+        "size": 7876466
+      },
+      "bundled": {
+        "exists": true,
+        "size": 7876466
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 9,
+      "appTest": 10,
+      "part": 2,
+      "filename": "cae-listening-test-09-part-2.mp3",
+      "objectKey": "listening/cae-c1-test10/cae-listening-test-09-part-2.mp3",
+      "local": {
+        "exists": true,
+        "size": 6868767
+      },
+      "bundled": {
+        "exists": true,
+        "size": 6868767
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 9,
+      "appTest": 10,
+      "part": 3,
+      "filename": "cae-listening-test-09-part-3.mp3",
+      "objectKey": "listening/cae-c1-test10/cae-listening-test-09-part-3.mp3",
+      "local": {
+        "exists": true,
+        "size": 12731898
+      },
+      "bundled": {
+        "exists": true,
+        "size": 12731898
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 9,
+      "appTest": 10,
+      "part": 4,
+      "filename": "cae-listening-test-09-part-4.mp3",
+      "objectKey": "listening/cae-c1-test10/cae-listening-test-09-part-4.mp3",
+      "local": {
+        "exists": true,
+        "size": 7636558
+      },
+      "bundled": {
+        "exists": true,
+        "size": 7636558
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 10,
+      "appTest": 11,
+      "part": 1,
+      "filename": "cae-listening-test-10-part-1.mp3",
+      "objectKey": "listening/cae-c1-test11/cae-listening-test-10-part-1.mp3",
+      "local": {
+        "exists": true,
+        "size": 7576372
+      },
+      "bundled": {
+        "exists": true,
+        "size": 7576372
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 10,
+      "appTest": 11,
+      "part": 2,
+      "filename": "cae-listening-test-10-part-2.mp3",
+      "objectKey": "listening/cae-c1-test11/cae-listening-test-10-part-2.mp3",
+      "local": {
+        "exists": true,
+        "size": 7023830
+      },
+      "bundled": {
+        "exists": true,
+        "size": 7023830
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 10,
+      "appTest": 11,
+      "part": 3,
+      "filename": "cae-listening-test-10-part-3.mp3",
+      "objectKey": "listening/cae-c1-test11/cae-listening-test-10-part-3.mp3",
+      "local": {
+        "exists": true,
+        "size": 8944770
+      },
+      "bundled": {
+        "exists": true,
+        "size": 8944770
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 10,
+      "appTest": 11,
+      "part": 4,
+      "filename": "cae-listening-test-10-part-4.mp3",
+      "objectKey": "listening/cae-c1-test11/cae-listening-test-10-part-4.mp3",
+      "local": {
+        "exists": true,
+        "size": 7503647
+      },
+      "bundled": {
+        "exists": true,
+        "size": 7503647
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 11,
+      "appTest": 12,
+      "part": 1,
+      "filename": "cae-listening-test-11-part-1.mp3",
+      "objectKey": "listening/cae-c1-test12/cae-listening-test-11-part-1.mp3",
+      "local": {
+        "exists": true,
+        "size": 8486365
+      },
+      "bundled": {
+        "exists": true,
+        "size": 8486365
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 11,
+      "appTest": 12,
+      "part": 2,
+      "filename": "cae-listening-test-11-part-2.mp3",
+      "objectKey": "listening/cae-c1-test12/cae-listening-test-11-part-2.mp3",
+      "local": {
+        "exists": true,
+        "size": 7292108
+      },
+      "bundled": {
+        "exists": true,
+        "size": 7292108
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 11,
+      "appTest": 12,
+      "part": 3,
+      "filename": "cae-listening-test-11-part-3.mp3",
+      "objectKey": "listening/cae-c1-test12/cae-listening-test-11-part-3.mp3",
+      "local": {
+        "exists": true,
+        "size": 10550198
+      },
+      "bundled": {
+        "exists": true,
+        "size": 10550198
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 11,
+      "appTest": 12,
+      "part": 4,
+      "filename": "cae-listening-test-11-part-4.mp3",
+      "objectKey": "listening/cae-c1-test12/cae-listening-test-11-part-4.mp3",
+      "local": {
+        "exists": true,
+        "size": 9632150
+      },
+      "bundled": {
+        "exists": true,
+        "size": 9632150
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 11,
+      "appTest": 12,
+      "part": 6,
+      "filename": "cae-listening-test-11-part-6.mp3",
+      "objectKey": "listening/cae-c1-test12/cae-listening-test-11-part-6.mp3",
+      "local": {
+        "exists": true,
+        "size": 8486365
+      },
+      "bundled": {
+        "exists": false,
+        "size": 0
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 12,
+      "appTest": 13,
+      "part": 1,
+      "filename": "cae-listening-test-12-part-1.mp3",
+      "objectKey": "listening/cae-c1-test13/cae-listening-test-12-part-1.mp3",
+      "local": {
+        "exists": true,
+        "size": 9214072
+      },
+      "bundled": {
+        "exists": true,
+        "size": 9214072
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 12,
+      "appTest": 13,
+      "part": 2,
+      "filename": "cae-listening-test-12-part-2.mp3",
+      "objectKey": "listening/cae-c1-test13/cae-listening-test-12-part-2.mp3",
+      "local": {
+        "exists": true,
+        "size": 9069892
+      },
+      "bundled": {
+        "exists": true,
+        "size": 9069892
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 12,
+      "appTest": 13,
+      "part": 3,
+      "filename": "cae-listening-test-12-part-3.mp3",
+      "objectKey": "listening/cae-c1-test13/cae-listening-test-12-part-3.mp3",
+      "local": {
+        "exists": true,
+        "size": 10497982
+      },
+      "bundled": {
+        "exists": true,
+        "size": 10497982
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 12,
+      "appTest": 13,
+      "part": 4,
+      "filename": "cae-listening-test-12-part-4.mp3",
+      "objectKey": "listening/cae-c1-test13/cae-listening-test-12-part-4.mp3",
+      "local": {
+        "exists": true,
+        "size": 8167591
+      },
+      "bundled": {
+        "exists": true,
+        "size": 8167591
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 12,
+      "appTest": 13,
+      "part": 6,
+      "filename": "cae-listening-test-12-part-6.mp3",
+      "objectKey": "listening/cae-c1-test13/cae-listening-test-12-part-6.mp3",
+      "local": {
+        "exists": true,
+        "size": 5891865
+      },
+      "bundled": {
+        "exists": false,
+        "size": 0
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 13,
+      "appTest": 14,
+      "part": 1,
+      "filename": "cae-listening-test-13-part-1.mp3",
+      "objectKey": "listening/cae-c1-test14/cae-listening-test-13-part-1.mp3",
+      "local": {
+        "exists": true,
+        "size": 8759941
+      },
+      "bundled": {
+        "exists": true,
+        "size": 8759941
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 13,
+      "appTest": 14,
+      "part": 2,
+      "filename": "cae-listening-test-13-part-2.mp3",
+      "objectKey": "listening/cae-c1-test14/cae-listening-test-13-part-2.mp3",
+      "local": {
+        "exists": true,
+        "size": 8958583
+      },
+      "bundled": {
+        "exists": true,
+        "size": 8958583
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 13,
+      "appTest": 14,
+      "part": 3,
+      "filename": "cae-listening-test-13-part-3.mp3",
+      "objectKey": "listening/cae-c1-test14/cae-listening-test-13-part-3.mp3",
+      "local": {
+        "exists": true,
+        "size": 11259324
+      },
+      "bundled": {
+        "exists": true,
+        "size": 11259324
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 13,
+      "appTest": 14,
+      "part": 4,
+      "filename": "cae-listening-test-13-part-4.mp3",
+      "objectKey": "listening/cae-c1-test14/cae-listening-test-13-part-4.mp3",
+      "local": {
+        "exists": true,
+        "size": 9987406
+      },
+      "bundled": {
+        "exists": true,
+        "size": 9987406
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 13,
+      "appTest": 14,
+      "part": 6,
+      "filename": "cae-listening-test-13-part-6.mp3",
+      "objectKey": "listening/cae-c1-test14/cae-listening-test-13-part-6.mp3",
+      "local": {
+        "exists": true,
+        "size": 8759941
+      },
+      "bundled": {
+        "exists": false,
+        "size": 0
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 14,
+      "appTest": 15,
+      "part": 1,
+      "filename": "cae-listening-test-14-part-1.mp3",
+      "objectKey": "listening/cae-c1-test15/cae-listening-test-14-part-1.mp3",
+      "local": {
+        "exists": true,
+        "size": 9360275
+      },
+      "bundled": {
+        "exists": true,
+        "size": 9360275
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 14,
+      "appTest": 15,
+      "part": 2,
+      "filename": "cae-listening-test-14-part-2.mp3",
+      "objectKey": "listening/cae-c1-test15/cae-listening-test-14-part-2.mp3",
+      "local": {
+        "exists": true,
+        "size": 6888001
+      },
+      "bundled": {
+        "exists": true,
+        "size": 6888001
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 14,
+      "appTest": 15,
+      "part": 3,
+      "filename": "cae-listening-test-14-part-3.mp3",
+      "objectKey": "listening/cae-c1-test15/cae-listening-test-14-part-3.mp3",
+      "local": {
+        "exists": true,
+        "size": 10350881
+      },
+      "bundled": {
+        "exists": true,
+        "size": 10350881
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 14,
+      "appTest": 15,
+      "part": 4,
+      "filename": "cae-listening-test-14-part-4.mp3",
+      "objectKey": "listening/cae-c1-test15/cae-listening-test-14-part-4.mp3",
+      "local": {
+        "exists": true,
+        "size": 9309321
+      },
+      "bundled": {
+        "exists": true,
+        "size": 9309321
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 14,
+      "appTest": 15,
+      "part": 6,
+      "filename": "cae-listening-test-14-part-6.mp3",
+      "objectKey": "listening/cae-c1-test15/cae-listening-test-14-part-6.mp3",
+      "local": {
+        "exists": true,
+        "size": 9360275
+      },
+      "bundled": {
+        "exists": false,
+        "size": 0
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 15,
+      "appTest": 16,
+      "part": 1,
+      "filename": "cae-listening-test-15-part-1.mp3",
+      "objectKey": "listening/cae-c1-test16/cae-listening-test-15-part-1.mp3",
+      "local": {
+        "exists": true,
+        "size": 9015816
+      },
+      "bundled": {
+        "exists": true,
+        "size": 9015816
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 15,
+      "appTest": 16,
+      "part": 2,
+      "filename": "cae-listening-test-15-part-2.mp3",
+      "objectKey": "listening/cae-c1-test16/cae-listening-test-15-part-2.mp3",
+      "local": {
+        "exists": true,
+        "size": 7910943
+      },
+      "bundled": {
+        "exists": true,
+        "size": 7910943
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 15,
+      "appTest": 16,
+      "part": 3,
+      "filename": "cae-listening-test-15-part-3.mp3",
+      "objectKey": "listening/cae-c1-test16/cae-listening-test-15-part-3.mp3",
+      "local": {
+        "exists": true,
+        "size": 11919378
+      },
+      "bundled": {
+        "exists": true,
+        "size": 11919378
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 15,
+      "appTest": 16,
+      "part": 4,
+      "filename": "cae-listening-test-15-part-4.mp3",
+      "objectKey": "listening/cae-c1-test16/cae-listening-test-15-part-4.mp3",
+      "local": {
+        "exists": true,
+        "size": 8030453
+      },
+      "bundled": {
+        "exists": true,
+        "size": 8030453
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 15,
+      "appTest": 16,
+      "part": 6,
+      "filename": "cae-listening-test-15-part-6.mp3",
+      "objectKey": "listening/cae-c1-test16/cae-listening-test-15-part-6.mp3",
+      "local": {
+        "exists": true,
+        "size": 9015816
+      },
+      "bundled": {
+        "exists": false,
+        "size": 0
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 16,
+      "appTest": 17,
+      "part": 1,
+      "filename": "cae-listening-test-16-part-1.mp3",
+      "objectKey": "listening/cae-c1-test17/cae-listening-test-16-part-1.mp3",
+      "local": {
+        "exists": true,
+        "size": 6706104
+      },
+      "bundled": {
+        "exists": true,
+        "size": 6706104
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 16,
+      "appTest": 17,
+      "part": 2,
+      "filename": "cae-listening-test-16-part-2.mp3",
+      "objectKey": "listening/cae-c1-test17/cae-listening-test-16-part-2.mp3",
+      "local": {
+        "exists": true,
+        "size": 6923636
+      },
+      "bundled": {
+        "exists": true,
+        "size": 6923636
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 16,
+      "appTest": 17,
+      "part": 3,
+      "filename": "cae-listening-test-16-part-3.mp3",
+      "objectKey": "listening/cae-c1-test17/cae-listening-test-16-part-3.mp3",
+      "local": {
+        "exists": true,
+        "size": 5971602
+      },
+      "bundled": {
+        "exists": true,
+        "size": 5971602
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 16,
+      "appTest": 17,
+      "part": 4,
+      "filename": "cae-listening-test-16-part-4.mp3",
+      "objectKey": "listening/cae-c1-test17/cae-listening-test-16-part-4.mp3",
+      "local": {
+        "exists": true,
+        "size": 5357963
+      },
+      "bundled": {
+        "exists": true,
+        "size": 5357963
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 17,
+      "appTest": 18,
+      "part": 1,
+      "filename": "cae-listening-test-17-part-1.mp3",
+      "objectKey": "listening/cae-c1-test18/cae-listening-test-17-part-1.mp3",
+      "local": {
+        "exists": true,
+        "size": 4878755
+      },
+      "bundled": {
+        "exists": true,
+        "size": 4878755
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 17,
+      "appTest": 18,
+      "part": 2,
+      "filename": "cae-listening-test-17-part-2.mp3",
+      "objectKey": "listening/cae-c1-test18/cae-listening-test-17-part-2.mp3",
+      "local": {
+        "exists": true,
+        "size": 3239661
+      },
+      "bundled": {
+        "exists": true,
+        "size": 3239661
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 17,
+      "appTest": 18,
+      "part": 3,
+      "filename": "cae-listening-test-17-part-3.mp3",
+      "objectKey": "listening/cae-c1-test18/cae-listening-test-17-part-3.mp3",
+      "local": {
+        "exists": true,
+        "size": 5386804
+      },
+      "bundled": {
+        "exists": true,
+        "size": 5386804
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 17,
+      "appTest": 18,
+      "part": 4,
+      "filename": "cae-listening-test-17-part-4.mp3",
+      "objectKey": "listening/cae-c1-test18/cae-listening-test-17-part-4.mp3",
+      "local": {
+        "exists": true,
+        "size": 7033501
+      },
+      "bundled": {
+        "exists": true,
+        "size": 7033501
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 18,
+      "appTest": 19,
+      "part": 1,
+      "filename": "cae-listening-test-18-part-1.mp3",
+      "objectKey": "listening/cae-c1-test19/cae-listening-test-18-part-1.mp3",
+      "local": {
+        "exists": true,
+        "size": 6606745
+      },
+      "bundled": {
+        "exists": true,
+        "size": 6606745
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 18,
+      "appTest": 19,
+      "part": 2,
+      "filename": "cae-listening-test-18-part-2.mp3",
+      "objectKey": "listening/cae-c1-test19/cae-listening-test-18-part-2.mp3",
+      "local": {
+        "exists": true,
+        "size": 6323310
+      },
+      "bundled": {
+        "exists": true,
+        "size": 6323310
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 18,
+      "appTest": 19,
+      "part": 3,
+      "filename": "cae-listening-test-18-part-3.mp3",
+      "objectKey": "listening/cae-c1-test19/cae-listening-test-18-part-3.mp3",
+      "local": {
+        "exists": true,
+        "size": 10183386
+      },
+      "bundled": {
+        "exists": true,
+        "size": 10183386
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 18,
+      "appTest": 19,
+      "part": 4,
+      "filename": "cae-listening-test-18-part-4.mp3",
+      "objectKey": "listening/cae-c1-test19/cae-listening-test-18-part-4.mp3",
+      "local": {
+        "exists": true,
+        "size": 7270133
+      },
+      "bundled": {
+        "exists": true,
+        "size": 7270133
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 19,
+      "appTest": 20,
+      "part": 1,
+      "filename": "cae-listening-test-19-part-1.mp3",
+      "objectKey": "listening/cae-c1-test20/cae-listening-test-19-part-1.mp3",
+      "local": {
+        "exists": true,
+        "size": 6647232
+      },
+      "bundled": {
+        "exists": true,
+        "size": 6647232
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 19,
+      "appTest": 20,
+      "part": 2,
+      "filename": "cae-listening-test-19-part-2.mp3",
+      "objectKey": "listening/cae-c1-test20/cae-listening-test-19-part-2.mp3",
+      "local": {
+        "exists": true,
+        "size": 6088278
+      },
+      "bundled": {
+        "exists": true,
+        "size": 6088278
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 19,
+      "appTest": 20,
+      "part": 3,
+      "filename": "cae-listening-test-19-part-3.mp3",
+      "objectKey": "listening/cae-c1-test20/cae-listening-test-19-part-3.mp3",
+      "local": {
+        "exists": true,
+        "size": 12817597
+      },
+      "bundled": {
+        "exists": true,
+        "size": 12817597
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 19,
+      "appTest": 20,
+      "part": 4,
+      "filename": "cae-listening-test-19-part-4.mp3",
+      "objectKey": "listening/cae-c1-test20/cae-listening-test-19-part-4.mp3",
+      "local": {
+        "exists": true,
+        "size": 7255632
+      },
+      "bundled": {
+        "exists": true,
+        "size": 7255632
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 20,
+      "appTest": 21,
+      "part": 1,
+      "filename": "cae-listening-test-20-part-1.mp3",
+      "objectKey": "listening/cae-c1-test21/cae-listening-test-20-part-1.mp3",
+      "local": {
+        "exists": true,
+        "size": 6665394
+      },
+      "bundled": {
+        "exists": true,
+        "size": 6665394
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 20,
+      "appTest": 21,
+      "part": 2,
+      "filename": "cae-listening-test-20-part-2.mp3",
+      "objectKey": "listening/cae-c1-test21/cae-listening-test-20-part-2.mp3",
+      "local": {
+        "exists": true,
+        "size": 6774243
+      },
+      "bundled": {
+        "exists": true,
+        "size": 6774243
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 20,
+      "appTest": 21,
+      "part": 3,
+      "filename": "cae-listening-test-20-part-3.mp3",
+      "objectKey": "listening/cae-c1-test21/cae-listening-test-20-part-3.mp3",
+      "local": {
+        "exists": true,
+        "size": 8352878
+      },
+      "bundled": {
+        "exists": true,
+        "size": 8352878
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 20,
+      "appTest": 21,
+      "part": 4,
+      "filename": "cae-listening-test-20-part-4.mp3",
+      "objectKey": "listening/cae-c1-test21/cae-listening-test-20-part-4.mp3",
+      "local": {
+        "exists": true,
+        "size": 7032273
+      },
+      "bundled": {
+        "exists": true,
+        "size": 7032273
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 21,
+      "appTest": 22,
+      "part": 1,
+      "filename": "cae-listening-test-21-part-1.mp3",
+      "objectKey": "listening/cae-c1-test22/cae-listening-test-21-part-1.mp3",
+      "local": {
+        "exists": true,
+        "size": 6915021
+      },
+      "bundled": {
+        "exists": true,
+        "size": 6915021
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 21,
+      "appTest": 22,
+      "part": 2,
+      "filename": "cae-listening-test-21-part-2.mp3",
+      "objectKey": "listening/cae-c1-test22/cae-listening-test-21-part-2.mp3",
+      "local": {
+        "exists": true,
+        "size": 6770811
+      },
+      "bundled": {
+        "exists": true,
+        "size": 6770811
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 21,
+      "appTest": 22,
+      "part": 3,
+      "filename": "cae-listening-test-21-part-3.mp3",
+      "objectKey": "listening/cae-c1-test22/cae-listening-test-21-part-3.mp3",
+      "local": {
+        "exists": true,
+        "size": 9814199
+      },
+      "bundled": {
+        "exists": true,
+        "size": 9814199
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 21,
+      "appTest": 22,
+      "part": 4,
+      "filename": "cae-listening-test-21-part-4.mp3",
+      "objectKey": "listening/cae-c1-test22/cae-listening-test-21-part-4.mp3",
+      "local": {
+        "exists": true,
+        "size": 7125347
+      },
+      "bundled": {
+        "exists": true,
+        "size": 7125347
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 22,
+      "appTest": 23,
+      "part": 1,
+      "filename": "cae-listening-test-22-part-1.mp3",
+      "objectKey": "listening/cae-c1-test23/cae-listening-test-22-part-1.mp3",
+      "local": {
+        "exists": true,
+        "size": 7619716
+      },
+      "bundled": {
+        "exists": true,
+        "size": 7619716
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 22,
+      "appTest": 23,
+      "part": 2,
+      "filename": "cae-listening-test-22-part-2.mp3",
+      "objectKey": "listening/cae-c1-test23/cae-listening-test-22-part-2.mp3",
+      "local": {
+        "exists": true,
+        "size": 7345179
+      },
+      "bundled": {
+        "exists": true,
+        "size": 7345179
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 22,
+      "appTest": 23,
+      "part": 3,
+      "filename": "cae-listening-test-22-part-3.mp3",
+      "objectKey": "listening/cae-c1-test23/cae-listening-test-22-part-3.mp3",
+      "local": {
+        "exists": true,
+        "size": 9833131
+      },
+      "bundled": {
+        "exists": true,
+        "size": 9833131
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 22,
+      "appTest": 23,
+      "part": 4,
+      "filename": "cae-listening-test-22-part-4.mp3",
+      "objectKey": "listening/cae-c1-test23/cae-listening-test-22-part-4.mp3",
+      "local": {
+        "exists": true,
+        "size": 7841749
+      },
+      "bundled": {
+        "exists": true,
+        "size": 7841749
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 23,
+      "appTest": 24,
+      "part": 1,
+      "filename": "cae-listening-test-23-part-1.mp3",
+      "objectKey": "listening/cae-c1-test24/cae-listening-test-23-part-1.mp3",
+      "local": {
+        "exists": true,
+        "size": 7191483
+      },
+      "bundled": {
+        "exists": true,
+        "size": 7191483
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 23,
+      "appTest": 24,
+      "part": 2,
+      "filename": "cae-listening-test-23-part-2.mp3",
+      "objectKey": "listening/cae-c1-test24/cae-listening-test-23-part-2.mp3",
+      "local": {
+        "exists": true,
+        "size": 5573711
+      },
+      "bundled": {
+        "exists": true,
+        "size": 5573711
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 23,
+      "appTest": 24,
+      "part": 3,
+      "filename": "cae-listening-test-23-part-3.mp3",
+      "objectKey": "listening/cae-c1-test24/cae-listening-test-23-part-3.mp3",
+      "local": {
+        "exists": true,
+        "size": 10538562
+      },
+      "bundled": {
+        "exists": true,
+        "size": 10538562
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 23,
+      "appTest": 24,
+      "part": 4,
+      "filename": "cae-listening-test-23-part-4.mp3",
+      "objectKey": "listening/cae-c1-test24/cae-listening-test-23-part-4.mp3",
+      "local": {
+        "exists": true,
+        "size": 8518784
+      },
+      "bundled": {
+        "exists": true,
+        "size": 8518784
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 24,
+      "appTest": 25,
+      "part": 1,
+      "filename": "cae-listening-test-24-part-1.mp3",
+      "objectKey": "listening/cae-c1-test25/cae-listening-test-24-part-1.mp3",
+      "local": {
+        "exists": true,
+        "size": 7161785
+      },
+      "bundled": {
+        "exists": true,
+        "size": 7161785
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 24,
+      "appTest": 25,
+      "part": 2,
+      "filename": "cae-listening-test-24-part-2.mp3",
+      "objectKey": "listening/cae-c1-test25/cae-listening-test-24-part-2.mp3",
+      "local": {
+        "exists": true,
+        "size": 6624298
+      },
+      "bundled": {
+        "exists": true,
+        "size": 6624298
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 24,
+      "appTest": 25,
+      "part": 3,
+      "filename": "cae-listening-test-24-part-3.mp3",
+      "objectKey": "listening/cae-c1-test25/cae-listening-test-24-part-3.mp3",
+      "local": {
+        "exists": true,
+        "size": 10345198
+      },
+      "bundled": {
+        "exists": true,
+        "size": 10345198
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 24,
+      "appTest": 25,
+      "part": 4,
+      "filename": "cae-listening-test-24-part-4.mp3",
+      "objectKey": "listening/cae-c1-test25/cae-listening-test-24-part-4.mp3",
+      "local": {
+        "exists": true,
+        "size": 7909172
+      },
+      "bundled": {
+        "exists": true,
+        "size": 7909172
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 25,
+      "appTest": 26,
+      "part": 1,
+      "filename": "cae-listening-test-25-part-1.mp3",
+      "objectKey": "listening/cae-c1-test26/cae-listening-test-25-part-1.mp3",
+      "local": {
+        "exists": true,
+        "size": 7083570
+      },
+      "bundled": {
+        "exists": true,
+        "size": 7083570
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 25,
+      "appTest": 26,
+      "part": 2,
+      "filename": "cae-listening-test-25-part-2.mp3",
+      "objectKey": "listening/cae-c1-test26/cae-listening-test-25-part-2.mp3",
+      "local": {
+        "exists": true,
+        "size": 6588465
+      },
+      "bundled": {
+        "exists": true,
+        "size": 6588465
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 25,
+      "appTest": 26,
+      "part": 3,
+      "filename": "cae-listening-test-25-part-3.mp3",
+      "objectKey": "listening/cae-c1-test26/cae-listening-test-25-part-3.mp3",
+      "local": {
+        "exists": true,
+        "size": 8960550
+      },
+      "bundled": {
+        "exists": true,
+        "size": 8960550
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 25,
+      "appTest": 26,
+      "part": 4,
+      "filename": "cae-listening-test-25-part-4.mp3",
+      "objectKey": "listening/cae-c1-test26/cae-listening-test-25-part-4.mp3",
+      "local": {
+        "exists": true,
+        "size": 7605556
+      },
+      "bundled": {
+        "exists": true,
+        "size": 7605556
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 26,
+      "appTest": 27,
+      "part": 1,
+      "filename": "cae-listening-test-26-part-1.mp3",
+      "objectKey": "listening/cae-c1-test27/cae-listening-test-26-part-1.mp3",
+      "local": {
+        "exists": true,
+        "size": 7919912
+      },
+      "bundled": {
+        "exists": true,
+        "size": 7919912
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 26,
+      "appTest": 27,
+      "part": 2,
+      "filename": "cae-listening-test-26-part-2.mp3",
+      "objectKey": "listening/cae-c1-test27/cae-listening-test-26-part-2.mp3",
+      "local": {
+        "exists": true,
+        "size": 6344418
+      },
+      "bundled": {
+        "exists": true,
+        "size": 6344418
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 26,
+      "appTest": 27,
+      "part": 3,
+      "filename": "cae-listening-test-26-part-3.mp3",
+      "objectKey": "listening/cae-c1-test27/cae-listening-test-26-part-3.mp3",
+      "local": {
+        "exists": true,
+        "size": 8833795
+      },
+      "bundled": {
+        "exists": true,
+        "size": 8833795
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 26,
+      "appTest": 27,
+      "part": 4,
+      "filename": "cae-listening-test-26-part-4.mp3",
+      "objectKey": "listening/cae-c1-test27/cae-listening-test-26-part-4.mp3",
+      "local": {
+        "exists": true,
+        "size": 9828841
+      },
+      "bundled": {
+        "exists": true,
+        "size": 9828841
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 27,
+      "appTest": 28,
+      "part": 1,
+      "filename": "cae-listening-test-27-part-1.mp3",
+      "objectKey": "listening/cae-c1-test28/cae-listening-test-27-part-1.mp3",
+      "local": {
+        "exists": true,
+        "size": 8048754
+      },
+      "bundled": {
+        "exists": true,
+        "size": 8048754
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 27,
+      "appTest": 28,
+      "part": 2,
+      "filename": "cae-listening-test-27-part-2.mp3",
+      "objectKey": "listening/cae-c1-test28/cae-listening-test-27-part-2.mp3",
+      "local": {
+        "exists": true,
+        "size": 6917895
+      },
+      "bundled": {
+        "exists": true,
+        "size": 6917895
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 27,
+      "appTest": 28,
+      "part": 3,
+      "filename": "cae-listening-test-27-part-3.mp3",
+      "objectKey": "listening/cae-c1-test28/cae-listening-test-27-part-3.mp3",
+      "local": {
+        "exists": true,
+        "size": 11442935
+      },
+      "bundled": {
+        "exists": true,
+        "size": 11442935
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 27,
+      "appTest": 28,
+      "part": 4,
+      "filename": "cae-listening-test-27-part-4.mp3",
+      "objectKey": "listening/cae-c1-test28/cae-listening-test-27-part-4.mp3",
+      "local": {
+        "exists": true,
+        "size": 8521318
+      },
+      "bundled": {
+        "exists": true,
+        "size": 8521318
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 28,
+      "appTest": 29,
+      "part": 1,
+      "filename": "cae-listening-test-28-part-1.mp3",
+      "objectKey": "listening/cae-c1-test29/cae-listening-test-28-part-1.mp3",
+      "local": {
+        "exists": true,
+        "size": 8416173
+      },
+      "bundled": {
+        "exists": true,
+        "size": 8416173
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 28,
+      "appTest": 29,
+      "part": 2,
+      "filename": "cae-listening-test-28-part-2.mp3",
+      "objectKey": "listening/cae-c1-test29/cae-listening-test-28-part-2.mp3",
+      "local": {
+        "exists": true,
+        "size": 6507311
+      },
+      "bundled": {
+        "exists": true,
+        "size": 6507311
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 28,
+      "appTest": 29,
+      "part": 3,
+      "filename": "cae-listening-test-28-part-3.mp3",
+      "objectKey": "listening/cae-c1-test29/cae-listening-test-28-part-3.mp3",
+      "local": {
+        "exists": true,
+        "size": 1308453
+      },
+      "bundled": {
+        "exists": true,
+        "size": 1308453
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 28,
+      "appTest": 29,
+      "part": 4,
+      "filename": "cae-listening-test-28-part-4.mp3",
+      "objectKey": "listening/cae-c1-test29/cae-listening-test-28-part-4.mp3",
+      "local": {
+        "exists": true,
+        "size": 1988846
+      },
+      "bundled": {
+        "exists": true,
+        "size": 1988846
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 29,
+      "appTest": 30,
+      "part": 1,
+      "filename": "cae-listening-test-29-part-1.mp3",
+      "objectKey": "listening/cae-c1-test30/cae-listening-test-29-part-1.mp3",
+      "local": {
+        "exists": true,
+        "size": 6781716
+      },
+      "bundled": {
+        "exists": true,
+        "size": 6781716
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 29,
+      "appTest": 30,
+      "part": 2,
+      "filename": "cae-listening-test-29-part-2.mp3",
+      "objectKey": "listening/cae-c1-test30/cae-listening-test-29-part-2.mp3",
+      "local": {
+        "exists": true,
+        "size": 6910495
+      },
+      "bundled": {
+        "exists": true,
+        "size": 6910495
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 29,
+      "appTest": 30,
+      "part": 3,
+      "filename": "cae-listening-test-29-part-3.mp3",
+      "objectKey": "listening/cae-c1-test30/cae-listening-test-29-part-3.mp3",
+      "local": {
+        "exists": true,
+        "size": 9295025
+      },
+      "bundled": {
+        "exists": true,
+        "size": 9295025
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 29,
+      "appTest": 30,
+      "part": 4,
+      "filename": "cae-listening-test-29-part-4.mp3",
+      "objectKey": "listening/cae-c1-test30/cae-listening-test-29-part-4.mp3",
+      "local": {
+        "exists": true,
+        "size": 8092340
+      },
+      "bundled": {
+        "exists": true,
+        "size": 8092340
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 30,
+      "appTest": 31,
+      "part": 1,
+      "filename": "cae-listening-test-30-part-1.mp3",
+      "objectKey": "listening/cae-c1-test31/cae-listening-test-30-part-1.mp3",
+      "local": {
+        "exists": true,
+        "size": 7317375
+      },
+      "bundled": {
+        "exists": true,
+        "size": 7317375
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 30,
+      "appTest": 31,
+      "part": 2,
+      "filename": "cae-listening-test-30-part-2.mp3",
+      "objectKey": "listening/cae-c1-test31/cae-listening-test-30-part-2.mp3",
+      "local": {
+        "exists": true,
+        "size": 7221477
+      },
+      "bundled": {
+        "exists": true,
+        "size": 7221477
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 30,
+      "appTest": 31,
+      "part": 3,
+      "filename": "cae-listening-test-30-part-3.mp3",
+      "objectKey": "listening/cae-c1-test31/cae-listening-test-30-part-3.mp3",
+      "local": {
+        "exists": true,
+        "size": 9546966
+      },
+      "bundled": {
+        "exists": true,
+        "size": 9546966
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    },
+    {
+      "sourceTest": 30,
+      "appTest": 31,
+      "part": 4,
+      "filename": "cae-listening-test-30-part-4.mp3",
+      "objectKey": "listening/cae-c1-test31/cae-listening-test-30-part-4.mp3",
+      "local": {
+        "exists": true,
+        "size": 8205985
+      },
+      "bundled": {
+        "exists": true,
+        "size": 8205985
+      },
+      "remote": {
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": "27150",
+        "acceptRanges": null
+      }
+    }
+  ]
+}

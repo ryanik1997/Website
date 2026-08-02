@@ -1,0 +1,738 @@
+{
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "Questions 1-6",
+      "instruction": "You will hear three different extracts. For questions 1-6, choose the answer (A, B or C) which fits best",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 1,
+          "type": "multiple-choice",
+          "prompt": "What is the man’s problem?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Nobody will listen to his complaints at work."
+            },
+            {
+              "id": "B",
+              "label": "There is friction between him and a colleague."
+            },
+            {
+              "id": "C",
+              "label": "He’s fallen out with his boss."
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "type": "multiple-choice",
+          "prompt": "What does the woman think?",
+          "options": [
+            {
+              "id": "A",
+              "label": "He needs to approach the problem in a different way."
+            },
+            {
+              "id": "B",
+              "label": "He has to accept that there will be problems in any office."
+            },
+            {
+              "id": "C",
+              "label": "He is the main cause of all the office problems."
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "type": "multiple-choice",
+          "prompt": "What were Janet’s expectations of the recruitment fair?",
+          "options": [
+            {
+              "id": "A",
+              "label": "She was hoping to get some ideas for a career."
+            },
+            {
+              "id": "B",
+              "label": "She was sure that someone would offer her a job in Public Relations."
+            },
+            {
+              "id": "C",
+              "label": "She had incorrect preconceptions as to what she would gain from it."
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "type": "multiple-choice",
+          "prompt": "How did Paul gain from the recruitment fair?",
+          "options": [
+            {
+              "id": "A",
+              "label": "He passed an interview there and got a job."
+            },
+            {
+              "id": "B",
+              "label": "He impressed someone who then recommended him for a job."
+            },
+            {
+              "id": "C",
+              "label": "He applied for several jobs there and was successful."
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "type": "multiple-choice",
+          "prompt": "What does the man say about his job?",
+          "options": [
+            {
+              "id": "A",
+              "label": "You need to have a degree to get a promotion."
+            },
+            {
+              "id": "B",
+              "label": "If you want a promotion you will have to go into management."
+            },
+            {
+              "id": "C",
+              "label": "it’s a career that offers incentives for industrious people."
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "type": "multiple-choice",
+          "prompt": "What is the woman’s opinion of the man?",
+          "options": [
+            {
+              "id": "A",
+              "label": "He is both courageous and mad."
+            },
+            {
+              "id": "B",
+              "label": "He must have a cruel side to him."
+            },
+            {
+              "id": "C",
+              "label": "His desire to get a promotion is more important than anything else"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "rangeLabel": "Questions 7-14",
+      "instruction": "You will hear a woman talking about her job as a probation worker. For questions 7-14, complete the sentences.",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "Georgia grew up on a ________.",
+          "options": []
+        },
+        {
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "Georgia didn’t think she had enough ________ for a career in probation work. .",
+          "options": []
+        },
+        {
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "While studying for her degree, Georgia worked as a ________ in three different places.",
+          "options": []
+        },
+        {
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "Being able to work out which ________ is the most urgent is an important skill.",
+          "options": []
+        },
+        {
+          "number": 11,
+          "type": "gap-fill",
+          "prompt": "While working face to face with an offender, you both have ________ to deal with.",
+          "options": []
+        },
+        {
+          "number": 12,
+          "type": "gap-fill",
+          "prompt": "Georgia works in the prison, ________ and her office.",
+          "options": []
+        },
+        {
+          "number": 13,
+          "type": "gap-fill",
+          "prompt": "The worst part of Georgia’s job is dealing with ________.",
+          "options": []
+        },
+        {
+          "number": 14,
+          "type": "gap-fill",
+          "prompt": "Georgia has to work with the courts to decide on a fair ________ for each offender.",
+          "options": []
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "rangeLabel": "Questions 15-20",
+      "instruction": "You will hear part of a radio interview with an economist. For questions 15-20, choose the answer (A, B, C or D) which fits best according to what you hear.",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 15,
+          "type": "multiple-choice",
+          "prompt": "According to the Fawcett Society,",
+          "options": [
+            {
+              "id": "A",
+              "label": "women would need to work into their eighties to earn as much money as men."
+            },
+            {
+              "id": "B",
+              "label": "good qualifications aren’t necessarily rewarded with high wages."
+            },
+            {
+              "id": "C",
+              "label": "women will never earn as much as men."
+            },
+            {
+              "id": "D",
+              "label": "more women have degrees than men."
+            }
+          ]
+        },
+        {
+          "number": 16,
+          "type": "multiple-choice",
+          "prompt": "What is said about careers advice in schools?",
+          "options": [
+            {
+              "id": "A",
+              "label": "it has been improved but it is still inadequate."
+            },
+            {
+              "id": "B",
+              "label": "It is now quite good for girls but boys are being neglected."
+            },
+            {
+              "id": "C",
+              "label": "There is no advice for girls that are ambitious."
+            },
+            {
+              "id": "D",
+              "label": "Girls are always encouraged not to be ambitious."
+            }
+          ]
+        },
+        {
+          "number": 17,
+          "type": "multiple-choice",
+          "prompt": "According to Jim,",
+          "options": [
+            {
+              "id": "A",
+              "label": "women are to blame for not insisting on higher wages."
+            },
+            {
+              "id": "B",
+              "label": "new government policies have solved most of the problems."
+            },
+            {
+              "id": "C",
+              "label": "there is nothing more the government can do."
+            },
+            {
+              "id": "D",
+              "label": "women shouldn’t necessarily be encouraged to change their choice of career"
+            }
+          ]
+        },
+        {
+          "number": 18,
+          "type": "multiple-choice",
+          "prompt": "A London School of Economics report showed that",
+          "options": [
+            {
+              "id": "A",
+              "label": "women who worked part-time found it difficult to get a full-time job later on."
+            },
+            {
+              "id": "B",
+              "label": "after having children, women find it harder to earn as much money as men."
+            },
+            {
+              "id": "C",
+              "label": "women find it hard to find a job after having children."
+            },
+            {
+              "id": "D",
+              "label": "most women want a full-time job after having a child."
+            }
+          ]
+        },
+        {
+          "number": 19,
+          "type": "multiple-choice",
+          "prompt": "What does the ‘stuffed shirt’ policy mean?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Women are being forced to choose between family commitments and work."
+            },
+            {
+              "id": "B",
+              "label": "Only men can have part-time senior positions"
+            },
+            {
+              "id": "C",
+              "label": "Women don’t get the opportunity to train for high-powered jobs."
+            },
+            {
+              "id": "D",
+              "label": "No woman can have a senior position."
+            }
+          ]
+        },
+        {
+          "number": 20,
+          "type": "multiple-choice",
+          "prompt": "Jim seems to believe that",
+          "options": [
+            {
+              "id": "A",
+              "label": "women should stay at home and look after their children."
+            },
+            {
+              "id": "B",
+              "label": "women now earn as much money as men in the workplace."
+            },
+            {
+              "id": "C",
+              "label": "women have been disadvantaged by outdated work ethics."
+            },
+            {
+              "id": "D",
+              "label": "having children w ill soon be an advantage for working women."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 4,
+      "rangeLabel": "Questions 21-30",
+      "instruction": "You will hear five short extracts in which people are talking about problems related to their work",
+      "matchingDualTask": true,
+      "taskOneInstruction": "For questions 21-25, choose the option which best describes each speaker.",
+      "taskTwoInstruction": "For questions 26-30, choose the option which best describes each speaker.",
+      "questions": [
+        {
+          "number": 21,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "a receptionist"
+            },
+            {
+              "id": "B",
+              "label": "an apprentice"
+            },
+            {
+              "id": "C",
+              "label": "a temporary worker"
+            },
+            {
+              "id": "D",
+              "label": "a manager"
+            },
+            {
+              "id": "E",
+              "label": "a caretaker"
+            },
+            {
+              "id": "F",
+              "label": "a secretary"
+            },
+            {
+              "id": "G",
+              "label": "a courier"
+            },
+            {
+              "id": "H",
+              "label": "a pensioner"
+            }
+          ],
+          "context": "Speaker 1"
+        },
+        {
+          "number": 22,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "a receptionist"
+            },
+            {
+              "id": "B",
+              "label": "an apprentice"
+            },
+            {
+              "id": "C",
+              "label": "a temporary worker"
+            },
+            {
+              "id": "D",
+              "label": "a manager"
+            },
+            {
+              "id": "E",
+              "label": "a caretaker"
+            },
+            {
+              "id": "F",
+              "label": "a secretary"
+            },
+            {
+              "id": "G",
+              "label": "a courier"
+            },
+            {
+              "id": "H",
+              "label": "a pensioner"
+            }
+          ],
+          "context": "Speaker 2"
+        },
+        {
+          "number": 23,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "a receptionist"
+            },
+            {
+              "id": "B",
+              "label": "an apprentice"
+            },
+            {
+              "id": "C",
+              "label": "a temporary worker"
+            },
+            {
+              "id": "D",
+              "label": "a manager"
+            },
+            {
+              "id": "E",
+              "label": "a caretaker"
+            },
+            {
+              "id": "F",
+              "label": "a secretary"
+            },
+            {
+              "id": "G",
+              "label": "a courier"
+            },
+            {
+              "id": "H",
+              "label": "a pensioner"
+            }
+          ],
+          "context": "Speaker 3"
+        },
+        {
+          "number": 24,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "a receptionist"
+            },
+            {
+              "id": "B",
+              "label": "an apprentice"
+            },
+            {
+              "id": "C",
+              "label": "a temporary worker"
+            },
+            {
+              "id": "D",
+              "label": "a manager"
+            },
+            {
+              "id": "E",
+              "label": "a caretaker"
+            },
+            {
+              "id": "F",
+              "label": "a secretary"
+            },
+            {
+              "id": "G",
+              "label": "a courier"
+            },
+            {
+              "id": "H",
+              "label": "a pensioner"
+            }
+          ],
+          "context": "Speaker 4"
+        },
+        {
+          "number": 25,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "a receptionist"
+            },
+            {
+              "id": "B",
+              "label": "an apprentice"
+            },
+            {
+              "id": "C",
+              "label": "a temporary worker"
+            },
+            {
+              "id": "D",
+              "label": "a manager"
+            },
+            {
+              "id": "E",
+              "label": "a caretaker"
+            },
+            {
+              "id": "F",
+              "label": "a secretary"
+            },
+            {
+              "id": "G",
+              "label": "a courier"
+            },
+            {
+              "id": "H",
+              "label": "a pensioner"
+            }
+          ],
+          "context": "Speaker 5"
+        },
+        {
+          "number": 26,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "a suspicion that people like to find excuses not to do work"
+            },
+            {
+              "id": "B",
+              "label": "the view that you should never ask for a pay rise"
+            },
+            {
+              "id": "C",
+              "label": "the feeling that helping an understudy may go unappreciated"
+            },
+            {
+              "id": "D",
+              "label": "an intimate knowledge of other people’s affairs that could be profitable"
+            },
+            {
+              "id": "E",
+              "label": "the view that you should never take work home with you"
+            },
+            {
+              "id": "F",
+              "label": "a distrust of colleagues who are nice to you"
+            },
+            {
+              "id": "G",
+              "label": "a feeling of having been taken advantage of on account of inexperience"
+            },
+            {
+              "id": "H",
+              "label": "the wisdom of prioritising tasks"
+            }
+          ],
+          "context": "Speaker 1"
+        },
+        {
+          "number": 27,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "a suspicion that people like to find excuses not to do work"
+            },
+            {
+              "id": "B",
+              "label": "the view that you should never ask for a pay rise"
+            },
+            {
+              "id": "C",
+              "label": "the feeling that helping an understudy may go unappreciated"
+            },
+            {
+              "id": "D",
+              "label": "an intimate knowledge of other people’s affairs that could be profitable"
+            },
+            {
+              "id": "E",
+              "label": "the view that you should never take work home with you"
+            },
+            {
+              "id": "F",
+              "label": "a distrust of colleagues who are nice to you"
+            },
+            {
+              "id": "G",
+              "label": "a feeling of having been taken advantage of on account of inexperience"
+            },
+            {
+              "id": "H",
+              "label": "the wisdom of prioritising tasks"
+            }
+          ],
+          "context": "Speaker 2"
+        },
+        {
+          "number": 28,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "a suspicion that people like to find excuses not to do work"
+            },
+            {
+              "id": "B",
+              "label": "the view that you should never ask for a pay rise"
+            },
+            {
+              "id": "C",
+              "label": "the feeling that helping an understudy may go unappreciated"
+            },
+            {
+              "id": "D",
+              "label": "an intimate knowledge of other people’s affairs that could be profitable"
+            },
+            {
+              "id": "E",
+              "label": "the view that you should never take work home with you"
+            },
+            {
+              "id": "F",
+              "label": "a distrust of colleagues who are nice to you"
+            },
+            {
+              "id": "G",
+              "label": "a feeling of having been taken advantage of on account of inexperience"
+            },
+            {
+              "id": "H",
+              "label": "the wisdom of prioritising tasks"
+            }
+          ],
+          "context": "Speaker 3"
+        },
+        {
+          "number": 29,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "a suspicion that people like to find excuses not to do work"
+            },
+            {
+              "id": "B",
+              "label": "the view that you should never ask for a pay rise"
+            },
+            {
+              "id": "C",
+              "label": "the feeling that helping an understudy may go unappreciated"
+            },
+            {
+              "id": "D",
+              "label": "an intimate knowledge of other people’s affairs that could be profitable"
+            },
+            {
+              "id": "E",
+              "label": "the view that you should never take work home with you"
+            },
+            {
+              "id": "F",
+              "label": "a distrust of colleagues who are nice to you"
+            },
+            {
+              "id": "G",
+              "label": "a feeling of having been taken advantage of on account of inexperience"
+            },
+            {
+              "id": "H",
+              "label": "the wisdom of prioritising tasks"
+            }
+          ],
+          "context": "Speaker 4"
+        },
+        {
+          "number": 30,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "a suspicion that people like to find excuses not to do work"
+            },
+            {
+              "id": "B",
+              "label": "the view that you should never ask for a pay rise"
+            },
+            {
+              "id": "C",
+              "label": "the feeling that helping an understudy may go unappreciated"
+            },
+            {
+              "id": "D",
+              "label": "an intimate knowledge of other people’s affairs that could be profitable"
+            },
+            {
+              "id": "E",
+              "label": "the view that you should never take work home with you"
+            },
+            {
+              "id": "F",
+              "label": "a distrust of colleagues who are nice to you"
+            },
+            {
+              "id": "G",
+              "label": "a feeling of having been taken advantage of on account of inexperience"
+            },
+            {
+              "id": "H",
+              "label": "the wisdom of prioritising tasks"
+            }
+          ],
+          "context": "Speaker 5"
+        }
+      ]
+    }
+  ]
+}

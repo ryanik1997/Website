@@ -761,6 +761,7 @@ export default function ListeningIeltsTidShell({ exam, sessionStarted: sessionSt
                         <button
                           key={q.id}
                           type="button"
+                          data-question-number-badge="true"
                           className={[
                             'listening-tid-footer__pill',
                             isQ ? 'is-current' : '',

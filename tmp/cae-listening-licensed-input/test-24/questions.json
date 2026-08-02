@@ -1,0 +1,738 @@
+{
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "Questions 1-6",
+      "instruction": "You will hear three different extracts. For questions 1-6, choose the answer (A, B or C) which fits best",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 1,
+          "type": "multiple-choice",
+          "prompt": "The woman states that",
+          "options": [
+            {
+              "id": "A",
+              "label": "her children enjoy the stories read to them."
+            },
+            {
+              "id": "B",
+              "label": "other parents are likely to read these stories."
+            },
+            {
+              "id": "C",
+              "label": "more parents should do this reading."
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "type": "multiple-choice",
+          "prompt": "What similar idea both speakers express?",
+          "options": [
+            {
+              "id": "A",
+              "label": "how their children react to story reading"
+            },
+            {
+              "id": "B",
+              "label": "personal reasons to do reading"
+            },
+            {
+              "id": "C",
+              "label": "the artistic approach they use when reading"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "type": "multiple-choice",
+          "prompt": "The presenter states that some choose to set up a business with a friend because",
+          "options": [
+            {
+              "id": "A",
+              "label": "they have a history of working together fruitfully."
+            },
+            {
+              "id": "B",
+              "label": "the friend might have skills you don’t."
+            },
+            {
+              "id": "C",
+              "label": "you can be too scared to do it on your own."
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "type": "multiple-choice",
+          "prompt": "What difficulties did Dean have in his partnership?",
+          "options": [
+            {
+              "id": "A",
+              "label": "He would refuse to take part in an important process."
+            },
+            {
+              "id": "B",
+              "label": "He was too lazy."
+            },
+            {
+              "id": "C",
+              "label": "His personality changed over time."
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "type": "multiple-choice",
+          "prompt": "What is the occupation of the speakers?",
+          "options": [
+            {
+              "id": "A",
+              "label": "professional athletes"
+            },
+            {
+              "id": "B",
+              "label": "health and fitness specialists"
+            },
+            {
+              "id": "C",
+              "label": "journalists"
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "type": "multiple-choice",
+          "prompt": "Both speakers agree that a successful runner should train",
+          "options": [
+            {
+              "id": "A",
+              "label": "a specific group of muscles."
+            },
+            {
+              "id": "B",
+              "label": "using a personalised, tailor-made method."
+            },
+            {
+              "id": "C",
+              "label": "change the focus of training from time to time."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "rangeLabel": "Questions 7-14",
+      "instruction": "You will hear a person giving life advice for a living. For questions 7-14, complete the sentences.",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "When asked about their occupation, the speaker replies that she works in the ________.",
+          "options": []
+        },
+        {
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "The speaker states that people are too focused on what she refers to as ‘________‘.",
+          "options": []
+        },
+        {
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "The speaker uses the term ‘________‘ to talk about long-term plans.",
+          "options": []
+        },
+        {
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "One example of a personal goal that the speaker presents is getting better at ________.",
+          "options": []
+        },
+        {
+          "number": 11,
+          "type": "gap-fill",
+          "prompt": "An example of a business goal is coming up with fresh ________.",
+          "options": []
+        },
+        {
+          "number": 12,
+          "type": "gap-fill",
+          "prompt": "Training sessions are organised in a way to ensure there are no ________.",
+          "options": []
+        },
+        {
+          "number": 13,
+          "type": "gap-fill",
+          "prompt": "Discussing person’s ________ is not a part of coaching.",
+          "options": []
+        },
+        {
+          "number": 14,
+          "type": "gap-fill",
+          "prompt": "What life coaches do is they help people turn into ________ themselves.",
+          "options": []
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "rangeLabel": "Questions 15-20",
+      "instruction": "You will hear a radio programme about imaginary friends. For questions 15-20, choose the answer (A, B, C or D) which fits best according to what you hear.",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 15,
+          "type": "multiple-choice",
+          "prompt": "What happened in the incident mentioned by Liz?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Her daughter angered her."
+            },
+            {
+              "id": "B",
+              "label": "Their journey had to be interrupted twice."
+            },
+            {
+              "id": "C",
+              "label": "The children were quarreling."
+            },
+            {
+              "id": "D",
+              "label": "Her daughter wasn’t feeling well."
+            }
+          ]
+        },
+        {
+          "number": 16,
+          "type": "multiple-choice",
+          "prompt": "What are the findings of the latest research into imaginary friends?",
+          "options": [
+            {
+              "id": "A",
+              "label": "They are different from the previous results."
+            },
+            {
+              "id": "B",
+              "label": "The number of children with such friends is on the rise."
+            },
+            {
+              "id": "C",
+              "label": "The negative attitude to imaginary friends is unwarranted."
+            },
+            {
+              "id": "D",
+              "label": "Parents can be negatively affected by such phenomenon."
+            }
+          ]
+        },
+        {
+          "number": 17,
+          "type": "multiple-choice",
+          "prompt": "What was Liz’s reaction to her daughter having a made-up friend?",
+          "options": [
+            {
+              "id": "A",
+              "label": "She was convinced that is it just a phase"
+            },
+            {
+              "id": "B",
+              "label": "She would worry that this friend meant too much to her daughter"
+            },
+            {
+              "id": "C",
+              "label": "She was unsure how to react to this situation"
+            },
+            {
+              "id": "D",
+              "label": "She was impressed by her daughter’s imagination"
+            }
+          ]
+        },
+        {
+          "number": 18,
+          "type": "multiple-choice",
+          "prompt": "According to Karen, kids might have imaginary friends because",
+          "options": [
+            {
+              "id": "A",
+              "label": "having real friends can be difficult for them."
+            },
+            {
+              "id": "B",
+              "label": "they can control their made-up friends."
+            },
+            {
+              "id": "C",
+              "label": "they want something they cannot get elsewhere."
+            },
+            {
+              "id": "D",
+              "label": "they have nobody to play with."
+            }
+          ]
+        },
+        {
+          "number": 19,
+          "type": "multiple-choice",
+          "prompt": "Karen gives the superhero example to illustrate",
+          "options": [
+            {
+              "id": "A",
+              "label": "an unusual teenager example."
+            },
+            {
+              "id": "B",
+              "label": "a case when an imaginary friend can be harmful."
+            },
+            {
+              "id": "C",
+              "label": "how certain cases can be really unexpected."
+            },
+            {
+              "id": "D",
+              "label": "the change that happens to children as they grow."
+            }
+          ]
+        },
+        {
+          "number": 20,
+          "type": "multiple-choice",
+          "prompt": "In Karen’s opinion, what should parents do if their kids have imaginary friends?",
+          "options": [
+            {
+              "id": "A",
+              "label": "They should pretend to like the imaginary friend."
+            },
+            {
+              "id": "B",
+              "label": "They mustn’t try to get involved in this friendship."
+            },
+            {
+              "id": "C",
+              "label": "They have to interfere if the situation gets out of control."
+            },
+            {
+              "id": "D",
+              "label": "They better avoid discussing children’s made-up friends."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 4,
+      "rangeLabel": "Questions 21-30",
+      "instruction": "You will hear five short extracts in which people share their ideas about the music industry.",
+      "matchingDualTask": true,
+      "taskOneInstruction": "For questions 21-25, choose the option which best describes each speaker.",
+      "taskTwoInstruction": "For questions 26-30, choose the option which best describes each speaker.",
+      "questions": [
+        {
+          "number": 21,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "a recording studio engineer"
+            },
+            {
+              "id": "B",
+              "label": "a musician"
+            },
+            {
+              "id": "C",
+              "label": "a reviewer"
+            },
+            {
+              "id": "D",
+              "label": "a club owner"
+            },
+            {
+              "id": "E",
+              "label": "a fan"
+            },
+            {
+              "id": "F",
+              "label": "a website operator"
+            },
+            {
+              "id": "G",
+              "label": "a performers manager"
+            },
+            {
+              "id": "H",
+              "label": "a radio presenter"
+            }
+          ],
+          "context": "Speaker 1"
+        },
+        {
+          "number": 22,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "a recording studio engineer"
+            },
+            {
+              "id": "B",
+              "label": "a musician"
+            },
+            {
+              "id": "C",
+              "label": "a reviewer"
+            },
+            {
+              "id": "D",
+              "label": "a club owner"
+            },
+            {
+              "id": "E",
+              "label": "a fan"
+            },
+            {
+              "id": "F",
+              "label": "a website operator"
+            },
+            {
+              "id": "G",
+              "label": "a performers manager"
+            },
+            {
+              "id": "H",
+              "label": "a radio presenter"
+            }
+          ],
+          "context": "Speaker 2"
+        },
+        {
+          "number": 23,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "a recording studio engineer"
+            },
+            {
+              "id": "B",
+              "label": "a musician"
+            },
+            {
+              "id": "C",
+              "label": "a reviewer"
+            },
+            {
+              "id": "D",
+              "label": "a club owner"
+            },
+            {
+              "id": "E",
+              "label": "a fan"
+            },
+            {
+              "id": "F",
+              "label": "a website operator"
+            },
+            {
+              "id": "G",
+              "label": "a performers manager"
+            },
+            {
+              "id": "H",
+              "label": "a radio presenter"
+            }
+          ],
+          "context": "Speaker 3"
+        },
+        {
+          "number": 24,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "a recording studio engineer"
+            },
+            {
+              "id": "B",
+              "label": "a musician"
+            },
+            {
+              "id": "C",
+              "label": "a reviewer"
+            },
+            {
+              "id": "D",
+              "label": "a club owner"
+            },
+            {
+              "id": "E",
+              "label": "a fan"
+            },
+            {
+              "id": "F",
+              "label": "a website operator"
+            },
+            {
+              "id": "G",
+              "label": "a performers manager"
+            },
+            {
+              "id": "H",
+              "label": "a radio presenter"
+            }
+          ],
+          "context": "Speaker 4"
+        },
+        {
+          "number": 25,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "a recording studio engineer"
+            },
+            {
+              "id": "B",
+              "label": "a musician"
+            },
+            {
+              "id": "C",
+              "label": "a reviewer"
+            },
+            {
+              "id": "D",
+              "label": "a club owner"
+            },
+            {
+              "id": "E",
+              "label": "a fan"
+            },
+            {
+              "id": "F",
+              "label": "a website operator"
+            },
+            {
+              "id": "G",
+              "label": "a performers manager"
+            },
+            {
+              "id": "H",
+              "label": "a radio presenter"
+            }
+          ],
+          "context": "Speaker 5"
+        },
+        {
+          "number": 26,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "Music preferences change quickly."
+            },
+            {
+              "id": "B",
+              "label": "Music and culture go hand-in-hand."
+            },
+            {
+              "id": "C",
+              "label": "Some successful musicians do not deserve the fame."
+            },
+            {
+              "id": "D",
+              "label": "Music industry is full of dishonest people."
+            },
+            {
+              "id": "E",
+              "label": "Musicians have to have realistic expectations."
+            },
+            {
+              "id": "F",
+              "label": "Really talented people are guaranteed to succeed."
+            },
+            {
+              "id": "G",
+              "label": "Some musicians are popular no matter what."
+            },
+            {
+              "id": "H",
+              "label": "Artists should only do music if they truly love it."
+            }
+          ],
+          "context": "Speaker 1"
+        },
+        {
+          "number": 27,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "Music preferences change quickly."
+            },
+            {
+              "id": "B",
+              "label": "Music and culture go hand-in-hand."
+            },
+            {
+              "id": "C",
+              "label": "Some successful musicians do not deserve the fame."
+            },
+            {
+              "id": "D",
+              "label": "Music industry is full of dishonest people."
+            },
+            {
+              "id": "E",
+              "label": "Musicians have to have realistic expectations."
+            },
+            {
+              "id": "F",
+              "label": "Really talented people are guaranteed to succeed."
+            },
+            {
+              "id": "G",
+              "label": "Some musicians are popular no matter what."
+            },
+            {
+              "id": "H",
+              "label": "Artists should only do music if they truly love it."
+            }
+          ],
+          "context": "Speaker 2"
+        },
+        {
+          "number": 28,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "Music preferences change quickly."
+            },
+            {
+              "id": "B",
+              "label": "Music and culture go hand-in-hand."
+            },
+            {
+              "id": "C",
+              "label": "Some successful musicians do not deserve the fame."
+            },
+            {
+              "id": "D",
+              "label": "Music industry is full of dishonest people."
+            },
+            {
+              "id": "E",
+              "label": "Musicians have to have realistic expectations."
+            },
+            {
+              "id": "F",
+              "label": "Really talented people are guaranteed to succeed."
+            },
+            {
+              "id": "G",
+              "label": "Some musicians are popular no matter what."
+            },
+            {
+              "id": "H",
+              "label": "Artists should only do music if they truly love it."
+            }
+          ],
+          "context": "Speaker 3"
+        },
+        {
+          "number": 29,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "Music preferences change quickly."
+            },
+            {
+              "id": "B",
+              "label": "Music and culture go hand-in-hand."
+            },
+            {
+              "id": "C",
+              "label": "Some successful musicians do not deserve the fame."
+            },
+            {
+              "id": "D",
+              "label": "Music industry is full of dishonest people."
+            },
+            {
+              "id": "E",
+              "label": "Musicians have to have realistic expectations."
+            },
+            {
+              "id": "F",
+              "label": "Really talented people are guaranteed to succeed."
+            },
+            {
+              "id": "G",
+              "label": "Some musicians are popular no matter what."
+            },
+            {
+              "id": "H",
+              "label": "Artists should only do music if they truly love it."
+            }
+          ],
+          "context": "Speaker 4"
+        },
+        {
+          "number": 30,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "Music preferences change quickly."
+            },
+            {
+              "id": "B",
+              "label": "Music and culture go hand-in-hand."
+            },
+            {
+              "id": "C",
+              "label": "Some successful musicians do not deserve the fame."
+            },
+            {
+              "id": "D",
+              "label": "Music industry is full of dishonest people."
+            },
+            {
+              "id": "E",
+              "label": "Musicians have to have realistic expectations."
+            },
+            {
+              "id": "F",
+              "label": "Really talented people are guaranteed to succeed."
+            },
+            {
+              "id": "G",
+              "label": "Some musicians are popular no matter what."
+            },
+            {
+              "id": "H",
+              "label": "Artists should only do music if they truly love it."
+            }
+          ],
+          "context": "Speaker 5"
+        }
+      ]
+    }
+  ]
+}

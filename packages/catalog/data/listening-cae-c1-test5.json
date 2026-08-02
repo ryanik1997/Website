@@ -1,0 +1,845 @@
+{
+  "id": "catalog-listening-cae-c1-test5",
+  "title": "CAE Listening Test 5",
+  "durationMinutes": 40,
+  "bandHint": "C1 Advanced Listening · 4 parts · 30 câu",
+  "examType": "cae",
+  "examMode": "practice",
+  "parts": [
+    {
+      "id": "catalog-listening-cae-c1-test5-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1-6",
+      "instruction": "You will hear three different extracts. For questions 1-6, choose the answer (A, B or C) which fits best",
+      "audioUrl": "/catalog/listening/cae-c1-test5/cae-listening-test-04-part-1.mp3",
+      "transcript": "**Woman:** So is John Elliott a player you like to watch? I’m guessing he is. **Man:** Yes, he’s excellent, very technical, clever with the ball; he’s good at passing the ball to the team’s top goal scorers and setting them up to shoot. When he sees that final pass coming as he approaches the goal area, you get a lot of players who get there but then freeze and get erratic, but he’s not one of them **[1]**. So if you can get him backing up the strikers, he can be the key player. **Woman:** And what about their new man, Danny Martinez? Seven million they paid for him, they’ve probably overpaid. Not very cautious given that they’ve paid out this kind of cash before and it all went wrong, didn’t it? They’ll want to hang on to him come what may, at that price **[2]**… **Man:** Yes, well, it hasn’t broken the bank, but they were overcharged for him. They probably thought he was a good investment – he’s young, they can sell him on if things go wrong, for more money **[2]**. They got their fingers burnt once over a similar deal, and they won’t want it to happen again. **Interviewer:** Congratulations, Deanna! **Deanna:** Thanks very much. **Interviewer:** Were you surprised to win? **Deanna:** Completely! **Interviewer:** Now you’re trying to save a wildlife habitat that stretches 3,000 kilometres along the coast of South America. Aren’t you daunted by that? **Deanna:** It’s a huge task but we’re basically getting the message out: the local fish population – mainly anchovies – are being forced into colder water because the sea’s warming up **[3]**. Of those left, 85 per cent are being scooped up by industrial fishing trawlers so predators like seals, penguins and dolphins – and local fishermen – are left with very little. Now this is the richest ecosystem in the world. If it’s starting to be affected, you know there must be a tremendous impact on other less robust systems. **Interviewer:** So what’s your relationship like with local fishermen? **Deanna:** They used to regard me as an enemy because I used to work for seals, and as you know, fishermen and seals compete for the same fish – but now they see me as an ally trying to control industrial fishing. **Interviewer:** What – stopping them scooping up anchovies? **Deanna:** Not stopping them, but getting them to catch less; which means the local fishermen can catch more of the large fish that feed on the anchovies **[4]**. **Neil:** Today we’re talking about books that have inspired us, books that have made a difference to our lives. Each of my studio guests has chosen what for them was an important book and first off we’re going to hear about Monica Naim’s choice. Monica. **Monica:** Thanks, Neil. Well the thing about this book is that when I first discovered it in my late teens – it was a birthday present, if I remember correctly – I’d never really read anything like it before. I’d heard about it from a friend, and I’d got the idea it was something special and so I asked for it specifically **[5]**. I think I was about 17, so I was a fairly late developer as a reader. I hadn’t been particularly interested up till then, but it suddenly sort of took a grip. I think it was the strangeness of that book; I mean it’s the one I’d take with me to a desert island because it’s just got everything in it and it just opened me up to what pleasures there are in description, in narrative, you know, in ideas **[6]**. **Neil:** Well, we’ll discover exactly which book my next guest has chosen…",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test5-q-1",
+          "number": 1,
+          "type": "multiple-choice",
+          "prompt": "What impresses the man about the player called John Elliott?",
+          "options": [
+            {
+              "id": "A",
+              "label": "He is able to keep calm when he gets near the goal area"
+            },
+            {
+              "id": "B",
+              "label": "He is good at preventing the opponents from scoring"
+            },
+            {
+              "id": "C",
+              "label": "He can score many goals given the right conditions"
+            }
+          ],
+          "answer": "A",
+          "explanation": "AMan: When he sees that final pass coming as he approaches the goal area, you get a lot of players who get there but then freeze and get erratic, but he’s not one of them"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test5-q-2",
+          "number": 2,
+          "type": "multiple-choice",
+          "prompt": "What do the two speakers disagree about?",
+          "options": [
+            {
+              "id": "A",
+              "label": "the inflated price paid for the new player"
+            },
+            {
+              "id": "B",
+              "label": "the new player’s long-term prospects in the team"
+            },
+            {
+              "id": "C",
+              "label": "the manager’s previous mistakes when purchasing players"
+            }
+          ],
+          "answer": "B",
+          "explanation": "BWoman: Not very cautious given that they’ve paid out this kind of cash before and it all went wrong, didn’t it? They’ll want to hang on to him come what may, at that price...Man: They probably thought he was a good investment – he’s young, they can sell him on if things go wrong, for more money"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test5-q-3",
+          "number": 3,
+          "type": "multiple-choice",
+          "prompt": "Deanna thinks the underlying cause of the ecosystem changes she mentions is",
+          "options": [
+            {
+              "id": "A",
+              "label": "overfishing by industrial fisheries"
+            },
+            {
+              "id": "B",
+              "label": "increased local sea temperatures"
+            },
+            {
+              "id": "C",
+              "label": "growth of predator populations in the area"
+            }
+          ],
+          "answer": "B",
+          "explanation": "BDeanna: It’s a huge task but we’re basically getting the message out: the local fish population – mainly anchovies – are being forced into colder water because the sea’s warming up"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test5-q-4",
+          "number": 4,
+          "type": "multiple-choice",
+          "prompt": "How do the local fishermen feel about Deanna’s work now?",
+          "options": [
+            {
+              "id": "A",
+              "label": "unhappy about sharing their catch with marine creatures she protects"
+            },
+            {
+              "id": "B",
+              "label": "pleased that she has prevented industrial exploitation of anchovies"
+            },
+            {
+              "id": "C",
+              "label": "optimistic about the prospect of catching better quality fish"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CDeanna: Not stopping them, but getting them to catch less; which means the local fishermen can catch more of the large fish that feed on the anchovies"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test5-q-5",
+          "number": 5,
+          "type": "multiple-choice",
+          "prompt": "Why did the woman read the book she describes?",
+          "options": [
+            {
+              "id": "A",
+              "label": "It was an unexpected gift"
+            },
+            {
+              "id": "B",
+              "label": "She came across it by chance"
+            },
+            {
+              "id": "C",
+              "label": "It was recommended to her"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CMonica: I’d heard about it from a friend, and I’d got the idea it was something special and so I asked for it specifically"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test5-q-6",
+          "number": 6,
+          "type": "multiple-choice",
+          "prompt": "What did the book help her to understand?",
+          "options": [
+            {
+              "id": "A",
+              "label": "how strange the world is"
+            },
+            {
+              "id": "B",
+              "label": "how enjoyable stories can be"
+            },
+            {
+              "id": "C",
+              "label": "how she could become a writer HINTS AND KEYWORDS"
+            }
+          ],
+          "answer": "B",
+          "explanation": "BMonica:... it just opened me up to what pleasures there are in description, in narrative, you know, in ideas"
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test5-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 7-14",
+      "instruction": "Part 2 — Sentence completion",
+      "audioUrl": "/catalog/listening/cae-c1-test5/cae-listening-test-04-part-2.mp3",
+      "transcript": "**Narrator:** When I visited a number of fruit farms in central England, I found broad agreement among most of the growers that these days it makes sense to move away from their traditional crops such as apples and into cherries instead **[7]**. Now, in summertime, they have orchard after orchard of beautiful trees, heavily laden with bright red fruit. UK cherry growers tend to choose the varieties which ripen slowly. This fruit may command a higher price because the harvest is not so early, and there are always reliable buyers for it. Research is currently being carried out into ways of improving yield. A major obstacle to efficient production is the fact that growth may not be consistent from season to season. Sometimes the fruit only grows as big as a pea, and then drops to the ground. Quite a few of the smaller trees are covered up against the rain and wind, in a plastic tunnel **[8]**. Older, larger trees have to take their chance out in the open, but cherries are a delicate fruit, and optimum weather conditions are needed to achieve the potential yield of five tonnes per hectare. The surface of the fruit has very little wax on it, so cherries need to be kept out of the rain as much as possible, because the skin is liable to crack when water gets into it **[9]**. If this occurs, the crop may be lost, because the fruit bursts with a pop, rather like a balloon **[10]**. When you’re selecting the best cherries to buy, don’t get them if they look at all tired or wrinkled, and buy the ones with a green stem **[11]**. You’ll find they taste much better than ones without. People often ask, ‘How long does it take to get a decent crop from a cherry tree?’ Well, there are new varieties, laden with fruit, that are only four years old, but if you go back and read the old fruit-growing textbooks from the 1960s, they tell you cherries don’t give a worthwhile crop till they’re 12 years old **[12]**. Some varieties go on cropping till they’re 90! There are three new varieties which have recently been introduced by growers. ‘Symphony’ and ‘Staccato’ are both highly successful so far, but ‘Sweetheart’ is being planted in larger numbers **[13]** than either of them and looks to be a real winner. Just one problem if you go cherry picking this summer – how do you stop yourself eating them all? One expert who’s been picking all her life told me, ‘Eat a cherry, suck the stone and keep it on your tongue – it stops you putting any more in **[14]**!’ That way you end up with at least a handful of this delicious fruit in your basket!",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test5-q-7",
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "The speaker gives the examples of ________ as a crop being replaced by cherries.",
+          "options": [],
+          "answer": "apples",
+          "explanation": "Apples... it makes sense to move away from their traditional crops such as apples and into cherries instead"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test5-q-8",
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "To protect young trees from extremes of weather, a ________ may be used.",
+          "options": [],
+          "answer": "(plastic) tunnel",
+          "explanation": "(Plastic) tunnelQuite a few of the smaller trees are covered up against the rain and wind, in a plastic tunnel."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test5-q-9",
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "Cherries are prone to cracking because there is hardly any ________ on the skin of the fruit.",
+          "options": [],
+          "answer": "wax",
+          "explanation": "WaxThe surface of the fruit has very little wax on it, so cherries need to be kept out of the rain as much as possible, because the skin is liable to crack when water gets into it"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test5-q-10",
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "The speaker compares the cherry to a ________ when explaining the effect of rain on the fruit.",
+          "options": [],
+          "answer": "balloon",
+          "explanation": "BalloonIf this occurs, the crop may be lost, because the fruit bursts with a pop, rather like a balloon"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test5-q-11",
+          "number": 11,
+          "type": "gap-fill",
+          "prompt": "Shoppers are advised to purchase cherries which have a ________ stem and look fresh and tasty.",
+          "options": [],
+          "answer": "green",
+          "explanation": "GreenWhen you’re selecting the best cherries to buy, don’t get them if they look at all tired or wrinkled, and buy the ones with a green stem"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test5-q-12",
+          "number": 12,
+          "type": "gap-fill",
+          "prompt": "The traditional view was that cherries need up to ________ before they produce a useful crop.",
+          "options": [],
+          "answer": "12 years/twelve years",
+          "explanation": "12/twelve years... they tell you cherries don’t give a worthwhile crop till they’re 12 years old."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test5-q-13",
+          "number": 13,
+          "type": "gap-fill",
+          "prompt": "The most popular new variety of cherry tree among farmers has the name ________ .",
+          "options": [],
+          "answer": "Sweetheart",
+          "explanation": "SweetheartThere are three new varieties which have recently been introduced by growers. ‘Symphony’ and ‘Staccato’ are both highly successful so far, but ‘Sweetheart’ is being planted in larger numbers than either of them and looks to be a real winner."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test5-q-14",
+          "number": 14,
+          "type": "gap-fill",
+          "prompt": "While picking cherries, keep a ________ in your mouth to stop you eating too many.",
+          "options": [],
+          "answer": "(cherry) stone",
+          "explanation": "(cherry) stoneEat a cherry, suck the stone and keep it on your tongue – it stops you putting any more in!"
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test5-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 15-20",
+      "instruction": "You will hear a radio interview in which an artist called Sophie Axel is talking about her life and career. For questions 15-20, choose the answer (A, B, C or D) which fits best according to what you hear.",
+      "audioUrl": "/catalog/listening/cae-c1-test5/cae-listening-test-04-part-3.mp3",
+      "transcript": "**Interviewer:** So here we are today in the artist Sophie Axel’s – ehm – amazingly colourful home! **Sophie:** Do you mean shockingly colourful? You don’t have to be polite! **Interviewer:** Well, it was quite a surprise when you opened the front door. **Sophie:** That’s how it’s meant to be, really. A huge impact of colour on the senses. Electric pink, brilliant blue and yellow for the hallway – in fact all the walls in the house are different colours. It’s so stimulating. **Interviewer:** So would you say colour is the most important thing in your life, Sophie? **Sophie:** Absolutely. It’s in me. I don’t pay any conscious attention to it, it’s who I am, what I have grown up with. It’s like an internal microchip. For me, every number and every day has a colour **[15]**; when I sleep, I even dream in colour. And I associate people with colours too. **Interviewer:** I won’t ask you what mine is! I noticed before that you’ve even got rainbow stairs. **Sophie:** Oh, the children adore them – it’s their favourite place to play. **Interviewer:** They’re quite small, aren’t they? You’re not worried about them falling? **Sophie:** No – they’re as sure-footed as goats, even the baby! Life is never without danger. I just leave them to it and they develop confidence at their own rate **[16]**, as children should. They need to find themselves – specially if they’re going to follow the family’s artistic tradition. **Interviewer:** You mean your family are artists too? **Sophie:** Not as such, but we’re all very creative, specially the female side of the family. My grandmother was an actress – she’s still alive; and my mother and aunt are furniture designers – for quite famous international companies actually. **Interviewer:** So when you get together… **Sophie:** Oh, there’s no stopping us! We’re all very expressive in words, in clothes, in the environment we create in our homes **[17]**. **Interviewer:** Family gatherings must be something! **Sophie:** Oh, you’re right there! When it comes to events such as festivals and birthdays, we dress up, find the best presents imaginable and then wrap them magnificently – oh, it’s so exciting – and we have huge parties. But there’s awful pressure to do something unusual too and even more pressure from people around **[18]**. For example on Rosa’s third birthday… **Interviewer:** That’s your daughter? **Sophie:** Yes… I made a set of puppets to put on a show for her friends from playgroup. It took me days. Immediately their parents asked me to put on shows for their children’s birthdays too. And so it goes on **[18]**. **Interviewer:** And is Rosa creative as well? **Sophie:** Oh, yes, she adores painting. My mother came to stay recently and I found them both in the early morning chatting away about the colour of sunrise. There they were, grandmother and granddaughter, talking about colour as if they were absolute equals. **Interviewer:** Quite an unusual topic! So let’s talk about your own life a bit. I suppose you were a star student at art school – **Sophie:** Oh, you couldn’t be more wrong – I was a total flop. At that time there was no interest in design. It was all introspection and gloom and doom, and I just couldn’t be moulded in that way **[19]**. So I took off… **Interviewer:** Literally? **Sophie:** Well, nothing too exotic. I went to work as a cook in a local hotel. I used to cycle there and the pay was so low that when I got a puncture I just couldn’t pay for the repair. So I offered the man in the bike shop a poster advertising his repair service, instead of money **[20]**. **Interviewer:** Did he accept? **Sophie:** Yes – in the middle of the picture was this completely flat tyre and someone who saw it asked if he could use it to advertise a national charity bike ride. **Interviewer:** That must have given you a boost! **Sophie:** Yes, I had several important poster commissions after that, including some for health education. I’ve had some other lucky breaks too. I designed some gift-wrap for a stationery company, and a woman phoned who’d been given a book wrapped in my paper. She was an author and asked me to illustrate her book of fairy stories, so that’s how I got into publishing. In fact I’m just finishing a children’s activity book that I’ve actually written and illustrated myself…",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test5-q-15",
+          "number": 15,
+          "type": "multiple-choice",
+          "prompt": "Sophie illustrates the importance of colour in her life by saying she",
+          "options": [
+            {
+              "id": "A",
+              "label": "has coloured daydreams"
+            },
+            {
+              "id": "B",
+              "label": "associates letters and colours"
+            },
+            {
+              "id": "C",
+              "label": "paints people in particular colours"
+            },
+            {
+              "id": "D",
+              "label": "links colours with days of the week"
+            }
+          ],
+          "answer": "A",
+          "explanation": "ASophie: For me, every number and every day has a colour; when I sleep, I even dream in colour. And I associate people with colours too."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test5-q-16",
+          "number": 16,
+          "type": "multiple-choice",
+          "prompt": "Sophie’s attitude to risk is that her children should be",
+          "options": [
+            {
+              "id": "A",
+              "label": "left to cope with it"
+            },
+            {
+              "id": "B",
+              "label": "warned about it"
+            },
+            {
+              "id": "C",
+              "label": "taught how to deal with it"
+            },
+            {
+              "id": "D",
+              "label": "protected from it"
+            }
+          ],
+          "answer": "A",
+          "explanation": "ASophie: No – they’re as sure-footed as goats, even the baby! Life is never without danger. I just leave them to it and they develop confidence at their own rate"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test5-q-17",
+          "number": 17,
+          "type": "multiple-choice",
+          "prompt": "Sophie’s mother and aunt use their artistic gifts professionally in the",
+          "options": [
+            {
+              "id": "A",
+              "label": "pictures they paint together"
+            },
+            {
+              "id": "B",
+              "label": "plays they perform on stage"
+            },
+            {
+              "id": "C",
+              "label": "objects they help to create"
+            },
+            {
+              "id": "D",
+              "label": "clothes they design and make"
+            }
+          ],
+          "answer": "D",
+          "explanation": "CSophie: and my mother and aunt are furniture designers - for quite famous international companies actually."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test5-q-18",
+          "number": 18,
+          "type": "multiple-choice",
+          "prompt": "Sophie feels the puppet show she mentions is a good example of",
+          "options": [
+            {
+              "id": "A",
+              "label": "the inspiration she gives to other people"
+            },
+            {
+              "id": "B",
+              "label": "the admiration she now enjoys"
+            },
+            {
+              "id": "C",
+              "label": "the expectations she has to live up to"
+            },
+            {
+              "id": "D",
+              "label": "the assistance she gives the playgroup"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CSophie: But there’s awful pressure to do something unusual too and even more pressure from people around [...] Immediately their parents asked me to put on shows for their children’s birthdays too. And so it goes on"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test5-q-19",
+          "number": 19,
+          "type": "multiple-choice",
+          "prompt": "Sophie was a failure at art school because she",
+          "options": [
+            {
+              "id": "A",
+              "label": "was not interested in design"
+            },
+            {
+              "id": "B",
+              "label": "favoured introspective painting"
+            },
+            {
+              "id": "C",
+              "label": "was very pessimistic"
+            },
+            {
+              "id": "D",
+              "label": "had a different approach to art"
+            }
+          ],
+          "answer": "D",
+          "explanation": "DSophie: Oh, you couldn’t be more wrong – I was a total flop. At that time there was no interest in design. It was all introspection and gloom and doom, and I just couldn’t be moulded in that way"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test5-q-20",
+          "number": 20,
+          "type": "multiple-choice",
+          "prompt": "When Sophie had no money to repair her bike, she offered to",
+          "options": [
+            {
+              "id": "A",
+              "label": "take a part-time job"
+            },
+            {
+              "id": "B",
+              "label": "publicise a national charity"
+            },
+            {
+              "id": "C",
+              "label": "produce an advertisement"
+            },
+            {
+              "id": "D",
+              "label": "design posters on commission HINTS AND KEYWORDS"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CSophie: Well, nothing too exotic. I went to work as a cook in a local hotel. I used to cycle there and the pay was so low that when I got a puncture I just couldn’t pay for the repair. So I offered the man in the bike shop a poster advertising his repair service, instead of money."
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test5-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 21-30",
+      "instruction": "You will hear five short extracts in which people are talking about problems related to their work",
+      "audioUrl": "/catalog/listening/cae-c1-test5/cae-listening-test-04-part-4.mp3",
+      "transcript": "**Speaker 1:** Increased numbers of visitors would of course be a great benefit to the locality. My worry is though whether we have the infrastructure to cope. I’m not really concerned about the bed and breakfast sector **[21]**. There’s a certain amount of slack in the system. But what about transport? **[26]** The railway line was removed twenty years ago and the centre gets choked up with cars as it is in the summer, all queuing to go through the narrow medieval gateways which are a great photo opportunity but a nightmare for through traffic. Naturally the pollution levels are rising now from traffic fumes. Reinstating the railway connection would get my vote but it won’t be easy. **Speaker 2:** I think there are some wonderful places to visit around the country and it’s my job to try and include them in our publications **[22]**, particularly for our profitable export market. But it’s all a bit piecemeal, isn’t it? Take accommodation, for example. There are some pockets of excellence with great places to stay, run by friendly staff and serving interesting regional food. But you should see the pile of correspondence we receive from disappointed tourists. It’s generally about the mismatch between price and quality **[27]**. It’s very hard to know what to recommend when we have to update our accommodation sections, especially in London. Quality across the board, that’s the way forward! **[27]** **Speaker 3:** Well, I think we really need to aim to try to get as many tourists as possible **[23]**. But, we should start focusing on different groups. One of our key tasks has always been to gather information from overseas markets and feed it back to local tourist organisations throughout the country here so that they can develop products that suit. Currently we’re thinking of marketing certain regions to the more mature, higher spending travellers **[28]** who could come outside the summer holiday period, in order to extend the main tourist season. These travellers are primarily people who love historical buildings, gardens, walking and other activities which can be done in the spring and autumn. **Speaker 4:** I think tourism can bring benefits if handled wisely. One scheme which is close to my heart is the regeneration of the rural economy **[29]**. By promoting traditional crafts and setting up visitor’s centres to see these in action, it would be possible to go quite a long way. But we need to consider the wider issues. For instance, what means of transport are all these people going to use to get here and where are they going to stay? Can we encourage only those who do the least damage **[24]**? I fear that won’t happen as short-term considerations always win. People fail to understand how difficult it is to reverse damage to our surroundings. **[24]** **Speaker 5:** In this business you can’t stand still. We’ve done a lot to make the inside attractive and informative over the years, set up educational displays about everyday life five hundred years ago, redecorated the bedroom **[25]** where Queen Elizabeth slept in 1570. We also restored the eighteenth-century kitchen **[25]** to its former layout and we do cooking demonstrations for schoolchildren. This year it’s the outside. I want to encourage families to pay **[30]** to see our extended garden and zoo and the demonstrations of archery and medieval combat. To be profitable we really do need visitors to stay longer and spend more money **[30]** in the gardens, shop and restaurant.",
+      "matchingDualTask": true,
+      "taskOneInstruction": "For questions 21-25, choose the option which best describes each speaker.",
+      "taskTwoInstruction": "For questions 26-30, choose the option which best describes each speaker.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test5-q-21",
+          "number": 21,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "travel broadcaster"
+            },
+            {
+              "id": "B",
+              "label": "hotel owner"
+            },
+            {
+              "id": "C",
+              "label": "guide book publisher"
+            },
+            {
+              "id": "D",
+              "label": "tourist board representative"
+            },
+            {
+              "id": "E",
+              "label": "environmentalist"
+            },
+            {
+              "id": "F",
+              "label": "railway executive"
+            },
+            {
+              "id": "G",
+              "label": "manager of a tourist attraction"
+            },
+            {
+              "id": "H",
+              "label": "local government official"
+            }
+          ],
+          "answer": "H",
+          "explanation": "HMy worry is though whether we have the infrastructure to cope. I’m not really concerned about the bed and breakfast sector.",
+          "context": "Speaker 1"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test5-q-22",
+          "number": 22,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "travel broadcaster"
+            },
+            {
+              "id": "B",
+              "label": "hotel owner"
+            },
+            {
+              "id": "C",
+              "label": "guide book publisher"
+            },
+            {
+              "id": "D",
+              "label": "tourist board representative"
+            },
+            {
+              "id": "E",
+              "label": "environmentalist"
+            },
+            {
+              "id": "F",
+              "label": "railway executive"
+            },
+            {
+              "id": "G",
+              "label": "manager of a tourist attraction"
+            },
+            {
+              "id": "H",
+              "label": "local government official"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CI think there are some wonderful places to visit around the country and it’s my job to try and include them in our publications...",
+          "context": "Speaker 2"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test5-q-23",
+          "number": 23,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "travel broadcaster"
+            },
+            {
+              "id": "B",
+              "label": "hotel owner"
+            },
+            {
+              "id": "C",
+              "label": "guide book publisher"
+            },
+            {
+              "id": "D",
+              "label": "tourist board representative"
+            },
+            {
+              "id": "E",
+              "label": "environmentalist"
+            },
+            {
+              "id": "F",
+              "label": "railway executive"
+            },
+            {
+              "id": "G",
+              "label": "manager of a tourist attraction"
+            },
+            {
+              "id": "H",
+              "label": "local government official"
+            }
+          ],
+          "answer": "D",
+          "explanation": "DWell, I think we really need to aim to try to get as many tourists as possible.",
+          "context": "Speaker 3"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test5-q-24",
+          "number": 24,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "travel broadcaster"
+            },
+            {
+              "id": "B",
+              "label": "hotel owner"
+            },
+            {
+              "id": "C",
+              "label": "guide book publisher"
+            },
+            {
+              "id": "D",
+              "label": "tourist board representative"
+            },
+            {
+              "id": "E",
+              "label": "environmentalist"
+            },
+            {
+              "id": "F",
+              "label": "railway executive"
+            },
+            {
+              "id": "G",
+              "label": "manager of a tourist attraction"
+            },
+            {
+              "id": "H",
+              "label": "local government official"
+            }
+          ],
+          "answer": "E",
+          "explanation": "ECan we encourage only those who do the least damage? I fear that won’t happen as short-term considerations always win. People fail to understand how difficult it is to reverse damage to our surroundings.",
+          "context": "Speaker 4"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test5-q-25",
+          "number": 25,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "travel broadcaster"
+            },
+            {
+              "id": "B",
+              "label": "hotel owner"
+            },
+            {
+              "id": "C",
+              "label": "guide book publisher"
+            },
+            {
+              "id": "D",
+              "label": "tourist board representative"
+            },
+            {
+              "id": "E",
+              "label": "environmentalist"
+            },
+            {
+              "id": "F",
+              "label": "railway executive"
+            },
+            {
+              "id": "G",
+              "label": "manager of a tourist attraction"
+            },
+            {
+              "id": "H",
+              "label": "local government official"
+            }
+          ],
+          "answer": "G",
+          "explanation": "GIn this business you can’t stand still. We’ve done a lot to make the inside attractive and informative over the years, set up educational displays about everyday life five hundred years ago, redecorated the bedroom where Queen Elizabeth slept in 1570. We also restored the eighteenth-century kitchen to its former layout and we do cooking demonstrations for schoolchildren.",
+          "context": "Speaker 5"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test5-q-26",
+          "number": 26,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "to increase the amount spend by clients"
+            },
+            {
+              "id": "B",
+              "label": "to improve our circulation"
+            },
+            {
+              "id": "C",
+              "label": "to revive country skills"
+            },
+            {
+              "id": "D",
+              "label": "to raise standards overall"
+            },
+            {
+              "id": "E",
+              "label": "to restore local transport networks"
+            },
+            {
+              "id": "F",
+              "label": "to refurbish the rooms"
+            },
+            {
+              "id": "G",
+              "label": "to attract a new type of client"
+            },
+            {
+              "id": "H",
+              "label": "to expand tourist accommodation"
+            }
+          ],
+          "answer": "E",
+          "explanation": "EThere’s a certain amount of slack in the system. But what about transport?",
+          "context": "Speaker 1"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test5-q-27",
+          "number": 27,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "to increase the amount spend by clients"
+            },
+            {
+              "id": "B",
+              "label": "to improve our circulation"
+            },
+            {
+              "id": "C",
+              "label": "to revive country skills"
+            },
+            {
+              "id": "D",
+              "label": "to raise standards overall"
+            },
+            {
+              "id": "E",
+              "label": "to restore local transport networks"
+            },
+            {
+              "id": "F",
+              "label": "to refurbish the rooms"
+            },
+            {
+              "id": "G",
+              "label": "to attract a new type of client"
+            },
+            {
+              "id": "H",
+              "label": "to expand tourist accommodation"
+            }
+          ],
+          "answer": "D",
+          "explanation": "DIt’s generally about the mismatch between price and quality. It’s very hard to know what to recommend when we have to update our accommodation sections, especially in London. Quality across the board, that’s the way forward!",
+          "context": "Speaker 2"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test5-q-28",
+          "number": 28,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "to increase the amount spend by clients"
+            },
+            {
+              "id": "B",
+              "label": "to improve our circulation"
+            },
+            {
+              "id": "C",
+              "label": "to revive country skills"
+            },
+            {
+              "id": "D",
+              "label": "to raise standards overall"
+            },
+            {
+              "id": "E",
+              "label": "to restore local transport networks"
+            },
+            {
+              "id": "F",
+              "label": "to refurbish the rooms"
+            },
+            {
+              "id": "G",
+              "label": "to attract a new type of client"
+            },
+            {
+              "id": "H",
+              "label": "to expand tourist accommodation"
+            }
+          ],
+          "answer": "G",
+          "explanation": "GCurrently we’re thinking of marketing certain regions to the more mature, higher spending travellers...",
+          "context": "Speaker 3"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test5-q-29",
+          "number": 29,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "to increase the amount spend by clients"
+            },
+            {
+              "id": "B",
+              "label": "to improve our circulation"
+            },
+            {
+              "id": "C",
+              "label": "to revive country skills"
+            },
+            {
+              "id": "D",
+              "label": "to raise standards overall"
+            },
+            {
+              "id": "E",
+              "label": "to restore local transport networks"
+            },
+            {
+              "id": "F",
+              "label": "to refurbish the rooms"
+            },
+            {
+              "id": "G",
+              "label": "to attract a new type of client"
+            },
+            {
+              "id": "H",
+              "label": "to expand tourist accommodation"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CI think tourism can bring benefits if handled wisely. One scheme which is close to my heart is the regeneration of the rural economy",
+          "context": "Speaker 4"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test5-q-30",
+          "number": 30,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "to increase the amount spend by clients"
+            },
+            {
+              "id": "B",
+              "label": "to improve our circulation"
+            },
+            {
+              "id": "C",
+              "label": "to revive country skills"
+            },
+            {
+              "id": "D",
+              "label": "to raise standards overall"
+            },
+            {
+              "id": "E",
+              "label": "to restore local transport networks"
+            },
+            {
+              "id": "F",
+              "label": "to refurbish the rooms"
+            },
+            {
+              "id": "G",
+              "label": "to attract a new type of client"
+            },
+            {
+              "id": "H",
+              "label": "to expand tourist accommodation"
+            }
+          ],
+          "answer": "A",
+          "explanation": "AI want to encourage families to pay to see our extended garden and zoo and the demonstrations of archery and medieval combat. To be profitable we really do need visitors to stay longer and spend more money in the gardens, shop and restaurant.",
+          "context": "Speaker 5"
+        }
+      ]
+    }
+  ],
+  "catalogSlug": "cae-c1-test5",
+  "catalogBase": "/catalog/listening/cae-c1-test5"
+}

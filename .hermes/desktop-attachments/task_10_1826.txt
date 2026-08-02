@@ -1,0 +1,844 @@
+Hãy sửa lại toàn bộ IELTS Speaking module theo hướng functional clone chính xác của:
+
+https://theieltsdictionary.com/practice/speaking
+
+PROJECT:
+
+D:\App-English-Ryan\Website
+
+CRAWL DATA:
+
+D:\App-English-Ryan\Crawl\IELTS_Bank\Speaking_IELTS
+
+ROUTE HIỆN TẠI:
+
+http://localhost:5173/app/speaking/ielts
+
+==================================================
+QUYẾT ĐỊNH SẢN PHẨM MỚI
+==================================================
+
+Bỏ định hướng dashboard bento tự thiết kế.
+
+Không tiếp tục lấy `/app/reading-corner/bao` làm visual reference chính.
+
+Mục tiêu mới:
+
+- tái tạo sát nhất cấu trúc;
+- bố cục;
+- navigation;
+- module hierarchy;
+- card arrangement;
+- tab;
+- roulette interaction;
+- forecast interaction;
+- shadowing lesson flow;
+- speaking practice flow;
+
+của:
+
+https://theieltsdictionary.com/practice/speaking
+
+Có thể giữ:
+
+- app sidebar của Ryan English;
+- user authentication;
+- Speaking AI backend hiện có;
+- design tokens bắt buộc của app;
+- route convention nội bộ.
+
+Nhưng vùng nội dung Speaking phải theo source website, không theo dashboard bento hiện tại.
+
+Không copy logo/trademark hoặc nội dung không có trong dữ liệu đã crawl. Dùng dữ liệu crawl thật và branding Ryan English.
+
+==================================================
+1. KHÔNG CLAIM PHASE 3 PASS
+==================================================
+
+Các quality gate trước đó chỉ chứng minh:
+
+- TypeScript compile;
+- tests hiện có chạy;
+- build thành công;
+- vài route mở được.
+
+Chúng không chứng minh sản phẩm đúng chức năng.
+
+Hãy đổi trạng thái task hiện tại thành:
+
+UI parity: FAILED
+Functional parity: FAILED
+Data mapping: FAILED
+Scroll behavior: FAILED
+Production ready: NO
+
+Không giữ claim browser smoke PASS khi các route hiển thị sai nội dung.
+
+==================================================
+2. AUDIT SOURCE THẬT BẰNG SKILL /clone-website
+==================================================
+
+Dùng lại skill `/clone-website`.
+
+Mở trực tiếp:
+
+https://theieltsdictionary.com/practice/speaking
+
+Với session đã đăng nhập.
+
+Không chỉ đọc artifact JSON.
+
+Ghi lại cho từng module:
+
+- screenshot desktop;
+- screenshot mobile;
+- DOM hierarchy;
+- route/url changes;
+- tabs;
+- buttons;
+- accordion;
+- modal;
+- scroll behavior;
+- API request;
+- state transitions;
+- item count;
+- empty/loading/error states.
+
+Audit riêng:
+
+1. Landing Speaking.
+2. Forecast.
+3. Roulette.
+4. Shadowing catalog.
+5. Shadowing lesson.
+6. Part 1 practice.
+7. Part 2 practice.
+8. Part 3 practice.
+9. Recording flow.
+10. AI feedback flow nếu source có.
+
+Tạo:
+
+tmp/speaking-source-parity-audit.md
+tmp/speaking-source-route-map.json
+tmp/speaking-source-interactions.json
+
+Không chỉnh code trước khi audit đủ.
+
+==================================================
+3. LẬP BẢNG SOURCE → APP
+==================================================
+
+Tạo bảng:
+
+| Source screen/state | Source URL/state | App route | Data type | Implemented | Parity |
+|---|---|---|---|---|---|
+
+Bao gồm tối thiểu:
+
+- Landing.
+- Forecast home.
+- Forecast Part 1 mandatory.
+- Forecast Part 1 topics.
+- Forecast Part 2+3.
+- Roulette Part 1.
+- Roulette Part 2.
+- Roulette Part 3.
+- Roulette result state.
+- Shadowing catalog.
+- Shadowing lesson player.
+- Speaking Part 1 practice.
+- Speaking Part 2 practice.
+- Speaking Part 3 practice.
+
+Không gom nhiều source state khác nhau thành một generic card page.
+
+==================================================
+4. FIX SCROLL TRƯỚC TIÊN
+==================================================
+
+Route:
+
+/app/speaking/ielts
+
+hiện không cuộn được.
+
+Trace từ DOM root đến content:
+
+html
+body
+#root
+app-shell
+main
+route-container
+speaking-ielts-page
+dashboard
+
+Kiểm tra tất cả:
+
+- height;
+- min-height;
+- max-height;
+- overflow;
+- position;
+- contain;
+- overscroll-behavior.
+
+Không sửa bằng cách đặt thêm một nested scroll tùy tiện.
+
+Mục tiêu:
+
+- app shell chỉ có một vertical scroll container rõ ràng;
+- toàn bộ dashboard cuộn từ đầu đến cuối;
+- mouse wheel hoạt động;
+- trackpad hoạt động;
+- PageDown hoạt động;
+- scrollbar hiển thị đúng;
+- không khóa body scroll;
+- không có scroll trap;
+- không mất scroll khi route change.
+
+CSS mục tiêu thường là:
+
+.speaking-ielts-page {
+  min-height: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+Nếu main app shell là scroll container:
+
+.app-main {
+  min-height: 0;
+  overflow-y: auto;
+}
+
+Không dùng đồng thời:
+
+body overflow hidden
++
+page height 100vh
++
+nested overflow hidden.
+
+Validation:
+
+- 1920×1080.
+- 1366×768.
+- 390×844.
+- wheel scroll từ đầu tới cuối.
+- keyboard PageDown.
+- scrollbar thumb thay đổi.
+- không horizontal overflow.
+
+==================================================
+5. LOẠI BỎ BENTO DASHBOARD TỰ CHẾ
+==================================================
+
+Không giữ bento hiện tại chỉ vì đã code xong.
+
+So sánh source landing và tái tạo:
+
+- section order;
+- module cards;
+- module names;
+- card size;
+- card spacing;
+- navigation behavior;
+- tab structure;
+- responsive stacking.
+
+Không thêm các module tự chế nếu source không có:
+
+- Sample 8.0 card;
+- Premium card;
+- mock AI score;
+- decorative statistics;
+
+trừ khi chúng thực sự nằm trong source hoặc là phần riêng rõ ràng của Ryan English.
+
+Nếu giữ stats Ryan English:
+
+- đặt thành một section phụ;
+- không làm thay đổi source information architecture;
+- không chen vào giữa flow source.
+
+==================================================
+6. SỬA DATA MODEL: PAGE KHÔNG PHẢI PRACTICE ITEM
+==================================================
+
+Hiện adapter đang coi page/container record là practice item.
+
+Phải tách rõ:
+
+type SpeakingPageRecord =
+  | LandingPage
+  | ForecastIndexPage
+  | ShadowingCatalogPage
+  | RoulettePage;
+
+type SpeakingPracticeItem =
+  | Part1Question
+  | Part2CueCard
+  | Part3Question
+  | ShadowingLesson;
+
+Không cho phép route:
+
+/practice/:itemId
+
+nhận các loại:
+
+- landing;
+- forecast index;
+- catalog page;
+- source page wrapper;
+- generic site record.
+
+Thêm runtime guard:
+
+isPracticeItem(record)
+
+Nếu không phải practice item:
+
+- không render practice page;
+- redirect về đúng module;
+- log development warning;
+- không hiển thị raw text dump.
+
+==================================================
+7. NORMALIZE FORECAST ĐÚNG CẤP
+==================================================
+
+Dữ liệu Forecast phải được tách:
+
+{
+  "mandatoryPart1": [...],
+  "part1Topics": [...],
+  "part23Sets": [...]
+}
+
+Expected count theo crawl report:
+
+- mandatoryPart1 = 2.
+- part1Topics = 32.
+- part23Sets = 82.
+
+Không hard-code count trong JSX.
+
+Tính count từ normalized arrays.
+
+Thêm validation:
+
+mandatoryPart1.length === 2
+part1Topics.length === 32
+part23Sets.length === 82
+
+Nếu không khớp:
+
+- fail import;
+- không fallback về 2;
+- không render sai count.
+
+Mỗi Part 1 topic phải chứa câu hỏi thật.
+
+Mỗi Part 2+3 set phải chứa:
+
+- cue card;
+- bullet points;
+- linked Part 3 questions.
+
+==================================================
+8. FORECAST UI GIỐNG SOURCE
+==================================================
+
+Route:
+
+/app/speaking/ielts/forecast
+
+Phải tái tạo source flow:
+
+- section/tab thật;
+- Part 1 bắt buộc;
+- Part 1 chủ đề;
+- Part 2 + 3;
+- đúng count;
+- đúng title;
+- đúng list/grouping;
+- đúng CTA;
+- đúng state active.
+
+Không dùng generic card grid nếu source dùng accordion/list/tab.
+
+Không mở một page record làm bài.
+
+Click phải đi đến:
+
+- một Part 1 question;
+- một Part 2 cue card;
+- hoặc một Part 3 question.
+
+==================================================
+9. ROULETTE PHẢI LÀ ROULETTE THẬT
+==================================================
+
+Route:
+
+/app/speaking/ielts/roulette
+
+Bỏ UI hiện tại gồm một card “Speaking practice item”.
+
+Tái tạo flow source:
+
+- tabs Part 1 / Part 2 / Part 3;
+- spin/random action;
+- visual state trước spin;
+- loading/spinning state;
+- result state;
+- selected question;
+- nút luyện tập;
+- nút quay câu khác;
+- history gần nhất nếu source có;
+- không lặp item vừa quay nếu pool còn item khác.
+
+Data pool phải là dữ liệu thật:
+
+Part 1 pool.
+Part 2 pool.
+Part 3 pool.
+
+Không dùng page record Roulette làm một item.
+
+Random phải:
+
+- dùng stable unique IDs;
+- không chọn item undefined;
+- không chọn catalog wrapper;
+- không lặp liên tục do array length = 1;
+- reset hợp lý khi đổi tab.
+
+Tests bắt buộc:
+
+- Part 1 pool > 1.
+- Part 2 pool > 1.
+- Part 3 pool > 1.
+- Spin trả practice item hợp lệ.
+- Không trả page/container record.
+- Không lặp ngay khi pool có lựa chọn khác.
+
+==================================================
+10. SHADOWING TITLE MAPPING
+==================================================
+
+Hiện tất cả card hiển thị:
+
+Speaking practice item
+
+Đây là lỗi mapping.
+
+Xác định title theo ưu tiên:
+
+1. lesson.title
+2. lesson.videoTitle
+3. lesson.customTitle
+4. lesson.heading
+5. lesson.sourceTitle đã loại site suffix
+6. fallback cuối cùng: “Bài luyện Shadowing”
+
+Không dùng fallback generic nếu title thật tồn tại trong description.
+
+Tách các chuỗi dạng:
+
+Custom · <real title> · Shadowing
+
+thành:
+
+type = Custom
+title = <real title>
+mode = Shadowing
+
+Không để toàn bộ chuỗi metadata làm description duy nhất.
+
+Validation:
+
+- 30 lesson records.
+- 30 stable IDs.
+- ít nhất 29/30 có title không generic nếu source có title.
+- generic title duplicate count = 0, trừ record thực sự thiếu title.
+- source site title không lặp làm title.
+
+Sửa mismatch:
+
+UI hiện 29 bài luyện nhưng crawl report là 30.
+
+Trace:
+
+- record bị filter vì thiếu field nào;
+- duplicate bị gộp nhầm;
+- catalog record bị loại đúng hay sai;
+- lesson count thực tế.
+
+Báo chính xác:
+
+source lessons
+normalized lessons
+rendered lessons
+excluded records
+reason
+
+==================================================
+11. SHADOWING LESSON PAGE
+==================================================
+
+Click lesson phải mở lesson thật.
+
+Trang phải có:
+
+- lesson title;
+- video/audio;
+- transcript;
+- sentence/chunk navigation nếu source có;
+- play/pause;
+- replay;
+- speed;
+- record;
+- playback;
+- next sentence;
+- completion progress.
+
+Không gửi ngay sang generic Speaking AI page.
+
+AI/pronunciation có thể dùng adapter hiện có, nhưng lesson UI phải tồn tại trước.
+
+==================================================
+12. PRACTICE PAGE PART 1
+==================================================
+
+Route practice Part 1 phải hiển thị một câu thật.
+
+Không hiển thị raw Forecast page.
+
+Layout tối thiểu:
+
+- breadcrumb/back;
+- Part 1 label;
+- topic;
+- question;
+- optional related questions;
+- preparation hint nếu source có;
+- record controls;
+- timer;
+- playback;
+- AI submit;
+- feedback.
+
+Nội dung chính phải nằm giữa viewport, không bị dồn thành card hẹp bên phải.
+
+Container:
+
+max-width hợp lý khoảng 900–1100px;
+margin-inline: auto;
+padding responsive.
+
+Không dùng layout grid có cột trái rỗng.
+
+==================================================
+13. PRACTICE PAGE PART 2
+==================================================
+
+Hiển thị:
+
+- Part 2 label;
+- cue card title;
+- “Describe...” prompt;
+- bullet points;
+- preparation timer;
+- speaking timer;
+- record;
+- playback;
+- AI feedback.
+
+Không render Part 2 như một paragraph text phẳng.
+
+==================================================
+14. PRACTICE PAGE PART 3
+==================================================
+
+Hiển thị:
+
+- linked topic;
+- discussion question;
+- follow-up questions;
+- record;
+- AI feedback;
+- previous/next question.
+
+Không dùng cue card layout cho Part 3.
+
+==================================================
+15. AI FLOW INLINE
+==================================================
+
+Không bắt người dùng bấm:
+
+“Ghi âm và luyện với AI”
+
+rồi rời sang một generic page không còn context.
+
+Tích hợp recorder và AI flow ngay trong practice page hoặc mở panel/modal giữ nguyên item context.
+
+Adapter phải truyền:
+
+- itemId;
+- part;
+- question;
+- topic;
+- cue card;
+- bullet points;
+- expected duration;
+- evaluation mode.
+
+Sau submit:
+
+- feedback hiển thị ngay trong cùng flow;
+- retry giữ context;
+- browser Back không mất câu hỏi.
+
+==================================================
+16. KHÔNG HIỂN THỊ RAW CRAWL TEXT
+==================================================
+
+Không được đưa nguyên:
+
+page text
+navigation text
+site heading
+category count
+footer text
+
+vào prompt card.
+
+Thêm content sanity validation cho app normalized data.
+
+Fail nếu practice prompt chứa:
+
+“Về trang Speaking”
+“THE IELTS DICTIONARY”
+“BỘ DỰ ĐOÁN ĐỀ THI”
+“PART 1 BẮT BUỘC”
+“PART 1 CHỦ ĐỀ”
+“PART 2 + 3”
+
+trừ khi record đó thực sự là một module heading, không phải câu hỏi.
+
+Practice item phải chứa câu hỏi cụ thể.
+
+==================================================
+17. ROUTE BACK LABEL
+==================================================
+
+Hiện nhiều subpage hiển thị:
+
+“Về trang chủ”
+
+nhưng thực tế cần quay lại IELTS Speaking.
+
+Sửa label theo context:
+
+Dashboard:
+- “Về trang chủ”.
+
+Forecast:
+- “Về IELTS Speaking”.
+
+Roulette:
+- “Về IELTS Speaking”.
+
+Shadowing catalog:
+- “Về IELTS Speaking”.
+
+Practice:
+- “Về Forecast”
+- “Về Roulette”
+- hoặc “Về Shadowing”
+
+tùy referrer/context.
+
+Giữ browser history khi hợp lệ.
+
+==================================================
+18. SOURCE PARITY SCREENSHOTS
+==================================================
+
+Tạo cặp screenshot:
+
+- source landing vs app landing;
+- source Forecast vs app Forecast;
+- source Roulette pre-spin vs app;
+- source Roulette result vs app;
+- source Shadowing catalog vs app;
+- source Shadowing lesson vs app;
+- source Part 1 practice vs app;
+- source Part 2 practice vs app;
+- source Part 3 practice vs app.
+
+Tạo report:
+
+tmp/speaking-visual-parity-report.md
+
+Mỗi màn hình chấm:
+
+- structure;
+- spacing;
+- typography;
+- colors;
+- controls;
+- interaction;
+- responsive;
+- data correctness.
+
+Không claim “100%” nếu còn chênh lệch.
+
+Có thể dùng mức:
+
+- 90%+ visual parity;
+- 100% functional coverage;
+- 100% data correctness.
+
+==================================================
+19. BROWSER VALIDATION BẮT BUỘC
+==================================================
+
+Dashboard:
+
+- cuộn được từ đầu đến cuối;
+- Forecast counts đúng 2 / 32 / 82;
+- không content bị cắt;
+- không nested scroll lỗi.
+
+Forecast:
+
+- tab/group đúng;
+- click item mở câu thật;
+- không mở page dump.
+
+Roulette:
+
+- đủ 3 tab;
+- spin hoạt động;
+- result là practice item;
+- câu khác hoạt động.
+
+Shadowing:
+
+- render đủ 30 lesson hoặc báo rõ record loại;
+- title thật;
+- lesson mở;
+- player hoạt động.
+
+Practice:
+
+- Part 1 đúng;
+- Part 2 đúng;
+- Part 3 đúng;
+- recorder inline;
+- context không mất.
+
+Mobile:
+
+- không overflow;
+- scroll hoạt động;
+- cards/control không vỡ.
+
+Console:
+
+- errors = 0;
+- React warnings = 0;
+- failed requests = 0.
+
+==================================================
+20. TESTS BẮT BUỘC
+==================================================
+
+Thêm tests cho:
+
+- dashboard scroll container;
+- Forecast count 2/32/82;
+- page record không được coi là practice item;
+- Part 1 mapping;
+- Part 2 mapping;
+- Part 3 mapping;
+- Roulette pools;
+- Roulette non-repeat;
+- Shadowing count;
+- Shadowing title extraction;
+- generic title fallback;
+- practice route guard;
+- context-aware back route.
+
+Chạy:
+
+- TypeScript.
+- Speaking IELTS tests.
+- Speaking AI tests.
+- Production build.
+- git diff --check.
+
+==================================================
+21. KHÔNG SỬA BẰNG FALLBACK GIẢ
+==================================================
+
+Không:
+
+- hard-code count 32 hoặc 82 chỉ để UI đúng;
+- hard-code 30 lesson;
+- hard-code lesson title;
+- hard-code roulette questions;
+- tạo practice question giả;
+- dùng raw source page làm prompt;
+- ẩn lỗi bằng CSS;
+- claim PASS chỉ vì route load.
+
+Dữ liệu phải đến từ normalized crawl dataset.
+
+==================================================
+22. BÁO CÁO CUỐI
+==================================================
+
+Báo:
+
+1. Root cause dashboard không scroll.
+2. Root cause Forecast count sai.
+3. Root cause practice page dùng raw page record.
+4. Root cause Shadowing title generic.
+5. Root cause 29/30 mismatch.
+6. Root cause Roulette chỉ có một card.
+7. Source parity audit.
+8. File đã sửa.
+9. Schema đã sửa.
+10. Route đã sửa.
+11. Dashboard scroll test.
+12. Forecast 2/32/82 validation.
+13. Roulette Part 1/2/3.
+14. Shadowing count/title.
+15. Part 1 practice.
+16. Part 2 practice.
+17. Part 3 practice.
+18. Inline AI flow.
+19. Mobile.
+20. Console errors.
+21. TypeScript.
+22. Tests.
+23. Build.
+24. git diff.
+25. Screenshot comparison paths.
+26. Remaining parity gaps.
+
+Không claim production-ready nếu:
+
+- dashboard vẫn không scroll;
+- practice còn raw page dump;
+- Shadowing còn generic title;
+- Roulette chưa có spin;
+- Forecast count còn sai;
+- chưa có Part 1/2/3 practice thật.

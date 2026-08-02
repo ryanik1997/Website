@@ -1,0 +1,182 @@
+[
+  {
+    "test": 1,
+    "popupOk": true,
+    "boxes": {
+      "trigger": {
+        "x": 1156.984375,
+        "y": 256.234375,
+        "width": 144,
+        "height": 22
+      },
+      "popup": {
+        "x": 1156.984375,
+        "y": 224.234375,
+        "width": 252,
+        "height": 28
+      },
+      "options": [
+        {
+          "text": "catch",
+          "w": 51.25,
+          "h": 24
+        },
+        {
+          "text": "win",
+          "w": 37.015625,
+          "h": 24
+        },
+        {
+          "text": "achieve",
+          "w": 68.15625,
+          "h": 24
+        },
+        {
+          "text": "receive",
+          "w": 64.578125,
+          "h": 24
+        }
+      ]
+    },
+    "annotation": {
+      "toolbar": true,
+      "highlight": true,
+      "persist": true
+    },
+    "initial": true,
+    "bankToGap": true,
+    "gapToBank": true,
+    "beforeMove": [
+      "Gap 43, answer A",
+      "Gap 44, empty"
+    ],
+    "afterMove": [
+      "Gap 43, empty",
+      "Gap 44, answer A"
+    ],
+    "gapToGap": true,
+    "replace": true,
+    "persistence": true,
+    "errors": []
+  },
+  {
+    "test": 14,
+    "popupOk": true,
+    "boxes": {
+      "trigger": {
+        "x": 890.25,
+        "y": 256.234375,
+        "width": 144,
+        "height": 22
+      },
+      "popup": {
+        "x": 890.25,
+        "y": 224.234375,
+        "width": 293.8125,
+        "height": 28
+      },
+      "options": [
+        {
+          "text": "dispose",
+          "w": 68.15625,
+          "h": 24
+        },
+        {
+          "text": "discard",
+          "w": 64.578125,
+          "h": 24
+        },
+        {
+          "text": "dump",
+          "w": 53.03125,
+          "h": 24
+        },
+        {
+          "text": "dispense",
+          "w": 77.046875,
+          "h": 24
+        }
+      ]
+    },
+    "annotation": {
+      "toolbar": true,
+      "highlight": true,
+      "persist": true
+    },
+    "initial": true,
+    "bankToGap": true,
+    "gapToBank": true,
+    "beforeMove": [
+      "Gap 43, answer A",
+      "Gap 44, empty"
+    ],
+    "afterMove": [
+      "Gap 43, empty",
+      "Gap 44, answer A"
+    ],
+    "gapToGap": true,
+    "replace": true,
+    "persistence": true,
+    "errors": []
+  },
+  {
+    "test": 23,
+    "popupOk": true,
+    "boxes": {
+      "trigger": {
+        "x": 1041.1875,
+        "y": 336.609375,
+        "width": 144,
+        "height": 22
+      },
+      "popup": {
+        "x": 1041.1875,
+        "y": 304.609375,
+        "width": 364.078125,
+        "height": 28
+      },
+      "options": [
+        {
+          "text": "finalized",
+          "w": 71.703125,
+          "h": 24
+        },
+        {
+          "text": "completed",
+          "w": 86.828125,
+          "h": 24
+        },
+        {
+          "text": "concluded",
+          "w": 85.953125,
+          "h": 24
+        },
+        {
+          "text": "terminated",
+          "w": 88.59375,
+          "h": 24
+        }
+      ]
+    },
+    "annotation": {
+      "toolbar": true,
+      "highlight": true,
+      "persist": true
+    },
+    "initial": true,
+    "bankToGap": true,
+    "gapToBank": true,
+    "beforeMove": [
+      "Gap 43, answer A",
+      "Gap 44, empty"
+    ],
+    "afterMove": [
+      "Gap 43, empty",
+      "Gap 44, answer A"
+    ],
+    "gapToGap": true,
+    "replace": true,
+    "persistence": true,
+    "errors": []
+  }
+]

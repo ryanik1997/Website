@@ -1,0 +1,160 @@
+
+> web@0.2.12 dev D:\App-English-Ryan\Website\apps\web
+> vite "--port" "5175" "--strictPort"
+
+
+  [32m[1mVITE[22m v5.4.21[39m  [2mready in [0m[1m739[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5175[22m/[39m
+[2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+[2m[32m  ➜[39m[22m[2m  press [22m[1mh + enter[22m[2m to show help[22m
+[2m2:08:34 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/speaking-ielts/data/part3.ts[22m
+[2m2:09:48 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles/globals.css, /src/pages/AppShell.tsx, /src/features/exam/ReadingTest.tsx, /src/features/exam/ketRw/ReadingKetRwTest.tsx, /src/features/exam/ExamPartFooter.tsx, /src/features/exam/ReadingQuestionPanel.tsx, /src/features/exam/ketRw/KetRwFooter.tsx, /src/features/exam/ketRw/KetRwPartContent.tsx, /src/features/exam/rwHighlight/RwMcRadioQuestion.tsx, /src/features/exam/ReadingSubmittedScreen.tsx, /src/features/exam/ReadingPassagePanel.tsx, /src/features/exam/ExamResult.tsx, /src/features/catalog/GlobalCatalogSync.tsx, /src/features/exam/CambridgeRwWritingGradePanel.tsx, /src/features/auth/AuthContext.tsx[22m
+[2m2:09:48 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles/globals.css, /src/pages/AppShell.tsx, /src/features/exam/ReadingTest.tsx, /src/features/exam/ketRw/ReadingKetRwTest.tsx, /src/features/exam/ExamPartFooter.tsx, /src/features/exam/ReadingQuestionPanel.tsx, /src/features/exam/ketRw/KetRwFooter.tsx, /src/features/exam/ketRw/KetRwPartContent.tsx, /src/features/exam/rwHighlight/RwMcRadioQuestion.tsx, /src/features/exam/ReadingSubmittedScreen.tsx, /src/features/exam/ReadingPassagePanel.tsx, /src/features/exam/ExamResult.tsx, /src/features/catalog/GlobalCatalogSync.tsx, /src/features/exam/CambridgeRwWritingGradePanel.tsx, /src/features/auth/AuthContext.tsx[22m
+[2m2:10:02 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles/globals.css, /src/pages/AppShell.tsx, /src/features/exam/ReadingTest.tsx, /src/features/exam/ketRw/ReadingKetRwTest.tsx, /src/features/exam/ExamPartFooter.tsx, /src/features/exam/ReadingQuestionPanel.tsx, /src/features/exam/ketRw/KetRwFooter.tsx, /src/features/exam/ketRw/KetRwPartContent.tsx, /src/features/exam/rwHighlight/RwMcRadioQuestion.tsx, /src/features/exam/ReadingSubmittedScreen.tsx, /src/features/exam/ReadingPassagePanel.tsx, /src/features/exam/ExamResult.tsx, /src/features/catalog/GlobalCatalogSync.tsx, /src/features/exam/CambridgeRwWritingGradePanel.tsx, /src/features/auth/AuthContext.tsx[22m
+[2m2:10:02 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles/globals.css, /src/pages/AppShell.tsx, /src/features/exam/ReadingTest.tsx, /src/features/exam/ketRw/ReadingKetRwTest.tsx, /src/features/exam/ExamPartFooter.tsx, /src/features/exam/ReadingQuestionPanel.tsx, /src/features/exam/ketRw/KetRwFooter.tsx, /src/features/exam/ketRw/KetRwPartContent.tsx, /src/features/exam/rwHighlight/RwMcRadioQuestion.tsx, /src/features/exam/ReadingSubmittedScreen.tsx, /src/features/exam/ReadingPassagePanel.tsx, /src/features/exam/ExamResult.tsx, /src/features/catalog/GlobalCatalogSync.tsx, /src/features/exam/CambridgeRwWritingGradePanel.tsx, /src/features/auth/AuthContext.tsx[22m
+[2m2:10:13 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles/globals.css, /src/pages/AppShell.tsx, /src/features/exam/ReadingTest.tsx, /src/features/exam/ketRw/ReadingKetRwTest.tsx, /src/features/exam/ExamPartFooter.tsx, /src/features/exam/ReadingQuestionPanel.tsx, /src/features/exam/ketRw/KetRwFooter.tsx, /src/features/exam/ketRw/KetRwPartContent.tsx, /src/features/exam/rwHighlight/RwMcRadioQuestion.tsx, /src/features/exam/ReadingSubmittedScreen.tsx, /src/features/exam/ReadingPassagePanel.tsx, /src/features/exam/ExamResult.tsx, /src/features/catalog/GlobalCatalogSync.tsx, /src/features/exam/CambridgeRwWritingGradePanel.tsx, /src/features/auth/AuthContext.tsx[22m
+[2m2:11:41 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles/globals.css, /src/pages/AppShell.tsx, /src/features/exam/ReadingTest.tsx, /src/features/exam/ketRw/ReadingKetRwTest.tsx, /src/features/exam/ExamPartFooter.tsx, /src/features/exam/ReadingQuestionPanel.tsx, /src/features/exam/ketRw/KetRwFooter.tsx, /src/features/exam/ketRw/KetRwPartContent.tsx, /src/features/exam/rwHighlight/RwMcRadioQuestion.tsx, /src/features/exam/ReadingSubmittedScreen.tsx, /src/features/exam/ReadingPassagePanel.tsx, /src/features/exam/ExamResult.tsx, /src/features/catalog/GlobalCatalogSync.tsx, /src/features/exam/CambridgeRwWritingGradePanel.tsx, /src/features/auth/AuthContext.tsx[22m
+[2m2:11:41 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles/globals.css, /src/pages/AppShell.tsx, /src/features/exam/ReadingTest.tsx, /src/features/exam/ketRw/ReadingKetRwTest.tsx, /src/features/exam/ExamPartFooter.tsx, /src/features/exam/ReadingQuestionPanel.tsx, /src/features/exam/ketRw/KetRwFooter.tsx, /src/features/exam/ketRw/KetRwPartContent.tsx, /src/features/exam/rwHighlight/RwMcRadioQuestion.tsx, /src/features/exam/ReadingSubmittedScreen.tsx, /src/features/exam/ReadingPassagePanel.tsx, /src/features/exam/ExamResult.tsx, /src/features/catalog/GlobalCatalogSync.tsx, /src/features/exam/CambridgeRwWritingGradePanel.tsx, /src/features/auth/AuthContext.tsx[22m
+[2m2:11:41 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles/globals.css, /src/pages/AppShell.tsx, /src/features/exam/ReadingTest.tsx, /src/features/exam/ketRw/ReadingKetRwTest.tsx, /src/features/exam/ExamPartFooter.tsx, /src/features/exam/ReadingQuestionPanel.tsx, /src/features/exam/ketRw/KetRwFooter.tsx, /src/features/exam/ketRw/KetRwPartContent.tsx, /src/features/exam/rwHighlight/RwMcRadioQuestion.tsx, /src/features/exam/ReadingSubmittedScreen.tsx, /src/features/exam/ReadingPassagePanel.tsx, /src/features/exam/ExamResult.tsx, /src/features/catalog/GlobalCatalogSync.tsx, /src/features/exam/CambridgeRwWritingGradePanel.tsx, /src/features/auth/AuthContext.tsx[22m
+[2m2:12:09 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/speaking-ielts/data/speakingPools.ts[22m
+[2m2:13:57 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/speaking-ielts/utils/validateSpeakingPools.ts[22m
+[2m2:14:02 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/speaking-ielts/utils/validateSpeakingPools.ts[22m
+[2m2:14:11 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/speaking-ielts/utils/validateSpeakingPools.ts[22m
+[2m2:14:24 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/speaking-ielts/utils/validateSpeakingPools.ts[22m
+[2m2:15:34 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/speaking-ielts/speakingPools.test.ts[22m
+[2m2:15:48 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/speaking-ielts/utils/validateSpeakingPools.ts[22m
+[2m2:20:32 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/speaking-ielts/data/part1.ts[22m
+[2m2:20:35 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/speaking-ielts/data/part3.ts[22m
+[2m2:20:43 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/speaking-ielts/data/part3.ts[22m
+[2m2:20:47 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/speaking-ielts/data/part3.ts[22m
+[2m2:20:54 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/speaking-ielts/data/part3.ts[22m
+[2m2:20:57 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/speaking-ielts/data/part3.ts[22m
+[2m2:21:08 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/speaking-ielts/data/part3.ts[22m
+[2m2:21:11 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/speaking-ielts/data/part3.ts[22m
+[2m2:21:20 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/speaking-ielts/data/part3.ts[22m
+[2m2:21:29 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/speaking-ielts/data/part3.ts[22m
+[2m2:27:19 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/speaking-ielts/data/part1.ts[22m
+[2m2:27:24 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/speaking-ielts/data/part1.ts[22m
+[2m2:27:29 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/speaking-ielts/data/part1.ts[22m
+[2m2:27:41 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/speaking-ielts/data/part2.ts[22m
+[2m2:27:49 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/speaking-ielts/data/part2.ts[22m
+[2m2:27:58 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/speaking-ielts/data/part3.ts[22m
+[2m2:28:05 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/speaking-ielts/data/part3.ts[22m
+[2m2:28:12 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/speaking-ielts/data/part3.ts[22m
+[2m2:28:15 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/speaking-ielts/data/part3.ts[22m
+[2m2:28:56 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/speaking-ielts/speakingPools.test.ts[22m
+[2m4:03:34 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/features/exam/ketRw/readingKetRw.css[22m
+[2m4:07:55 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/features/exam/ketRw/readingKetRw.css[22m
+[2m4:08:04 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/features/exam/ketRw/readingKetRw.css[22m
+[2m4:10:20 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/features/exam/ketRw/readingKetRw.css[22m
+[2m6:37:43 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/features/exam/ketRw/readingKetRw.css[22m
+[2m6:40:06 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/features/exam/readingTest.css[22m
+[2m6:40:16 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/features/exam/readingTest.css[22m
+[2m6:40:48 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/features/exam/ketRw/readingKetRw.css[22m
+[2m6:40:54 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/features/exam/ketRw/readingKetRw.css[22m
+[2m6:43:18 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/main.tsx[22m
+[2m6:43:24 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/features/exam/ExamPartFooter.tsx, /src/styles/globals.css[22m
+[2m6:43:28 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/features/exam/ketRw/KetRwFooter.tsx, /src/styles/globals.css[22m
+[2m6:43:32 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/petRw/PetRwFooter.tsx[22m
+[2m6:43:55 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/ListeningIeltsTidShell.tsx[22m
+[2m6:44:01 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/ListeningKetTest.tsx[22m
+[2m6:44:09 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/ListeningPetTest.tsx[22m
+[2m6:44:16 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/ListeningFceTest.tsx[22m
+[2m6:44:20 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/features/exam/rwHighlight/RwMcRadioQuestion.tsx, /src/styles/globals.css[22m
+[2m6:44:23 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/ListeningKetPart1PictureView.tsx[22m
+[2m6:44:33 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/ListeningKetPart3McListView.tsx[22m
+[2m6:44:36 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/ListeningFceMcPartView.tsx[22m
+[2m6:44:43 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/caeRw/CaeRwPartContent.tsx[22m
+[2m6:44:50 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/fceRw/FceRwPartContent.tsx[22m
+[2m6:48:16 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/features/exam/ketRw/KetRwFooter.tsx, /src/styles/globals.css[22m
+[2m6:48:27 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/features/exam/ketRw/KetRwFooter.tsx, /src/styles/globals.css[22m
+[2m6:49:28 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/features/exam/ketRw/KetRwFooter.tsx, /src/styles/globals.css[22m
+[2m7:29:58 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles/globals.css, /src/features/exam/ReadingTest.tsx, /src/features/exam/ketRw/ReadingKetRwTest.tsx[22m
+[2m7:30:03 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles/globals.css, /src/features/exam/ReadingTest.tsx, /src/features/exam/ketRw/ReadingKetRwTest.tsx[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles/globals.css[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/features/exam/ExamPartFooter.tsx, /src/styles/globals.css[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/__tests__/fceRwPart6Drag.test.tsx[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/caeRw/CaeRwPartContent.tsx[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/fceRw/FceRwPartContent.tsx[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/features/exam/ketRw/KetRwFooter.tsx, /src/styles/globals.css[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/petRw/PetRwFooter.tsx[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/features/exam/rwHighlight/RwMcRadioQuestion.tsx, /src/styles/globals.css[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/sentence-structure/StructureListHub.tsx[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/ListeningFceGapFillPartView.tsx[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/ListeningFceMcPartView.tsx[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/ListeningFceTest.tsx[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/ListeningIeltsTidShell.tsx[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/ListeningKetPart1PictureView.tsx[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/ListeningKetPart3McListView.tsx[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/ListeningKetTest.tsx[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/ListeningPetTest.tsx[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles/globals.css, /src/features/exam/ReadingTest.tsx, /src/features/exam/ketRw/ReadingKetRwTest.tsx[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles/globals.css, /src/features/exam/ReadingTest.tsx, /src/features/exam/ketRw/ReadingKetRwTest.tsx[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles/globals.css, /src/features/exam/ReadingTest.tsx, /src/features/exam/ketRw/ReadingKetRwTest.tsx[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/features/exam/readingTest.css[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/vocab/DeckGrid.tsx[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/lib/language.tsx, /src/styles/globals.css[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AppShell.tsx, /src/styles/globals.css[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles/globals.css, /src/pages/AppShell.tsx, /src/features/exam/ReadingTest.tsx, /src/features/exam/ketRw/ReadingKetRwTest.tsx, /src/features/exam/ExamPartFooter.tsx, /src/features/exam/ReadingQuestionPanel.tsx, /src/features/exam/ketRw/KetRwFooter.tsx, /src/features/exam/ketRw/KetRwPartContent.tsx, /src/features/exam/rwHighlight/RwMcRadioQuestion.tsx, /src/features/exam/ReadingSubmittedScreen.tsx, /src/features/exam/ReadingPassagePanel.tsx, /src/features/exam/ExamResult.tsx, /src/features/catalog/GlobalCatalogSync.tsx, /src/features/exam/CambridgeRwWritingGradePanel.tsx, /src/features/auth/AuthContext.tsx[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles/globals.css, /src/features/exam/ReadingTest.tsx[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles/globals.css, /src/features/exam/ketRw/KetRwPartContent.tsx[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/features/exam/ketRw/readingKetRw.css[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles/globals.css, /src/pages/AppShell.tsx, /src/features/exam/ReadingTest.tsx, /src/features/exam/ketRw/ReadingKetRwTest.tsx, /src/features/exam/ExamPartFooter.tsx, /src/features/exam/ReadingQuestionPanel.tsx, /src/features/exam/ketRw/KetRwFooter.tsx, /src/features/exam/ketRw/KetRwPartContent.tsx, /src/features/exam/rwHighlight/RwMcRadioQuestion.tsx, /src/features/exam/ReadingSubmittedScreen.tsx, /src/features/exam/ReadingPassagePanel.tsx, /src/features/exam/ExamResult.tsx, /src/features/catalog/GlobalCatalogSync.tsx, /src/features/exam/CambridgeRwWritingGradePanel.tsx, /src/features/auth/AuthContext.tsx[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/main.tsx[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/features/auth/AuthContext.tsx, /src/styles/globals.css, /src/pages/AppShell.tsx, /src/lib/language.tsx, /src/features/vocab/reminder/SrsReviewReminderModal.tsx, /src/features/exam/ReadingTest.tsx, /src/features/exam/ketRw/ReadingKetRwTest.tsx, /src/features/exam/ExamPartFooter.tsx, /src/features/exam/ReadingQuestionPanel.tsx, /src/features/exam/ketRw/KetRwFooter.tsx, /src/features/exam/ketRw/KetRwPartContent.tsx, /src/features/exam/rwHighlight/RwMcRadioQuestion.tsx, /src/features/exam/ReadingSubmittedScreen.tsx, /src/features/exam/ReadingPassagePanel.tsx, /src/features/exam/ExamResult.tsx, /src/features/catalog/GlobalCatalogSync.tsx, /src/features/exam/CambridgeRwWritingGradePanel.tsx, /src/features/exam/ketRw/KetRwPassagePortrait.tsx, /src/features/vocab/AddExamMistakeButton.tsx, /src/features/exam/ExamPracticeResultReport.tsx, /src/features/settings/AiSettingsPanel.tsx, /src/features/settings/AiUsageDashboard.tsx[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/sentence-structure/StructurePracticePanel.tsx[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/features/auth/AuthContext.tsx, /src/styles/globals.css, /src/pages/AppShell.tsx, /src/lib/language.tsx, /src/features/vocab/reminder/SrsReviewReminderModal.tsx, /src/features/exam/ReadingTest.tsx, /src/features/exam/ketRw/ReadingKetRwTest.tsx, /src/features/exam/ExamPartFooter.tsx, /src/features/exam/ReadingQuestionPanel.tsx, /src/features/exam/ketRw/KetRwFooter.tsx, /src/features/exam/ketRw/KetRwPartContent.tsx, /src/features/exam/rwHighlight/RwMcRadioQuestion.tsx, /src/features/exam/ReadingSubmittedScreen.tsx, /src/features/exam/ReadingPassagePanel.tsx, /src/features/exam/ExamResult.tsx, /src/features/catalog/GlobalCatalogSync.tsx, /src/features/exam/CambridgeRwWritingGradePanel.tsx, /src/features/exam/ketRw/KetRwPassagePortrait.tsx, /src/features/vocab/AddExamMistakeButton.tsx, /src/features/exam/ExamPracticeResultReport.tsx, /src/features/settings/AiSettingsPanel.tsx, /src/features/settings/AiUsageDashboard.tsx[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/speaking-ai/speakingAiApi.ts[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/appShellBackdrop.css[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/pages/appShellBackdrop.test.ts[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles/globals.css, /src/pages/AppShell.tsx[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles/globals.css, /src/pages/AppShell.tsx, /src/features/exam/ReadingTest.tsx, /src/features/exam/ketRw/ReadingKetRwTest.tsx, /src/features/exam/ExamPartFooter.tsx, /src/features/exam/ReadingQuestionPanel.tsx, /src/features/exam/ketRw/KetRwFooter.tsx, /src/features/exam/ketRw/KetRwPartContent.tsx, /src/features/exam/rwHighlight/RwMcRadioQuestion.tsx, /src/features/exam/ReadingSubmittedScreen.tsx, /src/features/exam/ReadingPassagePanel.tsx, /src/features/exam/ExamResult.tsx, /src/features/catalog/GlobalCatalogSync.tsx, /src/features/exam/CambridgeRwWritingGradePanel.tsx, /src/features/auth/AuthContext.tsx[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles/globals.css, /src/pages/AppShell.tsx, /src/features/exam/ReadingTest.tsx, /src/features/exam/ketRw/ReadingKetRwTest.tsx, /src/features/exam/ExamPartFooter.tsx, /src/features/exam/ReadingQuestionPanel.tsx, /src/features/exam/ketRw/KetRwFooter.tsx, /src/features/exam/ketRw/KetRwPartContent.tsx, /src/features/exam/rwHighlight/RwMcRadioQuestion.tsx, /src/features/exam/ReadingSubmittedScreen.tsx, /src/features/exam/ReadingPassagePanel.tsx, /src/features/exam/ExamResult.tsx, /src/features/catalog/GlobalCatalogSync.tsx, /src/features/exam/CambridgeRwWritingGradePanel.tsx, /src/features/auth/AuthContext.tsx[22m
+[2m7:36:52 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/features/auth/AuthContext.tsx, /src/styles/globals.css, /src/pages/AppShell.tsx, /src/lib/language.tsx, /src/features/vocab/reminder/SrsReviewReminderModal.tsx, /src/features/exam/ReadingTest.tsx, /src/features/exam/ketRw/ReadingKetRwTest.tsx, /src/features/exam/ExamPartFooter.tsx, /src/features/exam/ReadingQuestionPanel.tsx, /src/features/exam/ketRw/KetRwFooter.tsx, /src/features/exam/ketRw/KetRwPartContent.tsx, /src/features/exam/rwHighlight/RwMcRadioQuestion.tsx, /src/features/exam/ReadingSubmittedScreen.tsx, /src/features/exam/ReadingPassagePanel.tsx, /src/features/exam/ExamResult.tsx, /src/features/catalog/GlobalCatalogSync.tsx, /src/features/exam/CambridgeRwWritingGradePanel.tsx, /src/features/exam/ketRw/KetRwPassagePortrait.tsx, /src/features/vocab/AddExamMistakeButton.tsx, /src/features/exam/ExamPracticeResultReport.tsx, /src/features/settings/AiSettingsPanel.tsx, /src/features/settings/AiUsageDashboard.tsx[22m
+[2m7:36:57 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles/globals.css[22m
+[2m7:36:57 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/features/exam/ExamPartFooter.tsx, /src/styles/globals.css[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/__tests__/fceRwPart6Drag.test.tsx[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/ListeningFceGapFillPartView.tsx[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/ListeningFceMcPartView.tsx[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/ListeningFceTest.tsx[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/ListeningIeltsTidShell.tsx[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/ListeningKetPart1PictureView.tsx[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/ListeningKetPart3McListView.tsx[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/ListeningKetTest.tsx[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/ListeningPetTest.tsx[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/caeRw/CaeRwPartContent.tsx[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/examLoader.ts[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/fceRw/FceRwPartContent.tsx[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/features/exam/ketRw/KetRwFooter.tsx, /src/styles/globals.css[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/cambridgeLibraryGrouping.ts[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles/globals.css, /src/features/exam/ReadingTest.tsx[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/petRw/PetRwFooter.tsx[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/features/exam/rwHighlight/RwMcRadioQuestion.tsx, /src/styles/globals.css[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/sentence-structure/StructureListHub.tsx[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles/globals.css, /src/features/exam/ketRw/KetRwPartContent.tsx[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/features/exam/ketRw/readingKetRw.css[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/vocab/DeckGrid.tsx[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/lib/language.tsx, /src/styles/globals.css[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AppShell.tsx, /src/styles/globals.css[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/readingExamSanitize.ts[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/features/exam/readingTest.css[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/examLoader.ts[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/__tests__/fceRwPart6Drag.test.tsx[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/sentence-structure/StructurePracticePanel.tsx[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/speaking-ai/speakingAiApi.ts[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/main.tsx[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mD:/App-English-Ryan/Website/packages/catalog/data/catalog-listening-meta.json[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mD:/App-English-Ryan/Website/packages/catalog/src/syncGlobalCatalog.ts[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mD:/App-English-Ryan/Website/packages/db/src/index.ts[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mD:/App-English-Ryan/Website/packages/db/src/local/repositories/sentenceStructureRepo.ts[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/appShellBackdrop.css[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/pages/appShellBackdrop.test.ts[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles/globals.css, /src/pages/AppShell.tsx[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mD:/App-English-Ryan/Website/packages/catalog/data/manifest.json[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mD:/App-English-Ryan/Website/packages/catalog/data/catalog-reading-meta.json[22m
+[2m7:36:58 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mD:/App-English-Ryan/Website/packages/db/src/local/schema.ts[22m
+[2m7:39:51 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/readingExamSanitize.ts[22m
+[2m7:40:05 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/readingExamSanitize.ts[22m
+[2m8:33:37 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/ListeningKetTest.tsx[22m
+[2m8:33:42 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/features/exam/ListeningPetTest.tsx[22m

@@ -103,7 +103,7 @@ export default function ListeningFceMcPartView({
                 onClick={() => onSelectQuestion(question.id)}
               >
                 <h2 className="listening-fce-mc__heading">
-                  <span className="listening-fce__num">{question.number}</span>
+                  <span className="listening-fce__num" data-question-number-badge="true">{question.number}</span>
                   <span className="listening-fce-mc__heading-text">
                     {promptParts.context && (
                       <ReadingHighlightableText

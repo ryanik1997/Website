@@ -1,0 +1,738 @@
+{
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "Questions 1-6",
+      "instruction": "You will hear three different extracts. For questions 1-6, choose the answer (A, B or C) which fits best",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 1,
+          "type": "multiple-choice",
+          "prompt": "In the beginning, the presenter tries to",
+          "options": [
+            {
+              "id": "A",
+              "label": "dispel a common misconception about the hotel."
+            },
+            {
+              "id": "B",
+              "label": "briefly describe what the hotel is like."
+            },
+            {
+              "id": "C",
+              "label": "make the hotel sound attractive."
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "type": "multiple-choice",
+          "prompt": "How does the manager approach hotel visitors?",
+          "options": [
+            {
+              "id": "A",
+              "label": "He would rather have fewer rich people attending."
+            },
+            {
+              "id": "B",
+              "label": "He treats everyone equally well."
+            },
+            {
+              "id": "C",
+              "label": "He has an eye for what kind of visitor is in front of him."
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "type": "multiple-choice",
+          "prompt": "The man states that the data produced as a results of the research established",
+          "options": [
+            {
+              "id": "A",
+              "label": "how much time it took to find the teaspoons."
+            },
+            {
+              "id": "B",
+              "label": "how long it took for teaspoons to disappear."
+            },
+            {
+              "id": "C",
+              "label": "the place where lost teaspoons were found."
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "type": "multiple-choice",
+          "prompt": "The woman believes that the topic of this research",
+          "options": [
+            {
+              "id": "A",
+              "label": "led to new interesting discoveries."
+            },
+            {
+              "id": "B",
+              "label": "touches upon a problematic matter."
+            },
+            {
+              "id": "C",
+              "label": "is not particularly interesting."
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "type": "multiple-choice",
+          "prompt": "The woman believes that",
+          "options": [
+            {
+              "id": "A",
+              "label": "it is challenging to come up with something original nowadays."
+            },
+            {
+              "id": "B",
+              "label": "modern pop songs are inferior to older ones."
+            },
+            {
+              "id": "C",
+              "label": "pop music is a poor imitation of other music genres."
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "type": "multiple-choice",
+          "prompt": "What does the woman say about modern performers?",
+          "options": [
+            {
+              "id": "A",
+              "label": "They ignore the older audience."
+            },
+            {
+              "id": "B",
+              "label": "They are using their fans to make money."
+            },
+            {
+              "id": "C",
+              "label": "They imitate older performers without even noticing it."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "rangeLabel": "Questions 7-14",
+      "instruction": "Part 2 — Sentence completion",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "The best-selling celebrity autobiographies have the ________ of the celebrities as the main point.",
+          "options": []
+        },
+        {
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "Some of such autobiographies don’t contain any ________.",
+          "options": []
+        },
+        {
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "Successful cookbooks give people a sense of ________.",
+          "options": []
+        },
+        {
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "Recipes from popular cookbooks are normally used only for ________.",
+          "options": []
+        },
+        {
+          "number": 11,
+          "type": "gap-fill",
+          "prompt": "Successful sports books have ________ which seem to be the reason why people buy them.",
+          "options": []
+        },
+        {
+          "number": 12,
+          "type": "gap-fill",
+          "prompt": "One thing that makes history books popular is ________ which appeal to casual readers.",
+          "options": []
+        },
+        {
+          "number": 13,
+          "type": "gap-fill",
+          "prompt": "The main focus of self-help books nowadays is how people can improve their ________.",
+          "options": []
+        },
+        {
+          "number": 14,
+          "type": "gap-fill",
+          "prompt": "The element of ________ in books about crime seems to be the aspect that brings good sale numbers.",
+          "options": []
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "rangeLabel": "Questions 15-20",
+      "instruction": "You will hear a radio discussion about writing a novel. For questions 15-20, choose the answer (A, B, C or D) which fits best according to what you hear.",
+      "matchingDualTask": false,
+      "questions": [
+        {
+          "number": 15,
+          "type": "multiple-choice",
+          "prompt": "What does Louise think about Ernest Hemingway’s advice on writing?",
+          "options": [
+            {
+              "id": "A",
+              "label": "It can be useful to some degree."
+            },
+            {
+              "id": "B",
+              "label": "Only amateur writers should follow it."
+            },
+            {
+              "id": "C",
+              "label": "The advice was meant as a joke."
+            },
+            {
+              "id": "D",
+              "label": "The advice can mislead aspiring writers."
+            }
+          ]
+        },
+        {
+          "number": 16,
+          "type": "multiple-choice",
+          "prompt": "Louise believes that getting feedback is important when you",
+          "options": [
+            {
+              "id": "A",
+              "label": "are experiencing a writer’s block."
+            },
+            {
+              "id": "B",
+              "label": "are struggling with structuring your writing properly."
+            },
+            {
+              "id": "C",
+              "label": "are unsure of the quality of your own writing."
+            },
+            {
+              "id": "D",
+              "label": "finish your book and need an opinion on it."
+            }
+          ]
+        },
+        {
+          "number": 17,
+          "type": "multiple-choice",
+          "prompt": "Louise states that getting feedback from a colleague is important because",
+          "options": [
+            {
+              "id": "A",
+              "label": "non-writers’ opinion can be hard to take seriously."
+            },
+            {
+              "id": "B",
+              "label": "a writer can be less harsh with their criticism."
+            },
+            {
+              "id": "C",
+              "label": "others can be reluctant to help with such thing."
+            },
+            {
+              "id": "D",
+              "label": "a writer can understand the real purpose of your work."
+            }
+          ]
+        },
+        {
+          "number": 18,
+          "type": "multiple-choice",
+          "prompt": "For Louise, what does good feedback mean?",
+          "options": [
+            {
+              "id": "A",
+              "label": "both general and detailed observations on the content"
+            },
+            {
+              "id": "B",
+              "label": "identifying problematic aspects as well as suggesting ways to overcome them"
+            },
+            {
+              "id": "C",
+              "label": "feedback that mostly focuses on the stylistic part of the writing"
+            },
+            {
+              "id": "D",
+              "label": "an extensive list of good and bad points"
+            }
+          ]
+        },
+        {
+          "number": 19,
+          "type": "multiple-choice",
+          "prompt": "What does Louise say about the people she gets feedback from?",
+          "options": [
+            {
+              "id": "A",
+              "label": "They shouldn’t be more skilled than you."
+            },
+            {
+              "id": "B",
+              "label": "She prefers not to talk about her texts."
+            },
+            {
+              "id": "C",
+              "label": "They exchange feedback."
+            },
+            {
+              "id": "D",
+              "label": "Collaborating with them can be difficult."
+            }
+          ]
+        },
+        {
+          "number": 20,
+          "type": "multiple-choice",
+          "prompt": "Louise says that sometimes feedback can be",
+          "options": [
+            {
+              "id": "A",
+              "label": "justified but difficult to implement."
+            },
+            {
+              "id": "B",
+              "label": "mostly about irrelevant details of the story."
+            },
+            {
+              "id": "C",
+              "label": "can be quite offensive."
+            },
+            {
+              "id": "D",
+              "label": "too hurtful and is therefore better to be ignored."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 4,
+      "rangeLabel": "Questions 21-30",
+      "instruction": "You will hear five short extracts in which people share their experience of attending an event.",
+      "matchingDualTask": true,
+      "taskOneInstruction": "For questions 21-25, choose the option which best describes each speaker.",
+      "taskTwoInstruction": "For questions 26-30, choose the option which best describes each speaker.",
+      "questions": [
+        {
+          "number": 21,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "a concert"
+            },
+            {
+              "id": "B",
+              "label": "a meeting"
+            },
+            {
+              "id": "C",
+              "label": "a birthday party"
+            },
+            {
+              "id": "D",
+              "label": "a school reunion"
+            },
+            {
+              "id": "E",
+              "label": "a funeral"
+            },
+            {
+              "id": "F",
+              "label": "a leaving party"
+            },
+            {
+              "id": "G",
+              "label": "a wedding"
+            },
+            {
+              "id": "H",
+              "label": "a demonstration"
+            }
+          ],
+          "context": "Speaker 1"
+        },
+        {
+          "number": 22,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "a concert"
+            },
+            {
+              "id": "B",
+              "label": "a meeting"
+            },
+            {
+              "id": "C",
+              "label": "a birthday party"
+            },
+            {
+              "id": "D",
+              "label": "a school reunion"
+            },
+            {
+              "id": "E",
+              "label": "a funeral"
+            },
+            {
+              "id": "F",
+              "label": "a leaving party"
+            },
+            {
+              "id": "G",
+              "label": "a wedding"
+            },
+            {
+              "id": "H",
+              "label": "a demonstration"
+            }
+          ],
+          "context": "Speaker 2"
+        },
+        {
+          "number": 23,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "a concert"
+            },
+            {
+              "id": "B",
+              "label": "a meeting"
+            },
+            {
+              "id": "C",
+              "label": "a birthday party"
+            },
+            {
+              "id": "D",
+              "label": "a school reunion"
+            },
+            {
+              "id": "E",
+              "label": "a funeral"
+            },
+            {
+              "id": "F",
+              "label": "a leaving party"
+            },
+            {
+              "id": "G",
+              "label": "a wedding"
+            },
+            {
+              "id": "H",
+              "label": "a demonstration"
+            }
+          ],
+          "context": "Speaker 3"
+        },
+        {
+          "number": 24,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "a concert"
+            },
+            {
+              "id": "B",
+              "label": "a meeting"
+            },
+            {
+              "id": "C",
+              "label": "a birthday party"
+            },
+            {
+              "id": "D",
+              "label": "a school reunion"
+            },
+            {
+              "id": "E",
+              "label": "a funeral"
+            },
+            {
+              "id": "F",
+              "label": "a leaving party"
+            },
+            {
+              "id": "G",
+              "label": "a wedding"
+            },
+            {
+              "id": "H",
+              "label": "a demonstration"
+            }
+          ],
+          "context": "Speaker 4"
+        },
+        {
+          "number": 25,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "a concert"
+            },
+            {
+              "id": "B",
+              "label": "a meeting"
+            },
+            {
+              "id": "C",
+              "label": "a birthday party"
+            },
+            {
+              "id": "D",
+              "label": "a school reunion"
+            },
+            {
+              "id": "E",
+              "label": "a funeral"
+            },
+            {
+              "id": "F",
+              "label": "a leaving party"
+            },
+            {
+              "id": "G",
+              "label": "a wedding"
+            },
+            {
+              "id": "H",
+              "label": "a demonstration"
+            }
+          ],
+          "context": "Speaker 5"
+        },
+        {
+          "number": 26,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "it wasn’t well-attended"
+            },
+            {
+              "id": "B",
+              "label": "I hardly knew anyone"
+            },
+            {
+              "id": "C",
+              "label": "It ended early"
+            },
+            {
+              "id": "D",
+              "label": "I was treated badly"
+            },
+            {
+              "id": "E",
+              "label": "there was an argument"
+            },
+            {
+              "id": "F",
+              "label": "I left before the end"
+            },
+            {
+              "id": "G",
+              "label": "everyone enjoyed themselves"
+            },
+            {
+              "id": "H",
+              "label": "I couldn’t focus on the event"
+            }
+          ],
+          "context": "Speaker 1"
+        },
+        {
+          "number": 27,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "it wasn’t well-attended"
+            },
+            {
+              "id": "B",
+              "label": "I hardly knew anyone"
+            },
+            {
+              "id": "C",
+              "label": "It ended early"
+            },
+            {
+              "id": "D",
+              "label": "I was treated badly"
+            },
+            {
+              "id": "E",
+              "label": "there was an argument"
+            },
+            {
+              "id": "F",
+              "label": "I left before the end"
+            },
+            {
+              "id": "G",
+              "label": "everyone enjoyed themselves"
+            },
+            {
+              "id": "H",
+              "label": "I couldn’t focus on the event"
+            }
+          ],
+          "context": "Speaker 2"
+        },
+        {
+          "number": 28,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "it wasn’t well-attended"
+            },
+            {
+              "id": "B",
+              "label": "I hardly knew anyone"
+            },
+            {
+              "id": "C",
+              "label": "It ended early"
+            },
+            {
+              "id": "D",
+              "label": "I was treated badly"
+            },
+            {
+              "id": "E",
+              "label": "there was an argument"
+            },
+            {
+              "id": "F",
+              "label": "I left before the end"
+            },
+            {
+              "id": "G",
+              "label": "everyone enjoyed themselves"
+            },
+            {
+              "id": "H",
+              "label": "I couldn’t focus on the event"
+            }
+          ],
+          "context": "Speaker 3"
+        },
+        {
+          "number": 29,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "it wasn’t well-attended"
+            },
+            {
+              "id": "B",
+              "label": "I hardly knew anyone"
+            },
+            {
+              "id": "C",
+              "label": "It ended early"
+            },
+            {
+              "id": "D",
+              "label": "I was treated badly"
+            },
+            {
+              "id": "E",
+              "label": "there was an argument"
+            },
+            {
+              "id": "F",
+              "label": "I left before the end"
+            },
+            {
+              "id": "G",
+              "label": "everyone enjoyed themselves"
+            },
+            {
+              "id": "H",
+              "label": "I couldn’t focus on the event"
+            }
+          ],
+          "context": "Speaker 4"
+        },
+        {
+          "number": 30,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "it wasn’t well-attended"
+            },
+            {
+              "id": "B",
+              "label": "I hardly knew anyone"
+            },
+            {
+              "id": "C",
+              "label": "It ended early"
+            },
+            {
+              "id": "D",
+              "label": "I was treated badly"
+            },
+            {
+              "id": "E",
+              "label": "there was an argument"
+            },
+            {
+              "id": "F",
+              "label": "I left before the end"
+            },
+            {
+              "id": "G",
+              "label": "everyone enjoyed themselves"
+            },
+            {
+              "id": "H",
+              "label": "I couldn’t focus on the event"
+            }
+          ],
+          "context": "Speaker 5"
+        }
+      ]
+    }
+  ]
+}

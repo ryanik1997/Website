@@ -1,0 +1,845 @@
+{
+  "id": "catalog-listening-cae-c1-test14",
+  "title": "CAE Listening Test 14",
+  "durationMinutes": 40,
+  "bandHint": "C1 Advanced Listening · 4 parts · 30 câu",
+  "examType": "cae",
+  "examMode": "practice",
+  "parts": [
+    {
+      "id": "catalog-listening-cae-c1-test14-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1-6",
+      "instruction": "You will hear three different extracts. For questions 1-6, choose the answer (A, B or C) which fits best",
+      "audioUrl": "/catalog/listening/cae-c1-test14/cae-listening-test-13-part-1.mp3",
+      "transcript": "**Extract One** **Man:** How are you finding the teaching course, Susanna? You seem to have been making good progress so far. **Woman:** Yeah, I’m feeling more confident in front of my students. But I worry about whether they’re inspired by the activities I do with them sometimes. I guess this is a wake-up call for me – that it’s just too much to expect them to be as excited about Maths as I am. **Man:** I think when a teacher’s motivated, that can’t fail to make an impression. You can’t expect your students to love a subject unless they can see you love it yourself. Sure, your students will think you’re crazy if you talk about Maths as if it were a spectator sport, but in the end your attitude will rub off on them. **[1]** **Woman:** I was reading about some techniques I could try in the classroom to keep their interest levels up **[2]**. I’ve been trying to get some more hands-on stuff into my classes – you know trying things out in a practical sense rather than sticking to boring theory. **Man:** Sounds like an excellent idea. Students always appreciate a teacher who goes the extra mile for them. **Extract Two** **Sam:** So you decided against the concert then? **Ella:** I thought about it, but I don’t really think it’s possible to get caught up in the atmosphere when all you see is someone pressing buttons on a computer and tinkling the keys on a synthesiser. That’s all this electronic music amounts to. **Sam:** Admittedly the performer was dressed all in black and she looked like a scene shifter. And the visuals were limited – there was a screen, but just with some sober animations on it – trees, castles, rippling water – that sort of thing. **Ella:** That says it all. **Sam:** But does that matter, if the music’s brilliant? And it certainly was. But that’s just my opinion. **[3]** **Ella:** Tell me something about her then. **Sam:** Well – she’s a student – studying comparative literature I think. That seems to give a bit of substance to her music, make it thoughtful and rigorous. **[4]** **Ella:** Sounds overly serious! **Sam:** Well, it all paid off. When the audience got more lively towards the end, she kept it steady and didn’t change pace to build excitement. And she didn’t seem to need the pyrotechnics and lasers that so many techies rely on. **Extract Three** **Man:** I heard that people from your office were planting trees last week. What’s going on? **Woman:** Sustainability’s the new watchword these days. Last year we concentrated on cutting down on our use of paper, and providing raw material for more also seemed a good thing to do. **Man:** And easier too – your office is next door to a big forest, isn’t it? **Woman:** Yes – very convenient. We’re really keen on the idea that the company should be seen to identify with a certain set of values – and I think we were doing just that out there in the woods. **[5]** So much internal conflict seemed forgotten too – which may not last, of course! **Man:** What else have you done? **Woman:** It’s not just the trees of course – we’ve cut down our carbon footprint and reduced staff travel by encouraging remote working and flexible home working, so people have been understandably pleased about that. And word seems to have got round because the last bunch of job applicants were a very noticeably higher calibre than previously- and I’m pretty sure that wasn’t just a coincidence, though it wasn’t part of our original thinking. **[6]** There are certainly plenty of happy clients, but they’ve always been keen on the idea of supporting community projects through our efforts!",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test14-q-1",
+          "number": 1,
+          "type": "multiple-choice",
+          "prompt": "What point does the tutor make about a teacher’s attitude?",
+          "options": [
+            {
+              "id": "A",
+              "label": "A good teacher can put any subject across effectively."
+            },
+            {
+              "id": "B",
+              "label": "Students will pick up on a teacher’s commitment."
+            },
+            {
+              "id": "C",
+              "label": "There’s little point in a teacher trying to fake passion for a subject."
+            }
+          ],
+          "answer": "B",
+          "explanation": "BMan: Sure, your students will think you’re crazy if you talk about Maths as if it were a spectator sport, but in the end your attitude will rub off on them."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test14-q-2",
+          "number": 2,
+          "type": "multiple-choice",
+          "prompt": "What is Susanna doing?",
+          "options": [
+            {
+              "id": "A",
+              "label": "complaining about her students’ lack of enthusiasm"
+            },
+            {
+              "id": "B",
+              "label": "proposing ways of making her subject more appealing"
+            },
+            {
+              "id": "C",
+              "label": "asking for ideas about exercises her students could do"
+            }
+          ],
+          "answer": "B",
+          "explanation": "BWoman: I was reading about some techniques I could try in the classroom to keep their interest levels up."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test14-q-3",
+          "number": 3,
+          "type": "multiple-choice",
+          "prompt": "Sam is trying to",
+          "options": [
+            {
+              "id": "A",
+              "label": "suggest how the visual impact could have been improved."
+            },
+            {
+              "id": "B",
+              "label": "challenge Ella’s preconceptions about the music."
+            },
+            {
+              "id": "C",
+              "label": "persuade Ella to go to a similar one in the future."
+            }
+          ],
+          "answer": "B",
+          "explanation": "BSam: But does that matter, if the music’s brilliant? And it certainly was. But that’s just my opinion."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test14-q-4",
+          "number": 4,
+          "type": "multiple-choice",
+          "prompt": "In Sam’s opinion, what makes the performer stand out?",
+          "options": [
+            {
+              "id": "A",
+              "label": "the influence her academic background has on her music"
+            },
+            {
+              "id": "B",
+              "label": "the instinctive way she responds to her audience"
+            },
+            {
+              "id": "C",
+              "label": "the high level of stage presence she displays"
+            }
+          ],
+          "answer": "A",
+          "explanation": "ASam: Well – she’s a student – studying comparative literature I think. That seems to give a bit of substance to her music, make it thoughtful and rigorous."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test14-q-5",
+          "number": 5,
+          "type": "multiple-choice",
+          "prompt": "Staff have been planting trees in order to",
+          "options": [
+            {
+              "id": "A",
+              "label": "promote a desirable image."
+            },
+            {
+              "id": "B",
+              "label": "encourage a spirit of mutual co-operation."
+            },
+            {
+              "id": "C",
+              "label": "compensate for environmental damage."
+            }
+          ],
+          "answer": "A",
+          "explanation": "AWoman: Yes – very convenient. We’re really keen on the idea that the company should be seen to identify with a certain set of values – and I think we were doing just that out there in the woods."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test14-q-6",
+          "number": 6,
+          "type": "multiple-choice",
+          "prompt": "The company was surprised that its remote working initiative resulted in",
+          "options": [
+            {
+              "id": "A",
+              "label": "more appreciative customers."
+            },
+            {
+              "id": "B",
+              "label": "a better standard of new recruits."
+            },
+            {
+              "id": "C",
+              "label": "a more motivated workforce."
+            }
+          ],
+          "answer": "B",
+          "explanation": "BWoman: And word seems to have got round because the last bunch of job applicants were a very noticeably higher calibre than previously- and I’m pretty sure that wasn’t just a coincidence, though it wasn’t part of our original thinking."
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test14-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 7-14",
+      "instruction": "You will hear a scientist called Jim Weller giving a talk about some robots he has created and how they function like insects called termites. For questions 7-14 complete the sentences with a word or short phrase.",
+      "audioUrl": "/catalog/listening/cae-c1-test14/cae-listening-test-13-part-2.mp3",
+      "transcript": "**Jim:** Hi. I’m Jim, and together with colleagues I’ve been attempting to create a group of robots that build things in the same impressive way that termites do. Termites are like large ants and build amazingly complex structures called mounds to live in. Unlike bees, termites don’t receive instructions from their queen about what to do. **[7]** In fact, a single worker doesn’t know what the other termites are doing or what the current overall state of the mound looks like. This tells us that large numbers of units working independently can, paradoxically, build complicated, large-scale things together. So, we decided to make and to program what I like to call a colony of robots. **[8]** Now, by giving the robots a picture of what we want them to build – and it doesn’t matter how many of them there are or which robot does what – they do indeed end up building what they’re asked for. The robots and termites both have very restricted sensing – a single unit can only tell what’s going on right around itself. It’s the same with communicating. Rather than communicating with one another directly, termites make alterations to their shared environment, and others respond. One deposits some soil, for example, or half-eaten wood…another one comes along later and on seeing this, a reaction is triggered. **[9]** We observed this and devised a similar system with the robots. Like termites, the robots often make errors, for example trying to pick up a brick and failing. Rather than trying to prevent those errors, we give them enough feedback to help with the recognition and correction process **[10]**, so they try again until they get it right. So they keep patrolling the structure, fixing only what needs fixing. I’ve demonstrated this in action several times in public presentations, with one of our robots. It had to try to complete the structure I asked it to, in this case a staircase. **[11]** And there was a block missing at the top, so it had to try and pick up building material from the loading area and walk up the structure until it discovered exactly what needed attention. In the long-term, one day robots like this could build for us in inaccessible or dangerous settings, such as underwater or on Mars. In the shorter term, the same principle applies. So, for instance, if you wanted to position sandbags to protect against rising floodwater **[12]**, or build in difficult Antarctic surroundings, you can imagine how hardware and approaches very much like this could be used. In a sense, termites are like cells in your brain, all acting independently but interacting with each other, and out of that comes a higher intelligence **[13]**. And in a similar kind of way our robots are individuals, moving around independently with no central coordination, and together, hopefully, producing complicated structures. One spin-off piece of research has already been put into place. A Turkish group has been working alongside us to see if the way the robots and termites operate can actually be captured in a mathematical model to be used in future projects **[14]**. It’s a fascinating idea and I believe there are similar studies with flocks of birds and shoals of fish.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test14-q-7",
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "Jim says termites differ from bees in that a ________ is not responsible for organising their building work.",
+          "options": [],
+          "answer": "queen",
+          "explanation": "queenTermites are like large ants and build amazingly complex structures called mounds to live in. Unlike bees, termites don’t receive instructions from their queen about what to do."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test14-q-8",
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "Jim uses the word ________ to refer to the group of robots he’s created to function as independent units.",
+          "options": [],
+          "answer": "colony",
+          "explanation": "colonyThis tells us that large numbers of units working independently can, paradoxically, build complicated, large-scale things together. So, we decided to make and to program what I like to call a colony of robots."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test14-q-9",
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "Jim observed termites depositing partially consumed ________ in shared habitats, which activated a response from other termites.",
+          "options": [],
+          "answer": "wood",
+          "explanation": "woodOne deposits some soil, for example, or half-eaten wood…another one comes along later and on seeing this, a reaction is triggered."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test14-q-10",
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "Jim states that the robots receive ________ to help them correct any errors they make.",
+          "options": [],
+          "answer": "(enough) feedback",
+          "explanation": "(enough) feedbackRather than trying to prevent those errors, we give them enough feedback to help with the recognition and correction process..."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test14-q-11",
+          "number": 11,
+          "type": "gap-fill",
+          "prompt": "Jim got a single robot to finish the construction of a ________ when publicly demonstrating how simple structure building is performed.",
+          "options": [],
+          "answer": "staircase",
+          "explanation": "staircaseI’ve demonstrated this in action several times in public presentations, with one of our robots. It had to try to complete the structure I asked it to, in this case a staircase."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test14-q-12",
+          "number": 12,
+          "type": "gap-fill",
+          "prompt": "Jim predicts that his robots will soon be able to move ________ into position to help people cope with the threat of floods.",
+          "options": [],
+          "answer": "sandbags/sand bags/bags of sand",
+          "explanation": "sandbags/sand bags/ bags of sandSo, for instance, if you wanted to position sandbags to protect against rising floodwater, or build in difficult Antarctic surroundings, you can imagine how hardware and approaches very much like this could be used."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test14-q-13",
+          "number": 13,
+          "type": "gap-fill",
+          "prompt": "Jim compares both termites and his robots to brain cells, in that they all create a superior form of ________ .",
+          "options": [],
+          "answer": "intelligence",
+          "explanation": "intelligenceIn a sense, termites are like cells in your brain, all acting independently but interacting with each other, and out of that comes a higher intelligence."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test14-q-14",
+          "number": 14,
+          "type": "gap-fill",
+          "prompt": "A group of Turkish researchers has observed Jim’s work in the hope of coming up with a ________ they can learn from.",
+          "options": [],
+          "answer": "(mathematical) model",
+          "explanation": "(mathematical) modelA Turkish group has been working alongside us to see if the way the robots and termites operate can actually be captured in a mathematical model to be used in future projects."
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test14-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 15-20",
+      "instruction": "You will hear an interview in which a historian called Mark Connor and a writer called Judith Monroe are talking about the history of the underground railway in London. For questions 15-20, choose the answer (A, B, C or D) which fits best according to what you hear.",
+      "audioUrl": "/catalog/listening/cae-c1-test14/cae-listening-test-13-part-3.mp3",
+      "transcript": "**Interviewer:** Today we are talking to historian Mark Connor and writer Judith Monroe about the history of the London Underground railway, otherwise known as the Tube, which celebrated its 150th anniversary recently. Mark, what prompted the construction of the world’s first underground train system all those years ago? **Mark:** Well, we tend to think that all modern problems were invented by us. But actually the 19th century also had traffic problems. **[15]** Okay, it was all horsedrawn transport in those days, but still the streets were jammed. London is an old city which grew organically. It never was designed for heavy traffic and so there are lots of narrow streets. Now there was once a guy called Charles Pearson who was stuck in what we’d now call a traffic jam, and he thought of the unique solution of having a transport system that could go underground. It was a brilliant idea – but it wasn’t until 30 years later that the first line was built. **Interviewer:** So, Judith, how did they go about it, as an engineering project? **Judith:** The first set of underground lines were built by a method called cut and cover, which was pretty crude because basically you cut open a big hole in the ground, preferably in an existing road rather than having to demolish a lot of houses – though a few houses were demolished – then you put in the railway, and covered it over again. That’s a pretty disruptive form of engineering, and it did cause chaos in the centre of London for a couple of years. But amazingly, they were started in 1860 and completed by 1863. You wouldn’t expect to finish a single metro line in that time these days. **[16]** **Interviewer:** And how was the first line received by the public when it finally opened, Mark? **Mark:** Well, there was a big debate at first: Would people use it? Would they dare to go in it? What would they find down there? Would there be dog-sized rats and stinking sewers? I think people were quite brave, actually. The tunnels were pretty dark because they only had gas lighting at the time. In fact, on the day it opened, an incredible 30,000 people used the railway and the trains were completely full. **[17]** The whole thing was profitable from year one, encouraging investors to help continue developing it. **Interviewer:** And let me ask both of you, as development continued, what effect did it have? **Judith:** Oh, the effects were huge. As it grew, it provided work for thousands, both in the construction and the subsequent running of the system. And it was a great source of national pride. It’s hard to overestimate its importance in the way London grew – the city actually followed the spread of the underground lines, not the other way round. **[18]** **Interviewer:** Mark? **Mark:** Don’t forget London was the pioneer of this. They did it 37 years before anyone else in the world. And yes, I would say that the Underground really helped create London. The lines spread out towards what were little villages at the time – and are now important areas of the city. **[18]** **Interviewer:** And Judith, what about the stations? **Judith:** If anyone wants to come and experience the Underground, I’d say use that extension of the Jubilee line opened in 1999. You’ll see how beautiful the stations can be. They were deliberately designed as big, cavernous places with an adventurous feel of going underground, massive escalators going everywhere, a bit like the 1920s film Metropolis where you get the sense of being in a really huge city with lots of people going different places. **[19]** A thrilling place to be. A lot of the stations on that stretch of the line are like that. They’re absolutely incredible feats of engineering. **Interviewer:** And what about mapping the railway? Wasn’t that incredibly complicated? **Mark:** Yes, what happened was, as more lines opened up, and the existing map became more complex, a guy called Harry Beck said, hang on, this map doesn’t have to be geographically accurate, so he made it geographically inaccurate – just a very simple diagram – made of straight lines and 45 degree angles. I think that’s one of the main ways it became something in people’s heads as a system, as an icon, of London. **[20]** London Underground have now made more money from the map through merchandising than they have through running trains.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test14-q-15",
+          "number": 15,
+          "type": "multiple-choice",
+          "prompt": "Mark says that the problems which led to the creation of the railway",
+          "options": [
+            {
+              "id": "A",
+              "label": "resulted from poor urban planning."
+            },
+            {
+              "id": "B",
+              "label": "were similar to those we have today."
+            },
+            {
+              "id": "C",
+              "label": "typified the thinking of their age."
+            },
+            {
+              "id": "D",
+              "label": "only had one possible solution."
+            }
+          ],
+          "answer": "B",
+          "explanation": "BMark: Well, we tend to think that all modern problems were invented by us. But actually the 19th century also had traffic problems."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test14-q-16",
+          "number": 16,
+          "type": "multiple-choice",
+          "prompt": "Judith believes that the engineering methods used to make the first tunnel",
+          "options": [
+            {
+              "id": "A",
+              "label": "worked surprisingly quickly."
+            },
+            {
+              "id": "B",
+              "label": "were too basic to be efficient."
+            },
+            {
+              "id": "C",
+              "label": "caused a minimum amount of disruption."
+            },
+            {
+              "id": "D",
+              "label": "resulted in the loss of too many homes."
+            }
+          ],
+          "answer": "A",
+          "explanation": "AJudith:But amazingly, they were started in 1860 and completed by 1863. You wouldn’t expect to finish a single metro line in that time these days."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test14-q-17",
+          "number": 17,
+          "type": "multiple-choice",
+          "prompt": "How does Mark feel about the public reaction when the first underground line opened?",
+          "options": [
+            {
+              "id": "A",
+              "label": "disappointed by their reluctance to go underground"
+            },
+            {
+              "id": "B",
+              "label": "struck by their willingness to tolerate lengthy journeys"
+            },
+            {
+              "id": "C",
+              "label": "amused by their unfounded fears"
+            },
+            {
+              "id": "D",
+              "label": "impressed by their general enthusiasm"
+            }
+          ],
+          "answer": "D",
+          "explanation": "DMark: In fact, on the day it opened, an incredible 30,000 people used the railway and the trains were completely full."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test14-q-18",
+          "number": 18,
+          "type": "multiple-choice",
+          "prompt": "Judith and Mark both say that, during the early years of its construction, the railway",
+          "options": [
+            {
+              "id": "A",
+              "label": "created many jobs for people."
+            },
+            {
+              "id": "B",
+              "label": "had a big influence on urban development."
+            },
+            {
+              "id": "C",
+              "label": "inspired imitators all over the world."
+            },
+            {
+              "id": "D",
+              "label": "made national heroes of its developers."
+            }
+          ],
+          "answer": "B",
+          "explanation": "BJudith: And it was a great source of national pride. It’s hard to overestimate its importance in the way London grew – the city actually followed the spread of the underground lines, not the other way round.Mark: And yes, I would say that the Underground really helped create London. The lines spread out towards what were little villages at the time – and are now important areas of the city."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test14-q-19",
+          "number": 19,
+          "type": "multiple-choice",
+          "prompt": "Judith compares certain underground stations to a classic film in that",
+          "options": [
+            {
+              "id": "A",
+              "label": "they are designed in the style of a particular era."
+            },
+            {
+              "id": "B",
+              "label": "they give a feeling of being in a cinema."
+            },
+            {
+              "id": "C",
+              "label": "they are a product of the same creative vision."
+            },
+            {
+              "id": "D",
+              "label": "they give a similar sense of size and excitement."
+            }
+          ],
+          "answer": "D",
+          "explanation": "DJudith: They were deliberately designed as big, cavernous places with an adventurous feel of going underground, massive escalators going everywhere, a bit like the 1920s film Metropolis where you get the sense of being in a really huge city with lots of people going different places."
+        },
+        {
+          "id": "catalog-listening-cae-c1-test14-q-20",
+          "number": 20,
+          "type": "multiple-choice",
+          "prompt": "What does Mark think about the railway map?",
+          "options": [
+            {
+              "id": "A",
+              "label": "It has come to represent the city."
+            },
+            {
+              "id": "B",
+              "label": "It can confuse people unfamiliar with its format."
+            },
+            {
+              "id": "C",
+              "label": "It encourages people to use the underground."
+            },
+            {
+              "id": "D",
+              "label": "It is well designed for something so inexpensive."
+            }
+          ],
+          "answer": "A",
+          "explanation": "AMark: I think that’s one of the main ways it became something in people’s heads as a system, as an icon, of London."
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-cae-c1-test14-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 21-30",
+      "instruction": "You will hear five short extracts in which people are talking about visits they have made to museums.",
+      "audioUrl": "/catalog/listening/cae-c1-test14/cae-listening-test-13-part-4.mp3",
+      "transcript": "**Speaker 1** I spent last weekend at a friend’s – his parents live on the coast. He went off somewhere on Saturday leaving me struggling with the history coursework I had to finish by Monday **[21]**. I wandered into the town centre and saw the museum, and I remembered how my mother always used to say that local museums are often a mine of information **[21]** – and I needed inspiration. I bought my ticket from the affable guy on duty. There was plenty of material, well displayed – and a temporary exhibition of deep-sea fishing equipment – but more importantly all the stuff was closely associated with the town, and reflected its history as a once thriving fishing port. **[26]** **Speaker 2** Going to museums is not something I often do – at the moment I get enough lectures and information overload at college – but Dad’s got himself a metal detector and become a treasure hunter. Last week he found this funny little brooch, and I said I’d show it to someone who’d know what it was **[22]**. There were a whole lot of people there – maybe there was something special going on – and the staff kept me hanging about. So to fill the time, I tried out one of those tape machines and listened to a lively commentary which certainly made the displays and reconstructions more relevant. **[27]** I didn’t come back with any good news for Dad though. No treasure this time! Speaker 3 I’ve got a German friend staying at the moment, and last week I dragged him off to the town museum – I thought he might learn a bit of local history. A team of archaeologists have been working in the town-centre car park and unearthed an unusual bit of prehistoric pottery. It’s in the museum for now, and I was very keen to take a look and see what the experts were saying about it **[23]**. My friend said he’d bring his new camera. The hoard has already been researched in detail, and the staff have produced an in-depth explanatory leaflet reflecting this **[28]** – I was really pleased to learn so much and my friend was pretty chuffed at how his new camera performed. **Speaker 4** I remember going to our local museum when I was in primary school – it was very boring – but I hadn’t been back again until last week. I was really surprised to find they’d made several changes. They have those audio-guides now and weekly lectures, and the information boards have been updated. And to crown it all – instead of having everything in cabinets, they’ve built mock-up scenes – like a medieval kitchen for example – convincingly realistic and much more effective. **[29]** I managed to do some half-decent sketches of them – a friend in the States studying the period had asked me to do this for him. **[24]** There were a lot of people – I’m not surprised the place is more popular these days. **Speaker 5** I was away on a course last week. We were kept busy – lectures all day, plenty of reading to catch up on in the evenings. I did manage to visit the local industrial museum at the instigation of a colleague who thought I’d find it interesting **[25]**, ‘cos it was full of examples of nineteenth-century machinery, which you could get right up to. There were galleries full of huge, gleaming marvels of engineering. To be honest, the machines looked much the same and the vast amounts of technical information went straight over my head, though this was obviously a source of frustration for all the enthusiasts who seemed to come from everywhere, judging by the amazing number of different languages I heard. **[30]**",
+      "matchingDualTask": true,
+      "taskOneInstruction": "For questions 21-25, choose the option which best describes each speaker.",
+      "taskTwoInstruction": "For questions 26-30, choose the option which best describes each speaker.",
+      "questions": [
+        {
+          "id": "catalog-listening-cae-c1-test14-q-21",
+          "number": 21,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "answer": "F",
+          "explanation": "FHe went off somewhere on Saturday leaving me struggling with the history coursework I had to finish by Monday. I wandered into the town centre and saw the museum, and I remembered how my mother always used to say that local museums are often a mine of information",
+          "context": "Speaker 1"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test14-q-22",
+          "number": 22,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "answer": "H",
+          "explanation": "HLast week he found this funny little brooch, and I said I’d show it to someone who’d know what it was",
+          "context": "Speaker 2"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test14-q-23",
+          "number": 23,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B...I was very keen to take a look and see what the experts were saying about it",
+          "context": "Speaker 3"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test14-q-24",
+          "number": 24,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "answer": "A",
+          "explanation": "AI managed to do some half-decent sketches of them – a friend in the States studying the period had asked me to do this for him.",
+          "context": "Speaker 4"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test14-q-25",
+          "number": 25,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "answer": "D",
+          "explanation": "DI did manage to visit the local industrial museum at the instigation of a colleague who thought I’d find it interesting...",
+          "context": "Speaker 5"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test14-q-26",
+          "number": 26,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "answer": "B",
+          "explanation": "BThere was plenty of material, well displayed – and a temporary exhibition of deep-sea fishing equipment – but more importantly all the stuff was closely associated with the town, and reflected its history as a once thriving fishing port.",
+          "context": "Speaker 1"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test14-q-27",
+          "number": 27,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "answer": "C",
+          "explanation": "CSo to fill the time, I tried out one of those tape machines and listened to a lively commentary which certainly made the displays and reconstructions more relevant.",
+          "context": "Speaker 2"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test14-q-28",
+          "number": 28,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "answer": "F",
+          "explanation": "FThe hoard has already been researched in detail, and the staff have produced an in-depth explanatory leaflet reflecting this",
+          "context": "Speaker 3"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test14-q-29",
+          "number": 29,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "answer": "H",
+          "explanation": "HAnd to crown it all – instead of having everything in cabinets, they’ve built mock-up scenes – like a medieval kitchen for example – convincingly realistic and much more effective.",
+          "context": "Speaker 4"
+        },
+        {
+          "id": "catalog-listening-cae-c1-test14-q-30",
+          "number": 30,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D... his was obviously a source of frustration for all the enthusiasts who seemed to come from everywhere, judging by the amazing number of different languages I heard.",
+          "context": "Speaker 5"
+        }
+      ]
+    }
+  ],
+  "catalogSlug": "cae-c1-test14",
+  "catalogBase": "/catalog/listening/cae-c1-test14"
+}

@@ -1,0 +1,21 @@
+Fix căn chỉnh bottom navigation của KET Reading A2.
+
+Hiện tại Part 1 có dãy số câu + scrollbar nên chiều cao/căn dọc lệch so với Part 2–7.
+
+Yêu cầu:
+- Toàn bộ footer giữ cùng một chiều cao cố định.
+- Các ô Part 1–7 và nút submit phải cùng hàng, cùng chiều cao.
+- Text “Part N” và “0 of N” căn giữa theo trục dọc.
+- Dãy số câu của Part đang active nằm cùng hàng với “Part 1”, không làm footer cao thêm.
+- Không để scrollbar ngang đẩy nội dung lệch xuống; scrollbar chỉ nằm sát đáy vùng question rail.
+- Dùng `display:grid` hoặc `display:flex; align-items:center`.
+- Mỗi Part tab: `height:100%; min-height:0; box-sizing:border-box`.
+- Question rail: `display:flex; align-items:center; overflow-x:auto; overflow-y:hidden`.
+- Không sửa navigation logic, màu sắc, dữ liệu hoặc các module khác.
+
+Kiểm tra tại 1366×768 và 1920×1080:
+- Part 1–7 thẳng hàng tuyệt đối.
+- Footer không nhảy chiều cao khi đổi Part.
+- Số câu không bị cắt.
+- Không xuất hiện scrollbar dọc.
+- Console errors = 0.

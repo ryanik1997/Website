@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { ArrowLeft, ArrowRight, Bell, Loader2, Wifi } from 'lucide-react'
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
@@ -21,6 +21,8 @@ import { useExamDraftGate } from '../useExamDraftGate'
 import { readingExamDurationMinutes } from '../readingExamDuration'
 import { initialExamTimerSeconds } from '../examTimer'
 import KetRwFooter from '../ketRw/KetRwFooter'
+import CambridgeSelectionToolbar from '../annotations/CambridgeSelectionToolbar'
+import { useStableTextSelection } from '../annotations/useStableTextSelection'
 import RwExamMain from '../rwHighlight/RwExamMain'
 import { rwDraftWithAnnotations, type RwDraftAnnotationFields } from '../rwHighlight/rwDraftAnnotations'
 import { usePartHighlights } from '../usePartHighlights'
@@ -58,11 +60,17 @@ export default function ReadingCaeRwTest() {
     fontStyle,
   } = useReadingFontSettings()
 
-  const allQuestions = useMemo(() => (exam ? getExamQuestions(exam) : []), [exam])
+  // The Reading route owns Parts 1–8. Legacy Test 1 also stores two Writing
+  // parts; preserve that catalog data but do not expose it in this shell.
+  const readingExam = useMemo(
+    () => exam ? { ...exam, parts: exam.parts.slice(0, 8) } : null,
+    [exam],
+  )
+  const allQuestions = useMemo(() => (readingExam ? getExamQuestions(readingExam) : []), [readingExam])
   const activeQuestionIndex = activeQuestionId
     ? allQuestions.findIndex(q => q.id === activeQuestionId)
     : -1
-  const currentPart = exam?.parts[partIndex] ?? null
+  const currentPart = readingExam?.parts[partIndex] ?? null
   const storageKey = exam ? `${STORAGE_PREFIX}${exam.id}` : ''
   const { isHydrated, markHydrated } = useExamDraftGate(storageKey)
   const {
@@ -72,9 +80,23 @@ export default function ReadingCaeRwTest() {
     notesByPart,
     handleHighlightsChange,
     handleNotesChange,
+    commitHighlightRanges,
+    commitNoteRanges,
+    commitDeleteNoteRanges,
+    commitDeleteHighlightRanges,
     setAnnotationsByPart,
     clearAllHighlights,
   } = usePartHighlights(currentPart?.id)
+
+  const selectionRootRef = useRef<HTMLDivElement>(null)
+  const { selection, clearSelection } = useStableTextSelection({
+    rootRef: selectionRootRef,
+    disabled: reviewMode,
+  })
+
+  useEffect(() => {
+    clearSelection()
+  }, [currentPart?.id, clearSelection])
 
   useEffect(() => {
     if (!exam) return
@@ -279,7 +301,12 @@ export default function ReadingCaeRwTest() {
   }
 
   return (
-    <div className={`ket-rw-shell cae-rw-shell${reviewMode ? ' is-review' : ''}`} style={fontStyle}>
+    <div
+      className={`ket-rw-shell cae-rw-shell${reviewMode ? ' is-review' : ''}`}
+      style={fontStyle}
+      data-exam-id={exam.id}
+      data-exam-title={exam.title}
+    >
       {reviewMode && (
         <div className="flex items-center justify-between gap-2 px-4 py-2 text-sm font-semibold" style={{ background: 'color-mix(in srgb, var(--color-primary) 14%, var(--bg-card))', borderBottom: '1px solid var(--border-color)', color: 'var(--text-primary)' }}>
           <span>Chế độ xem lại đề — đáp án đã khóa</span>
@@ -304,8 +331,13 @@ export default function ReadingCaeRwTest() {
           >
             <ArrowLeft size={16} />
           </button>
-          <span className="ket-rw-header__shield" aria-hidden>CE</span>
-          <span>Cambridge English</span>
+          <img
+            className="cae-rw-header__logo"
+            src="/exam/cambridge-english-logo.png"
+            alt="Cambridge English"
+            width={168}
+            height={43}
+          />
         </div>
         <span className="ket-rw-header__candidate">Candidate ID</span>
         <div className="ket-rw-header__actions">
@@ -342,6 +374,9 @@ export default function ReadingCaeRwTest() {
         notes={notes}
         onHighlightsChange={next => handleHighlightsChange(next.filter(h => h.kind !== 'evidence'))}
         onNotesChange={handleNotesChange}
+        mainRef={selectionRootRef}
+        readOnly={reviewMode}
+        selectionToolbar="none"
       >
         {currentPart && (
           <CaeRwPartContent
@@ -356,6 +391,17 @@ export default function ReadingCaeRwTest() {
           />
         )}
       </RwExamMain>
+
+      <CambridgeSelectionToolbar
+        selection={selection}
+        highlights={highlights}
+        notes={notes}
+        onCommitHighlight={commitHighlightRanges}
+        onCommitDeleteHighlight={commitDeleteHighlightRanges}
+        onCommitNote={commitNoteRanges}
+        onCommitDeleteNote={commitDeleteNoteRanges}
+        onClose={clearSelection}
+      />
 
       <div className="ket-rw-adjacent-nav" aria-label="Question navigation">
         <button
@@ -377,7 +423,7 @@ export default function ReadingCaeRwTest() {
       </div>
 
       <KetRwFooter
-        exam={exam}
+        exam={readingExam!}
         partIndex={partIndex}
         activeQuestionId={activeQuestionId}
         answers={answers}

@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { Mic, Square, RotateCcw, Volume2, Gauge, Languages, Send, Trash2, Sparkles, AudioLines } from 'lucide-react'
 import { speak, stop as stopTts } from '../listening/tts'
 import { loadLatestSpeakingConversation, sendSpeakingTurn, type SpeakingAccess, type SpeakingHistory, type TutorTurn } from './speakingAiApi'
@@ -15,10 +16,11 @@ function estimateTypedSeconds(text: string) {
 }
 
 export default function SpeakingAiPage() {
+  const [searchParams] = useSearchParams()
   const recorder = useSpeakingRecorder()
   const [level, setLevel] = useState('B1')
-  const [mode, setMode] = useState('Free Conversation')
-  const [topic, setTopic] = useState('Daily life')
+  const [mode, setMode] = useState(() => searchParams.get('mode') ?? 'Free Conversation')
+  const [topic, setTopic] = useState(() => searchParams.get('topic') ?? 'Daily life')
   const [conversationId, setConversationId] = useState<string>()
   const [turns, setTurns] = useState<TutorTurn[]>([])
   const [status, setStatus] = useState<'ready' | 'processing' | 'speaking'>('ready')

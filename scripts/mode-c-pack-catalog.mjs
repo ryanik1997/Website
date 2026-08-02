@@ -161,15 +161,17 @@ function packSkill(prefix, skill) {
   }
 
   const metaFile = path.join(DATA, `catalog-${skill}-meta.json`)
-  const existingStubs = ONLY_EXAM_ID && fs.existsSync(metaFile)
+  const existingStubs = fs.existsSync(metaFile)
     ? JSON.parse(fs.readFileSync(metaFile, 'utf8'))
     : []
-  const outputStubs = ONLY_EXAM_ID
-    ? [
-        ...existingStubs.filter(stub => stub.id !== ONLY_EXAM_ID),
-        ...stubs,
-      ].sort((a, b) => String(a.id).localeCompare(String(b.id), undefined, { numeric: true }))
-    : stubs
+  const packedIds = new Set(stubs.map(stub => stub.id))
+  const preservedStubs = existingStubs.filter(stub => {
+    if (stub.id === ONLY_EXAM_ID || packedIds.has(stub.id)) return false
+    return fs.existsSync(path.join(outDir, `${stub.id}.json`))
+      && fs.existsSync(path.join(outDir, `${stub.id}.answers.json`))
+  })
+  const outputStubs = [...preservedStubs, ...stubs]
+    .sort((a, b) => String(a.id).localeCompare(String(b.id), undefined, { numeric: true }))
   fs.writeFileSync(metaFile, JSON.stringify(outputStubs, null, 2) + '\n')
   console.log(`[mode-d] ${skill}: ${stubs.length} packed, ${withAnswers} answer vaults → ${outDir}`)
   return stubs.length

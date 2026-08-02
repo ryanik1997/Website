@@ -1,45 +1,29 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks'
-import { Check, ChevronLeft, ChevronRight, RotateCcw, Search, Star, Tag } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Star, Tag } from 'lucide-react'
 import { dedupeLegacySentenceStructures, syncGlobalCatalog } from '@ryan/catalog'
 import { sentenceStructureRepo } from '@ryan/db'
-import type { SentenceStructure } from '@ryan/db'
-import { categoryMeta, STRUCTURE_CATEGORIES } from './types'
+import type { LearningStatus, SentenceStructure } from '@ryan/db'
+import { categoryMeta } from './types'
 import { CEFR_LEVELS, CEFR_LABELS, parseCefr, cefrBadgeStyle, type CefrLevel } from '../../lib/cefr'
 import { getStructureCompletionHistory, type StructureCompletionEntry } from './structureHistory'
-import { Link } from 'react-router-dom'
+import LearningStatusChip from './LearningStatusChip'
+import {
+  countStatuses,
+  filterStructures,
+  getLearningStatus,
+  uniqueStructures,
+  type LearningStatusFilter,
+} from './structureLibrary'
+import {
+  EmptySavedStructures,
+  SavedStructuresCard,
+  SavedViewHeader,
+  SentenceStructureToolbar,
+} from './SentenceStructureLibraryControls'
 
 const PAGE_SIZE = 24
-
-/** 1 bản / template — gộp “· 02” clone và UUID trùng catalog. */
-function structureDedupeKey(s: Pick<SentenceStructure, 'template'>): string {
-  return s.template.trim().toLowerCase().replace(/\s+/g, ' ')
-}
-
-function preferListItem(a: SentenceStructure, b: SentenceStructure): SentenceStructure {
-  const aCore = a.id.startsWith('catalog:') && !a.id.includes(':v') && !a.id.includes('extra')
-  const bCore = b.id.startsWith('catalog:') && !b.id.includes(':v') && !b.id.includes('extra')
-  if (aCore && !bCore) return a
-  if (bCore && !aCore) return b
-  if (a.id.startsWith('catalog:') && !b.id.startsWith('catalog:')) return a
-  if (b.id.startsWith('catalog:') && !a.id.startsWith('catalog:')) return b
-  return a.updatedAt >= b.updatedAt ? a : b
-}
-
-function uniqueStructures(items: SentenceStructure[]): SentenceStructure[] {
-  const map = new Map<string, SentenceStructure>()
-  for (const item of items) {
-    const key = structureDedupeKey(item)
-    const prev = map.get(key)
-    if (!prev) {
-      map.set(key, item)
-      continue
-    }
-    map.set(key, preferListItem(prev, item))
-  }
-  return [...map.values()].sort((a, b) => b.updatedAt - a.updatedAt)
-}
 
 export default function StructureListHub() {
   const navigate = useNavigate()
@@ -47,8 +31,11 @@ export default function StructureListHub() {
   const [query, setQuery] = useState('')
   const [page, setPage] = useState(0)
   const [history, setHistory] = useState<StructureCompletionEntry[]>([])
+  const [error, setError] = useState('')
   const cefrFilter = parseCefr(searchParams.get('cefr') ?? undefined)
   const categoryFilter = searchParams.get('category') ?? ''
+  const statusFilter = (searchParams.get('status') ?? '') as LearningStatusFilter
+  const savedOnly = searchParams.get('view') === 'saved'
 
   useEffect(() => {
     void (async () => {
@@ -59,51 +46,33 @@ export default function StructureListHub() {
   }, [])
 
   const items = useLiveQuery(() => sentenceStructureRepo.all(), [])
+  const unique = useMemo(() => uniqueStructures(items ?? []), [items])
+  const savedCounts = useMemo(() => countStatuses(unique.filter(item => item.starred)), [unique])
+  const filtered = useMemo(() => filterStructures(unique, {
+    query,
+    cefr: cefrFilter,
+    category: categoryFilter,
+    status: statusFilter,
+    savedOnly,
+  }), [unique, query, cefrFilter, categoryFilter, statusFilter, savedOnly])
 
-  const filtered = useMemo(() => {
-    if (!items) return items
-    let unique = uniqueStructures(items)
-    if (cefrFilter) {
-      unique = unique.filter(s => s.cefr === cefrFilter)
-    }
-    if (categoryFilter) {
-      unique = unique.filter(s => categoryMeta(s.category).label === categoryFilter)
-    }
-    const q = query.trim().toLowerCase()
-    if (!q) return unique
-    return unique.filter(s =>
-      s.title.toLowerCase().includes(q)
-      || s.template.toLowerCase().includes(q)
-      || s.category.toLowerCase().includes(q)
-      || s.description.toLowerCase().includes(q)
-      || s.exampleNoteVi.toLowerCase().includes(q)
-      || (s.cefr?.toLowerCase().includes(q) ?? false),
-    )
-  }, [items, query, cefrFilter, categoryFilter])
-
-  const total = filtered?.length ?? 0
+  const total = filtered.length
   const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE))
   const safePage = Math.min(page, totalPages - 1)
   const pageStart = safePage * PAGE_SIZE
-  const pageItems = filtered?.slice(pageStart, pageStart + PAGE_SIZE) ?? []
-  const completedStructureIds = useMemo(
-    () => new Set(history.map(entry => entry.structureId)),
-    [history],
-  )
+  const pageItems = filtered.slice(pageStart, pageStart + PAGE_SIZE)
   const groupedPageItems = useMemo(() => {
     const groups = new Map<string, SentenceStructure[]>()
     const order = [...CEFR_LEVELS, 'unassigned']
     for (const item of pageItems) {
       const key = item.cefr ?? 'unassigned'
-      const current = groups.get(key) ?? []
-      current.push(item)
-      groups.set(key, current)
+      groups.set(key, [...(groups.get(key) ?? []), item])
     }
     return [...groups.entries()]
       .sort(([a], [b]) => order.indexOf(a as typeof order[number]) - order.indexOf(b as typeof order[number]))
-      .map(([level, items]) => {
+      .map(([level, levelItems]) => {
         const categories = new Map<string, SentenceStructure[]>()
-        for (const item of items) {
+        for (const item of levelItems) {
           const category = categoryMeta(item.category).label
           categories.set(category, [...(categories.get(category) ?? []), item])
         }
@@ -111,98 +80,60 @@ export default function StructureListHub() {
       })
   }, [pageItems])
 
-  function goToPractice(id: string) {
-    navigate(`/app/sentence-structure/${id}`)
+  function updateParam(key: string, value?: string, options: { replace?: boolean } = { replace: true }) {
+    const next = new URLSearchParams(searchParams)
+    if (value) next.set(key, value)
+    else next.delete(key)
+    setSearchParams(next, options)
+    setPage(0)
+  }
+
+  async function updateStatus(id: string, status: LearningStatus) {
+    setError('')
+    try {
+      await sentenceStructureRepo.setLearningStatus(id, status)
+    } catch (reason) {
+      setError(reason instanceof Error ? reason.message : 'Không thể lưu trạng thái học tập. Vui lòng thử lại.')
+      throw reason
+    }
+  }
+
+  async function toggleStar(id: string) {
+    setError('')
+    try {
+      await sentenceStructureRepo.toggleStar(id)
+    } catch (reason) {
+      setError(reason instanceof Error ? reason.message : 'Không thể cập nhật cấu trúc đã lưu. Vui lòng thử lại.')
+    }
   }
 
   return (
     <div className="ss-hub">
-      <div className="ss-hub-toolbar">
-        <div className="ss-hub-search">
-          <Search size={16} />
-          <input
-            type="search"
-            value={query}
-            onChange={e => { setQuery(e.target.value); setPage(0) }}
-            placeholder="Tìm theo tên, mẫu câu, chủ đề…"
-            aria-label="Tìm cấu trúc câu"
-          />
-        </div>
-        <div className="flex flex-wrap gap-1.5 px-1 pb-1">
-          <button
-            type="button"
-            className="px-2.5 py-1 rounded-full text-[11px] font-bold border"
-            style={{
-              borderColor: !cefrFilter ? 'var(--color-primary)' : 'var(--border-color)',
-              color: !cefrFilter ? 'var(--color-primary)' : 'var(--text-muted)',
-              background: !cefrFilter
-                ? 'color-mix(in srgb, var(--color-primary) 12%, transparent)'
-                : 'transparent',
-            }}
-            onClick={() => {
-              const next = new URLSearchParams(searchParams)
-              next.delete('cefr')
-              setSearchParams(next, { replace: true })
-              setPage(0)
-            }}
-          >
-            Tất cả CEFR
-          </button>
-          {CEFR_LEVELS.map(level => {
-            const active = cefrFilter === level
-            const st = cefrBadgeStyle(level)
-            return (
-              <button
-                key={level}
-                type="button"
-                className="px-2.5 py-1 rounded-full text-[11px] font-bold border"
-                style={{
-                  borderColor: active ? st.color : 'var(--border-color)',
-                  color: active ? st.color : 'var(--text-muted)',
-                  background: active ? st.bg : 'transparent',
-                }}
-                title={CEFR_LABELS[level]}
-                onClick={() => {
-                  const next = new URLSearchParams(searchParams)
-                  next.set('cefr', level)
-                  setSearchParams(next, { replace: true })
-                  setPage(0)
-                }}
-              >
-                {level}
-              </button>
-            )
-          })}
-        </div>
-        <select
-          value={categoryFilter}
-          aria-label="Lọc theo nhóm cấu trúc"
-          className="ss-hub-category-filter"
-          onChange={e => {
-            const next = new URLSearchParams(searchParams)
-            if (e.target.value) next.set('category', e.target.value)
-            else next.delete('category')
-            setSearchParams(next, { replace: true })
-            setPage(0)
-          }}
-        >
-          <option value="">Tất cả nhóm</option>
-          {STRUCTURE_CATEGORIES.map(category => <option key={category.id} value={category.label}>{category.label}</option>)}
-        </select>
-        <p className="ss-hub-count">
-          {total.toLocaleString('vi-VN')} cấu trúc
-          {(query.trim() || cefrFilter) ? ' (đã lọc)' : ''}
-        </p>
-        <Link to="/app/sentence-structure/history" className="ss-history-toggle">Lịch sử{history.length > 0 ? ` · ${history.length}` : ''} <span>→</span></Link>
-      </div>
+      {savedOnly
+        ? <SavedViewHeader onClose={() => updateParam('view', undefined, { replace: false })} />
+        : <SavedStructuresCard counts={savedCounts} onOpen={() => updateParam('view', 'saved', { replace: false })} />}
 
+      <SentenceStructureToolbar
+        query={query}
+        cefr={cefrFilter}
+        category={categoryFilter}
+        status={statusFilter}
+        resultCount={total}
+        historyCount={history.length}
+        onQueryChange={value => { setQuery(value); setPage(0) }}
+        onCefrChange={value => updateParam('cefr', value)}
+        onCategoryChange={value => updateParam('category', value)}
+        onStatusChange={value => updateParam('status', value)}
+      />
+
+      {error && <div className="ss-library-error" role="alert">{error}</div>}
 
       <div className="ss-hub-groups">
         {groupedPageItems.map(([level, categoryGroups]) => (
           <section className="ss-hub-group" key={level}>
             <header className="ss-hub-group-head">
               <h2>{level === 'unassigned' ? 'Chưa gán CEFR' : CEFR_LABELS[level as CefrLevel]}</h2>
-              <span>{categoryGroups.reduce((sum, [, items]) => sum + items.length, 0)}</span>
+              <span>{categoryGroups.reduce((sum, [, categoryItems]) => sum + categoryItems.length, 0)}</span>
             </header>
             {categoryGroups.map(([category, categoryItems]) => (
               <div className="ss-hub-category" key={category}>
@@ -212,8 +143,9 @@ export default function StructureListHub() {
                     <StructureRow
                       key={item.id}
                       item={item}
-                      learned={completedStructureIds.has(item.id)}
-                      onOpen={() => goToPractice(item.id)}
+                      onOpen={() => navigate(`/app/sentence-structure/${item.id}`)}
+                      onStatusChange={status => updateStatus(item.id, status)}
+                      onToggleStar={() => toggleStar(item.id)}
                     />
                   ))}
                 </div>
@@ -221,35 +153,21 @@ export default function StructureListHub() {
             ))}
           </section>
         ))}
-        {filtered && total === 0 && (
-          <p className="ss-hub-empty ss-hub-empty--grouped">
-            {query.trim() ? 'Không tìm thấy cấu trúc phù hợp' : 'Chưa có bài nào — bấm Thêm bài để tạo'}
-          </p>
-        )}
+        {total === 0 && (savedOnly && !query.trim() && !cefrFilter && !categoryFilter && !statusFilter
+          ? <EmptySavedStructures />
+          : <p className="ss-hub-empty ss-hub-empty--grouped">Không tìm thấy cấu trúc phù hợp</p>)}
       </div>
 
       {totalPages > 1 && (
         <footer className="ss-hub-pagination">
-          <button
-            type="button"
-            className="ss-hub-page-btn"
-            disabled={safePage <= 0}
-            onClick={() => setPage(p => Math.max(0, p - 1))}
-            aria-label="Trang trước"
-          >
+          <button type="button" className="ss-hub-page-btn" disabled={safePage <= 0} onClick={() => setPage(value => Math.max(0, value - 1))} aria-label="Trang trước">
             <ChevronLeft size={16} />
           </button>
           <span className="ss-hub-page-info">
             {pageStart + 1}–{Math.min(pageStart + PAGE_SIZE, total)} / {total.toLocaleString('vi-VN')}
             <span className="ss-hub-page-num"> · Trang {safePage + 1}/{totalPages}</span>
           </span>
-          <button
-            type="button"
-            className="ss-hub-page-btn"
-            disabled={safePage >= totalPages - 1}
-            onClick={() => setPage(p => Math.min(totalPages - 1, p + 1))}
-            aria-label="Trang sau"
-          >
+          <button type="button" className="ss-hub-page-btn" disabled={safePage >= totalPages - 1} onClick={() => setPage(value => Math.min(totalPages - 1, value + 1))} aria-label="Trang sau">
             <ChevronRight size={16} />
           </button>
         </footer>
@@ -259,13 +177,16 @@ export default function StructureListHub() {
 }
 
 function StructureRow({
-  item, learned, onOpen,
+  item,
+  onOpen,
+  onStatusChange,
+  onToggleStar,
 }: {
   item: SentenceStructure
-  learned: boolean
   onOpen: () => void
+  onStatusChange: (status: LearningStatus) => Promise<void>
+  onToggleStar: () => Promise<void>
 }) {
-  const cat = categoryMeta(item.category)
   const cefr = item.cefr as CefrLevel | undefined
   const badge = cefr ? cefrBadgeStyle(cefr) : null
 
@@ -274,53 +195,24 @@ function StructureRow({
       <button type="button" className="ss-hub-row-main" onClick={onOpen}>
         <div className="ss-hub-row-top">
           <h2 className="ss-hub-row-title">{item.title}</h2>
-          {cefr && badge && (
-            <span
-              className="text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0"
-              style={{ background: badge.bg, color: badge.color }}
-            >
-              {cefr}
-            </span>
-          )}
-          {learned && (
-            <span
-              className="ss-learning-status inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0"
-              style={{
-                background: 'color-mix(in srgb, var(--color-success) 18%, transparent)',
-                color: 'var(--color-success)',
-              }}
-            >
-              <Check size={11} strokeWidth={2.5} aria-hidden="true" />
-              Đã học
-            </span>
-          )}
+          {cefr && badge && <span className="ss-cefr-badge" style={{ background: badge.bg, color: badge.color }}>{cefr}</span>}
         </div>
         <p className="ss-hub-row-template">{item.template}</p>
-        {item.description && (
-          <p className="ss-hub-row-desc">{item.description}</p>
-        )}
-        <span className="ss-cat-tag"><Tag size={12} /> {item.category}</span>
-        {learned && (
-          <span
-            className="inline-flex items-center gap-1 ml-2 text-[10px] font-semibold"
-            style={{ color: 'var(--text-muted)' }}
-          >
-            <RotateCcw size={11} aria-hidden="true" />
-            Học lại
-          </span>
-        )}
+        {item.description && <p className="ss-hub-row-desc">{item.description}</p>}
+        <span className="ss-cat-tag"><Tag size={12} /> {categoryMeta(item.category).label}</span>
       </button>
-      <button
-        type="button"
-        className={`ss-hub-star${item.starred ? ' is-starred' : ''}`}
-        title={item.starred ? 'Bỏ đánh dấu' : 'Đánh dấu'}
-        onClick={e => {
-          e.stopPropagation()
-          void sentenceStructureRepo.toggleStar(item.id)
-        }}
-      >
-        <Star size={15} fill={item.starred ? 'currentColor' : 'none'} />
-      </button>
+      <div className="ss-hub-row-actions">
+        <LearningStatusChip status={getLearningStatus(item)} onChange={onStatusChange} />
+        <button
+          type="button"
+          className={`ss-hub-star${item.starred ? ' is-starred' : ''}`}
+          aria-label={item.starred ? `Bỏ lưu ${item.title}` : `Lưu ${item.title}`}
+          title={item.starred ? 'Bỏ đánh dấu' : 'Đánh dấu'}
+          onClick={() => void onToggleStar()}
+        >
+          <Star size={16} fill={item.starred ? 'currentColor' : 'none'} />
+        </button>
+      </div>
     </div>
   )
 }

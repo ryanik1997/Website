@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { AuthProvider } from './features/auth/AuthContext'
 import App from './App'
 import './styles/globals.css'
+import './components/exam/questionNumberBadge.css'
 import { applyTheme, getAutoTheme, getThemePreference } from './lib/theme'
 
 applyTheme(getThemePreference() ?? getAutoTheme())
@@ -26,7 +27,7 @@ scheduleAutoTheme()
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <AuthProvider>
         <App />
       </AuthProvider>
