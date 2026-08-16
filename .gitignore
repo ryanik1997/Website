@@ -31,6 +31,8 @@ apps/web/public/catalog/listening/pet-b1-book*/
 
 # Cache & temp
 .cxpak/
+# R2 release staging (generated; never commit)
+tmp/r2-release/
 
 # Debug artifacts
 Fixbug/

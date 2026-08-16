@@ -1,0 +1,1566 @@
+{
+  "version": 1,
+  "note": "M1 data model — Materials + Films + Perforation. Quy tắc: trường chưa đo thực nghiệm để null, KHÔNG tự bịa giá trị. Mọi film phải gán data confidence.",
+  "materials": [
+    {
+      "code": "BOPP",
+      "ten": "BOPP (PP định hướng 2 trục)"
+    },
+    {
+      "code": "CPP",
+      "ten": "CPP (PP đúc)"
+    },
+    {
+      "code": "PE",
+      "ten": "PE"
+    },
+    {
+      "code": "LLDPE",
+      "ten": "LLDPE"
+    },
+    {
+      "code": "LDPE",
+      "ten": "LDPE"
+    },
+    {
+      "code": "PP",
+      "ten": "PP"
+    },
+    {
+      "code": "OPP",
+      "ten": "OPP (PP định hướng 1 trục)"
+    },
+    {
+      "code": "PET/PE",
+      "ten": "PET/PE (laminated)"
+    },
+    {
+      "code": "BOPP/CPP",
+      "ten": "BOPP/CPP (laminated)"
+    },
+    {
+      "code": "BOPP/PE",
+      "ten": "BOPP/PE (laminated)"
+    },
+    {
+      "code": "CUSTOM",
+      "ten": "Custom / Multilayer"
+    }
+  ],
+  "films": [
+    {
+      "film_id": "OPP-001",
+      "material": "OPP",
+      "structure": "OPP monolayer",
+      "thickness_um": 20,
+      "width_mm": null,
+      "length_mm": null,
+      "density_g_cm3": null,
+      "sealability": null,
+      "heat_seal_temp_C": null,
+      "haze_pct": null,
+      "gloss": null,
+      "transparency": null,
+      "tensile_MPa": null,
+      "elongation_pct": null,
+      "otr": {
+        "value": 2250,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "database.json v3 (mang_OPP)"
+      },
+      "co2tr": {
+        "value": 5000,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "database.json v3 (mang_OPP)"
+      },
+      "wvtr": {
+        "value": 8.0,
+        "unit": "g/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "database.json v3 (mang_OPP)"
+      },
+      "supplier": null,
+      "confidence": "literature"
+    },
+    {
+      "film_id": "OPP-002",
+      "material": "OPP",
+      "structure": "OPP monolayer",
+      "thickness_um": 25,
+      "width_mm": null,
+      "length_mm": null,
+      "density_g_cm3": null,
+      "sealability": null,
+      "heat_seal_temp_C": null,
+      "haze_pct": null,
+      "gloss": null,
+      "transparency": null,
+      "tensile_MPa": null,
+      "elongation_pct": null,
+      "otr": {
+        "value": 1800,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "database.json v3 (mang_OPP)"
+      },
+      "co2tr": {
+        "value": 4000,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "database.json v3 (mang_OPP)"
+      },
+      "wvtr": {
+        "value": 6.5,
+        "unit": "g/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "database.json v3 (mang_OPP)"
+      },
+      "supplier": null,
+      "confidence": "literature"
+    },
+    {
+      "film_id": "OPP-003",
+      "material": "OPP",
+      "structure": "OPP monolayer",
+      "thickness_um": 30,
+      "width_mm": null,
+      "length_mm": null,
+      "density_g_cm3": null,
+      "sealability": null,
+      "heat_seal_temp_C": null,
+      "haze_pct": null,
+      "gloss": null,
+      "transparency": null,
+      "tensile_MPa": null,
+      "elongation_pct": null,
+      "otr": {
+        "value": 1500,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "database.json v3 (mang_OPP)"
+      },
+      "co2tr": {
+        "value": 3330,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "database.json v3 (mang_OPP)"
+      },
+      "wvtr": {
+        "value": 5.0,
+        "unit": "g/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "database.json v3 (mang_OPP)"
+      },
+      "supplier": null,
+      "confidence": "literature"
+    },
+    {
+      "film_id": "CPP-REF-30",
+      "material": "CPP",
+      "structure": "CPP monolayer (cast PP)",
+      "thickness_um": 30,
+      "width_mm": null,
+      "length_mm": null,
+      "density_g_cm3": null,
+      "sealability": null,
+      "heat_seal_temp_C": null,
+      "haze_pct": null,
+      "gloss": null,
+      "transparency": null,
+      "tensile_MPa": null,
+      "elongation_pct": null,
+      "otr": {
+        "value": 1400,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "co2tr": {
+        "value": 4600,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "wvtr": {
+        "value": 7.5,
+        "unit": "g/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "supplier": null,
+      "confidence": "literature"
+    },
+    {
+      "film_id": "PE-REF-50",
+      "material": "PE",
+      "structure": "PE monolayer (loại thông dụng)",
+      "thickness_um": 50,
+      "width_mm": null,
+      "length_mm": null,
+      "density_g_cm3": null,
+      "sealability": null,
+      "heat_seal_temp_C": null,
+      "haze_pct": null,
+      "gloss": null,
+      "transparency": null,
+      "tensile_MPa": null,
+      "elongation_pct": null,
+      "otr": {
+        "value": 4000,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "co2tr": {
+        "value": 16000,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "wvtr": {
+        "value": 9.0,
+        "unit": "g/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "supplier": null,
+      "confidence": "literature"
+    },
+    {
+      "film_id": "LLDPE-REF-50",
+      "material": "LLDPE",
+      "structure": "LLDPE monolayer",
+      "thickness_um": 50,
+      "width_mm": null,
+      "length_mm": null,
+      "density_g_cm3": null,
+      "sealability": null,
+      "heat_seal_temp_C": null,
+      "haze_pct": null,
+      "gloss": null,
+      "transparency": null,
+      "tensile_MPa": null,
+      "elongation_pct": null,
+      "otr": {
+        "value": 7000,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "co2tr": {
+        "value": 26000,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "wvtr": {
+        "value": 11.0,
+        "unit": "g/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "supplier": null,
+      "confidence": "literature"
+    },
+    {
+      "film_id": "LDPE-REF-40",
+      "material": "LDPE",
+      "structure": "LDPE monolayer",
+      "thickness_um": 40,
+      "width_mm": null,
+      "length_mm": null,
+      "density_g_cm3": null,
+      "sealability": null,
+      "heat_seal_temp_C": null,
+      "haze_pct": null,
+      "gloss": null,
+      "transparency": null,
+      "tensile_MPa": null,
+      "elongation_pct": null,
+      "otr": {
+        "value": 4800,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "co2tr": {
+        "value": 19000,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "wvtr": {
+        "value": 10.0,
+        "unit": "g/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "supplier": null,
+      "confidence": "literature"
+    },
+    {
+      "film_id": "PP-REF-30",
+      "material": "PP",
+      "structure": "PP định hướng không (unoriented)",
+      "thickness_um": 30,
+      "width_mm": null,
+      "length_mm": null,
+      "density_g_cm3": null,
+      "sealability": null,
+      "heat_seal_temp_C": null,
+      "haze_pct": null,
+      "gloss": null,
+      "transparency": null,
+      "tensile_MPa": null,
+      "elongation_pct": null,
+      "otr": {
+        "value": 1800,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "co2tr": {
+        "value": 6000,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "wvtr": {
+        "value": 8.5,
+        "unit": "g/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "supplier": null,
+      "confidence": "literature"
+    },
+    {
+      "film_id": "BOPP-REF-25",
+      "material": "BOPP",
+      "structure": "BOPP monolayer",
+      "thickness_um": 25,
+      "width_mm": null,
+      "length_mm": null,
+      "density_g_cm3": null,
+      "sealability": null,
+      "heat_seal_temp_C": null,
+      "haze_pct": null,
+      "gloss": null,
+      "transparency": null,
+      "tensile_MPa": null,
+      "elongation_pct": null,
+      "otr": {
+        "value": 1600,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "co2tr": {
+        "value": 4000,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "wvtr": {
+        "value": 4.5,
+        "unit": "g/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "supplier": null,
+      "confidence": "literature"
+    },
+    {
+      "film_id": "PETPE-12-50",
+      "material": "PET/PE",
+      "structure": "Laminated PET 12µm / PE 50µm",
+      "thickness_um": 62,
+      "width_mm": null,
+      "length_mm": null,
+      "density_g_cm3": null,
+      "sealability": null,
+      "heat_seal_temp_C": null,
+      "haze_pct": null,
+      "gloss": null,
+      "transparency": null,
+      "tensile_MPa": null,
+      "elongation_pct": null,
+      "otr": {
+        "value": 78.4,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "co2tr": {
+        "value": 344.0,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "wvtr": {
+        "value": 6.4,
+        "unit": "g/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "supplier": null,
+      "confidence": "literature"
+    },
+    {
+      "film_id": "BOPPCPP-20-30",
+      "material": "BOPP/CPP",
+      "structure": "Laminated BOPP 20µm / CPP 30µm",
+      "thickness_um": 50,
+      "width_mm": null,
+      "length_mm": null,
+      "density_g_cm3": null,
+      "sealability": null,
+      "heat_seal_temp_C": null,
+      "haze_pct": null,
+      "gloss": null,
+      "transparency": null,
+      "tensile_MPa": null,
+      "elongation_pct": null,
+      "otr": {
+        "value": 823.5,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "co2tr": {
+        "value": 2908.0,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "wvtr": {
+        "value": 3.3,
+        "unit": "g/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "supplier": null,
+      "confidence": "literature"
+    },
+    {
+      "film_id": "BOPP-REF-15",
+      "material": "BOPP",
+      "structure": "BOPP monolayer",
+      "thickness_um": 15,
+      "width_mm": null,
+      "length_mm": null,
+      "density_g_cm3": null,
+      "sealability": null,
+      "heat_seal_temp_C": null,
+      "haze_pct": null,
+      "gloss": null,
+      "transparency": null,
+      "tensile_MPa": null,
+      "elongation_pct": null,
+      "otr": {
+        "value": 2666.7,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "co2tr": {
+        "value": 6666.7,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "wvtr": {
+        "value": 7.5,
+        "unit": "g/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "supplier": null,
+      "confidence": "literature"
+    },
+    {
+      "film_id": "BOPP-REF-20",
+      "material": "BOPP",
+      "structure": "BOPP monolayer",
+      "thickness_um": 20,
+      "width_mm": null,
+      "length_mm": null,
+      "density_g_cm3": null,
+      "sealability": null,
+      "heat_seal_temp_C": null,
+      "haze_pct": null,
+      "gloss": null,
+      "transparency": null,
+      "tensile_MPa": null,
+      "elongation_pct": null,
+      "otr": {
+        "value": 2000.0,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "co2tr": {
+        "value": 5000.0,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "wvtr": {
+        "value": 5.6,
+        "unit": "g/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "supplier": null,
+      "confidence": "literature"
+    },
+    {
+      "film_id": "BOPP-REF-30",
+      "material": "BOPP",
+      "structure": "BOPP monolayer",
+      "thickness_um": 30,
+      "width_mm": null,
+      "length_mm": null,
+      "density_g_cm3": null,
+      "sealability": null,
+      "heat_seal_temp_C": null,
+      "haze_pct": null,
+      "gloss": null,
+      "transparency": null,
+      "tensile_MPa": null,
+      "elongation_pct": null,
+      "otr": {
+        "value": 1333.3,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "co2tr": {
+        "value": 3333.3,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "wvtr": {
+        "value": 3.8,
+        "unit": "g/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "supplier": null,
+      "confidence": "literature"
+    },
+    {
+      "film_id": "BOPP-REF-40",
+      "material": "BOPP",
+      "structure": "BOPP monolayer",
+      "thickness_um": 40,
+      "width_mm": null,
+      "length_mm": null,
+      "density_g_cm3": null,
+      "sealability": null,
+      "heat_seal_temp_C": null,
+      "haze_pct": null,
+      "gloss": null,
+      "transparency": null,
+      "tensile_MPa": null,
+      "elongation_pct": null,
+      "otr": {
+        "value": 1000.0,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "co2tr": {
+        "value": 2500.0,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "wvtr": {
+        "value": 2.8,
+        "unit": "g/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "supplier": null,
+      "confidence": "literature"
+    },
+    {
+      "film_id": "CPP-REF-25",
+      "material": "CPP",
+      "structure": "CPP monolayer",
+      "thickness_um": 25,
+      "width_mm": null,
+      "length_mm": null,
+      "density_g_cm3": null,
+      "sealability": null,
+      "heat_seal_temp_C": null,
+      "haze_pct": null,
+      "gloss": null,
+      "transparency": null,
+      "tensile_MPa": null,
+      "elongation_pct": null,
+      "otr": {
+        "value": 1680.0,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "co2tr": {
+        "value": 5520.0,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "wvtr": {
+        "value": 9.0,
+        "unit": "g/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "supplier": null,
+      "confidence": "literature"
+    },
+    {
+      "film_id": "CPP-REF-40",
+      "material": "CPP",
+      "structure": "CPP monolayer",
+      "thickness_um": 40,
+      "width_mm": null,
+      "length_mm": null,
+      "density_g_cm3": null,
+      "sealability": null,
+      "heat_seal_temp_C": null,
+      "haze_pct": null,
+      "gloss": null,
+      "transparency": null,
+      "tensile_MPa": null,
+      "elongation_pct": null,
+      "otr": {
+        "value": 1050.0,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "co2tr": {
+        "value": 3450.0,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "wvtr": {
+        "value": 5.6,
+        "unit": "g/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "supplier": null,
+      "confidence": "literature"
+    },
+    {
+      "film_id": "PE-REF-30",
+      "material": "PE",
+      "structure": "PE monolayer",
+      "thickness_um": 30,
+      "width_mm": null,
+      "length_mm": null,
+      "density_g_cm3": null,
+      "sealability": null,
+      "heat_seal_temp_C": null,
+      "haze_pct": null,
+      "gloss": null,
+      "transparency": null,
+      "tensile_MPa": null,
+      "elongation_pct": null,
+      "otr": {
+        "value": 6666.7,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "co2tr": {
+        "value": 26666.7,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "wvtr": {
+        "value": 15.0,
+        "unit": "g/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "supplier": null,
+      "confidence": "literature"
+    },
+    {
+      "film_id": "PE-REF-60",
+      "material": "PE",
+      "structure": "PE monolayer",
+      "thickness_um": 60,
+      "width_mm": null,
+      "length_mm": null,
+      "density_g_cm3": null,
+      "sealability": null,
+      "heat_seal_temp_C": null,
+      "haze_pct": null,
+      "gloss": null,
+      "transparency": null,
+      "tensile_MPa": null,
+      "elongation_pct": null,
+      "otr": {
+        "value": 3333.3,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "co2tr": {
+        "value": 13333.3,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "wvtr": {
+        "value": 7.5,
+        "unit": "g/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "supplier": null,
+      "confidence": "literature"
+    },
+    {
+      "film_id": "PE-REF-70",
+      "material": "PE",
+      "structure": "PE monolayer",
+      "thickness_um": 70,
+      "width_mm": null,
+      "length_mm": null,
+      "density_g_cm3": null,
+      "sealability": null,
+      "heat_seal_temp_C": null,
+      "haze_pct": null,
+      "gloss": null,
+      "transparency": null,
+      "tensile_MPa": null,
+      "elongation_pct": null,
+      "otr": {
+        "value": 2857.1,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "co2tr": {
+        "value": 11428.6,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "wvtr": {
+        "value": 6.4,
+        "unit": "g/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "supplier": null,
+      "confidence": "literature"
+    },
+    {
+      "film_id": "PE-REF-80",
+      "material": "PE",
+      "structure": "PE monolayer",
+      "thickness_um": 80,
+      "width_mm": null,
+      "length_mm": null,
+      "density_g_cm3": null,
+      "sealability": null,
+      "heat_seal_temp_C": null,
+      "haze_pct": null,
+      "gloss": null,
+      "transparency": null,
+      "tensile_MPa": null,
+      "elongation_pct": null,
+      "otr": {
+        "value": 2500.0,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "co2tr": {
+        "value": 10000.0,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "wvtr": {
+        "value": 5.6,
+        "unit": "g/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "supplier": null,
+      "confidence": "literature"
+    },
+    {
+      "film_id": "LLDPE-REF-25",
+      "material": "LLDPE",
+      "structure": "LLDPE monolayer",
+      "thickness_um": 25,
+      "width_mm": null,
+      "length_mm": null,
+      "density_g_cm3": null,
+      "sealability": null,
+      "heat_seal_temp_C": null,
+      "haze_pct": null,
+      "gloss": null,
+      "transparency": null,
+      "tensile_MPa": null,
+      "elongation_pct": null,
+      "otr": {
+        "value": 14000.0,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "co2tr": {
+        "value": 52000.0,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "wvtr": {
+        "value": 22.0,
+        "unit": "g/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "supplier": null,
+      "confidence": "literature"
+    },
+    {
+      "film_id": "LLDPE-REF-70",
+      "material": "LLDPE",
+      "structure": "LLDPE monolayer",
+      "thickness_um": 70,
+      "width_mm": null,
+      "length_mm": null,
+      "density_g_cm3": null,
+      "sealability": null,
+      "heat_seal_temp_C": null,
+      "haze_pct": null,
+      "gloss": null,
+      "transparency": null,
+      "tensile_MPa": null,
+      "elongation_pct": null,
+      "otr": {
+        "value": 5000.0,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "co2tr": {
+        "value": 18571.4,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "wvtr": {
+        "value": 7.9,
+        "unit": "g/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "supplier": null,
+      "confidence": "literature"
+    },
+    {
+      "film_id": "LLDPE-REF-100",
+      "material": "LLDPE",
+      "structure": "LLDPE monolayer",
+      "thickness_um": 100,
+      "width_mm": null,
+      "length_mm": null,
+      "density_g_cm3": null,
+      "sealability": null,
+      "heat_seal_temp_C": null,
+      "haze_pct": null,
+      "gloss": null,
+      "transparency": null,
+      "tensile_MPa": null,
+      "elongation_pct": null,
+      "otr": {
+        "value": 3500.0,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "co2tr": {
+        "value": 13000.0,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "wvtr": {
+        "value": 5.5,
+        "unit": "g/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "supplier": null,
+      "confidence": "literature"
+    },
+    {
+      "film_id": "LDPE-REF-25",
+      "material": "LDPE",
+      "structure": "LDPE monolayer",
+      "thickness_um": 25,
+      "width_mm": null,
+      "length_mm": null,
+      "density_g_cm3": null,
+      "sealability": null,
+      "heat_seal_temp_C": null,
+      "haze_pct": null,
+      "gloss": null,
+      "transparency": null,
+      "tensile_MPa": null,
+      "elongation_pct": null,
+      "otr": {
+        "value": 7680.0,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "co2tr": {
+        "value": 30400.0,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "wvtr": {
+        "value": 16.0,
+        "unit": "g/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "supplier": null,
+      "confidence": "literature"
+    },
+    {
+      "film_id": "LDPE-REF-50",
+      "material": "LDPE",
+      "structure": "LDPE monolayer",
+      "thickness_um": 50,
+      "width_mm": null,
+      "length_mm": null,
+      "density_g_cm3": null,
+      "sealability": null,
+      "heat_seal_temp_C": null,
+      "haze_pct": null,
+      "gloss": null,
+      "transparency": null,
+      "tensile_MPa": null,
+      "elongation_pct": null,
+      "otr": {
+        "value": 3840.0,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "co2tr": {
+        "value": 15200.0,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "wvtr": {
+        "value": 8.0,
+        "unit": "g/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "supplier": null,
+      "confidence": "literature"
+    },
+    {
+      "film_id": "LDPE-REF-60",
+      "material": "LDPE",
+      "structure": "LDPE monolayer",
+      "thickness_um": 60,
+      "width_mm": null,
+      "length_mm": null,
+      "density_g_cm3": null,
+      "sealability": null,
+      "heat_seal_temp_C": null,
+      "haze_pct": null,
+      "gloss": null,
+      "transparency": null,
+      "tensile_MPa": null,
+      "elongation_pct": null,
+      "otr": {
+        "value": 3200.0,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "co2tr": {
+        "value": 12666.7,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "wvtr": {
+        "value": 6.7,
+        "unit": "g/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "supplier": null,
+      "confidence": "literature"
+    },
+    {
+      "film_id": "PP-REF-25",
+      "material": "PP",
+      "structure": "PP monolayer",
+      "thickness_um": 25,
+      "width_mm": null,
+      "length_mm": null,
+      "density_g_cm3": null,
+      "sealability": null,
+      "heat_seal_temp_C": null,
+      "haze_pct": null,
+      "gloss": null,
+      "transparency": null,
+      "tensile_MPa": null,
+      "elongation_pct": null,
+      "otr": {
+        "value": 2160.0,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "co2tr": {
+        "value": 7200.0,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "wvtr": {
+        "value": 10.2,
+        "unit": "g/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "supplier": null,
+      "confidence": "literature"
+    },
+    {
+      "film_id": "PP-REF-40",
+      "material": "PP",
+      "structure": "PP monolayer",
+      "thickness_um": 40,
+      "width_mm": null,
+      "length_mm": null,
+      "density_g_cm3": null,
+      "sealability": null,
+      "heat_seal_temp_C": null,
+      "haze_pct": null,
+      "gloss": null,
+      "transparency": null,
+      "tensile_MPa": null,
+      "elongation_pct": null,
+      "otr": {
+        "value": 1350.0,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "co2tr": {
+        "value": 4500.0,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "wvtr": {
+        "value": 6.4,
+        "unit": "g/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "supplier": null,
+      "confidence": "literature"
+    },
+    {
+      "film_id": "PETPE-12-40",
+      "material": "PET/PE",
+      "structure": "Laminated PET 12µm / PE 40µm",
+      "thickness_um": 52,
+      "width_mm": null,
+      "length_mm": null,
+      "density_g_cm3": null,
+      "sealability": null,
+      "heat_seal_temp_C": null,
+      "haze_pct": null,
+      "gloss": null,
+      "transparency": null,
+      "tensile_MPa": null,
+      "elongation_pct": null,
+      "otr": {
+        "value": 78.7,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "co2tr": {
+        "value": 344.0,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "wvtr": {
+        "value": 5.8,
+        "unit": "g/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "supplier": null,
+      "confidence": "literature"
+    },
+    {
+      "film_id": "PETPE-12-60",
+      "material": "PET/PE",
+      "structure": "Laminated PET 12µm / PE 60µm",
+      "thickness_um": 72,
+      "width_mm": null,
+      "length_mm": null,
+      "density_g_cm3": null,
+      "sealability": null,
+      "heat_seal_temp_C": null,
+      "haze_pct": null,
+      "gloss": null,
+      "transparency": null,
+      "tensile_MPa": null,
+      "elongation_pct": null,
+      "otr": {
+        "value": 78.1,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "co2tr": {
+        "value": 341.0,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "wvtr": {
+        "value": 4.6,
+        "unit": "g/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "supplier": null,
+      "confidence": "literature"
+    },
+    {
+      "film_id": "BOPPCPP-18-25",
+      "material": "BOPP/CPP",
+      "structure": "Laminated BOPP 18µm / CPP 25µm",
+      "thickness_um": 43,
+      "width_mm": null,
+      "length_mm": null,
+      "density_g_cm3": null,
+      "sealability": null,
+      "heat_seal_temp_C": null,
+      "haze_pct": null,
+      "gloss": null,
+      "transparency": null,
+      "tensile_MPa": null,
+      "elongation_pct": null,
+      "otr": {
+        "value": 956.7,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "co2tr": {
+        "value": 2768.9,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "wvtr": {
+        "value": 3.7,
+        "unit": "g/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "supplier": null,
+      "confidence": "literature"
+    },
+    {
+      "film_id": "BOPPPE-20-30",
+      "material": "BOPP/PE",
+      "structure": "Laminated BOPP 20µm / PE 30µm",
+      "thickness_um": 50,
+      "width_mm": null,
+      "length_mm": null,
+      "density_g_cm3": null,
+      "sealability": null,
+      "heat_seal_temp_C": null,
+      "haze_pct": null,
+      "gloss": null,
+      "transparency": null,
+      "tensile_MPa": null,
+      "elongation_pct": null,
+      "otr": {
+        "value": 1538.5,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "co2tr": {
+        "value": 4210.5,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "wvtr": {
+        "value": 4.1,
+        "unit": "g/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "supplier": null,
+      "confidence": "literature"
+    },
+    {
+      "film_id": "BOPPPE-20-40",
+      "material": "BOPP/PE",
+      "structure": "Laminated BOPP 20µm / PE 40µm",
+      "thickness_um": 60,
+      "width_mm": null,
+      "length_mm": null,
+      "density_g_cm3": null,
+      "sealability": null,
+      "heat_seal_temp_C": null,
+      "haze_pct": null,
+      "gloss": null,
+      "transparency": null,
+      "tensile_MPa": null,
+      "elongation_pct": null,
+      "otr": {
+        "value": 1428.6,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "co2tr": {
+        "value": 4000.0,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "wvtr": {
+        "value": 3.8,
+        "unit": "g/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "supplier": null,
+      "confidence": "literature"
+    },
+    {
+      "film_id": "BOPPPE-15-40",
+      "material": "BOPP/PE",
+      "structure": "Laminated BOPP 15µm / PE 40µm",
+      "thickness_um": 55,
+      "width_mm": null,
+      "length_mm": null,
+      "density_g_cm3": null,
+      "sealability": null,
+      "heat_seal_temp_C": null,
+      "haze_pct": null,
+      "gloss": null,
+      "transparency": null,
+      "tensile_MPa": null,
+      "elongation_pct": null,
+      "otr": {
+        "value": 1739.1,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "co2tr": {
+        "value": 5000.0,
+        "unit": "cm3/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "wvtr": {
+        "value": 4.5,
+        "unit": "g/m2.day",
+        "temp_C": 23,
+        "rh_pct": null,
+        "method": null,
+        "source": "Tham chiếu ngành bao bì — giá trị điển hình theo độ dày (biến động theo grade/nhà sản xuất), cần supplier confirm trước khi dùng chính thức"
+      },
+      "supplier": null,
+      "confidence": "literature"
+    }
+  ],
+  "perforation": {
+    "diameters_um": [
+      50,
+      80,
+      100,
+      120,
+      150,
+      200
+    ],
+    "patterns": [
+      {
+        "code": "uniform",
+        "ten": "Uniform (rải đều)"
+      },
+      {
+        "code": "center",
+        "ten": "Center (giữa túi)"
+      },
+      {
+        "code": "edge",
+        "ten": "Edge (viền)"
+      },
+      {
+        "code": "top",
+        "ten": "Top (phần trên)"
+      },
+      {
+        "code": "bottom",
+        "ten": "Bottom (gần đáy)"
+      },
+      {
+        "code": "side",
+        "ten": "Side (hông)"
+      },
+      {
+        "code": "zone",
+        "ten": "Zone (vùng xác định)"
+      },
+      {
+        "code": "custom",
+        "ten": "Custom"
+      }
+    ]
+  }
+}

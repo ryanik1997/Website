@@ -1,0 +1,11 @@
+import fs from 'node:fs'
+import path from 'node:path'
+import crypto from 'node:crypto'
+import { fileURLToPath } from 'node:url'
+import { S3Client, PutObjectCommand, HeadObjectCommand } from '@aws-sdk/client-s3'
+const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..','..')
+const env=Object.fromEntries(fs.readFileSync(path.join(ROOT,'.env.r2.local'),'utf8').split(/\r?\n/).flatMap(l=>{const m=l.match(/^([A-Z0-9_]+)=(.*)$/);return m?[[m[1],m[2].trim()]]:[]}))
+const required=['R2_ACCOUNT_ID','R2_ACCESS_KEY_ID','R2_SECRET_ACCESS_KEY','R2_BUCKET_NAME','R2_PUBLIC_BASE_URL']; for(const k of required)if(!env[k])throw new Error(`Missing ${k}`)
+const base=env.R2_PUBLIC_BASE_URL.replace(/\/+$/,''); const body={schemaVersion:1,releaseId:'exam-content-r1-20260804',baseUrl:base,modules:{reading:{catalogPath:'releases/exam-content-r1-20260804/reading/catalog.json'},writing:{catalogPath:'releases/exam-content-writing-r1-20260810/ielts/writing/catalog.json'},listening:{source:'legacy'},speaking:{source:'legacy'}},notes:'production pointer; Reading and Writing immutable releases verified before publication'}
+const client=new S3Client({region:'auto',endpoint:`https://${env.R2_ACCOUNT_ID}.r2.cloudflarestorage.com`,credentials:{accessKeyId:env.R2_ACCESS_KEY_ID,secretAccessKey:env.R2_SECRET_ACCESS_KEY},requestChecksumCalculation:'WHEN_REQUIRED'})
+const key='manifests/production.json'; const bytes=Buffer.from(JSON.stringify(body,null,2)); await client.send(new PutObjectCommand({Bucket:env.R2_BUCKET_NAME,Key:key,Body:bytes,ContentType:'application/json',CacheControl:'public, max-age=60, must-revalidate',ContentMD5:crypto.createHash('md5').update(bytes).digest('base64')})); const h=await client.send(new HeadObjectCommand({Bucket:env.R2_BUCKET_NAME,Key:key})); if(Number(h.ContentLength)!==bytes.length)throw new Error('production manifest length mismatch'); const res=await fetch(`${base}/${key}`); if(!res.ok)throw new Error(`production manifest GET ${res.status}`); const parsed=await res.json(); if(parsed.modules?.writing?.catalogPath!==body.modules.writing.catalogPath)throw new Error('production manifest release mismatch'); console.log(JSON.stringify({key,status:res.status,contentType:res.headers.get('content-type'),reading:body.modules.reading.catalogPath,writing:body.modules.writing.catalogPath}));

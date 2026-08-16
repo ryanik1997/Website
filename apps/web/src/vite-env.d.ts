@@ -5,6 +5,12 @@ interface ImportMetaEnv {
   readonly VITE_SUPABASE_ANON_KEY: string
   readonly VITE_TTS_SERVICE_URL?: string
   readonly VITE_MEDIA_MODE?: 'local' | 'signed'
+  /** Exam content delivery source: 'legacy' (default) or 'r2'. */
+  readonly VITE_EXAM_CONTENT_SOURCE?: 'legacy' | 'r2'
+  /** Public R2 base URL (custom domain or r2.dev). No trailing slash. */
+  readonly VITE_EXAM_CONTENT_BASE_URL?: string
+  /** Manifest path or URL, e.g. /manifests/staging.json */
+  readonly VITE_EXAM_CONTENT_MANIFEST?: string
 }
 
 interface ImportMeta {

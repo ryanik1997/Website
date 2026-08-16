@@ -1,0 +1,353 @@
+
+[1m[7m[36m RUN [39m[27m[22m [36mv2.1.9 [39m[90mD:/App-English-Ryan/Website/apps/web[39m
+
+ [32m✓[39m src/features/speaking-ielts/speakingPools.test.ts [2m([22m[2m41 tests[22m[2m)[22m[90m 22[2mms[22m[39m
+ [32m✓[39m src/features/admin/__tests__/adminPerformance.test.tsx [2m([22m[2m7 tests[22m[2m)[22m[90m 131[2mms[22m[39m
+[90mstdout[2m | src/features/exam/__tests__/petRwHighlightNote.test.tsx[2m > [22m[2mReadingHighlightToolbar — component[2m > [22m[2mdoes not render toolbar when selection is in non-highlight zone
+[22m[39m[ReadingHighlightToolbar] capture rejected {
+  reason: [32m'outside-zone'[39m,
+  root: [33mtrue[39m,
+  text: [32m'x'[39m,
+  collapsed: [33mfalse[39m,
+  rangeCount: [33m1[39m
+}
+
+[90mstdout[2m | src/features/exam/__tests__/petRwHighlightNote.test.tsx[2m > [22m[2mReadingHighlightToolbar — cached snapshot (collapsed-after-pointerup)[2m > [22m[2mshows toolbar from cached snapshot when selection collapses after pointerup
+[22m[39m[ReadingHighlightToolbar] capture rejected {
+  reason: [32m'collapsed'[39m,
+  root: [33mtrue[39m,
+  text: [32m''[39m,
+  collapsed: [33mtrue[39m,
+  rangeCount: [33m0[39m
+}
+[ReadingHighlightToolbar] capture rejected {
+  reason: [32m'collapsed'[39m,
+  root: [33mtrue[39m,
+  text: [32m''[39m,
+  collapsed: [33mtrue[39m,
+  rangeCount: [33m0[39m
+}
+
+ [32m✓[39m src/features/exam/__tests__/petRwHighlightNote.test.tsx [2m([22m[2m23 tests[22m[2m)[22m[33m 403[2mms[22m[39m
+[90mstdout[2m | src/features/exam/__tests__/ketRwCambridgeAnnotation.test.tsx[2m > [22m[2mKET Cambridge Annotation — usePartHighlights integration[2m > [22m[2mcommits highlight using real usePartHighlights in KET harness
+[22m[39m[PET annotation] COMMIT_HIGHLIGHT {
+  partId: [32m'ket-part-2'[39m,
+  ranges: [ { blockId: [32m'ket-part-2-txt-0'[39m, start: [33m19[39m, end: [33m40[39m } ],
+  color: [32m'yellow'[39m,
+  before: [],
+  after: [
+    {
+      id: [32m'hl-1785848645250-j10a4'[39m,
+      blockId: [32m'ket-part-2-txt-0'[39m,
+      start: [33m19[39m,
+      end: [33m40[39m,
+      color: [32m'yellow'[39m
+    }
+  ]
+}
+
+[90mstdout[2m | src/features/exam/__tests__/ketRwCambridgeAnnotation.test.tsx[2m > [22m[2mKET Cambridge Annotation — usePartHighlights integration[2m > [22m[2mcommits note using real usePartHighlights in KET harness
+[22m[39m[PET annotation] COMMIT_NOTE {
+  partId: [32m'ket-part-2'[39m,
+  ranges: [ { blockId: [32m'ket-part-2-txt-0'[39m, start: [33m19[39m, end: [33m40[39m } ],
+  text: [32m'important phrase'[39m,
+  before: [],
+  after: [
+    {
+      id: [32m'note-1785848645674-lxd0j'[39m,
+      blockId: [32m'ket-part-2-txt-0'[39m,
+      start: [33m19[39m,
+      end: [33m40[39m,
+      text: [32m'important phrase'[39m
+    }
+  ]
+}
+
+ [32m✓[39m src/features/exam/__tests__/ketRwCambridgeAnnotation.test.tsx [2m([22m[2m8 tests[22m[2m)[22m[33m 1188[2mms[22m[39m
+   [33m[2m✓[22m[39m KET Cambridge Annotation — stateful integration[2m > [22mcommits note and shows <span> with title in KET harness [33m439[2mms[22m[39m
+   [33m[2m✓[22m[39m KET Cambridge Annotation — usePartHighlights integration[2m > [22mcommits note using real usePartHighlights in KET harness [33m425[2mms[22m[39m
+ [32m✓[39m src/features/exam/__tests__/batchReadingZipImport.test.ts [2m([22m[2m12 tests[22m[2m)[22m[90m 61[2mms[22m[39m
+ [32m✓[39m src/features/exam/__tests__/petRwPart2CompactSelection.test.tsx [2m([22m[2m20 tests[22m[2m)[22m[90m 229[2mms[22m[39m
+ [32m✓[39m src/features/exam/__tests__/readingExamSanitize.test.ts [2m([22m[2m5 tests[22m[2m)[22m[90m 9[2mms[22m[39m
+ [32m✓[39m src/features/exam/__tests__/petRwPart4Layout.test.tsx [2m([22m[2m9 tests[22m[2m)[22m[90m 262[2mms[22m[39m
+ [32m✓[39m src/features/exam/__tests__/petRwPart5Layout.test.tsx [2m([22m[2m14 tests[22m[2m)[22m[90m 299[2mms[22m[39m
+ [32m✓[39m src/features/exam/__tests__/petRwPart3Layout.test.tsx [2m([22m[2m10 tests[22m[2m)[22m[33m 386[2mms[22m[39m
+ [32m✓[39m src/features/exam/__tests__/petRwPart2Layout.test.tsx [2m([22m[2m21 tests[22m[2m)[22m[33m 465[2mms[22m[39m
+ [32m✓[39m src/features/exam/__tests__/petRwFooter.test.tsx [2m([22m[2m13 tests[22m[2m)[22m[90m 284[2mms[22m[39m
+ [32m✓[39m src/features/writing/useWritingGrading.test.tsx [2m([22m[2m6 tests[22m[2m)[22m[90m 179[2mms[22m[39m
+ [32m✓[39m src/features/writing/cambridgeWritingPages.test.tsx [2m([22m[2m9 tests[22m[2m)[22m[33m 1653[2mms[22m[39m
+   [33m[2m✓[22m[39m Cambridge Writing pages[2m > [22mlevel page shows merged count and finds local drafts for admin [33m304[2mms[22m[39m
+   [33m[2m✓[22m[39m Cambridge Writing pages[2m > [22madvanced routes render B2/C1/C2 prompts and persist part 2 selection [33m772[2mms[22m[39m
+ [32m✓[39m src/services/exam-content/examContent.test.ts [2m([22m[2m10 tests[22m[2m)[22m[90m 22[2mms[22m[39m
+ [32m✓[39m src/pages/appShellBackdrop.test.ts [2m([22m[2m80 tests[22m[2m)[22m[90m 15[2mms[22m[39m
+ [32m✓[39m src/features/speaking-ielts/speakingIeltsData.test.ts [2m([22m[2m15 tests[22m[2m)[22m[90m 13[2mms[22m[39m
+ [32m✓[39m src/features/exam/__tests__/catalogRuntimeValidation.test.ts [2m([22m[2m3 tests[22m[2m)[22m[90m 67[2mms[22m[39m
+ [32m✓[39m src/features/exam/__tests__/useSequentialPaneScroll.test.ts [2m([22m[2m8 tests[22m[2m)[22m[90m 29[2mms[22m[39m
+ [32m✓[39m src/features/exam/sanitizeCaeImportedContent.test.ts [2m([22m[2m27 tests[22m[2m)[22m[90m 42[2mms[22m[39m
+ [31m❯[39m e2e/diagnose-highlight-bug.spec.ts [2m([22m[2m0 test[22m[2m)[22m
+ [32m✓[39m src/features/exam/__tests__/petRwSelectionToolbar.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[90m 219[2mms[22m[39m
+ [31m❯[39m e2e/diagnose-highlight-bug-auth.spec.ts [2m([22m[2m0 test[22m[2m)[22m
+ [31m❯[39m src/features/writing/admin/cambridgeWritingAdmin.test.tsx [2m([22m[2m3 tests[22m[2m | [22m[31m1 failed[39m[2m)[22m[33m 1157[2mms[22m[39m
+[31m   [31m×[31m Cambridge Writing admin flow[2m > [22mcreates and edits local drafts from the level page without creating writing docs[33m 358[2mms[22m[31m[39m
+[31m     → Unable to find an element with the display value: 2.
+
+Ignored nodes: comments, script, style
+[36m<body>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"cb-hub"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33mclass[31m=[32m"cb-inner"[31m
+      [36m>[31m
+        [36m<nav[31m
+          [33maria-label[31m=[32m"Breadcrumb"[31m
+          [33mclass[31m=[32m"cb-breadcrumb"[31m
+        [36m>[31m
+          [36m<a[31m
+            [33mhref[31m=[32m"/app/writing/cambridge"[31m
+          [36m>[31m
+            [0mCambridge[0m
+          [36m</a>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"cb-breadcrumb-sep"[31m
+          [36m>[31m
+            [0m/[0m
+          [36m</span>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"cb-breadcrumb-current"[31m
+          [36m>[31m
+            [0mPET · B1[0m
+          [36m</span>[31m
+        [36m</nav>[31m
+        [36m<button[31m
+          [33mclass[31m=[32m"exam-hub-back"[31m
+          [33mtype[31m=[32m"button"[31m
+        [36m>[31m
+          [36m<svg[31m
+            [33mclass[31m=[32m"lucide lucide-arrow-left"[31m
+            [33mfill[31m=[32m"none"[31m
+            [33mheight[31m=[32m"14"[31m
+            [33mstroke[31m=[32m"currentColor"[31m
+            [33mstroke-linecap[31m=[32m"round"[31m
+            [33mstroke-linejoin[31m=[32m"round"[31m
+            [33mstroke-width[31m=[32m"2"[31m
+            [33mviewBox[31m=[32m"0 0 24 24"[31m
+            [33mwidth[31m=[32m"14"[31m
+            [33mxmlns[31m=[32m"http://www.w3.org/2000/svg"[31m
+          [36m>[31m
+            [36m<path[31m
+              [33md[31m=[32m"m12 19-7-7 7-7"[31m
+            [36m/>[31m
+            [36m<path[31m
+              [33md[31m=[32m"M19 12H5"[31m
+            [36m/>[31m
+          [36m</svg>[31m
+          [0mPET · B1[0m
+        [36m</button>[31m
+        [36m<div[31m
+          [33mclass[31m=[32m"cb-level-header"[31m
+        [36m>[31m
+          [36m<div>[31m
+            [36m<h1[31m
+              [33mclass[31m=[32m"cb-title"[31m
+            [36m>[31m
+              [0mPET · B1[0m
+              [0m Writing[0m
+            [36m</h1>[31m
+            [36m<p[31m
+              [33mclass[31m=[32m"cb-sub"[31m
+            [36m>[31m
+              [0m36 đề, 108 bài viết.[0m
+            [36m</p>[31m
+          [36m</div>[31m
+          [36m<div[31m
+            [33mclass[31m=[32m"cb-level-actions"[31m
+          [36m>[31m
+            [36m<button[31m
+              [33mclass[31m=[32m"cb-admin-create"[31m
+              [33mtype[31m=[32m"button"[31m
+            [36m>[31m
+              [36m<svg[31m
+                [33mclass[31m=[32m"lucide lucide-info"[31m
+                [33mfill[31m=[32m"none"[31m
+                [33mheight[31m=[32m"16"[31m
+                [33mstroke[31m=[32m"currentColor"[31m
+                [33mstroke-linecap[31m=[32m"round"[31m
+                [33mstroke-linejoin[31m=[32m"round"[31m
+                [33mstroke-width[31m=[32m"2"[31m
+                [33mviewBox[31m=[32m"0 0 24 24"[31m
+                [33mwidth[31m=[32m"16"[31m
+                [33mxmlns[31m=[32m"http://www.w3.org/2000/svg"[31m
+              [36m>[31m
+                [36m<circle[31m
+                  [33mcx[31m=[32m"12"[31m
+                  [33mcy[31m=[32m"12"[31m
+                  [33mr[31m=[32m"10"[31m
+                [36m/>[31m
+                [36m<path[31m
+                  [33md[31m=[32m"M12 16v-4"[31m
+                [36m/>[31m
+                [36m<path[31m
+                  [33md[31m=[32m"M12 8h.01"[31m
+                [36m/>[31m
+              [36m</svg>[31m
+              [0mHướng dẫn tạo đề[0m
+            [36m</button>[31m
+            [36m<button[31m
+              [33mclass[31m=[32m"cb-admin-create"[31m
+              [33mtype[31m=[32m"button"[31m
+            [36m>[31m
+              [36m<svg[31m
+                [33mclass[31m=[32m"lucide lucide-plus"[31m
+                [33mfill[31m=[32m"none"[31m
+                [33mheight[31m=[32m"16"[31m
+                [33mstroke[31m=[32m"currentColor"[31m
+                [33mstroke-linecap[31m=[32m"round"[31m
+                [33mstroke-linejoin[31m=[32m"round"[31m
+                [33mstroke-width[31m=[32m"2"[31m
+                [33mviewBox[31m=[32m"0 0 24 24"[31m
+                [33mwidth[31m=[32m"16"[31m
+                [33mxmlns[31m=[32m"http://www.w3.org/2000/svg"[31m
+              [36m>[31m
+                [36m<path[31m
+                  [33md[31m=[32m"M5 12h14"[31m
+                [36m/>[31m
+                [36m<path[31m
+                  [33md[31m=[32m"M12 5v14"[31m
+                [36m/>[31m
+              [36m</svg>[31m
+              [0mTạo đề mới[0m
+            [36m</button>[31m
+          [36m</div>[31m
+          [36m<div[31m
+            [33mclass[31m=[32m"cb-admin-overlay"[31m
+          [36m>[31m
+            [36m<div[31m
+              [33maria-labelledby[31m=[32m"cambridge-writing-editor-title"[31m
+              [33maria-modal[31m=[32m"true"[31m
+              [33mclass[31m=[32m"cb-admin-dialog"[31m
+              [33mrole[31m=[32m"dialog"[31m
+            [36m>[31m
+              [36m<div[31m
+                [33mclass[31m=[32m"cb-admin-head"[31m
+              [36m>[31m
+                [36m<div>[31m
+                  [36m<h2[31m
+                    [33mid[31m=[32m"cambridge-writing-editor-title"[31m
+                    [33mstyle[31m=[32m"margin: 0px; font-size: 1.05rem;"[31m
+                  [36m>[31m
+                    [0mTạo đề Writing mới[0m
+                  [36m</h2>[31m
+                  [36m<div[31m
+                    [33mclass[31m=[32m"cb-admin-muted"[31m
+                    [33mstyle[31m=[32m"font-size: 0.8rem; margin-top: 0.2rem;"[31m
+                  [36m>[31m
+                    [0mThông tin đề · Danh sách bài viết · Xem trước thẻ đề[0m
+                  [36m</div>[31m
+                [36m</div>[31m
+                [36m<button[31m
+                  [33mclass[31m=[32m"cb-admin-mini-btn"[31m
+                  [33mtype[31m=[32m"button"[31m
+                [36m>[31m
+                  [36m<svg[31m
+                    [33mclass[31m=[32m"lucide lucide-x"[31m
+                    [33mfill[31m=[32m"none"[31m
+                    [33mheight[31m=[32m"14"[31m
+                    [33mstroke[31m=[32m"currentColor"[31m
+                    [33mstroke-linecap[31m=[32m"round"[31m
+                    [33mstroke-linejoin[31m=[32m"round"[31m
+                    [33mstroke-width[31m=[32m"2"[31m
+                    [33mviewBox[31m=[32m"0 0 24 24"[31m
+                    [33mwidth[31m=[32m"14"[31m
+                    [33mxmlns[31m=[32m"http://www.w3.org/2000/svg"[31m
+                  [36m>[31m
+                    [36m<path[31m
+                ...[39m
+   [33m[2m✓[22m[39m Cambridge Writing admin flow[2m > [22msupports create entry point on every Cambridge Writing level and opens admin guide [33m634[2mms[22m[39m
+ [32m✓[39m src/features/reading-corner/BilingualBooksPage.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[90m 281[2mms[22m[39m
+ [32m✓[39m src/features/speaking-ielts/SpeakingMockInterviewPage.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[33m 682[2mms[22m[39m
+   [33m[2m✓[22m[39m IELTS Mock Interview recorder and AI flow[2m > [22mrequests microphone access, records speech, and stops into a submit-ready state [33m369[2mms[22m[39m
+   [33m[2m✓[22m[39m IELTS Mock Interview recorder and AI flow[2m > [22msubmits the transcript, shows loading and feedback, then resets for the next question [33m312[2mms[22m[39m
+ [31m❯[39m e2e/smoke-fce-b2-reading.spec.ts [2m([22m[2m0 test[22m[2m)[22m
+ [32m✓[39m src/features/writing/exam/CambridgeAdvancedWritingTaskView.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[90m 180[2mms[22m[39m
+ [32m✓[39m src/features/exam/__tests__/caeC1PaginationCleanup.test.ts [2m([22m[2m340 tests[22m[2m)[22m[90m 88[2mms[22m[39m
+ [32m✓[39m src/features/speaking-ielts/RouletteSpacing.test.tsx [2m([22m[2m9 tests[22m[2m)[22m[33m 520[2mms[22m[39m
+ [32m✓[39m src/features/exam/__tests__/readingB1ReferenceSplit.contract.test.ts [2m([22m[2m11 tests[22m[2m)[22m[90m 6[2mms[22m[39m
+ [32m✓[39m src/features/exam/__tests__/petRwNavigation.integration.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[90m 282[2mms[22m[39m
+ [32m✓[39m src/features/exam/useAudioSync.test.ts [2m([22m[2m12 tests[22m[2m)[22m[90m 8[2mms[22m[39m
+ [32m✓[39m src/features/exam/__tests__/fceRwPart6Drag.test.tsx [2m([22m[2m7 tests[22m[2m)[22m[33m 734[2mms[22m[39m
+   [33m[2m✓[22m[39m FCE Part 6 — kéo thả gapped text[2m > [22mbấm token rồi bấm gap thì gán được đáp án (đường bàn phím) [33m344[2mms[22m[39m
+ [32m✓[39m src/features/writing/useCambridgeWritingTests.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[33m 736[2mms[22m[39m
+ [32m✓[39m src/features/speaking-ielts/SpeakingIeltsActions.test.tsx [2m([22m[2m10 tests[22m[2m)[22m[33m 1898[2mms[22m[39m
+   [33m[2m✓[22m[39m IELTS Speaking landing card actions[2m > [22mopens the topic modal from Practice Bank without navigating to Forecast [33m394[2mms[22m[39m
+   [33m[2m✓[22m[39m IELTS Speaking landing card actions[2m > [22mselects a random topic and starts a topic-specific Mock Interview [33m346[2mms[22m[39m
+ [32m✓[39m src/features/writing/cambridgeWritingTestRepo.test.ts [2m([22m[2m5 tests[22m[2m)[22m[90m 64[2mms[22m[39m
+ [32m✓[39m src/features/auth/LoginPage.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[33m 515[2mms[22m[39m
+   [33m[2m✓[22m[39m LoginPage[2m > [22maccepts email and password text and submits them [33m313[2mms[22m[39m
+ [32m✓[39m src/features/speaking-ielts/soundEffects.test.ts [2m([22m[2m5 tests[22m[2m)[22m[90m 16[2mms[22m[39m
+ [31m❯[39m src/security/phase2Hardening.test.ts [2m([22m[2m6 tests[22m[2m | [22m[31m1 failed[39m[2m)[22m[90m 21[2mms[22m[39m
+[31m   [31m×[31m security hardening phase 2[2m > [22menforces a short signed URL TTL and per-user daily quota[90m 16[2mms[22m[31m[39m
+[31m     → expected '/**\r\n * Mode A+B — content-sign\r\n…' to contain 'const SIGN_TTL_SEC = 60'[39m
+ [32m✓[39m src/features/exam/__tests__/petRwPart6Layout.test.tsx [2m([22m[2m6 tests[22m[2m)[22m[90m 109[2mms[22m[39m
+ [32m✓[39m src/features/vocab/hooks/useDeckAggregates.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[90m 69[2mms[22m[39m
+ [32m✓[39m src/components/exam/QuestionNumberBadge.test.tsx [2m([22m[2m15 tests[22m[2m)[22m[90m 247[2mms[22m[39m
+ [32m✓[39m src/features/reading-corner/BookReaderPage.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[90m 137[2mms[22m[39m
+ [32m✓[39m src/features/reading-corner/bookPreviewController.test.ts [2m([22m[2m2 tests[22m[2m)[22m[90m 84[2mms[22m[39m
+ [32m✓[39m src/features/speaking-ielts/part1QuestionBank.test.ts [2m([22m[2m6 tests[22m[2m)[22m[90m 8[2mms[22m[39m
+ [31m❯[39m e2e/reading-highlight.spec.ts [2m([22m[2m0 test[22m[2m)[22m
+ [32m✓[39m src/security/phase1Hardening.test.ts [2m([22m[2m4 tests[22m[2m)[22m[90m 5[2mms[22m[39m
+ [32m✓[39m src/security/scalabilityHardening.test.ts [2m([22m[2m4 tests[22m[2m)[22m[90m 5[2mms[22m[39m
+ [32m✓[39m src/features/writing/admin/cambridgeWritingFormMapper.test.ts [2m([22m[2m4 tests[22m[2m)[22m[90m 5[2mms[22m[39m
+ [32m✓[39m src/features/vocab/study/vocabStudyFlip.test.ts [2m([22m[2m2 tests[22m[2m)[22m[90m 4[2mms[22m[39m
+ [32m✓[39m src/features/speaking-ai/speakingAiMvp.test.ts [2m([22m[2m3 tests[22m[2m)[22m[90m 5[2mms[22m[39m
+ [32m✓[39m src/features/sentence-structure/structureLibrary.test.ts [2m([22m[2m3 tests[22m[2m)[22m[90m 6[2mms[22m[39m
+ [32m✓[39m src/features/speaking-ielts/speakingIeltsCorpus.test.ts [2m([22m[2m3 tests[22m[2m)[22m[90m 24[2mms[22m[39m
+ [32m✓[39m src/features/translation/translationChips.test.ts [2m([22m[2m6 tests[22m[2m)[22m[90m 5[2mms[22m[39m
+ [32m✓[39m src/security/phase4Legal.test.ts [2m([22m[2m3 tests[22m[2m)[22m[90m 5[2mms[22m[39m
+ [31m❯[39m e2e/fce-b2-test27-part2.spec.ts [2m([22m[2m0 test[22m[2m)[22m
+ [32m✓[39m src/features/vocab/CardPanel.backdrop.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[90m 44[2mms[22m[39m
+ [32m✓[39m src/features/vocab/ensurePresetVocabSeed.test.ts [2m([22m[2m3 tests[22m[2m)[22m[90m 8[2mms[22m[39m
+ [32m✓[39m src/lib/protectedMedia.security.test.ts [2m([22m[2m5 tests[22m[2m)[22m[90m 5[2mms[22m[39m
+ [32m✓[39m src/features/auth/userAvatar.test.ts [2m([22m[2m5 tests[22m[2m)[22m[90m 3[2mms[22m[39m
+ [32m✓[39m src/features/auth/syncServerTime.test.ts [2m([22m[2m3 tests[22m[2m)[22m[90m 6[2mms[22m[39m
+ [32m✓[39m src/features/exam/examAnswerSecurity.test.ts [2m([22m[2m2 tests[22m[2m)[22m[90m 5[2mms[22m[39m
+ [32m✓[39m src/features/speaking-ielts/speakingIeltsSession.test.ts [2m([22m[2m2 tests[22m[2m)[22m[90m 5[2mms[22m[39m
+ [32m✓[39m src/features/exam/readingGapAnswers.test.ts [2m([22m[2m3 tests[22m[2m)[22m[90m 4[2mms[22m[39m
+ [32m✓[39m src/features/speaking-ai/speakingAiEntitlements.test.ts [2m([22m[2m3 tests[22m[2m)[22m[90m 4[2mms[22m[39m
+ [32m✓[39m src/features/translation/importIeltsTranslationPack.test.ts [2m([22m[2m2 tests[22m[2m)[22m[90m 6[2mms[22m[39m
+ [32m✓[39m src/features/vocab/srsScheduling.test.ts [2m([22m[2m4 tests[22m[2m)[22m[90m 4[2mms[22m[39m
+ [32m✓[39m src/features/auth/syncAuthProfile.test.ts [2m([22m[2m2 tests[22m[2m)[22m[90m 4[2mms[22m[39m
+ [31m❯[39m e2e/fce-b2-part7-headings.spec.ts [2m([22m[2m0 test[22m[2m)[22m
+ [32m✓[39m src/features/translation/seedData/grammarBasic25.test.ts [2m([22m[2m2 tests[22m[2m)[22m[90m 18[2mms[22m[39m
+ [32m✓[39m src/features/speaking-ielts/speakingIeltsProgress.test.ts [2m([22m[2m2 tests[22m[2m)[22m[90m 4[2mms[22m[39m
+ [32m✓[39m src/features/exam/listeningTranscriptPublish.test.ts [2m([22m[2m2 tests[22m[2m)[22m[90m 4[2mms[22m[39m
+ [32m✓[39m src/features/exam/ExamSkillPicker.test.tsx [2m([22m[2m1 test[22m[2m)[22m[90m 56[2mms[22m[39m
+ [31m❯[39m src/features/exam/__tests__/catalogCamReading.test.ts [2m([22m[2m1 test[22m[2m | [22m[31m1 failed[39m[2m)[22m[90m 72[2mms[22m[39m
+[31m   [31m×[31m IELTS Cambridge builtin reading catalog[2m > [22mlists 48 seeded exams with three passages and 40 questions each[90m 71[2mms[22m[31m[39m
+[31m     → expected 41 to be 40 // Object.is equality[39m
+ [32m✓[39m src/features/exam/__tests__/readingPartMode.test.tsx [2m([22m[2m9 tests[22m[2m)[22m[90m 4[2mms[22m[39m
+ [32m✓[39m src/features/exam/examReviewHydration.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 4[2mms[22m[39m
+ [32m✓[39m src/pages/__tests__/appShellBackdrop.test.ts [2m([22m[2m3 tests[22m[2m)[22m[90m 3[2mms[22m[39m
+ [32m✓[39m src/features/auth/syncCursor.test.ts [2m([22m[2m2 tests[22m[2m)[22m[90m 3[2mms[22m[39m
+ [32m✓[39m src/features/exam/listeningGapAnswers.test.ts [2m([22m[2m3 tests[22m[2m)[22m[90m 3[2mms[22m[39m
+ [32m✓[39m src/styles/themeBackdropTokens.test.ts [2m([22m[2m2 tests[22m[2m)[22m[90m 3[2mms[22m[39m
+ [32m✓[39m src/features/exam/examResultOption.test.ts [2m([22m[2m3 tests[22m[2m)[22m[90m 3[2mms[22m[39m
+ [32m✓[39m src/features/translation/seedData/collocation25.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 20[2mms[22m[39m
+ [32m✓[39m src/features/auth/syncTiming.test.ts [2m([22m[2m2 tests[22m[2m)[22m[90m 3[2mms[22m[39m
+ [32m✓[39m src/features/exam/__tests__/caeRwPart7Normalization.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 7[2mms[22m[39m
+ [32m✓[39m src/pages/WritingCambridgeTaskPage.test.tsx [2m([22m[2m1 test[22m[2m)[22m[90m 4[2mms[22m[39m
+ [32m✓[39m src/features/vocab/reminder/srsReminderTiming.test.ts [2m([22m[2m3 tests[22m[2m)[22m[90m 3[2mms[22m[39m
+ [32m✓[39m src/features/exam/freePlanCatalogGate.test.ts [2m([22m[2m3 tests[22m[2m)[22m[90m 3[2mms[22m[39m
+ [32m✓[39m src/features/translation/seedData/paragraph65_25.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 6[2mms[22m[39m
+ [32m✓[39m src/features/translation/seedData/paragraph80_25.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 4[2mms[22m[39m
+ [32m✓[39m src/features/translation/seedData/essayFull25.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 4[2mms[22m[39m
+ [32m✓[39m src/security/srsIncrementalPull.test.ts [2m([22m[2m2 tests[22m[2m)[22m[90m 2[2mms[22m[39m
+ [32m✓[39m src/lib/languageSpeakingNav.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 2[2mms[22m[39m
+ [32m✓[39m src/features/reading-corner/ReadingCornerHub.test.tsx [2m([22m[2m1 test[22m[2m)[22m[90m 154[2mms[22m[39m
+
+[2m Test Files [22m [1m[31m9 failed[39m[22m[2m | [22m[1m[32m85 passed[39m[22m[90m (94)[39m
+[2m      Tests [22m [1m[31m3 failed[39m[22m[2m | [22m[1m[32m917 passed[39m[22m[90m (920)[39m
+[2m   Start at [22m 20:04:02
+[2m   Duration [22m 20.94s[2m (transform 6.17s, setup 12.63s, collect 34.61s, tests 14.38s, environment 113.52s, prepare 11.80s)[22m
+

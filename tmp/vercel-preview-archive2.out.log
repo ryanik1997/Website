@@ -1,0 +1,22 @@
+{
+  "status": "ok",
+  "deployment": {
+    "id": "dpl_F7Vo9rbwLfJ3uh1NXFYvvbBDjG6o",
+    "url": "https://ryanenglishv2-lwgdhszxb-ryanenglish.vercel.app",
+    "inspectorUrl": "https://vercel.com/ryanenglish/ryanenglishv2/F7Vo9rbwLfJ3uh1NXFYvvbBDjG6o",
+    "readyState": "INITIALIZING",
+    "target": null,
+    "deploymentApiUrl": "https://api.vercel.com/v13/deployments/dpl_F7Vo9rbwLfJ3uh1NXFYvvbBDjG6o"
+  },
+  "message": "Deployment ryanenglishv2-lwgdhszxb-ryanenglish.vercel.app ready.",
+  "next": [
+    {
+      "command": "vercel inspect ryanenglishv2-lwgdhszxb-ryanenglish.vercel.app",
+      "when": "Inspect deployment"
+    },
+    {
+      "command": "vercel deploy --prod",
+      "when": "Promote to production"
+    }
+  ]
+}

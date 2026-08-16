@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "exam-content-r2-20260804",
+  "baseUrl": "https://pub-5f3e56a575084fb39da914d5daffdbea.r2.dev",
+  "modules": {
+    "reading": {
+      "catalogPath": "releases/exam-content-r1-20260804/reading/catalog.json"
+    },
+    "writing": {
+      "catalogPath": "releases/writing-content-r1-20260804/ielts/writing/catalog.json"
+    }
+  },
+  "notes": "preview-only staging pointer; production.json is intentionally not published. Reading release exam-content-r1-20260804 (166 tests, 278 objects). Writing release writing-content-r1-20260804 (356 tasks, 352 images, 710 objects)."
+}

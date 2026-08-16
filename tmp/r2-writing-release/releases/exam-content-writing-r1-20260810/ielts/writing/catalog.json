@@ -1,0 +1,3215 @@
+{
+  "module": "ielts",
+  "skill": "writing",
+  "level": "academic",
+  "count": 356,
+  "task1Count": 236,
+  "task2Count": 120,
+  "imageCount": 352,
+  "tests": [
+    {
+      "id": "tid-task2-102",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Regulating Genetic Research and Cloning",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-102.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-102.json"
+    },
+    {
+      "id": "tid-task2-101",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Funding Space Exploration vs Earth",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-101.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-101.json"
+    },
+    {
+      "id": "tid-task2-103",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Affordability of Medical Treatments",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-103.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-103.json"
+    },
+    {
+      "id": "tid-task2-106",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Government vs Private Science Funding",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-106.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-106.json"
+    },
+    {
+      "id": "tid-task2-104",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Choosing Babies Genes in the Future",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-104.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-104.json"
+    },
+    {
+      "id": "tid-task2-107",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Learning Music for Children",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-107.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-107.json"
+    },
+    {
+      "id": "tid-task2-105",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Dangers of Scientific Discoveries",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-105.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-105.json"
+    },
+    {
+      "id": "tid-task2-111",
+      "taskType": "task2",
+      "genre": "problem_solution",
+      "title": "Popularity of Extreme Sports",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-111.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-111.json"
+    },
+    {
+      "id": "tid-task2-112",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Cooking as a Popular Hobby",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-112.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-112.json"
+    },
+    {
+      "id": "tid-task2-110",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Art as Essential School Subject",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-110.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-110.json"
+    },
+    {
+      "id": "tid-task2-109",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Celebrity Support for Charities",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-109.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-109.json"
+    },
+    {
+      "id": "tid-task2-108",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Competitive Sport in Education",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-108.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-108.json"
+    },
+    {
+      "id": "tid-task2-115",
+      "taskType": "task2",
+      "genre": "problem_solution",
+      "title": "Causes and Solutions for Traffic Congestion",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-115.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-115.json"
+    },
+    {
+      "id": "tid-task2-113",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Professional Athletes as Role Models",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-113.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-113.json"
+    },
+    {
+      "id": "tid-task2-114",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Government Funding for Public Art",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-114.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-114.json"
+    },
+    {
+      "id": "tid-task2-120",
+      "taskType": "task2",
+      "genre": "advantages_disadvantages",
+      "title": "Cycling to Work or School Trend",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-120.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-120.json"
+    },
+    {
+      "id": "tid-task2-119",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Building Roads to Solve Traffic",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-119.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-119.json"
+    },
+    {
+      "id": "tid-task2-118",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Charging Fees to Drive in Cities",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-118.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-118.json"
+    },
+    {
+      "id": "tid-task2-116",
+      "taskType": "task2",
+      "genre": "problem_solution",
+      "title": "Rapid Population Growth in Cities",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-116.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-116.json"
+    },
+    {
+      "id": "tid-task2-117",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Future of Driverless Cars",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-117.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-117.json"
+    },
+    {
+      "id": "tid-task2-051",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Funding Healthcare and Education",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-051.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-051.json"
+    },
+    {
+      "id": "tid-task2-055",
+      "taskType": "task2",
+      "genre": "problem_solution",
+      "title": "Global Crisis of Childhood Obesity",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-055.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-055.json"
+    },
+    {
+      "id": "tid-task2-056",
+      "taskType": "task2",
+      "genre": "problem_solution",
+      "title": "Mental Health Problems in Youth",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-056.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-056.json"
+    },
+    {
+      "id": "tid-task2-057",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Diet vs Physical Activity for Health",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-057.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-057.json"
+    },
+    {
+      "id": "tid-task2-059",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Benefits and Costs of Keeping Pets",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-059.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-059.json"
+    },
+    {
+      "id": "tid-task2-060",
+      "taskType": "task2",
+      "genre": "other",
+      "title": "Vegetarian and Vegan Diet Trends",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-060.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-060.json"
+    },
+    {
+      "id": "tid-task2-061",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Subsidising Sports Facilities Costs",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-061.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-061.json"
+    },
+    {
+      "id": "tid-task2-062",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Professional Athletes High Salaries",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-062.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-062.json"
+    },
+    {
+      "id": "tid-task2-063",
+      "taskType": "task2",
+      "genre": "problem_solution",
+      "title": "Causes and Solutions for Modern Stress",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-063.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-063.json"
+    },
+    {
+      "id": "tid-task2-064",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Job Satisfaction vs High Salary",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-064.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-064.json"
+    },
+    {
+      "id": "tid-task2-052",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Compulsory Voting by Law",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-052.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-052.json"
+    },
+    {
+      "id": "tid-task2-053",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "International Sporting Events Value",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-053.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-053.json"
+    },
+    {
+      "id": "tid-task2-054",
+      "taskType": "task2",
+      "genre": "advantages_disadvantages",
+      "title": "Benefits and Problems of Ageing Population",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-054.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-054.json"
+    },
+    {
+      "id": "tid-task2-058",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Fast Food vs Home-Cooked Meals",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-058.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-058.json"
+    },
+    {
+      "id": "tid-task2-067",
+      "taskType": "task2",
+      "genre": "advantages_disadvantages",
+      "title": "Pros and Cons of Online Shopping",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-067.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-067.json"
+    },
+    {
+      "id": "tid-task2-066",
+      "taskType": "task2",
+      "genre": "advantages_disadvantages",
+      "title": "Advantages of Flexible Working Hours",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-066.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-066.json"
+    },
+    {
+      "id": "tid-task2-065",
+      "taskType": "task2",
+      "genre": "advantages_disadvantages",
+      "title": "Self-Employment Trend and Disadvantages",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-065.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-065.json"
+    },
+    {
+      "id": "tid-task2-075",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Freedom vs Control of the Media",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-075.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-075.json"
+    },
+    {
+      "id": "tid-task2-074",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Impact of Multinational Companies",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-074.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-074.json"
+    },
+    {
+      "id": "tid-task2-073",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Increasing Minimum Legal Driving Age",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-073.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-073.json"
+    },
+    {
+      "id": "tid-task2-072",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Future of Working from Home",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-072.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-072.json"
+    },
+    {
+      "id": "tid-task2-071",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Employer Provided Fitness Facilities",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-071.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-071.json"
+    },
+    {
+      "id": "tid-task2-070",
+      "taskType": "task2",
+      "genre": "problem_solution",
+      "title": "Renewable Energy vs Fossil Fuels",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-070.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-070.json"
+    },
+    {
+      "id": "tid-task2-069",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "24/7 Business Operations Trend",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-069.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-069.json"
+    },
+    {
+      "id": "tid-task2-068",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Free Public Transport Feasibility",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-068.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-068.json"
+    },
+    {
+      "id": "tid-task2-077",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Newspapers vs Digital News Sources",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-077.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-077.json"
+    },
+    {
+      "id": "tid-task2-076",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Social Media and Youth Mental Health",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-076.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-076.json"
+    },
+    {
+      "id": "tid-task2-078",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Power and Influence of Advertising",
+      "hasImage": false,
+      "image": null,
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-078.json"
+    },
+    {
+      "id": "tid-task2-082",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Internet Information and Misinformation",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-082.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-082.json"
+    },
+    {
+      "id": "tid-task2-079",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Influence of Celebrities on Youth",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-079.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-079.json"
+    },
+    {
+      "id": "tid-task2-081",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Television Influence on Culture",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-081.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-081.json"
+    },
+    {
+      "id": "tid-task2-085",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Punishment vs Rehabilitation in Prisons",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-085.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-085.json"
+    },
+    {
+      "id": "tid-task2-080",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Traditional Books vs Digital E-books",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-080.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-080.json"
+    },
+    {
+      "id": "tid-task2-084",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Longer Prison Sentences for Crime",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-084.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-084.json"
+    },
+    {
+      "id": "tid-task2-083",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Supervised Internet Use for Children",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-083.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-083.json"
+    },
+    {
+      "id": "tid-task2-094",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Responsibility for Climate Change Combat",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-094.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-094.json"
+    },
+    {
+      "id": "tid-task2-093",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "English as a Global Language",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-093.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-093.json"
+    },
+    {
+      "id": "tid-task2-088",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Compulsory Military Service for Citizens",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-088.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-088.json"
+    },
+    {
+      "id": "tid-task2-087",
+      "taskType": "task2",
+      "genre": "two_part",
+      "title": "Addressing Criminal Reoffending Rates",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-087.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-087.json"
+    },
+    {
+      "id": "tid-task2-086",
+      "taskType": "task2",
+      "genre": "other",
+      "title": "Preventing Teenage Crime Growth",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-086.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-086.json"
+    },
+    {
+      "id": "tid-task2-092",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "International Tourism and Local Culture",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-092.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-092.json"
+    },
+    {
+      "id": "tid-task2-090",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Death Penalty as Crime Deterrent",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-090.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-090.json"
+    },
+    {
+      "id": "tid-task2-091",
+      "taskType": "task2",
+      "genre": "advantages_disadvantages",
+      "title": "Community Service vs Prison Sentences",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-091.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-091.json"
+    },
+    {
+      "id": "tid-task2-089",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Surveillance Cameras and Privacy",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-089.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-089.json"
+    },
+    {
+      "id": "tid-task2-100",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "International Aid to Developing Countries",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-100.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-100.json"
+    },
+    {
+      "id": "tid-task2-099",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "English for International Business",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-099.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-099.json"
+    },
+    {
+      "id": "tid-task2-098",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Keeping Animals in Zoos",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-098.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-098.json"
+    },
+    {
+      "id": "tid-task2-096",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Working Abroad in Foreign Countries",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-096.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-096.json"
+    },
+    {
+      "id": "tid-task2-097",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Charging Foreign Visitors More",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-097.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-097.json"
+    },
+    {
+      "id": "tid-task2-095",
+      "taskType": "task2",
+      "genre": "problem_solution",
+      "title": "Benefits of Globalisation Evaluated",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-095.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-095.json"
+    },
+    {
+      "id": "tid-task2-003",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "High Salaries and Income Inequality",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-003.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-003.json"
+    },
+    {
+      "id": "tid-task2-001",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "University Education Purpose",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-001.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-001.json"
+    },
+    {
+      "id": "tid-task2-002",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "School Vacation Lengths",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-002.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-002.json"
+    },
+    {
+      "id": "tid-task2-004",
+      "taskType": "task2",
+      "genre": "advantages_disadvantages",
+      "title": "Replacing Textbooks with Laptops",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-004.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-004.json"
+    },
+    {
+      "id": "tid-task2-005",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Early Education vs Playing",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-005.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-005.json"
+    },
+    {
+      "id": "tid-task2-006",
+      "taskType": "task2",
+      "genre": "advantages_disadvantages",
+      "title": "Gap Year Before University",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-006.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-006.json"
+    },
+    {
+      "id": "tid-task2-007",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "University Subject Choices",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-007.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-007.json"
+    },
+    {
+      "id": "tid-task2-008",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Teaching Citizenship in Schools",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-008.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-008.json"
+    },
+    {
+      "id": "tid-task2-009",
+      "taskType": "task2",
+      "genre": "advantages_disadvantages",
+      "title": "Living Away from Family at University",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-009.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-009.json"
+    },
+    {
+      "id": "tid-task2-010",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Growing Up City vs Countryside",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-010.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-010.json"
+    },
+    {
+      "id": "tid-task2-011",
+      "taskType": "task2",
+      "genre": "advantages_disadvantages",
+      "title": "Homeschooling Advantages and Disadvantages",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-011.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-011.json"
+    },
+    {
+      "id": "tid-task2-012",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Formal Qualifications vs Experience",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-012.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-012.json"
+    },
+    {
+      "id": "tid-task2-013",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Technology Making Life Complex or Simple",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-013.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-013.json"
+    },
+    {
+      "id": "tid-task2-014",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Using the Internet for Information",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-014.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-014.json"
+    },
+    {
+      "id": "tid-task2-015",
+      "taskType": "task2",
+      "genre": "two_part",
+      "title": "Technology and Human Relationships",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-015.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-015.json"
+    },
+    {
+      "id": "tid-task2-016",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Smartphones and Social Isolation",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-016.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-016.json"
+    },
+    {
+      "id": "tid-task2-017",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Computers More Intelligent Than Humans",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-017.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-017.json"
+    },
+    {
+      "id": "tid-task2-018",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "AI Replacing Human Workers",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-018.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-018.json"
+    },
+    {
+      "id": "tid-task2-020",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Technology vs Behaviour for Environment",
+      "hasImage": false,
+      "image": null,
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-020.json"
+    },
+    {
+      "id": "tid-task2-019",
+      "taskType": "task2",
+      "genre": "advantages_disadvantages",
+      "title": "Online vs Face-to-Face Communication",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-019.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-019.json"
+    },
+    {
+      "id": "tid-task2-021",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Robots and AI in Industry",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-021.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-021.json"
+    },
+    {
+      "id": "tid-task2-022",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Sharing Personal Info on Social Media",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-022.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-022.json"
+    },
+    {
+      "id": "tid-task2-023",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Solving Environmental Problems Globally",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-023.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-023.json"
+    },
+    {
+      "id": "tid-task2-027",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Online Shopping Effects on Shops",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-027.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-027.json"
+    },
+    {
+      "id": "tid-task2-024",
+      "taskType": "task2",
+      "genre": "problem_solution",
+      "title": "Animal Extinction and Human Activities",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-024.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-024.json"
+    },
+    {
+      "id": "tid-task2-025",
+      "taskType": "task2",
+      "genre": "problem_solution",
+      "title": "Increasing Household Waste",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-025.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-025.json"
+    },
+    {
+      "id": "tid-task2-026",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Vegetarian Diet for the Environment",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-026.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-026.json"
+    },
+    {
+      "id": "tid-task2-029",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Planting Trees vs Building Housing",
+      "hasImage": false,
+      "image": null,
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-029.json"
+    },
+    {
+      "id": "tid-task2-028",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Seriousness of Global Climate Change",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-028.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-028.json"
+    },
+    {
+      "id": "tid-task2-030",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Responsibility to Protect the Environment",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-030.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-030.json"
+    },
+    {
+      "id": "tid-task2-032",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Taxing Air Travel for Environment",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-032.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-032.json"
+    },
+    {
+      "id": "tid-task2-031",
+      "taskType": "task2",
+      "genre": "advantages_disadvantages",
+      "title": "Nuclear Energy Benefits and Risks",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-031.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-031.json"
+    },
+    {
+      "id": "tid-task2-033",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Increasing Ageing Population in Society",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-033.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-033.json"
+    },
+    {
+      "id": "tid-task2-039",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Growing Food at Home",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-039.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-039.json"
+    },
+    {
+      "id": "tid-task2-040",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Purpose of Newspapers and Media",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-040.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-040.json"
+    },
+    {
+      "id": "tid-task2-041",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Innate Talent vs Taught Skills",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-041.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-041.json"
+    },
+    {
+      "id": "tid-task2-042",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Gender Equality in University Education",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-042.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-042.json"
+    },
+    {
+      "id": "tid-task2-043",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Improving vs Resting Mind in Leisure",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-043.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-043.json"
+    },
+    {
+      "id": "tid-task2-034",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Competition vs Cooperation in Children",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-034.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-034.json"
+    },
+    {
+      "id": "tid-task2-035",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Future of Museums and Art Galleries",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-035.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-035.json"
+    },
+    {
+      "id": "tid-task2-036",
+      "taskType": "task2",
+      "genre": "problem_solution",
+      "title": "Changing Traditional Role of Family",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-036.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-036.json"
+    },
+    {
+      "id": "tid-task2-037",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Effects of Immigration on a Country",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-037.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-037.json"
+    },
+    {
+      "id": "tid-task2-038",
+      "taskType": "task2",
+      "genre": "problem_solution",
+      "title": "Trend of Having Fewer Children",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-038.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-038.json"
+    },
+    {
+      "id": "tid-task2-044",
+      "taskType": "task2",
+      "genre": "problem_solution",
+      "title": "Migration to Cities for Work",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-044.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-044.json"
+    },
+    {
+      "id": "tid-task2-045",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Responsibility for Public Health",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-045.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-045.json"
+    },
+    {
+      "id": "tid-task2-046",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Economic Development vs Environmental Protection",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-046.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-046.json"
+    },
+    {
+      "id": "tid-task2-047",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Government Interference in Lifestyle Choices",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-047.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-047.json"
+    },
+    {
+      "id": "tid-task2-048",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Government Spending on the Arts",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-048.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-048.json"
+    },
+    {
+      "id": "tid-task2-050",
+      "taskType": "task2",
+      "genre": "opinion",
+      "title": "Government Spending on Railways vs Roads",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task2_task2-050.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-050.json"
+    },
+    {
+      "id": "tid-task2-049",
+      "taskType": "task2",
+      "genre": "discussion",
+      "title": "Banning Dangerous Sports",
+      "hasImage": false,
+      "image": null,
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-task2-049.json"
+    },
+    {
+      "id": "tid-pc-025",
+      "taskType": "task1",
+      "genre": "pie_chart",
+      "title": "Pie Chart: Percentage of volunteers by organisation type (2008 and 2014)",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_pc-025.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-pc-025.json"
+    },
+    {
+      "id": "tid-mg-020",
+      "taskType": "task1",
+      "genre": "mixed",
+      "title": "Mixed Graph: Average hours worked per week and stress-related illness across eight occupations",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_mg-020.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-mg-020.json"
+    },
+    {
+      "id": "tid-map-007",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: Layout changes of a small theatre (2010 vs 2012)",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-007.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-007.json"
+    },
+    {
+      "id": "tid-map-037",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: Development of Porth Harbour (2000 vs today)",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-037.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-037.json"
+    },
+    {
+      "id": "tid-bc-017",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: Number of people in Europe affected by four types of noise (cities vs rural, day vs night, 2007)",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-017.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-017.json"
+    },
+    {
+      "id": "tid-bc-032",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: Percentage of households with various goods (2001 and 2008)",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-032.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-032.json"
+    },
+    {
+      "id": "tid-bc-046",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: Money given to developing countries from five organisations (2008–2011)",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-046.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-046.json"
+    },
+    {
+      "id": "tid-tbl-018",
+      "taskType": "task1",
+      "genre": "table",
+      "title": "Table: The table below shows the total population and the proportion of males and femal...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_tbl-018.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-tbl-018.json"
+    },
+    {
+      "id": "tid-tbl-019",
+      "taskType": "task1",
+      "genre": "table",
+      "title": "Table: The table beneath shows the level of people specialists in various kinds of ente...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_tbl-019.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-tbl-019.json"
+    },
+    {
+      "id": "tid-tbl-020",
+      "taskType": "task1",
+      "genre": "table",
+      "title": "Table: The table compares data for the world s large-scale and small-scale sea fishing ...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_tbl-020.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-tbl-020.json"
+    },
+    {
+      "id": "tid-tbl-021",
+      "taskType": "task1",
+      "genre": "table",
+      "title": "Table: The table compares the international tourist arrivals in millions in 9 countries...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_tbl-021.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-tbl-021.json"
+    },
+    {
+      "id": "tid-tbl-022",
+      "taskType": "task1",
+      "genre": "table",
+      "title": "Table: The table describes the changes of people who went for international travel in 1...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_tbl-022.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-tbl-022.json"
+    },
+    {
+      "id": "tid-tbl-023",
+      "taskType": "task1",
+      "genre": "table",
+      "title": "Table: The table shows information about department stores and online stores in Austral...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_tbl-023.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-tbl-023.json"
+    },
+    {
+      "id": "tid-tbl-024",
+      "taskType": "task1",
+      "genre": "table",
+      "title": "Table: The table shows information about medical care in three different European count...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_tbl-024.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-tbl-024.json"
+    },
+    {
+      "id": "tid-tbl-025",
+      "taskType": "task1",
+      "genre": "table",
+      "title": "Table: The table shows the frequency of adults using the internet in one European count...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_tbl-025.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-tbl-025.json"
+    },
+    {
+      "id": "tid-tbl-026",
+      "taskType": "task1",
+      "genre": "table",
+      "title": "Table: The table shows the number of employees and factories producing silk in England ...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_tbl-026.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-tbl-026.json"
+    },
+    {
+      "id": "tid-tbl-027",
+      "taskType": "task1",
+      "genre": "table",
+      "title": "Table: The tables below provide information about the consumption and production of pot...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_tbl-027.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-tbl-027.json"
+    },
+    {
+      "id": "tid-tbl-028",
+      "taskType": "task1",
+      "genre": "table",
+      "title": "Table: The tables below show the distribution of students at UK universities by mode of...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_tbl-028.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-tbl-028.json"
+    },
+    {
+      "id": "tid-tbl-029",
+      "taskType": "task1",
+      "genre": "table",
+      "title": "Table: The tables show results of 2 surveys done in 1980 and 2010 on various aspects of...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_tbl-029.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-tbl-029.json"
+    },
+    {
+      "id": "tid-tbl-002",
+      "taskType": "task1",
+      "genre": "table",
+      "title": "Table: The graph below shows the average retirement age of males and females in six cou...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_tbl-002.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-tbl-002.json"
+    },
+    {
+      "id": "tid-tbl-007",
+      "taskType": "task1",
+      "genre": "table",
+      "title": "Table: The table below shows the change in number of people engaged in various physical...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_tbl-007.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-tbl-007.json"
+    },
+    {
+      "id": "tid-tbl-009",
+      "taskType": "task1",
+      "genre": "table",
+      "title": "Table: The table below shows the information about the posts held by women in parliamen...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_tbl-009.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-tbl-009.json"
+    },
+    {
+      "id": "tid-tbl-010",
+      "taskType": "task1",
+      "genre": "table",
+      "title": "Table: The table below shows the percentage of employers in various sectors having diff...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_tbl-010.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-tbl-010.json"
+    },
+    {
+      "id": "tid-tbl-011",
+      "taskType": "task1",
+      "genre": "table",
+      "title": "Table: The table below shows the percentage of expenditure per capita in Australia acro...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_tbl-011.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-tbl-011.json"
+    },
+    {
+      "id": "tid-tbl-012",
+      "taskType": "task1",
+      "genre": "table",
+      "title": "Table: The table below shows the percentage of first-year students who gave ‘very good’...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_tbl-012.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-tbl-012.json"
+    },
+    {
+      "id": "tid-tbl-013",
+      "taskType": "task1",
+      "genre": "table",
+      "title": "Table: The table below shows the percentage of government spending on education and tra...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_tbl-013.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-tbl-013.json"
+    },
+    {
+      "id": "tid-tbl-014",
+      "taskType": "task1",
+      "genre": "table",
+      "title": "Table: The table below shows the percentage use of four different fuel types to generat...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_tbl-014.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-tbl-014.json"
+    },
+    {
+      "id": "tid-tbl-015",
+      "taskType": "task1",
+      "genre": "table",
+      "title": "Table: The table below shows the population ratio of males per 100 females in six diffe...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_tbl-015.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-tbl-015.json"
+    },
+    {
+      "id": "tid-tbl-016",
+      "taskType": "task1",
+      "genre": "table",
+      "title": "Table: The table below shows the postgraduate course fees in US Dollars that internatio...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_tbl-016.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-tbl-016.json"
+    },
+    {
+      "id": "tid-tbl-017",
+      "taskType": "task1",
+      "genre": "table",
+      "title": "Table: The table below shows the production of milk annually in four countries in 1990,...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_tbl-017.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-tbl-017.json"
+    },
+    {
+      "id": "tid-tbl-008",
+      "taskType": "task1",
+      "genre": "table",
+      "title": "Table: The table below shows the household composition in a North American country from...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_tbl-008.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-tbl-008.json"
+    },
+    {
+      "id": "tid-proc-018",
+      "taskType": "task1",
+      "genre": "process",
+      "title": "Process: The diagrams below give information about two road tunnels in two Australian cit...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_proc-018.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-proc-018.json"
+    },
+    {
+      "id": "tid-proc-019",
+      "taskType": "task1",
+      "genre": "process",
+      "title": "Process: The diagrams show the structure of the solar panel and its use. Summarize the in...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_proc-019.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-proc-019.json"
+    },
+    {
+      "id": "tid-proc-020",
+      "taskType": "task1",
+      "genre": "process",
+      "title": "Process: The three pictures show the position of a volcano, and a village before and afte...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_proc-020.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-proc-020.json"
+    },
+    {
+      "id": "tid-tbl-001",
+      "taskType": "task1",
+      "genre": "table",
+      "title": "Table: The first table below shows changes in the total population of New York City fro...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_tbl-001.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-tbl-001.json"
+    },
+    {
+      "id": "tid-tbl-003",
+      "taskType": "task1",
+      "genre": "table",
+      "title": "Table: The table below gives information about the amount of tax collected ( as   of GD...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_tbl-003.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-tbl-003.json"
+    },
+    {
+      "id": "tid-tbl-004",
+      "taskType": "task1",
+      "genre": "table",
+      "title": "Table: The table below gives information about the population of people aged 60 and ove...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_tbl-004.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-tbl-004.json"
+    },
+    {
+      "id": "tid-tbl-005",
+      "taskType": "task1",
+      "genre": "table",
+      "title": "Table: The table below gives information about the situation of marriage and age from 1...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_tbl-005.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-tbl-005.json"
+    },
+    {
+      "id": "tid-tbl-006",
+      "taskType": "task1",
+      "genre": "table",
+      "title": "Table: The table below shows employment patterns for males and females in New Zealand i...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_tbl-006.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-tbl-006.json"
+    },
+    {
+      "id": "tid-pc-022",
+      "taskType": "task1",
+      "genre": "pie_chart",
+      "title": "Pie Chart: The pie charts show the results of a survey in which undergraduates and postgrad...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_pc-022.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-pc-022.json"
+    },
+    {
+      "id": "tid-pc-023",
+      "taskType": "task1",
+      "genre": "pie_chart",
+      "title": "Pie Chart: The pie charts show the size of classes in primary schools in four states in Aus...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_pc-023.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-pc-023.json"
+    },
+    {
+      "id": "tid-pc-024",
+      "taskType": "task1",
+      "genre": "pie_chart",
+      "title": "Pie Chart: The three pie charts below show the changes in annual spending by a particular U...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_pc-024.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-pc-024.json"
+    },
+    {
+      "id": "tid-proc-001",
+      "taskType": "task1",
+      "genre": "process",
+      "title": "Process: The chart below shows the process of waste paper recycling. Summarize the inform...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_proc-001.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-proc-001.json"
+    },
+    {
+      "id": "tid-proc-002",
+      "taskType": "task1",
+      "genre": "process",
+      "title": "Process: The diagram below describes the structure of a home smokery and how it works. Su...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_proc-002.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-proc-002.json"
+    },
+    {
+      "id": "tid-proc-003",
+      "taskType": "task1",
+      "genre": "process",
+      "title": "Process: The diagram below illustrates the process of producing drinking water using a so...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_proc-003.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-proc-003.json"
+    },
+    {
+      "id": "tid-proc-004",
+      "taskType": "task1",
+      "genre": "process",
+      "title": "Process: The diagram below shows how a simple water filter is constructed and how it func...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_proc-004.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-proc-004.json"
+    },
+    {
+      "id": "tid-proc-005",
+      "taskType": "task1",
+      "genre": "process",
+      "title": "Process: The diagram below shows how chipboards are created from wood and then used to ma...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_proc-005.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-proc-005.json"
+    },
+    {
+      "id": "tid-proc-006",
+      "taskType": "task1",
+      "genre": "process",
+      "title": "Process: The diagram below shows how electricity is generated in a hydroelectric power st...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_proc-006.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-proc-006.json"
+    },
+    {
+      "id": "tid-proc-007",
+      "taskType": "task1",
+      "genre": "process",
+      "title": "Process: The diagram below shows how geothermal energy is used to produce electricity. Su...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_proc-007.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-proc-007.json"
+    },
+    {
+      "id": "tid-proc-008",
+      "taskType": "task1",
+      "genre": "process",
+      "title": "Process: The diagram below shows how honey is made in small-scale commercial production. ...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_proc-008.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-proc-008.json"
+    },
+    {
+      "id": "tid-proc-009",
+      "taskType": "task1",
+      "genre": "process",
+      "title": "Process: The diagram below shows how instant noodles are manufactured. Summarise the info...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_proc-009.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-proc-009.json"
+    },
+    {
+      "id": "tid-proc-010",
+      "taskType": "task1",
+      "genre": "process",
+      "title": "Process: The diagram below shows how one type of coal is used to produce electricity. Sum...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_proc-010.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-proc-010.json"
+    },
+    {
+      "id": "tid-proc-011",
+      "taskType": "task1",
+      "genre": "process",
+      "title": "Process: The diagram below shows two different processes for manufacturing black tea. Sum...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_proc-011.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-proc-011.json"
+    },
+    {
+      "id": "tid-proc-012",
+      "taskType": "task1",
+      "genre": "process",
+      "title": "Process: The diagram details the process of producing olive oil. Summarise the informatio...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_proc-012.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-proc-012.json"
+    },
+    {
+      "id": "tid-proc-013",
+      "taskType": "task1",
+      "genre": "process",
+      "title": "Process: The diagram illustrates how recycled paper is made. Summarize the information by...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_proc-013.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-proc-013.json"
+    },
+    {
+      "id": "tid-proc-014",
+      "taskType": "task1",
+      "genre": "process",
+      "title": "Process: The diagram shows a process of making a storage area from a material called conc...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_proc-014.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-proc-014.json"
+    },
+    {
+      "id": "tid-proc-015",
+      "taskType": "task1",
+      "genre": "process",
+      "title": "Process: The diagram shows how tea leaves are processed into five tea types. Summarize th...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_proc-015.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-proc-015.json"
+    },
+    {
+      "id": "tid-proc-016",
+      "taskType": "task1",
+      "genre": "process",
+      "title": "Process: The diagram shows the process for recycling plastic bottles. Summarise the infor...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_proc-016.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-proc-016.json"
+    },
+    {
+      "id": "tid-proc-017",
+      "taskType": "task1",
+      "genre": "process",
+      "title": "Process: The diagrams below give information about the manufacture of frozen fish pies. S...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_proc-017.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-proc-017.json"
+    },
+    {
+      "id": "tid-pc-010",
+      "taskType": "task1",
+      "genre": "pie_chart",
+      "title": "Pie Chart: The charts give information about world forests in five different regions. Summa...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_pc-010.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-pc-010.json"
+    },
+    {
+      "id": "tid-pc-011",
+      "taskType": "task1",
+      "genre": "pie_chart",
+      "title": "Pie Chart: The charts show the difference in how three countries learn English in 2010 and ...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_pc-011.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-pc-011.json"
+    },
+    {
+      "id": "tid-pc-012",
+      "taskType": "task1",
+      "genre": "pie_chart",
+      "title": "Pie Chart: The charts show the sources of the electricity produced in 4 countries between 2...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_pc-012.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-pc-012.json"
+    },
+    {
+      "id": "tid-pc-013",
+      "taskType": "task1",
+      "genre": "pie_chart",
+      "title": "Pie Chart: The first chart below shows how energy is used in an average Australian househol...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_pc-013.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-pc-013.json"
+    },
+    {
+      "id": "tid-pc-014",
+      "taskType": "task1",
+      "genre": "pie_chart",
+      "title": "Pie Chart: The graphs below show the age of visitors from the UK to Spain in 1983 and 2003....",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_pc-014.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-pc-014.json"
+    },
+    {
+      "id": "tid-pc-015",
+      "taskType": "task1",
+      "genre": "pie_chart",
+      "title": "Pie Chart: The pie chart below shows the main reasons why students chose to study at a part...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_pc-015.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-pc-015.json"
+    },
+    {
+      "id": "tid-pc-016",
+      "taskType": "task1",
+      "genre": "pie_chart",
+      "title": "Pie Chart: The pie charts below show the age groups of the users on different social media ...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_pc-016.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-pc-016.json"
+    },
+    {
+      "id": "tid-pc-017",
+      "taskType": "task1",
+      "genre": "pie_chart",
+      "title": "Pie Chart: The pie charts below show the comparison of different kinds of energy production...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_pc-017.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-pc-017.json"
+    },
+    {
+      "id": "tid-pc-018",
+      "taskType": "task1",
+      "genre": "pie_chart",
+      "title": "Pie Chart: The pie charts below show the different types of courses, which were followed by...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_pc-018.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-pc-018.json"
+    },
+    {
+      "id": "tid-pc-019",
+      "taskType": "task1",
+      "genre": "pie_chart",
+      "title": "Pie Chart: The pie charts below show the percentage of five kinds of books sold by a bookse...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_pc-019.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-pc-019.json"
+    },
+    {
+      "id": "tid-pc-020",
+      "taskType": "task1",
+      "genre": "pie_chart",
+      "title": "Pie Chart: The pie charts show energy sources in Australia in 2008 and predictions for 2030...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_pc-020.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-pc-020.json"
+    },
+    {
+      "id": "tid-pc-021",
+      "taskType": "task1",
+      "genre": "pie_chart",
+      "title": "Pie Chart: The pie charts show people’s reasons for immigration to a European country in 20...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_pc-021.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-pc-021.json"
+    },
+    {
+      "id": "tid-pc-002",
+      "taskType": "task1",
+      "genre": "pie_chart",
+      "title": "Pie Chart: The charts below give information about the number of people who use public libr...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_pc-002.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-pc-002.json"
+    },
+    {
+      "id": "tid-pc-003",
+      "taskType": "task1",
+      "genre": "pie_chart",
+      "title": "Pie Chart: The charts below show changes in the proportion of energy produced from differen...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_pc-003.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-pc-003.json"
+    },
+    {
+      "id": "tid-pc-004",
+      "taskType": "task1",
+      "genre": "pie_chart",
+      "title": "Pie Chart: The charts below show the average percentages in typical meals of three types of...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_pc-004.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-pc-004.json"
+    },
+    {
+      "id": "tid-pc-005",
+      "taskType": "task1",
+      "genre": "pie_chart",
+      "title": "Pie Chart: The charts below show the percentage of students at an adult education centre ta...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_pc-005.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-pc-005.json"
+    },
+    {
+      "id": "tid-pc-006",
+      "taskType": "task1",
+      "genre": "pie_chart",
+      "title": "Pie Chart: The charts below show the percentage of volunteers by organizations in 2008 and ...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_pc-006.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-pc-006.json"
+    },
+    {
+      "id": "tid-pc-007",
+      "taskType": "task1",
+      "genre": "pie_chart",
+      "title": "Pie Chart: The charts below show the proportion of holidaymakers using four different types...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_pc-007.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-pc-007.json"
+    },
+    {
+      "id": "tid-pc-008",
+      "taskType": "task1",
+      "genre": "pie_chart",
+      "title": "Pie Chart: The charts below show the reasons for immigrants to and from a European country ...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_pc-008.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-pc-008.json"
+    },
+    {
+      "id": "tid-pc-009",
+      "taskType": "task1",
+      "genre": "pie_chart",
+      "title": "Pie Chart: The charts below shows the global market share of three computer operating syste...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_pc-009.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-pc-009.json"
+    },
+    {
+      "id": "tid-mg-004",
+      "taskType": "task1",
+      "genre": "mixed",
+      "title": "Mixed Graph: The chart shows export values of one country by category for 2015-2016. The tabl...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_mg-004.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-mg-004.json"
+    },
+    {
+      "id": "tid-mg-012",
+      "taskType": "task1",
+      "genre": "mixed",
+      "title": "Mixed Graph: The first chart below gives information about the money spent by British parents...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_mg-012.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-mg-012.json"
+    },
+    {
+      "id": "tid-mg-019",
+      "taskType": "task1",
+      "genre": "mixed",
+      "title": "Mixed Graph: The two bar charts below show the proportion of 14- to 16-year-old students stud...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_mg-019.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-mg-019.json"
+    },
+    {
+      "id": "tid-mg-001",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Mixed Graph: The bar chart below shows how tourism to Australia from three different countrie...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_mg-001.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-mg-001.json"
+    },
+    {
+      "id": "tid-mg-002",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Mixed Graph: The bar chart below shows the proportions of English men and women of different ...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_mg-002.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-mg-002.json"
+    },
+    {
+      "id": "tid-mg-003",
+      "taskType": "task1",
+      "genre": "mixed",
+      "title": "Mixed Graph: The chart below shows what Anthropology graduates from one university did after ...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_mg-003.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-mg-003.json"
+    },
+    {
+      "id": "tid-mg-005",
+      "taskType": "task1",
+      "genre": "mixed",
+      "title": "Mixed Graph: The charts below give information about a public library in a town called Little...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_mg-005.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-mg-005.json"
+    },
+    {
+      "id": "tid-mg-006",
+      "taskType": "task1",
+      "genre": "mixed",
+      "title": "Mixed Graph: The charts below give information about the high-speed continuous internet conne...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_mg-006.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-mg-006.json"
+    },
+    {
+      "id": "tid-mg-007",
+      "taskType": "task1",
+      "genre": "mixed",
+      "title": "Mixed Graph: The charts below give information on the location and types of dance classes you...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_mg-007.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-mg-007.json"
+    },
+    {
+      "id": "tid-mg-008",
+      "taskType": "task1",
+      "genre": "mixed",
+      "title": "Mixed Graph: The charts below show UK workers’ average time spent and methods to work in 2009...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_mg-008.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-mg-008.json"
+    },
+    {
+      "id": "tid-mg-009",
+      "taskType": "task1",
+      "genre": "mixed",
+      "title": "Mixed Graph: The charts below show the comparison of time spent, in minutes per day, by UK’s ...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_mg-009.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-mg-009.json"
+    },
+    {
+      "id": "tid-mg-010",
+      "taskType": "task1",
+      "genre": "mixed",
+      "title": "Mixed Graph: The charts show the average number of hours worked per week and the proportions ...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_mg-010.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-mg-010.json"
+    },
+    {
+      "id": "tid-mg-011",
+      "taskType": "task1",
+      "genre": "mixed",
+      "title": "Mixed Graph: The diagrams show the sales of cars of three different brands between 2015 and 2...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_mg-011.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-mg-011.json"
+    },
+    {
+      "id": "tid-mg-013",
+      "taskType": "task1",
+      "genre": "table",
+      "title": "Mixed Graph: The graph and table below give information about water use worldwide and water c...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_mg-013.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-mg-013.json"
+    },
+    {
+      "id": "tid-mg-014",
+      "taskType": "task1",
+      "genre": "table",
+      "title": "Mixed Graph: The graph and the table show the average monthly temperatures and annual hours o...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_mg-014.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-mg-014.json"
+    },
+    {
+      "id": "tid-mg-015",
+      "taskType": "task1",
+      "genre": "mixed",
+      "title": "Mixed Graph: The graphs below show the cinema attendants in Australia and the average cinema ...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_mg-015.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-mg-015.json"
+    },
+    {
+      "id": "tid-mg-016",
+      "taskType": "task1",
+      "genre": "mixed",
+      "title": "Mixed Graph: The graphs below show the percentage of math graduates and other graduates who g...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_mg-016.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-mg-016.json"
+    },
+    {
+      "id": "tid-mg-017",
+      "taskType": "task1",
+      "genre": "table",
+      "title": "Mixed Graph: The table and charts below give information on the police budget for 2017 and 20...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_mg-017.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-mg-017.json"
+    },
+    {
+      "id": "tid-mg-018",
+      "taskType": "task1",
+      "genre": "pie_chart",
+      "title": "Mixed Graph: The table and pie chart give information about the population in Australia accor...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_mg-018.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-mg-018.json"
+    },
+    {
+      "id": "tid-pc-001",
+      "taskType": "task1",
+      "genre": "pie_chart",
+      "title": "Pie Chart: The chart below shows the percentage of the day working adults spent doing diffe...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_pc-001.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-pc-001.json"
+    },
+    {
+      "id": "tid-map-025",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The layout of part of a building, indicating the position of the fire exits",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-025.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-025.json"
+    },
+    {
+      "id": "tid-map-026",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The plans below show how the ground of a particular building has changed over time",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-026.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-026.json"
+    },
+    {
+      "id": "tid-map-027",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The maps below show part of a village in 1910, and the same part of that village i...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-027.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-027.json"
+    },
+    {
+      "id": "tid-map-028",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The diagrams show a small museum and its surroundings in 1990 and 2010",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-028.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-028.json"
+    },
+    {
+      "id": "tid-map-029",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The maps below show Hunderstone town at present and a proposed plan for it",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-029.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-029.json"
+    },
+    {
+      "id": "tid-map-030",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The plans below show the site of a farm in 1950 and the same site today",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-030.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-030.json"
+    },
+    {
+      "id": "tid-map-031",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The plans below show the ground floor of a library in 2001 and how it was redevelo...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-031.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-031.json"
+    },
+    {
+      "id": "tid-map-032",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The maps below show the changes in the art gallery ground floor in 2015 and presen...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-032.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-032.json"
+    },
+    {
+      "id": "tid-map-033",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The diagrams give information about changes in a student accommodation",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-033.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-033.json"
+    },
+    {
+      "id": "tid-map-034",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The maps below show the future plan about the Biology School in a particular unive...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-034.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-034.json"
+    },
+    {
+      "id": "tid-map-035",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The plans below show a harbour in 2000 and how it looks today",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-035.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-035.json"
+    },
+    {
+      "id": "tid-map-036",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The maps below show an industrial area in the town of Norbiton, and planned future...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-036.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-036.json"
+    },
+    {
+      "id": "tid-map-038",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The plans below show a bookstore in 2000 and the bookstore now",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-038.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-038.json"
+    },
+    {
+      "id": "tid-map-039",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: A small local museum and its surroundings in 1957 and 2007",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-039.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-039.json"
+    },
+    {
+      "id": "tid-map-040",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The plans below show a small theatre in 2010, and the same theatre in 2012",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-040.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-040.json"
+    },
+    {
+      "id": "tid-map-041",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The plans below show a student room for two people and a student room for one pers...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-041.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-041.json"
+    },
+    {
+      "id": "tid-map-042",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The plans below show the layout of a university's sports center now, and how it wi...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-042.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-042.json"
+    },
+    {
+      "id": "tid-map-004",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The plans below show a student room for two people and a student room for one pers...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-004.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-004.json"
+    },
+    {
+      "id": "tid-map-005",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The maps below show the changes to a community center in 10 years' time",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-005.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-005.json"
+    },
+    {
+      "id": "tid-map-006",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The plans below show a small theatre in 2010, and the same theatre in 2012",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-006.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-006.json"
+    },
+    {
+      "id": "tid-map-008",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The map of a University Sports Centre in 2007 and at present",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-008.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-008.json"
+    },
+    {
+      "id": "tid-map-009",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The village park, now and 10 years ago",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-009.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-009.json"
+    },
+    {
+      "id": "tid-map-010",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The diagrams below show the layout of the town's shopping centre at present and af...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-010.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-010.json"
+    },
+    {
+      "id": "tid-map-011",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The maps below show Huntingdon as it is now, and how it will change in the future",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-011.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-011.json"
+    },
+    {
+      "id": "tid-map-012",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The maps showed the changes in a city centre from the year 2000 to the present day",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-012.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-012.json"
+    },
+    {
+      "id": "tid-map-013",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The plans below show a traditional and modern two-storey Japanese house",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-013.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-013.json"
+    },
+    {
+      "id": "tid-map-014",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The plans show the room layouts for training sessions for up to ten people and mor...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-014.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-014.json"
+    },
+    {
+      "id": "tid-map-015",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The changes that have taken place at a zoo in Australia between 1960 and now",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-015.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-015.json"
+    },
+    {
+      "id": "tid-map-016",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The plans below show the layout of the ground floor of a museum in 1990 and 2010",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-016.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-016.json"
+    },
+    {
+      "id": "tid-map-017",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The maps below show the centre of a small town called Islip as it is now, and plan...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-017.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-017.json"
+    },
+    {
+      "id": "tid-map-018",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The plans show the site of an airport now and how it will look after redevelopment...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-018.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-018.json"
+    },
+    {
+      "id": "tid-map-019",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: A school in 1985 and the school now",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-019.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-019.json"
+    },
+    {
+      "id": "tid-map-020",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The diagrams below compare the layout of a typical Japanese office and a typical A...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-020.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-020.json"
+    },
+    {
+      "id": "tid-map-021",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The plans below show a student common room five years ago and the common room now",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-021.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-021.json"
+    },
+    {
+      "id": "tid-map-022",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The plans below show a public park when it first opened in 1920 and the same park ...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-022.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-022.json"
+    },
+    {
+      "id": "tid-map-023",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The two maps below show the changes in a town called Dalton from 1815 to 2015",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-023.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-023.json"
+    },
+    {
+      "id": "tid-map-024",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The diagrams below show the development of a town called Brindell and the local ar...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-024.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-024.json"
+    },
+    {
+      "id": "tid-lg-024",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The graph shows the amount of fruit produced in four countries (France, Spain, Ger...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-024.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-024.json"
+    },
+    {
+      "id": "tid-lg-025",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The number of overseas visitors who came to the UK for different purposes between ...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-025.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-025.json"
+    },
+    {
+      "id": "tid-lg-026",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The graph below shows information about the percentage of the population in four A...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-026.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-026.json"
+    },
+    {
+      "id": "tid-lg-027",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The graph below shows the number of inquiries received by the Tourist Information ...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-027.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-027.json"
+    },
+    {
+      "id": "tid-lg-028",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The graph below shows different sources of air pollutants in the UK from 1990 to 2...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-028.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-028.json"
+    },
+    {
+      "id": "tid-lg-029",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The graph below shows the number of tourists (measured in millions) visiting a par...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-029.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-029.json"
+    },
+    {
+      "id": "tid-lg-030",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The chart below gives information about computer ownership per household in the US...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-030.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-030.json"
+    },
+    {
+      "id": "tid-lg-031",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The percentage of the population in three different countries who used the interne...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-031.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-031.json"
+    },
+    {
+      "id": "tid-lg-032",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The graph below shows the average number of people attending top-level football ma...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-032.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-032.json"
+    },
+    {
+      "id": "tid-lg-033",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The graph below shows the average time spent by four car manufacturers to produce ...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-033.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-033.json"
+    },
+    {
+      "id": "tid-lg-034",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The graph below shows the percentage of the Australian workforce in five industrie...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-034.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-034.json"
+    },
+    {
+      "id": "tid-lg-035",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The line graph illustrates the number of fixed-line and mobile telephone subscribe...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-035.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-035.json"
+    },
+    {
+      "id": "tid-lg-036",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The average cost of monthly contract of four different cellular companies in one E...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-036.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-036.json"
+    },
+    {
+      "id": "tid-lg-037",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The number of train passengers from 2000 to 2009",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-037.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-037.json"
+    },
+    {
+      "id": "tid-lg-038",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The graph below shows four countries of residence of overseas students in Australia",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-038.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-038.json"
+    },
+    {
+      "id": "tid-lg-039",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The charts show the changes in ownership of electrical appliances and amount of ti...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-039.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-039.json"
+    },
+    {
+      "id": "tid-lg-040",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The graph shows the percentage of people in different age groups in one city who a...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-040.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-040.json"
+    },
+    {
+      "id": "tid-map-001",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The museum's plant in 1998 and after some changes were made in 2008",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-001.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-001.json"
+    },
+    {
+      "id": "tid-map-002",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The two plans below show student accommodation in 2010 and now",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-002.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-002.json"
+    },
+    {
+      "id": "tid-map-003",
+      "taskType": "task1",
+      "genre": "map",
+      "title": "Map: The development of the village of Ryemouth between 1995 and present",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_map-003.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-map-003.json"
+    },
+    {
+      "id": "tid-lg-013",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The graph below shows the percentages of tourists who used different types of tran...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-013.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-013.json"
+    },
+    {
+      "id": "tid-lg-014",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The graph below shows the changes in the birth rates for women in 6 different age ...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-014.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-014.json"
+    },
+    {
+      "id": "tid-lg-015",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The graph below shows the number of immigrants to three countries from 1991 to 2001",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-015.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-015.json"
+    },
+    {
+      "id": "tid-lg-016",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The graph below shows the percentage of people visiting a museum at least once a y...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-016.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-016.json"
+    },
+    {
+      "id": "tid-lg-017",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The graph below shows how elderly people in the United States spent their free tim...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-017.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-017.json"
+    },
+    {
+      "id": "tid-lg-018",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The graph below gives information about the price of bananas in four countries bet...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-018.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-018.json"
+    },
+    {
+      "id": "tid-lg-019",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The graph shows the number of people taking part in 4 kinds of sports in a particu...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-019.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-019.json"
+    },
+    {
+      "id": "tid-lg-020",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The graph shows the value in US dollars (in millions of dollars) of investment in ...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-020.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-020.json"
+    },
+    {
+      "id": "tid-lg-021",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The graph below shows the percentage of Australian exports to 4 countries from 199...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-021.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-021.json"
+    },
+    {
+      "id": "tid-lg-022",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The nitrogen oxide emissions produced by four vehicles (no specific time period)",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-022.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-022.json"
+    },
+    {
+      "id": "tid-lg-023",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The graph below shows the percentage of workers from five different European count...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-023.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-023.json"
+    },
+    {
+      "id": "tid-lg-004",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The graph shows the average monthly change in the prices of three metals during 2014",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-004.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-004.json"
+    },
+    {
+      "id": "tid-lg-005",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The graph below shows the production of three forest industry products in a Europe...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-005.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-005.json"
+    },
+    {
+      "id": "tid-lg-006",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The chart below gives information about car ownership in the UK from 1975 to 2005",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-006.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-006.json"
+    },
+    {
+      "id": "tid-lg-007",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The graph below presents the employment patterns in the USA between 1930 and 2010",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-007.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-007.json"
+    },
+    {
+      "id": "tid-lg-008",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The graph below shows average carbon dioxide (CO2) emissions per person in the Uni...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-008.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-008.json"
+    },
+    {
+      "id": "tid-lg-009",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The graph below gives information on the numbers of participants for different act...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-009.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-009.json"
+    },
+    {
+      "id": "tid-lg-010",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The graph below shows the quantities of goods transported in the UK between 1974 a...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-010.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-010.json"
+    },
+    {
+      "id": "tid-lg-011",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The number of people who used different communication services in the world",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-011.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-011.json"
+    },
+    {
+      "id": "tid-lg-012",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The graph below shows the production levels of the main kinds of fuel in the UK be...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-012.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-012.json"
+    },
+    {
+      "id": "tid-bc-044",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The graph below shows the percentage of self-employed workers of the total workfor...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-044.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-044.json"
+    },
+    {
+      "id": "tid-bc-054",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The chart below compares the number of people per household in the UK in 1981 and ...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-054.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-054.json"
+    },
+    {
+      "id": "tid-bc-058",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The percentages of Chinese and Indian students in Canadian universities in various...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-058.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-058.json"
+    },
+    {
+      "id": "tid-lg-002",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The graph below shows the number of overseas visitors to three different areas in ...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-002.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-002.json"
+    },
+    {
+      "id": "tid-bc-043",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The numbers of three types of visitors to a museum between 1997 and 2012",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-043.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-043.json"
+    },
+    {
+      "id": "tid-bc-059",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The charts below show the protein and calorie intakes of people in different parts...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-059.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-059.json"
+    },
+    {
+      "id": "tid-bc-060",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The results of a survey about people's coffee and tea buying and drinking habits i...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-060.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-060.json"
+    },
+    {
+      "id": "tid-lg-001",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The graph shows the percentage of people visiting the cinema once a month or more ...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-001.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-001.json"
+    },
+    {
+      "id": "tid-bc-045",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The amount of money given to developing countries from five organizations from 200...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-045.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-045.json"
+    },
+    {
+      "id": "tid-bc-047",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The aid from six developed countries to developing countries from 2008-2010",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-047.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-047.json"
+    },
+    {
+      "id": "tid-bc-048",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The proportion of the population aged 65 and over of three countries in 1980 and 2...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-048.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-048.json"
+    },
+    {
+      "id": "tid-bc-049",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The number of people employed in five types of work in one region of Australia in ...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-049.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-049.json"
+    },
+    {
+      "id": "tid-bc-050",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The expenditure on three categories among different age groups of residents in the...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-050.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-050.json"
+    },
+    {
+      "id": "tid-bc-051",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The graph shows oil production capacity for several Gulf countries between 1990 an...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-051.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-051.json"
+    },
+    {
+      "id": "tid-bc-052",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The chart displays information about fitness membership numbers across different a...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-052.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-052.json"
+    },
+    {
+      "id": "tid-bc-053",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The percentage of Australian men and women in different age groups who did regular...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-053.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-053.json"
+    },
+    {
+      "id": "tid-bc-055",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The results of a survey conducted by a personnel department at a major company",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-055.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-055.json"
+    },
+    {
+      "id": "tid-bc-056",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The number of trips made by children in one country in 1990 and 2010 to travel to ...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-056.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-056.json"
+    },
+    {
+      "id": "tid-bc-057",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The different levels of post-school qualifications in Australia and the proportion...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-057.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-057.json"
+    },
+    {
+      "id": "tid-lg-003",
+      "taskType": "task1",
+      "genre": "line_graph",
+      "title": "Line Graph: The average cost of monthly contract for four different mobile (cell phones) in a ...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_lg-003.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-lg-003.json"
+    },
+    {
+      "id": "tid-bc-022",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The graph below illustrates the unemployment rates among people aged 15 to 24 in f...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-022.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-022.json"
+    },
+    {
+      "id": "tid-bc-023",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The amount of money in billions of dollars spent on international tourism by peopl...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-023.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-023.json"
+    },
+    {
+      "id": "tid-bc-024",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The charts below show the percentage of food and goods bought from supermarkets in...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-024.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-024.json"
+    },
+    {
+      "id": "tid-bc-025",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: How frequently people in the USA ate in fast food restaurants between 2003 and 2013",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-025.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-025.json"
+    },
+    {
+      "id": "tid-bc-026",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The percentage of households in owned and rented accommodation in England and Wale...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-026.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-026.json"
+    },
+    {
+      "id": "tid-bc-027",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The world health organization recommends that people should eat five or more porti...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-027.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-027.json"
+    },
+    {
+      "id": "tid-bc-028",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The donation given to six different types of charity by one company from 2012 to 2...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-028.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-028.json"
+    },
+    {
+      "id": "tid-bc-029",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The world production output (measured in %) from Asia, Europe, and the rest of the...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-029.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-029.json"
+    },
+    {
+      "id": "tid-bc-030",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The spending (in millions) by 18-20 year olds in one country on five different pro...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-030.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-030.json"
+    },
+    {
+      "id": "tid-bc-031",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The graph shows the percentage of households in one country that had various goods...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-031.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-031.json"
+    },
+    {
+      "id": "tid-bc-033",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The graph below shows the number of households in the US by their annual income in...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-033.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-033.json"
+    },
+    {
+      "id": "tid-bc-034",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The amount of money invested in each category from five organisations",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-034.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-034.json"
+    },
+    {
+      "id": "tid-bc-035",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The amount of energy generated from wind in four countries from 1985 to 2000",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-035.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-035.json"
+    },
+    {
+      "id": "tid-bc-036",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The chart below gives information about the age of women in Australia when they ga...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-036.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-036.json"
+    },
+    {
+      "id": "tid-bc-037",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The percentage of adults of different age groups in the UK who used the Internet e...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-037.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-037.json"
+    },
+    {
+      "id": "tid-bc-038",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The graph shows Internet usage in Taiwan by Age Group, 1998-2000",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-038.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-038.json"
+    },
+    {
+      "id": "tid-bc-039",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The percentage of government spending on roads and transport in 4 countries in the...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-039.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-039.json"
+    },
+    {
+      "id": "tid-bc-040",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The percentage of households with cars in a European country between 1971 and 2001",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-040.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-040.json"
+    },
+    {
+      "id": "tid-bc-041",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The percentages of different types of household waste that were recycled in one ci...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-041.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-041.json"
+    },
+    {
+      "id": "tid-bc-042",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The number of international applicants to the universities of one European country",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-042.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-042.json"
+    },
+    {
+      "id": "tid-bc-002",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The percentage of the world population in four countries in 1950 and 2002, and pro...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-002.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-002.json"
+    },
+    {
+      "id": "tid-bc-001",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The percentage of school-aged girls and boys who were at secondary school in four ...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-001.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-001.json"
+    },
+    {
+      "id": "tid-bc-003",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: Information about fuel used in the transport sector in different countries in Europ...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-003.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-003.json"
+    },
+    {
+      "id": "tid-bc-004",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: Different methods of waste disposal in a European country from 2005 to 2008",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-004.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-004.json"
+    },
+    {
+      "id": "tid-bc-005",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The charts below give information on the ages of people when they got married in o...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-005.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-005.json"
+    },
+    {
+      "id": "tid-bc-006",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The percentage of the population in the UK who consumed the recommended daily amou...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-006.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-006.json"
+    },
+    {
+      "id": "tid-bc-007",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: Information about the actual and expected figures of population of three cities, J...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-007.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-007.json"
+    },
+    {
+      "id": "tid-bc-008",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The graphs below show the total percentage of films released and the total percent...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-008.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-008.json"
+    },
+    {
+      "id": "tid-bc-009",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The main reasons why students chose to study at a particular university in the UK ...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-009.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-009.json"
+    },
+    {
+      "id": "tid-bc-010",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The bar charts give information about the salaries and university fees of students...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-010.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-010.json"
+    },
+    {
+      "id": "tid-bc-011",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The chart below gives information about the adults with education at high school l...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-011.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-011.json"
+    },
+    {
+      "id": "tid-bc-012",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The charts below show the percentage of workers in three sectors across four count...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-012.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-012.json"
+    },
+    {
+      "id": "tid-bc-013",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The percentage of males and females with higher education qualifications in five c...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-013.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-013.json"
+    },
+    {
+      "id": "tid-bc-014",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The two bar charts show the proportion of 14-16 year-old students studying a moder...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-014.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-014.json"
+    },
+    {
+      "id": "tid-bc-015",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The charts below show the number of people in Europe who were affected by four typ...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-015.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-015.json"
+    },
+    {
+      "id": "tid-bc-016",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The charts below show the figure for work hours per week in the industrial sector ...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-016.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-016.json"
+    },
+    {
+      "id": "tid-bc-018",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The average prices per kilometre of clothing imported into the European Union from...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-018.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-018.json"
+    },
+    {
+      "id": "tid-bc-019",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The distribution of employment among agriculture, services, industries in three co...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-019.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-019.json"
+    },
+    {
+      "id": "tid-bc-020",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The chart below gives information about the growth of the urban population in cert...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-020.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-020.json"
+    },
+    {
+      "id": "tid-bc-021",
+      "taskType": "task1",
+      "genre": "bar_chart",
+      "title": "Bar Chart: The spending (in dollars) per household in the US on five different products in 20...",
+      "hasImage": true,
+      "image": "/catalog/writing/tid/images/task1_bc-021.webp",
+      "objectKey": "releases/exam-content-writing-r1-20260810/ielts/writing/tasks/tid-bc-021.json"
+    }
+  ]
+}

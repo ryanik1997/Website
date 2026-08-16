@@ -1,0 +1,577 @@
+Bạn là Senior Cloud Architecture Engineer và Senior React/TypeScript Engineer.
+
+Mục tiêu: chuyển toàn bộ ngân hàng nội dung đề thi tĩnh từ Supabase/local
+generated files sang Cloudflare R2, đồng thời giữ dữ liệu người dùng trong
+Supabase.
+
+Production frontend:
+
+https://ryanenglishv2.vercel.app
+
+Không thực hiện migration Supabase trong task này.
+Không repair migration history.
+Không thay đổi production database.
+Không xóa dữ liệu nguồn trước khi production R2 được xác minh hoàn chỉnh.
+
+==================================================
+1. KIẾN TRÚC MỤC TIÊU
+==================================================
+
+Cloudflare R2 lưu:
+
+- IELTS Reading test data
+- IELTS Listening test data
+- IELTS Speaking content pools
+- IELTS Writing prompts
+- Cambridge Reading/Listening static content nếu đang dùng cùng data layer
+- passages
+- transcripts
+- audio
+- images
+- catalogs
+- manifests
+
+Supabase tiếp tục lưu:
+
+- authentication
+- user profiles
+- progress
+- user answers
+- scores
+- bookmarks
+- saved decks
+- subscriptions/permissions
+- dữ liệu quan hệ hoặc dữ liệu người dùng
+
+Không đưa user-generated data sang bucket public.
+
+==================================================
+2. DIAGNOSE TRƯỚC KHI THAY ĐỔI
+==================================================
+
+Audit repository và xác định cho từng module:
+
+- Data source hiện tại:
+  - TypeScript
+  - JSON
+  - generated catalog
+  - Supabase table
+  - API
+- File path
+- Route sử dụng
+- Số tests
+- Số questions
+- Số answers
+- Số audio files
+- Số image files
+- Có dynamic import hay không
+- Có file bị .gitignore/.vercelignore loại bỏ không
+- Production đang dùng biến môi trường nào
+
+Phạm vi tối thiểu:
+
+- IELTS Reading A2–C2 nếu có
+- IELTS Listening A2–C2 nếu có
+- IELTS Speaking
+- IELTS Writing
+- Cambridge Reading A2–C2
+- Cambridge Listening A2–C2
+
+Tạo báo cáo:
+
+tmp/r2-content-migration-audit.md
+
+Bảng:
+
+| Module | Source type | Local path/table | Count | Assets | Target R2 prefix |
+|--------|-------------|------------------|-------|--------|------------------|
+
+Không giả định tất cả dữ liệu đang nằm trong Supabase.
+
+==================================================
+3. R2 CONFIGURATION AUDIT
+==================================================
+
+Kiểm tra project hiện có:
+
+- Cloudflare account configuration
+- R2 bucket name
+- custom domain
+- public development URL
+- Wrangler configuration
+- upload scripts
+- CORS configuration
+- Vercel environment variables
+
+Không in ra:
+
+- Access Key ID đầy đủ
+- Secret Access Key
+- Cloudflare API token
+- Supabase service-role key
+
+Chỉ báo masked values.
+
+Nếu chưa có R2 bucket hoặc credentials:
+
+- Báo BLOCKED với danh sách thông tin cần cung cấp.
+- Không hard-code credentials.
+- Không commit secret vào Git.
+
+==================================================
+4. OBJECT KEY CONVENTION
+==================================================
+
+Dùng object paths ổn định, lowercase và không có khoảng trắng:
+
+manifests/production.json
+manifests/releases/<release-id>.json
+
+ielts/reading/<level>/catalog.json
+ielts/reading/<level>/<test-id>.json
+
+ielts/listening/<level>/catalog.json
+ielts/listening/<level>/<test-id>.json
+ielts/listening/<level>/<test-id>/audio/<filename>
+ielts/listening/<level>/<test-id>/images/<filename>
+
+ielts/speaking/catalog.json
+ielts/speaking/part1.json
+ielts/speaking/part2.json
+ielts/speaking/part3.json
+
+ielts/writing/<level>/catalog.json
+ielts/writing/<level>/<test-id>.json
+
+Không sử dụng Windows absolute paths trong object keys.
+
+Không dùng tên object phụ thuộc array index nếu đã có stable ID.
+
+==================================================
+5. CONTENT SCHEMA
+==================================================
+
+Tái sử dụng schema/type hiện tại nếu hợp lệ.
+
+Mỗi test object phải có tối thiểu:
+
+{
+  "schemaVersion": 1,
+  "id": "stable-test-id",
+  "skill": "reading",
+  "level": "c1",
+  "title": "...",
+  "parts": [...],
+  "assets": [...]
+}
+
+Không serialize:
+
+- React elements
+- functions
+- Map
+- Set
+- undefined
+- local filesystem paths
+- secrets
+
+Mọi asset reference phải là relative object path hoặc HTTPS URL hợp lệ.
+
+==================================================
+6. ANSWER KEY SECURITY
+==================================================
+
+Audit xem answer keys hiện đang nằm ở đâu.
+
+Nếu answer keys hiện đã được ship trong frontend bundle thì ghi nhận hiện trạng,
+nhưng không làm mức bảo mật kém hơn.
+
+Ưu tiên:
+
+- Public R2:
+  questions, passages, images, audio, transcripts cần thiết.
+- Private R2 hoặc backend:
+  answer keys và scoring metadata cần bảo vệ.
+
+Không đưa R2 secret vào frontend.
+
+Nếu private answer key chưa thể triển khai trong task này:
+
+- Giữ scoring source hiện tại.
+- Không block migration public content.
+- Báo rõ remaining work.
+
+==================================================
+7. EXPORT PIPELINE
+==================================================
+
+Tạo script idempotent, ví dụ:
+
+scripts/content/export-exam-content.mjs
+
+Script phải:
+
+1. Đọc data source hiện tại.
+2. Validate schema.
+3. Tách mỗi test thành một JSON riêng.
+4. Copy audio/images vào staging directory.
+5. Tạo catalog theo skill/level.
+6. Tạo release manifest.
+7. Tạo SHA-256 cho từng object.
+8. Ghi inventory.
+9. Không upload nếu validation fail.
+
+Output local:
+
+tmp/r2-release/<release-id>/
+
+Tạo:
+
+tmp/r2-release/<release-id>/inventory.json
+
+Inventory gồm:
+
+- object key
+- bytes
+- sha256
+- content type
+- cache policy
+- source module
+
+==================================================
+8. VALIDATION TRƯỚC UPLOAD
+==================================================
+
+Bắt buộc kiểm tra:
+
+- Unique test IDs
+- Unique question IDs
+- Correct question counts
+- Correct answer counts
+- Không missing asset
+- Không local absolute path
+- Không undefined/null ngoài schema
+- Không empty catalog
+- JSON parse được
+- Audio files có bytes > 0
+- Image files có bytes > 0
+- Content-Type đúng
+
+Tạo guard theo từng module:
+
+- IELTS Reading entries/questions/answers
+- IELTS Listening entries/questions/audio
+- IELTS Speaking Part 1/2/3 counts
+- IELTS Writing entries/tasks
+- Cambridge Reading/Listening counts
+
+Build phải fail nếu module từng có dữ liệu mà export mới trở thành 0.
+
+==================================================
+9. UPLOAD R2
+==================================================
+
+Tạo upload script dùng:
+
+- Wrangler nếu repository đã dùng Wrangler; hoặc
+- S3-compatible R2 API trong script server-side.
+
+Không thêm dependency nếu công cụ hiện tại đã đủ.
+
+Upload theo release prefix trước:
+
+releases/<release-id>/...
+
+Sau khi upload:
+
+- HEAD hoặc GET kiểm tra từng object quan trọng.
+- So sánh Content-Length.
+- So sánh checksum khi khả dụng.
+- Kiểm tra Content-Type.
+- Kiểm tra CORS.
+
+Chỉ cập nhật:
+
+manifests/production.json
+
+SAU KHI toàn bộ release objects đã upload và xác minh.
+
+Manifest production phải được publish cuối cùng để release gần atomic.
+
+Không xóa release cũ ngay.
+
+==================================================
+10. CACHE CONTROL
+==================================================
+
+Release objects immutable:
+
+Cache-Control:
+public, max-age=31536000, immutable
+
+Production manifest:
+
+Cache-Control:
+public, max-age=60, must-revalidate
+
+Catalog có release path:
+
+public, max-age=31536000, immutable
+
+Không cache production manifest một năm.
+
+==================================================
+11. FRONTEND DATA LAYER
+==================================================
+
+Tạo shared loader, ví dụ:
+
+src/services/examContent/
+  contentClient.ts
+  contentManifest.ts
+  contentSchemas.ts
+  contentCache.ts
+
+Frontend env:
+
+VITE_EXAM_CONTENT_BASE_URL
+VITE_EXAM_CONTENT_MANIFEST
+
+Không hard-code localhost.
+Không hard-code bucket development URL trong production code.
+
+Loader phải:
+
+- fetch production manifest
+- resolve release object URL
+- fetch catalog
+- fetch test object khi người dùng mở test
+- cache requests trong memory
+- hỗ trợ AbortSignal
+- báo lỗi có module/test ID
+- không swallow 404
+- không trả empty array giả khi request fail
+
+==================================================
+12. DUAL-READ MIGRATION
+==================================================
+
+Trong giai đoạn chuyển đổi, dùng feature flag:
+
+VITE_EXAM_CONTENT_SOURCE=r2
+
+Allowed:
+
+- r2
+- legacy
+
+Không tự fallback im lặng từ R2 sang legacy trong production vì có thể che lỗi
+deploy.
+
+Có thể bật fallback chỉ trong development và phải log rõ source.
+
+Migrate theo từng module:
+
+Phase 1:
+- một IELTS module representative
+
+Phase 2:
+- toàn IELTS
+
+Phase 3:
+- Cambridge static content
+
+Sau mỗi phase phải browser-test trước khi chuyển module tiếp theo.
+
+==================================================
+13. PRODUCTION ISSUE DIAGNOSIS
+==================================================
+
+Điều tra cụ thể vì sao ngân hàng IELTS hiện không xuất hiện trên production.
+
+Ghi lại:
+
+- Route
+- Request URL
+- HTTP status
+- Response body/error code
+- Data source selected
+- Environment variable values đã mask
+- Catalog count local
+- Catalog count production
+
+Phân biệt:
+
+- 404 object missing
+- CORS
+- wrong custom domain
+- wrong object key/case
+- stale manifest
+- Vercel env missing
+- Supabase relation missing
+- RLS 401/403
+- empty seed table
+- generated file excluded from deployment
+
+Không kết luận “do Supabase” nếu Network evidence không chứng minh.
+
+==================================================
+14. VERCEL ENVIRONMENT
+==================================================
+
+Audit production variables:
+
+- VITE_EXAM_CONTENT_BASE_URL
+- VITE_EXAM_CONTENT_MANIFEST
+- VITE_EXAM_CONTENT_SOURCE
+
+Xác nhận biến được đặt cho:
+
+- Production
+- Preview nếu cần
+- Development nếu cần
+
+Sau khi đổi biến production phải redeploy frontend.
+
+Không in secret values.
+
+==================================================
+15. CORS
+==================================================
+
+R2/custom domain phải cho phép frontend production:
+
+https://ryanenglishv2.vercel.app
+
+Nếu dùng preview deployments, cấu hình policy phù hợp nhưng không mở credentials
+tùy tiện.
+
+GET/HEAD cần hoạt động.
+
+Allowed headers tối thiểu:
+
+- Content-Type
+- Range nếu audio cần seek
+
+Expose headers khi cần:
+
+- Content-Length
+- Content-Range
+- ETag
+
+Listening audio phải hỗ trợ range requests hoặc cách phát audio hiện có.
+
+==================================================
+16. BROWSER E2E
+==================================================
+
+Production hoặc preview deployment phải kiểm tra:
+
+IELTS:
+
+- mở catalog
+- mở Reading test
+- chuyển Part
+- answer một câu
+- mở Listening test
+- audio load
+- audio seek nếu app hỗ trợ
+- image load
+- Speaking pool load
+- Writing prompt load
+
+Kiểm tra:
+
+- Data source là R2
+- Không request Supabase exam-content tables
+- Không 404
+- Không CORS error
+- Không mixed content
+- Không undefined
+- Counts khớp local inventory
+- Console errors = 0
+- Network errors = 0
+
+Mobile và desktop.
+
+==================================================
+17. SUPABASE SCOPE
+==================================================
+
+Không thay đổi:
+
+- Supabase schema
+- migration history
+- RLS
+- auth
+- user progress schema
+
+Nếu frontend cần đọc progress từ Supabase, giữ nguyên.
+
+R2 chỉ thay thế data source cho content tĩnh.
+
+Không xóa Supabase exam tables trong task này.
+
+Sau khi R2 production ổn định mới tạo task decommission riêng.
+
+==================================================
+18. ROLLBACK
+==================================================
+
+Phải có rollback đơn giản:
+
+- production manifest trỏ lại release trước; hoặc
+- VITE_EXAM_CONTENT_SOURCE=legacy và redeploy
+
+Không xóa release cũ trước khi hết thời gian xác minh.
+
+Ghi lại release ID trước và sau.
+
+==================================================
+19. DEFINITION OF DONE
+==================================================
+
+Chỉ báo PASS khi:
+
+- R2 release upload hoàn chỉnh.
+- Production manifest hợp lệ.
+- IELTS content counts khớp local.
+- Reading hoạt động từ R2.
+- Listening audio/images hoạt động từ R2.
+- Speaking/Writing load từ R2 nếu trong scope.
+- Production Vercel dùng đúng R2 env.
+- Không phụ thuộc Supabase cho static exam content.
+- User progress vẫn lưu đúng vào Supabase.
+- Không có secrets trong frontend.
+- Console errors = 0.
+- Network errors = 0.
+- TypeScript PASS.
+- Production build PASS.
+- Content validation PASS.
+- git diff --check PASS.
+- Có rollback procedure.
+
+==================================================
+20. BÁO CÁO CUỐI
+==================================================
+
+1. Status: PASS / PARTIAL / BLOCKED
+2. Root cause ngân hàng IELTS production bị thiếu
+3. Content inventory before
+4. R2 bucket/custom domain đã dùng
+5. Release ID
+6. Objects uploaded
+7. Counts theo module
+8. Manifest URL
+9. Frontend env configuration
+10. Browser E2E results
+11. Audio/image verification
+12. Supabase dependencies còn giữ
+13. TypeScript/build/content guard
+14. Console/network errors
+15. Rollback procedure
+16. Remaining modules chưa migrate
+
+Không báo PASS nếu chỉ upload file nhưng frontend vẫn đọc nguồn legacy.
+Không báo PASS nếu production chưa được kiểm tra.
+Không xóa dữ liệu Supabase trong task này.

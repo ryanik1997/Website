@@ -70,6 +70,36 @@ function ReadingRouteFallback() {
   )
 }
 
+/**
+ * R2 public bodies are answer-stripped. Merge the correct answers back from
+ * the legacy bundled TID data (the private scoring source) by part + question
+ * number so scoring/review keeps working without fetching any public vault.
+ */
+function mergeTidAnswers(r2Body: TidReadingTest, _examId: string, legacy: TidReadingTest | null): TidReadingTest {
+  if (!legacy) return r2Body
+  const merged: TidReadingTest = {
+    ...r2Body,
+    parts: r2Body.parts.map(p => ({
+      ...p,
+      questionGroups: (p.questionGroups ?? []).map(g => ({ ...g, questions: g.questions.map(q => ({ ...q })) })),
+    })),
+  }
+  legacy.parts.forEach((legacyPart, partIndex) => {
+    const target = merged.parts[partIndex]
+    if (!target) return
+    const byNumber = new Map<number, { answer?: string; explanation?: string }>()
+    for (const lg of legacyPart.questionGroups ?? []) for (const lq of lg.questions ?? []) byNumber.set(lq.number, { answer: lq.answer, explanation: lq.explanation })
+    for (const tg of target.questionGroups ?? []) for (const q of tg.questions) {
+      const src = byNumber.get(q.number)
+      if (src) {
+        if (src.answer !== undefined) q.answer = src.answer
+        if (src.explanation !== undefined) q.explanation = src.explanation
+      }
+    }
+  })
+  return merged
+}
+
 export default function ReadingTest() {
   const navigate = useNavigate()
   const { examId } = useParams<{ examId: string }>()
@@ -114,6 +144,7 @@ export default function ReadingTest() {
   const useCpeRwShell = exam ? isCpeReadingWritingExam(exam) : false
 
   const [tidTest, setTidTest] = useState<TidReadingTest | null | undefined>(undefined)
+  const [tidLoadError, setTidLoadError] = useState<string | null>(null)
   const [answers, setAnswers] = useState<Record<string, string>>({})
   const singlePartMode = part !== null
   const examDurationMinutes = exam ? (singlePartMode ? Math.ceil(readingExamDurationMinutes(exam) / 3) : readingExamDurationMinutes(exam)) : 60
@@ -148,17 +179,33 @@ export default function ReadingTest() {
   useEffect(() => {
     if (!examId || !isIeltsReading) {
       setTidTest(null)
+      setTidLoadError(null)
       return
     }
     let cancelled = false
     setTidTest(undefined)
-    void import('./tidIeltsReading/loadTidReadingTest')
-      .then(({ loadTidReadingTestByExamId }) => {
+    setTidLoadError(null)
+    const load = async () => {
+      const { isExamContentR2, loadReadingBodyFromR2 } = await import('../../services/exam-content')
+      if (isExamContentR2()) {
+        // R2 preview: body comes from the public release (answer-stripped).
+        // Scoring still uses the legacy bundled TID answers (private source).
+        const loaded = await loadReadingBodyFromR2(examId)
+        if (cancelled) return
+        const { loadTidReadingTestByExamId } = await import('./tidIeltsReading/loadTidReadingTest')
+        setTidTest(mergeTidAnswers(loaded!.body as TidReadingTest, examId, loadTidReadingTestByExamId(examId)))
+      } else {
+        const { loadTidReadingTestByExamId } = await import('./tidIeltsReading/loadTidReadingTest')
         if (!cancelled) setTidTest(loadTidReadingTestByExamId(examId))
-      })
-      .catch(() => {
-        if (!cancelled) setTidTest(null)
-      })
+      }
+    }
+    void load().catch((err: unknown) => {
+      if (cancelled) return
+      const msg = err instanceof Error ? err.message : 'Không tải được đề IELTS Reading.'
+      console.error('[reading] load IELTS test failed', examId, err)
+      setTidLoadError(msg)
+      setTidTest(null)
+    })
     return () => { cancelled = true }
   }, [examId, isIeltsReading])
 
@@ -591,6 +638,15 @@ export default function ReadingTest() {
 
   // IELTS Academic Reading (Cam 9–20) → TID practice shell + enriched data
   if (isIeltsReading) {
+    if (tidLoadError) {
+      return (
+        <div className="flex h-full items-center justify-center" style={{ background: 'var(--bg-primary)' }}>
+          <div className="rounded-2xl border px-5 py-4 text-sm max-w-md text-center" style={{ borderColor: 'var(--border-color)', color: 'var(--text-muted)' }}>
+            {tidLoadError}
+          </div>
+        </div>
+      )
+    }
     if (tidTest === undefined) {
       return <ReadingRouteFallback />
     }

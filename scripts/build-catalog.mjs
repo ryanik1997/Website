@@ -223,7 +223,7 @@ async function discoverPayloadReadingBundles() {
     for (const name of await fs.readdir(READING_CRAWL)) {
       const compact = name.replace(/\.json$/i, '').replace(/[^a-z0-9]/gi, '').toLowerCase()
       const match = compact.match(/^cam0*(9|1[0-9]|20)test0*([1-4])$/)
-      if (!match || (match[1] === '11' && match[2] === '2')) continue
+      if (!match) continue
       const cam = Number(match[1]); const test = Number(match[2]); const slug = `ielts-cam${cam}-test${test}`
       bySlug.set(slug, { kind: 'reading', slug, examId: `catalog-cam-${cam}-${test}-reading`, examTrack: 'ielts', cam, test, crawlPath: path.join(READING_CRAWL, name) })
     }
@@ -235,7 +235,6 @@ async function discoverPayloadReadingBundles() {
     for (const name of entries) {
       const match = name.match(/^reading-cam-(9|1[0-9]|20)-([1-4])\.json$/)
       if (!match) continue
-      if (match[1] === '11' && match[2] === '2') continue
       const cam = Number(match[1])
       const test = Number(match[2])
       const slug = `ielts-cam${cam}-test${test}`

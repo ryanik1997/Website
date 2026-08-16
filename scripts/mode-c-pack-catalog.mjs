@@ -9,6 +9,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { RELEASE_READING_EXCLUSIONS } from './content/release-exclusions.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '..')
@@ -123,7 +124,45 @@ function toStub(exam, skill) {
   }
 }
 
-function packSkill(prefix, skill) {
+/**
+ * IELTS Reading public bodies are intentional stubs (real content lives in the
+ * TID bundle used by the route). Derive the meta stub's questionCount + parts
+ * from that authoritative bundle so the generated meta stays in sync with the
+ * release set instead of showing 0 questions for every cam test.
+ */
+function repairIeltsMetaStub(stub, skill) {
+  if (skill !== 'reading') return stub
+  const m = String(stub.id).match(/^catalog-cam-(\d+)-(\d+)-reading$/)
+  if (!m) return stub
+  const slug = `cam-${Number(m[1])}-${Number(m[2])}`
+  const tidPath = path.join(ROOT, 'apps/web/src/features/exam/tidIeltsReading/data', `reading-${slug}.json`)
+  if (!fs.existsSync(tidPath)) return stub
+  let mod
+  try {
+    mod = JSON.parse(fs.readFileSync(tidPath, 'utf8'))
+    mod = mod.default ?? mod
+  } catch {
+    return stub
+  }
+  const parts = Array.isArray(mod.parts) ? mod.parts : []
+  let qc = 0
+  for (const p of parts) {
+    for (const g of p.questionGroups ?? []) qc += g.questions?.length ?? 0
+    for (const q of p.questions ?? []) qc += 1
+  }
+  return {
+    ...stub,
+    questionCount: qc,
+    parts: parts.map(p => ({
+      id: `${stub.id}-part-${p.partNumber}`,
+      partNumber: p.partNumber,
+      rangeLabel: p.rangeLabel ?? '',
+      questions: [],
+    })),
+  }
+}
+
+function packSkill(prefix, skill, excludedIds = new Set()) {
   const files = fs.readdirSync(DATA)
     .filter(f => f.startsWith(prefix) && f.endsWith('.json') && !f.includes('meta') && !f.includes('answers'))
     .filter(file => !ONLY_EXAM_ID || file === `${prefix}${ONLY_EXAM_ID.replace(`catalog-${skill}-`, '')}.json`)
@@ -144,6 +183,9 @@ function packSkill(prefix, skill) {
       continue
     }
     if (!exam?.id) continue
+    // Release exclusions (e.g. fixture/duplicate/blocked IDs) must not be
+    // packed back into meta/runtime by the canonical builder.
+    if (excludedIds.has(exam.id)) continue
 
     const vault = extractAnswersVault(exam)
     const answerCount = Object.keys(vault.answers).length
@@ -167,10 +209,12 @@ function packSkill(prefix, skill) {
   const packedIds = new Set(stubs.map(stub => stub.id))
   const preservedStubs = existingStubs.filter(stub => {
     if (stub.id === ONLY_EXAM_ID || packedIds.has(stub.id)) return false
+    if (excludedIds.has(stub.id)) return false
     return fs.existsSync(path.join(outDir, `${stub.id}.json`))
       && fs.existsSync(path.join(outDir, `${stub.id}.answers.json`))
   })
   const outputStubs = [...preservedStubs, ...stubs]
+    .map(stub => repairIeltsMetaStub(stub, skill))
     .sort((a, b) => String(a.id).localeCompare(String(b.id), undefined, { numeric: true }))
   fs.writeFileSync(metaFile, JSON.stringify(outputStubs, null, 2) + '\n')
   console.log(`[mode-d] ${skill}: ${stubs.length} packed, ${withAnswers} answer vaults → ${outDir}`)
@@ -184,7 +228,7 @@ function main() {
     : packSkill('listening-', 'listening')
   const nR = ONLY_EXAM_ID?.startsWith('catalog-listening-')
     ? 0
-    : packSkill('reading-', 'reading')
+    : packSkill('reading-', 'reading', RELEASE_READING_EXCLUSIONS)
   console.log(JSON.stringify({ listening: nL, reading: nR, mode: 'C+D', ok: true }, null, 2))
 }
 

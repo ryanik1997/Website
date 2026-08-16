@@ -1,5 +1,153 @@
 # Consolidated Session Summary — Ryan English Website
 
+> Dự án VN-EMAP (`apps/web/vn-emap/`) có session summary riêng tại `apps/web/vn-emap/session_summary.md` — cập nhật ở đó, không ghi vào file này.
+
+## 2026-08-10 — Controlled production cutover attempt (ROLLED_BACK)
+
+- Rollback snapshot: previous production deployment `dpl_SAqREC44QymRGGM2sLgBYAiBagzn`, alias `https://ryanenglishv2.vercel.app`, `manifests/production.json` absent, git HEAD `92583dd0154e664601b317d1b83c2d7ebfe1b1b1`, working tree count 92. Production env snapshot saved locally without printing values.
+- Per explicit instruction, bypassed Preview E2E gate and deployed capability to Production with clean archive context. Capability deployment `dpl_FQZw6JTV4bxHep5hsehmHzYSxBXm` reached READY.
+- Published `manifests/production.json` with exact verified Reading/Writing releases and hybrid legacy Listening/Speaking routing; GET/HEAD 200 and JSON validation PASS.
+- Set Production public R2 env, redeployed `dpl_9gwG4eSssBcsssfyNs5kcNYhXFtC` READY, then production browser smoke hit Vercel Security Checkpoint 429 before app UI. No application/R2 acceptance evidence existed, so automatic rollback was executed.
+- Removed the three Production `VITE_EXAM_CONTENT_*` variables, deleted the production pointer, and rolled back to `dpl_FQZw6JTV4bxHep5hsehmHzYSxBXm`. Verified alias now resolves to `dpl_FQZw6JTV4bxHep5hsehmHzYSxBXm`, production pointer absent, and only Preview content envs remain.
+
+### Remaining
+
+- Production is restored to the pre-content-switch capability state. A future cutover requires Vercel Security Checkpoint mitigation to clear or a valid approved test path before production acceptance can be claimed.
+
+## 2026-08-10 — Preview protection gate (BLOCKED)
+
+- Rechecked the requested `VERCEL_AUTOMATION_BYPASS_SECRET` without printing its
+  value: absent from the current process, `.env*` files, User environment, and
+  Machine environment. Therefore `tests/e2e/helpers/vercelPreview.ts` could
+  not send `x-vercel-protection-bypass`; Preview E2E and production cutover
+  remain blocked. No production state changed.
+
+- Queried Vercel project configuration for `ryanenglish/ryanenglishv2`: SSO/deployment protection is enabled with `all_except_custom_domains`; Preview is protected. Project has automation-bypass entries, but no usable bypass secret is available in the local/CI environment.
+- Tried the configured non-secret bypass candidates through Playwright without logging values; all remained on `Vercel Security Checkpoint`.
+- Re-tested owner-provided `VERCEL_AUTOMATION_BYPASS_SECRET` through `tests/e2e/helpers/vercelPreview.ts` equivalent header flow, `x-vercel-set-bypass-cookie=true`, `samesitenone`, query-parameter bypass, and `vercel curl`; Vercel still returned active Security Checkpoint/429 mitigation. No application UI was reached.
+- No authenticated Vercel browser session is available. Added `tests/e2e/helpers/vercelPreview.ts`, which accepts only the ignored `VERCEL_AUTOMATION_BYPASS_SECRET` environment variable and fails closed on Vercel login/checkpoint pages.
+- Preview deployment remains READY (`dpl_EP6tPoPUWe4tWnetjrvfhFafUJYa`), R2 releases and Production remain untouched.
+
+### Required external action
+
+- Project owner must enable/create a Vercel Protection Bypass for Automation for Preview deployments, or provide an authenticated browser session. Do not disable Production protection.
+
+## 2026-08-10 — Task 4: Clean Preview deployment (PARTIAL)
+
+- Created reusable `scripts/vercel/create-clean-deploy-context.mjs` and `scripts/vercel/check-deploy-size.mjs`.
+- Clean context is outside repo at `C:\Users\lindv\AppData\Local\Temp\ryanenglish-vercel-preview-20260810131616`: 3,562 files, 194,148,625 bytes (~194 MB), secret value scan 0. It preserves current working-tree changes and project link, while excluding worktrees/caches/generated corpora/dist.
+- Preview archive deploy succeeded: upload 49.1 MB; deployment `dpl_EP6tPoPUWe4tWnetjrvfhFafUJYa`; URL `https://ryanenglishv2-llo42voz9-ryanenglish.vercel.app`; Vercel status READY. Remote build used Vercel CLI 58.1.0 and skipped Tainguyen rebuild as intended.
+- Headless browser attempted real Preview route, but Vercel Deployment Protection redirected to `vercel.com/login` before app UI. Classified as deployment protection/security checkpoint; no Writing/Reading E2E claim and no production cutover.
+- Writing corpus guard PASS; clean deploy size guard PASS; TypeScript PASS; `git diff --check` fixed and PASS after removing pre-existing trailing whitespace.
+
+### Remaining
+
+- Need authenticated/approved browser access or Vercel protection bypass to run Preview E2E. Production manifest/env/deployment remain untouched.
+
+## 2026-08-10 — Task 3: Preview deployment diagnosis (PARTIAL)
+
+- Vercel CLI version: 56.3.2. `vercel deploy --help` confirms `--archive <FORMAT>` and `--prebuilt` are supported.
+- Deployment input diagnosis: repository enumeration sees 75,036 files; local `apps/web/dist` contains 3,010 files totaling 5,529,385,869 bytes (~5.53 GB), mainly generated catalog/audio. This output was not ignored previously, explaining the silent normal deploy upload stall.
+- Added `apps/web/dist/**`, `dist/**`, `tmp/**`, Playwright/Hermes/Codex/agent evidence directories to `.vercelignore`; catalog/data/books/ielts-wizard exclusions remain intact.
+- Retried Preview archive deployment with `--archive tgz --no-wait --target preview`; after 45 seconds it still had only reached `Deploying ryanenglish/ryanenglishv2` and produced no deployment URL/ID. Process was stopped; no Production state changed.
+
+### Remaining
+
+- Need a successful Vercel Preview deployment (or a confirmed Vercel external service/permission failure) before browser E2E and production cutover. Staging R2 and production safety state remain unchanged.
+
+## 2026-08-10 — Task 2: Preview integration gate (BLOCKED)
+
+- Confirmed staging manifest live and parseable: Reading R2, Writing R2, Listening/Speaking legacy.
+- Direct R2 verification PASS: Writing catalog 356 tasks (236/120), first/middle/last task JSON 200, sample image 200 `image/webp`.
+- Preview env variables already exist in Vercel Preview; no Production env or `production.json` changed.
+- Vercel Preview deploy attempt stalled during upload/build and was stopped after exceeding the available execution window; no new Preview deployment URL or Ready deployment was produced. Therefore browser E2E and production cutover were correctly not performed.
+
+### Remaining
+
+- Deploy Preview through the established archive/prebuilt workflow, then run Writing/Reading/legacy Listening/Speaking browser E2E. Only after all gates pass publish production manifest and switch Production env.
+
+## 2026-08-10 — Task 1: IELTS Writing R2 release (PARTIAL)
+
+- Validated authoritative `apps/web/public/catalog/writing/tid/tasks.json`: 356 tasks, 236 Task 1, 120 Task 2, 352 image references, all images resolved, duplicate IDs 0.
+- Built immutable release `exam-content-writing-r1-20260810`: 710 objects, 25.88 MB; no public answer vault or secrets.
+- Uploaded Writing release to R2 and verified 710/710 HEAD checks.
+- Published staging manifest with Reading R2, Writing R2, Listening legacy, Speaking legacy. Production pointer remains untouched.
+- Added repeatable `scripts/content/validate-writing-corpus.mjs` and `scripts/content/upload-writing-release.mjs`.
+- TypeScript PASS and full `pnpm run build` PASS.
+
+### Remaining
+
+- Preview browser E2E and production cutover are not complete. Need verify CSP/connect-src for R2, deploy preview with staging env, then publish production pointer only after Writing/Reading E2E PASS.
+
+## 2026-08-04 — R2 content migration Task 2: Reading data reconciliation (PARTIAL)
+
+### Việc đã hoàn thành
+
+- **Reconciled Reading index drift** (manifest/meta/runtime 163/166/169 → **166 = 166 = 166**):
+  - `scripts/content/reconcile-reading-release.mjs` (idempotent): added `catalog-cam-11-2-reading`,
+    `catalog-reading-pet-b1-test2`, `catalog-reading-pet-b1-test3` to `manifest.json`; removed
+    `catalog-ket-a2-generated-01` + `catalog-ket-cam1-test1` from `catalog-reading-meta.json`;
+    re-added pet-b1-test2/test3 stubs; repaired 47 IELTS meta stubs (`questionCount` + parts)
+    from the authoritative TID bundle. Listening manifest (209) untouched. `tsc --noEmit` PASS,
+    `validate-catalog-runtime.mjs` PASS.
+- **Six-ID audit** (`tmp/r2-reading-reconciliation.md` §4): cam-11-2=INCLUDE (build-catalog
+  hardcodes skip cam11-test2, but TID bundle `reading-cam-11-2.json` is complete 40/40 and route
+  resolves), pet-b1-test2/test3=INCLUDE (real content, full vaults, were dropped from meta at
+  `937f09b7`), ket-a2-generated-01=EXCLUDE_FIXTURE (AI pilot, `generated-review-required`),
+  ket-cam1-test1=BLOCKED_DUPLICATE (byte-identical to `catalog-reading-ket-a2-test1`),
+  cae-c1-test24=BLOCKED_MISSING_VAULT (real 56q content but zero answers; body kept on disk).
+- **Two IELTS missing answers resolved** (allow-listed, not guessed): cam-11-3 Q9 =
+  TRANSFORM_DROPPED (answer `"nylon"` exists in crawl under duplicate id 8; phantom empty Q9),
+  cam-12-2 Q11 = SOURCE_MISSING (crawl has empty text+answer). Guard reports
+  `Question/answer exceptions: 2`.
+- **Drift guard** `scripts/content/validate-reading-release-set.mjs` — read-only; **DRIFT GUARD PASS**
+  (166/166/166, orphans 0, missing bodies 0, missing vaults 0).
+- **Public/private scan** `scripts/content/scan-public-private-separation.mjs` — public bodies
+  0 sensitive-field hits; 82/169 vaults hold answers (private); TID bundles + packages/catalog/data
+  hold inline answers (known exposure, must strip before public R2).
+- TypeScript `pnpm --filter web exec tsc --noEmit` PASS (exit 0).
+- **R2 migration phase (credentials supplied in `.env.r2.local`)**:
+  - R2 credential gate PASS (6/6, masked); bucket `ryan-english-media` identity + list/get/put/head PASS;
+    CORS applied (GET/HEAD, prod origin, Range/expose) + verified end-to-end.
+  - Dry-run release `exam-content-r1-20260804` built under `tmp/r2-release/` (166 tests, 278 objects,
+    ~21.4MB, inventory with sha256) via `scripts/content/build-reading-release.mjs`.
+  - **Upload PASS**: 278/278 objects, 0 errors; HEAD/Content-Length/Content-Type/ETag-MD5 278/278;
+    JSON parse all; leaked private fields 0; `manifests/production.json` NOT present (404, unchanged).
+    Uploader: `scripts/content/upload-reading-release.mjs`.
+  - **Stopped before publishing production.json** (user must approve that step separately).
+    `manifests/production.json` NOT published, Vercel env NOT changed, frontend still on `legacy`.
+
+### Lỗi còn tồn tại
+
+- IELTS cam-11-3 Q9 phantom (source duplicate-id bug) and cam-12-2 Q11 (source missing) remain
+  unscorable until source repair.
+- Reading release uploaded but NOT wired: production.json not published, Vercel `VITE_EXAM_CONTENT_*`
+  not set, frontend still `legacy`. Other modules (Listening/Speaking/Writing/Cambridge Listening)
+  not yet released. IELTS scoring vaults for stripped public bodies not yet designed.
+
+### Next session start prompt
+
+Data reconciliation + R2 upload (Reading) PASS. Reading release `exam-content-r1-20260804` live in
+bucket `ryan-english-media` (278 objects, verified). `manifests/production.json` NOT published —
+awaiting user approval to publish, then Vercel env + frontend R2 loader + browser E2E. Then build
+releases for Listening/Speaking/Writing. Scripts: `scripts/content/{validate-reading-release-set,
+reconcile-reading-release,scan-public-private-separation,r2-bucket-audit,r2-set-cors,
+build-reading-release,upload-reading-release}.mjs`. Full report: `tmp/r2-reading-reconciliation.md`.
+
+## 2026-08-04 — R2 content migration Task 1 audit (BLOCKED)
+
+- Created `tmp/r2-content-migration-audit.md` with repository-backed inventory for IELTS Reading/Listening/Speaking/Writing and Cambridge Reading/Listening A2–C2, current loaders/routes, answer-vault posture, ignore/deployment effects, target prefixes and rollback design.
+- Confirmed a pre-export Reading index drift: manifest/meta/runtime body counts are 163/166/169. Three IDs exist in meta but not manifest, and three additional body-only IDs exist; future export must fail until the authoritative release set is reconciled.
+- Existing R2 usage is limited to listening audio via a hard-coded masked `r2.dev` base. A known CAE MP3 passed byte-range verification (`206`, audio/mpeg, 8,268,555 bytes total, immutable cache), but the response exposed no `Access-Control-Allow-Origin` header.
+- Task 1 is BLOCKED before exporter/upload changes: `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, `R2_BUCKET_NAME` and Cloudflare API token are absent; bucket/custom-domain identity and CORS cannot be safely administered or verified. Vercel also lacks all three proposed `VITE_EXAM_CONTENT_*` variables.
+- No Supabase migration/history/schema/database change, no R2 upload, no Vercel env change, no source deletion and no production manifest publication occurred.
+
+## 2026-08-02 — Production deploy
+
+- Bumped `apps/web` to `0.2.13` and deployed successfully to Vercel production using archive mode because the normal CLI upload exceeded Vercel's 15,000-file limit. Deployment is Ready and aliased to `https://ryanenglishv2.vercel.app`; inspect URL: `https://vercel.com/ryanenglish/ryanenglishv2/SAqREC44QymRGGM2sLgBYAiBagzn`.
+- Supabase migration push did not complete: the remote schema contains objects from `001_initial_schema.sql`, but the remote migration-history table lists no versions, so applying 001 stopped on the existing `own decks` policy. Migration history must be reconciled before a future DB push; no migration-history repair was guessed or applied.
+- External HTTP verification from this agent is blocked by Vercel Security Checkpoint (`429`), although Vercel reported the deployment Ready and production alias complete.
+
 ## 2026-08-02 — Reading/Listening Question Badge Standardization A2–C2 (COMPLETE)
 
 ### Việc đã hoàn thành

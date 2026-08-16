@@ -79,15 +79,25 @@ export async function resolveReadingExam(examId: string): Promise<ReadingExam | 
   }
 
   let builtin = getBuiltinReadingExam(examId)
-  // Mode C: hydrate catalog stub → full body (signed)
+  // Content source for Cambridge-style catalog bodies: R2 release (preview)
+  // or legacy Supabase-signed hydration. In r2 mode a failed R2 load throws
+  // and MUST NOT silently fall back to legacy (would mask a broken release).
   if (builtin && examId.startsWith('catalog-reading-')) {
-    try {
-      const { fetchCatalogExamBody } = await import('./catalogExamBody')
-      const full = await fetchCatalogExamBody(builtin, 'reading')
-      builtin = sanitizeReadingExam(full as ReadingExam)
-    } catch (err) {
-      console.warn('[resolveReadingExam] catalog body hydrate failed', examId, err)
-      throw err
+    const { isExamContentR2, loadReadingBodyFromR2 } = await import('../../services/exam-content')
+    if (isExamContentR2()) {
+      const loaded = await loadReadingBodyFromR2(examId)
+      // Mark the R2 release body canonical so it wins over any older local /
+      // published copy for the same id — no silent legacy override in r2 mode.
+      builtin = sanitizeReadingExam({ ...(loaded!.body as ReadingExam), catalogCanonical: true })
+    } else {
+      try {
+        const { fetchCatalogExamBody } = await import('./catalogExamBody')
+        const full = await fetchCatalogExamBody(builtin, 'reading')
+        builtin = sanitizeReadingExam(full as ReadingExam)
+      } catch (err) {
+        console.warn('[resolveReadingExam] catalog body hydrate failed', examId, err)
+        throw err
+      }
     }
   }
   const preferLocalImportedCatalog = Boolean(
